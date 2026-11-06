@@ -24,7 +24,7 @@
     "research_closure_status": "OPEN",
     "evidence_path": "research_engine/retirement/status/latest-official-recon.json",
     "evidence_sha256": "434df3aa1f8811bb8b95856a3fe3bfd066ecf8f1138968b9b30c7788f73e76ed",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-ADCODE-001",
   "closed_result_refs": [
@@ -53,9 +53,10 @@
   },
   "consecutive_no_delta": 1,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "ede17307982e4e209374c44108620738e6d84bfb",
+    "verified_at": "2026-11-06T16:00:58.675444+00:00"
   },
-  "updated_at": "2026-11-06T16:00:55.891879+00:00",
-  "state_revision": 6
+  "updated_at": "2026-11-06T16:00:58.675465+00:00",
+  "state_revision": 7
 }
