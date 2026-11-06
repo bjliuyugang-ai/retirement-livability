@@ -63,6 +63,15 @@ jobs:
           git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl research_assets/retirement/CURRENT_STATE.md research_engine/retirement/status/latest-official-recon.json research_engine/retirement/evidence/
           git diff --cached --quiet && exit 2 || true
           git commit -m "Persist actual official-code API evidence and V1.6 S0-S5 state"
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          r=json.load(open("research_engine/retirement/output/official_precheck.json"))
+          remote=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]))
+          assert remote["state_revision"]==r["start_state_revision"],"CAS_CONFLICT: current state advanced; refuse stale overwrite"
+          assert remote["current_state_ref"]["git_blob_sha"]==r["current_state_blob"],"CAS_CONFLICT: current state changed"
+          PY
+          git rebase origin/main
           git push origin HEAD:main
       - name: S6 independently read GitHub committed state and verify handoff
         if: steps.finalize.outcome == 'success'
@@ -71,6 +80,8 @@ jobs:
           python research_engine/retirement/official_state.py postcheck
           git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
           git commit -m "Verify official-code handoff and record S6 postcheck"
+          git fetch origin main
+          git rebase origin/main
           git push origin HEAD:main
           git fetch origin main
           python - <<'PY'
