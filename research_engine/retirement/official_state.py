@@ -50,14 +50,23 @@ def finalize():
     write(EVIDENCE,d)
     if int(d.get("valid_county_screenings",-1))!=0:raise RuntimeError("INVALID_OFFICIAL_ONLY_COUNTY_SCREENING")
     attempts=d.get("official_attempts",[])
-    passed=(d.get("status")=="PASS_OFFICIAL_DIRECT"
-        and int(d.get("official_records_with_name_and_code",0))>2750
-        and int(d.get("six_digit_county_like_keys",0))>2600
-        and d.get("archival_diff") is not None
-        and d.get("official_12_site_checks") is not None
-        and len(d["official_12_site_checks"])==12
-        and any(a.get("usable_full_coverage") for a in attempts))
-    result="RES-2025-OFFICIAL-SOURCE-"+RUN
+    if MODE=="fallback":
+        passed=(d.get("status")=="PASS_PROVISIONAL_ROSTER_BUILD"
+            and int(d.get("mirror_2025_counties",0))==2845
+            and int(d.get("provisional_2026_midyear_count",0))==2847
+            and int(d.get("2026_verified_legal_establishments",0))==2
+            and d.get("official_national_2026_roster_direct_verified") is False
+            and len(d.get("12_site_archival_crosscheck",[]))==12
+            and all(v.get("match") for v in d["12_site_archival_crosscheck"]))
+    else:
+        passed=(d.get("status")=="PASS_OFFICIAL_DIRECT"
+            and int(d.get("official_records_with_name_and_code",0))>2750
+            and int(d.get("six_digit_county_like_keys",0))>2600
+            and d.get("archival_diff") is not None
+            and d.get("official_12_site_checks") is not None
+            and len(d["official_12_site_checks"])==12
+            and any(a.get("usable_full_coverage") for a in attempts))
+    result=("RES-2026-PROVISIONAL-ROSTER-" if MODE=="fallback" else "RES-2025-OFFICIAL-SOURCE-")+RUN
     previous=s["active_action"]
     if passed:
         status="DELTA_VERIFIED";engine="PASS"
@@ -71,7 +80,15 @@ def finalize():
           "pass_criteria":"有实际年份、行政码、气候源、位置、质量与例外记录；缺失继续待核，未经用户批准不得硬淘汰",
           "fallback":"无法取得2025官方空间边界则冻结行政名字对照与气候点位，仅标待核；切换政府/学术可靠空间源",
           "timebox_end":"2026-11-08T15:26:00Z","status":"READY"}
-        s["phase"]="COUNTY_CLIMATE_EVIDENCE"
+        if MODE=="fallback":
+            s["active_action"]["method"]="仅使用标注来源的2026-06临时县级底盘开展可复现县级气候覆盖试验；正式全国行政代码完整核验仍未解决"
+            s["active_action"]["pass_criteria"]="有完整气候与县域空间/海拔、微气候例外证据后才计有效县级广筛；只列名称或未确认编码不计"
+            s.setdefault("open_blockers",[]).append({"question_id":"Q-OFFICIAL-ADCODE",
+                "status":"OPEN_2026_NATIONWIDE_OFFICIAL_RECONCILIATION",
+                "reason":"Official MCA source DNS failed; mirror and Xinjiang government legal notices support only a provisional roster, not official national code certification"})
+            s["phase"]="PROVISIONAL_COUNTY_CLIMATE_QA_OFFICIAL_GAP"
+        else:
+            s["phase"]="COUNTY_CLIMATE_EVIDENCE"
         s["consecutive_no_delta"]=0
     else:
         status="BLOCKED_WITH_EVIDENCE";engine="FAIL"
@@ -79,8 +96,13 @@ def finalize():
         s["active_action"]["status"]="BLOCKED_WITH_EVIDENCE" if s["consecutive_no_delta"]<2 else "REQUIRES_DIFFERENT_METHOD"
         s["active_action"]["last_error"]=d.get("error") or ("official API unavailable / result partial; see evidence "+str(EVIDENCE))
         s["active_action"]["fallback"]="切换2025官方年版独立镜像交叉核验及其他官方省级材料，不能以镜像冒充官方直读；2轮无增量禁止继续同入口"
-    line=("\n- "+result+": "+("直接获取民政部国家地名信息库2025数据并完成初步全量历史差异审计；仍需微气候与县界核对。"
-        if passed else "国家地名信息库直接取数尚未达到正式源验收条件；记录服务端返回/错误并按升级规则处置。")+" 有效县级广筛仍为0。\n")
+    if MODE=="fallback":
+        narrative=("2025年全年镜像2845县级代码与2026年两项政府设立公告，构成有来源边界的2026-06临时2847县级计算底盘；全国官方代码逐项认证仍OPEN。"
+          if passed else "临时底盘工程对账未通过，保留原始失败证据。")
+    else:
+        narrative=("直接读取民政部2025行政数据完成对账；仍需2026变更核查。"
+          if passed else "官方直接取数未通过，完整错误已冻结，禁止无限同法重试。")
+    line="\\n- "+result+": "+narrative+" 有效县级广筛仍为0。\\n"
     with CURRENT.open("a",encoding="utf-8") as fh:fh.write(line)
     s["current_state_ref"]["git_blob_sha"]=blob(CURRENT)
     s["updated_at"]=NOW();s["state_revision"]+=1
@@ -94,7 +116,7 @@ def finalize():
     start=json.loads(pathlib.Path("research_engine/retirement/output/official_precheck.json").read_text(encoding="utf-8"))
     append({"kind":"S0-S5","run_id":RUN,"action_id":ACTION,"start":start["start"],"end":NOW(),
         "source_revision":start["start_state_revision"],"source_commit":start["source_commit"],
-        "command":"python research_engine/retirement/official_recon_probe.py",
+        "command":("python research_engine/retirement/provisional_roster.py" if MODE=="fallback" else "python research_engine/retirement/official_recon_probe.py"),
         "evidence":str(EVIDENCE),"evidence_sha256":sha(EVIDENCE),
         "official_source_status":d["status"],"result_id":result,
         "execution_status":"EXECUTED","engineering_status":engine,
