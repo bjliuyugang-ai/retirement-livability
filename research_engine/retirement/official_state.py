@@ -5,11 +5,12 @@ Do not use for Library Master or any county suitability rating.
 import datetime,hashlib,json,os,pathlib,subprocess,sys
 TASK="6aead9a989808191ad42f80fd4e32bf1"
 ACTION="RET-OFFICIAL-RECON-001"
+MODE=os.environ.get("OFFICIAL_RECON_MODE","direct")
 ROOT=pathlib.Path("tasks")/TASK/"phase1"
 STATE=ROOT/"RUN_STATE.json";LOG=ROOT/"RUN_LOG.jsonl"
 CURRENT=pathlib.Path("research_assets/retirement/CURRENT_STATE.md")
-SOURCE=pathlib.Path("research_engine/retirement/output/official_probe.json")
-EVIDENCE=pathlib.Path("research_engine/retirement/status/latest-official-recon.json")
+SOURCE=pathlib.Path("research_engine/retirement/output")/("provisional_roster_summary.json" if MODE=="fallback" else "official_probe.json")
+EVIDENCE=pathlib.Path("research_engine/retirement/status")/("latest-provisional-roster.json" if MODE=="fallback" else "latest-official-recon.json")
 RUN=os.environ.get("GITHUB_RUN_ID","LOCAL-UNKNOWN")
 NOW=lambda:datetime.datetime.now(datetime.timezone.utc).isoformat()
 def blob(path):return subprocess.check_output(["git","hash-object",str(path)],text=True).strip()
@@ -32,7 +33,7 @@ def precheck():
     if s["active_action"].get("action_id")!=ACTION:raise RuntimeError("NO_ACTION_OR_ILLEGAL_REOPEN")
     if s["writeback_verification"]["status"]!="POSTCHECK_PASS":raise RuntimeError("PREVIOUS_WRITEBACK_UNVERIFIED")
     if s["last_completed_action_id"]!="RET-ADCODE-001":raise RuntimeError("PREVIOUS_RESULT_NOT_CLOSED")
-    if s["active_action"].get("status")=="REQUIRES_DIFFERENT_METHOD":raise RuntimeError("OLD_METHOD_FORBIDDEN")
+    if MODE=="direct" and s["active_action"].get("status")=="REQUIRES_DIFFERENT_METHOD":raise RuntimeError("OLD_METHOD_FORBIDDEN")
     if SOURCE.exists():SOURCE.unlink()
     receipt={"run_id":RUN,"action_id":ACTION,"start":NOW(),"start_state_revision":s["state_revision"],
        "state_sha256":sha(STATE),"previous_run":s["last_verified_run"]["run_id"],
