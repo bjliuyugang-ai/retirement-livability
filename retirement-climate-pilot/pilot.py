@@ -9,6 +9,7 @@ OUT.mkdir(parents=True,exist_ok=True)
 SITES=[("Haikou",20.04,110.35),("Kunming",25.04,102.71),("Xiamen",24.48,118.09),("Panzhihua",26.58,101.72),("Mengzi",23.37,103.39),("Jinghong",22.01,100.80),("Guilin",25.27,110.29),("Quanzhou",24.87,118.68),("Dali",25.61,100.27),("Guiyang",26.65,106.63),("Nanning",22.82,108.37),("Sanya",18.25,109.51)]
 BASE="https://archive-api.open-meteo.com/v1/archive"
 results=[]
+extremes=[]
 for name,lat,lon in SITES:
     params={"latitude":lat,"longitude":lon,"start_date":"1991-01-01","end_date":"2020-12-31",
       "daily":"temperature_2m_mean,temperature_2m_max,temperature_2m_min,precipitation_sum,sunshine_duration",
@@ -33,6 +34,29 @@ for name,lat,lon in SITES:
         daily=data["daily"]
         days=len(daily["time"])
         if days < 10000: raise ValueError("insufficient daily rows: "+str(days))
+        # Daily extremes and consecutive spells; point-grid exploratory indicators only.
+        def longest_run(flags):
+            longest = current = 0
+            for flag in flags:
+                current = current + 1 if flag else 0
+                longest = max(longest, current)
+            return longest
+        years = len(set(d[:4] for d in daily["time"]))
+        def valid_flags(field, predicate):
+            return [predicate(v) if v is not None else False for v in daily[field]]
+        heat = valid_flags("temperature_2m_max", lambda v: v >= 35)
+        cold = valid_flags("temperature_2m_min", lambda v: v <= 5)
+        low_sun = valid_flags("sunshine_duration", lambda v: v < 3600)
+        rain = valid_flags("precipitation_sum", lambda v: v >= 1)
+        extremes.append({"site":name,"latitude":lat,"longitude":lon,
+            "years":years,"hot_days_ge35_annual_mean":round(sum(heat)/years,2),
+            "cold_nights_le5_annual_mean":round(sum(cold)/years,2),
+            "longest_hot_spell_days":longest_run(heat),
+            "longest_cold_spell_days":longest_run(cold),
+            "longest_low_sun_spell_days":longest_run(low_sun),
+            "longest_rain_spell_days":longest_run(rain),
+            "spells_scope":"max consecutive days in 1991-2020, NOT annual climatology",
+            "source_url":url,"status":"EXPLORATORY_ONLY"})
         for month in range(1,13):
             idx=[i for i,date in enumerate(daily["time"]) if int(date[5:7])==month]
             def avg(field):
@@ -52,9 +76,13 @@ fields=["site","latitude","longitude","month","days","mean_temp_c","mean_daily_m
 "source","period","status","error"]
 with (OUT/"monthly_pilot.csv").open("w",newline="",encoding="utf-8-sig") as f:
     w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(results)
+with (OUT/"daily_extremes_pilot.csv").open("w",newline="",encoding="utf-8-sig") as f:
+    if extremes:
+        w=csv.DictWriter(f,fieldnames=list(extremes[0]));w.writeheader();w.writerows(extremes)
 summary={"generated_utc":datetime.utcnow().isoformat()+"Z","sites_requested":len(SITES),
 "sites_with_12_months":len({r["site"] for r in results if r["status"]=="EXPLORATORY_ONLY"}),
 "monthly_rows":sum(r["status"]=="EXPLORATORY_ONLY" for r in results),
+"extremes_sites":len(extremes),
 "raw_daily_rows":sum(r.get("days",0) for r in results if r["status"]=="EXPLORATORY_ONLY"),
 "county_matched":0,"valid_county_screenings":0,
 "caveat":"ERA5 point reanalysis is exploratory; no administrative joins, no formal classifications.",
