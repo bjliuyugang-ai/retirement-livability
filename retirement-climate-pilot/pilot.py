@@ -2,7 +2,7 @@
 """Exploratory engineering smoke test only. ERA5 reanalysis is NOT CMA normals.
 No county suitability decisions are made by this script.
 """
-import csv, json, os, pathlib, statistics, urllib.parse, urllib.request
+import csv, json, os, pathlib, statistics, time, urllib.error, urllib.parse, urllib.request
 from datetime import datetime
 OUT=pathlib.Path("retirement-climate-pilot/output")
 OUT.mkdir(parents=True,exist_ok=True)
@@ -16,8 +16,16 @@ for name,lat,lon in SITES:
     url=BASE+"?"+urllib.parse.urlencode(params)
     req=urllib.request.Request(url,headers={"User-Agent":"retirement-climate-pilot/0.1"})
     try:
-        with urllib.request.urlopen(req,timeout=90) as response:
-            payload=response.read()
+        for attempt in range(4):
+            try:
+                with urllib.request.urlopen(req,timeout=90) as response:
+                    payload=response.read()
+                break
+            except urllib.error.HTTPError as err:
+                if err.code not in (429,500,502,503,504) or attempt == 3:
+                    raise
+                time.sleep(12 * (attempt + 1))
+        time.sleep(3)
         data=json.loads(payload)
         (OUT/(name+".json")).write_bytes(payload)
         daily=data["daily"]
