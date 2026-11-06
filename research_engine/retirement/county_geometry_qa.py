@@ -26,7 +26,7 @@ OLD=pathlib.Path("retirement-climate-pilot/status/latest-spatial-probe.json")
 def fetch(url):
     req=urllib.request.Request(url,headers={"User-Agent":"retirement-geometry-code-audit/1.0"})
     with urllib.request.urlopen(req,timeout=80) as r:return r.read()
-def hashgit(blob):return hashlib.sha1(("blob "+str(len(blob))+"\\0").encode()+blob).hexdigest()
+def hashgit(blob):return hashlib.sha1(("blob "+str(len(blob))+"\0").encode()+blob).hexdigest()
 def ring(lon,lat,vertices):
     hit=False;j=len(vertices)-1
     for i,(x,y,*_) in enumerate(vertices):
