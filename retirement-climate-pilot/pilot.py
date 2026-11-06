@@ -21,8 +21,10 @@ for name,lat,lon in SITES:
                 with urllib.request.urlopen(req,timeout=90) as response:
                     payload=response.read()
                 break
-            except urllib.error.HTTPError as err:
-                if err.code not in (429,500,502,503,504) or attempt == 3:
+            except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as err:
+                if isinstance(err,urllib.error.HTTPError) and err.code not in (429,500,502,503,504):
+                    raise
+                if attempt == 3:
                     raise
                 time.sleep(12 * (attempt + 1))
         time.sleep(3)
