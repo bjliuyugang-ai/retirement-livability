@@ -19,6 +19,8 @@ jobs:
           python-version: '3.11'
       - name: Fetch real daily reanalysis and compute monthly aggregates
         run: python retirement-climate-pilot/pilot.py
+      - name: Compute exploratory three-scenario point sensitivity
+        run: python retirement-climate-pilot/point_sensitivity.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
