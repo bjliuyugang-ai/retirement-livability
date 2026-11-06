@@ -23,3 +23,5 @@ RET-SPATIAL-001：执行2017口径geoBoundaries历史县级边界空间匹配真
 - RUN_STATE/RUN_LOG 位于 tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/，只有此处是该任务的执行指针。
 - 工程PASS与研究DELTA分判；不因GitHub Actions completed宣称研究完成。
 - S0—S6与回归门禁必须经代码验证，部署前不得宣称已经正式上线。
+
+- RES-SPATIAL-ENGINEERING-42244926780: 2017历史边界点面匹配真实试验；PASS：点位匹配工程可运行，不代表2026行政对账或县级有效广筛。

@@ -1,0 +1,203 @@
+{
+  "generated_utc": "2026-11-06T15:38:32.396403+00:00",
+  "stage": "HISTORIC_POLYGON_SPATIAL_PROBE_ONLY",
+  "source": "https://www.geoboundaries.org/api/current/gbOpen/CHN/ADM3/",
+  "valid_county_screenings": 0,
+  "official_code_verified": 0,
+  "matched_current_counties": 0,
+  "warning": "2017 historic polygons and approximate point coordinates; no county suitability, no official adcode or microclimate QA.",
+  "status": "PASS_HISTORIC_POINT_IN_POLYGON",
+  "boundary_year": "2017",
+  "boundary_source": "Lee Beryman, OpenStreetMap",
+  "boundary_license": "Open Data Commons Open Database License 1.0",
+  "geometry_url": "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/CHN/ADM3/geoBoundaries-CHN-ADM3_simplified.geojson",
+  "raw_bytes": 34557636,
+  "geometry_sha256": "ea64fe24f193e319ce48895f229a5b3f46d2a60f3f3df67e6172ab037e4cc8fd",
+  "geometry_features_loaded": 2864,
+  "point_sites_requested": 12,
+  "point_sites_unique_polygon_hit": 12,
+  "point_sites_unmatched": 0,
+  "point_sites_ambiguous": 0,
+  "point_hits": [
+    {
+      "site": "Haikou",
+      "latitude": 20.04,
+      "longitude": 110.35,
+      "historic_polygon_hits": 1,
+      "polygons": [
+        {
+          "shapeName": "Meilan District",
+          "shapeID": "62558664B64629428481574",
+          "shapeISO": ""
+        }
+      ],
+      "county_code_current": null,
+      "review": "REQUIRES_OFFICIAL_CODE_AND_2026_BOUNDARY_QA"
+    },
+    {
+      "site": "Kunming",
+      "latitude": 25.04,
+      "longitude": 102.71,
+      "historic_polygon_hits": 1,
+      "polygons": [
+        {
+          "shapeName": "Wuhua District",
+          "shapeID": "62558664B41234114465743",
+          "shapeISO": ""
+        }
+      ],
+      "county_code_current": null,
+      "review": "REQUIRES_OFFICIAL_CODE_AND_2026_BOUNDARY_QA"
+    },
+    {
+      "site": "Xiamen",
+      "latitude": 24.48,
+      "longitude": 118.09,
+      "historic_polygon_hits": 1,
+      "polygons": [
+        {
+          "shapeName": "Siming District",
+          "shapeID": "62558664B62215741961465",
+          "shapeISO": ""
+        }
+      ],
+      "county_code_current": null,
+      "review": "REQUIRES_OFFICIAL_CODE_AND_2026_BOUNDARY_QA"
+    },
+    {
+      "site": "Panzhihua",
+      "latitude": 26.58,
+      "longitude": 101.72,
+      "historic_polygon_hits": 1,
+      "polygons": [
+        {
+          "shapeName": "Dong District",
+          "shapeID": "62558664B79919283516616",
+          "shapeISO": ""
+        }
+      ],
+      "county_code_current": null,
+      "review": "REQUIRES_OFFICIAL_CODE_AND_2026_BOUNDARY_QA"
+    },
+    {
+      "site": "Mengzi",
+      "latitude": 23.37,
+      "longitude": 103.39,
+      "historic_polygon_hits": 1,
+      "polygons": [
+        {
+          "shapeName": "Mengzi City",
+          "shapeID": "62558664B17823766834237",
+          "shapeISO": ""
+        }
+      ],
+      "county_code_current": null,
+      "review": "REQUIRES_OFFICIAL_CODE_AND_2026_BOUNDARY_QA"
+    },
+    {
+      "site": "Jinghong",
+      "latitude": 22.01,
+      "longitude": 100.8,
+      "historic_polygon_hits": 1,
+      "polygons": [
+        {
+          "shapeName": "Jinghong",
+          "shapeID": "62558664B96068926544670",
+          "shapeISO": ""
+        }
+      ],
+      "county_code_current": null,
+      "review": "REQUIRES_OFFICIAL_CODE_AND_2026_BOUNDARY_QA"
+    },
+    {
+      "site": "Guilin",
+      "latitude": 25.27,
+      "longitude": 110.29,
+      "historic_polygon_hits": 1,
+      "polygons": [
+        {
+          "shapeName": "Xiangshan District",
+          "shapeID": "62558664B56748144412883",
+          "shapeISO": ""
+        }
+      ],
+      "county_code_current": null,
+      "review": "REQUIRES_OFFICIAL_CODE_AND_2026_BOUNDARY_QA"
+    },
+    {
+      "site": "Quanzhou",
+      "latitude": 24.87,
+      "longitude": 118.68,
+      "historic_polygon_hits": 1,
+      "polygons": [
+        {
+          "shapeName": "Fengze District",
+          "shapeID": "62558664B99943426195381",
+          "shapeISO": ""
+        }
+      ],
+      "county_code_current": null,
+      "review": "REQUIRES_OFFICIAL_CODE_AND_2026_BOUNDARY_QA"
+    },
+    {
+      "site": "Dali",
+      "latitude": 25.61,
+      "longitude": 100.27,
+      "historic_polygon_hits": 1,
+      "polygons": [
+        {
+          "shapeName": "Dali City",
+          "shapeID": "62558664B96431386194678",
+          "shapeISO": ""
+        }
+      ],
+      "county_code_current": null,
+      "review": "REQUIRES_OFFICIAL_CODE_AND_2026_BOUNDARY_QA"
+    },
+    {
+      "site": "Guiyang",
+      "latitude": 26.65,
+      "longitude": 106.63,
+      "historic_polygon_hits": 1,
+      "polygons": [
+        {
+          "shapeName": "Guanshanhu District",
+          "shapeID": "62558664B29768390608862",
+          "shapeISO": ""
+        }
+      ],
+      "county_code_current": null,
+      "review": "REQUIRES_OFFICIAL_CODE_AND_2026_BOUNDARY_QA"
+    },
+    {
+      "site": "Nanning",
+      "latitude": 22.82,
+      "longitude": 108.37,
+      "historic_polygon_hits": 1,
+      "polygons": [
+        {
+          "shapeName": "Qingxiu District",
+          "shapeID": "62558664B38496730270743",
+          "shapeISO": ""
+        }
+      ],
+      "county_code_current": null,
+      "review": "REQUIRES_OFFICIAL_CODE_AND_2026_BOUNDARY_QA"
+    },
+    {
+      "site": "Sanya",
+      "latitude": 18.25,
+      "longitude": 109.51,
+      "historic_polygon_hits": 1,
+      "polygons": [
+        {
+          "shapeName": "Jiyang District",
+          "shapeID": "62558664B3777349474108",
+          "shapeISO": ""
+        }
+      ],
+      "county_code_current": null,
+      "review": "REQUIRES_OFFICIAL_CODE_AND_2026_BOUNDARY_QA"
+    }
+  ]
+}

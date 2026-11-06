@@ -12,30 +12,37 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "29272fe8aa20d11e54008896e1756e562247df23"
+    "git_blob_sha": "e9428aec1ad1059681ebcb8647551435ee30309e"
   },
-  "last_verified_run": null,
-  "last_completed_action_id": "CLIMATE-POINT-DATA-001",
+  "last_verified_run": {
+    "run_id": "42244926780",
+    "action_id": "RET-SPATIAL-001",
+    "result_id": "RES-SPATIAL-ENGINEERING-42244926780",
+    "research_delta_status": "DELTA_VERIFIED",
+    "execution_status": "EXECUTED",
+    "engineering_status": "PASS",
+    "research_closure_status": "OPEN",
+    "evidence_path": "retirement-climate-pilot/status/latest-spatial-probe.json",
+    "evidence_sha256": "c89c39858c5702c3e412e8e9f61636f936b7f93f1f4ea030720883ece7d51ee2",
+    "status": "AWAITING_POSTCHECK"
+  },
+  "last_completed_action_id": "RET-SPATIAL-001",
   "closed_result_refs": [
-    "RES-CLIMATE-12POINT-20261106"
+    "RES-CLIMATE-12POINT-20261106",
+    "RES-SPATIAL-ENGINEERING-42244926780"
   ],
   "active_action": {
-    "action_id": "RET-SPATIAL-001",
-    "question_id": "Q-COUNTY-SPATIAL-MATCH",
-    "decision": "是否能够将真实历史县域边界与12个气候试验点位做可审计空间关联",
-    "method": "运行spatial_probe.py，读取geoBoundaries历史ADM3，点面匹配，保存原始几何SHA256与命中数",
-    "frozen_inputs": [
-      "retirement-climate-pilot/spatial_probe.py",
-      "retirement-climate-pilot/status/latest-summary.json"
-    ],
-    "expected_evidence": "retirement-climate-pilot/status/latest-spatial-probe.json",
-    "pass_criteria": "真实下载县级边界且载入>=2000个几何单元；12点全部输出可审计的命中0/1/多态、来源及原始哈希；即使PASS也不记正式县域广筛",
-    "failure_criteria": "下载失败、数据年份不符、几何无效或未形成可回读证据；标BLOCKED_WITH_EVIDENCE",
-    "fallback": "查看GitHub Actions实际错误，优先修复网络/URL/数据格式，连续两轮无判别信息必须更换边界数据来源或访问方式",
+    "action_id": "RET-ADCODE-001",
+    "question_id": "Q-OFFICIAL-ADCODE",
+    "decision": "将历史边界真实命中关联合法县级编码并核验县域代表性",
+    "method": "读取权威代码、逐一对账历史县界和县域例外；没有合法源则先做可判别取证实验",
+    "expected_evidence": "可追溯县界-代码对账表、失配/歧义及微气候例外记录",
+    "pass_criteria": "真实编码与几何关联可复现，误配保留待核；不直接执行未批准的硬阈值淘汰",
+    "fallback": "更换权威代码源，保留冲突",
     "timebox_end": "2026-11-08T15:26:00Z",
     "status": "READY"
   },
-  "phase": "ENGINEERING_ASSAULT_SPATIAL",
+  "phase": "OFFICIAL_CODE_RECONCILIATION",
   "milestone_deadline": {
     "time_zone": "Asia/Shanghai",
     "checkpoint_24h": "2026-11-07T23:26:00+08:00",
@@ -44,9 +51,9 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "INITIALIZED_PENDING_FIRST_RUN",
+    "status": "PENDING_REMOTE_CHECK",
     "verified_commit": null
   },
-  "updated_at": "2026-11-06T15:36:06.356Z",
-  "state_revision": 1
+  "updated_at": "2026-11-06T15:38:35.664073+00:00",
+  "state_revision": 2
 }
