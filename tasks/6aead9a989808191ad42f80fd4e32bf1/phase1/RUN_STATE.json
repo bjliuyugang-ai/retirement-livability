@@ -24,7 +24,7 @@
     "research_closure_status": "OPEN",
     "evidence_path": "retirement-climate-pilot/status/latest-adcode-probe.json",
     "evidence_sha256": "bf73470ba083ac7e15c0d2770a2b238e869ed30905daa3649209641282145d8a",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-ADCODE-001",
   "closed_result_refs": [
@@ -52,9 +52,10 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "cce376e2b9af05e0318d1859752ddc7bc697eb50",
+    "verified_at": "2026-11-06T15:43:03.427558+00:00"
   },
-  "updated_at": "2026-11-06T15:43:01.044807+00:00",
-  "state_revision": 4
+  "updated_at": "2026-11-06T15:43:03.427575+00:00",
+  "state_revision": 5
 }
