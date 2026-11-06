@@ -12,37 +12,38 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "e9428aec1ad1059681ebcb8647551435ee30309e"
+    "git_blob_sha": "05cfe699c2291a1024c276ac1b8849a9ec3c5dca"
   },
   "last_verified_run": {
-    "run_id": "42244926780",
-    "action_id": "RET-SPATIAL-001",
-    "result_id": "RES-SPATIAL-ENGINEERING-42244926780",
+    "run_id": "42245603994",
+    "action_id": "RET-ADCODE-001",
+    "result_id": "RES-ARCHIVAL-ADCODE-42245603994",
     "research_delta_status": "DELTA_VERIFIED",
     "execution_status": "EXECUTED",
     "engineering_status": "PASS",
     "research_closure_status": "OPEN",
-    "evidence_path": "retirement-climate-pilot/status/latest-spatial-probe.json",
-    "evidence_sha256": "c89c39858c5702c3e412e8e9f61636f936b7f93f1f4ea030720883ece7d51ee2",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "retirement-climate-pilot/status/latest-adcode-probe.json",
+    "evidence_sha256": "bf73470ba083ac7e15c0d2770a2b238e869ed30905daa3649209641282145d8a",
+    "status": "AWAITING_POSTCHECK"
   },
-  "last_completed_action_id": "RET-SPATIAL-001",
+  "last_completed_action_id": "RET-ADCODE-001",
   "closed_result_refs": [
     "RES-CLIMATE-12POINT-20261106",
-    "RES-SPATIAL-ENGINEERING-42244926780"
+    "RES-SPATIAL-ENGINEERING-42244926780",
+    "RES-ARCHIVAL-ADCODE-42245603994"
   ],
   "active_action": {
-    "action_id": "RET-ADCODE-001",
+    "action_id": "RET-OFFICIAL-RECON-001",
     "question_id": "Q-OFFICIAL-ADCODE",
-    "decision": "将历史边界真实命中关联合法县级编码并核验县域代表性",
-    "method": "读取权威代码、逐一对账历史县界和县域例外；没有合法源则先做可判别取证实验",
-    "expected_evidence": "可追溯县界-代码对账表、失配/歧义及微气候例外记录",
-    "pass_criteria": "真实编码与几何关联可复现，误配保留待核；不直接执行未批准的硬阈值淘汰",
-    "fallback": "更换权威代码源，保留冲突",
+    "decision": "把已找到的历史代码候选逐一与现行官方县级名录核对，处理行政调整和微气候例外",
+    "method": "获取官方县级代码及口径，逐项作差集和名称层级查验；核对空间代表性与海拔差异",
+    "expected_evidence": "可核验现行行政代码逐项差集、历史冲突、例外与无法核验名单",
+    "pass_criteria": "真实官方来源逐项比对并明确空间代表性；无证据标UNKNOWN",
+    "fallback": "更换官方来源或缩小验证窗口，保留现行官方未获证据状态",
     "timebox_end": "2026-11-08T15:26:00Z",
     "status": "READY"
   },
-  "phase": "OFFICIAL_CODE_RECONCILIATION",
+  "phase": "OFFICIAL_CURRENT_ADCODE_QA",
   "milestone_deadline": {
     "time_zone": "Asia/Shanghai",
     "checkpoint_24h": "2026-11-07T23:26:00+08:00",
@@ -51,10 +52,9 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "7c6cc88162ff97984654d91b6cf274c5afef54a5",
-    "verified_at": "2026-11-06T15:38:37.840528+00:00"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-06T15:38:37.840540+00:00",
-  "state_revision": 3
+  "updated_at": "2026-11-06T15:43:01.044807+00:00",
+  "state_revision": 4
 }
