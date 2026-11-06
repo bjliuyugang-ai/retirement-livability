@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-11-06T16:14:03.987231+00:00",
-  "status": "BLOCKED_WITH_EVIDENCE",
+  "generated_utc": "2026-11-06T16:19:31.649491+00:00",
+  "status": "PASS_SECOND_BOUNDARY_CODE_QA",
   "stage": "DUAL_NONOFFICIAL_BOUNDARY_IDENTITY_QA",
   "official_polygon_verified": false,
   "official_2026_county_roster_verified": false,
@@ -12,5 +12,373 @@
     "Source has not been checked against latest formal administrative boundary.",
     "Residential elevation, humidity/dewpoint, climate representativeness, air, water and risk are not complete."
   ],
-  "error": "RuntimeError('Pinned source changed Jinghong expected 5e6b1e9beb39e828009a9913c75b48e22e43099 got 5e6b1e9beb39e828009a9913c75b48e22e43099e')"
+  "site_count": 12,
+  "unique_expected_hits": 12,
+  "source_geojson_features": 112,
+  "source_files": 12,
+  "source_refs": [
+    {
+      "url": "https://raw.githubusercontent.com/zhChuXiao/ChinaGeoJson/master/citys/%E6%B5%B7%E5%8F%A3%E5%B8%82.json",
+      "git_blob_sha": "8885207028122ddba96972505fc30aa574f2495c",
+      "source_file": "海口市.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/zhChuXiao/ChinaGeoJson/master/citys/%E6%98%86%E6%98%8E%E5%B8%82.json",
+      "git_blob_sha": "4aaef4d04b8f39f5c2e43fb185cdfac90f892ce8",
+      "source_file": "昆明市.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/zhChuXiao/ChinaGeoJson/master/citys/%E5%8E%A6%E9%97%A8%E5%B8%82.json",
+      "git_blob_sha": "3bfa941f0236b1ab48eb51dd1095d643bfd88ca4",
+      "source_file": "厦门市.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/zhChuXiao/ChinaGeoJson/master/citys/%E6%94%80%E6%9E%9D%E8%8A%B1%E5%B8%82.json",
+      "git_blob_sha": "5760b0e49c1219da9b09e08ad92e5e3435fc3dd6",
+      "source_file": "攀枝花市.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/zhChuXiao/ChinaGeoJson/master/citys/%E7%BA%A2%E6%B2%B3%E5%93%88%E5%B0%BC%E6%97%8F%E5%BD%9D%E6%97%8F%E8%87%AA%E6%B2%BB%E5%B7%9E.json",
+      "git_blob_sha": "be6456f23ab81b1ba266c5cd03d9b996004e2114",
+      "source_file": "红河哈尼族彝族自治州.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/zhChuXiao/ChinaGeoJson/master/citys/%E8%A5%BF%E5%8F%8C%E7%89%88%E7%BA%B3%E5%82%A3%E6%97%8F%E8%87%AA%E6%B2%BB%E5%B7%9E.json",
+      "git_blob_sha": "5e6b1e9beb39e828009a9913c75b48e22e43099e",
+      "source_file": "西双版纳傣族自治州.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/zhChuXiao/ChinaGeoJson/master/citys/%E6%A1%82%E6%9E%97%E5%B8%82.json",
+      "git_blob_sha": "1f1f7c440b80fdada8a589d414d1f3e28bb4a4c7",
+      "source_file": "桂林市.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/zhChuXiao/ChinaGeoJson/master/citys/%E6%B3%89%E5%B7%9E%E5%B8%82.json",
+      "git_blob_sha": "ad4647f72880c95ffc22e719273dbc0563d8156b",
+      "source_file": "泉州市.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/zhChuXiao/ChinaGeoJson/master/citys/%E5%A4%A7%E7%90%86%E7%99%BD%E6%97%8F%E8%87%AA%E6%B2%BB%E5%B7%9E.json",
+      "git_blob_sha": "ffd024ccc97ebb0ec01c24acd468e4a9de069f0d",
+      "source_file": "大理白族自治州.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/zhChuXiao/ChinaGeoJson/master/citys/%E8%B4%B5%E9%98%B3%E5%B8%82.json",
+      "git_blob_sha": "f671dbcdf7b2306eb69dbb72f8b036028a5b0db9",
+      "source_file": "贵阳市.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/zhChuXiao/ChinaGeoJson/master/citys/%E5%8D%97%E5%AE%81%E5%B8%82.json",
+      "git_blob_sha": "2cc72d74cbc2d32f586b0bff674da45076d9a459",
+      "source_file": "南宁市.json"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/zhChuXiao/ChinaGeoJson/master/citys/%E4%B8%89%E4%BA%9A%E5%B8%82.json",
+      "git_blob_sha": "e6e62af2a916b4cdea1b5b038578f33be7f204a8",
+      "source_file": "三亚市.json"
+    }
+  ],
+  "point_checks": [
+    {
+      "site": "Haikou",
+      "expected_county_code": "460108",
+      "raw_point_lat": 20.04,
+      "raw_point_lon": 110.35,
+      "polygon_count_for_city": 4,
+      "hits": [
+        {
+          "code": "460108",
+          "name": "美兰区",
+          "center": [
+            110.356566,
+            20.03074
+          ]
+        }
+      ],
+      "source_git_blob_sha": "8885207028122ddba96972505fc30aa574f2495c",
+      "roster_code_present": true,
+      "two_nonofficial_geometry_sources_agree": true,
+      "county_climate_status": "NOT_SCREENED",
+      "residence_elevation": "UNKNOWN",
+      "terrain_microclimate_exception": "UNASSESSED",
+      "humidity_and_dewpoint": "UNASSESSED",
+      "national_official_boundary_verified": false
+    },
+    {
+      "site": "Kunming",
+      "expected_county_code": "530102",
+      "raw_point_lat": 25.04,
+      "raw_point_lon": 102.71,
+      "polygon_count_for_city": 14,
+      "hits": [
+        {
+          "code": "530102",
+          "name": "五华区",
+          "center": [
+            102.704412,
+            25.042165
+          ]
+        }
+      ],
+      "source_git_blob_sha": "4aaef4d04b8f39f5c2e43fb185cdfac90f892ce8",
+      "roster_code_present": true,
+      "two_nonofficial_geometry_sources_agree": true,
+      "county_climate_status": "NOT_SCREENED",
+      "residence_elevation": "UNKNOWN",
+      "terrain_microclimate_exception": "UNASSESSED",
+      "humidity_and_dewpoint": "UNASSESSED",
+      "national_official_boundary_verified": false
+    },
+    {
+      "site": "Xiamen",
+      "expected_county_code": "350203",
+      "raw_point_lat": 24.48,
+      "raw_point_lon": 118.09,
+      "polygon_count_for_city": 6,
+      "hits": [
+        {
+          "code": "350203",
+          "name": "思明区",
+          "center": [
+            118.087828,
+            24.462059
+          ]
+        }
+      ],
+      "source_git_blob_sha": "3bfa941f0236b1ab48eb51dd1095d643bfd88ca4",
+      "roster_code_present": true,
+      "two_nonofficial_geometry_sources_agree": true,
+      "county_climate_status": "NOT_SCREENED",
+      "residence_elevation": "UNKNOWN",
+      "terrain_microclimate_exception": "UNASSESSED",
+      "humidity_and_dewpoint": "UNASSESSED",
+      "national_official_boundary_verified": false
+    },
+    {
+      "site": "Panzhihua",
+      "expected_county_code": "510402",
+      "raw_point_lat": 26.58,
+      "raw_point_lon": 101.72,
+      "polygon_count_for_city": 5,
+      "hits": [
+        {
+          "code": "510402",
+          "name": "东区",
+          "center": [
+            101.715134,
+            26.580887
+          ]
+        }
+      ],
+      "source_git_blob_sha": "5760b0e49c1219da9b09e08ad92e5e3435fc3dd6",
+      "roster_code_present": true,
+      "two_nonofficial_geometry_sources_agree": true,
+      "county_climate_status": "NOT_SCREENED",
+      "residence_elevation": "UNKNOWN",
+      "terrain_microclimate_exception": "UNASSESSED",
+      "humidity_and_dewpoint": "UNASSESSED",
+      "national_official_boundary_verified": false
+    },
+    {
+      "site": "Mengzi",
+      "expected_county_code": "532503",
+      "raw_point_lat": 23.37,
+      "raw_point_lon": 103.39,
+      "polygon_count_for_city": 13,
+      "hits": [
+        {
+          "code": "532503",
+          "name": "蒙自市",
+          "center": [
+            103.385005,
+            23.366843
+          ]
+        }
+      ],
+      "source_git_blob_sha": "be6456f23ab81b1ba266c5cd03d9b996004e2114",
+      "roster_code_present": true,
+      "two_nonofficial_geometry_sources_agree": true,
+      "county_climate_status": "NOT_SCREENED",
+      "residence_elevation": "UNKNOWN",
+      "terrain_microclimate_exception": "UNASSESSED",
+      "humidity_and_dewpoint": "UNASSESSED",
+      "national_official_boundary_verified": false
+    },
+    {
+      "site": "Jinghong",
+      "expected_county_code": "532801",
+      "raw_point_lat": 22.01,
+      "raw_point_lon": 100.8,
+      "polygon_count_for_city": 3,
+      "hits": [
+        {
+          "code": "532801",
+          "name": "景洪市",
+          "center": [
+            100.797947,
+            22.002087
+          ]
+        }
+      ],
+      "source_git_blob_sha": "5e6b1e9beb39e828009a9913c75b48e22e43099e",
+      "roster_code_present": true,
+      "two_nonofficial_geometry_sources_agree": true,
+      "county_climate_status": "NOT_SCREENED",
+      "residence_elevation": "UNKNOWN",
+      "terrain_microclimate_exception": "UNASSESSED",
+      "humidity_and_dewpoint": "UNASSESSED",
+      "national_official_boundary_verified": false
+    },
+    {
+      "site": "Guilin",
+      "expected_county_code": "450304",
+      "raw_point_lat": 25.27,
+      "raw_point_lon": 110.29,
+      "polygon_count_for_city": 17,
+      "hits": [
+        {
+          "code": "450304",
+          "name": "象山区",
+          "center": [
+            110.284882,
+            25.261986
+          ]
+        }
+      ],
+      "source_git_blob_sha": "1f1f7c440b80fdada8a589d414d1f3e28bb4a4c7",
+      "roster_code_present": true,
+      "two_nonofficial_geometry_sources_agree": true,
+      "county_climate_status": "NOT_SCREENED",
+      "residence_elevation": "UNKNOWN",
+      "terrain_microclimate_exception": "UNASSESSED",
+      "humidity_and_dewpoint": "UNASSESSED",
+      "national_official_boundary_verified": false
+    },
+    {
+      "site": "Quanzhou",
+      "expected_county_code": "350503",
+      "raw_point_lat": 24.87,
+      "raw_point_lon": 118.68,
+      "polygon_count_for_city": 12,
+      "hits": [
+        {
+          "code": "350503",
+          "name": "丰泽区",
+          "center": [
+            118.605147,
+            24.896041
+          ]
+        }
+      ],
+      "source_git_blob_sha": "ad4647f72880c95ffc22e719273dbc0563d8156b",
+      "roster_code_present": true,
+      "two_nonofficial_geometry_sources_agree": true,
+      "county_climate_status": "NOT_SCREENED",
+      "residence_elevation": "UNKNOWN",
+      "terrain_microclimate_exception": "UNASSESSED",
+      "humidity_and_dewpoint": "UNASSESSED",
+      "national_official_boundary_verified": false
+    },
+    {
+      "site": "Dali",
+      "expected_county_code": "532901",
+      "raw_point_lat": 25.61,
+      "raw_point_lon": 100.27,
+      "polygon_count_for_city": 12,
+      "hits": [
+        {
+          "code": "532901",
+          "name": "大理市",
+          "center": [
+            100.241369,
+            25.593067
+          ]
+        }
+      ],
+      "source_git_blob_sha": "ffd024ccc97ebb0ec01c24acd468e4a9de069f0d",
+      "roster_code_present": true,
+      "two_nonofficial_geometry_sources_agree": true,
+      "county_climate_status": "NOT_SCREENED",
+      "residence_elevation": "UNKNOWN",
+      "terrain_microclimate_exception": "UNASSESSED",
+      "humidity_and_dewpoint": "UNASSESSED",
+      "national_official_boundary_verified": false
+    },
+    {
+      "site": "Guiyang",
+      "expected_county_code": "520115",
+      "raw_point_lat": 26.65,
+      "raw_point_lon": 106.63,
+      "polygon_count_for_city": 10,
+      "hits": [
+        {
+          "code": "520115",
+          "name": "观山湖区",
+          "center": [
+            106.626323,
+            26.646358
+          ]
+        }
+      ],
+      "source_git_blob_sha": "f671dbcdf7b2306eb69dbb72f8b036028a5b0db9",
+      "roster_code_present": true,
+      "two_nonofficial_geometry_sources_agree": true,
+      "county_climate_status": "NOT_SCREENED",
+      "residence_elevation": "UNKNOWN",
+      "terrain_microclimate_exception": "UNASSESSED",
+      "humidity_and_dewpoint": "UNASSESSED",
+      "national_official_boundary_verified": false
+    },
+    {
+      "site": "Nanning",
+      "expected_county_code": "450103",
+      "raw_point_lat": 22.82,
+      "raw_point_lon": 108.37,
+      "polygon_count_for_city": 12,
+      "hits": [
+        {
+          "code": "450103",
+          "name": "青秀区",
+          "center": [
+            108.346113,
+            22.816614
+          ]
+        }
+      ],
+      "source_git_blob_sha": "2cc72d74cbc2d32f586b0bff674da45076d9a459",
+      "roster_code_present": true,
+      "two_nonofficial_geometry_sources_agree": true,
+      "county_climate_status": "NOT_SCREENED",
+      "residence_elevation": "UNKNOWN",
+      "terrain_microclimate_exception": "UNASSESSED",
+      "humidity_and_dewpoint": "UNASSESSED",
+      "national_official_boundary_verified": false
+    },
+    {
+      "site": "Sanya",
+      "expected_county_code": "460203",
+      "raw_point_lat": 18.25,
+      "raw_point_lon": 109.51,
+      "polygon_count_for_city": 4,
+      "hits": [
+        {
+          "code": "460203",
+          "name": "吉阳区",
+          "center": [
+            109.512081,
+            18.247436
+          ]
+        }
+      ],
+      "source_git_blob_sha": "e6e62af2a916b4cdea1b5b038578f33be7f204a8",
+      "roster_code_present": true,
+      "two_nonofficial_geometry_sources_agree": true,
+      "county_climate_status": "NOT_SCREENED",
+      "residence_elevation": "UNKNOWN",
+      "terrain_microclimate_exception": "UNASSESSED",
+      "humidity_and_dewpoint": "UNASSESSED",
+      "national_official_boundary_verified": false
+    }
+  ],
+  "provisional_roster_count": 2847
 }

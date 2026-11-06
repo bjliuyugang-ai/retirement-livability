@@ -12,54 +12,53 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "cea90b0c8c39332a28fe5d8444ad6611e014ee1e"
+    "git_blob_sha": "7448f9729150f0a0dbc54207dad798855631f4b7"
   },
   "last_verified_run": {
-    "run_id": "42250420760",
+    "run_id": "42251289106",
     "action_id": "RET-CLIMATE-COUNTY-QA-001",
-    "result_id": "RES-SECONDARY-GEOMETRY-CODE-QA-42250420760",
+    "result_id": "RES-SECONDARY-GEOMETRY-CODE-QA-42251289106",
     "execution_status": "EXECUTED",
-    "engineering_status": "FAIL",
-    "research_delta_status": "BLOCKED_WITH_EVIDENCE",
+    "engineering_status": "PASS",
+    "research_delta_status": "DELTA_VERIFIED",
     "research_closure_status": "OPEN",
     "evidence_path": "research_engine/retirement/status/latest-county-geometry-qa.json",
-    "evidence_sha256": "1345e9c208bd6a9bcb191cb5bfc7038fb8ed197956315c34ff297c9915a79ebc",
-    "status": "POSTCHECK_PASS"
+    "evidence_sha256": "c0455d725c648919d605fd1d844e6e72e28c5f729b28259ef0612003d3306ab0",
+    "status": "AWAITING_POSTCHECK"
   },
-  "last_completed_action_id": "RET-OFFICIAL-RECON-001",
+  "last_completed_action_id": "RET-CLIMATE-COUNTY-QA-001",
   "closed_result_refs": [
     "RES-CLIMATE-12POINT-20261106",
     "RES-SPATIAL-ENGINEERING-42244926780",
     "RES-ARCHIVAL-ADCODE-42245603994",
-    "RES-2026-PROVISIONAL-ROSTER-42249396217"
+    "RES-2026-PROVISIONAL-ROSTER-42249396217",
+    "RES-SECONDARY-GEOMETRY-CODE-QA-42251289106"
   ],
   "active_action": {
-    "action_id": "RET-CLIMATE-COUNTY-QA-001",
+    "action_id": "RET-COUNTY-MICROCLIMATE-QA-001",
     "question_id": "Q-CLIMATE-REPRESENTATIVENESS",
-    "decision": "确定行政区划版本差异及县域气候点位的空间代表性，形成可核验县级广筛证据",
-    "method": "仅使用标注来源的2026-06临时县级底盘开展可复现县级气候覆盖试验；正式全国行政代码完整核验仍未解决",
-    "expected_evidence": "县级行政差集、时空源和微气候例外标志；具证据的有效县域广筛首批记录",
-    "pass_criteria": "有完整气候与县域空间/海拔、微气候例外证据后才计有效县级广筛；只列名称或未确认编码不计",
-    "fallback": "更换公开地理面数据来源/版本，先核对坐标系与行政编码再重新测试",
+    "decision": "给已匹配的县级点位补充露点、相对湿度、实际海拔与县内地形差异证据；扩大可计算县级覆盖",
+    "method": "冻结已匹配12点及县界/代码证据，批量增加1991-2020 ERA5湿度露点及空间差异检验；官方CMA标准值优先，来源与空间口径分级；不以县城点替代全县",
+    "expected_evidence": "县级点位气候覆盖字段、质量等级、海拔及河谷/山地/沿海例外、缺口表",
+    "pass_criteria": "真实原始气象和空间输入可回放，附县域高差/异常标记及不适宜误排风险；未满足正式证据门槛只记待核",
+    "fallback": "无法批量获取官方数据则继续使用明确标注的ERA5试验数据并测试多点区域代表性，保留正式CMA未核",
     "timebox_end": "2026-11-08T15:26:00Z",
-    "status": "BLOCKED_WITH_EVIDENCE",
-    "last_error": "RuntimeError('Pinned source changed Jinghong expected 5e6b1e9beb39e828009a9913c75b48e22e43099 got 5e6b1e9beb39e828009a9913c75b48e22e43099e')"
+    "status": "READY"
   },
-  "phase": "PROVISIONAL_COUNTY_CLIMATE_QA_OFFICIAL_GAP",
+  "phase": "COUNTY_MICROCLIMATE_METRICS_ASSAULT",
   "milestone_deadline": {
     "time_zone": "Asia/Shanghai",
     "checkpoint_24h": "2026-11-07T23:26:00+08:00",
     "checkpoint_48h": "2026-11-08T23:26:00+08:00",
     "note": "工程PASS/FAIL/INCONCLUSIVE裁决节点，不改变全国100%正式验收"
   },
-  "consecutive_no_delta": 1,
+  "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "02f9b304619c5ad741f56b35158e6965178dd8f2",
-    "verified_at": "2026-11-06T16:18:59.837978+00:00"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-06T16:18:59.837993+00:00",
-  "state_revision": 11,
+  "updated_at": "2026-11-06T16:19:33.678182+00:00",
+  "state_revision": 12,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",

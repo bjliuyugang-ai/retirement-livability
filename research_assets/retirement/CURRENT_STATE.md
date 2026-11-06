@@ -34,3 +34,6 @@ RET-SPATIAL-001：执行2017口径geoBoundaries历史县级边界空间匹配真
 
 - RES-SECONDARY-GEOMETRY-CODE-QA-42250420760: 独立编码县界空间验证受阻；错误和证据已登记。
 - 当前唯一下一动作：RET-CLIMATE-COUNTY-QA-001；官方全国代码完整认证和县内微气候仍OPEN。
+
+- RES-SECONDARY-GEOMETRY-CODE-QA-42251289106: 独立编码县界12点空间匹配验证通过；112个面要素仅用于数据工程，不是县级有效广筛。
+- 当前唯一下一动作：RET-COUNTY-MICROCLIMATE-QA-001；官方全国代码完整认证和县内微气候仍OPEN。
