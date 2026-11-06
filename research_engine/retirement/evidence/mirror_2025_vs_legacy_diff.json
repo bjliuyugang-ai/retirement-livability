@@ -1,0 +1,890 @@
+{
+  "evidence_id": "RES-MIRROR-2025-CODE-DIFF-20261106",
+  "evidence_status": "THIRD_PARTY_MIRROR_CROSSCHECK_NOT_DIRECT_OFFICIAL",
+  "date_basis": "2025-12-31 claimed by source repo",
+  "source_mirror": {
+    "url": "https://raw.githubusercontent.com/yescallop/areacodes/master/data/2025.txt",
+    "git_blob_sha": "a31f53c95324bf8723be9f653bafce17bc253a61",
+    "description": "yescallop/areacodes annual 2025 code list; README attributes provenance to National Place Names Database"
+  },
+  "source_legacy": {
+    "url": "https://raw.githubusercontent.com/modood/Administrative-divisions-of-China/master/dist/areas.json",
+    "git_blob_sha": "7ad175e3055ba447a477ffd303c75b869e239f71",
+    "description": "modood historical administrative code snapshot, includes non-statutory zones"
+  },
+  "notes": [
+    "No official web API response was used in this audit.",
+    "A six-digit code with non-zero last two digits was treated as county-level candidate; verify exceptions and statutory coverage.",
+    "No county suitability classification or official 2026 approval follows from this audit."
+  ],
+  "counts": {
+    "mirror_2025_total": 3212,
+    "mirror_2025_provinces": 34,
+    "mirror_2025_prefectures": 333,
+    "mirror_2025_counties": 2845,
+    "legacy_counties": 2978,
+    "mirror_only": 5,
+    "legacy_only": 138,
+    "name_difference": 0
+  },
+  "differences": [
+    {
+      "code": "130171",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "石家庄高新技术产业开发区"
+    },
+    {
+      "code": "130172",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "石家庄循环化工园区"
+    },
+    {
+      "code": "130271",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "河北唐山芦台经济开发区"
+    },
+    {
+      "code": "130272",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "唐山市汉沽管理区"
+    },
+    {
+      "code": "130273",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "唐山高新技术产业开发区"
+    },
+    {
+      "code": "130274",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "河北唐山海港经济开发区"
+    },
+    {
+      "code": "130371",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "秦皇岛市经济技术开发区"
+    },
+    {
+      "code": "130372",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "北戴河新区"
+    },
+    {
+      "code": "130471",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "邯郸经济技术开发区"
+    },
+    {
+      "code": "130473",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "邯郸冀南新区"
+    },
+    {
+      "code": "130571",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "河北邢台经济开发区"
+    },
+    {
+      "code": "130671",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "保定高新技术产业开发区"
+    },
+    {
+      "code": "130672",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "保定白沟新城"
+    },
+    {
+      "code": "130771",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "张家口经济开发区"
+    },
+    {
+      "code": "130772",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "张家口市察北管理区"
+    },
+    {
+      "code": "130773",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "张家口市塞北管理区"
+    },
+    {
+      "code": "130871",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "承德高新技术产业开发区"
+    },
+    {
+      "code": "130971",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "河北沧州经济开发区"
+    },
+    {
+      "code": "130972",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "沧州高新技术产业开发区"
+    },
+    {
+      "code": "130973",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "沧州渤海新区"
+    },
+    {
+      "code": "131071",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "廊坊经济技术开发区"
+    },
+    {
+      "code": "131171",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "河北衡水高新技术产业开发区"
+    },
+    {
+      "code": "131172",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "衡水滨湖新区"
+    },
+    {
+      "code": "140171",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "山西转型综合改革示范区"
+    },
+    {
+      "code": "140271",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "山西大同经济开发区"
+    },
+    {
+      "code": "140671",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "山西朔州经济开发区"
+    },
+    {
+      "code": "140971",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "五台山风景名胜区"
+    },
+    {
+      "code": "150172",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "呼和浩特经济技术开发区"
+    },
+    {
+      "code": "150271",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "包头稀土高新技术产业开发区"
+    },
+    {
+      "code": "150571",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "通辽经济技术开发区"
+    },
+    {
+      "code": "152571",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "乌拉盖管理区管委会"
+    },
+    {
+      "code": "152971",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "内蒙古阿拉善高新技术产业开发区"
+    },
+    {
+      "code": "220171",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "长春经济技术开发区"
+    },
+    {
+      "code": "220172",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "长春净月高新技术产业开发区"
+    },
+    {
+      "code": "220173",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "长春高新技术产业开发区"
+    },
+    {
+      "code": "220174",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "长春汽车经济技术开发区"
+    },
+    {
+      "code": "220271",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "吉林经济开发区"
+    },
+    {
+      "code": "220272",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "吉林高新技术产业开发区"
+    },
+    {
+      "code": "220273",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "吉林中国新加坡食品区"
+    },
+    {
+      "code": "220771",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "吉林松原经济开发区"
+    },
+    {
+      "code": "220871",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "吉林白城经济开发区"
+    },
+    {
+      "code": "230671",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "大庆高新技术产业开发区"
+    },
+    {
+      "code": "232761",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "加格达奇区"
+    },
+    {
+      "code": "232762",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "松岭区"
+    },
+    {
+      "code": "232763",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "新林区"
+    },
+    {
+      "code": "232764",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "呼中区"
+    },
+    {
+      "code": "320371",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "徐州经济技术开发区"
+    },
+    {
+      "code": "320576",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "苏州工业园区"
+    },
+    {
+      "code": "320671",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "南通经济技术开发区"
+    },
+    {
+      "code": "320771",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "连云港经济技术开发区"
+    },
+    {
+      "code": "320871",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "淮安经济技术开发区"
+    },
+    {
+      "code": "320971",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "盐城经济技术开发区"
+    },
+    {
+      "code": "321071",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "扬州经济技术开发区"
+    },
+    {
+      "code": "321171",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "镇江新区"
+    },
+    {
+      "code": "321371",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "宿迁经济技术开发区"
+    },
+    {
+      "code": "340176",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "合肥高新技术产业开发区"
+    },
+    {
+      "code": "340177",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "合肥经济技术开发区"
+    },
+    {
+      "code": "340178",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "合肥新站高新技术产业开发区"
+    },
+    {
+      "code": "340271",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "芜湖经济技术开发区"
+    },
+    {
+      "code": "340272",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "安徽芜湖三山经济开发区"
+    },
+    {
+      "code": "340371",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "蚌埠市高新技术开发区"
+    },
+    {
+      "code": "340372",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "蚌埠市经济开发区"
+    },
+    {
+      "code": "340871",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "安徽安庆经济开发区"
+    },
+    {
+      "code": "341171",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "中新苏滁高新技术产业开发区"
+    },
+    {
+      "code": "341172",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "滁州经济技术开发区"
+    },
+    {
+      "code": "341271",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "阜阳合肥现代产业园区"
+    },
+    {
+      "code": "341272",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "阜阳经济技术开发区"
+    },
+    {
+      "code": "341371",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "宿州马鞍山现代产业园区"
+    },
+    {
+      "code": "341372",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "宿州经济技术开发区"
+    },
+    {
+      "code": "341871",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "宣城市经济开发区"
+    },
+    {
+      "code": "370176",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "济南高新技术产业开发区"
+    },
+    {
+      "code": "370571",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "东营经济技术开发区"
+    },
+    {
+      "code": "370572",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "东营港经济开发区"
+    },
+    {
+      "code": "370671",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "烟台高新技术产业开发区"
+    },
+    {
+      "code": "370676",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "烟台经济技术开发区"
+    },
+    {
+      "code": "370772",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "潍坊滨海经济技术开发区"
+    },
+    {
+      "code": "370871",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "济宁高新技术产业开发区"
+    },
+    {
+      "code": "371071",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "威海火炬高技术产业开发区"
+    },
+    {
+      "code": "371072",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "威海经济技术开发区"
+    },
+    {
+      "code": "371073",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "威海临港经济技术开发区"
+    },
+    {
+      "code": "371171",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "日照经济技术开发区"
+    },
+    {
+      "code": "371371",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "临沂高新技术产业开发区"
+    },
+    {
+      "code": "371471",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "德州天衢新区"
+    },
+    {
+      "code": "371771",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "菏泽经济技术开发区"
+    },
+    {
+      "code": "371772",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "菏泽高新技术开发区"
+    },
+    {
+      "code": "410171",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "郑州经济技术开发区"
+    },
+    {
+      "code": "410172",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "郑州高新技术产业开发区"
+    },
+    {
+      "code": "410173",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "郑州航空港经济综合实验区"
+    },
+    {
+      "code": "410371",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "洛阳高新技术产业开发区"
+    },
+    {
+      "code": "410471",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "平顶山高新技术产业开发区"
+    },
+    {
+      "code": "410472",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "平顶山市城乡一体化示范区"
+    },
+    {
+      "code": "410571",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "安阳高新技术产业开发区"
+    },
+    {
+      "code": "410671",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "鹤壁经济技术开发区"
+    },
+    {
+      "code": "410771",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "新乡高新技术产业开发区"
+    },
+    {
+      "code": "410772",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "新乡经济技术开发区"
+    },
+    {
+      "code": "410773",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "新乡市平原城乡一体化示范区"
+    },
+    {
+      "code": "410871",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "焦作城乡一体化示范区"
+    },
+    {
+      "code": "410971",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "河南濮阳工业园区"
+    },
+    {
+      "code": "410972",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "濮阳经济技术开发区"
+    },
+    {
+      "code": "411071",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "许昌经济技术开发区"
+    },
+    {
+      "code": "411171",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "漯河经济技术开发区"
+    },
+    {
+      "code": "411271",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "河南三门峡经济开发区"
+    },
+    {
+      "code": "411371",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "南阳高新技术产业开发区"
+    },
+    {
+      "code": "411372",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "南阳市城乡一体化示范区"
+    },
+    {
+      "code": "411471",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "豫东综合物流产业聚集区"
+    },
+    {
+      "code": "411472",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "河南商丘经济开发区"
+    },
+    {
+      "code": "411571",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "信阳高新技术产业开发区"
+    },
+    {
+      "code": "411671",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "周口临港开发区"
+    },
+    {
+      "code": "411771",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "河南驻马店经济开发区"
+    },
+    {
+      "code": "421071",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "荆州经济技术开发区"
+    },
+    {
+      "code": "421171",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "龙感湖管理区"
+    },
+    {
+      "code": "430371",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "湖南湘潭高新技术产业园区"
+    },
+    {
+      "code": "430372",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "湘潭昭山示范区"
+    },
+    {
+      "code": "430373",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "湘潭九华示范区"
+    },
+    {
+      "code": "430473",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "湖南衡阳松木经济开发区"
+    },
+    {
+      "code": "430476",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "湖南衡阳高新技术产业园区"
+    },
+    {
+      "code": "430671",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "岳阳市屈原管理区"
+    },
+    {
+      "code": "430771",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "常德市西洞庭管理区"
+    },
+    {
+      "code": "430971",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "益阳市大通湖管理区"
+    },
+    {
+      "code": "430972",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "湖南益阳高新技术产业园区"
+    },
+    {
+      "code": "431171",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "永州经济技术开发区"
+    },
+    {
+      "code": "431173",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "永州市回龙圩管理区"
+    },
+    {
+      "code": "431271",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "怀化市洪江管理区"
+    },
+    {
+      "code": "441900",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "东莞市"
+    },
+    {
+      "code": "442000",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "中山市"
+    },
+    {
+      "code": "460302",
+      "change": "MIRROR_2025_ONLY",
+      "new_name": "西沙区",
+      "old_name": null
+    },
+    {
+      "code": "460303",
+      "change": "MIRROR_2025_ONLY",
+      "new_name": "南沙区",
+      "old_name": null
+    },
+    {
+      "code": "460321",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "西沙群岛"
+    },
+    {
+      "code": "460322",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "南沙群岛"
+    },
+    {
+      "code": "460323",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "中沙群岛的岛礁及其海域"
+    },
+    {
+      "code": "460400",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "儋州市"
+    },
+    {
+      "code": "500105",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "江北区"
+    },
+    {
+      "code": "500112",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "渝北区"
+    },
+    {
+      "code": "500157",
+      "change": "MIRROR_2025_ONLY",
+      "new_name": "两江新区",
+      "old_name": null
+    },
+    {
+      "code": "540171",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "格尔木藏青工业园区"
+    },
+    {
+      "code": "540172",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "拉萨经济技术开发区"
+    },
+    {
+      "code": "540173",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "西藏文化旅游创意园区"
+    },
+    {
+      "code": "540174",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "达孜工业园区"
+    },
+    {
+      "code": "620171",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "兰州新区"
+    },
+    {
+      "code": "620201",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "嘉峪关市"
+    },
+    {
+      "code": "632857",
+      "change": "LEGACY_ONLY",
+      "new_name": null,
+      "old_name": "大柴旦行政委员会"
+    },
+    {
+      "code": "653228",
+      "change": "MIRROR_2025_ONLY",
+      "new_name": "和康县",
+      "old_name": null
+    },
+    {
+      "code": "653229",
+      "change": "MIRROR_2025_ONLY",
+      "new_name": "和安县",
+      "old_name": null
+    }
+  ]
+}
