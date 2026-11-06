@@ -1,0 +1,39 @@
+{
+  "evidence_id": "RES-2026-CURRENT-ADMIN-LEGAL-UPDATES",
+  "basis": "2026-06-30 public interim count (not an officially frozen nationwide 2026 annual register)",
+  "published_2025_mirror_count": 2845,
+  "public_2026_midyear_count": 2847,
+  "count_source": "https://www.xzqh.org/show/china/2026/total.html",
+  "count_source_type": "secondary_compilation",
+  "status": "PROVISIONAL_WORKING_ROSTER_NOT_OFFICIAL_NATIONWIDE_RECONCILED",
+  "rules": [
+    "The two establishments have direct provincial-government notices.",
+    "Candidate six-digit codes are compiled from third-party county code listing and still need direct official-code source verification.",
+    "No claims about later 2026 administrative changes are made; future announcements require checking.",
+    "Neither status nor roster authorizes any formal county climate classification."
+  ],
+  "changes": [
+    {
+      "name": "岑岭县",
+      "candidate_code": "653132",
+      "level": "county",
+      "parent": "喀什地区",
+      "decision_date": "2026-03-26",
+      "government_notice": "https://www.xinjiang.gov.cn/xinjiang/tzgg/202603/285e5d25b8ad4eae8df6b0f0efe847f6.shtml",
+      "code_candidate_source": "https://xzqh.org/show/china/2026/65/653100.html",
+      "legal_establishment": "GOVERNMENT_NOTICE_VERIFIED",
+      "official_6digit_code_status": "SECONDARY_PENDING_DIRECT_OFFICIAL_CONFIRMATION"
+    },
+    {
+      "name": "草湖市",
+      "candidate_code": "659013",
+      "level": "county_level_city",
+      "parent": "新疆维吾尔自治区直辖",
+      "decision_date": "2026-04-17",
+      "government_notice": "https://www.xinjiang.gov.cn/xinjiang/tzgg/202604/3691350b13064945947d8f78933ccb3e.shtml",
+      "code_candidate_source": "https://xzqh.org/show/china/2026/65/659013.html",
+      "legal_establishment": "GOVERNMENT_NOTICE_VERIFIED",
+      "official_6digit_code_status": "SECONDARY_PENDING_DIRECT_OFFICIAL_CONFIRMATION"
+    }
+  ]
+}
