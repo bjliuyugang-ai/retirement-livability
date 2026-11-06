@@ -52,7 +52,8 @@ with (OUT/"monthly_pilot.csv").open("w",newline="",encoding="utf-8-sig") as f:
     w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(results)
 summary={"generated_utc":datetime.utcnow().isoformat()+"Z","sites_requested":len(SITES),
 "sites_with_12_months":len({r["site"] for r in results if r["status"]=="EXPLORATORY_ONLY"}),
-"monthly_rows":sum(r["status"]=="EXPLORATORY_ONLY" for r in results),\n"raw_daily_rows":sum(r.get("days",0) for r in results if r["status"]=="EXPLORATORY_ONLY"),
+"monthly_rows":sum(r["status"]=="EXPLORATORY_ONLY" for r in results),
+"raw_daily_rows":sum(r.get("days",0) for r in results if r["status"]=="EXPLORATORY_ONLY"),
 "county_matched":0,"valid_county_screenings":0,
 "caveat":"ERA5 point reanalysis is exploratory; no administrative joins, no formal classifications.",
 "errors":[{"site":r["site"],"error":r.get("error")} for r in results if r["status"]!="EXPLORATORY_ONLY"]}
