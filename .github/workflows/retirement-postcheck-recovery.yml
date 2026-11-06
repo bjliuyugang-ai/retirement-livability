@@ -1,0 +1,61 @@
+name: Retirement V1.6 pending postcheck recovery
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-postcheck-recovery.yml'
+jobs:
+  recover-failed-trial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Audit exact failed run and recovery precondition
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          p=pathlib.Path("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json")
+          s=json.loads(p.read_text())
+          assert s["last_verified_run"]["run_id"]=="42250420760"
+          assert s["last_verified_run"]["engineering_status"]=="FAIL"
+          assert s["last_verified_run"]["research_delta_status"]=="BLOCKED_WITH_EVIDENCE"
+          assert s["writeback_verification"]["status"]=="PENDING_REMOTE_CHECK"
+          print("ACCEPT_RECOVERY_FOR_FAILED_RUN",s["last_verified_run"]["run_id"])
+          PY
+      - name: Recover S6 against actual committed evidence without changing FAIL
+        env:
+          REPAIR_PENDING_POSTCHECK: '1'
+        run: |
+          git fetch origin main
+          python research_engine/retirement/county_state.py postcheck
+      - name: Commit append-only recovery proof with optimistic state check
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
+          git commit -m "Recover S6 for failed geometry run 42250420760 without altering FAIL"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          p="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          s=json.loads(subprocess.check_output(["git","show","origin/main:"+p]))
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["last_verified_run"]["engineering_status"]=="FAIL"
+          assert s["last_verified_run"]["research_delta_status"]=="BLOCKED_WITH_EVIDENCE"
+          assert s["last_verified_run"]["run_id"]=="42250420760"
+          print("RECOVERY_POSTCHECK_PASS_RUN_STILL_FAILED",s["state_revision"])
+          PY
