@@ -1,0 +1,51 @@
+name: Retirement microclimate API route diagnosis
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-api-diagnostic.yml'
+jobs:
+  independent-readonly-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compare DEM and ERA5 small-sample reachability
+        run: |
+          python - <<'PY'
+          import datetime,hashlib,json,pathlib,time,urllib.request
+          urls={
+            "elevation_1point":"https://api.open-meteo.com/v1/elevation?latitude=25.04&longitude=102.71",
+            "moisture_2000_2001":"https://archive-api.open-meteo.com/v1/archive?latitude=25.04&longitude=102.71&start_date=2000-01-01&end_date=2001-12-31&daily=relative_humidity_2m_mean,dew_point_2m_mean&timezone=Asia%2FShanghai&models=era5"
+          }
+          rows=[]
+          for kind,url in urls.items():
+            result={"test":kind,"url":url,"date_utc":datetime.datetime.now(datetime.timezone.utc).isoformat()}
+            t=time.monotonic()
+            try:
+              with urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"retirement-readonly-source-diagnosis/1.0"}),timeout=28) as r:b=r.read()
+              result.update({"status":"HTTP_OK","bytes":len(b),"sha256":hashlib.sha256(b).hexdigest(),"json_shape":list(json.loads(b))[:12]})
+            except Exception as exc:
+              result.update({"status":"FAILED","error":repr(exc)})
+            result["elapsed_seconds"]=round(time.monotonic()-t,2)
+            rows.append(result)
+          target=pathlib.Path("research_engine/retirement/status/latest-api-diagnostic.json")
+          target.parent.mkdir(parents=True,exist_ok=True)
+          target.write_text(json.dumps({"status":"SOURCE_ROUTE_DIAGNOSTIC_ONLY","tests":rows,"valid_county_screenings":0},ensure_ascii=False,indent=2)+"\n")
+          print(json.dumps(rows,ensure_ascii=False))
+          PY
+      - name: Commit source route diagnostic without touching authoritative state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/latest-api-diagnostic.json
+          git commit -m "Record read-only weather and elevation source reachability"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
