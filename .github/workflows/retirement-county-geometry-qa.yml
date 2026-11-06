@@ -1,0 +1,82 @@
+name: Retirement coded-county geometry cross-check
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-county-geometry-qa.yml'
+jobs:
+  coded-county-geometry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 read authority, previous evidence and unique action
+        id: precheck
+        run: python research_engine/retirement/county_state.py precheck
+      - name: S3 independently match coded county GeoJSON to 12 weather coordinates
+        id: geometry
+        continue-on-error: true
+        run: python research_engine/retirement/county_geometry_qa.py
+      - name: S4-S5 separate spatial engineering PASS from zero formal county screenings
+        id: finalize
+        if: always() && steps.precheck.outcome == 'success'
+        run: python research_engine/retirement/county_state.py finalize
+      - name: Save complete county polygon experiment evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coded-county-geometry-qa-evidence
+          path: research_engine/retirement/output/
+          retention-days: 30
+      - name: Commit auditable county geometry evidence and pending handoff state
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl research_assets/retirement/CURRENT_STATE.md research_engine/retirement/status/latest-county-geometry-qa.json
+          git diff --cached --quiet && exit 2 || true
+          git commit -m "Record coded boundary corroboration with V1.6 state"
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          p="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          base=json.load(open("research_engine/retirement/output/county_qa_precheck.json"))
+          remote=json.loads(subprocess.check_output(["git","show","origin/main:"+p]))
+          assert remote["state_revision"]==base["revision"],"CAS_CONFLICT_SOURCE_REVISION"
+          assert remote["current_state_ref"]["git_blob_sha"]==base["source_current_blob"],"CAS_CONFLICT_CURRENT_STATE"
+          PY
+          git rebase origin/main
+          git push origin HEAD:main
+      - name: S6 reread actual repository result and certify next action handoff
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git fetch origin main
+          python research_engine/retirement/county_state.py postcheck
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
+          git commit -m "Verify coded polygon results and next active action"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          p="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+p]))
+          assert d["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert d["last_verified_run"]["action_id"]=="RET-CLIMATE-COUNTY-QA-001"
+          print("REMOTE_POSTCHECK_PASS",d["last_verified_run"])
+          PY
+      - name: Reject geometry test failures even if blocked evidence was saved
+        if: steps.geometry.outcome == 'failure'
+        run: exit 1
