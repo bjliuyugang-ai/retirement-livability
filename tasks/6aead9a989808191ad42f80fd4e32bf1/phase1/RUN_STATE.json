@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.6",
+  "task_id": "6aead9a989808191ad42f80fd4e32bf1",
+  "track_id": "phase1_climate_spatial_assault",
+  "authority": {
+    "research_baseline": "Library:/安居/退休宜居城市/退休宜居城市_长期研究基线_Master_Latest.docx@V1.2",
+    "research_master": "Library:/安居/退休宜居城市/退休宜居城市_第一阶段自然条件筛选总表_Master_Latest.xlsx@V8",
+    "governance": "复杂模型研发连续知识资产治理机制_V1.6_20261106",
+    "repository": "bjliuyugang-ai/retirement-livability",
+    "branch": "main",
+    "execution_entry": "tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/EXECUTION_ENTRY.md"
+  },
+  "current_state_ref": {
+    "path": "research_assets/retirement/CURRENT_STATE.md",
+    "git_blob_sha": "29272fe8aa20d11e54008896e1756e562247df23"
+  },
+  "last_verified_run": null,
+  "last_completed_action_id": "CLIMATE-POINT-DATA-001",
+  "closed_result_refs": [
+    "RES-CLIMATE-12POINT-20261106"
+  ],
+  "active_action": {
+    "action_id": "RET-SPATIAL-001",
+    "question_id": "Q-COUNTY-SPATIAL-MATCH",
+    "decision": "是否能够将真实历史县域边界与12个气候试验点位做可审计空间关联",
+    "method": "运行spatial_probe.py，读取geoBoundaries历史ADM3，点面匹配，保存原始几何SHA256与命中数",
+    "frozen_inputs": [
+      "retirement-climate-pilot/spatial_probe.py",
+      "retirement-climate-pilot/status/latest-summary.json"
+    ],
+    "expected_evidence": "retirement-climate-pilot/status/latest-spatial-probe.json",
+    "pass_criteria": "真实下载县级边界且载入>=2000个几何单元；12点全部输出可审计的命中0/1/多态、来源及原始哈希；即使PASS也不记正式县域广筛",
+    "failure_criteria": "下载失败、数据年份不符、几何无效或未形成可回读证据；标BLOCKED_WITH_EVIDENCE",
+    "fallback": "查看GitHub Actions实际错误，优先修复网络/URL/数据格式，连续两轮无判别信息必须更换边界数据来源或访问方式",
+    "timebox_end": "2026-11-08T15:26:00Z",
+    "status": "READY"
+  },
+  "phase": "ENGINEERING_ASSAULT_SPATIAL",
+  "milestone_deadline": {
+    "time_zone": "Asia/Shanghai",
+    "checkpoint_24h": "2026-11-07T23:26:00+08:00",
+    "checkpoint_48h": "2026-11-08T23:26:00+08:00",
+    "note": "工程PASS/FAIL/INCONCLUSIVE裁决节点，不改变全国100%正式验收"
+  },
+  "consecutive_no_delta": 0,
+  "writeback_verification": {
+    "status": "INITIALIZED_PENDING_FIRST_RUN",
+    "verified_commit": null
+  },
+  "updated_at": "2026-11-06T15:36:06.356Z",
+  "state_revision": 1
+}
