@@ -1,10 +1,1 @@
-{
-  "generated_utc": "2026-11-06T09:28:29.922524Z",
-  "sites_requested": 3,
-  "sites_with_12_months": 3,
-  "monthly_rows": 36,
-  "county_matched": 0,
-  "valid_county_screenings": 0,
-  "caveat": "ERA5 point reanalysis is exploratory; no administrative joins, no formal classifications.",
-  "errors": []
-}
+{"status":"SCRIPT_DID_NOT_WRITE_SUMMARY","sites_with_12_months":0,"monthly_rows":0,"valid_county_screenings":0}
