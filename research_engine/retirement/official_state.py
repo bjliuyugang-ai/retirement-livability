@@ -102,7 +102,7 @@ def finalize():
     else:
         narrative=("直接读取民政部2025行政数据完成对账；仍需2026变更核查。"
           if passed else "官方直接取数未通过，完整错误已冻结，禁止无限同法重试。")
-    line="\\n- "+result+": "+narrative+" 有效县级广筛仍为0。\\n"
+    line="\n- "+result+": "+narrative+" 有效县级广筛仍为0。\n"
     with CURRENT.open("a",encoding="utf-8") as fh:fh.write(line)
     s["current_state_ref"]["git_blob_sha"]=blob(CURRENT)
     s["updated_at"]=NOW();s["state_revision"]+=1
