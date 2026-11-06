@@ -1,8 +1,9 @@
 {
-  "generated_utc": "2026-11-06T12:13:17.679106Z",
+  "generated_utc": "2026-11-06T14:12:57.900122Z",
   "sites_requested": 12,
   "sites_with_12_months": 12,
   "monthly_rows": 144,
+  "extremes_sites": 12,
   "raw_daily_rows": 131496,
   "county_matched": 0,
   "valid_county_screenings": 0,
