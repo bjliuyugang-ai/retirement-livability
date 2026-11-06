@@ -1,0 +1,38 @@
+{
+  "status": "SOURCE_ROUTE_DIAGNOSTIC_ONLY",
+  "tests": [
+    {
+      "test": "elevation_1point",
+      "url": "https://api.open-meteo.com/v1/elevation?latitude=25.04&longitude=102.71",
+      "date_utc": "2026-11-06T16:29:01.232086+00:00",
+      "status": "HTTP_OK",
+      "bytes": 22,
+      "sha256": "b99339945867ac921ee609f44234b96a08be3d13051a6bb9defc45916031787c",
+      "json_shape": [
+        "elevation"
+      ],
+      "elapsed_seconds": 0.31
+    },
+    {
+      "test": "moisture_2000_2001",
+      "url": "https://archive-api.open-meteo.com/v1/archive?latitude=25.04&longitude=102.71&start_date=2000-01-01&end_date=2001-12-31&daily=relative_humidity_2m_mean,dew_point_2m_mean&timezone=Asia%2FShanghai&models=era5",
+      "date_utc": "2026-11-06T16:29:01.544406+00:00",
+      "status": "HTTP_OK",
+      "bytes": 15375,
+      "sha256": "aea4d726633ab39a4a79817d600556efb1fe25d301c0e7ceac44a8ab9baf7b47",
+      "json_shape": [
+        "latitude",
+        "longitude",
+        "generationtime_ms",
+        "utc_offset_seconds",
+        "timezone",
+        "timezone_abbreviation",
+        "elevation",
+        "daily_units",
+        "daily"
+      ],
+      "elapsed_seconds": 0.77
+    }
+  ],
+  "valid_county_screenings": 0
+}
