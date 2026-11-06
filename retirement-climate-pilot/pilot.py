@@ -6,7 +6,7 @@ import csv, json, os, pathlib, statistics, time, urllib.error, urllib.parse, url
 from datetime import datetime
 OUT=pathlib.Path("retirement-climate-pilot/output")
 OUT.mkdir(parents=True,exist_ok=True)
-SITES=[("Haikou",20.04,110.35),("Kunming",25.04,102.71),("Xiamen",24.48,118.09)]
+SITES=[("Haikou",20.04,110.35),("Kunming",25.04,102.71),("Xiamen",24.48,118.09),("Panzhihua",26.58,101.72),("Mengzi",23.37,103.39),("Jinghong",22.01,100.80),("Guilin",25.27,110.29),("Quanzhou",24.87,118.68),("Dali",25.61,100.27),("Guiyang",26.65,106.63),("Nanning",22.82,108.37),("Sanya",18.25,109.51)]
 BASE="https://archive-api.open-meteo.com/v1/archive"
 results=[]
 for name,lat,lon in SITES:
@@ -52,7 +52,7 @@ with (OUT/"monthly_pilot.csv").open("w",newline="",encoding="utf-8-sig") as f:
     w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(results)
 summary={"generated_utc":datetime.utcnow().isoformat()+"Z","sites_requested":len(SITES),
 "sites_with_12_months":len({r["site"] for r in results if r["status"]=="EXPLORATORY_ONLY"}),
-"monthly_rows":sum(r["status"]=="EXPLORATORY_ONLY" for r in results),
+"monthly_rows":sum(r["status"]=="EXPLORATORY_ONLY" for r in results),\n"raw_daily_rows":sum(r.get("days",0) for r in results if r["status"]=="EXPLORATORY_ONLY"),
 "county_matched":0,"valid_county_screenings":0,
 "caveat":"ERA5 point reanalysis is exploratory; no administrative joins, no formal classifications.",
 "errors":[{"site":r["site"],"error":r.get("error")} for r in results if r["status"]!="EXPLORATORY_ONLY"]}
