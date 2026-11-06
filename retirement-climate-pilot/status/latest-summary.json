@@ -1,16 +1,11 @@
 {
-  "generated_utc": "2026-11-06T11:15:17.594528Z",
+  "generated_utc": "2026-11-06T12:13:17.679106Z",
   "sites_requested": 12,
-  "sites_with_12_months": 11,
-  "monthly_rows": 132,
-  "raw_daily_rows": 120538,
+  "sites_with_12_months": 12,
+  "monthly_rows": 144,
+  "raw_daily_rows": 131496,
   "county_matched": 0,
   "valid_county_screenings": 0,
   "caveat": "ERA5 point reanalysis is exploratory; no administrative joins, no formal classifications.",
-  "errors": [
-    {
-      "site": "Mengzi",
-      "error": "URLError(TimeoutError('_ssl.c:1001: The handshake operation timed out'))"
-    }
-  ]
+  "errors": []
 }
