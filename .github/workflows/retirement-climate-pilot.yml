@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
-      contents: read
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -25,3 +25,19 @@ jobs:
           name: retirement-climate-pilot-output
           path: retirement-climate-pilot/output/
           retention-days: 14
+      - name: Persist machine-readable smoke-test summary to repository
+        if: always()
+        run: |
+          mkdir -p retirement-climate-pilot/status
+          if [ -f retirement-climate-pilot/output/summary.json ]; then
+            cp retirement-climate-pilot/output/summary.json retirement-climate-pilot/status/latest-summary.json
+          else
+            printf '{"status":"SCRIPT_DID_NOT_WRITE_SUMMARY","sites_with_12_months":0,"monthly_rows":0,"valid_county_screenings":0}\n' > retirement-climate-pilot/status/latest-summary.json
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add retirement-climate-pilot/status/latest-summary.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Record retirement climate pilot execution results"
+            git push
+          fi
