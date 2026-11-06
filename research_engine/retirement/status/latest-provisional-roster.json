@@ -1,0 +1,105 @@
+{
+  "run_type": "NONFORMAL_WORKING_ROSTER",
+  "generated_utc": "2026-11-06T16:07:31.108279+00:00",
+  "official_national_2026_roster_direct_verified": false,
+  "valid_county_screenings": 0,
+  "official_2026_county_code_verifications": 0,
+  "status": "PASS_PROVISIONAL_ROSTER_BUILD",
+  "mirror_2025_counties": 2845,
+  "2026_verified_legal_establishments": 2,
+  "provisional_2026_midyear_count": 2847,
+  "2025_mirror_source_blob_sha": "a31f53c95324bf8723be9f653bafce17bc253a61",
+  "2025_legacy_diff": {
+    "mirror_2025_total": 3212,
+    "mirror_2025_provinces": 34,
+    "mirror_2025_prefectures": 333,
+    "mirror_2025_counties": 2845,
+    "legacy_counties": 2978,
+    "mirror_only": 5,
+    "legacy_only": 138,
+    "name_difference": 0
+  },
+  "12_site_archival_crosscheck": [
+    {
+      "site": "Haikou",
+      "code": "460108",
+      "2025_name": "美兰区",
+      "match": true
+    },
+    {
+      "site": "Kunming",
+      "code": "530102",
+      "2025_name": "五华区",
+      "match": true
+    },
+    {
+      "site": "Xiamen",
+      "code": "350203",
+      "2025_name": "思明区",
+      "match": true
+    },
+    {
+      "site": "Panzhihua",
+      "code": "510402",
+      "2025_name": "东区",
+      "match": true
+    },
+    {
+      "site": "Mengzi",
+      "code": "532503",
+      "2025_name": "蒙自市",
+      "match": true
+    },
+    {
+      "site": "Jinghong",
+      "code": "532801",
+      "2025_name": "景洪市",
+      "match": true
+    },
+    {
+      "site": "Guilin",
+      "code": "450304",
+      "2025_name": "象山区",
+      "match": true
+    },
+    {
+      "site": "Quanzhou",
+      "code": "350503",
+      "2025_name": "丰泽区",
+      "match": true
+    },
+    {
+      "site": "Dali",
+      "code": "532901",
+      "2025_name": "大理市",
+      "match": true
+    },
+    {
+      "site": "Guiyang",
+      "code": "520115",
+      "2025_name": "观山湖区",
+      "match": true
+    },
+    {
+      "site": "Nanning",
+      "code": "450103",
+      "2025_name": "青秀区",
+      "match": true
+    },
+    {
+      "site": "Sanya",
+      "code": "460203",
+      "2025_name": "吉阳区",
+      "match": true
+    }
+  ],
+  "official_6digit_codes_2026_new_direct_verified": 0,
+  "csv_sha256": "483a2576223422945c13b1b9ec28efba6c2c3540d75906432671ae3335c27078",
+  "source_year_notes": "2025 full mirror; two 2026 province government notices with candidate codes still secondary. 2026-07-Nov official change scan pending.",
+  "limitations": [
+    "Not a source-verifiable complete 2026 official county denominator.",
+    "No official direct code verification for 2026 additions.",
+    "No climate station coverage, altitude QA, or microclimate exceptions evaluated.",
+    "No valid screening, no grades, no Library Master changes."
+  ]
+}

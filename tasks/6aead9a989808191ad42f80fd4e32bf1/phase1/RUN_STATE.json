@@ -12,51 +12,57 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "c9c198050566cea6faa499eeea6407b44807f5b7"
+    "git_blob_sha": "0b83a9dfaae7487ce60ed6a7f2db3f106665bb41"
   },
   "last_verified_run": {
-    "run_id": "42248287808",
+    "run_id": "42249396217",
     "action_id": "RET-OFFICIAL-RECON-001",
-    "result_id": "RES-2025-OFFICIAL-SOURCE-42248287808",
+    "result_id": "RES-2026-PROVISIONAL-ROSTER-42249396217",
     "execution_status": "EXECUTED",
-    "engineering_status": "FAIL",
-    "research_delta_status": "BLOCKED_WITH_EVIDENCE",
+    "engineering_status": "PASS",
+    "research_delta_status": "DELTA_VERIFIED",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/latest-official-recon.json",
-    "evidence_sha256": "434df3aa1f8811bb8b95856a3fe3bfd066ecf8f1138968b9b30c7788f73e76ed",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/status/latest-provisional-roster.json",
+    "evidence_sha256": "58c00a9f68d677fba9e8d19709df6f4e50396845a93456db593c727746220c6e",
+    "status": "AWAITING_POSTCHECK"
   },
-  "last_completed_action_id": "RET-ADCODE-001",
+  "last_completed_action_id": "RET-OFFICIAL-RECON-001",
   "closed_result_refs": [
     "RES-CLIMATE-12POINT-20261106",
     "RES-SPATIAL-ENGINEERING-42244926780",
-    "RES-ARCHIVAL-ADCODE-42245603994"
+    "RES-ARCHIVAL-ADCODE-42245603994",
+    "RES-2026-PROVISIONAL-ROSTER-42249396217"
   ],
   "active_action": {
-    "action_id": "RET-OFFICIAL-RECON-001",
-    "question_id": "Q-OFFICIAL-ADCODE",
-    "decision": "把已找到的历史代码候选逐一与现行官方县级名录核对，处理行政调整和微气候例外",
-    "method": "获取官方县级代码及口径，逐项作差集和名称层级查验；核对空间代表性与海拔差异",
-    "expected_evidence": "可核验现行行政代码逐项差集、历史冲突、例外与无法核验名单",
-    "pass_criteria": "真实官方来源逐项比对并明确空间代表性；无证据标UNKNOWN",
-    "fallback": "切换2025官方年版独立镜像交叉核验及其他官方省级材料，不能以镜像冒充官方直读；2轮无增量禁止继续同入口",
+    "action_id": "RET-CLIMATE-COUNTY-QA-001",
+    "question_id": "Q-CLIMATE-REPRESENTATIVENESS",
+    "decision": "确定行政区划版本差异及县域气候点位的空间代表性，形成可核验县级广筛证据",
+    "method": "仅使用标注来源的2026-06临时县级底盘开展可复现县级气候覆盖试验；正式全国行政代码完整核验仍未解决",
+    "expected_evidence": "县级行政差集、时空源和微气候例外标志；具证据的有效县域广筛首批记录",
+    "pass_criteria": "有完整气候与县域空间/海拔、微气候例外证据后才计有效县级广筛；只列名称或未确认编码不计",
+    "fallback": "无法取得2025官方空间边界则冻结行政名字对照与气候点位，仅标待核；切换政府/学术可靠空间源",
     "timebox_end": "2026-11-08T15:26:00Z",
-    "status": "BLOCKED_WITH_EVIDENCE",
-    "last_error": "official API unavailable / result partial; see evidence research_engine/retirement/status/latest-official-recon.json"
+    "status": "READY"
   },
-  "phase": "OFFICIAL_CURRENT_ADCODE_QA",
+  "phase": "PROVISIONAL_COUNTY_CLIMATE_QA_OFFICIAL_GAP",
   "milestone_deadline": {
     "time_zone": "Asia/Shanghai",
     "checkpoint_24h": "2026-11-07T23:26:00+08:00",
     "checkpoint_48h": "2026-11-08T23:26:00+08:00",
     "note": "工程PASS/FAIL/INCONCLUSIVE裁决节点，不改变全国100%正式验收"
   },
-  "consecutive_no_delta": 1,
+  "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "ede17307982e4e209374c44108620738e6d84bfb",
-    "verified_at": "2026-11-06T16:00:58.675444+00:00"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-06T16:00:58.675465+00:00",
-  "state_revision": 7
+  "updated_at": "2026-11-06T16:07:31.208122+00:00",
+  "state_revision": 8,
+  "open_blockers": [
+    {
+      "question_id": "Q-OFFICIAL-ADCODE",
+      "status": "OPEN_2026_NATIONWIDE_OFFICIAL_RECONCILIATION",
+      "reason": "Official MCA source DNS failed; mirror and Xinjiang government legal notices support only a provisional roster, not official national code certification"
+    }
+  ]
 }
