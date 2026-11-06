@@ -24,7 +24,7 @@
     "research_closure_status": "OPEN",
     "evidence_path": "retirement-climate-pilot/status/latest-spatial-probe.json",
     "evidence_sha256": "c89c39858c5702c3e412e8e9f61636f936b7f93f1f4ea030720883ece7d51ee2",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-SPATIAL-001",
   "closed_result_refs": [
@@ -51,9 +51,10 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "7c6cc88162ff97984654d91b6cf274c5afef54a5",
+    "verified_at": "2026-11-06T15:38:37.840528+00:00"
   },
-  "updated_at": "2026-11-06T15:38:35.664073+00:00",
-  "state_revision": 2
+  "updated_at": "2026-11-06T15:38:37.840540+00:00",
+  "state_revision": 3
 }
