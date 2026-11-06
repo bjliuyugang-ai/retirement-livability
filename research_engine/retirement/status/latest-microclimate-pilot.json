@@ -1,0 +1,544 @@
+{
+  "generated_utc": "2026-11-06T16:23:47.557600+00:00",
+  "status": "PASS_ELEVATION_SENSITIVITY",
+  "kind": "POINT_MOISTURE_AND_COPERNICUS_DEM_SPATIAL_VARIABILITY_EXPLORATION",
+  "valid_county_screenings": 0,
+  "official_county_codes_verified": 0,
+  "weather_model": "ERA5 via Open-Meteo historical API, 1991-2020; NOT CMA normals",
+  "dem_source": "Copernicus DEM GLO-90 2021 via Open-Meteo elevation API, 90m resolution",
+  "cautions": [
+    "Polygon source vintage, CRS and precision not independently established; possible GCJ02/WGS84 spatial mismatch.",
+    "Terrain points sampled algorithmically inside nonofficial county polygon; no residential site represented.",
+    "DEM range from 3 points is a LOW-BOUND heuristic, not true full county elevation range.",
+    "ERA5 0.25deg grids may not resolve local valleys/mountains; no point-derived formal county suitability.",
+    "Humidity/dewpoint missing or rate limits must remain explicitly pending, not silently imputed.",
+    "No 2026 official boundary/adcode complete verification, no approved hard exclusion criteria."
+  ],
+  "elevation_raw_sha256": "8fd89c855137807ef4cf543b165ac12c3ea4ab6ebef00b105079ef2b51753c64",
+  "elevation_request_url": "https://api.open-meteo.com/v1/elevation?latitude=20.04%2C19.82416%2C20.00623%2C25.04%2C25.37973%2C25.18625%2C24.48%2C24.49628%2C24.4282%2C26.58%2C26.64703%2C26.53109%2C23.37%2C23.46124%2C23.07155%2C22.01%2C22.47999%2C21.56438%2C25.27%2C25.14308%2C25.20177%2C24.87%2C24.98071%2C24.9507%2C25.61%2C26.00967%2C25.81378%2C26.65%2C26.61584%2C26.7292%2C22.82%2C22.96322%2C22.6923%2C18.25%2C18.19436%2C18.37556&longitude=110.35%2C110.67157%2C110.5875%2C102.71%2C102.63473%2C102.57789%2C118.09%2C118.19653%2C118.1498%2C101.72%2C101.80937%2C101.79289%2C103.39%2C103.759%2C103.27251%2C100.8%2C101.40514%2C100.53957%2C110.29%2C110.30888%2C110.23866%2C118.68%2C118.57066%2C118.64897%2C100.27%2C100.1628%2C100.02514%2C106.63%2C106.47055%2C106.52022%2C108.37%2C108.79116%2C108.68576%2C109.51%2C109.72989%2C109.66683",
+  "dem_points_loaded": 36,
+  "sites_count": 12,
+  "humidity_sites_loaded": 11,
+  "humidity_sites_failed": 1,
+  "terrain_variability_flagged": 4,
+  "points": [
+    {
+      "site": "Haikou",
+      "candidate_county_code": "460108",
+      "points": [
+        {
+          "latitude": 20.04,
+          "longitude": 110.35,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 11.0
+        },
+        {
+          "latitude": 19.82416,
+          "longitude": 110.67157,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 24.0
+        },
+        {
+          "latitude": 20.00623,
+          "longitude": 110.5875,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 0.0
+        }
+      ],
+      "sample_count": 3,
+      "geometry_blob_sha": "8885207028122ddba96972505fc30aa574f2495c",
+      "humidity_status": "EXPLORATORY_DATA_LOADED",
+      "terrain_exception_review": "STILL_REQUIRED_SPATIAL_QA",
+      "formal_county_screening_status": "NOT_SCREENED",
+      "sample_dem_min_m": 0.0,
+      "sample_dem_max_m": 24.0,
+      "sample_dem_span_m": 24.0,
+      "high_elevation_point_present": false,
+      "humidity_era5": {
+        "mean_relative_humidity_2m_mean": 82.47,
+        "winter_relative_humidity_2m_mean": 81.98,
+        "summer_relative_humidity_2m_mean": 82.65,
+        "mean_dew_point_2m_mean": 21.34,
+        "winter_dew_point_2m_mean": 16.12,
+        "summer_dew_point_2m_mean": 25.28,
+        "raw_rows": 10958,
+        "raw_sha256": "2e225a429b9a79d358d6478e4fe84b17fd950309a40e57ca0dbd4ea729cb02dd",
+        "url": "https://archive-api.open-meteo.com/v1/archive?latitude=20.04&longitude=110.35&start_date=1991-01-01&end_date=2020-12-31&daily=relative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5"
+      }
+    },
+    {
+      "site": "Kunming",
+      "candidate_county_code": "530102",
+      "points": [
+        {
+          "latitude": 25.04,
+          "longitude": 102.71,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 1902.0
+        },
+        {
+          "latitude": 25.37973,
+          "longitude": 102.63473,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 2073.0
+        },
+        {
+          "latitude": 25.18625,
+          "longitude": 102.57789,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 2144.0
+        }
+      ],
+      "sample_count": 3,
+      "geometry_blob_sha": "4aaef4d04b8f39f5c2e43fb185cdfac90f892ce8",
+      "humidity_status": "EXPLORATORY_DATA_LOADED",
+      "terrain_exception_review": "STILL_REQUIRED_SPATIAL_QA",
+      "formal_county_screening_status": "NOT_SCREENED",
+      "sample_dem_min_m": 1902.0,
+      "sample_dem_max_m": 2144.0,
+      "sample_dem_span_m": 242.0,
+      "high_elevation_point_present": true,
+      "humidity_era5": {
+        "mean_relative_humidity_2m_mean": 71.16,
+        "winter_relative_humidity_2m_mean": 68.89,
+        "summer_relative_humidity_2m_mean": 79.22,
+        "mean_dew_point_2m_mean": 10.87,
+        "winter_dew_point_2m_mean": 4.58,
+        "summer_dew_point_2m_mean": 17.35,
+        "raw_rows": 10958,
+        "raw_sha256": "282f0cca7f9257bbc38df98c686730cf7af5ed05e13c32a903d964db8d5ded6f",
+        "url": "https://archive-api.open-meteo.com/v1/archive?latitude=25.04&longitude=102.71&start_date=1991-01-01&end_date=2020-12-31&daily=relative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5"
+      }
+    },
+    {
+      "site": "Xiamen",
+      "candidate_county_code": "350203",
+      "points": [
+        {
+          "latitude": 24.48,
+          "longitude": 118.09,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 2.0
+        },
+        {
+          "latitude": 24.49628,
+          "longitude": 118.19653,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 0.0
+        },
+        {
+          "latitude": 24.4282,
+          "longitude": 118.1498,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 0.0
+        }
+      ],
+      "sample_count": 3,
+      "geometry_blob_sha": "3bfa941f0236b1ab48eb51dd1095d643bfd88ca4",
+      "humidity_status": "EXPLORATORY_DATA_LOADED",
+      "terrain_exception_review": "STILL_REQUIRED_SPATIAL_QA",
+      "formal_county_screening_status": "NOT_SCREENED",
+      "sample_dem_min_m": 0.0,
+      "sample_dem_max_m": 2.0,
+      "sample_dem_span_m": 2.0,
+      "high_elevation_point_present": false,
+      "humidity_era5": {
+        "mean_relative_humidity_2m_mean": 77.0,
+        "winter_relative_humidity_2m_mean": 73.36,
+        "summer_relative_humidity_2m_mean": 83.23,
+        "mean_dew_point_2m_mean": 17.63,
+        "winter_dew_point_2m_mean": 9.83,
+        "summer_dew_point_2m_mean": 25.09,
+        "raw_rows": 10958,
+        "raw_sha256": "b11bfc59c1887e890f37d93195a5664935c1e566cfa28a8876f191418796251c",
+        "url": "https://archive-api.open-meteo.com/v1/archive?latitude=24.48&longitude=118.09&start_date=1991-01-01&end_date=2020-12-31&daily=relative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5"
+      }
+    },
+    {
+      "site": "Panzhihua",
+      "candidate_county_code": "510402",
+      "points": [
+        {
+          "latitude": 26.58,
+          "longitude": 101.72,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 1164.0
+        },
+        {
+          "latitude": 26.64703,
+          "longitude": 101.80937,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 1409.0
+        },
+        {
+          "latitude": 26.53109,
+          "longitude": 101.79289,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 1882.0
+        }
+      ],
+      "sample_count": 3,
+      "geometry_blob_sha": "5760b0e49c1219da9b09e08ad92e5e3435fc3dd6",
+      "humidity_status": "EXPLORATORY_DATA_LOADED",
+      "terrain_exception_review": "REQUIRES_LOCAL_TERRAIN_CHECK",
+      "formal_county_screening_status": "NOT_SCREENED",
+      "sample_dem_min_m": 1164.0,
+      "sample_dem_max_m": 1882.0,
+      "sample_dem_span_m": 718.0,
+      "high_elevation_point_present": false,
+      "humidity_era5": {
+        "mean_relative_humidity_2m_mean": 62.62,
+        "winter_relative_humidity_2m_mean": 54.95,
+        "summer_relative_humidity_2m_mean": 76.06,
+        "mean_dew_point_2m_mean": 12.92,
+        "winter_dew_point_2m_mean": 4.97,
+        "summer_dew_point_2m_mean": 21.29,
+        "raw_rows": 10958,
+        "raw_sha256": "65ef1b5059c8e07438d13b1c88152356417214a8c13e941151fbeb0c6e8175f3",
+        "url": "https://archive-api.open-meteo.com/v1/archive?latitude=26.58&longitude=101.72&start_date=1991-01-01&end_date=2020-12-31&daily=relative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5"
+      }
+    },
+    {
+      "site": "Mengzi",
+      "candidate_county_code": "532503",
+      "points": [
+        {
+          "latitude": 23.37,
+          "longitude": 103.39,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 1311.0
+        },
+        {
+          "latitude": 23.46124,
+          "longitude": 103.759,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 2087.0
+        },
+        {
+          "latitude": 23.07155,
+          "longitude": 103.27251,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 376.0
+        }
+      ],
+      "sample_count": 3,
+      "geometry_blob_sha": "be6456f23ab81b1ba266c5cd03d9b996004e2114",
+      "humidity_status": "EXPLORATORY_DATA_LOADED",
+      "terrain_exception_review": "REQUIRES_LOCAL_TERRAIN_CHECK",
+      "formal_county_screening_status": "NOT_SCREENED",
+      "sample_dem_min_m": 376.0,
+      "sample_dem_max_m": 2087.0,
+      "sample_dem_span_m": 1711.0,
+      "high_elevation_point_present": true,
+      "humidity_era5": {
+        "mean_relative_humidity_2m_mean": 83.2,
+        "winter_relative_humidity_2m_mean": 84.46,
+        "summer_relative_humidity_2m_mean": 85.17,
+        "mean_dew_point_2m_mean": 15.66,
+        "winter_dew_point_2m_mean": 10.11,
+        "summer_dew_point_2m_mean": 20.58,
+        "raw_rows": 10958,
+        "raw_sha256": "d651187721cd9a3f84bb98173787091bfed0540d5c423130cb4e5c7d309e1e51",
+        "url": "https://archive-api.open-meteo.com/v1/archive?latitude=23.37&longitude=103.39&start_date=1991-01-01&end_date=2020-12-31&daily=relative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5"
+      }
+    },
+    {
+      "site": "Jinghong",
+      "candidate_county_code": "532801",
+      "points": [
+        {
+          "latitude": 22.01,
+          "longitude": 100.8,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 560.0
+        },
+        {
+          "latitude": 22.47999,
+          "longitude": 101.40514,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 1445.0
+        },
+        {
+          "latitude": 21.56438,
+          "longitude": 100.53957,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 1056.0
+        }
+      ],
+      "sample_count": 3,
+      "geometry_blob_sha": "5e6b1e9beb39e828009a9913c75b48e22e43099e",
+      "humidity_status": "EXPLORATORY_DATA_LOADED",
+      "terrain_exception_review": "REQUIRES_LOCAL_TERRAIN_CHECK",
+      "formal_county_screening_status": "NOT_SCREENED",
+      "sample_dem_min_m": 560.0,
+      "sample_dem_max_m": 1445.0,
+      "sample_dem_span_m": 885.0,
+      "high_elevation_point_present": false,
+      "humidity_era5": {
+        "mean_relative_humidity_2m_mean": 77.74,
+        "winter_relative_humidity_2m_mean": 75.63,
+        "summer_relative_humidity_2m_mean": 83.14,
+        "mean_dew_point_2m_mean": 19.7,
+        "winter_dew_point_2m_mean": 14.23,
+        "summer_dew_point_2m_mean": 24.46,
+        "raw_rows": 10958,
+        "raw_sha256": "4adb33b57abeca9196842625b60302681687825587f27eb4f25d442f742dedfc",
+        "url": "https://archive-api.open-meteo.com/v1/archive?latitude=22.01&longitude=100.8&start_date=1991-01-01&end_date=2020-12-31&daily=relative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5"
+      }
+    },
+    {
+      "site": "Guilin",
+      "candidate_county_code": "450304",
+      "points": [
+        {
+          "latitude": 25.27,
+          "longitude": 110.29,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 158.0
+        },
+        {
+          "latitude": 25.14308,
+          "longitude": 110.30888,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 148.0
+        },
+        {
+          "latitude": 25.20177,
+          "longitude": 110.23866,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 167.0
+        }
+      ],
+      "sample_count": 3,
+      "geometry_blob_sha": "1f1f7c440b80fdada8a589d414d1f3e28bb4a4c7",
+      "humidity_status": "EXPLORATORY_DATA_LOADED",
+      "terrain_exception_review": "STILL_REQUIRED_SPATIAL_QA",
+      "formal_county_screening_status": "NOT_SCREENED",
+      "sample_dem_min_m": 148.0,
+      "sample_dem_max_m": 167.0,
+      "sample_dem_span_m": 19.0,
+      "high_elevation_point_present": false,
+      "humidity_era5": {
+        "mean_relative_humidity_2m_mean": 74.93,
+        "winter_relative_humidity_2m_mean": 71.91,
+        "summer_relative_humidity_2m_mean": 79.14,
+        "mean_dew_point_2m_mean": 15.51,
+        "winter_dew_point_2m_mean": 5.99,
+        "summer_dew_point_2m_mean": 24.04,
+        "raw_rows": 10958,
+        "raw_sha256": "246c42cc16aeebb415eedb0e3e9d8e89d1ef410968820a131369008ac0423167",
+        "url": "https://archive-api.open-meteo.com/v1/archive?latitude=25.27&longitude=110.29&start_date=1991-01-01&end_date=2020-12-31&daily=relative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5"
+      }
+    },
+    {
+      "site": "Quanzhou",
+      "candidate_county_code": "350503",
+      "points": [
+        {
+          "latitude": 24.87,
+          "longitude": 118.68,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 5.0
+        },
+        {
+          "latitude": 24.98071,
+          "longitude": 118.57066,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 21.0
+        },
+        {
+          "latitude": 24.9507,
+          "longitude": 118.64897,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 39.0
+        }
+      ],
+      "sample_count": 3,
+      "geometry_blob_sha": "ad4647f72880c95ffc22e719273dbc0563d8156b",
+      "humidity_status": "BLOCKED_WITH_EVIDENCE",
+      "terrain_exception_review": "STILL_REQUIRED_SPATIAL_QA",
+      "formal_county_screening_status": "NOT_SCREENED",
+      "sample_dem_min_m": 5.0,
+      "sample_dem_max_m": 39.0,
+      "sample_dem_span_m": 34.0,
+      "high_elevation_point_present": false,
+      "humidity_error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')"
+    },
+    {
+      "site": "Dali",
+      "candidate_county_code": "532901",
+      "points": [
+        {
+          "latitude": 25.61,
+          "longitude": 100.27,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 1972.0
+        },
+        {
+          "latitude": 26.00967,
+          "longitude": 100.1628,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 2299.0
+        },
+        {
+          "latitude": 25.81378,
+          "longitude": 100.02514,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 3307.0
+        }
+      ],
+      "sample_count": 3,
+      "geometry_blob_sha": "ffd024ccc97ebb0ec01c24acd468e4a9de069f0d",
+      "humidity_status": "EXPLORATORY_DATA_LOADED",
+      "terrain_exception_review": "REQUIRES_LOCAL_TERRAIN_CHECK",
+      "formal_county_screening_status": "NOT_SCREENED",
+      "sample_dem_min_m": 1972.0,
+      "sample_dem_max_m": 3307.0,
+      "sample_dem_span_m": 1335.0,
+      "high_elevation_point_present": true,
+      "humidity_era5": {
+        "mean_relative_humidity_2m_mean": 68.8,
+        "winter_relative_humidity_2m_mean": 61.6,
+        "summer_relative_humidity_2m_mean": 79.77,
+        "mean_dew_point_2m_mean": 9.76,
+        "winter_dew_point_2m_mean": 2.25,
+        "summer_dew_point_2m_mean": 17.08,
+        "raw_rows": 10958,
+        "raw_sha256": "885071bdb7311402352fedc7728e6134ab6a4c2bc52e347808b93b59343e9da2",
+        "url": "https://archive-api.open-meteo.com/v1/archive?latitude=25.61&longitude=100.27&start_date=1991-01-01&end_date=2020-12-31&daily=relative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5"
+      }
+    },
+    {
+      "site": "Guiyang",
+      "candidate_county_code": "520115",
+      "points": [
+        {
+          "latitude": 26.65,
+          "longitude": 106.63,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 1294.0
+        },
+        {
+          "latitude": 26.61584,
+          "longitude": 106.47055,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 1243.0
+        },
+        {
+          "latitude": 26.7292,
+          "longitude": 106.52022,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 1240.0
+        }
+      ],
+      "sample_count": 3,
+      "geometry_blob_sha": "f671dbcdf7b2306eb69dbb72f8b036028a5b0db9",
+      "humidity_status": "EXPLORATORY_DATA_LOADED",
+      "terrain_exception_review": "STILL_REQUIRED_SPATIAL_QA",
+      "formal_county_screening_status": "NOT_SCREENED",
+      "sample_dem_min_m": 1240.0,
+      "sample_dem_max_m": 1294.0,
+      "sample_dem_span_m": 54.0,
+      "high_elevation_point_present": false,
+      "humidity_era5": {
+        "mean_relative_humidity_2m_mean": 81.61,
+        "winter_relative_humidity_2m_mean": 83.28,
+        "summer_relative_humidity_2m_mean": 80.78,
+        "mean_dew_point_2m_mean": 11.06,
+        "winter_dew_point_2m_mean": 2.52,
+        "summer_dew_point_2m_mean": 18.59,
+        "raw_rows": 10958,
+        "raw_sha256": "bbaab014614879eeef91c9311234dddbb4753af05e48aca56b8dc28ed974f290",
+        "url": "https://archive-api.open-meteo.com/v1/archive?latitude=26.65&longitude=106.63&start_date=1991-01-01&end_date=2020-12-31&daily=relative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5"
+      }
+    },
+    {
+      "site": "Nanning",
+      "candidate_county_code": "450103",
+      "points": [
+        {
+          "latitude": 22.82,
+          "longitude": 108.37,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 85.0
+        },
+        {
+          "latitude": 22.96322,
+          "longitude": 108.79116,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 253.0
+        },
+        {
+          "latitude": 22.6923,
+          "longitude": 108.68576,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 129.0
+        }
+      ],
+      "sample_count": 3,
+      "geometry_blob_sha": "2cc72d74cbc2d32f586b0bff674da45076d9a459",
+      "humidity_status": "EXPLORATORY_DATA_LOADED",
+      "terrain_exception_review": "STILL_REQUIRED_SPATIAL_QA",
+      "formal_county_screening_status": "NOT_SCREENED",
+      "sample_dem_min_m": 85.0,
+      "sample_dem_max_m": 253.0,
+      "sample_dem_span_m": 168.0,
+      "high_elevation_point_present": false,
+      "humidity_era5": {
+        "mean_relative_humidity_2m_mean": 77.98,
+        "winter_relative_humidity_2m_mean": 74.85,
+        "summer_relative_humidity_2m_mean": 82.33,
+        "mean_dew_point_2m_mean": 18.37,
+        "winter_dew_point_2m_mean": 10.14,
+        "summer_dew_point_2m_mean": 25.23,
+        "raw_rows": 10958,
+        "raw_sha256": "45d695d2cbeec03b3d8bf5efb3dc68a15eb7f21ba3f1abf05ce87ee25e7be572",
+        "url": "https://archive-api.open-meteo.com/v1/archive?latitude=22.82&longitude=108.37&start_date=1991-01-01&end_date=2020-12-31&daily=relative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5"
+      }
+    },
+    {
+      "site": "Sanya",
+      "candidate_county_code": "460203",
+      "points": [
+        {
+          "latitude": 18.25,
+          "longitude": 109.51,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 15.0
+        },
+        {
+          "latitude": 18.19436,
+          "longitude": 109.72989,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 0.0
+        },
+        {
+          "latitude": 18.37556,
+          "longitude": 109.66683,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 208.0
+        }
+      ],
+      "sample_count": 3,
+      "geometry_blob_sha": "e6e62af2a916b4cdea1b5b038578f33be7f204a8",
+      "humidity_status": "EXPLORATORY_DATA_LOADED",
+      "terrain_exception_review": "STILL_REQUIRED_SPATIAL_QA",
+      "formal_county_screening_status": "NOT_SCREENED",
+      "sample_dem_min_m": 0.0,
+      "sample_dem_max_m": 208.0,
+      "sample_dem_span_m": 208.0,
+      "high_elevation_point_present": false,
+      "humidity_era5": {
+        "mean_relative_humidity_2m_mean": 82.61,
+        "winter_relative_humidity_2m_mean": 79.75,
+        "summer_relative_humidity_2m_mean": 84.77,
+        "mean_dew_point_2m_mean": 21.64,
+        "winter_dew_point_2m_mean": 17.16,
+        "summer_dew_point_2m_mean": 24.88,
+        "raw_rows": 10958,
+        "raw_sha256": "3c95e1dffc5047ef530ae9a3e56f776c62541163ed3392ae27c85fcef82f7b3c",
+        "url": "https://archive-api.open-meteo.com/v1/archive?latitude=18.25&longitude=109.51&start_date=1991-01-01&end_date=2020-12-31&daily=relative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5"
+      }
+    }
+  ]
+}

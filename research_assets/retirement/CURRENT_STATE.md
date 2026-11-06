@@ -37,3 +37,5 @@ RET-SPATIAL-001：执行2017口径geoBoundaries历史县级边界空间匹配真
 
 - RES-SECONDARY-GEOMETRY-CODE-QA-42251289106: 独立编码县界12点空间匹配验证通过；112个面要素仅用于数据工程，不是县级有效广筛。
 - 当前唯一下一动作：RET-COUNTY-MICROCLIMATE-QA-001；官方全国代码完整认证和县内微气候仍OPEN。
+
+- RES-DEM-ERA5-MOISTURE-EXPLORATORY-42251953046: 12县级点位完成36个县内Copernicus DEM海拔采样；ERA5露点/湿度真实读取数和地形例外标记详见证据；属于探索性数据工程，正式广筛0。
