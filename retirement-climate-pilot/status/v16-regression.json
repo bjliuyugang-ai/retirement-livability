@@ -1,0 +1,16 @@
+{
+  "generated_utc": "2026-11-06T15:44:51.904615+00:00",
+  "run_id": "42245890525",
+  "tests_expected": 6,
+  "tests_passed": 6,
+  "status": "PASS",
+  "covered": [
+    "missing_state",
+    "state_drift",
+    "missing_unique_action",
+    "unverified_writeback",
+    "completed_not_research_delta",
+    "duplicate_closed_result"
+  ],
+  "log_tail": "test_completed_not_inferred_as_research_delta (__main__.AssaultGateRegression.test_completed_not_inferred_as_research_delta) ... ok\ntest_duplicate_result_id_fails (__main__.AssaultGateRegression.test_duplicate_result_id_fails) ... ok\ntest_missing_state_must_block (__main__.AssaultGateRegression.test_missing_state_must_block) ... ok\ntest_missing_unique_action_must_block (__main__.AssaultGateRegression.test_missing_unique_action_must_block) ... ok\ntest_stale_version_must_block (__main__.AssaultGateRegression.test_stale_version_must_block) ... ok\ntest_unverified_previous_write_must_block (__main__.AssaultGateRegression.test_unverified_previous_write_must_block) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.019s\n\nOK\n{\"run_id\": \"SYNTHETIC-REGRESSION\", \"action_id\": \"RET-SPATIAL-001\", \"read_at\": \"2026-11-06T15:44:51.848718+00:00\", \"state_revision\": 5, \"state_sha256\": \"783d2f58cf1331dc8c731a971dd10b9093f3f7d16d328ffa75f788ecf60d4494\", \"current_blob_sha\": \"05cfe699c2291a1024c276ac1b8849a9ec3c5dca\", \"source_commit\": \"94ab10bf4b4f1b3a4cdf041147ee118074406926\", \"last_verified_run\": {\"run_id\": \"42245603994\", \"action_id\": \"RET-ADCODE-001\", \"result_id\": \"RES-ARCHIVAL-ADCODE-42245603994\", \"research_delta_status\": \"DELTA_VERIFIED\", \"execution_status\": \"EXECUTED\", \"engineering_status\": \"PASS\", \"research_closure_status\": \"OPEN\", \"evidence_path\": \"retirement-climate-pilot/status/latest-adcode-probe.json\", \"evidence_sha256\": \"bf73470ba083ac7e15c0d2770a2b238e869ed30905daa3649209641282145d8a\", \"status\": \"POSTCHECK_PASS\"}, \"previous_result_refs\": [\"RES-CLIMATE-12POINT-20261106\", \"RES-SPATIAL-ENGINEERING-42244926780\", \"RES-ARCHIVAL-ADCODE-42245603994\"], \"status\": \"PRECHECK_PASS\"}\n{\"run_id\": \"SYNTHETIC-REGRESSION\", \"research_delta\": \"BLOCKED_WITH_EVIDENCE\", \"engineering_pass\": false, \"result_id\": \"RES-SPATIAL-ENGINEERING-SYNTHETIC-REGRESSION\", \"next_action\": \"RET-SPATIAL-001\"}\n"
+}
