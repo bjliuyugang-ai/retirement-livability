@@ -1,0 +1,16 @@
+{
+  "generated_utc": "2026-11-06T16:14:03.987231+00:00",
+  "status": "BLOCKED_WITH_EVIDENCE",
+  "stage": "DUAL_NONOFFICIAL_BOUNDARY_IDENTITY_QA",
+  "official_polygon_verified": false,
+  "official_2026_county_roster_verified": false,
+  "valid_county_screenings": 0,
+  "county_climate_grade_count": 0,
+  "limitations": [
+    "GeoJSON current vintage and CRS must be independently verified; potential GCJ02-WGS84 offset.",
+    "One urban point does not characterize mountainous/coastal/valley counties.",
+    "Source has not been checked against latest formal administrative boundary.",
+    "Residential elevation, humidity/dewpoint, climate representativeness, air, water and risk are not complete."
+  ],
+  "error": "RuntimeError('Pinned source changed Jinghong expected 5e6b1e9beb39e828009a9913c75b48e22e43099 got 5e6b1e9beb39e828009a9913c75b48e22e43099e')"
+}

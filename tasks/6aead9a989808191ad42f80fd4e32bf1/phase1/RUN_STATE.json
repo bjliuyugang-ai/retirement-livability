@@ -12,19 +12,19 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "0b83a9dfaae7487ce60ed6a7f2db3f106665bb41"
+    "git_blob_sha": "cea90b0c8c39332a28fe5d8444ad6611e014ee1e"
   },
   "last_verified_run": {
-    "run_id": "42249396217",
-    "action_id": "RET-OFFICIAL-RECON-001",
-    "result_id": "RES-2026-PROVISIONAL-ROSTER-42249396217",
+    "run_id": "42250420760",
+    "action_id": "RET-CLIMATE-COUNTY-QA-001",
+    "result_id": "RES-SECONDARY-GEOMETRY-CODE-QA-42250420760",
     "execution_status": "EXECUTED",
-    "engineering_status": "PASS",
-    "research_delta_status": "DELTA_VERIFIED",
+    "engineering_status": "FAIL",
+    "research_delta_status": "BLOCKED_WITH_EVIDENCE",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/latest-provisional-roster.json",
-    "evidence_sha256": "58c00a9f68d677fba9e8d19709df6f4e50396845a93456db593c727746220c6e",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/status/latest-county-geometry-qa.json",
+    "evidence_sha256": "1345e9c208bd6a9bcb191cb5bfc7038fb8ed197956315c34ff297c9915a79ebc",
+    "status": "AWAITING_POSTCHECK"
   },
   "last_completed_action_id": "RET-OFFICIAL-RECON-001",
   "closed_result_refs": [
@@ -40,9 +40,10 @@
     "method": "仅使用标注来源的2026-06临时县级底盘开展可复现县级气候覆盖试验；正式全国行政代码完整核验仍未解决",
     "expected_evidence": "县级行政差集、时空源和微气候例外标志；具证据的有效县域广筛首批记录",
     "pass_criteria": "有完整气候与县域空间/海拔、微气候例外证据后才计有效县级广筛；只列名称或未确认编码不计",
-    "fallback": "无法取得2025官方空间边界则冻结行政名字对照与气候点位，仅标待核；切换政府/学术可靠空间源",
+    "fallback": "更换公开地理面数据来源/版本，先核对坐标系与行政编码再重新测试",
     "timebox_end": "2026-11-08T15:26:00Z",
-    "status": "READY"
+    "status": "BLOCKED_WITH_EVIDENCE",
+    "last_error": "RuntimeError('Pinned source changed Jinghong expected 5e6b1e9beb39e828009a9913c75b48e22e43099 got 5e6b1e9beb39e828009a9913c75b48e22e43099e')"
   },
   "phase": "PROVISIONAL_COUNTY_CLIMATE_QA_OFFICIAL_GAP",
   "milestone_deadline": {
@@ -51,14 +52,13 @@
     "checkpoint_48h": "2026-11-08T23:26:00+08:00",
     "note": "工程PASS/FAIL/INCONCLUSIVE裁决节点，不改变全国100%正式验收"
   },
-  "consecutive_no_delta": 0,
+  "consecutive_no_delta": 1,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "0e8d4a45c8182c2967ce62d700a07a258ee76335",
-    "verified_at": "2026-11-06T16:07:33.868673+00:00"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-06T16:07:33.868697+00:00",
-  "state_revision": 9,
+  "updated_at": "2026-11-06T16:14:04.792608+00:00",
+  "state_revision": 10,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
