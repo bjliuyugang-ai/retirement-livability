@@ -24,7 +24,7 @@
     "research_closure_status": "OPEN",
     "evidence_path": "research_engine/retirement/status/latest-county-geometry-qa.json",
     "evidence_sha256": "1345e9c208bd6a9bcb191cb5bfc7038fb8ed197956315c34ff297c9915a79ebc",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-OFFICIAL-RECON-001",
   "closed_result_refs": [
@@ -54,11 +54,12 @@
   },
   "consecutive_no_delta": 1,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "02f9b304619c5ad741f56b35158e6965178dd8f2",
+    "verified_at": "2026-11-06T16:18:59.837978+00:00"
   },
-  "updated_at": "2026-11-06T16:14:04.792608+00:00",
-  "state_revision": 10,
+  "updated_at": "2026-11-06T16:18:59.837993+00:00",
+  "state_revision": 11,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
