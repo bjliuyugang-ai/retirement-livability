@@ -1,0 +1,27 @@
+name: Retirement climate data pipeline pilot
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-climate-pilot.yml'
+      - 'retirement-climate-pilot/**'
+jobs:
+  climate-smoke-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fetch real daily reanalysis and compute monthly aggregates
+        run: python retirement-climate-pilot/pilot.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: retirement-climate-pilot-output
+          path: retirement-climate-pilot/output/
+          retention-days: 14
