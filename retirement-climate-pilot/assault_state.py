@@ -12,8 +12,10 @@ STATE=ROOT/"RUN_STATE.json"
 LOG=ROOT/"RUN_LOG.jsonl"
 CURRENT=pathlib.Path("research_assets/retirement/CURRENT_STATE.md")
 OUTPUT=pathlib.Path("retirement-climate-pilot/output")
-STATUS=pathlib.Path("retirement-climate-pilot/status/latest-spatial-probe.json")
-ACTION="RET-SPATIAL-001"
+ACTION=os.getenv("ASSAULT_ACTION","RET-SPATIAL-001")
+SOURCE_NAME="adcode_probe.json" if ACTION=="RET-ADCODE-001" else "spatial_probe.json"
+STATUS=pathlib.Path("retirement-climate-pilot/status")/("latest-adcode-probe.json" if ACTION=="RET-ADCODE-001" else "latest-spatial-probe.json")
+COMMAND="python retirement-climate-pilot/adcode_probe.py" if ACTION=="RET-ADCODE-001" else "python retirement-climate-pilot/spatial_probe.py"
 RUN_ID=os.getenv("GITHUB_RUN_ID","MANUAL-UNKNOWN")
 NOW=lambda:datetime.datetime.now(datetime.timezone.utc).isoformat()
 def blob_sha(path):
@@ -48,7 +50,7 @@ def precheck():
         raise RuntimeError("NO_ACTION_OR_WRONG_ACTION: expected "+ACTION+" but got "+str(a.get("action_id")))
     if s["writeback_verification"]["status"] in ("PENDING_REMOTE_CHECK","WRITEBACK_FAILED"):
         raise RuntimeError("PREVIOUS_WRITEBACK_UNVERIFIED")
-    if (OUTPUT/"spatial_probe.json").exists(): (OUTPUT/"spatial_probe.json").unlink()
+    if (OUTPUT/SOURCE_NAME).exists(): (OUTPUT/SOURCE_NAME).unlink()
     receipt={"run_id":RUN_ID,"action_id":ACTION,"read_at":NOW(),"state_revision":s["state_revision"],
       "state_sha256":digest(STATE),"current_blob_sha":blob_sha(CURRENT),
       "source_commit":os.getenv("GITHUB_SHA"),"last_verified_run":s["last_verified_run"],
@@ -58,44 +60,61 @@ def precheck():
 def finalize():
     s=load_state()
     if s["active_action"].get("action_id")!=ACTION:raise RuntimeError("WRONG_ACTION_AT_FINALIZE")
-    source=json.loads((OUTPUT/"spatial_probe.json").read_text(encoding="utf-8")) if (OUTPUT/"spatial_probe.json").exists() else {
-      "status":"BLOCKED_WITH_EVIDENCE","error":"Spatial probe did not write output","valid_county_screenings":0}
+    source=json.loads((OUTPUT/SOURCE_NAME).read_text(encoding="utf-8")) if (OUTPUT/SOURCE_NAME).exists() else {
+      "status":"BLOCKED_WITH_EVIDENCE","error":SOURCE_NAME+" did not write output","valid_county_screenings":0}
     emit_json(STATUS,source)
     pts=source.get("point_hits") or []
-    passed=(source.get("status")=="PASS_HISTORIC_POINT_IN_POLYGON"
-      and int(source.get("geometry_features_loaded",0))>=2000
-      and len(pts)==12 and all("historic_polygon_hits" in p for p in pts)
-      and source.get("geometry_sha256") and int(source.get("valid_county_screenings",-1))==0)
+    if ACTION=="RET-ADCODE-001":
+        codes=source.get("candidate_links") or []
+        passed=(source.get("status")=="PASS_ARCHIVAL_CODE_CANDIDATES"
+          and len(codes)==12 and all(x.get("candidate_count")==1 and x.get("candidate_code") for x in codes)
+          and int(source.get("raw_area_count",0))>=2500
+          and int(source.get("official_code_verified",1))==0
+          and int(source.get("valid_county_screenings",-1))==0)
+    else:
+        passed=(source.get("status")=="PASS_HISTORIC_POINT_IN_POLYGON"
+          and int(source.get("geometry_features_loaded",0))>=2000
+          and len(pts)==12 and all("historic_polygon_hits" in p for p in pts)
+          and source.get("geometry_sha256") and int(source.get("valid_county_screenings",-1))==0)
     decision="DELTA_VERIFIED" if passed else "BLOCKED_WITH_EVIDENCE"
     if source.get("valid_county_screenings",0)!=0:raise RuntimeError("ILLEGAL_COUNTY_SCREENING_IN_EXPLORATORY_SPATIAL")
     started=json.loads((OUTPUT/"precheck_receipt.json").read_text(encoding="utf-8"))
     evidence_sha=digest(STATUS)
-    result_id="RES-SPATIAL-ENGINEERING-"+RUN_ID
-    line=("\n- "+result_id+": 2017历史边界点面匹配真实试验；"
-        +"PASS：点位匹配工程可运行，不代表2026行政对账或县级有效广筛。"
-        if passed else
-        "\n- "+result_id+": 历史县界空间匹配被阻塞；错误："+str(source.get("error","unexpected result"))+
-        "；本轮县级有效广筛仍为0。")
+    result_id=("RES-ARCHIVAL-ADCODE-" if ACTION=="RET-ADCODE-001" else "RES-SPATIAL-ENGINEERING-")+RUN_ID
+    line=("\n- "+result_id+": "+("历史开源行政代码与历史县界12点对齐" if ACTION=="RET-ADCODE-001" else "2017历史边界点面匹配")+"；"+
+          ("工程PASS，仅代表候选编码，不等于2026官方对账，也不计有效县级广筛。" if passed else "BLOCKED，错误："+str(source.get("error","criteria failed"))+"；有效县级广筛仍为0。"))
     with CURRENT.open("a",encoding="utf-8") as f:f.write(line+"\n")
     if passed:
         s["last_completed_action_id"]=ACTION
         s["closed_result_refs"].append(result_id)
-        s["active_action"]={
-          "action_id":"RET-ADCODE-001","question_id":"Q-OFFICIAL-ADCODE",
-          "decision":"将历史边界真实命中关联合法县级编码并核验县域代表性",
-          "method":"读取权威代码、逐一对账历史县界和县域例外；没有合法源则先做可判别取证实验",
-          "expected_evidence":"可追溯县界-代码对账表、失配/歧义及微气候例外记录",
-          "pass_criteria":"真实编码与几何关联可复现，误配保留待核；不直接执行未批准的硬阈值淘汰",
-          "fallback":"更换权威代码源，保留冲突","timebox_end":"2026-11-08T15:26:00Z","status":"READY"}
+        if ACTION=="RET-ADCODE-001":
+            s["active_action"]={
+              "action_id":"RET-OFFICIAL-RECON-001","question_id":"Q-OFFICIAL-ADCODE",
+              "decision":"把已找到的历史代码候选逐一与现行官方县级名录核对，处理行政调整和微气候例外",
+              "method":"获取官方县级代码及口径，逐项作差集和名称层级查验；核对空间代表性与海拔差异",
+              "expected_evidence":"可核验现行行政代码逐项差集、历史冲突、例外与无法核验名单",
+              "pass_criteria":"真实官方来源逐项比对并明确空间代表性；无证据标UNKNOWN",
+              "fallback":"更换官方来源或缩小验证窗口，保留现行官方未获证据状态",
+              "timebox_end":"2026-11-08T15:26:00Z","status":"READY"}
+            s["phase"]="OFFICIAL_CURRENT_ADCODE_QA"
+        else:
+            s["active_action"]={
+              "action_id":"RET-ADCODE-001","question_id":"Q-OFFICIAL-ADCODE",
+              "decision":"历史县界真实命中点位与独立历史行政代码候选对齐",
+              "method":"从开源行政区划归档获取三级代码，按省-地-县层级和人工核对的双语名称做唯一候选关联",
+              "expected_evidence":"retirement-climate-pilot/status/latest-adcode-probe.json",
+              "pass_criteria":"12点全部获得独立历史代码唯一候选、来源hash记录，明确非2026官方且不计有效广筛",
+              "fallback":"数据下载受阻则走GitHub可访问内容源，禁止重复泛搜",
+              "timebox_end":"2026-11-08T15:26:00Z","status":"READY"}
+            s["phase"]="ARCHIVAL_CODE_CANDIDATE_MATCH"
         s["consecutive_no_delta"]=0
-        s["phase"]="OFFICIAL_CODE_RECONCILIATION"
     else:
         s["active_action"]["status"]="BLOCKED_WITH_EVIDENCE"
         s["active_action"]["last_error"]=str(source.get("error","spatial proof criteria not met"))
         s["consecutive_no_delta"]=int(s["consecutive_no_delta"])+1
         if s["consecutive_no_delta"]>=2:
             s["active_action"]["status"]="REQUIRES_DIFFERENT_METHOD"
-            s["active_action"]["fallback"]="必须改用另一合法县界来源或访问方式；不得第三次同法运行"
+            s["active_action"]["fallback"]="必须更换对应步骤的合法数据来源或访问方式；不得第三次同法运行"
     s["current_state_ref"]["git_blob_sha"]=blob_sha(CURRENT)
     s["updated_at"]=NOW()
     s["state_revision"]+=1
@@ -108,7 +127,7 @@ def finalize():
     emit_json(STATE,s)
     append_log({"run_id":RUN_ID,"start_time":started["read_at"],"end_time":NOW(),"kind":"S0-S5",
       "source_revision":started["state_revision"],"action_id":ACTION,
-      "input_blob_sha":started["current_blob_sha"],"actual_command":"python retirement-climate-pilot/spatial_probe.py",
+      "input_blob_sha":started["current_blob_sha"],"actual_command":COMMAND,
       "evidence_path":str(STATUS),"evidence_sha256":evidence_sha,"result_id":result_id,
       "execution_status":s["last_verified_run"]["execution_status"],
       "engineering_status":s["last_verified_run"]["engineering_status"],
