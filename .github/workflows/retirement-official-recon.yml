@@ -1,0 +1,86 @@
+name: Retirement phase1 official code reconnaissance
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-official-recon.yml'
+jobs:
+  official-code-recon:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 read verified state and claim current official-code action
+        id: precheck
+        run: python research_engine/retirement/official_state.py precheck
+      - name: S3 fetch official 2025 code tree and audit against archival codes
+        id: source
+        continue-on-error: true
+        run: python research_engine/retirement/official_recon_probe.py
+      - name: S4-S5 classify official acquisition and persist current state
+        id: finalize
+        if: always() && steps.precheck.outcome == 'success'
+        run: python research_engine/retirement/official_state.py finalize
+      - name: Upload raw source, exact diff and run receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: official-recon-evidence
+          path: research_engine/retirement/output/
+          retention-days: 30
+      - name: Freeze verified public official source and write versioned evidence
+        if: steps.finalize.outcome == 'success'
+        run: |
+          python - <<'PY'
+          import json,pathlib,shutil
+          src=pathlib.Path("research_engine/retirement/output/official_2025_raw.json")
+          if src.exists():
+              out=pathlib.Path("research_engine/retirement/evidence")
+              out.mkdir(parents=True,exist_ok=True)
+              import hashlib
+              sha=hashlib.sha256(src.read_bytes()).hexdigest()[:16]
+              target=out/("official_2025_"+sha+".json")
+              if not target.exists():shutil.copyfile(src,target)
+              diff=pathlib.Path("research_engine/retirement/output/official_vs_archival_code_diff.csv")
+              if diff.exists():
+                  dest=out/("official_vs_archival_"+sha+".csv")
+                  if not dest.exists():shutil.copyfile(diff,dest)
+              print("FROZEN_RAW",target)
+          else:
+              print("NO_OFFICIAL_RAW: stored failure evidence only")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl research_assets/retirement/CURRENT_STATE.md research_engine/retirement/status/latest-official-recon.json research_engine/retirement/evidence/
+          git diff --cached --quiet && exit 2 || true
+          git commit -m "Persist actual official-code API evidence and V1.6 S0-S5 state"
+          git push origin HEAD:main
+      - name: S6 independently read GitHub committed state and verify handoff
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git fetch origin main
+          python research_engine/retirement/official_state.py postcheck
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
+          git commit -m "Verify official-code handoff and record S6 postcheck"
+          git push origin HEAD:main
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          path="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          s=json.loads(subprocess.check_output(["git","show","origin/main:"+path]))
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["last_verified_run"]["action_id"]=="RET-OFFICIAL-RECON-001"
+          print("POSTCHECK_PASS",s["last_verified_run"])
+          PY
+      - name: Do not pass the action when the official source fetch fails
+        if: steps.source.outcome == 'failure'
+        run: exit 1
