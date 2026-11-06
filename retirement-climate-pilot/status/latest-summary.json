@@ -1,0 +1,15 @@
+{
+  "generated_utc": "2026-11-06T09:26:29.487935Z",
+  "sites_requested": 3,
+  "sites_with_12_months": 2,
+  "monthly_rows": 24,
+  "county_matched": 0,
+  "valid_county_screenings": 0,
+  "caveat": "ERA5 point reanalysis is exploratory; no administrative joins, no formal classifications.",
+  "errors": [
+    {
+      "site": "Xiamen",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    }
+  ]
+}
