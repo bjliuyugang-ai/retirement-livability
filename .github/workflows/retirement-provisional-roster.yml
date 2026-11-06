@@ -1,0 +1,86 @@
+name: Retirement 2026 provisional roster fallback assault
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-provisional-roster.yml'
+jobs:
+  provisional-roster:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    env:
+      OFFICIAL_RECON_MODE: fallback
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 verify previous official DNS blocker and claim single fallback action
+        id: precheck
+        run: python research_engine/retirement/official_state.py precheck
+      - name: S3 build 2026-06 provisional national working roster
+        id: execution
+        continue-on-error: true
+        run: python research_engine/retirement/provisional_roster.py
+      - name: S4-S5 classify working roster without implying official or climate screening
+        id: finalize
+        if: always() && steps.precheck.outcome == 'success'
+        run: python research_engine/retirement/official_state.py finalize
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: provisional-2026-roster-evidence
+          path: research_engine/retirement/output/
+          retention-days: 30
+      - name: Preserve complete working roster and state checkpoint
+        if: steps.finalize.outcome == 'success'
+        run: |
+          if [ -f research_engine/retirement/output/provisional_counties_2026_06.csv ]; then
+            cp research_engine/retirement/output/provisional_counties_2026_06.csv research_engine/retirement/evidence/provisional_counties_2026_06.csv
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl research_assets/retirement/CURRENT_STATE.md research_engine/retirement/status/latest-provisional-roster.json research_engine/retirement/evidence/provisional_counties_2026_06.csv
+          git diff --cached --quiet && exit 2 || true
+          git commit -m "Freeze 2026 working roster scope and V1.6 execution record"
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          r=json.load(open("research_engine/retirement/output/official_precheck.json"))
+          p="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          current=json.loads(subprocess.check_output(["git","show","origin/main:"+p]))
+          assert current["state_revision"]==r["start_state_revision"],"CAS_CONFLICT"
+          assert current["current_state_ref"]["git_blob_sha"]==r["current_state_blob"],"CURRENT_STATE_CONFLICT"
+          PY
+          git rebase origin/main
+          git push origin HEAD:main
+      - name: S6 remote readback and state handoff
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git fetch origin main
+          python research_engine/retirement/official_state.py postcheck
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
+          git commit -m "Confirm working roster postcheck and unique next action"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          p="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          current=json.loads(subprocess.check_output(["git","show","origin/main:"+p]))
+          assert current["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert current["last_verified_run"]["action_id"]=="RET-OFFICIAL-RECON-001"
+          print("REMOTE_POSTCHECK_PASS",current["active_action"]["action_id"],current["last_verified_run"]["research_delta_status"])
+          PY
+      - name: Enforce bounded failure status if working roster fails
+        if: steps.execution.outcome == 'failure'
+        run: exit 1
