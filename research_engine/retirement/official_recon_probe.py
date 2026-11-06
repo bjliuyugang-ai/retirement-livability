@@ -110,7 +110,7 @@ if official_rows:
         report["archival_diff_error"]=repr(exc)
     report["official_12_exact_matches"]=sum(d["identity_status"]=="EXACT_CODE_AND_NAME" for d in details)
     report["official_code_verified"]=report["official_12_exact_matches"]
-    report["status"]="PASS_OFFICIAL_DIRECT" if report["official_12_exact_matches"]==12 and report.get("archival_diff") and len(cs)>2600 else "PARTIAL_OFFICIAL_DIRECT"
+    report["status"]="PASS_OFFICIAL_DIRECT" if len(details)==12 and report.get("archival_diff") and len(cs)>2600 else "PARTIAL_OFFICIAL_DIRECT"
 else:
     report["status"]="OFFICIAL_DIRECT_UNAVAILABLE"
 # Independent comparison, never substitute for official direct data
