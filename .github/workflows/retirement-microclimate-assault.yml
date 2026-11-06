@@ -1,0 +1,82 @@
+name: Retirement terrain and humidity microclimate assault
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-microclimate-assault.yml'
+jobs:
+  terrain-moisture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 read verified current state, claim unique next action
+        id: precheck
+        run: python research_engine/retirement/microclimate_state.py precheck
+      - name: S3 fetch 36 Copernicus GLO90 terrain samples and twelve 30-year ERA5 moisture grids
+        id: assay
+        continue-on-error: true
+        run: python research_engine/retirement/microclimate_pilot.py
+      - name: S4-S5 judge and record actual climate evidence separate from grades
+        id: finalize
+        if: always() && steps.precheck.outcome == 'success'
+        run: python research_engine/retirement/microclimate_state.py finalize
+      - name: Archive raw hashes and microclimate output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: microclimate-dem-era5-assault-evidence
+          path: research_engine/retirement/output/
+          retention-days: 30
+      - name: Preserve audit source and V1.6 state, with optimistic CAS
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl research_assets/retirement/CURRENT_STATE.md research_engine/retirement/status/latest-microclimate-pilot.json
+          git diff --cached --quiet && exit 2 || true
+          git commit -m "Record DEM and ERA5 moisture experiment with V1.6 state"
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          pre=json.load(open("research_engine/retirement/output/microclimate_precheck.json"))
+          path="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          remote=json.loads(subprocess.check_output(["git","show","origin/main:"+path]))
+          assert remote["state_revision"]==pre["revision"],"CAS_CONCURRENT_STATE_ADVANCE"
+          assert remote["current_state_ref"]["git_blob_sha"]==pre["current_state_blob"],"CAS_CONCURRENT_CURRENT_STATE_ADVANCE"
+          PY
+          git rebase origin/main
+          git push origin HEAD:main
+      - name: S6 verify remote evidence and publish next action
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git fetch origin main
+          python research_engine/retirement/microclimate_state.py postcheck
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
+          git commit -m "Verify terrain and humidity microclimate state handoff"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          path="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          s=json.loads(subprocess.check_output(["git","show","origin/main:"+path]))
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["last_verified_run"]["action_id"]=="RET-COUNTY-MICROCLIMATE-QA-001"
+          print("REMOTE_POSTCHECK_PASS",s["last_verified_run"])
+          PY
+      - name: Enforce real DEM source availability
+        if: steps.assay.outcome == 'failure'
+        run: exit 1
