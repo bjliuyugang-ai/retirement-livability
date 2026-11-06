@@ -12,19 +12,19 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "05cfe699c2291a1024c276ac1b8849a9ec3c5dca"
+    "git_blob_sha": "c9c198050566cea6faa499eeea6407b44807f5b7"
   },
   "last_verified_run": {
-    "run_id": "42245603994",
-    "action_id": "RET-ADCODE-001",
-    "result_id": "RES-ARCHIVAL-ADCODE-42245603994",
-    "research_delta_status": "DELTA_VERIFIED",
+    "run_id": "42248287808",
+    "action_id": "RET-OFFICIAL-RECON-001",
+    "result_id": "RES-2025-OFFICIAL-SOURCE-42248287808",
     "execution_status": "EXECUTED",
-    "engineering_status": "PASS",
+    "engineering_status": "FAIL",
+    "research_delta_status": "BLOCKED_WITH_EVIDENCE",
     "research_closure_status": "OPEN",
-    "evidence_path": "retirement-climate-pilot/status/latest-adcode-probe.json",
-    "evidence_sha256": "bf73470ba083ac7e15c0d2770a2b238e869ed30905daa3649209641282145d8a",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/status/latest-official-recon.json",
+    "evidence_sha256": "434df3aa1f8811bb8b95856a3fe3bfd066ecf8f1138968b9b30c7788f73e76ed",
+    "status": "AWAITING_POSTCHECK"
   },
   "last_completed_action_id": "RET-ADCODE-001",
   "closed_result_refs": [
@@ -39,9 +39,10 @@
     "method": "获取官方县级代码及口径，逐项作差集和名称层级查验；核对空间代表性与海拔差异",
     "expected_evidence": "可核验现行行政代码逐项差集、历史冲突、例外与无法核验名单",
     "pass_criteria": "真实官方来源逐项比对并明确空间代表性；无证据标UNKNOWN",
-    "fallback": "更换官方来源或缩小验证窗口，保留现行官方未获证据状态",
+    "fallback": "切换2025官方年版独立镜像交叉核验及其他官方省级材料，不能以镜像冒充官方直读；2轮无增量禁止继续同入口",
     "timebox_end": "2026-11-08T15:26:00Z",
-    "status": "READY"
+    "status": "BLOCKED_WITH_EVIDENCE",
+    "last_error": "official API unavailable / result partial; see evidence research_engine/retirement/status/latest-official-recon.json"
   },
   "phase": "OFFICIAL_CURRENT_ADCODE_QA",
   "milestone_deadline": {
@@ -50,12 +51,11 @@
     "checkpoint_48h": "2026-11-08T23:26:00+08:00",
     "note": "工程PASS/FAIL/INCONCLUSIVE裁决节点，不改变全国100%正式验收"
   },
-  "consecutive_no_delta": 0,
+  "consecutive_no_delta": 1,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "cce376e2b9af05e0318d1859752ddc7bc697eb50",
-    "verified_at": "2026-11-06T15:43:03.427558+00:00"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-06T15:43:03.427575+00:00",
-  "state_revision": 5
+  "updated_at": "2026-11-06T16:00:55.891879+00:00",
+  "state_revision": 6
 }

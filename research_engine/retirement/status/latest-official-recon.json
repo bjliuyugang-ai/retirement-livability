@@ -1,0 +1,43 @@
+{
+  "generated_at_utc": "2026-11-06T16:00:27.868967+00:00",
+  "active_action": "RET-OFFICIAL-RECON-001",
+  "official_api_url": "https://dmfw.mca.gov.cn/9095/xzqh/getList",
+  "status": "OFFICIAL_DIRECT_UNAVAILABLE",
+  "valid_county_screenings": 0,
+  "official_code_verified": 0,
+  "county_climate_verified": 0,
+  "official_source_method": "live government HTTP GET requested 2025 annual edition",
+  "warning": "A code identity is not a weather representativeness judgement, and does not mean a valid county screening.",
+  "expected_archival_candidates": 12,
+  "official_attempts": [
+    {
+      "url": "https://dmfw.mca.gov.cn/9095/xzqh/getList?code=&maxLevel=3&year=2025",
+      "error": "URLError(gaierror(-3, 'Temporary failure in name resolution'))"
+    },
+    {
+      "url": "https://dmfw.mca.gov.cn/9095/xzqh/getList?code=460000000000&maxLevel=3&year=2025",
+      "error": "URLError(gaierror(-3, 'Temporary failure in name resolution'))"
+    },
+    {
+      "url": "https://dmfw.mca.gov.cn/9095/xzqh/getList?code=530000000000&maxLevel=3&year=2025",
+      "error": "URLError(gaierror(-3, 'Temporary failure in name resolution'))"
+    }
+  ],
+  "official_response_received": 0,
+  "mirror_summary": {
+    "source_url": "https://raw.githubusercontent.com/wujingke/division_codes/main/output/meta/summary.json",
+    "sha256": "3a1cbf8435e00fb4336aa70c611f3a49e8eaf249c8929d9103d3f451c600e57b",
+    "raw_bytes": 296,
+    "data": {
+      "source_url": "https://dmfw.mca.gov.cn/XzqhVersionPublish.html",
+      "version_tag": "Xzqh20251231",
+      "version_date": "2025-12-31",
+      "captured_at": "2026-03-26T08:36:23+00:00",
+      "province_count": 33,
+      "city_count": 334,
+      "county_count": 2845,
+      "town_count": 39066,
+      "total_count": 42278
+    }
+  }
+}
