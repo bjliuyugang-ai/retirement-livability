@@ -24,7 +24,7 @@
     "research_closure_status": "OPEN",
     "evidence_path": "research_engine/retirement/status/latest-microclimate-pilot.json",
     "evidence_sha256": "28250d8ba6a7594ba3b403b798430582c9002eb581b119e5400d41f417f16a77",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-COUNTY-MICROCLIMATE-QA-001",
   "closed_result_refs": [
@@ -55,11 +55,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "95cd131a5195e15c218eb7df15fe1b38ac5e44a6",
+    "verified_at": "2026-11-06T16:30:53.011421+00:00"
   },
-  "updated_at": "2026-11-06T16:30:49.990416+00:00",
-  "state_revision": 14,
+  "updated_at": "2026-11-06T16:30:53.011449+00:00",
+  "state_revision": 15,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
