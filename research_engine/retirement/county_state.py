@@ -17,14 +17,19 @@ def save(p,v):
     p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 def append(v):
     with LOG.open("a",encoding="utf-8") as f:f.write(json.dumps(v,ensure_ascii=False,sort_keys=True)+"\n")
-def read():
+def read(postcheck_mode=False):
     if not all(p.exists() for p in [STATE,CURRENT,LOG]):raise RuntimeError("STATE_MISSING")
     s=json.loads(STATE.read_text(encoding="utf-8"))
     if s["task_id"]!=TASK or s["schema_version"]!="1.6":raise RuntimeError("STATE_SCHEMA")
     if s["current_state_ref"]["git_blob_sha"]!=blob(CURRENT):raise RuntimeError("STATE_DRIFT")
-    if s["active_action"]["action_id"]!=ACTION:raise RuntimeError("ACTION_MISMATCH_OR_CLOSED")
-    if s["writeback_verification"]["status"]!="POSTCHECK_PASS":raise RuntimeError("PREVIOUS_POSTCHECK_FAILED")
-    if s["last_completed_action_id"]!="RET-OFFICIAL-RECON-001":raise RuntimeError("PRIOR_DEPENDENCY_MISSING")
+    if not postcheck_mode:
+        if s["active_action"]["action_id"]!=ACTION:raise RuntimeError("ACTION_MISMATCH_OR_CLOSED")
+        if s["writeback_verification"]["status"]!="POSTCHECK_PASS":raise RuntimeError("PREVIOUS_POSTCHECK_FAILED")
+        if s["last_completed_action_id"]!="RET-OFFICIAL-RECON-001":raise RuntimeError("PRIOR_DEPENDENCY_MISSING")
+    else:
+        if s["writeback_verification"]["status"]!="PENDING_REMOTE_CHECK":raise RuntimeError("NO_PENDING_POSTCHECK")
+        if s["last_verified_run"]["action_id"]!=ACTION:raise RuntimeError("PENDING_ACTION_MISMATCH")
+        if s["last_verified_run"]["status"]!="AWAITING_POSTCHECK":raise RuntimeError("PENDING_STATUS_MISMATCH")
     return s
 def precheck():
     s=read()
@@ -92,21 +97,36 @@ def finalize():
     print(json.dumps({"run_id":RUN,"engineering":engineering,"delta":delta,
       "next_action":s["active_action"]["action_id"],"counties_effective":0}))
 def postcheck():
-    s=read()
-    if s["last_verified_run"]["run_id"]!=RUN:raise RuntimeError("RUN_ID_MISMATCH")
+    s=read(postcheck_mode=True)
+    original_run=s["last_verified_run"]["run_id"]
+    recovery=os.environ.get("REPAIR_PENDING_POSTCHECK")=="1"
+    if original_run!=RUN and not recovery:raise RuntimeError("RUN_ID_MISMATCH")
+    if recovery and s["last_verified_run"]["engineering_status"]!="FAIL":
+        raise RuntimeError("RECOVERY_ONLY_ALLOWED_FOR_PREVIOUSLY_FAILED_RUN")
     remote=json.loads(subprocess.check_output(["git","show","origin/main:"+str(STATE)],text=True))
-    if remote["state_revision"]!=s["state_revision"] or remote["last_verified_run"]["run_id"]!=RUN:raise RuntimeError("REMOTE_STATE_MISMATCH")
+    if remote["state_revision"]!=s["state_revision"] or remote["last_verified_run"]["run_id"]!=original_run:raise RuntimeError("REMOTE_STATE_MISMATCH")
     if remote["current_state_ref"]["git_blob_sha"]!=blob(CURRENT):raise RuntimeError("REMOTE_CURRENT_DRIFT")
-    for p in [CURRENT,DEST,LOG]:subprocess.check_output(["git","show","origin/main:"+str(p)])
+    remote_evidence=subprocess.check_output(["git","show","origin/main:"+str(DEST)])
+    if hashlib.sha256(remote_evidence).hexdigest()!=s["last_verified_run"]["evidence_sha256"]:
+        raise RuntimeError("REMOTE_EVIDENCE_HASH_MISMATCH")
+    remote_log=subprocess.check_output(["git","show","origin/main:"+str(LOG)],text=True)
+    if not any(json.loads(line).get("run_id")==original_run and json.loads(line).get("kind")=="S0-S5"
+               for line in remote_log.splitlines() if line.strip()):
+        raise RuntimeError("REMOTE_RUN_LOG_MISSING")
+    subprocess.check_output(["git","show","origin/main:"+str(CURRENT)])
     s["writeback_verification"]={"status":"POSTCHECK_PASS",
        "verified_commit":subprocess.check_output(["git","rev-parse","origin/main"],text=True).strip(),
        "verified_at":NOW()}
     s["last_verified_run"]["status"]="POSTCHECK_PASS"
     s["updated_at"]=NOW();s["state_revision"]+=1
     save(STATE,s)
-    append({"kind":"S6_POSTCHECK","run_id":RUN,"action_id":ACTION,"at":NOW(),
-         "postcheck":"PASS","state_revision":s["state_revision"]})
-    print("POSTCHECK_PASS",RUN)
+    append({"kind":"S6_POSTCHECK_RECOVERY" if recovery else "S6_POSTCHECK",
+            "run_id":original_run,"recovery_run_id":RUN if recovery else None,
+            "original_engineering_status":s["last_verified_run"]["engineering_status"],
+            "action_id":ACTION,"at":NOW(),"postcheck":"PASS",
+            "state_revision":s["state_revision"],
+            "evidence_sha256":s["last_verified_run"]["evidence_sha256"]})
+    print("POSTCHECK_PASS",original_run,"recovery",recovery)
 if __name__=="__main__":
     try:{"precheck":precheck,"finalize":finalize,"postcheck":postcheck}[sys.argv[1]]()
     except Exception as exc:
