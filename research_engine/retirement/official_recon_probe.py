@@ -81,9 +81,36 @@ if official_rows:
                         "official_code_candidates":cand[:5],
                         "identity_status":"EXACT_CODE_AND_NAME" if any(c["name"]==e["name"] for c in cand) else "MISMATCH_OR_MISSING"})
     report["official_12_site_checks"]=details
+    # Preserve full code differences; independent archival source is not a direct official source.
+    try:
+        old_url="https://raw.githubusercontent.com/modood/Administrative-divisions-of-China/master/dist/areas.json"
+        archive_blob,_,_=get(old_url,timeout=45)
+        old=json.loads(archive_blob)
+        old_by={str(x["code"]):str(x["name"]) for x in old if "code" in x and "name" in x}
+        now_by={code:arr[0]["name"] for code,arr in cs.items() if len(arr)==1}
+        delta=[]
+        for code in sorted(set(old_by)|set(now_by)):
+            if code not in old_by:typ="OFFICIAL_ONLY"
+            elif code not in now_by:typ="ARCHIVE_ONLY"
+            elif old_by[code]!=now_by[code]:typ="NAME_CHANGED"
+            else:continue
+            delta.append({"code":code,"difference":typ,"archival_name":old_by.get(code),"official_name":now_by.get(code)})
+        report["archival_diff"]={
+          "archival_source":old_url,"archival_sha256":digest(archive_blob),
+          "archival_count":len(old_by),"official_like_unique_count":len(now_by),
+          "diff_rows":len(delta),
+          "official_only":sum(x["difference"]=="OFFICIAL_ONLY" for x in delta),
+          "archive_only":sum(x["difference"]=="ARCHIVE_ONLY" for x in delta),
+          "name_changed":sum(x["difference"]=="NAME_CHANGED" for x in delta),
+          "sample":delta[:20]}
+        with (P/"official_vs_archival_code_diff.csv").open("w",newline="",encoding="utf-8-sig") as dest:
+            w=csv.DictWriter(dest,fieldnames=["code","difference","archival_name","official_name"])
+            w.writeheader();w.writerows(delta)
+    except Exception as exc:
+        report["archival_diff_error"]=repr(exc)
     report["official_12_exact_matches"]=sum(d["identity_status"]=="EXACT_CODE_AND_NAME" for d in details)
     report["official_code_verified"]=report["official_12_exact_matches"]
-    report["status"]="PASS_OFFICIAL_DIRECT" if report["official_12_exact_matches"]==12 else "PARTIAL_OFFICIAL_DIRECT"
+    report["status"]="PASS_OFFICIAL_DIRECT" if report["official_12_exact_matches"]==12 and report.get("archival_diff") and len(cs)>2600 else "PARTIAL_OFFICIAL_DIRECT"
 else:
     report["status"]="OFFICIAL_DIRECT_UNAVAILABLE"
 # Independent comparison, never substitute for official direct data
