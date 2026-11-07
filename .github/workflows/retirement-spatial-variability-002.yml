@@ -1,6 +1,8 @@
 name: Retirement four-county ERA5 spatial representativeness assault
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '31 * * * *'
   push:
     branches: [main]
     paths:
@@ -21,11 +23,29 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Inspect state for a legitimately pending action
+        id: gate
+        run: |
+          python - <<'PY'
+          import json,os
+          p="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          s=json.load(open(p,encoding="utf-8"))
+          a=s["active_action"]
+          should_run=(a.get("action_id")=="RET-CLIMATE-SPATIAL-REPRESENTATIVENESS-002"
+            and a.get("status") in ("READY","BLOCKED_WITH_EVIDENCE")
+            and s["writeback_verification"].get("status")=="POSTCHECK_PASS"
+            and int(s.get("consecutive_no_delta",0))<2)
+          with open(os.environ["GITHUB_OUTPUT"],"a") as f:
+            f.write("run="+("true" if should_run else "false")+"\n")
+          print("ASSAULT_GATE",a.get("action_id"),a.get("status"),"run" if should_run else "skip")
+          PY
       - name: S0-S2 read authoritative state and claim unique ACTION
         id: precheck
+        if: steps.gate.outputs.run == 'true'
         run: python research_engine/retirement/spatial_variability_002_state.py precheck
       - name: S3 run 12 real ERA5 daily 1991-2020 requests in four heterogeneous counties
         id: assay
+        if: steps.precheck.outcome == 'success'
         continue-on-error: true
         run: python research_engine/retirement/spatial_variability_002.py
       - name: S4-S5 separately judge engineering and research evidence, write logs
