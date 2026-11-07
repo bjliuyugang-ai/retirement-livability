@@ -1,0 +1,68 @@
+name: Retirement stage1 parameter cascade pilot (no hourly schedule)
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-cascade-pilot.yml'
+jobs:
+  candidate-cascade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate code and process frozen 11 points through five parameter rounds
+        run: |
+          python -m py_compile research_engine/retirement/parameter_cascade_v1.py
+          python -u research_engine/retirement/parameter_cascade_v1.py
+      - name: Verify non-destructive pilot counts and non-hard preference semantics
+        run: |
+          python - <<'PY'
+          import json
+          p="research_engine/retirement/output/staged_parameter_cascade_v1.json"
+          x=json.load(open(p))
+          assert x["input_units"]==4 and len(x["round_summary"])==5
+          assert all(r["input"]==r["carry_forward"]+r["new_verified_exits"] for r in x["round_summary"])
+          assert all(x["round_summary"][i]["carry_forward"]==x["round_summary"][i+1]["input"] for i in range(4))
+          assert x["pending_units"]+x["verified_exclusions"]==x["input_units"]
+          assert x["valid_county_screenings"]==0 and x["formal_grades_changed"]==0
+          assert "synthetic checks passed" in x["hard_exclusion_gate_regression"]
+          print("R0-R5_CASCADE_COUNTS_AND_HARD_GATE_TEST_PASS",x["round_summary"])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: national-filter-cascade-11point-prototype
+          path: research_engine/retirement/output/staged_parameter_cascade_v1.*
+          retention-days: 30
+      - name: Persist mechanical test results without changing Library or formal grading
+        run: |
+          mkdir -p research_engine/retirement/status
+          cp research_engine/retirement/output/staged_parameter_cascade_v1.json research_engine/retirement/status/staged_parameter_cascade_v1.json
+          cp research_engine/retirement/output/staged_parameter_cascade_v1.csv research_engine/retirement/status/staged_parameter_cascade_v1.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/staged_parameter_cascade_v1.json research_engine/retirement/status/staged_parameter_cascade_v1.csv
+          git diff --cached --quiet && exit 2 || true
+          git commit -m "Persist R1-R5 cascade proof with missing-data carry-over"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          p="research_engine/retirement/status/staged_parameter_cascade_v1.json"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+p]))
+          assert d["input_units"]==4 and d["valid_county_screenings"]==0
+          assert len(d["round_summary"])==5
+          print("R1_R5_CASCADE_REMOTE_POSTCHECK_PASS")
+          PY
