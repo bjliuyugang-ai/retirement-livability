@@ -1,0 +1,220 @@
+{
+  "schema": "RET_METEOSTAT_STATION_BULK_MONTHLY_1991_2020_QA_V1",
+  "generated_at_utc": "2026-11-07T01:21:22.493419+00:00",
+  "status": "REAL_STATION_BULK_DATA_READ_WITH_PROVENANCE_LIMITS",
+  "sources": [
+    {
+      "url": "https://data.meteostat.net/monthly.parquet",
+      "bytes": 152559044,
+      "sha256": "7f5f37abaf67e57cbaeacefa20fae58c202a53d4d7250b1d2044dc7d98b5d68c",
+      "filename": "monthly.parquet"
+    },
+    {
+      "url": "https://data.meteostat.net/stations.db",
+      "bytes": 32804864,
+      "sha256": "c9766c89b9443e42611d6e22fa8eddfdbbebe793968260c41625a5580c9f1d5d",
+      "filename": "stations.db"
+    }
+  ],
+  "base_period": "1991-2020",
+  "site_is_official_current_county_verified": false,
+  "formal_county_screenings": 0,
+  "caveats": [
+    "Meteostat monthly dataset may include model substitutes; source columns must be inspected",
+    "Station coordinates are site-specific; cannot certify county boundary, residence or safety",
+    "Station inventory data may be incomplete and uneven across provinces",
+    "No country claims from a bounding box alone"
+  ],
+  "station_db_tables": [
+    "stations",
+    "names",
+    "identifiers",
+    "inventory"
+  ],
+  "station_db_columns": [
+    "id",
+    "country",
+    "region",
+    "latitude",
+    "longitude",
+    "elevation",
+    "timezone"
+  ],
+  "station_db_total_stations": 15735,
+  "candidate_station_bbox_count": 1243,
+  "country_column_present": true,
+  "observed_country_values_in_bbox": {
+    "IN": 298,
+    "CN": 257,
+    "RU": 215,
+    "JP": 110,
+    "KR": 73,
+    "KZ": 61,
+    "MN": 43,
+    "TW": 29,
+    "TH": 29,
+    "KG": 19,
+    "NP": 15,
+    "MM": 15
+  },
+  "monthly_parquet_columns": [
+    {
+      "name": "station",
+      "dtype": "VARCHAR"
+    },
+    {
+      "name": "date",
+      "dtype": "DATE"
+    },
+    {
+      "name": "temp",
+      "dtype": "DOUBLE"
+    },
+    {
+      "name": "temp_source",
+      "dtype": "VARCHAR"
+    },
+    {
+      "name": "tmin",
+      "dtype": "DOUBLE"
+    },
+    {
+      "name": "tmin_source",
+      "dtype": "VARCHAR"
+    },
+    {
+      "name": "tmax",
+      "dtype": "DOUBLE"
+    },
+    {
+      "name": "tmax_source",
+      "dtype": "VARCHAR"
+    },
+    {
+      "name": "txmn",
+      "dtype": "DOUBLE"
+    },
+    {
+      "name": "txmn_source",
+      "dtype": "VARCHAR"
+    },
+    {
+      "name": "txmx",
+      "dtype": "DOUBLE"
+    },
+    {
+      "name": "txmx_source",
+      "dtype": "VARCHAR"
+    },
+    {
+      "name": "prcp",
+      "dtype": "DOUBLE"
+    },
+    {
+      "name": "prcp_source",
+      "dtype": "VARCHAR"
+    },
+    {
+      "name": "pres",
+      "dtype": "DOUBLE"
+    },
+    {
+      "name": "pres_source",
+      "dtype": "VARCHAR"
+    },
+    {
+      "name": "tsun",
+      "dtype": "USMALLINT"
+    },
+    {
+      "name": "tsun_source",
+      "dtype": "VARCHAR"
+    }
+  ],
+  "monthly_parquet_total_records": 6532449,
+  "bbox_1991_2020_monthly_tmax_observation_rows": 169784,
+  "bbox_1991_2020_monthly_tmax_station_count": 758,
+  "tmax_source_values": [
+    {
+      "source": "ghcnd",
+      "records": 90751
+    },
+    {
+      "source": "climat",
+      "records": 69688
+    },
+    {
+      "source": "isd_lite",
+      "records": 5612
+    },
+    {
+      "source": "dwd_mosmix",
+      "records": 1094
+    },
+    {
+      "source": "isd_lite metar",
+      "records": 960
+    },
+    {
+      "source": "ghcnd isd_lite",
+      "records": 693
+    },
+    {
+      "source": "dwd_mosmix isd_lite",
+      "records": 165
+    },
+    {
+      "source": "ghcnd dwd_mosmix",
+      "records": 128
+    },
+    {
+      "source": "isd_lite dwd_mosmix",
+      "records": 99
+    },
+    {
+      "source": "dwd_mosmix ghcnd",
+      "records": 95
+    },
+    {
+      "source": "isd_lite ghcnd",
+      "records": 84
+    },
+    {
+      "source": "isd_lite dwd_mosmix metar",
+      "records": 74
+    },
+    {
+      "source": "ghcnd isd_lite metar",
+      "records": 73
+    },
+    {
+      "source": "isd_lite metar dwd_mosmix",
+      "records": 43
+    },
+    {
+      "source": "isd_lite ghcnd metar",
+      "records": 40
+    },
+    {
+      "source": "isd_lite metar ghcnd",
+      "records": 39
+    },
+    {
+      "source": "ghcnd isd_lite dwd_mosmix",
+      "records": 30
+    },
+    {
+      "source": "metar dwd_mosmix",
+      "records": 22
+    },
+    {
+      "source": "dwd_mosmix metar",
+      "records": 19
+    },
+    {
+      "source": "isd_lite ghcnd metar dwd_mosmix",
+      "records": 14
+    }
+  ],
+  "bbox_stations_ge300_of360_months_tmax": 304
+}
