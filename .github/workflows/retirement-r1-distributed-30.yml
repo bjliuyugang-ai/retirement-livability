@@ -1,0 +1,78 @@
+name: Retirement R1 real ERA5 nationwide distributed expansion (no hourly cron)
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-r1-distributed-30.yml'
+jobs:
+  r1-distributed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 claim unique nationwide R1 expansion action
+        run: python research_engine/retirement/national_r1_expand_state.py precheck
+      - name: S3 request actual daily 1991-2020 ERA5 for up to 30 historical-county anchors
+        run: |
+          python -m py_compile research_engine/retirement/national_r1_expand_weather.py research_engine/retirement/national_r1_expand_state.py
+          python -u research_engine/retirement/national_r1_expand_weather.py
+      - name: S4-S5 compare to frozen 2847 count and write additional evidence
+        id: finalize
+        run: python research_engine/retirement/national_r1_expand_state.py finalize
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: real-national-R1-30-geographically-distributed-county-points
+          path: |
+            research_engine/retirement/output/national_r1_expanded*
+            research_engine/retirement/output/R1_expansion_raw_batch_*.json.gz
+          retention-days: 30
+      - name: Persist true measured counts, unscanned, no exclusion, with source CAS
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl research_assets/retirement/CURRENT_STATE.md research_engine/retirement/status/national_r1_expanded_summary.json research_engine/retirement/status/national_r1_expanded.csv
+          git diff --cached --quiet && exit 2 || true
+          git commit -m "Record distributed 30-anchor R1 climate evidence with full 2847-row carry-forward"
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          p=json.load(open("research_engine/retirement/output/r1_expand_precheck.json"))
+          d=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]))
+          assert d["state_revision"]==p["source_rev"],"CAS_RESEARCH_STATE_CONFLICT"
+          assert d["current_state_ref"]["git_blob_sha"]==p["current_blob"],"CAS_CURRENT_STATE_DRIFT"
+          PY
+          git rebase origin/main
+          git push origin HEAD:main
+      - name: S6 remote-check SHA evidence and next action before declaring success
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git fetch origin main
+          python research_engine/retirement/national_r1_expand_state.py postcheck
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
+          git commit -m "Verify R1 distributed source hashes and R2 handoff"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          s=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]))
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["last_verified_run"]["action_id"]=="RET-CASCADE-NATIONAL-R1-EXPAND-002"
+          assert s["r1_nationwide_progress"]["R1_point_data_counties"]>12
+          assert s["r1_nationwide_progress"]["R1_carry_forward"]==2847
+          print("R1_DISTRIBUTED_REMOTE_POSTCHECK_PASS",s["r1_nationwide_progress"])
+          PY
