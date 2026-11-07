@@ -55,7 +55,7 @@ for k,name in enumerate(annex_ids):
   with urllib.request.urlopen(req,timeout=85) as resp:
    data=resp.read(2500000)
    status=resp.status
-  if status!=200 or len(data)<10000 or data[:2]!=b"\\xff\\xd8":
+  if status!=200 or len(data)<10000 or data[:2]!=bytes([0xff,0xd8]):
    raise ValueError("MEE JPEG source missing original magic or size "+str((status,len(data),data[:8])))
   image_raw.append({"page_index":k+1,"url":url,"bytes":len(data),"sha256":digest(data),"http_status":status,"source_verified":True})
   print("MEE_ANNEX_PAGE_ACTUALLY_DOWNLOADED",k+1,len(data),flush=True)
@@ -163,5 +163,5 @@ summary={
   "Some provisional 2026 county codes rely on 2025 prefecture hierarchy, unverified current administrative boundary",
   "Never auto-assign A/B/C/D, do not exclude any county, full R4 locality remains PENDING until site-level evidence"]
 }
-(OUT/"mee_2025_168_official_city_PM25_context_evidence.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2)+"\\n",encoding="utf-8")
+(OUT/"mee_2025_168_official_city_PM25_context_evidence.json").write_text(json.dumps(summary,ensure_ascii=False,indent=2)+chr(10),encoding="utf-8")
 print(json.dumps({k:summary[k] for k in ["2025_year_annual_priority_city_sample_count","2025_prefecture_city_code_history_mapped","annex_page_http_verified_count","provisional_counties_with_parent_2025_city_pm25_CONTEXT_ONLY","provisional_counties_without_parent_2025_city_pm25_context","city_2025_PM25_lowest_five","city_2025_PM25_highest_five","actual_verified_county_air_quality_screenings"]},ensure_ascii=False),flush=True)
