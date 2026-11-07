@@ -1,0 +1,97 @@
+name: Retirement R5 actual Fujian 2025 Feb Dec 109 raw water intake monitoring
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-R5-FJ-2025-raw-water-two-months.yml'
+jobs:
+  official-FJ-raw-water-source-sampling:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: V1.6 only current R5 water source action; reject all R4-research repeats
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["state_revision"]==65
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R5-WATER-POLLUTION-014"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["current_state_ref"]["git_blob_sha"]==subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          PY
+      - name: Actual official 2025 Feb and December Fujian 109-water-source intake HTML and county join
+        run: |
+          python -m pip -q install beautifulsoup4
+          python -m py_compile research_engine/retirement/FJ_2025_FebDec_raw_water_sources_county.py
+          python -u research_engine/retirement/FJ_2025_FebDec_raw_water_sources_county.py
+      - name: Validate two original monthly source reports, 2847 carry-forward and raw/tap separation
+        id: qa
+        run: |
+          python - <<'PY'
+          import csv,json,hashlib
+          p="research_engine/retirement/output/"
+          d=json.load(open(p+"FJ_2025_FebDec_official_raw_drinking_water_source_evidence.json"))
+          assert d["monthly_original_raw_water_intake_rows_total"]>=180
+          assert len(d["official_sources"])==2
+          assert d["distinct_2025_county_code_with_source_intake"]>=20
+          assert d["new_R5_county_source_intake_evidence_codes"]>=1
+          assert d["full_county_candidates_carried_forward"]==2847
+          assert d["source_quality_stage"]=="MONITORED_RAW_SURFACE_OR_GROUND_WATER_SOURCE_NOT_PLANT_OUTLET_NOT_NETWORK_TAP"
+          assert d["treated_water_monitoring_units_acquired"]==0 and d["residential_tap_2025_water_quality_units_verified"]==0
+          assert d["formal_valid_county_screenings"]==0 and d["confirmed_exclusions"]==0
+          for name,key in [("national_R5_FJ_2025_FebDec_raw_source_county_2847.csv","full_national_R5_register_sha256"),("FJ_2025_FebDec_109_water_source_intake_rows.csv","all_source_point_csv_sha256")]:
+            assert hashlib.sha256(open(p+name,"rb").read()).hexdigest()==d[key]
+          rows=list(csv.DictReader(open(p+"national_R5_FJ_2025_FebDec_raw_source_county_2847.csv",encoding="utf-8-sig")))
+          assert len(rows)==2847
+          assert all(not row["confirmed_exit_round"] for row in rows)
+          print("REAL_FJ_R5_RAW_WATER_COUNTY_TWO_MONTH_QA_PASS",d["new_R5_county_source_intake_evidence_codes"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Fujian-2025-02-12-water-intakes-raw-source-not-treated-tap-full-2847-county
+          path: |
+            research_engine/retirement/output/FJ_2025_FebDec_official_raw_drinking_water_source_evidence.json
+            research_engine/retirement/output/FJ_2025_FebDec_109_water_source_intake_rows.csv
+            research_engine/retirement/output/national_R5_FJ_2025_FebDec_raw_source_county_2847.csv
+          retention-days: 30
+      - name: Persist raw source water official data separately from drinking tap QA
+        if: steps.qa.outcome == 'success'
+        run: |
+          cp research_engine/retirement/output/FJ_2025_FebDec_official_raw_drinking_water_source_evidence.json research_engine/retirement/status/FJ_2025_FebDec_official_raw_drinking_water_source_evidence.json
+          cp research_engine/retirement/output/FJ_2025_FebDec_109_water_source_intake_rows.csv research_engine/retirement/status/FJ_2025_FebDec_109_water_source_intake_rows.csv
+          cp research_engine/retirement/output/national_R5_FJ_2025_FebDec_raw_source_county_2847.csv research_engine/retirement/status/national_R5_FJ_2025_FebDec_raw_source_county_2847.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/FJ_2025_FebDec_official_raw_drinking_water_source_evidence.json research_engine/retirement/status/FJ_2025_FebDec_109_water_source_intake_rows.csv research_engine/retirement/status/national_R5_FJ_2025_FebDec_raw_source_county_2847.csv
+          git commit -m "Record 2025 official Fujian 2-month 109 raw intake source monitoring records, county name code mapping and no household claims"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import json,hashlib,subprocess
+          root="research_engine/retirement/status/"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+root+"FJ_2025_FebDec_official_raw_drinking_water_source_evidence.json"]))
+          for file,key in [("FJ_2025_FebDec_109_water_source_intake_rows.csv","all_source_point_csv_sha256"),("national_R5_FJ_2025_FebDec_raw_source_county_2847.csv","full_national_R5_register_sha256")]:
+            raw=subprocess.check_output(["git","show","origin/main:"+root+file])
+            assert hashlib.sha256(raw).hexdigest()==d[key]
+          assert d["formal_valid_county_screenings"]==0 and d["residential_tap_2025_water_quality_units_verified"]==0
+          print("R5_OFFICIAL_RAW_WATER_SOURCES_REMOTE_SHA_PASS",d["distinct_2025_county_code_with_source_intake"])
+          PY
