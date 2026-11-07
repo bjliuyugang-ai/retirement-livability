@@ -47,7 +47,7 @@ if len(dem_bycode)!=12:raise RuntimeError("DEM 12 distinct candidate counties ex
 both=station_codes & set(dem_bycode)
 union=station_codes | set(dem_bycode)
 if len(both)!=5 or len(union)!=205:raise RuntimeError("Station DEM region overlap changed")
-extra=["R3_meteostat_alt_station_count","R3_meteostat_station_ids",
+extra=["R3_evidence_scope","R3_meteostat_alt_station_count","R3_meteostat_station_ids",
  "R3_meteostat_elev_min_m","R3_meteostat_elev_max_m",
  "R3_meteostat_elev_span_m","R3_station_elev_band_observation_only",
  "R3_station_elevation_ge2000_count",
