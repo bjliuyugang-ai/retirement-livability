@@ -12,25 +12,27 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "9383f0f52def9023b7830e46b2a91029e1cafbd1"
+    "git_blob_sha": "94116ea5718b38772cc02c9d4a9e8fd0660335fe"
   },
   "last_verified_run": {
-    "run_id": "MANUAL-MEE-2025-168CITY-PM25-R4-20261107-013",
-    "action_id": "RET-CASCADE-NATIONAL-R4-AIR-POLLUTION-012",
-    "result_id": "RES-MEE-2025-168_CITY_PM25_1510_PARENT_CONTEXT_ONLY-20261107",
+    "run_id": "MANUAL-R4-2024_2025_FUJIAN_O3_TREND-20261107-014",
+    "action_id": "RET-CASCADE-NATIONAL-R4-O3-TREND-013",
+    "result_id": "RES-R4-58_FJ_COUNTY_2YEAR_PM25_AND_10CITY_O3_ALL_UP-20261107",
     "execution_status": "EXECUTED",
     "engineering_status": "PASS",
-    "research_delta_status": "DELTA_VERIFIED_168_OFFICIAL_CITY_PM25_VALUES_SIX_SOURCE_IMAGES_CITY_CODE_MAP",
+    "research_delta_status": "DELTA_VERIFIED_58_FJ_COUNTY_PM25_TW0_YEAR_AND_10CITY_O3",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/mee_2025_168_official_city_PM25_context_evidence.json",
-    "evidence_git_blob_sha": "356c3ecda7b4ebaefb5279427f769536bd3e680d",
-    "city_path": "research_engine/retirement/status/mee_2025_168_official_city_PM25_verified_source.csv",
-    "city_git_blob_sha": "f8c7d03a4ed753b034e5c947fcde3d310800473a",
-    "national_path": "research_engine/retirement/status/national_R4_2025_168_city_PM25_CONTEXT_ONLY_2847.csv",
-    "national_git_blob_sha": "15d008640cd432eddc3d78946963b19acdb72417",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/status/Fujian2024_2025_air_pollution_two_year_evidence.json",
+    "evidence_git_blob_sha": "3a316949c6003a79f857376e26883705179bd075",
+    "city_path": "research_engine/retirement/status/Fujian2024_2025_10city_PM25_O3_two_year_source.csv",
+    "city_git_blob_sha": "339a264c2333d45e6eba19628bb3550a52f9adeb",
+    "county_path": "research_engine/retirement/status/Fujian2024_2025_county_PM25_two_year_source.csv",
+    "county_git_blob_sha": "4eec549a1fcdede7502b1d015b657a0afe63ef7f",
+    "national_R4_path": "research_engine/retirement/status/national_R4_official_Fujian2025_county_PM25_2847.csv",
+    "national_R4_git_blob_sha": "59f30d78aa51e4678b76fb907b95a43f1519b666",
+    "status": "AWAITING_POSTCHECK"
   },
-  "last_completed_action_id": "RET-CASCADE-NATIONAL-R4-AIR-POLLUTION-012",
+  "last_completed_action_id": "RET-CASCADE-NATIONAL-R4-O3-TREND-013",
   "closed_result_refs": [
     "RES-CLIMATE-12POINT-20261106",
     "RES-SPATIAL-ENGINEERING-42244926780",
@@ -60,20 +62,21 @@
     "RES-214-R1_199-R2_INTERSECTION199_2633_NO_SOURCES-20261107",
     "RES-73-LONG_HISTORY-NONFATAL_IDEALS-42_4PARAM-20261107",
     "RES-R3-201_STATIONS_PLUS36_DEM_205_COUNTRY_PARTIAL-20261107",
-    "RES-MEE-2025-168_CITY_PM25_1510_PARENT_CONTEXT_ONLY-20261107"
+    "RES-MEE-2025-168_CITY_PM25_1510_PARENT_CONTEXT_ONLY-20261107",
+    "RES-R4-58_FJ_COUNTY_2YEAR_PM25_AND_10CITY_O3_ALL_UP-20261107"
   ],
   "active_action": {
-    "action_id": "RET-CASCADE-NATIONAL-R4-O3-TREND-013",
-    "question_id": "Q_R4_OZONE_GOOD_AIR_DAYS_MULTIYEAR_AND_LOCAL_POLLUTION",
-    "decision": "继续从官方生态环境部2025年空气质量报告取得有具体年份与城市代码的臭氧O3、优良天数和PM2.5历史对照，逐条核对采样空间；优先直接读取2025年度报告明文或可解析附表，明确哪些城市只有PM2.5、没有臭氧值。严禁把全国339城平均数当成任何城市值，也不把城市平均当成住宅区",
-    "method": "实际读取2025与2024生态环境部全年空气发布正文和官方PDF表格的可解析度，尝试有明确城市名的个体臭氧指标与优良天数。提供CITY_LEVEL_CONTEXT_ONLY来源，不能填R4县级安全分级。若PDF是扫描图像无法抽取文字则利用官方图像严格逐表核验，不反复无效API请求",
-    "expected_evidence": "真实出处的2024/2025同一城市O3与PM2.5及优良天数数值、城市级数据覆盖与不足；全国2847县级候选上级城市背景证据状态、缺乏住宅/污染源的风险提示；已建168PM2.5附表做二次核验",
-    "pass_criteria": "至少一条有真实官方2025城市臭氧/优良天数指标与可比2024年、来源URL和实际值；不能仅输出新工具或网页",
-    "fallback": "若无法批量取得城市臭氧仅保留有限官方明文城市及区域级指标，立刻切换R5水质和污染源资料逐项筛查，不滞留在O3接口",
+    "action_id": "RET-CASCADE-NATIONAL-R5-WATER-POLLUTION-014",
+    "question_id": "Q_NATIONWIDE_2025_COUNTY_TAP_WATER_SOURCE_FINISHED_ENDPOINT_AND_INDUSTRY",
+    "decision": "全国R5饮用水与工业污染数据攻坚：优先官方城市/区县2025年度饮用水水源、出厂水和管网末梢监测明细，逐条区分水源保护等级与实际居民到户水质，不以城市达标结论代表全部县区；同步寻找可复核的工业矿业污染源和历史污染暴露来源",
+    "method": "优先生态环境部门地级/县级2025年度集中式饮用水水源水质公告、卫健委城镇供水末梢监测、住建委自来水质月报；实际提取县域水源或末梢数值/水质类别、采样日期、站点位置和具体行政代码，按来源强弱分层进2847总表。先验证一省批量HTML/Excel再全国扩展，不纠缠单一失败接口",
+    "expected_evidence": "有真实官方数字或明确分类的至少一批饮用水水源或居民末梢县级数据、源URL/发布日期/采样点/采样类型与浓度单位/代码，R5新增候选与缺失列表及不能代表住宅的边界",
+    "pass_criteria": "真实下载官方原始来源且至少一个可信站点/县级水质数据复算、远程SHA验收，不能把政府公报入口或笼统全省饮水达标当县级有数据",
+    "fallback": "若找不到县级水质正文，优先政府公开按季县级监测清单、实际取值；市级水源站只做上下文不计正式县级覆盖，保留未知后转下一污染源路径",
     "status": "READY",
     "timebox_end": "2026-11-08T15:26:00Z"
   },
-  "phase": "NATIONWIDE_R4_O3_CITY_TREND_AND_LOCAL_POLLUTION_QA",
+  "phase": "NATIONAL_R5_OFFICIAL_DRINKING_WATER_INDUSTRIAL_POLLUTION_ASSAULT",
   "milestone_deadline": {
     "time_zone": "Asia/Shanghai",
     "checkpoint_24h": "2026-11-07T23:26:00+08:00",
@@ -82,12 +85,11 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "78af77545a3ba2ba87435dfa9a495b8855460a98",
-    "verified_at": "2026-11-07T04:38:16.702Z"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-07T04:38:16.702Z",
-  "state_revision": 63,
+  "updated_at": "2026-11-07T04:41:34.635Z",
+  "state_revision": 64,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -189,11 +191,20 @@
     },
     "R4": {
       "input_counties": 2847,
-      "real_source_counties": 2,
-      "unscanned": 2845,
+      "real_source_counties": 60,
+      "Fujian_2025_official_actual_county_PM25": 58,
+      "previous_R4_other_context": 2,
+      "county_2024_2025_two_year_PM25": 58,
+      "city_2024_2025_O3_numeric_context": 10,
+      "mee_2025_official_168_city_PM25_context_only": 168,
+      "candidate_counties_with_parent_city_context_only": 1510,
+      "unscanned": 2787,
       "confirmed_exits": 0,
       "carry_forward": 2847,
-      "formal_valid_county_screenings": 0
+      "formal_valid_county_screenings": 0,
+      "county_source_evidence": "research_engine/retirement/status/Fujian2025_official_R4_county_air_evidence.json",
+      "twoyear_evidence": "research_engine/retirement/status/Fujian2024_2025_air_pollution_two_year_evidence.json",
+      "national_R4_reality_check": "research_engine/retirement/status/national_R4_official_Fujian2025_county_PM25_2847.csv"
     },
     "R5": {
       "input_counties": 2847,
