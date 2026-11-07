@@ -28,7 +28,7 @@
     "calibration_git_blob_sha": "e992c62569e68124f7b66b42f9c58a697dea83ab",
     "nasa_quarantine_path": "research_engine/retirement/status/national_R1_NASA_custom_QUARANTINE_evidence.json",
     "nasa_quarantine_git_blob_sha": "dbc653e15cc761ee3f72b1702cf853a1efe3e95f",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-SOURCE-SCALE-002",
   "closed_result_refs": [
@@ -72,11 +72,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "31df26f4abb31d883323b16a78b6e7a6670bec55",
+    "verified_at": "2026-11-07T01:27:13.073Z"
   },
-  "updated_at": "2026-11-07T01:26:48.077Z",
-  "state_revision": 42,
+  "updated_at": "2026-11-07T01:27:13.073Z",
+  "state_revision": 43,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
