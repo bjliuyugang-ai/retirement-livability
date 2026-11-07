@@ -70,6 +70,16 @@ def decode_gov_html(raw):
   raise RuntimeError("HTML named station table could not be interpreted: "+repr(exc))
  if len(df)<80:raise RuntimeError("Water source table fewer than 80 point rows "+str(len(df)))
  cols=[norm(z if not isinstance(z,tuple) else z[-1]) for z in df.columns]
+ # Many official tables use <td> rather than <th> for their header; pandas assigns 0..8.
+ if "行政区划" not in cols or "点位名称" not in cols:
+  for i in range(min(6,len(df))):
+   probe=[norm(x) for x in df.iloc[i].tolist()]
+   if "行政区划" in probe and "点位名称" in probe and "序号" in probe:
+    cols=probe
+    df=df.iloc[i+1:].reset_index(drop=True)
+    break
+ if "行政区划" not in cols or "点位名称" not in cols:
+  raise RuntimeError("Water table headers still unresolved; first rows="+str(df.head(4).values.tolist())[:450])
  return soup,table,df,cols
 events=[];source_docs=[];blocked=[]
 for p in PERIODS:
