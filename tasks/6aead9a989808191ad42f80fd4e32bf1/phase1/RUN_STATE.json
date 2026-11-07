@@ -12,25 +12,25 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "68254ef1ce866e97db52b66c877f549858f0f031"
+    "git_blob_sha": "9383f0f52def9023b7830e46b2a91029e1cafbd1"
   },
   "last_verified_run": {
-    "run_id": "MANUAL-R3-205-STATIONDEM-ALTITUDE-20261107-012",
-    "action_id": "RET-CASCADE-NATIONAL-R3-STATION-ALTITUDE-011",
-    "result_id": "RES-R3-201_STATIONS_PLUS36_DEM_205_COUNTRY_PARTIAL-20261107",
+    "run_id": "MANUAL-MEE-2025-168CITY-PM25-R4-20261107-013",
+    "action_id": "RET-CASCADE-NATIONAL-R4-AIR-POLLUTION-012",
+    "result_id": "RES-MEE-2025-168_CITY_PM25_1510_PARENT_CONTEXT_ONLY-20261107",
     "execution_status": "EXECUTED",
     "engineering_status": "PASS",
-    "research_delta_status": "DELTA_VERIFIED_205_R3_REAL_STATION_AND_DEM_ALTITUDE_PARTIAL_COUNTIES",
+    "research_delta_status": "DELTA_VERIFIED_168_OFFICIAL_CITY_PM25_VALUES_SIX_SOURCE_IMAGES_CITY_CODE_MAP",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/national_R3_205_station_dem_altitude_source_evidence.json",
-    "evidence_git_blob_sha": "655daa12cc73c27c44bb30c725b55e572d61765c",
-    "national_path": "research_engine/retirement/status/national_R3_205_station_dem_altitude_partial_2847.csv",
-    "national_git_blob_sha": "a40eb651cb07f5615a68acd4d1189816af423d8d",
-    "points_path": "research_engine/retirement/status/national_R3_205_station_dem_point_evidence.csv",
-    "points_git_blob_sha": "3d0a4540160906bcb082333d20b2da29f7395866",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/status/mee_2025_168_official_city_PM25_context_evidence.json",
+    "evidence_git_blob_sha": "356c3ecda7b4ebaefb5279427f769536bd3e680d",
+    "city_path": "research_engine/retirement/status/mee_2025_168_official_city_PM25_verified_source.csv",
+    "city_git_blob_sha": "f8c7d03a4ed753b034e5c947fcde3d310800473a",
+    "national_path": "research_engine/retirement/status/national_R4_2025_168_city_PM25_CONTEXT_ONLY_2847.csv",
+    "national_git_blob_sha": "15d008640cd432eddc3d78946963b19acdb72417",
+    "status": "AWAITING_POSTCHECK"
   },
-  "last_completed_action_id": "RET-CASCADE-NATIONAL-R3-STATION-ALTITUDE-011",
+  "last_completed_action_id": "RET-CASCADE-NATIONAL-R4-AIR-POLLUTION-012",
   "closed_result_refs": [
     "RES-CLIMATE-12POINT-20261106",
     "RES-SPATIAL-ENGINEERING-42244926780",
@@ -59,20 +59,21 @@
     "RES-CN132-R2-126_NEW_SHORT_OBS_COUNTIES-20261107",
     "RES-214-R1_199-R2_INTERSECTION199_2633_NO_SOURCES-20261107",
     "RES-73-LONG_HISTORY-NONFATAL_IDEALS-42_4PARAM-20261107",
-    "RES-R3-201_STATIONS_PLUS36_DEM_205_COUNTRY_PARTIAL-20261107"
+    "RES-R3-201_STATIONS_PLUS36_DEM_205_COUNTRY_PARTIAL-20261107",
+    "RES-MEE-2025-168_CITY_PM25_1510_PARENT_CONTEXT_ONLY-20261107"
   ],
   "active_action": {
-    "action_id": "RET-CASCADE-NATIONAL-R4-AIR-POLLUTION-012",
-    "question_id": "Q_NATIONWIDE_OFFICIAL_AIR_QUALITY_PM25_OZONE_AND_POLLUTION_SOURCE",
-    "decision": "以2847全国临时县级底盘为对象扩大有真实源的空气质量与环境污染记录，先查可合法公开批量取得的城市/站点多年PM2.5、臭氧和优良率年度统计并关联到县级候选，标注城市值非住宅值、工业矿区历史暴露不明。需与现有R1=214、R2=199、R3=205分参数过账，缺失暂留",
-    "method": "优先生态环境部门全国城市环境空气质量年报、中国环境监测总站实测站和可复核公众历史年度报告，实际下载后提取数据年份、指标单位和县内空间代表性；逐级关联省/市/县官方或暂定代码并对源不可靠项HOLD。保留未经核验住宅区空气/工业污染例外，不直接全县淘汰",
-    "expected_evidence": "第一批具有可独立复核来源的PM2.5/臭氧城市/站点记录以及县级候选候选关联明细，原始文档URL/年份/数值/SHA、通过/待核数量、全国2847环境参数缺口",
-    "pass_criteria": "必须有实际数值取证且可追溯，不能把找到新闻、年报入口或网站当已经完成县级空气质量筛选；不得将城市年均当住宅污染已核",
-    "fallback": "公开API无法直接访问则转生态环境部正式PDF历史年报，提取城市空气数据并以历史与最新年分层；资料缺失全县待核不排除",
+    "action_id": "RET-CASCADE-NATIONAL-R4-O3-TREND-013",
+    "question_id": "Q_R4_OZONE_GOOD_AIR_DAYS_MULTIYEAR_AND_LOCAL_POLLUTION",
+    "decision": "继续从官方生态环境部2025年空气质量报告取得有具体年份与城市代码的臭氧O3、优良天数和PM2.5历史对照，逐条核对采样空间；优先直接读取2025年度报告明文或可解析附表，明确哪些城市只有PM2.5、没有臭氧值。严禁把全国339城平均数当成任何城市值，也不把城市平均当成住宅区",
+    "method": "实际读取2025与2024生态环境部全年空气发布正文和官方PDF表格的可解析度，尝试有明确城市名的个体臭氧指标与优良天数。提供CITY_LEVEL_CONTEXT_ONLY来源，不能填R4县级安全分级。若PDF是扫描图像无法抽取文字则利用官方图像严格逐表核验，不反复无效API请求",
+    "expected_evidence": "真实出处的2024/2025同一城市O3与PM2.5及优良天数数值、城市级数据覆盖与不足；全国2847县级候选上级城市背景证据状态、缺乏住宅/污染源的风险提示；已建168PM2.5附表做二次核验",
+    "pass_criteria": "至少一条有真实官方2025城市臭氧/优良天数指标与可比2024年、来源URL和实际值；不能仅输出新工具或网页",
+    "fallback": "若无法批量取得城市臭氧仅保留有限官方明文城市及区域级指标，立刻切换R5水质和污染源资料逐项筛查，不滞留在O3接口",
     "status": "READY",
     "timebox_end": "2026-11-08T15:26:00Z"
   },
-  "phase": "NATIONAL_R4_AIR_QUALITY_AND_POLLUTION_SOURCE_ASSAULT",
+  "phase": "NATIONWIDE_R4_O3_CITY_TREND_AND_LOCAL_POLLUTION_QA",
   "milestone_deadline": {
     "time_zone": "Asia/Shanghai",
     "checkpoint_24h": "2026-11-07T23:26:00+08:00",
@@ -81,12 +82,11 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "5335be11d98d0a639b8e36634c6cf7ccb0b98aa6",
-    "verified_at": "2026-11-07T04:29:17.311Z"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-07T04:29:17.311Z",
-  "state_revision": 61,
+  "updated_at": "2026-11-07T04:37:40.661Z",
+  "state_revision": 62,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -386,5 +386,22 @@
     "full_register_2847": "research_engine/retirement/status/national_R3_205_station_dem_altitude_partial_2847.csv",
     "point_evidence": "research_engine/retirement/status/national_R3_205_station_dem_point_evidence.csv",
     "source_evidence": "research_engine/retirement/status/national_R3_205_station_dem_altitude_source_evidence.json"
+  },
+  "R4_2025_city_context": {
+    "year": 2025,
+    "original_MEE_images_fetched_6_of_6": 6,
+    "annual_PM25_city_values": 168,
+    "unique_2025_prefecture_city_matches": 168,
+    "provisional_counties_with_parent_prefecture_context_only": 1510,
+    "provisional_counties_without_parent_context": 1337,
+    "actual_counties_with_own_air_monitoring_verified": 0,
+    "official_2026_boundary_certified": false,
+    "residential_O3_and_PM25_verified": false,
+    "formal_valid_county_screenings": 0,
+    "confirmed_exclusions": 0,
+    "annual_PM25_source": "research_engine/retirement/status/mee_2025_168_official_city_PM25_context_evidence.json",
+    "source_168_city_csv": "research_engine/retirement/status/mee_2025_168_official_city_PM25_verified_source.csv",
+    "national_2847_city_context": "research_engine/retirement/status/national_R4_2025_168_city_PM25_CONTEXT_ONLY_2847.csv",
+    "transcription_second_review_needed": true
   }
 }
