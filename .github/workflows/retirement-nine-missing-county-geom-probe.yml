@@ -1,4 +1,5 @@
 name: Retirement actual DataV geometries for seven missing 2025 plus two 2026 counties
+# Re-run with mandatory code + Chinese name concordance after 460302 wrong-place source detected
 on:
   workflow_dispatch:
   push:
