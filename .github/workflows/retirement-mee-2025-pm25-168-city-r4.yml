@@ -1,0 +1,100 @@
+name: Retirement official 2025 MEE 168-city PM2.5 annex source and code audited R4
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-mee-2025-pm25-168-city-r4.yml'
+jobs:
+  actual-MEE-168-city-yearly-PM25-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 11
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: V1.6 S0-S2 single active R4 action and current state SHA
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["state_revision"]==61
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R4-AIR-POLLUTION-012"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["current_state_ref"]["git_blob_sha"]==subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          PY
+      - name: Actual MEE annex six image downloads and 168-city full historic code crosswalk
+        run: |
+          python -m py_compile research_engine/retirement/mee_2025_city_pm25_official_annex_QA.py
+          python -u research_engine/retirement/mee_2025_city_pm25_official_annex_QA.py
+      - name: Verify complete six official images, original 168 rows, 2847 candidate conservation
+        id: audit
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json
+          root="research_engine/retirement/output/"
+          d=json.load(open(root+"mee_2025_168_official_city_PM25_context_evidence.json"))
+          assert d["2025_year_annual_priority_city_sample_count"]==168
+          assert d["2025_prefecture_city_code_history_mapped"]==168
+          assert d["official_source_annex_page_count"]==6
+          assert d["annex_page_http_verified_count"]==6
+          assert d["formal_valid_county_screenings"]==0
+          assert d["actual_verified_county_air_quality_screenings"]==0
+          assert d["confirmed_county_exclusions"]==0
+          assert d["full_county_candidates_preserved"]==2847
+          assert d["image_transcription_double_review_outstanding"] is True
+          for p,key in [("mee_2025_168_official_city_PM25_verified_source.csv","city_csv_sha256"),("national_R4_2025_168_city_PM25_CONTEXT_ONLY_2847.csv","county_context_csv_sha256")]:
+            assert hashlib.sha256(open(root+p,"rb").read()).hexdigest()==d[key]
+          rows=list(csv.DictReader(open(root+"mee_2025_168_official_city_PM25_verified_source.csv",encoding="utf-8-sig")))
+          assert len(rows)==168
+          assert len({x["city_2025_adcode"] for x in rows})==168
+          allrows=list(csv.DictReader(open(root+"national_R4_2025_168_city_PM25_CONTEXT_ONLY_2847.csv",encoding="utf-8-sig")))
+          assert len(allrows)==2847
+          assert all(x["R4_official_2025_residential_air_unknown"]=="TRUE" for x in allrows if x["R4_official_2025_CITY_PM25_context_ugm3"])
+          print("MEE_168_YEARLY_PM25_SOURCE_HTTP_SHA_AND_CITY_CODE_QA_PASS",d["provisional_counties_with_parent_2025_city_pm25_CONTEXT_ONLY"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MEE-2025-annual-168-city-PM25-original-image-SHA-and-2847-county-context
+          path: |
+            research_engine/retirement/output/mee_2025_168_official_city_PM25_context_evidence.json
+            research_engine/retirement/output/mee_2025_168_official_city_PM25_verified_source.csv
+            research_engine/retirement/output/national_R4_2025_168_city_PM25_CONTEXT_ONLY_2847.csv
+          retention-days: 30
+      - name: Persist true 168 city source and 2847-county CONTEXT_ONLY without grading
+        if: steps.audit.outcome == 'success'
+        run: |
+          cp research_engine/retirement/output/mee_2025_168_official_city_PM25_context_evidence.json research_engine/retirement/status/mee_2025_168_official_city_PM25_context_evidence.json
+          cp research_engine/retirement/output/mee_2025_168_official_city_PM25_verified_source.csv research_engine/retirement/status/mee_2025_168_official_city_PM25_verified_source.csv
+          cp research_engine/retirement/output/national_R4_2025_168_city_PM25_CONTEXT_ONLY_2847.csv research_engine/retirement/status/national_R4_2025_168_city_PM25_CONTEXT_ONLY_2847.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/mee_2025_168_official_city_PM25_context_evidence.json research_engine/retirement/status/mee_2025_168_official_city_PM25_verified_source.csv research_engine/retirement/status/national_R4_2025_168_city_PM25_CONTEXT_ONLY_2847.csv
+          git commit -m "Archive real MEE 2025 annual PM2.5 for 168 named Chinese cities; city context only not formal county R4 status"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          root="research_engine/retirement/status/"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+root+"mee_2025_168_official_city_PM25_context_evidence.json"]))
+          for file,key in [("mee_2025_168_official_city_PM25_verified_source.csv","city_csv_sha256"),("national_R4_2025_168_city_PM25_CONTEXT_ONLY_2847.csv","county_context_csv_sha256")]:
+            b=subprocess.check_output(["git","show","origin/main:"+root+file])
+            assert hashlib.sha256(b).hexdigest()==d[key]
+          assert d["actual_verified_county_air_quality_screenings"]==0
+          print("MEE_2025_CITY_PM25_REMOTE_SHA_PASS",d["2025_year_annual_priority_city_sample_count"])
+          PY
