@@ -1,0 +1,96 @@
+name: Retirement R4 real 2025 official municipality province air annual context
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-R4-official-municipal-air-2025.yml'
+jobs:
+  actual-government-city-2025-air-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 11
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: V1.6 S0-S2 unique R4 after R3 real S6 verified
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          p="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          s=json.load(open(p))
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R4-AIR-POLLUTION-012"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["current_state_ref"]["git_blob_sha"]==subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          print("R4_CURRENT_ACTION_AND_ROSTER_GATED",s["state_revision"])
+          PY
+      - name: Actually read and check official 2025 annual municipality air and province background
+        run: |
+          python -m py_compile research_engine/retirement/national_R4_official_2025_municipal_air_source.py
+          python -u research_engine/retirement/national_R4_official_2025_municipal_air_source.py
+      - name: Audit all input kept, unavailable sources unscanned, no city-as-residence claims
+        id: qa
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json
+          root="research_engine/retirement/output/"
+          d=json.load(open(root+"national_R4_2025_official_air_city_province_scope_evidence.json"))
+          assert d["historic_2025_2026_provisional_counties"]==2847
+          assert d["previous_R4_city_context_counties"]==2
+          assert d["R4_city_or_municipal_context_counties"]==2+d["new_R4_counties_with_MUNICIPAL_CONTEXT_NOT_COUNTY_MONITORING"]
+          assert d["2025_official_municipal_sources_verified"]>=1
+          assert d["new_R4_counties_with_MUNICIPAL_CONTEXT_NOT_COUNTY_MONITORING"]>0
+          assert d["R4_not_scanned_counties"]==2847-d["R4_city_or_municipal_context_counties"]
+          assert d["formal_valid_county_screenings"]==0
+          assert d["confirmed_county_exclusions"]==0
+          assert d["official_2026_administrative_geometry_verified"] is False
+          data=open(root+"national_R4_2025_verified_city_province_air_context_2847.csv","rb").read()
+          assert hashlib.sha256(data).hexdigest()==d["output_national_CSV_sha256"]
+          rows=list(csv.DictReader(open(root+"national_R4_2025_verified_city_province_air_context_2847.csv",encoding="utf-8-sig")))
+          assert len(rows)==2847
+          assert all(r["R4_air_current_residential_PM25_and_O3_verified"]=="FALSE" for r in rows)
+          assert all(not r["confirmed_exit_round"] for r in rows)
+          print("R4_ACTUAL_2025_OFFICIAL_SOURCE_AND_CITY_SCOPE_CHECK",d["municipality_code_prefix_count"],d["province_aggregate_candidate_prefix_count"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: 2025-official-air-quality-municipal-level-2847-nonresidential-context
+          path: |
+            research_engine/retirement/output/national_R4_2025_official_air_city_province_scope_evidence.json
+            research_engine/retirement/output/national_R4_2025_verified_city_province_air_context_2847.csv
+          retention-days: 30
+      - name: Persist real source result and verify original remote SHA
+        if: steps.qa.outcome == 'success'
+        run: |
+          cp research_engine/retirement/output/national_R4_2025_official_air_city_province_scope_evidence.json research_engine/retirement/status/national_R4_2025_official_air_city_province_scope_evidence.json
+          cp research_engine/retirement/output/national_R4_2025_verified_city_province_air_context_2847.csv research_engine/retirement/status/national_R4_2025_verified_city_province_air_context_2847.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/national_R4_2025_official_air_city_province_scope_evidence.json research_engine/retirement/status/national_R4_2025_verified_city_province_air_context_2847.csv
+          git commit -m "Persist real 2025 government citywide PM2.5/O3 and province environmental context with honest residential source limitations"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          root="research_engine/retirement/status/"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+root+"national_R4_2025_official_air_city_province_scope_evidence.json"]))
+          raw=subprocess.check_output(["git","show","origin/main:"+root+"national_R4_2025_verified_city_province_air_context_2847.csv"])
+          assert hashlib.sha256(raw).hexdigest()==d["output_national_CSV_sha256"]
+          assert d["formal_valid_county_screenings"]==0 and d["confirmed_county_exclusions"]==0
+          print("R4_OFFICIAL_RECORDED_REMOTE_SHA_PASS",d["R4_city_or_municipal_context_counties"])
+          PY
