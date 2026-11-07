@@ -1,0 +1,71 @@
+name: Retirement corrected 2017 historical county English name to 2025 Chinese pinyin code crosswalk
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-r1-crosswalk-regex-v2.yml'
+jobs:
+  fix-exact-name-crosswalk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Chinese pinyin without fuzzy matching
+        run: python -m pip -q install pypinyin
+      - name: Re-run actual historic GIS Chinese code crosswalk with correctly escaped regex
+        run: |
+          python -m py_compile research_engine/retirement/r1_historic_crosswalk_v2_fixed.py
+          python -u research_engine/retirement/r1_historic_crosswalk_v2_fixed.py
+      - name: Verify V2 corrected name matching outputs and uniqueness
+        run: |
+          python - <<'PY'
+          import json
+          p="research_engine/retirement/output/r1_expand_strict_crosswalk_v2_fixed.json"
+          d=json.load(open(p))
+          assert d["official_2026_code_verified"]==0
+          assert d["feature_count"]>2000
+          assert d["unique_historic_name_crosswalk_matches"]>43
+          assert len(d["all_unique_historic_county_matches"])==d["unique_historic_name_crosswalk_matches"]
+          ids=[x["county_code"] for x in d["all_unique_historic_county_matches"]]
+          assert len(ids)==len(set(ids))
+          print("HISTORIC_NAME_CROSSWALK_FIXED_V2_PASS",d["unique_historic_name_crosswalk_matches"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nationwide-historic-county-pinyin-regex-fixed-v2
+          path: research_engine/retirement/output/r1_expand_strict_crosswalk_v2_fixed.json
+          retention-days: 30
+      - name: Persist corrected V2 as new evidence, keep V1 immutable
+        run: |
+          cp research_engine/retirement/output/r1_expand_strict_crosswalk_v2_fixed.json research_engine/retirement/status/r1_expand_strict_crosswalk_v2_fixed.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/r1_expand_strict_crosswalk_v2_fixed.json
+          git commit -m "Archive corrected historic 2017 English/pinyin county code matches with prior regex defect flagged"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          p="research_engine/retirement/status/r1_expand_strict_crosswalk_v2_fixed.json"
+          b=subprocess.check_output(["git","show","origin/main:"+p])
+          d=json.loads(b)
+          assert hashlib.sha256(b).hexdigest()==hashlib.sha256(open(p,"rb").read()).hexdigest()
+          assert d["unique_historic_name_crosswalk_matches"]>43
+          print("HISTORIC_CROSSWALK_V2_REMOTE_SHA",d["unique_historic_name_crosswalk_matches"])
+          PY
