@@ -12,25 +12,25 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "bb65c51707e93ea27e78f4ae32d7393699687f88"
+    "git_blob_sha": "225cb3caf9dac2b247ba7a52a9f9060167588535"
   },
   "last_verified_run": {
-    "run_id": "MANUAL-MSTA-CN226-TIERED-R1-20261107-008",
-    "action_id": "RET-CASCADE-NATIONAL-CLIMATE-COVERAGE-SCALE-007",
-    "result_id": "RES-CN226-GIS-SHORT_HISTORY_127_NEW_R1-20261107",
+    "run_id": "MANUAL-MSTA-CN132-R2-INTERIM-20261107-009",
+    "action_id": "RET-CASCADE-NATIONAL-R2-INTERIM-008",
+    "result_id": "RES-CN132-R2-126_NEW_SHORT_OBS_COUNTIES-20261107",
     "execution_status": "EXECUTED",
     "engineering_status": "PASS",
-    "research_delta_status": "DELTA_VERIFIED_127_NEW_SHORT_HISTORY_REAL_CANDIDATE_STATION_EVIDENCE",
+    "research_delta_status": "DELTA_VERIFIED_126_NEW_SHORT_HISTORY_R2_COUNTRY_PARAMETER_RECORDS",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/meteostat_CN_226_R1_tiered_expansion_evidence.json",
-    "evidence_git_blob_sha": "b968ab5028098d08f6f17184e865262f44361654",
-    "station_csv_path": "research_engine/retirement/status/meteostat_CN_226_station_spatial_period_quality.csv",
-    "station_csv_git_blob_sha": "c7ff13ac8607def367f732c06112bda3d53e3964",
-    "national_csv_path": "research_engine/retirement/status/national_R1_226_obs_station_quality_tiers_2847.csv",
-    "national_csv_git_blob_sha": "8fe77f9dbc0bb99df82dce73abf5b6241655af3f",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/status/meteostat_CN132_interim_R2_evidence.json",
+    "evidence_git_blob_sha": "e5ff23ba25dcd611a2a86c2f65c5f98260d655f0",
+    "station_csv_path": "research_engine/retirement/status/meteostat_CN132_interim_R2_parameter_source.csv",
+    "station_csv_git_blob_sha": "75cc87f41a23c9e623b12115034d0c227263bb2b",
+    "nationalcsv_path": "research_engine/retirement/status/national_R2_132_interim_obs_source_2847.csv",
+    "nationalcsv_git_blob_sha": "cbf5387829b4f0d33f814f75c4edda58b1d94a2b",
+    "status": "AWAITING_POSTCHECK"
   },
-  "last_completed_action_id": "RET-CASCADE-NATIONAL-CLIMATE-COVERAGE-SCALE-007",
+  "last_completed_action_id": "RET-CASCADE-NATIONAL-R2-INTERIM-008",
   "closed_result_refs": [
     "RES-CLIMATE-12POINT-20261106",
     "RES-SPATIAL-ENGINEERING-42244926780",
@@ -55,20 +55,21 @@
     "RES-CN-69-R2-STATIONS-61NEW_PARTIAL-20261107",
     "RES-2025-2845_PLUS2026TWO-2838_GEOCODE_MATCH_7MISSING-20261107",
     "RES-NINE-COUNTY-DATAV-STRICT_CODE_NAME_0_VALID-20261107",
-    "RES-CN226-GIS-SHORT_HISTORY_127_NEW_R1-20261107"
+    "RES-CN226-GIS-SHORT_HISTORY_127_NEW_R1-20261107",
+    "RES-CN132-R2-126_NEW_SHORT_OBS_COUNTIES-20261107"
   ],
   "active_action": {
-    "action_id": "RET-CASCADE-NATIONAL-R2-INTERIM-008",
-    "question_id": "Q_R2_15YEAR_CLASS_STATION_OBS_PRECIP_SUN_EXPANSION",
-    "decision": "同一批132个通过两套县界实际坐标检验的15年级别短历史温度站点，尽快批量寻找降水和日照原始观测增量，保留R2此前73个较长历史部分参数证据；真实缺失不阻塞候选",
-    "method": "读取Meteostat原始1991—2020月度Parquet并校验之前留存SHA，按每个降水/日照参数独立来源标签剔除模型补全。至少180个月且每个日历月至少10年仅记临时短史参数证据，不采用缺失期不明的全30年平均值做冷热湿评价。保留198?源不足站点与GIS冲突HOLD",
-    "expected_evidence": "132个候选站的prcp/tsun观测来源、逐月年月数、额外R2县域初证和缺失分类、2847行完整过账及摘要SHA；不更改既有73长历史R2指标",
-    "pass_criteria": "输出真实参数级新增有效短史观测证据县域数量且与历史覆盖完全分离，逐项源/年月/县码可复核，严格不夸大为完整1991—2020气候常年值",
-    "fallback": "若Meteostat日照短史资料缺失，降水单独记初证、日照继续待核；不得重复已失效NASA常年值",
+    "action_id": "RET-CASCADE-NATIONAL-R1R2-JOINT-MISSINGNESS-009",
+    "question_id": "Q_R1R2_COUNTY_CASCADE_PARTIAL_EVIDENCE_INTERSECTION",
+    "decision": "基于累计214个R1已取证县级候选和199个R2已取证县级候选，建立2847县逐轮交叉表。区分较长基期证据与不足30年的临时观测，不将空白当淘汰；生成第一批有两个独立参数部分证据的县域名单和下一项最需要补的气候缺口",
+    "method": "以已SHA校验的R2全量2847县台账为主，按代码逐行核对R1/R2状态及来源质量，统计四象限（双证据、仅R1、仅R2、皆无）、长/短层次及是否有降水/日照单项缺口；从双证据县级候选中输出证据可核的初步广筛候选集，但不能套用未冻结的定量阈值或做正式A/B/C/D",
+    "expected_evidence": "真实2847行含每轮证据、时段分层、是否待核与下一参数优先级的可追溯交叉台账，以及无重复漏数的交集数、全国代码与质量门槛说明",
+    "pass_criteria": "全国逐行严格去重、四象限合计2847、较长与短史逐项独立、不删不评级、可由源CSV校验hash；能直接用于下一步分参数筛选",
+    "fallback": "如全量台账字段或哈希异常，则阻止下游过账并先修复源映射，不用猜测交集",
     "status": "READY",
     "timebox_end": "2026-11-08T15:26:00Z"
   },
-  "phase": "NATIONAL_R2_INTERIM_STATION_OBSERVATION_ASSAULT",
+  "phase": "NATIONAL_PARAMETER_R1_R2_JOINT_CASCADE_SCREENING",
   "milestone_deadline": {
     "time_zone": "Asia/Shanghai",
     "checkpoint_24h": "2026-11-07T23:26:00+08:00",
@@ -77,12 +78,11 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "5372da8d0c546c7b55af3f425594e16bb0ce06c7",
-    "verified_at": "2026-11-07T04:11:11.008Z"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-07T04:11:11.008Z",
-  "state_revision": 53,
+  "updated_at": "2026-11-07T04:15:25.391Z",
+  "state_revision": 54,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -299,5 +299,22 @@
     "report_path": "research_engine/retirement/status/meteostat_CN_226_R1_tiered_expansion_evidence.json",
     "station_csv_path": "research_engine/retirement/status/meteostat_CN_226_station_spatial_period_quality.csv",
     "national_csv_path": "research_engine/retirement/status/national_R1_226_obs_station_quality_tiers_2847.csv"
+  },
+  "climate_coverage_tiered_R2_132": {
+    "interim_132_stations": 132,
+    "distinct_counties_of132": 131,
+    "interim_precip_stations": 130,
+    "interim_sun_stations": 10,
+    "distinct_interim_R2_counties_with_actual_param": 129,
+    "prior_long_R2_partial_counties": 73,
+    "new_short_R2_counties": 126,
+    "R2_all_any_param_partial_counties": 199,
+    "R2_completely_unknown_counties": 2648,
+    "R1_prior_long_counties": 87,
+    "R1_new_short_counties": 127,
+    "R1_all_partial_counties": 214,
+    "formal_valid_county_screenings": 0,
+    "source_evidence": "research_engine/retirement/status/meteostat_CN132_interim_R2_evidence.json",
+    "national_csv": "research_engine/retirement/status/national_R2_132_interim_obs_source_2847.csv"
   }
 }
