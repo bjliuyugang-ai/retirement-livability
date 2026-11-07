@@ -24,7 +24,7 @@
     "research_closure_status": "OPEN",
     "evidence_path": "research_engine/retirement/status/latest-spatial-variability-002.json",
     "evidence_sha256": "3a52e0a93678dccaa40a6890bfed10c1e0f76881c38a0f1de0b0a393c14e36f8",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-COUNTY-MICROCLIMATE-QA-001",
   "closed_result_refs": [
@@ -56,11 +56,12 @@
   },
   "consecutive_no_delta": 1,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "76138baa84878a9227d210e6bf14b000772eb84d",
+    "verified_at": "2026-11-07T00:11:16.865708+00:00"
   },
-  "updated_at": "2026-11-07T00:11:14.020818+00:00",
-  "state_revision": 16,
+  "updated_at": "2026-11-07T00:11:16.865719+00:00",
+  "state_revision": 17,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
