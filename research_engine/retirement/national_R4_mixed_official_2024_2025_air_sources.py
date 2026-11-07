@@ -36,9 +36,9 @@ if len(fj2025county)!=58 or set(fjcounty)!=set(fj2025county):
 for code,rec in fjcounty.items():
  if code not in bycode or bycode[code]["candidate_name"]!=rec["name"]:
   raise RuntimeError("Fujian local county named record drift "+code)
- if float(rec["PM25_2025"])!=float(fj2025county[code]["PM25_annual_ugm3"]):
+ if float(rec["PM25_2025_ugm3"])!=float(fj2025county[code]["PM25_annual_ugm3"]):
   raise RuntimeError("Fujian two independent 2025 report structures disagree "+code)
-fjcity={z["city"]:z for z in fj["city_twoyear_records"]}
+fjcity={z["name"]:z for z in fj["city_twoyear_records"]}
 if len(fjcity)!=10:raise RuntimeError("Fujian ten city O3 year rows not uniquely represented")
 fields_add=["R4_FJ_COUNTY_PM25_2024_ugm3","R4_FJ_COUNTY_PM25_2025_ugm3",
  "R4_FJ_COUNTY_GOOD_DAYS_2024_pct","R4_FJ_COUNTY_GOOD_DAYS_2025_pct",
@@ -57,7 +57,7 @@ fj_pref_city_context=0
 county_fj_direct_count=0;county_fj_with_city_o3_context=0;beijing_context_count=0
 missing_fj_city_map=[]
 for city,obs in fjcity.items():
- if "O3_2024" not in obs or "O3_2025" not in obs:
+ if "O3_MDA8_P90_2024_ugm3" not in obs or "O3_MDA8_P90_2025_ugm3" not in obs:
   raise RuntimeError("Fujian O3 two-year city data absent "+city)
 for row in rows:
  code=row["candidate_code"]
@@ -88,8 +88,8 @@ for row in rows:
  city=row["R4_official_2025_parent_city_name"]
  if city and city in fjcity:
   o=fjcity[city]
-  row["R4_OFFICIAL_CITY_O3_2024_upstream_context_only"]=o["O3_2024"]
-  row["R4_OFFICIAL_CITY_O3_2025_upstream_context_only"]=o["O3_2025"]
+  row["R4_OFFICIAL_CITY_O3_2024_upstream_context_only"]=o["O3_MDA8_P90_2024_ugm3"]
+  row["R4_OFFICIAL_CITY_O3_2025_upstream_context_only"]=o["O3_MDA8_P90_2025_ugm3"]
   row["R4_OFFICIAL_CITY_O3_SOURCE_SCOPE_NOT_COUNTY"]="FUJIAN_CITY_REPORT_ONLY"
   fj_pref_city_context+=1
   if code in fjcounty:county_fj_with_city_o3_context+=1
@@ -104,9 +104,9 @@ with outcsv.open("w",encoding="utf-8-sig",newline="") as f:
  writer=csv.DictWriter(f,fieldnames=fields);writer.writeheader();writer.writerows(rows)
 city_o3_grouped=[]
 for name,rec in sorted(fjcity.items()):
- city_o3_grouped.append({"name":name,"O3_2024":rec["O3_2024"],"O3_2025":rec["O3_2025"],
- "PM25_2024":rec["PM25_2024"],"PM25_2025":rec["PM25_2025"],
- "2025_minus_2024_O3":rec["O3_2025"]-rec["O3_2024"],
+ city_o3_grouped.append({"name":name,"O3_2024":rec["O3_MDA8_P90_2024_ugm3"],"O3_2025":rec["O3_MDA8_P90_2025_ugm3"],
+ "PM25_2024":rec["PM25_2024_ugm3"],"PM25_2025":rec["PM25_2025_ugm3"],
+ "2025_minus_2024_O3":rec["O3_MDA8_P90_2025_ugm3"]-rec["O3_MDA8_P90_2024_ugm3"],
  "city_not_county_residential":True})
 report={"schema":"RET_R4_NATIONAL_MULTISOURCE_2024_2025_CITY_O3_COUNTY_PM25_2847_V1",
  "created_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),
