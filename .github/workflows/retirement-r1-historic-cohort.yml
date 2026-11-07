@@ -1,0 +1,74 @@
+name: Retirement R1 additional national historic-county spatial cohort
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-r1-historic-cohort.yml'
+jobs:
+  strict-unique-provisional-geocodes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Require current V1.6 action and previous postcheck
+        run: |
+          python - <<'PY'
+          import json
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R1-EXPAND-002"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          PY
+      - name: Build strict 2017 polygon and provisional 2025 code crosswalk
+        run: |
+          python -m pip install --disable-pip-version-check -q pypinyin
+          python -u research_engine/retirement/r1_expand_strict_crosswalk.py
+      - name: Check historic spatial-anchor cohort and formal-unverified metadata
+        run: |
+          python - <<'PY'
+          import json
+          p="research_engine/retirement/output/r1_expand_strict_crosswalk.json"
+          d=json.load(open(p))
+          assert d["sampled_count"]>=12 and d["official_2026_code_verified"]==0
+          assert d["sampled_province_prefix_count"]>=8
+          assert len(set(x["county_code"] for x in d["selected_30"]))==d["sampled_count"]
+          assert all(x["crosswalk_quality"]=="UNIQUE_NAME_EXACT_PINYIN_PROVISIONAL_ONLY" for x in d["selected_30"])
+          print("R1_HISTORIC_UNIQUE_COHORT_PASS",d["sampled_count"],d["sampled_province_prefix_count"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: retirement-national-R1-strict-historic-crosswalk
+          path: research_engine/retirement/output/r1_expand_strict_crosswalk.json
+          retention-days: 30
+      - name: Persist spatial cohort and verify remote integrity
+        run: |
+          cp research_engine/retirement/output/r1_expand_strict_crosswalk.json research_engine/retirement/status/r1_expand_strict_crosswalk.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/r1_expand_strict_crosswalk.json
+          git commit -m "Record 2017 county polygon anchors for broad R1 climate expansion with unverified 2026 codes"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,subprocess,json
+          p="research_engine/retirement/status/r1_expand_strict_crosswalk.json"
+          local=open(p,"rb").read()
+          remote=subprocess.check_output(["git","show","origin/main:"+p])
+          assert hashlib.sha256(local).hexdigest()==hashlib.sha256(remote).hexdigest()
+          d=json.loads(remote)
+          assert d["official_2026_code_verified"]==0
+          print("REMOTE_HISTORIC_COHORT_SHA_PASS",d["sampled_count"])
+          PY
