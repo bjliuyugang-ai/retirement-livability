@@ -1,0 +1,12 @@
+{
+  "schema": "RET_SCIDB_TASMAX_1KM_NATIONAL_ZONAL_EVIDENCE_V1",
+  "run_id": "42391693365",
+  "action_id": "RET-CASCADE-NATIONAL-R1_R2_30YEAR_GRID_SCALE-017",
+  "started_at_utc": "2026-11-07T16:45:34.861735+00:00",
+  "status": "FAILED_OR_BLOCKED",
+  "error_type": "RuntimeError",
+  "error": "DOWNLOAD_FAILED_AFTER_3_ATTEMPTS HTTPError: HTTP Error 416: Requested Range Not Satisfiable",
+  "formal_valid_county_screenings": 0,
+  "confirmed_county_exclusions": 0,
+  "carry_forward_counties": 2847
+}

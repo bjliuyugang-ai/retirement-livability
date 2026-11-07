@@ -15,22 +15,23 @@
     "git_blob_sha": "7fee4dab2531010d3a90563bd4b31d4f574c97d6"
   },
   "last_verified_run": {
-    "run_id": "MANUAL-R0R5-2847-ALLSOURCE_UNIFIED_LEDGER-20261107-017",
-    "action_id": "RET-CASCADE-NATIONAL-R0_R5_UNIFIED_AUDIT-016",
-    "result_id": "RES-2847_R1R2R3R4R5_UNIFIED_214_199_205_58_61-20261107",
-    "execution_status": "EXECUTED",
-    "engineering_status": "PASS",
-    "research_delta_status": "DELTA_VERIFIED_ALLFIVE_ROUND_2847_WORKING_EVIDENCE_MATRIX",
+    "run_id": "GHA-42391693365",
+    "action_id": "RET-CASCADE-NATIONAL-R1_R2_30YEAR_GRID_SCALE-017",
+    "result_id": "RES-SCIDB-TASMAX-ZONAL-20261107-42391693365",
+    "execution_status": "EXECUTED_WITH_INCONCLUSIVE_STEP",
+    "engineering_status": "INCONCLUSIVE",
+    "research_delta_status": "NO_VERIFIED_GRID_ZONAL_RESEARCH_DELTA",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/national_R0_R5_unified_evidence_audit.json",
-    "evidence_git_blob_sha": "4eda6a949aa45ef51e6f9b63069ba344b3677cbe",
-    "unified_path": "research_engine/retirement/status/national_R0_R5_unified_2847_county_evidence_and_missing.csv",
-    "unified_git_blob_sha": "11ce8f7a354661a7f165e10e22167e35061bff3f",
-    "province_path": "research_engine/retirement/status/national_R0_R5_by_province_evidence_coverage.csv",
-    "province_git_blob_sha": "bb0727e719190388253c5b4a03e55355aa5ff6fd",
-    "followups_path": "research_engine/retirement/status/national_R0_R5_high_evidence_local_followups.csv",
-    "followups_git_blob_sha": "6263552aae854ddfbd85f89c6d823dec95b92924",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/status/scidb_tasmax_1km_2838_county_zonal_evidence_20261107.json",
+    "evidence_git_blob_sha": "PENDING_REMOTE_POSTCHECK",
+    "county_csv_path": "research_engine/retirement/status/scidb_tasmax_1km_2838_county_zonal_1991_2020.csv",
+    "county_csv_git_blob_sha": "PENDING_REMOTE_POSTCHECK",
+    "exact_code_name_geometry_matches": 0,
+    "complete_12_month_grid_counties": 0,
+    "formal_valid_county_screenings": 0,
+    "confirmed_county_exclusions": 0,
+    "all_2847_carry_forward": true,
+    "status": "POSTCHECK_PENDING"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-R0_R5_UNIFIED_AUDIT-016",
   "closed_result_refs": [
@@ -77,7 +78,9 @@
     "pass_criteria": "不混淆1991—2020与其他时期，不用NASA MAXAVG聚合口径异常值，不把无历史县界正式2026确认当成现行行政编码认证；逐步增加真实参数证据且不提前排除",
     "fallback": "若单一数据源/接口重试两次无实质数值增量则换另一公开年气候栅格/历史站点下载方法；仍缺数据即等待后续补采不阻塞全国其他区域",
     "status": "READY",
-    "timebox_end": "2026-11-08T15:26:00Z"
+    "timebox_end": "2026-11-08T15:26:00Z",
+    "last_run_id": "42391693365",
+    "last_attempt_status": "FAILED_OR_BLOCKED"
   },
   "phase": "NATIONWIDE_1991_2020_CLIMATE_DATA_SCALING_AFTER_COMPLETE_R0_R5_MISSING_AUDIT",
   "milestone_deadline": {
@@ -86,14 +89,14 @@
     "checkpoint_48h": "2026-11-08T23:26:00+08:00",
     "note": "工程PASS/FAIL/INCONCLUSIVE裁决节点，不改变全国100%正式验收"
   },
-  "consecutive_no_delta": 0,
+  "consecutive_no_delta": 1,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "386e52dadaae4f2ef47ba591cc23e0460fae9c81",
-    "verified_at": "2026-11-07T05:02:10.475Z"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null,
+    "verified_at": null
   },
-  "updated_at": "2026-11-07T05:02:10.475Z",
-  "state_revision": 71,
+  "updated_at": "2026-11-07T16:45:36.460848+00:00",
+  "state_revision": 72,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
