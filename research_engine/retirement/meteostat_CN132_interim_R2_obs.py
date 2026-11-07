@@ -33,8 +33,8 @@ prior_R2={z["candidate_code"] for z in rows if z["R2_status"]!="NOT_SCREENED"}
 if len(prior_R2)!=73:raise RuntimeError("Frozen prior longer source R2 73 count changed")
 station_details=[z for z in st["station_details"] if z["accept_for_interim_partial_R1"]]
 stationmap={str(z["station_id"]):z for z in station_details}
-if len(stationmap)!=132 or len({z["coded_candidate_code"] for z in station_details})!=132:
- raise RuntimeError("Interim GIS accepted station IDs or counties not unique")
+if len(stationmap)!=132 or len({z["coded_candidate_code"] for z in station_details})!=131:
+ raise RuntimeError("Interim GIS accepted station IDs / unique counties mismatch; 150782 has 2 stations")
 mp=D/"monthly.parquet"
 expected=src["source_sha256"]["monthly_parquet"]
 if not mp.exists() or digest(mp.read_bytes())!=expected:
@@ -108,8 +108,19 @@ for sid,p in sorted(stationmap.items()):
  results.append(z)
 if len(results)!=132:raise RuntimeError("R2 source station matches not complete")
 passed=[z for z in results if z["R2_precip_ge180mo_every_month10years"] or z["R2_sunshine_ge180mo_every_month10years"]]
-bycounty={z["candidate_code"]:z for z in passed}
-if len(bycounty)!=len(passed):raise RuntimeError("Multiple stations per candidate county need special resolution")
+bycounty_all=collections.defaultdict(list)
+for z in passed:bycounty_all[z["candidate_code"]].append(z)
+# Never blend temperatures/precipitation of distinct stations. Choose one record
+# with the most independently qualified R2 parameters; tie by total observed months.
+def station_rank(z):
+ return (int(z["R2_precip_ge180mo_every_month10years"])+int(z["R2_sunshine_ge180mo_every_month10years"]),
+   z["R2_observation_precip_months"]+z["R2_observation_sunshine_months"],z["station_id"])
+bycounty={code:sorted(records,key=station_rank,reverse=True)[0] for code,records in bycounty_all.items()}
+multi_station_all=collections.defaultdict(list)
+for z in results:multi_station_all[z["candidate_code"]].append(z["station_id"])
+multi_station_codes={code:sorted(ids) for code,ids in multi_station_all.items() if len(ids)>1}
+if multi_station_codes!={"150782":["50434","50632"]}:
+ raise RuntimeError("Unexpected 132-station duplicate county mapping "+str(multi_station_codes))
 new=sorted(set(bycounty)-prior_R2)
 extra=["R2_short_history_obs_station_id","R2_short_history_precip_months",
  "R2_short_history_sunshine_months","R2_short_history_precip_rough_annual_mm",
@@ -164,6 +175,9 @@ report={"schema":"RET_CN132_R2_SOURCE_INDEPENDENT_1991_2020_INTERIM_V1",
  "interim_R2_precip_observation_sufficient_stations":sum(z["R2_precip_ge180mo_every_month10years"] for z in results),
  "interim_R2_sunshine_observation_sufficient_stations":sum(z["R2_sunshine_ge180mo_every_month10years"] for z in results),
  "interim_R2_stations_with_any_parameter_evidence":len(passed),
+ "interim_R2_distinct_counties_with_any_parameter_evidence":len(bycounty),
+ "multi_station_candidate_codes_with_both_station_ids":multi_station_codes,
+ "multi_station_station_selection_rule":"one primary per county chosen by number of sufficient parameters and observed-month counts; retain all original station-level source records, never average the two stations",
  "new_interim_only_R2_counties":len(new),"new_interim_R2_codes":new,
  "prior_R2_longer_source_partials_retained":73,
  "R2_total_counties_any_partial_evidence_including_interim":after,
