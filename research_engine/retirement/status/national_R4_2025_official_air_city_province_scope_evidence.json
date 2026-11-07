@@ -1,0 +1,201 @@
+{
+  "schema": "RET_NATIONAL_R4_2025_OFFICIAL_CITY_PROVINCE_SOURCE_SCOPE_CONTEXT_V1",
+  "created_utc": "2026-11-07T04:39:36.030049+00:00",
+  "historic_2025_2026_provisional_counties": 2847,
+  "source_R3_2847_sha256": "4f7c31e1d92b988c3dd834ce8912ab23f0933affdad1688460996edb3365b3ae",
+  "2025_official_municipal_sources_verified": 3,
+  "2025_provincial_source_aggregates_verified": 3,
+  "actual_online_HTTP_and_metric_checks": {
+    "municipal_11": {
+      "status": "SOURCE_RETRIEVED_WITH_YEAR_METRIC",
+      "sha256": "ffa809141f5cd76710caf0f0b14abfce8dc337e98d9593ae07b5b191a4446fbb",
+      "bytes": 51748
+    },
+    "municipal_12": {
+      "status": "SOURCE_RETRIEVED_WITH_YEAR_METRIC",
+      "sha256": "e3abbd977ecb2e44a32fcc2372165d76b5a838ae97e40c78e9cbf24d153164db",
+      "bytes": 170307
+    },
+    "municipal_31": {
+      "status": "SOURCE_RETRIEVED_WITH_YEAR_METRIC",
+      "sha256": "53208d64119891cc374e6b70ede45f537667bc4152d71da1111609d75641348a",
+      "bytes": 46257
+    },
+    "municipal_50": {
+      "status": "SOURCE_FETCH_OR_VALUE_QA_FAILED",
+      "error": "URLError(OSError(101, 'Network is unreachable'))"
+    },
+    "province_53": {
+      "status": "SOURCE_RETRIEVED_WITH_YEAR_METRIC",
+      "sha256": "cac55b5ef40b52cafaa54de5ad0e9f14f86eaec29209537d9172b196b05652f9",
+      "bytes": 45172
+    },
+    "province_32": {
+      "status": "SOURCE_RETRIEVED_WITH_YEAR_METRIC",
+      "sha256": "38c6c39db197e13cdeb934f19e09eca1a7a83920cbba39a763cae52523e452f9",
+      "bytes": 32793
+    },
+    "province_51": {
+      "status": "SOURCE_FETCH_OR_VALUE_QA_FAILED",
+      "error": "URLError(TimeoutError('timed out'))"
+    },
+    "province_46": {
+      "status": "SOURCE_RETRIEVED_WITH_YEAR_METRIC",
+      "sha256": "b15caa0f0faf908bce34162ab09dda2c487a9041b57e6e8919cdacd2a0cce163",
+      "bytes": 12478
+    }
+  },
+  "new_R4_counties_with_MUNICIPAL_CONTEXT_NOT_COUNTY_MONITORING": 48,
+  "previous_R4_city_context_counties": 2,
+  "R4_city_or_municipal_context_counties": 50,
+  "R4_not_scanned_counties": 2797,
+  "province_only_context_mapped_candidate_rows_not_counted_R4_measured": 249,
+  "municipality_code_prefix_count": {
+    "11": 16,
+    "12": 16,
+    "31": 16
+  },
+  "province_aggregate_candidate_prefix_count": {
+    "32": 95,
+    "46": 25,
+    "53": 129
+  },
+  "source_items": [
+    {
+      "scope": "2025 municipality",
+      "prefix": "11",
+      "label": "北京市",
+      "pm25": 27.0,
+      "o3": 159.0,
+      "good_days_percent": 85.2,
+      "url": "https://www.mee.gov.cn/ywdt/xwfb/202601/t20260128_1142783.shtml",
+      "url_keyword": "27.0",
+      "source_level": "MEE_OFFICIAL_BEIJING_2025_AIR",
+      "fetch_check": {
+        "status": "SOURCE_RETRIEVED_WITH_YEAR_METRIC",
+        "sha256": "ffa809141f5cd76710caf0f0b14abfce8dc337e98d9593ae07b5b191a4446fbb",
+        "bytes": 51748
+      }
+    },
+    {
+      "scope": "2025 municipality",
+      "prefix": "12",
+      "label": "天津市",
+      "pm25": 36.2,
+      "o3": null,
+      "good_days_percent": 77.0,
+      "url": "https://www.tj.gov.cn/sy/xwfbh/xwfbh_210907/202606/t20260604_7311610.html",
+      "url_keyword": "36.2",
+      "source_level": "TIANJIN_2025_ECOENV_OFFICIAL_PRESS",
+      "fetch_check": {
+        "status": "SOURCE_RETRIEVED_WITH_YEAR_METRIC",
+        "sha256": "e3abbd977ecb2e44a32fcc2372165d76b5a838ae97e40c78e9cbf24d153164db",
+        "bytes": 170307
+      }
+    },
+    {
+      "scope": "2025 municipality",
+      "prefix": "31",
+      "label": "上海市",
+      "pm25": 26.3,
+      "o3": 159.0,
+      "good_days_percent": 88.5,
+      "url": "https://tjj.sh.gov.cn/tjgb/20260330/e0772941e8e041eaaad2df850b44ef98.html",
+      "url_keyword": "26.3",
+      "source_level": "SHANGHAI_STATS_2025_OFFICIAL",
+      "fetch_check": {
+        "status": "SOURCE_RETRIEVED_WITH_YEAR_METRIC",
+        "sha256": "53208d64119891cc374e6b70ede45f537667bc4152d71da1111609d75641348a",
+        "bytes": 46257
+      }
+    },
+    {
+      "scope": "2025 municipality",
+      "prefix": "50",
+      "label": "重庆市",
+      "pm25": 31.0,
+      "o3": null,
+      "good_days_percent": null,
+      "good_days_count": 339,
+      "url": "https://www.sthjj.cq.gov.cn/zwgk_249/xwfb_67131/202606/t20260615_15753047.html",
+      "url_keyword": "31",
+      "source_level": "CHONGQING_ECOENV_OFFICIAL_2025_PRESS",
+      "fetch_check": {
+        "status": "SOURCE_FETCH_OR_VALUE_QA_FAILED",
+        "error": "URLError(OSError(101, 'Network is unreachable'))"
+      }
+    },
+    {
+      "scope": "2025 province aggregate not county measured",
+      "prefix": "53",
+      "label": "云南省",
+      "pm25": 20.4,
+      "o3": 118,
+      "good_days_percent": 98.9,
+      "url": "https://www.ynrd.gov.cn/html/2026/szyw2025_0401/4045337.html?show=2025new",
+      "url_keyword": "20.4",
+      "source_level": "YUNNAN_2025_STATISTICS_OFFICIAL_16_SEATS_AGGREGATE",
+      "fetch_check": {
+        "status": "SOURCE_RETRIEVED_WITH_YEAR_METRIC",
+        "sha256": "cac55b5ef40b52cafaa54de5ad0e9f14f86eaec29209537d9172b196b05652f9",
+        "bytes": 45172
+      }
+    },
+    {
+      "scope": "2025 province aggregate not county measured",
+      "prefix": "32",
+      "label": "江苏省",
+      "pm25": 31.3,
+      "o3": null,
+      "good_days_percent": 83.8,
+      "url": "https://www.js.gov.cn/art/2026/6/30/art_46548_342.html",
+      "url_keyword": "31.3",
+      "source_level": "JIANGSU_2025_ECOENV_OFFICIAL_PROVINCE",
+      "fetch_check": {
+        "status": "SOURCE_RETRIEVED_WITH_YEAR_METRIC",
+        "sha256": "38c6c39db197e13cdeb934f19e09eca1a7a83920cbba39a763cae52523e452f9",
+        "bytes": 32793
+      }
+    },
+    {
+      "scope": "2025 province aggregate not county measured",
+      "prefix": "51",
+      "label": "四川省",
+      "pm25": 28.5,
+      "o3": null,
+      "good_days_percent": 88.7,
+      "url": "https://www.scjjrb.com/2026/02/05/99456445.html",
+      "url_keyword": "28.5",
+      "source_level": "SICHUAN_ECOENV_OFFICIAL_PRESS_MEDIA_TRANSCRIPT",
+      "fetch_check": {
+        "status": "SOURCE_FETCH_OR_VALUE_QA_FAILED",
+        "error": "URLError(TimeoutError('timed out'))"
+      }
+    },
+    {
+      "scope": "2025 province aggregate not county measured",
+      "prefix": "46",
+      "label": "海南省",
+      "pm25": 11.8,
+      "o3": null,
+      "good_days_percent": 98.8,
+      "url": "https://www.hnntv.cn/info/article/539/539349.html",
+      "url_keyword": "11.8",
+      "source_level": "HAINAN_ECOENV_OFFICIAL_PRESS_CCTV_REPORTED_SAND_ADJUSTED",
+      "fetch_check": {
+        "status": "SOURCE_RETRIEVED_WITH_YEAR_METRIC",
+        "sha256": "b15caa0f0faf908bce34162ab09dda2c487a9041b57e6e8919cdacd2a0cce163",
+        "bytes": 12478
+      }
+    }
+  ],
+  "source_level_warning": "Municipal/source annual PM2.5 and O3 are not district observations and do not establish home exposure; province aggregates are not counted R4 county measured.",
+  "R1_partial_evidence_retained": 214,
+  "R2_partial_evidence_retained": 199,
+  "R3_partial_elevation_point_retained": 205,
+  "all_2847_continue": 2847,
+  "confirmed_county_exclusions": 0,
+  "formal_valid_county_screenings": 0,
+  "official_2026_administrative_geometry_verified": false,
+  "output_national_CSV_sha256": "49459cdf4d87989b22b31ebcc186e9f6ed17d573ae341a2074bdc7c33b5d9a41"
+}
