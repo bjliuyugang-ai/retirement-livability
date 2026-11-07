@@ -1,0 +1,70 @@
+{
+  "schema": "RET_MEE_OFFICIAL_2024_2025_BEIJING_AND_NATIONAL_O3_PM25_SOURCE_V1",
+  "asof_utc": "2026-11-07T04:40:17.263386+00:00",
+  "source_html_results": {
+    "2024": {
+      "source_url": "https://www.mee.gov.cn/ywdt/xwfb/202501/t20250124_1101318.shtml",
+      "source_HTML_SHA256": "5b498a5c209b532ecb14be3e1431215cd9553565f49bbd5be3247d53bbe94177",
+      "source_HTML_bytes": 53392,
+      "Beijing_specific": {
+        "city": "北京市",
+        "2025_prefecture_code": "110000",
+        "year": 2024,
+        "PM25_ug_m3": 30.5,
+        "O3_ug_m3": 171.0,
+        "good_air_days_pct": 79.2,
+        "sample_scope": "BEIJING_MUNICIPALITY_ANNUAL_PUBLISHED",
+        "2026_county_residential_air_proven": false
+      },
+      "national_339_city_AGGREGATE_ONLY": {
+        "national_339_city_PM25_mean_ug_m3": 29.3,
+        "national_339_city_O3_90pct_mean_ug_m3": 144.0,
+        "national_339_city_good_days_mean_pct": 87.2,
+        "do_not_use_as_city_observation": true
+      }
+    },
+    "2025": {
+      "source_url": "https://www.mee.gov.cn/ywdt/xwfb/202601/t20260128_1142783.shtml",
+      "source_HTML_SHA256": "ffa809141f5cd76710caf0f0b14abfce8dc337e98d9593ae07b5b191a4446fbb",
+      "source_HTML_bytes": 51748,
+      "Beijing_specific": {
+        "city": "北京市",
+        "2025_prefecture_code": "110000",
+        "year": 2025,
+        "PM25_ug_m3": 27.0,
+        "O3_ug_m3": 159.0,
+        "good_air_days_pct": 85.2,
+        "sample_scope": "BEIJING_MUNICIPALITY_ANNUAL_PUBLISHED",
+        "2026_county_residential_air_proven": false
+      },
+      "national_339_city_AGGREGATE_ONLY": {
+        "national_339_city_PM25_mean_ug_m3": 28.0,
+        "national_339_city_O3_90pct_mean_ug_m3": 138.0,
+        "national_339_city_good_days_mean_pct": 88.1,
+        "do_not_use_as_city_observation": true
+      }
+    }
+  },
+  "annual_2025_city_PM25_source_rows_retained": 168,
+  "annual_city_O3_2025_direct_source_cities": 1,
+  "annual_city_O3_2024_2025_comparable_city_count": 1,
+  "remaining_168_key_cities_without_individual_city_O3_sources": 167,
+  "provisional_counties_with_annual_2025_city_PM25_PARENT_CONTEXT_ONLY": 1510,
+  "provisional_Beijing_district_codes_given_MUNICIPAL_CONTEXT_ONLY": 16,
+  "Beijing_2025_vs_2024_PM25_change_ug_m3": -3.5,
+  "Beijing_2025_vs_2024_O3_change_ug_m3": -12.0,
+  "Beijing_2025_vs_2024_good_days_pct_points": 6.0,
+  "full_county_candidates_carried_forward": 2847,
+  "individual_county_residential_PM25_O3_verified": 0,
+  "formal_valid_county_screenings": 0,
+  "confirmed_exclusions": 0,
+  "prior_national_R4_context_sha256": "f87f167405873c7b3094c0e6eea91fb2d4345862998ea9c41959a583ae39cd96",
+  "new_national_R4_context_csv_sha256": "2ce8dbde4c1295dc7ff7d5853be7ac2de7a792a6a4334c7fa19acca4408deb1a",
+  "warnings": [
+    "Only Beijing has individually named annual ozone and good-day indicators in the two official HTML text articles",
+    "O3 city is 90th percentile of daily max 8-hr averages; not average ozone concentration",
+    "Never distribute national or regional O3 average to individual cities",
+    "Municipal PM25 and O3 cannot prove individual county or home exposures",
+    "Continue R4 ozone and industrial-pollution gaps for remaining 167 cities and residential-level pollutants"
+  ]
+}
