@@ -1,0 +1,263 @@
+name: Retirement national 1km tasmax county zonal extraction
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-national-grid-tasmax-zonal.yml'
+      - 'research_engine/retirement/national_grid_tasmax_zonal.py'
+  workflow_dispatch:
+jobs:
+  national-tasmax-zonal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout project research repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install raster and geometry dependencies
+        run: python -m pip install --disable-pip-version-check numpy rasterio shapely
+      - name: Restore verified 1km grid and geometry cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            research_engine/retirement/output/scidb_download/China_tasmax_1km_1991-2020.tif
+            research_engine/retirement/output/scidb_download/china_county.geojson
+          key: scidb-v8-tasmax-geojson-22db6c54-5446efe7
+      - name: V1.6 S0-S2 precheck and claim unique action
+        id: precheck
+        run: |
+          python - <<'PY'
+          import json,hashlib,datetime,pathlib,os,csv
+          state_path=pathlib.Path("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json")
+          s=json.loads(state_path.read_text(encoding="utf-8"))
+          assert s["schema_version"]=="1.6"
+          assert s["state_revision"]==71, f"Unexpected state revision {s['state_revision']}"
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R1_R2_30YEAR_GRID_SCALE-017"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["last_completed_action_id"]=="RET-CASCADE-NATIONAL-R0_R5_UNIFIED_AUDIT-016"
+          roster=list(csv.DictReader(open("research_engine/retirement/evidence/provisional_counties_2026_06.csv",encoding="utf-8-sig")))
+          assert len(roster)==2847 and len({r["code"] for r in roster})==2847
+          run_id=os.environ["GITHUB_RUN_ID"]
+          p={
+            "schema":"RETIREMENT_V16_S0_S2_PRECHECK_V1","run_id":run_id,
+            "action_id":s["active_action"]["action_id"],"source_state_revision":s["state_revision"],
+            "source_state_sha256":hashlib.sha256(state_path.read_bytes()).hexdigest(),
+            "roster_count":len(roster),"unique_roster_codes":len({r["code"] for r in roster}),
+            "writeback_precheck":"POSTCHECK_PASS","precheck_status":"PASS",
+            "at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat()
+          }
+          out=pathlib.Path("research_engine/retirement/output/national_grid_tasmax_precheck.json")
+          out.parent.mkdir(parents=True,exist_ok=True)
+          out.write_text(json.dumps(p,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          print(json.dumps(p,ensure_ascii=False))
+          PY
+      - name: Run actual 1991-2020 1km monthly Tmax zonal statistics for all matched counties
+        id: zonal
+        continue-on-error: true
+        run: python -u research_engine/retirement/national_grid_tasmax_zonal.py
+      - name: Upload raw computation outputs and run evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retirement-national-1km-tasmax-zonal-${{ github.run_id }}
+          path: |
+            research_engine/retirement/status/scidb_tasmax_1km_2838_county_zonal_1991_2020.csv
+            research_engine/retirement/status/scidb_tasmax_1km_2838_county_zonal_evidence_20261107.json
+            research_engine/retirement/output/scidb_tasmax_zonal_progress.json
+            research_engine/retirement/output/national_grid_tasmax_precheck.json
+          if-no-files-found: warn
+          retention-days: 30
+      - name: V1.6 S3-S5 research classification and durable state writeback
+        if: always() && steps.precheck.outcome == 'success'
+        env:
+          GRID_STEP_OUTCOME: ${{ steps.zonal.outcome }}
+        run: |
+          python - <<'PY'
+          import json,datetime,pathlib,os
+          run_id=os.environ["GITHUB_RUN_ID"]
+          action_id="RET-CASCADE-NATIONAL-R1_R2_30YEAR_GRID_SCALE-017"
+          sp=pathlib.Path("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json")
+          lp=pathlib.Path("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl")
+          cp=pathlib.Path("research_assets/retirement/CURRENT_STATE.md")
+          ep=pathlib.Path("research_engine/retirement/status/scidb_tasmax_1km_2838_county_zonal_evidence_20261107.json")
+          s=json.loads(sp.read_text(encoding="utf-8"))
+          pre=json.loads(pathlib.Path("research_engine/retirement/output/national_grid_tasmax_precheck.json").read_text(encoding="utf-8"))
+          summary=json.loads(ep.read_text(encoding="utf-8")) if ep.exists() else {}
+          assert s["active_action"]["action_id"]==action_id
+          assert pre.get("precheck_status")=="PASS" and pre.get("run_id")==run_id
+          step=os.environ.get("GRID_STEP_OUTCOME","unknown")
+          grid_status=summary.get("status","NO_SUMMARY")
+          grid_count=int(summary.get("complete_12_month_grid_counties",0) or 0)
+          has_delta=grid_count>0 and grid_status in ("PASS_WITH_PROVISIONAL_1KM_TASMAX_ZONAL_DELTA","PARTIAL_GRID_ZONAL_DELTA")
+          if has_delta:
+            engineering="PASS" if step=="success" and grid_status.startswith("PASS_") else "PARTIAL"
+            delta="DELTA_VERIFIED_PROVISIONAL_1KM_TASMAX_ZONAL_COUNTY_GRID"
+            s["consecutive_no_delta"]=0
+            s["active_action"]["status"]="IN_PROGRESS"
+            s["active_action"]["last_run_id"]=run_id
+            s["active_action"]["last_attempt_status"]="RESEARCH_DELTA_PARTIAL_ACTION_REMAINS_OPEN"
+            s["active_action"]["last_progress"]={
+              "grid_variable":"tasmax","period":"1991-2020","exact_code_name_geometry_matches":summary.get("exact_code_name_matches",0),
+              "zonal_stats_counties":summary.get("zonal_stats_counties",0),
+              "complete_12_month_grid_counties":grid_count,
+              "new_grid_counties_without_prior_R1_point_evidence":summary.get("new_grid_counties_without_prior_R1_point_evidence",0),
+              "formal_valid_county_screenings":0,"confirmed_exclusions":0}
+            p=s.setdefault("r1_nationwide_progress",{})
+            p["R1_grid_tasmax_exact_geometry_matches"]=summary.get("exact_code_name_matches",0)
+            p["R1_grid_tasmax_complete_12_month_counties"]=grid_count
+            p["R1_grid_tasmax_new_without_prior_R1_point_evidence"]=summary.get("new_grid_counties_without_prior_R1_point_evidence",0)
+            p["R1_grid_tasmax_geometry_pending"]=summary.get("missing_geometry_counties",0)
+            p["formal_valid_county_screenings"]=0
+            s.setdefault("national_parameter_rounds",{})["R1_GRID_TASMAX"]={
+              "input_counties":2847,"exact_code_name_geometry_matches":summary.get("exact_code_name_matches",0),
+              "zonal_stats_counties":summary.get("zonal_stats_counties",0),
+              "complete_12_month_grid_counties":grid_count,
+              "new_without_prior_R1_point_evidence":summary.get("new_grid_counties_without_prior_R1_point_evidence",0),
+              "missing_geometry_counties":summary.get("missing_geometry_counties",0),
+              "source_period":"1991-2020","source_resolution":"1km monthly grid",
+              "formal_valid_county_screenings":0,"confirmed_exclusions":0,"carry_forward":2847,
+              "qualification":"PROVISIONAL_GRID_MONTHLY_TASMAX_ONLY_NOT_FULL_R1_SCREEN"}
+            n=s.setdefault("national_R1R2_cascade",{})
+            n["R1_grid_tasmax_complete_12_month_counties"]=grid_count
+            n["R1_grid_tasmax_new_without_prior_point_evidence"]=summary.get("new_grid_counties_without_prior_R1_point_evidence",0)
+            n["R1_grid_tasmax_geometry_pending"]=summary.get("missing_geometry_counties",0)
+            n["formal_valid_county_screenings"]=0
+          else:
+            engineering="INCONCLUSIVE"
+            delta="NO_VERIFIED_GRID_ZONAL_RESEARCH_DELTA"
+            s["consecutive_no_delta"]=int(s.get("consecutive_no_delta",0))+1
+            s["active_action"]["status"]="READY"
+            s["active_action"]["last_run_id"]=run_id
+            s["active_action"]["last_attempt_status"]=grid_status
+          result_id=f"RES-SCIDB-TASMAX-ZONAL-20261107-{run_id}"
+          s["last_verified_run"]={
+            "run_id":f"GHA-{run_id}","action_id":action_id,"result_id":result_id,
+            "execution_status":"EXECUTED" if step=="success" else "EXECUTED_WITH_INCONCLUSIVE_STEP",
+            "engineering_status":engineering,"research_delta_status":delta,
+            "research_closure_status":"OPEN",
+            "evidence_path":str(ep),"evidence_git_blob_sha":"PENDING_REMOTE_POSTCHECK",
+            "county_csv_path":"research_engine/retirement/status/scidb_tasmax_1km_2838_county_zonal_1991_2020.csv",
+            "county_csv_git_blob_sha":"PENDING_REMOTE_POSTCHECK",
+            "exact_code_name_geometry_matches":summary.get("exact_code_name_matches",0),
+            "complete_12_month_grid_counties":grid_count,
+            "formal_valid_county_screenings":0,"confirmed_county_exclusions":0,
+            "all_2847_carry_forward":True,"status":"POSTCHECK_PENDING"}
+          s["state_revision"]=int(s["state_revision"])+1
+          s["updated_at"]=datetime.datetime.now(datetime.timezone.utc).isoformat()
+          s["writeback_verification"]={"status":"PENDING_REMOTE_CHECK","verified_commit":None,"verified_at":None}
+          sp.write_text(json.dumps(s,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          log={
+            "kind":"S0-S5","run_id":f"GHA-{run_id}","action_id":action_id,
+            "at":datetime.datetime.now(datetime.timezone.utc).isoformat(),
+            "source_state_revision":pre.get("source_state_revision"),
+            "precheck":"PASS","github_actual_run":run_id,"workflow_step_outcome":step,
+            "grid_status":grid_status,"input_counties":2847,
+            "exact_code_name_geometry_matches":summary.get("exact_code_name_matches",0),
+            "missing_geometry_counties":summary.get("missing_geometry_counties",0),
+            "zonal_stats_counties":summary.get("zonal_stats_counties",0),
+            "complete_12_month_grid_counties":grid_count,
+            "new_grid_counties_without_prior_R1_point_evidence":summary.get("new_grid_counties_without_prior_R1_point_evidence",0),
+            "station_crosscheck":summary.get("station_crosscheck",{}),
+            "formal_valid_county_screenings":0,"confirmed_exclusions":0,"all_2847_carry_forward":True,
+            "engineering_status":engineering,"research_delta_status":delta,
+            "research_closure_status":"OPEN","result_id":result_id,
+            "evidence_path":str(ep),
+            "county_csv_path":"research_engine/retirement/status/scidb_tasmax_1km_2838_county_zonal_1991_2020.csv",
+            "next_action_id":action_id,"writeback":"PENDING_REMOTE_CHECK"}
+          with lp.open("a",encoding="utf-8") as f:f.write(json.dumps(log,ensure_ascii=False)+"\n")
+          note=(f"\n- {result_id}: ScienceDB V8 1991—2020 1km tasmax全国县级栅格提取。工程状态={engineering}；严格代码+名称匹配={summary.get('exact_code_name_matches',0)}；完整12月带县级栅格值={grid_count}；新增此前无R1站点点位证据县数={summary.get('new_grid_counties_without_prior_R1_point_evidence',0)}。仅为第三方边界下的月度最高温格网部分证据，不等于全R1广筛；官方2026县界、住宅点位、逐日极端、ET、湿度及其他风险仍待核。正式县级有效广筛0、确证淘汰0、2847全部保留。证据：{ep}。\n" if has_delta else f"\n- GHA-{run_id}: ScienceDB V8 tasmax单变量全国空间计算未形成可验证县级数值增量（{grid_status}）；记录本次错误/状态，不把下载或流程运行计作研究进展。当前R1/R2动作保留，所有2847候选继续，正式广筛0。\n")
+          current=cp.read_text(encoding="utf-8")
+          if result_id not in current and f"GHA-{run_id}" not in current:cp.write_text(current+note,encoding="utf-8")
+          print(json.dumps({"run_id":run_id,"result_id":result_id,"engineering_status":engineering,
+            "research_delta_status":delta,"state_revision":s["state_revision"],"grid_status":grid_status,
+            "complete_12_month_grid_counties":grid_count},ensure_ascii=False))
+          PY
+      - name: Persist outputs, state and log to main
+        if: always() && steps.precheck.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            research_engine/retirement/status/scidb_tasmax_1km_2838_county_zonal_1991_2020.csv \
+            research_engine/retirement/status/scidb_tasmax_1km_2838_county_zonal_evidence_20261107.json \
+            tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json \
+            tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl \
+            research_assets/retirement/CURRENT_STATE.md
+          git commit -m "Record nationwide 1km tasmax zonal research run"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 3
+          done
+      - name: V1.6 S6 remote readback and postcheck
+        if: always() && steps.precheck.outcome == 'success'
+        run: |
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess,datetime,pathlib,os
+          run_id=os.environ["GITHUB_RUN_ID"]
+          state_path="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          log_path="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl"
+          evidence_path="research_engine/retirement/status/scidb_tasmax_1km_2838_county_zonal_evidence_20261107.json"
+          csv_path="research_engine/retirement/status/scidb_tasmax_1km_2838_county_zonal_1991_2020.csv"
+          def show(p):return subprocess.check_output(["git","show","origin/main:"+p]).decode("utf-8")
+          remote=json.loads(show(state_path))
+          logs=show(log_path)
+          assert remote["last_verified_run"]["run_id"]=="GHA-"+run_id
+          assert "GHA-"+run_id in logs
+          evidence=json.loads(show(evidence_path))
+          assert evidence["run_id"]==run_id
+          csv_text=show(csv_path)
+          assert csv_text.startswith("\ufeffcandidate_code,") or csv_text.startswith("candidate_code,")
+          first_commit=subprocess.check_output(["git","rev-parse","HEAD"]).decode().strip()
+          remote["last_verified_run"]["evidence_git_blob_sha"]=subprocess.check_output(["git","rev-parse","origin/main:"+evidence_path]).decode().strip()
+          remote["last_verified_run"]["county_csv_git_blob_sha"]=subprocess.check_output(["git","rev-parse","origin/main:"+csv_path]).decode().strip()
+          remote["last_verified_run"]["status"]="POSTCHECK_PASS"
+          remote["writeback_verification"]={"status":"POSTCHECK_PASS","verified_commit":first_commit,
+            "verified_at":datetime.datetime.now(datetime.timezone.utc).isoformat()}
+          remote["state_revision"]=int(remote["state_revision"])+1
+          remote["updated_at"]=datetime.datetime.now(datetime.timezone.utc).isoformat()
+          pathlib.Path(state_path).write_text(json.dumps(remote,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          with pathlib.Path(log_path).open("a",encoding="utf-8") as f:
+            f.write(json.dumps({"kind":"S6_POSTCHECK","run_id":"GHA-"+run_id,
+              "action_id":remote["last_verified_run"]["action_id"],
+              "at":datetime.datetime.now(datetime.timezone.utc).isoformat(),
+              "status":"POSTCHECK_PASS","verified_commit":first_commit,
+              "evidence_blob_sha":remote["last_verified_run"]["evidence_git_blob_sha"],
+              "county_csv_blob_sha":remote["last_verified_run"]["county_csv_git_blob_sha"],
+              "state_revision":remote["state_revision"],
+              "formal_valid_county_screenings":0,"confirmed_exclusions":0,
+              "next_action":remote["active_action"]["action_id"]},ensure_ascii=False)+"\n")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
+          git commit -m "Verify nationwide 1km tasmax zonal research writeback"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 3
+          done
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess,os
+          s=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]).decode())
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["last_verified_run"]["run_id"]=="GHA-"+os.environ["GITHUB_RUN_ID"]
+          assert s["last_verified_run"]["status"]=="POSTCHECK_PASS"
+          print("REMOTE_S6_POSTCHECK_PASS",s["state_revision"],s["last_verified_run"]["run_id"])
+          PY
