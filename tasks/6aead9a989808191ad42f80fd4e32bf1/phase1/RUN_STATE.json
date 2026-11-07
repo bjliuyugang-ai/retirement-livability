@@ -26,7 +26,7 @@
     "evidence_git_blob_sha": "45a2288088522e07e8032012425eb18b1af465ed",
     "national_csv_path": "research_engine/retirement/status/national_R5_2025_7district_finished_water_source_partial_2847.csv",
     "national_csv_git_blob_sha": "b941a79ee82704c001c7e68640c09ee54bd2641e",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-R5_TAP_WATER_ENDPOINT-015",
   "closed_result_refs": [
@@ -83,11 +83,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "e84c2fff1121bb54a1c1557f9ef4d2099fde1ef0",
+    "verified_at": "2026-11-07T04:55:09.552Z"
   },
-  "updated_at": "2026-11-07T04:54:36.757Z",
-  "state_revision": 68,
+  "updated_at": "2026-11-07T04:55:09.552Z",
+  "state_revision": 69,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
