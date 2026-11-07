@@ -1,0 +1,375 @@
+{
+  "schema": "RET_2025_HISTORICAL_ROSTER_VS_THIRD_PARTY_CODED_GEOMETRY_AUDIT_V1",
+  "created_utc": "2026-11-07T01:56:13.997166+00:00",
+  "official_live_portal_status": "OFFICIAL_API_BLOCKED_WITH_REAL_ERROR",
+  "official_live_portal_error": "URLError(gaierror(-3, 'Temporary failure in name resolution'))",
+  "source_urls": {
+    "2025": "https://raw.githubusercontent.com/yescallop/areacodes/master/data/2025.txt",
+    "2024": "https://raw.githubusercontent.com/yescallop/areacodes/master/data/2024.txt",
+    "coded_geometry": "https://raw.githubusercontent.com/zzhonglei/GeoCode-Release/main/contributions/china-admin-boundaries/skill/data/china_county.geojson"
+  },
+  "source_sha256": {
+    "2025": "73520f533c8e3f1aadb3bb55166656a491fb1e7703b2e2172e5694ec8845bab0",
+    "2024": "4bfd0a05caa1abdf6add54301eebb256156a0044010244ecdb659062cdbc0313",
+    "county_geojson": "22db6c54b9cb0118ecdcc8a117bf2da4fc24a2229cdba7e6e55dbb5dd56e8246"
+  },
+  "source_description": "yescallop historical year-end 2025 compilation cites MCA National Geonames database; GeoCode-Release coded map is third-party packaged source",
+  "actual_2026_official_live_roster_verified": false,
+  "source_historical_code_entries_2025": 3212,
+  "source_historical_code_entries_2024": 3213,
+  "historical_2025_non00_county_code_count": 2845,
+  "historical_2024_non00_county_code_count": 2846,
+  "mapped_2025_counties_in_real_R0": 2845,
+  "provisional_R0_2026_supplemented_county_candidates": 2847,
+  "new_2026_establishment_counties_in_provisional_R0": [
+    {
+      "code": "653132",
+      "name": "岑岭县",
+      "establishment_announcement_url": "https://www.xinjiang.gov.cn/xinjiang/tzgg/202603/285e5d25b8ad4eae8df6b0f0efe847f6.shtml",
+      "government_verified_establishment": true,
+      "six_digit_code_source_quality": "SECONDARY_CODE_UNVERIFIED_WITH_LIVE_MCA"
+    },
+    {
+      "code": "659013",
+      "name": "草湖市",
+      "establishment_announcement_url": "https://www.xinjiang.gov.cn/xinjiang/tzgg/202604/3691350b13064945947d8f78933ccb3e.shtml",
+      "government_verified_establishment": true,
+      "six_digit_code_source_quality": "SECONDARY_CODE_UNVERIFIED_WITH_LIVE_MCA"
+    }
+  ],
+  "coded_geometry_feature_count": 2891,
+  "geometry_code_in_2025_name_same_count": 2838,
+  "2025_county_codes_missing_coded_geometry_count": 7,
+  "coded_geometry_codes_absent_2025_roster_count": 53,
+  "same_code_different_name_count": 0,
+  "2025_county_codes_missing_coded_geometry": [
+    {
+      "code": "460302",
+      "name_2025": "西沙区"
+    },
+    {
+      "code": "460303",
+      "name_2025": "南沙区"
+    },
+    {
+      "code": "500157",
+      "name_2025": "两江新区"
+    },
+    {
+      "code": "540481",
+      "name_2025": "米林市"
+    },
+    {
+      "code": "540581",
+      "name_2025": "错那市"
+    },
+    {
+      "code": "653228",
+      "name_2025": "和康县"
+    },
+    {
+      "code": "653229",
+      "name_2025": "和安县"
+    }
+  ],
+  "geometry_codes_absent_2025": [
+    {
+      "code": "441900",
+      "name_in_geometry": "东莞市",
+      "2024_name": "东莞市"
+    },
+    {
+      "code": "442000",
+      "name_in_geometry": "中山市",
+      "2024_name": "中山市"
+    },
+    {
+      "code": "460321",
+      "name_in_geometry": "西沙区",
+      "2024_name": null
+    },
+    {
+      "code": "460322",
+      "name_in_geometry": "南沙区",
+      "2024_name": null
+    },
+    {
+      "code": "460400",
+      "name_in_geometry": "儋州市",
+      "2024_name": "儋州市"
+    },
+    {
+      "code": "500105",
+      "name_in_geometry": "江北区",
+      "2024_name": "江北区"
+    },
+    {
+      "code": "500112",
+      "name_in_geometry": "渝北区",
+      "2024_name": "渝北区"
+    },
+    {
+      "code": "540422",
+      "name_in_geometry": "米林市",
+      "2024_name": null
+    },
+    {
+      "code": "540530",
+      "name_in_geometry": "错那市",
+      "2024_name": null
+    },
+    {
+      "code": "620200",
+      "name_in_geometry": "嘉峪关市",
+      "2024_name": "嘉峪关市"
+    },
+    {
+      "code": "629700",
+      "name_in_geometry": "中农发山丹马场",
+      "2024_name": null
+    },
+    {
+      "code": "629800",
+      "name_in_geometry": "莲花山风景林自然保护区",
+      "2024_name": null
+    },
+    {
+      "code": "629900",
+      "name_in_geometry": "太子山天然林保护区",
+      "2024_name": null
+    },
+    {
+      "code": "632857",
+      "name_in_geometry": "大柴旦行政委员会",
+      "2024_name": null
+    },
+    {
+      "code": "710001",
+      "name_in_geometry": "高雄市",
+      "2024_name": null
+    },
+    {
+      "code": "710003",
+      "name_in_geometry": "花莲县",
+      "2024_name": null
+    },
+    {
+      "code": "710004",
+      "name_in_geometry": "基隆市",
+      "2024_name": null
+    },
+    {
+      "code": "710005",
+      "name_in_geometry": "嘉义市",
+      "2024_name": null
+    },
+    {
+      "code": "710006",
+      "name_in_geometry": "嘉义县",
+      "2024_name": null
+    },
+    {
+      "code": "710007",
+      "name_in_geometry": "苗栗县",
+      "2024_name": null
+    },
+    {
+      "code": "710008",
+      "name_in_geometry": "南投县",
+      "2024_name": null
+    },
+    {
+      "code": "710009",
+      "name_in_geometry": "台北市",
+      "2024_name": null
+    },
+    {
+      "code": "710010",
+      "name_in_geometry": "澎湖县",
+      "2024_name": null
+    },
+    {
+      "code": "710011",
+      "name_in_geometry": "屏东县",
+      "2024_name": null
+    },
+    {
+      "code": "710012",
+      "name_in_geometry": "新北市",
+      "2024_name": null
+    },
+    {
+      "code": "710013",
+      "name_in_geometry": "台东县",
+      "2024_name": null
+    },
+    {
+      "code": "710014",
+      "name_in_geometry": "台南市",
+      "2024_name": null
+    },
+    {
+      "code": "710016",
+      "name_in_geometry": "台中市",
+      "2024_name": null
+    },
+    {
+      "code": "710018",
+      "name_in_geometry": "桃园市",
+      "2024_name": null
+    },
+    {
+      "code": "710019",
+      "name_in_geometry": "新竹市",
+      "2024_name": null
+    },
+    {
+      "code": "710020",
+      "name_in_geometry": "新竹县",
+      "2024_name": null
+    },
+    {
+      "code": "710021",
+      "name_in_geometry": "宜兰县",
+      "2024_name": null
+    },
+    {
+      "code": "710022",
+      "name_in_geometry": "云林县",
+      "2024_name": null
+    },
+    {
+      "code": "710023",
+      "name_in_geometry": "彰化县",
+      "2024_name": null
+    },
+    {
+      "code": "810101",
+      "name_in_geometry": "中西区",
+      "2024_name": null
+    },
+    {
+      "code": "810102",
+      "name_in_geometry": "东区",
+      "2024_name": null
+    },
+    {
+      "code": "810103",
+      "name_in_geometry": "九龙城区",
+      "2024_name": null
+    },
+    {
+      "code": "810104",
+      "name_in_geometry": "观塘区",
+      "2024_name": null
+    },
+    {
+      "code": "810105",
+      "name_in_geometry": "南区",
+      "2024_name": null
+    },
+    {
+      "code": "810106",
+      "name_in_geometry": "深水埗区",
+      "2024_name": null
+    },
+    {
+      "code": "810107",
+      "name_in_geometry": "湾仔区",
+      "2024_name": null
+    },
+    {
+      "code": "810108",
+      "name_in_geometry": "黄大仙区",
+      "2024_name": null
+    },
+    {
+      "code": "810109",
+      "name_in_geometry": "油尖旺区",
+      "2024_name": null
+    },
+    {
+      "code": "810110",
+      "name_in_geometry": "离岛区",
+      "2024_name": null
+    },
+    {
+      "code": "810111",
+      "name_in_geometry": "葵青区",
+      "2024_name": null
+    },
+    {
+      "code": "810112",
+      "name_in_geometry": "北区",
+      "2024_name": null
+    },
+    {
+      "code": "810113",
+      "name_in_geometry": "西贡区",
+      "2024_name": null
+    },
+    {
+      "code": "810114",
+      "name_in_geometry": "沙田区",
+      "2024_name": null
+    },
+    {
+      "code": "810115",
+      "name_in_geometry": "屯门区",
+      "2024_name": null
+    },
+    {
+      "code": "810116",
+      "name_in_geometry": "大埔区",
+      "2024_name": null
+    },
+    {
+      "code": "810117",
+      "name_in_geometry": "荃湾区",
+      "2024_name": null
+    },
+    {
+      "code": "810118",
+      "name_in_geometry": "元朗区",
+      "2024_name": null
+    },
+    {
+      "code": "820000",
+      "name_in_geometry": "澳门特别行政区",
+      "2024_name": "澳门特别行政区"
+    }
+  ],
+  "same_code_name_mismatches": [],
+  "year2025_vs_2024_total_codes_added": [
+    {
+      "code": "500157",
+      "new": "两江新区"
+    }
+  ],
+  "year2025_vs_2024_total_codes_removed": [
+    {
+      "code": "500105",
+      "old": "江北区"
+    },
+    {
+      "code": "500112",
+      "old": "渝北区"
+    }
+  ],
+  "year2025_vs_2024_same_code_renamed": [],
+  "mapped_station_codes_consistent_with_2025_history": 69,
+  "mapped_station_code_or_name_conflicts_in_2025": [],
+  "source_QA_70_code_name_conflicts_kept_hold": 1,
+  "R1_partial_evidence_counties_retained": 87,
+  "R2_partial_evidence_counties_retained": 73,
+  "no_2026_formal_county_screenings": 0,
+  "no_unauthorized_county_exclusions": 0,
+  "national_diff_csv_sha256": "6469c0c25befb046ff45fdb73a74975b6ba72de316583e1fcdfb16736231aeca",
+  "interpretation_limits": [
+    "2025 archived geoname compilation is NOT direct 2026 authenticated official endpoint result",
+    "2026 two additional county creations are legally announced, but six-digit codes and county polygon require separate formal verification",
+    "Third-party GeoJSON code geometry date and map certification NOT established",
+    "Source code/name differences indicate possible stale geometry, aliases, direct-admin jurisdiction or polygons; no automatic administrative exclusion",
+    "All 2847 counties retained for real screening; missing coded geometry becomes spatial QA pending, not excluded"
+  ]
+}
