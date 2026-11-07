@@ -24,7 +24,7 @@
     "research_closure_status": "OPEN",
     "evidence_path": "research_engine/retirement/evidence/stage3_firstbatch_public_environment_evidence_20261107.json",
     "evidence_git_blob_sha": "ba19c7dde0224bd39b1548e8b249dfe0a201c53f",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-STAGE3-FIRSTBATCH-001",
   "closed_result_refs": [
@@ -58,11 +58,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "6e0aa6b5aedcabc086bd8c7987b04d45f5903263",
+    "verified_at": "2026-11-07T00:24:39.844Z"
   },
-  "updated_at": "2026-11-07T00:24:29.679Z",
-  "state_revision": 22,
+  "updated_at": "2026-11-07T00:24:39.845Z",
+  "state_revision": 23,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
