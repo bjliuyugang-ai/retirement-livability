@@ -1,0 +1,81 @@
+name: Retirement spatially join real CN Meteostat stations to historical county polygons
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-cn-station-county-overlay.yml'
+jobs:
+  seventy-station-polygon-assignment:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Require current unique station-to-county research action V1.6
+        run: |
+          python - <<'PY'
+          import json
+          p="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          s=json.load(open(p))
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-STATION-COUNTY-QA-003"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          PY
+      - name: Actual historical 2017 polygon in/out test for each CN station
+        run: |
+          python -m pip -q install shapely
+          python -m py_compile research_engine/retirement/meteostat_CN_station_historic_county_overlay.py
+          python -u research_engine/retirement/meteostat_CN_station_historic_county_overlay.py
+      - name: Verify 70 station statuses and source checksum
+        run: |
+          python - <<'PY'
+          import csv,json,hashlib
+          root="research_engine/retirement/output/"
+          d=json.load(open(root+"meteostat_70_CN_station_to_historic_county_spatial.json"))
+          b=open(root+"meteostat_70_CN_station_to_historic_county_spatial.csv","rb").read()
+          assert hashlib.sha256(b).hexdigest()==d["CSV_sha256"]
+          assert d["input_CN_1991_2020_long_stations"]==70
+          assert d["formal_valid_county_screenings"]==0
+          assert d["strict_station_in_unique_2017_polygon_count"]>=30
+          rows=list(csv.DictReader(open(root+"meteostat_70_CN_station_to_historic_county_spatial.csv",encoding="utf-8-sig")))
+          assert len(rows)==70
+          print("REAL_STATION_HISTORIC_COUNTY_GIS_PASS",d["strict_station_in_unique_2017_polygon_count"],d["distinct_known_hist_candidate_county_codes"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: real-CN-70-stations-historic-ADM3-point-in-polygon-code-QA
+          path: research_engine/retirement/output/meteostat_70_CN_station_to_historic_county_spatial.*
+          retention-days: 30
+      - name: Persist historical spatial evidence and remote-check immutable digest
+        run: |
+          cp research_engine/retirement/output/meteostat_70_CN_station_to_historic_county_spatial.json research_engine/retirement/status/meteostat_70_CN_station_to_historic_county_spatial.json
+          cp research_engine/retirement/output/meteostat_70_CN_station_to_historic_county_spatial.csv research_engine/retirement/status/meteostat_70_CN_station_to_historic_county_spatial.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/meteostat_70_CN_station_to_historic_county_spatial.*
+          git commit -m "Record real point-in-polygon mapping of 70 observed-climate CN stations to 2017 historical counties"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          root="research_engine/retirement/status/meteostat_70_CN_station_to_historic_county_spatial."
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+root+"json"]))
+          b=subprocess.check_output(["git","show","origin/main:"+root+"csv"])
+          assert hashlib.sha256(b).hexdigest()==d["CSV_sha256"]
+          assert d["formal_valid_county_screenings"]==0
+          print("STATION_TO_HISTORIC_COUNTY_REMOTE_SHA_PASS",d["strict_station_in_unique_2017_polygon_count"])
+          PY
