@@ -52,7 +52,7 @@ for f in features:
  prop=f.get("properties") or {}
  code=str(prop.get("adcode") or "")
  name=str(prop.get("name") or "")
- if not re.fullmatch(r"\\d{6}",code):
+ if not re.fullmatch(r"\d{6}",code):
   raise RuntimeError("County geometry missing six-digit adcode "+str(prop)[:100])
  # Codes may repeat across multi polygons if source has nonunique attributes.
  g=shape(f["geometry"])
