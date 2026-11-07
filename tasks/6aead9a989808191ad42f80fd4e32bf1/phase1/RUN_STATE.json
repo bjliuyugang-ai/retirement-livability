@@ -12,19 +12,19 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "839749b3e23c08b574e1b17642472f5124677568"
+    "git_blob_sha": "45f0699b9535c6b1ae8f0367cb13904a46aa2980"
   },
   "last_verified_run": {
-    "run_id": "42251953046",
-    "action_id": "RET-COUNTY-MICROCLIMATE-QA-001",
-    "result_id": "RES-DEM-ERA5-MOISTURE-EXPLORATORY-42251953046",
+    "run_id": "42315459712",
+    "action_id": "RET-CLIMATE-SPATIAL-REPRESENTATIVENESS-002",
+    "result_id": "RES-SPATIAL-MULTIGRID-002-42315459712",
     "execution_status": "EXECUTED",
-    "engineering_status": "PASS",
-    "research_delta_status": "DELTA_VERIFIED",
+    "engineering_status": "FAIL",
+    "research_delta_status": "BLOCKED_WITH_EVIDENCE",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/latest-microclimate-pilot.json",
-    "evidence_sha256": "28250d8ba6a7594ba3b403b798430582c9002eb581b119e5400d41f417f16a77",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/status/latest-spatial-variability-002.json",
+    "evidence_sha256": "3a52e0a93678dccaa40a6890bfed10c1e0f76881c38a0f1de0b0a393c14e36f8",
+    "status": "AWAITING_POSTCHECK"
   },
   "last_completed_action_id": "RET-COUNTY-MICROCLIMATE-QA-001",
   "closed_result_refs": [
@@ -44,7 +44,8 @@
     "pass_criteria": "实际空间样本和温湿日照数据同口径可复现；确认县域覆盖/例外方可生成真正有效的广筛记录",
     "fallback": "如果CMA取数不可达，则以有证据的多格点逐日ERA5探索性审查保留待核，不作正式淘汰",
     "timebox_end": "2026-11-08T15:26:00Z",
-    "status": "READY"
+    "status": "BLOCKED_WITH_EVIDENCE",
+    "last_error": "[{'case': 'Dali', 'coordinate': [25.81378, 100.02514], 'error': \"<HTTPError 429: 'Too Many Requests'>\"}]"
   },
   "phase": "SPATIAL_REPRESENTATIVENESS_ASSAULT",
   "milestone_deadline": {
@@ -53,14 +54,13 @@
     "checkpoint_48h": "2026-11-08T23:26:00+08:00",
     "note": "工程PASS/FAIL/INCONCLUSIVE裁决节点，不改变全国100%正式验收"
   },
-  "consecutive_no_delta": 0,
+  "consecutive_no_delta": 1,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "95cd131a5195e15c218eb7df15fe1b38ac5e44a6",
-    "verified_at": "2026-11-06T16:30:53.011421+00:00"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-06T16:30:53.011449+00:00",
-  "state_revision": 15,
+  "updated_at": "2026-11-07T00:11:14.020818+00:00",
+  "state_revision": 16,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",

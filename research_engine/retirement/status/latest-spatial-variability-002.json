@@ -1,0 +1,464 @@
+{
+  "generated_utc": "2026-11-07T00:00:07.531050+00:00",
+  "status": "PARTIAL_BLOCKED_WITH_EVIDENCE",
+  "action_id": "RET-CLIMATE-SPATIAL-REPRESENTATIVENESS-002",
+  "source": "Open-Meteo archive ERA5 1991-2020; NOT CMA official normals",
+  "official_2026_roster_verified": false,
+  "formal_county_screenings": 0,
+  "note": "Three samples per historic nonofficial county polygon. ERA5 coarser than DEM; only climate heterogeneity counterexamples, not official ratings.",
+  "case_count_requested": 4,
+  "point_requests_expected": 12,
+  "cases": [
+    {
+      "site": "Panzhihua",
+      "archival_county_candidate": "510402",
+      "dem_span_m": 718.0,
+      "requested": 3,
+      "succeeded": 3,
+      "samples": [
+        {
+          "latitude": 26.58,
+          "longitude": 101.72,
+          "elevation_m": 1164.0,
+          "raw_sha256": "aee65f42e335f62b46cdef32bc1709b066b1c8fa78b4601b01bdcb5cd8729d26",
+          "daily_rows": 10958,
+          "source_url": "https://archive-api.open-meteo.com/v1/archive?latitude=26.58&longitude=101.72&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Ctemperature_2m_max%2Ctemperature_2m_min%2Csunshine_duration%2Crelative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5",
+          "metrics": {
+            "annual_temperature_2m_mean": 21.662,
+            "winter_temperature_2m_mean": 15.314,
+            "summer_temperature_2m_mean": 26.193,
+            "annual_temperature_2m_max": 27.122,
+            "winter_temperature_2m_max": 22.008,
+            "summer_temperature_2m_max": 30.337,
+            "annual_temperature_2m_min": 16.657,
+            "winter_temperature_2m_min": 8.963,
+            "summer_temperature_2m_min": 22.811,
+            "annual_sunshine_duration": 33913.176,
+            "winter_sunshine_duration": 34702.597,
+            "summer_sunshine_duration": 32333.345,
+            "annual_relative_humidity_2m_mean": 62.624,
+            "winter_relative_humidity_2m_mean": 54.954,
+            "summer_relative_humidity_2m_mean": 76.059,
+            "annual_dew_point_2m_mean": 12.922,
+            "winter_dew_point_2m_mean": 4.965,
+            "summer_dew_point_2m_mean": 21.285
+          }
+        },
+        {
+          "latitude": 26.64703,
+          "longitude": 101.80937,
+          "elevation_m": 1409.0,
+          "raw_sha256": "155e0d1c2782d17c6bcf60aa0eacc800ac6494d561e90caaed51911711dde7e1",
+          "daily_rows": 10958,
+          "source_url": "https://archive-api.open-meteo.com/v1/archive?latitude=26.64703&longitude=101.80937&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Ctemperature_2m_max%2Ctemperature_2m_min%2Csunshine_duration%2Crelative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5",
+          "metrics": {
+            "annual_temperature_2m_mean": 19.776,
+            "winter_temperature_2m_mean": 13.207,
+            "summer_temperature_2m_mean": 24.443,
+            "annual_temperature_2m_max": 24.766,
+            "winter_temperature_2m_max": 19.176,
+            "summer_temperature_2m_max": 28.306,
+            "annual_temperature_2m_min": 14.985,
+            "winter_temperature_2m_min": 7.1,
+            "summer_temperature_2m_min": 21.149,
+            "annual_sunshine_duration": 33244.567,
+            "winter_sunshine_duration": 34395.701,
+            "summer_sunshine_duration": 31204.272,
+            "annual_relative_humidity_2m_mean": 64.632,
+            "winter_relative_humidity_2m_mean": 59.483,
+            "summer_relative_humidity_2m_mean": 77.225,
+            "annual_dew_point_2m_mean": 11.661,
+            "winter_dew_point_2m_mean": 4.225,
+            "summer_dew_point_2m_mean": 19.855
+          }
+        },
+        {
+          "latitude": 26.53109,
+          "longitude": 101.79289,
+          "elevation_m": 1882.0,
+          "raw_sha256": "39a293fbeb971d8f50baa79ef4c729d4caaefdff94ab6a91a751040a2541b809",
+          "daily_rows": 10958,
+          "source_url": "https://archive-api.open-meteo.com/v1/archive?latitude=26.53109&longitude=101.79289&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Ctemperature_2m_max%2Ctemperature_2m_min%2Csunshine_duration%2Crelative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5",
+          "metrics": {
+            "annual_temperature_2m_mean": 16.993,
+            "winter_temperature_2m_mean": 10.645,
+            "summer_temperature_2m_mean": 21.525,
+            "annual_temperature_2m_max": 22.459,
+            "winter_temperature_2m_max": 17.342,
+            "summer_temperature_2m_max": 25.673,
+            "annual_temperature_2m_min": 11.99,
+            "winter_temperature_2m_min": 4.296,
+            "summer_temperature_2m_min": 18.144,
+            "annual_sunshine_duration": 33913.176,
+            "winter_sunshine_duration": 34702.597,
+            "summer_sunshine_duration": 32333.345,
+            "annual_relative_humidity_2m_mean": 61.725,
+            "winter_relative_humidity_2m_mean": 53.879,
+            "summer_relative_humidity_2m_mean": 75.389,
+            "annual_dew_point_2m_mean": 8.255,
+            "winter_dew_point_2m_mean": 0.298,
+            "summer_dew_point_2m_mean": 16.617
+          }
+        }
+      ],
+      "metric_spans": {
+        "winter_temperature_2m_mean": {
+          "min": 10.645,
+          "max": 15.314,
+          "span": 4.669
+        },
+        "summer_temperature_2m_max": {
+          "min": 25.673,
+          "max": 30.337,
+          "span": 4.664
+        },
+        "winter_sunshine_duration": {
+          "min": 34395.701,
+          "max": 34702.597,
+          "span": 306.896
+        },
+        "summer_dew_point_2m_mean": {
+          "min": 16.617,
+          "max": 21.285,
+          "span": 4.668
+        },
+        "summer_relative_humidity_2m_mean": {
+          "min": 75.389,
+          "max": 77.225,
+          "span": 1.836
+        }
+      },
+      "county_representativeness_confirmed": false,
+      "microclimate_exception_not_closed": true
+    },
+    {
+      "site": "Mengzi",
+      "archival_county_candidate": "532503",
+      "dem_span_m": 1711.0,
+      "requested": 3,
+      "succeeded": 3,
+      "samples": [
+        {
+          "latitude": 23.37,
+          "longitude": 103.39,
+          "elevation_m": 1311.0,
+          "raw_sha256": "0dd7682a45d9df51ff379afd70079cb03a108f02be8b1b5baf4b1b811ee458de",
+          "daily_rows": 10958,
+          "source_url": "https://archive-api.open-meteo.com/v1/archive?latitude=23.37&longitude=103.39&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Ctemperature_2m_max%2Ctemperature_2m_min%2Csunshine_duration%2Crelative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5",
+          "metrics": {
+            "annual_temperature_2m_mean": 18.894,
+            "winter_temperature_2m_mean": 13.038,
+            "summer_temperature_2m_mean": 23.386,
+            "annual_temperature_2m_max": 23.391,
+            "winter_temperature_2m_max": 17.844,
+            "summer_temperature_2m_max": 27.173,
+            "annual_temperature_2m_min": 15.548,
+            "winter_temperature_2m_min": 9.389,
+            "summer_temperature_2m_min": 20.82,
+            "annual_sunshine_duration": 29310.276,
+            "winter_sunshine_duration": 25216.202,
+            "summer_sunshine_duration": 30213.352,
+            "annual_relative_humidity_2m_mean": 83.196,
+            "winter_relative_humidity_2m_mean": 84.459,
+            "summer_relative_humidity_2m_mean": 85.173,
+            "annual_dew_point_2m_mean": 15.658,
+            "winter_dew_point_2m_mean": 10.113,
+            "summer_dew_point_2m_mean": 20.58
+          }
+        },
+        {
+          "latitude": 23.46124,
+          "longitude": 103.759,
+          "elevation_m": 2087.0,
+          "raw_sha256": "36b17e7f745e50da6b5e3b81b2774fc4de582bf4e685f72d93c0d73afdae6c96",
+          "daily_rows": 10958,
+          "source_url": "https://archive-api.open-meteo.com/v1/archive?latitude=23.46124&longitude=103.759&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Ctemperature_2m_max%2Ctemperature_2m_min%2Csunshine_duration%2Crelative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5",
+          "metrics": {
+            "annual_temperature_2m_mean": 14.532,
+            "winter_temperature_2m_mean": 8.611,
+            "summer_temperature_2m_mean": 19.036,
+            "annual_temperature_2m_max": 19.386,
+            "winter_temperature_2m_max": 13.987,
+            "summer_temperature_2m_max": 22.952,
+            "annual_temperature_2m_min": 10.889,
+            "winter_temperature_2m_min": 4.558,
+            "summer_temperature_2m_min": 16.298,
+            "annual_sunshine_duration": 28193.565,
+            "winter_sunshine_duration": 24781.337,
+            "summer_sunshine_duration": 28680.492,
+            "annual_relative_humidity_2m_mean": 79.328,
+            "winter_relative_humidity_2m_mean": 80.435,
+            "summer_relative_humidity_2m_mean": 81.966,
+            "annual_dew_point_2m_mean": 10.511,
+            "winter_dew_point_2m_mean": 4.89,
+            "summer_dew_point_2m_mean": 15.663
+          }
+        },
+        {
+          "latitude": 23.07155,
+          "longitude": 103.27251,
+          "elevation_m": 376.0,
+          "raw_sha256": "67900c5c9aaeec3a9d95dbc740f5d150a32c949daeafd406d228923d131f118b",
+          "daily_rows": 10958,
+          "source_url": "https://archive-api.open-meteo.com/v1/archive?latitude=23.07155&longitude=103.27251&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Ctemperature_2m_max%2Ctemperature_2m_min%2Csunshine_duration%2Crelative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5",
+          "metrics": {
+            "annual_temperature_2m_mean": 24.896,
+            "winter_temperature_2m_mean": 19.214,
+            "summer_temperature_2m_mean": 29.086,
+            "annual_temperature_2m_max": 29.507,
+            "winter_temperature_2m_max": 24.139,
+            "summer_temperature_2m_max": 32.994,
+            "annual_temperature_2m_min": 21.34,
+            "winter_temperature_2m_min": 15.21,
+            "summer_temperature_2m_min": 26.394,
+            "annual_sunshine_duration": 29097.827,
+            "winter_sunshine_duration": 24775.107,
+            "summer_sunshine_duration": 29709.246,
+            "annual_relative_humidity_2m_mean": 81.068,
+            "winter_relative_humidity_2m_mean": 81.749,
+            "summer_relative_humidity_2m_mean": 83.555,
+            "annual_dew_point_2m_mean": 21.071,
+            "winter_dew_point_2m_mean": 15.605,
+            "summer_dew_point_2m_mean": 25.819
+          }
+        }
+      ],
+      "metric_spans": {
+        "winter_temperature_2m_mean": {
+          "min": 8.611,
+          "max": 19.214,
+          "span": 10.603
+        },
+        "summer_temperature_2m_max": {
+          "min": 22.952,
+          "max": 32.994,
+          "span": 10.042
+        },
+        "winter_sunshine_duration": {
+          "min": 24775.107,
+          "max": 25216.202,
+          "span": 441.095
+        },
+        "summer_dew_point_2m_mean": {
+          "min": 15.663,
+          "max": 25.819,
+          "span": 10.156
+        },
+        "summer_relative_humidity_2m_mean": {
+          "min": 81.966,
+          "max": 85.173,
+          "span": 3.207
+        }
+      },
+      "county_representativeness_confirmed": false,
+      "microclimate_exception_not_closed": true
+    },
+    {
+      "site": "Jinghong",
+      "archival_county_candidate": "532801",
+      "dem_span_m": 885.0,
+      "requested": 3,
+      "succeeded": 3,
+      "samples": [
+        {
+          "latitude": 22.01,
+          "longitude": 100.8,
+          "elevation_m": 560.0,
+          "raw_sha256": "948b39ba6d30556089ac65f2b6600c4d5d64c79d19538bb0cd15ba42711aeaa3",
+          "daily_rows": 10958,
+          "source_url": "https://archive-api.open-meteo.com/v1/archive?latitude=22.01&longitude=100.8&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Ctemperature_2m_max%2Ctemperature_2m_min%2Csunshine_duration%2Crelative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5",
+          "metrics": {
+            "annual_temperature_2m_mean": 24.479,
+            "winter_temperature_2m_mean": 19.42,
+            "summer_temperature_2m_mean": 27.833,
+            "annual_temperature_2m_max": 30.868,
+            "winter_temperature_2m_max": 27.603,
+            "summer_temperature_2m_max": 32.175,
+            "annual_temperature_2m_min": 19.82,
+            "winter_temperature_2m_min": 13.496,
+            "summer_temperature_2m_min": 24.861,
+            "annual_sunshine_duration": 32325.79,
+            "winter_sunshine_duration": 33563.845,
+            "summer_sunshine_duration": 27918.236,
+            "annual_relative_humidity_2m_mean": 77.736,
+            "winter_relative_humidity_2m_mean": 75.625,
+            "summer_relative_humidity_2m_mean": 83.142,
+            "annual_dew_point_2m_mean": 19.705,
+            "winter_dew_point_2m_mean": 14.229,
+            "summer_dew_point_2m_mean": 24.46
+          }
+        },
+        {
+          "latitude": 22.47999,
+          "longitude": 101.40514,
+          "elevation_m": 1445.0,
+          "raw_sha256": "b622295f18e6b99e28bf1c24d3171309e73afc444413d29324bad24e42c30015",
+          "daily_rows": 10958,
+          "source_url": "https://archive-api.open-meteo.com/v1/archive?latitude=22.47999&longitude=101.40514&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Ctemperature_2m_max%2Ctemperature_2m_min%2Csunshine_duration%2Crelative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5",
+          "metrics": {
+            "annual_temperature_2m_mean": 18.607,
+            "winter_temperature_2m_mean": 13.614,
+            "summer_temperature_2m_mean": 21.932,
+            "annual_temperature_2m_max": 24.136,
+            "winter_temperature_2m_max": 20.363,
+            "summer_temperature_2m_max": 25.895,
+            "annual_temperature_2m_min": 14.539,
+            "winter_temperature_2m_min": 8.578,
+            "summer_temperature_2m_min": 19.233,
+            "annual_sunshine_duration": 30439.49,
+            "winter_sunshine_duration": 30950.199,
+            "summer_sunshine_duration": 26303.943,
+            "annual_relative_humidity_2m_mean": 78.213,
+            "winter_relative_humidity_2m_mean": 75.477,
+            "summer_relative_humidity_2m_mean": 84.99,
+            "annual_dew_point_2m_mean": 14.192,
+            "winter_dew_point_2m_mean": 8.726,
+            "summer_dew_point_2m_mean": 19.104
+          }
+        },
+        {
+          "latitude": 21.56438,
+          "longitude": 100.53957,
+          "elevation_m": 1056.0,
+          "raw_sha256": "2a1117372d6d6f9592fdd75a8e5790b1eaac76a0ad10f0c654c2c919ec2aa824",
+          "daily_rows": 10958,
+          "source_url": "https://archive-api.open-meteo.com/v1/archive?latitude=21.56438&longitude=100.53957&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Ctemperature_2m_max%2Ctemperature_2m_min%2Csunshine_duration%2Crelative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5",
+          "metrics": {
+            "annual_temperature_2m_mean": 21.316,
+            "winter_temperature_2m_mean": 16.704,
+            "summer_temperature_2m_mean": 24.252,
+            "annual_temperature_2m_max": 27.124,
+            "winter_temperature_2m_max": 24.151,
+            "summer_temperature_2m_max": 28.255,
+            "annual_temperature_2m_min": 17.196,
+            "winter_temperature_2m_min": 11.351,
+            "summer_temperature_2m_min": 21.666,
+            "annual_sunshine_duration": 32500.756,
+            "winter_sunshine_duration": 34461.715,
+            "summer_sunshine_duration": 27142.768,
+            "annual_relative_humidity_2m_mean": 79.858,
+            "winter_relative_humidity_2m_mean": 76.885,
+            "summer_relative_humidity_2m_mean": 85.749,
+            "annual_dew_point_2m_mean": 17.215,
+            "winter_dew_point_2m_mean": 12.032,
+            "summer_dew_point_2m_mean": 21.522
+          }
+        }
+      ],
+      "metric_spans": {
+        "winter_temperature_2m_mean": {
+          "min": 13.614,
+          "max": 19.42,
+          "span": 5.806
+        },
+        "summer_temperature_2m_max": {
+          "min": 25.895,
+          "max": 32.175,
+          "span": 6.28
+        },
+        "winter_sunshine_duration": {
+          "min": 30950.199,
+          "max": 34461.715,
+          "span": 3511.516
+        },
+        "summer_dew_point_2m_mean": {
+          "min": 19.104,
+          "max": 24.46,
+          "span": 5.356
+        },
+        "summer_relative_humidity_2m_mean": {
+          "min": 83.142,
+          "max": 85.749,
+          "span": 2.607
+        }
+      },
+      "county_representativeness_confirmed": false,
+      "microclimate_exception_not_closed": true
+    },
+    {
+      "site": "Dali",
+      "archival_county_candidate": "532901",
+      "dem_span_m": 1335.0,
+      "requested": 3,
+      "succeeded": 2,
+      "samples": [
+        {
+          "latitude": 25.61,
+          "longitude": 100.27,
+          "elevation_m": 1972.0,
+          "raw_sha256": "fa85aead346bd8f4ad007c7c83e4b8e4854d3c887e37380212534b9beddde731",
+          "daily_rows": 10958,
+          "source_url": "https://archive-api.open-meteo.com/v1/archive?latitude=25.61&longitude=100.27&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Ctemperature_2m_max%2Ctemperature_2m_min%2Csunshine_duration%2Crelative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5",
+          "metrics": {
+            "annual_temperature_2m_mean": 16.322,
+            "winter_temperature_2m_mean": 10.215,
+            "summer_temperature_2m_mean": 21.047,
+            "annual_temperature_2m_max": 21.874,
+            "winter_temperature_2m_max": 16.94,
+            "summer_temperature_2m_max": 25.238,
+            "annual_temperature_2m_min": 11.779,
+            "winter_temperature_2m_min": 4.578,
+            "summer_temperature_2m_min": 18.003,
+            "annual_sunshine_duration": 33753.004,
+            "winter_sunshine_duration": 35528.783,
+            "summer_sunshine_duration": 29564.01,
+            "annual_relative_humidity_2m_mean": 68.803,
+            "winter_relative_humidity_2m_mean": 61.604,
+            "summer_relative_humidity_2m_mean": 79.765,
+            "annual_dew_point_2m_mean": 9.76,
+            "winter_dew_point_2m_mean": 2.252,
+            "summer_dew_point_2m_mean": 17.079
+          }
+        },
+        {
+          "latitude": 26.00967,
+          "longitude": 100.1628,
+          "elevation_m": 2299.0,
+          "raw_sha256": "dbe9a4c0a47f121a67eaaba3643ed7a11c4c619d046eac17ebd423ed23c05dac",
+          "daily_rows": 10958,
+          "source_url": "https://archive-api.open-meteo.com/v1/archive?latitude=26.00967&longitude=100.1628&start_date=1991-01-01&end_date=2020-12-31&daily=temperature_2m_mean%2Ctemperature_2m_max%2Ctemperature_2m_min%2Csunshine_duration%2Crelative_humidity_2m_mean%2Cdew_point_2m_mean&timezone=Asia%2FShanghai&models=era5",
+          "metrics": {
+            "annual_temperature_2m_mean": 15.236,
+            "winter_temperature_2m_mean": 8.945,
+            "summer_temperature_2m_mean": 20.122,
+            "annual_temperature_2m_max": 20.59,
+            "winter_temperature_2m_max": 15.633,
+            "summer_temperature_2m_max": 24.008,
+            "annual_temperature_2m_min": 10.698,
+            "winter_temperature_2m_min": 3.314,
+            "summer_temperature_2m_min": 17.057,
+            "annual_sunshine_duration": 34413.75,
+            "winter_sunshine_duration": 36064.432,
+            "summer_sunshine_duration": 30686.246,
+            "annual_relative_humidity_2m_mean": 64.293,
+            "winter_relative_humidity_2m_mean": 59.696,
+            "summer_relative_humidity_2m_mean": 72.694,
+            "annual_dew_point_2m_mean": 7.549,
+            "winter_dew_point_2m_mean": 0.343,
+            "summer_dew_point_2m_mean": 14.652
+          }
+        },
+        {
+          "latitude": 25.81378,
+          "longitude": 100.02514,
+          "error": "<HTTPError 429: 'Too Many Requests'>"
+        }
+      ],
+      "metric_spans": {},
+      "county_representativeness_confirmed": false,
+      "microclimate_exception_not_closed": true
+    }
+  ],
+  "errors": [
+    {
+      "case": "Dali",
+      "coordinate": [
+        25.81378,
+        100.02514
+      ],
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    }
+  ],
+  "request_count_completed": 11,
+  "all_four_terrain_cases_complete": false
+}
