@@ -1,0 +1,56 @@
+name: Retirement quarantine NASA custom climate metrics and restore R1 qualified coverage
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-nasa-quarantine.yml'
+jobs:
+  protect-screening-coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compute honest NASA quarantine and corrected 2847 county R1 overlay
+        run: |
+          python -m py_compile research_engine/retirement/nasa_climatology_quarantine.py
+          python -u research_engine/retirement/nasa_climatology_quarantine.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: NASA-climatology-semantic-quarantine-corrected-2847-ledger
+          path: research_engine/retirement/output/national_R1_NASA_custom_QUARANTINE*
+          retention-days: 30
+      - name: Save source QA quarantine and no false added screens
+        run: |
+          cp research_engine/retirement/output/national_R1_NASA_custom_QUARANTINE_evidence.json research_engine/retirement/status/national_R1_NASA_custom_QUARANTINE_evidence.json
+          cp research_engine/retirement/output/national_R1_NASA_custom_QUARANTINED_2847_audit.csv research_engine/retirement/status/national_R1_NASA_custom_QUARANTINED_2847_audit.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/national_R1_NASA_custom_QUARANTINE_evidence.json research_engine/retirement/status/national_R1_NASA_custom_QUARANTINED_2847_audit.csv
+          git commit -m "Quarantine NASA custom climatology source mismatch and preserve canonical 22 point R1 screening"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          root="research_engine/retirement/status/"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+root+"national_R1_NASA_custom_QUARANTINE_evidence.json"]))
+          b=subprocess.check_output(["git","show","origin/main:"+root+"national_R1_NASA_custom_QUARANTINED_2847_audit.csv"])
+          assert hashlib.sha256(b).hexdigest()==d["corrected_2847_audit_csv_sha256"]
+          assert d["new_acceptable_R1_temperature_screenings"]==0
+          assert d["canonical_R1_exploratory_ERA5_point_counties_retained"]==22
+          print("NASA_QUARANTINE_POSTCHECK_22_R1",d["quality_status"])
+          PY
