@@ -1,0 +1,95 @@
+name: Retirement single-point ERA5 bounded recovery
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-spatial-resume-002.yml'
+jobs:
+  resume-one-county-point:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Skip if original assay has already closed the active action
+        id: gate
+        run: |
+          python - <<'PY'
+          import json,os
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          a=s["active_action"]
+          allow=(a["action_id"]=="RET-CLIMATE-SPATIAL-REPRESENTATIVENESS-002"
+                 and a.get("status") in ["READY","BLOCKED_WITH_EVIDENCE"]
+                 and s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+                 and s.get("consecutive_no_delta",0)<2)
+          with open(os.environ["GITHUB_OUTPUT"],"a") as f:f.write("run="+str(allow).lower()+"\n")
+          print("V1.6 ACTION GATE",allow,a["action_id"],a.get("status"))
+          PY
+      - name: S0-S2 re-read and claim current unique action
+        if: steps.gate.outputs.run == 'true'
+        id: precheck
+        run: python research_engine/retirement/spatial_variability_002_state.py precheck
+      - name: S3 preserve eleven successes and retry exactly one failed point
+        if: steps.precheck.outcome == 'success'
+        id: assay
+        continue-on-error: true
+        run: python -u research_engine/retirement/single_point_resume_002.py
+      - name: S4-S5 record truthful partial or completed evidence
+        if: always() && steps.precheck.outcome == 'success'
+        id: finalize
+        run: python research_engine/retirement/spatial_variability_002_state.py finalize
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.precheck.outcome == 'success'
+        with:
+          name: bounded-single-point-recovery-evidence
+          path: research_engine/retirement/output/
+          retention-days: 30
+      - name: Commit and optimistic state control
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl research_assets/retirement/CURRENT_STATE.md research_engine/retirement/status/latest-spatial-variability-002.json
+          git diff --cached --quiet && exit 2 || true
+          git commit -m "Record single-point climate recovery outcome and pending postcheck"
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          p=json.load(open("research_engine/retirement/output/spatial_variability_002_precheck.json"))
+          s=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]))
+          assert s["state_revision"]==p["source_revision"],"CAS_STATE_ADVANCED"
+          assert s["current_state_ref"]["git_blob_sha"]==p["current_blob"],"CAS_CURRENT_DRIFT"
+          PY
+          git rebase origin/main
+          git push origin HEAD:main
+      - name: S6 remote hash, log and revision postcheck
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git fetch origin main
+          python research_engine/retirement/spatial_variability_002_state.py postcheck
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
+          git commit -m "Verify bounded single-point recovery state transition"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          d=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]))
+          assert d["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert d["last_verified_run"]["action_id"]=="RET-CLIMATE-SPATIAL-REPRESENTATIVENESS-002"
+          print("RECOVERY_REMOTE_POSTCHECK_PASS",d["last_verified_run"])
+          PY
+      - name: Fail visibly when rate limit prevents new evidence
+        if: steps.assay.outcome == 'failure'
+        run: exit 1
