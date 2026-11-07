@@ -1,0 +1,66 @@
+name: Retirement true 2025 China city air full PDF numeric table source QA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-2025-IPE-city-air-PDF-QA.yml'
+jobs:
+  inspect-secondary-city-air-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 assert unique R4 current action and verified source state
+        run: |
+          python - <<'PY'
+          import json
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R4-AIR-POLLUTION-012"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          print("R4_SOURCE_QA_V16_PREFLIGHT",s["state_revision"])
+          PY
+      - name: Install PDF text extractor
+        run: python -m pip -q install pypdf
+      - name: Actually inspect full PDF city air data and source caveat
+        run: python -u research_engine/retirement/IPE_2025_city_air_pdf_source_QA.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: IPE-2025-city-air-secondary-source-pdf-text-inspection
+          path: |
+            research_engine/retirement/output/IPE_2025_city_air_source_structure_QA.json
+            research_engine/retirement/output/IPE_BlueMap_2025_city_air_pollution_original.pdf
+          retention-days: 14
+      - name: Persist actual numeric table feasibility with source warning
+        run: |
+          cp research_engine/retirement/output/IPE_2025_city_air_source_structure_QA.json research_engine/retirement/status/IPE_2025_city_air_source_structure_QA.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/IPE_2025_city_air_source_structure_QA.json
+          git commit -m "Record true IPE 2025 secondary city air PDF source text and provenance limitations"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          p="research_engine/retirement/status/IPE_2025_city_air_source_structure_QA.json"
+          b=subprocess.check_output(["git","show","origin/main:"+p])
+          assert hashlib.sha256(b).hexdigest()==hashlib.sha256(open(p,"rb").read()).hexdigest()
+          d=json.loads(b)
+          assert d["formal_valid_county_screenings"]==0 and d["not_official_reviewed"]
+          print("IPE_SECONDARY_CITY_AIR_REAL_SHA_CHECK_PASS",d["status"])
+          PY
