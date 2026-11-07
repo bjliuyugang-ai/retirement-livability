@@ -1,0 +1,56 @@
+name: Retirement NASA regional actual grid schema inspection
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-nasa-regional-schema.yml'
+jobs:
+  inspect-previous-real-response:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download archived NASA 1991-2020 real response (no API calls)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p research_engine/retirement/output/nasa_probe_archive
+          gh run download 42322382752 --repo "${GITHUB_REPOSITORY}" --name independent-custom-climate-and-bulk-source-probe --dir research_engine/retirement/output/nasa_probe_archive
+      - name: Inspect real GeoJSON feature coordinate schema and climate semantics
+        run: python -u research_engine/retirement/nasa_regional_schema_inspection.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nasa-real-regional-grid-schema
+          path: research_engine/retirement/output/nasa_regional_schema_inspection.json
+          retention-days: 30
+      - name: Persist and verify source schema snapshot
+        run: |
+          cp research_engine/retirement/output/nasa_regional_schema_inspection.json research_engine/retirement/status/nasa_regional_schema_inspection.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/nasa_regional_schema_inspection.json
+          git commit -m "Record actual NASA POWER regional grid feature and timeline schema"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          p="research_engine/retirement/status/nasa_regional_schema_inspection.json"
+          b=subprocess.check_output(["git","show","origin/main:"+p])
+          assert hashlib.sha256(b).hexdigest()==hashlib.sha256(open(p,"rb").read()).hexdigest()
+          x=json.loads(b)
+          assert x["feature_count"]>0 and x["formal_valid_county_screenings"]==0
+          print("NASA_REGIONAL_GRID_SCHEMA_REMOTE_CHECK",x["feature_count"])
+          PY
