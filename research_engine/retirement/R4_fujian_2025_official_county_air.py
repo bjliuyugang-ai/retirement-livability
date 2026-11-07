@@ -17,7 +17,7 @@ PREV=ROOT/"status/national_R3_205_station_dem_altitude_partial_2847.csv"
 R3=ROOT/"status/national_R3_205_station_dem_altitude_source_evidence.json"
 R4_STATUS_CANDIDATE=ROOT/"status/national_R4_air_pollution_batch.csv"
 def sha(b):return hashlib.sha256(b).hexdigest()
-def clean(t):return re.sub(r"\\s+","",t).replace("\u3000","").replace("₂","2").replace("₃","3").replace("₂.₅","2.5")
+def clean(t):return re.sub(r"\s+","",t).replace("\u3000","").replace("₂","2").replace("₃","3").replace("₂.₅","2.5")
 def request():
  req=urllib.request.Request(URL,headers={"User-Agent":"RetirementFujianOfficialAirMonitoring2025/1.0","Accept":"text/html,application/xhtml+xml"})
  with urllib.request.urlopen(req,timeout=100) as r:b=r.read(7_000_000);charset=r.headers.get_content_charset() or "utf-8"
@@ -35,7 +35,7 @@ for table in soup.find_all("table"):
   if cells:rows.append(cells)
  tables.append(rows)
 def parse_float(t):
- if not re.fullmatch(r"\\d+(?:\\.\\d+)?",t):raise ValueError("Invalid numeric cell "+repr(t))
+ if not re.fullmatch(r"\d+(?:\.\d+)?",t):raise ValueError("Invalid numeric cell "+repr(t))
  return float(t)
 def parse_annex4(rows):
  out=[]
@@ -45,9 +45,9 @@ def parse_annex4(rows):
   for i,name in possible:
    rest=cells[i+1:]
    if len(rest)<4:continue
-   if not re.fullmatch(r"\\d+(?:\\.\\d+)?",rest[0]):continue
-   if not re.fullmatch(r"\\d+(?:\\.\\d+)?",rest[1]):continue
-   if not re.fullmatch(r"\\d+(?:\\.\\d+)?",rest[2]):continue
+   if not re.fullmatch(r"\d+(?:\.\d+)?",rest[0]):continue
+   if not re.fullmatch(r"\d+(?:\.\d+)?",rest[1]):continue
+   if not re.fullmatch(r"\d+(?:\.\d+)?",rest[2]):continue
    days,idx,pm=map(parse_float,rest[:3])
    if 70<=days<=100 and 0.5<=idx<=10 and 0<=pm<=150:
     out.append({"county_name":name,"good_air_days_pct":days,"comprehensive_air_index":idx,
