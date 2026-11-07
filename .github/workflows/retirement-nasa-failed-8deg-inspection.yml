@@ -1,0 +1,54 @@
+name: Retirement NASA 8 degree failure evidence retrieval
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-nasa-failed-8deg-inspection.yml'
+jobs:
+  read-failure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Retrieve actual 8 degree API failure report, not repeat requests
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p research_engine/retirement/output/failed_8deg
+          gh run download 42322759970 --repo "${GITHUB_REPOSITORY}" --name nasa-1991-2020-region-30-historic-county-real-R1-ERA5-conflict --dir research_engine/retirement/output/failed_8deg
+          find research_engine/retirement/output/failed_8deg -type f
+      - name: Record real error classes and lock real success count to zero
+        run: |
+          python - <<'PY'
+          import json,collections,pathlib
+          root=pathlib.Path("research_engine/retirement/output/failed_8deg")
+          p=next(root.rglob("national_R1_NASA_secondary_expansion.json"))
+          d=json.loads(p.read_text())
+          print("ALL_8_DEGREE_FAILURES",[(x["lat_min"],x["lon_min"],x.get("error")) for x in d["tile_results"]])
+          assert d["new_counties_with_NASA_Tmax_only_R1_evidence"]==0
+          assert len(d["failures"])==30
+          x={"source_failed_run":"42322759970","scope":"NASA regional 8x8 deg tiled batch","success":0,
+             "failed_anchor_count":30,"tile_results":d["tile_results"],
+             "all_failed_reason_counts":dict(collections.Counter(x.get("error","UNKNOWN") for x in d["tile_results"])),
+             "R1_counties_before":22,"R1_counties_after":22,
+             "formal_valid_county_screenings":0,
+             "next":"Change tiling size or request path only after classifying actual errors"}
+          out=pathlib.Path("research_engine/retirement/status/national_R1_NASA_failed_8deg_diagnostic.json")
+          out.write_text(json.dumps(x,ensure_ascii=False,indent=2)+"\n")
+          PY
+      - name: Save immutable actual failed API error diagnostic
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/national_R1_NASA_failed_8deg_diagnostic.json
+          git commit -m "Record real NASA 8deg tile failure reasons, no new climate points"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
