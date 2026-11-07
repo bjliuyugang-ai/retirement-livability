@@ -1,0 +1,841 @@
+{
+  "schema": "RET_NASA_POWER_REAL_CUSTOM_1991_2020_30_HISTORIC_COUNTIES_V1",
+  "asof_utc": "2026-11-07T01:15:32.197380+00:00",
+  "scope": "30 nonofficial 2017 historic polygon and 2025 secondary code anchors, NOT current residential municipalities",
+  "requested": 30,
+  "successful_1991_2020_TMAX_AND_TMIN_MODEL_POINTS": 30,
+  "failed_or_mismatched": 0,
+  "source_failed_candidates": [],
+  "already_ERA5_with_NASA_comparison_count": 10,
+  "new_R1_NASA_secondary_model_counties": 20,
+  "NASA_ERA5_conflict_ge3c_count": 10,
+  "R1_counties_with_any_partial_climate_point_evidence": 42,
+  "R1_not_scanned": 2805,
+  "R1_carry_forward_to_R2": 2847,
+  "formal_valid_county_screenings": 0,
+  "confirmed_exclusions": 0,
+  "region_endpoint_period_rejected": "NASA regional output header 2001-2025 despite requested 1991-2020; excluded",
+  "source_URI": "https://power.larc.nasa.gov/api/temporal/climatology/point",
+  "source_model": "NASA POWER MERRA2 custom point normals 1991-2020, NOT CMA official",
+  "original_before_csv_sha256": "d021fdc32474efeedaaae2cc7d1112a7c065b0b27a680532a54e67c697be01a5",
+  "output_csv_sha256": "e969b7eab59621417b0315bbfe98cf661da3f9ed6b758524a3ff9ee23ad863d2",
+  "county_results": [
+    {
+      "county": "平泉市",
+      "code": "130881",
+      "requested": [
+        41.02326,
+        118.79581
+      ],
+      "actual_model_grid": [
+        41.023,
+        118.796
+      ],
+      "model_grid_elevation_m": 682.28,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=41.02326&longitude=118.79581&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "c5063024fe06cb4739ef3596cf679b23325bfe629cfe2f741ed0d5cecc98e2e3",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": true,
+      "NASA_winter_tmax_c": 5.4,
+      "NASA_summer_tmax_c": 32.576,
+      "NASA_winter_tmin_c": -20.619,
+      "NASA_summer_tmin_c": 8.161,
+      "NASA_minus_ERA5_winter_c": 6.187,
+      "NASA_minus_ERA5_summer_c": 6.412,
+      "model_conflict_ge3c": true,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "牙克石市",
+      "code": "150782",
+      "requested": [
+        49.26621,
+        121.47524
+      ],
+      "actual_model_grid": [
+        49.266,
+        121.475
+      ],
+      "model_grid_elevation_m": 823.44,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=49.26621&longitude=121.47524&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "f7c2f825789e7c38adfbce9df89d9264d43ee64b2219ba377043f2a6c18598c1",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": true,
+      "NASA_winter_tmax_c": -9.158,
+      "NASA_summer_tmax_c": 28.812,
+      "NASA_winter_tmin_c": -36.67,
+      "NASA_summer_tmin_c": 2.957,
+      "NASA_minus_ERA5_winter_c": 8.442,
+      "NASA_minus_ERA5_summer_c": 9.112,
+      "model_conflict_ge3c": true,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "大洼区",
+      "code": "211104",
+      "requested": [
+        40.91084,
+        122.07673
+      ],
+      "actual_model_grid": [
+        40.911,
+        122.077
+      ],
+      "model_grid_elevation_m": 3.06,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=40.91084&longitude=122.07673&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "7432e9c68d9bc349e27a29f003c50831631ed1da78f242ff04f1380560a3cb97",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": true,
+      "NASA_winter_tmax_c": 5.469,
+      "NASA_summer_tmax_c": 33.054,
+      "NASA_winter_tmin_c": -18.675,
+      "NASA_summer_tmin_c": 12.711,
+      "NASA_minus_ERA5_winter_c": 6.019,
+      "NASA_minus_ERA5_summer_c": 5.434,
+      "model_conflict_ge3c": true,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "安图县",
+      "code": "222426",
+      "requested": [
+        42.70436,
+        128.49095
+      ],
+      "actual_model_grid": [
+        42.704,
+        128.491
+      ],
+      "model_grid_elevation_m": 829.78,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.70436&longitude=128.49095&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "82248dc21c80686eeb572623809145d43b1aea46f14884b85352fa5bd512837e",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": true,
+      "NASA_winter_tmax_c": 1.308,
+      "NASA_summer_tmax_c": 29.676,
+      "NASA_winter_tmin_c": -25.362,
+      "NASA_summer_tmin_c": 5.936,
+      "NASA_minus_ERA5_winter_c": 8.789,
+      "NASA_minus_ERA5_summer_c": 6.674,
+      "model_conflict_ge3c": true,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "临安区",
+      "code": "330112",
+      "requested": [
+        30.19634,
+        119.35251
+      ],
+      "actual_model_grid": [
+        30.196,
+        119.353
+      ],
+      "model_grid_elevation_m": 338.55,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=30.19634&longitude=119.35251&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "4afc35f14051763bcfe3d0bf24e0c646e0235a548a5016520fad5c2fe16f881f",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": true,
+      "NASA_winter_tmax_c": 18.535,
+      "NASA_summer_tmax_c": 32.19,
+      "NASA_winter_tmin_c": -7.25,
+      "NASA_summer_tmin_c": 16.542,
+      "NASA_minus_ERA5_winter_c": 9.881,
+      "NASA_minus_ERA5_summer_c": 3.024,
+      "model_conflict_ge3c": true,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "青云谱区",
+      "code": "360104",
+      "requested": [
+        28.62296,
+        115.91583
+      ],
+      "actual_model_grid": [
+        28.623,
+        115.916
+      ],
+      "model_grid_elevation_m": 48.74,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=28.62296&longitude=115.91583&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "2995b58aa7905e1bbd9c5bb7b182e86033af950c0f698ab7bbeb33384350176e",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": false,
+      "NASA_winter_tmax_c": 20.92,
+      "NASA_summer_tmax_c": 34.455,
+      "NASA_winter_tmin_c": -3.959,
+      "NASA_summer_tmin_c": 19.306,
+      "NASA_minus_ERA5_winter_c": null,
+      "NASA_minus_ERA5_summer_c": null,
+      "model_conflict_ge3c": false,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "定陶区",
+      "code": "371703",
+      "requested": [
+        35.10934,
+        115.56068
+      ],
+      "actual_model_grid": [
+        35.109,
+        115.561
+      ],
+      "model_grid_elevation_m": 50.87,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=35.10934&longitude=115.56068&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "b4abae575c623579dd71c162969393cbe17c080070bedcf176fef2135c433c2e",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": false,
+      "NASA_winter_tmax_c": 14.567,
+      "NASA_summer_tmax_c": 37.569,
+      "NASA_winter_tmin_c": -8.625,
+      "NASA_summer_tmin_c": 15.797,
+      "NASA_minus_ERA5_winter_c": null,
+      "NASA_minus_ERA5_summer_c": null,
+      "model_conflict_ge3c": false,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "铁山区",
+      "code": "420205",
+      "requested": [
+        30.21398,
+        114.8933
+      ],
+      "actual_model_grid": [
+        30.214,
+        114.893
+      ],
+      "model_grid_elevation_m": 88.57,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=30.21398&longitude=114.8933&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "605c0b0735279530cb467a04456fbd0e2236b3b8ff790d59ca1b50ce878933e9",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": false,
+      "NASA_winter_tmax_c": 18.751,
+      "NASA_summer_tmax_c": 34.271,
+      "NASA_winter_tmin_c": -4.022,
+      "NASA_summer_tmin_c": 18.649,
+      "NASA_minus_ERA5_winter_c": null,
+      "NASA_minus_ERA5_summer_c": null,
+      "model_conflict_ge3c": false,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "宁乡市",
+      "code": "430182",
+      "requested": [
+        28.18659,
+        112.34561
+      ],
+      "actual_model_grid": [
+        28.187,
+        112.346
+      ],
+      "model_grid_elevation_m": 120.51,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=28.18659&longitude=112.34561&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "e465b9e3acc855ea29ae5cdd2d43d79e1c62a0b600c928c9797a656969655328",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": false,
+      "NASA_winter_tmax_c": 20.705,
+      "NASA_summer_tmax_c": 34.859,
+      "NASA_winter_tmin_c": -4.2,
+      "NASA_summer_tmin_c": 18.277,
+      "NASA_minus_ERA5_winter_c": null,
+      "NASA_minus_ERA5_summer_c": null,
+      "model_conflict_ge3c": false,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "忠县",
+      "code": "500233",
+      "requested": [
+        30.31957,
+        107.88656
+      ],
+      "actual_model_grid": [
+        30.32,
+        107.887
+      ],
+      "model_grid_elevation_m": 663.84,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=30.31957&longitude=107.88656&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "0ca0f4e7539f6a25d2c98f7cc51e8078adbfad02475effb37720aac11f4cb761",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": false,
+      "NASA_winter_tmax_c": 16.451,
+      "NASA_summer_tmax_c": 32.723,
+      "NASA_winter_tmin_c": -2.644,
+      "NASA_summer_tmin_c": 16.381,
+      "NASA_minus_ERA5_winter_c": null,
+      "NASA_minus_ERA5_summer_c": null,
+      "model_conflict_ge3c": false,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "平武县",
+      "code": "510727",
+      "requested": [
+        32.51765,
+        104.41473
+      ],
+      "actual_model_grid": [
+        32.518,
+        104.415
+      ],
+      "model_grid_elevation_m": 2282.23,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=32.51765&longitude=104.41473&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "af8ce17385dd5a4a0e37985e82e589fc267f124f7ed988359a06abc44b21b3ca",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": false,
+      "NASA_winter_tmax_c": 10.757,
+      "NASA_summer_tmax_c": 24.17,
+      "NASA_winter_tmin_c": -10.001,
+      "NASA_summer_tmin_c": 8.423,
+      "NASA_minus_ERA5_winter_c": null,
+      "NASA_minus_ERA5_summer_c": null,
+      "model_conflict_ge3c": false,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "盘州市",
+      "code": "520281",
+      "requested": [
+        25.81612,
+        104.63391
+      ],
+      "actual_model_grid": [
+        25.816,
+        104.634
+      ],
+      "model_grid_elevation_m": 1991.55,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.81612&longitude=104.63391&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "fe6f7c9c7f97d6b14f8610907ce2a04f463aab3c525deb09c900ec9303ffa981",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": false,
+      "NASA_winter_tmax_c": 20.913,
+      "NASA_summer_tmax_c": 28.169,
+      "NASA_winter_tmin_c": -4.86,
+      "NASA_summer_tmin_c": 10.673,
+      "NASA_minus_ERA5_winter_c": null,
+      "NASA_minus_ERA5_summer_c": null,
+      "model_conflict_ge3c": false,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "威信县",
+      "code": "530629",
+      "requested": [
+        27.90822,
+        105.00441
+      ],
+      "actual_model_grid": [
+        27.908,
+        105.004
+      ],
+      "model_grid_elevation_m": 1028.1,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=27.90822&longitude=105.00441&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "2d9cd791719aafdd684c2a8dafb10e3bb4e77403448ca3492fcd311dd1f36978",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": false,
+      "NASA_winter_tmax_c": 20.447,
+      "NASA_summer_tmax_c": 34.509,
+      "NASA_winter_tmin_c": -3.276,
+      "NASA_summer_tmin_c": 15.047,
+      "NASA_minus_ERA5_winter_c": null,
+      "NASA_minus_ERA5_summer_c": null,
+      "model_conflict_ge3c": false,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "古浪县",
+      "code": "620622",
+      "requested": [
+        37.52358,
+        103.27956
+      ],
+      "actual_model_grid": [
+        37.524,
+        103.28
+      ],
+      "model_grid_elevation_m": 2232.71,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=37.52358&longitude=103.27956&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "e107c1c26eec9e5a58e1201c2a89f73368b8bae370bea260f4a209c560ecd6ba",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": false,
+      "NASA_winter_tmax_c": 9.065,
+      "NASA_summer_tmax_c": 30.528,
+      "NASA_winter_tmin_c": -16.974,
+      "NASA_summer_tmin_c": 5.906,
+      "NASA_minus_ERA5_winter_c": null,
+      "NASA_minus_ERA5_summer_c": null,
+      "model_conflict_ge3c": false,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "德令哈市",
+      "code": "632802",
+      "requested": [
+        37.88907,
+        96.92169
+      ],
+      "actual_model_grid": [
+        37.889,
+        96.922
+      ],
+      "model_grid_elevation_m": 4406.6,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=37.88907&longitude=96.92169&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "aa474e27849002693003e08ed8d409bb2d1a68cf98f5eb896836c71c7f3581f2",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": false,
+      "NASA_winter_tmax_c": -4.311,
+      "NASA_summer_tmax_c": 17.525,
+      "NASA_winter_tmin_c": -29.748,
+      "NASA_summer_tmin_c": -6.891,
+      "NASA_minus_ERA5_winter_c": null,
+      "NASA_minus_ERA5_summer_c": null,
+      "model_conflict_ge3c": false,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "鄯善县",
+      "code": "650421",
+      "requested": [
+        42.37526,
+        90.64787
+      ],
+      "actual_model_grid": [
+        42.375,
+        90.648
+      ],
+      "model_grid_elevation_m": 650.53,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.37526&longitude=90.64787&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "2a14bb3c13fc5cc5381681caed49cd74a36569977d77228e2cd31fc3dd4cb2ba",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": true,
+      "NASA_winter_tmax_c": 7.093,
+      "NASA_summer_tmax_c": 40.743,
+      "NASA_winter_tmin_c": -13.157,
+      "NASA_summer_tmin_c": 14.165,
+      "NASA_minus_ERA5_winter_c": 7.698,
+      "NASA_minus_ERA5_summer_c": 8.958,
+      "model_conflict_ge3c": true,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "崇礼区",
+      "code": "130709",
+      "requested": [
+        41.03173,
+        115.18447
+      ],
+      "actual_model_grid": [
+        41.032,
+        115.184
+      ],
+      "model_grid_elevation_m": 1310.05,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=41.03173&longitude=115.18447&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "df72dd5c7dd57a2245dd3442ee45fc1d6e9e1769e6638d0d192c64c8c5d74647",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": true,
+      "NASA_winter_tmax_c": 2.934,
+      "NASA_summer_tmax_c": 30.951,
+      "NASA_winter_tmin_c": -23.404,
+      "NASA_summer_tmin_c": 5.497,
+      "NASA_minus_ERA5_winter_c": 9.177,
+      "NASA_minus_ERA5_summer_c": 8.847,
+      "model_conflict_ge3c": true,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "满洲里市",
+      "code": "150781",
+      "requested": [
+        49.5838,
+        117.30071
+      ],
+      "actual_model_grid": [
+        49.584,
+        117.301
+      ],
+      "model_grid_elevation_m": 674.59,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=49.5838&longitude=117.30071&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "0a5d95926148088b38f01928cb77b6cf668381c8d5f58c77744e6c3ad3327062",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": true,
+      "NASA_winter_tmax_c": -7.295,
+      "NASA_summer_tmax_c": 31.386,
+      "NASA_winter_tmin_c": -31.576,
+      "NASA_summer_tmin_c": 5.313,
+      "NASA_minus_ERA5_winter_c": 7.41,
+      "NASA_minus_ERA5_summer_c": 7.95,
+      "model_conflict_ge3c": true,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "凌源市",
+      "code": "211382",
+      "requested": [
+        41.01714,
+        119.23207
+      ],
+      "actual_model_grid": [
+        41.017,
+        119.232
+      ],
+      "model_grid_elevation_m": 531.81,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=41.01714&longitude=119.23207&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "5609cf6c9bf3ec9f09fee2261a1d9f136928c1ca26723bbc1f37c433937dffc4",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": true,
+      "NASA_winter_tmax_c": 6.145,
+      "NASA_summer_tmax_c": 33.711,
+      "NASA_winter_tmin_c": -19.807,
+      "NASA_summer_tmin_c": 9.342,
+      "NASA_minus_ERA5_winter_c": 6.943,
+      "NASA_minus_ERA5_summer_c": 7.267,
+      "model_conflict_ge3c": true,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "乐平市",
+      "code": "360281",
+      "requested": [
+        28.96937,
+        117.25379
+      ],
+      "actual_model_grid": [
+        28.969,
+        117.254
+      ],
+      "model_grid_elevation_m": 164.2,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=28.96937&longitude=117.25379&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "a56eb17cda053e8679da65e7ba881dcf54474190f2c7f0cba599639984aaecf2",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": true,
+      "NASA_winter_tmax_c": 21.0,
+      "NASA_summer_tmax_c": 33.312,
+      "NASA_winter_tmin_c": -4.96,
+      "NASA_summer_tmin_c": 18.255,
+      "NASA_minus_ERA5_winter_c": 8.481,
+      "NASA_minus_ERA5_summer_c": 1.042,
+      "model_conflict_ge3c": true,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "即墨区",
+      "code": "370215",
+      "requested": [
+        36.47094,
+        120.55225
+      ],
+      "actual_model_grid": [
+        36.471,
+        120.552
+      ],
+      "model_grid_elevation_m": 39.52,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=36.47094&longitude=120.55225&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "5c9d56708469fb0cca9f8da4fbfb8e49891c84158e907d452598e57818a624b3",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": false,
+      "NASA_winter_tmax_c": 10.904,
+      "NASA_summer_tmax_c": 32.96,
+      "NASA_winter_tmin_c": -7.914,
+      "NASA_summer_tmin_c": 15.672,
+      "NASA_minus_ERA5_winter_c": null,
+      "NASA_minus_ERA5_summer_c": null,
+      "model_conflict_ge3c": false,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "黄州区",
+      "code": "421102",
+      "requested": [
+        30.52576,
+        114.95003
+      ],
+      "actual_model_grid": [
+        30.526,
+        114.95
+      ],
+      "model_grid_elevation_m": 57.53,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=30.52576&longitude=114.95003&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "f9889572b39fc4d503025619844a0e053f2c96a6060dd5a6eb87a7c088307b16",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": false,
+      "NASA_winter_tmax_c": 18.365,
+      "NASA_summer_tmax_c": 34.905,
+      "NASA_winter_tmin_c": -4.225,
+      "NASA_summer_tmin_c": 18.593,
+      "NASA_minus_ERA5_winter_c": null,
+      "NASA_minus_ERA5_summer_c": null,
+      "model_conflict_ge3c": false,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "万州区",
+      "code": "500101",
+      "requested": [
+        30.70326,
+        108.3838
+      ],
+      "actual_model_grid": [
+        30.703,
+        108.384
+      ],
+      "model_grid_elevation_m": 663.84,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=30.70326&longitude=108.3838&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "c3fd0866d76af8597b516c3591369dde59747755db328865f243eaecf9170150",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": false,
+      "NASA_winter_tmax_c": 16.451,
+      "NASA_summer_tmax_c": 32.723,
+      "NASA_winter_tmin_c": -2.644,
+      "NASA_summer_tmin_c": 16.381,
+      "NASA_minus_ERA5_winter_c": null,
+      "NASA_minus_ERA5_summer_c": null,
+      "model_conflict_ge3c": false,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "江油市",
+      "code": "510781",
+      "requested": [
+        31.93099,
+        104.89849
+      ],
+      "actual_model_grid": [
+        31.931,
+        104.898
+      ],
+      "model_grid_elevation_m": 939.71,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=31.93099&longitude=104.89849&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "46c92149108fc0fbebbc9c9735646d91da1774f4d4a3fc52bb699f51a5c9cab8",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": false,
+      "NASA_winter_tmax_c": 14.323,
+      "NASA_summer_tmax_c": 31.769,
+      "NASA_winter_tmin_c": -3.571,
+      "NASA_summer_tmin_c": 15.274,
+      "NASA_minus_ERA5_winter_c": null,
+      "NASA_minus_ERA5_summer_c": null,
+      "model_conflict_ge3c": false,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "镇雄县",
+      "code": "530627",
+      "requested": [
+        27.5631,
+        104.80341
+      ],
+      "actual_model_grid": [
+        27.563,
+        104.803
+      ],
+      "model_grid_elevation_m": 1613.92,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=27.5631&longitude=104.80341&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "8fefd75d18e8dd86723f8d79a6fe56ab4684ea77d228115182ac0e597db455b7",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": false,
+      "NASA_winter_tmax_c": 21.79,
+      "NASA_summer_tmax_c": 30.677,
+      "NASA_winter_tmin_c": -5.255,
+      "NASA_summer_tmin_c": 11.79,
+      "NASA_minus_ERA5_winter_c": null,
+      "NASA_minus_ERA5_summer_c": null,
+      "model_conflict_ge3c": false,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "红古区",
+      "code": "620111",
+      "requested": [
+        36.30132,
+        103.09909
+      ],
+      "actual_model_grid": [
+        36.301,
+        103.099
+      ],
+      "model_grid_elevation_m": 2160.43,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=36.30132&longitude=103.09909&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "cdca64bddc1809cffe94ea6ca9f2a81e17bb0669c328362b835c3dec2fee83e2",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": false,
+      "NASA_winter_tmax_c": 10.076,
+      "NASA_summer_tmax_c": 30.892,
+      "NASA_winter_tmin_c": -15.581,
+      "NASA_summer_tmin_c": 6.517,
+      "NASA_minus_ERA5_winter_c": null,
+      "NASA_minus_ERA5_summer_c": null,
+      "model_conflict_ge3c": false,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "万全区",
+      "code": "130708",
+      "requested": [
+        40.84698,
+        114.59057
+      ],
+      "actual_model_grid": [
+        40.847,
+        114.591
+      ],
+      "model_grid_elevation_m": 1308.79,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=40.84698&longitude=114.59057&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "18356cd957c74e9268fa6f5cf9ad9ef702b85546afb61ece2cd4bbd9d7e932b4",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": false,
+      "NASA_winter_tmax_c": 3.745,
+      "NASA_summer_tmax_c": 31.451,
+      "NASA_winter_tmin_c": -23.229,
+      "NASA_summer_tmin_c": 5.64,
+      "NASA_minus_ERA5_winter_c": null,
+      "NASA_minus_ERA5_summer_c": null,
+      "model_conflict_ge3c": false,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "根河市",
+      "code": "150785",
+      "requested": [
+        51.44307,
+        121.52853
+      ],
+      "actual_model_grid": [
+        51.443,
+        121.529
+      ],
+      "model_grid_elevation_m": 856.57,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=51.44307&longitude=121.52853&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "ec605209962abe479282f10a5ac42838281d8fbee1a72ac7e021a47f9b813c5f",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": false,
+      "NASA_winter_tmax_c": -11.198,
+      "NASA_summer_tmax_c": 27.9,
+      "NASA_winter_tmin_c": -38.344,
+      "NASA_summer_tmin_c": 1.897,
+      "NASA_minus_ERA5_winter_c": null,
+      "NASA_minus_ERA5_summer_c": null,
+      "model_conflict_ge3c": false,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "辽中区",
+      "code": "210115",
+      "requested": [
+        41.48842,
+        122.78782
+      ],
+      "actual_model_grid": [
+        41.488,
+        122.788
+      ],
+      "model_grid_elevation_m": 16.39,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=41.48842&longitude=122.78782&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "80b0ab16ea2d5db004b9a80db3ad870cdad3f537529803f861ad6e9ef5009c4c",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": false,
+      "NASA_winter_tmax_c": 5.41,
+      "NASA_summer_tmax_c": 34.461,
+      "NASA_winter_tmin_c": -20.548,
+      "NASA_summer_tmin_c": 11.384,
+      "NASA_minus_ERA5_winter_c": null,
+      "NASA_minus_ERA5_summer_c": null,
+      "model_conflict_ge3c": false,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    },
+    {
+      "county": "兰陵县",
+      "code": "371324",
+      "requested": [
+        34.85779,
+        117.99538
+      ],
+      "actual_model_grid": [
+        34.858,
+        117.995
+      ],
+      "model_grid_elevation_m": 97.35,
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=34.85779&longitude=117.99538&community=SB&parameters=T2M_MAX_AVG,T2M_MIN_AVG&format=JSON&start=1991&end=2020",
+      "source_raw_sha256": "247a00ccb82c2b9074a961b766f9298b7e92b4942bd7a74c1b98b6a42c4fd219",
+      "header_range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)",
+      "previous_ERA5_data": false,
+      "NASA_winter_tmax_c": 13.555,
+      "NASA_summer_tmax_c": 35.35,
+      "NASA_winter_tmin_c": -9.86,
+      "NASA_summer_tmin_c": 14.839,
+      "NASA_minus_ERA5_winter_c": null,
+      "NASA_minus_ERA5_summer_c": null,
+      "model_conflict_ge3c": false,
+      "formal_grade": null,
+      "residential_elevation_verified": false,
+      "official_2026_code_verified": false
+    }
+  ],
+  "cautions": [
+    "Monthly climatology does not provide >=35C days or consecutive hazard spells",
+    "NASA native grid elevation may differ from dwelling, city or ERA5 grid elevation",
+    "Model disagreement >=3C requires independent station arbitration, NEVER automatic exclusion",
+    "Official 2026 nationwide current administrative code alignment unfinished",
+    "Previous R2-R5 statuses preserved; no false formal grades"
+  ]
+}
