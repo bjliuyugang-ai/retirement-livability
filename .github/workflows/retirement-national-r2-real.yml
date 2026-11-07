@@ -1,4 +1,5 @@
 name: Retirement nationwide R2 sunshine rainfall humidity sequential carry-forward
+# R1 S6 recovered in verified original run 42321222770; fresh R2 evaluation now allowed
 on:
   workflow_dispatch:
   push:
