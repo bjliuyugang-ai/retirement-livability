@@ -1,0 +1,97 @@
+name: Retirement R5 Fujian 2025-2026 county named raw drinking water intake source QA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-R5-Fujian-water-intakes.yml'
+jobs:
+  real-raw-water-county-stations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 require V1.6 current R5 water source-action without altering schedule
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R5-WATER-POLLUTION-014"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["current_state_ref"]["git_blob_sha"]==subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          print("R5_RAW_SOURCE_V16_PREFLIGHT",s["state_revision"])
+          PY
+      - name: Install government HTML table parser
+        run: python -m pip -q install beautifulsoup4 lxml pandas
+      - name: S3 actually fetch official 2025-06/12 2026-09 water source point monitoring and exact county code crosswalk
+        run: |
+          python -m py_compile research_engine/retirement/R5_Fujian_official_named_water_sources_2025_2026.py
+          python -u research_engine/retirement/R5_Fujian_official_named_water_sources_2025_2026.py
+      - name: S4-QA validate published raw source counts, original Mengzi and no invalid national exclusions
+        id: audit
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json
+          root="research_engine/retirement/output/"
+          d=json.load(open(root+"R5_Fujian_2025_2026_official_raw_source_evidence.json"))
+          assert len(d["source_month_reports"])==3
+          assert d["source_month_reports"][1]["month"]=="2025-12" and d["source_month_reports"][1]["sequence_records"]==109
+          assert d["new_R5_county_source_only_partial_counties"]>15
+          assert d["R5_total_source_or_tap_named_site_partial_counties"]==1+d["new_R5_county_source_only_partial_counties"]
+          assert d["formal_valid_county_screenings"]==0 and d["confirmed_exclusions"]==0
+          assert d["all_carry_forward"]==2847
+          for p,expected in [("R5_Fujian_official_2025_2026_raw_water_named_intake_records.csv",d["CSV_named_points_sha256"]),("national_R5_Fujian_2025_2026_source_water_2847.csv",d["CSV_national_2847_sha256"])]:
+            assert hashlib.sha256(open(root+p,"rb").read()).hexdigest()==expected
+          rows=list(csv.DictReader(open(root+"national_R5_Fujian_2025_2026_source_water_2847.csv",encoding="utf-8-sig")))
+          assert len(rows)==2847 and len({x["candidate_code"] for x in rows})==2847
+          assert all(x["confirmed_exit_round"]=="" for x in rows)
+          assert sum(z["R5_status"]!="NOT_SCREENED" for z in rows)==d["R5_total_source_or_tap_named_site_partial_counties"]
+          print("OFFICIAL_FJ_R5_NAMED_RAW_WATER_CROSSWALK_VERIFIED",d["new_R5_county_source_only_partial_counties"],d["R5_total_source_or_tap_named_site_partial_counties"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: official-Fujian-2025-2026-monthly-source-water-R5-named-intakes-county-crosswalk
+          path: |
+            research_engine/retirement/output/R5_Fujian_2025_2026_official_raw_source_evidence.json
+            research_engine/retirement/output/R5_Fujian_official_2025_2026_raw_water_named_intake_records.csv
+            research_engine/retirement/output/national_R5_Fujian_2025_2026_source_water_2847.csv
+          retention-days: 30
+      - name: S5-S6 persist source-level observations and verify remote file hashes
+        if: steps.audit.outcome == 'success'
+        run: |
+          cp research_engine/retirement/output/R5_Fujian_2025_2026_official_raw_source_evidence.json research_engine/retirement/status/R5_Fujian_2025_2026_official_raw_source_evidence.json
+          cp research_engine/retirement/output/R5_Fujian_official_2025_2026_raw_water_named_intake_records.csv research_engine/retirement/status/R5_Fujian_official_2025_2026_raw_water_named_intake_records.csv
+          cp research_engine/retirement/output/national_R5_Fujian_2025_2026_source_water_2847.csv research_engine/retirement/status/national_R5_Fujian_2025_2026_source_water_2847.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/R5_Fujian_2025_2026_official_raw_source_evidence.json research_engine/retirement/status/R5_Fujian_official_2025_2026_raw_water_named_intake_records.csv research_engine/retirement/status/national_R5_Fujian_2025_2026_source_water_2847.csv
+          git commit -m "Archive actual Fujian county raw drinking-water source intakes 2025/26 monthly with nationwide 2847 R5 evidence overlay"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import json,hashlib,subprocess
+          root="research_engine/retirement/status/"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+root+"R5_Fujian_2025_2026_official_raw_source_evidence.json"]))
+          for p,key in [("R5_Fujian_official_2025_2026_raw_water_named_intake_records.csv","CSV_named_points_sha256"),("national_R5_Fujian_2025_2026_source_water_2847.csv","CSV_national_2847_sha256")]:
+            b=subprocess.check_output(["git","show","origin/main:"+root+p])
+            assert hashlib.sha256(b).hexdigest()==d[key]
+          assert d["formal_valid_county_screenings"]==0
+          print("FUJIAN_OFFICIAL_R5_SOURCE_QA_REMOTE_PASS",d["new_R5_county_source_only_partial_counties"])
+          PY
