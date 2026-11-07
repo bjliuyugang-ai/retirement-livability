@@ -4,7 +4,7 @@ third-party nationwide code-bearing GIS layer: 7 existing in 2025 code
 compilation + 2 legally created in 2026.
 
 Probe DataV GeoAtlas standalone {adcode}.json, then parent {adcode}_full.json.
-Validate actual response geometry/adcode and record data-vintage/CRS unknowns.
+Validate actual response geometry/adcode/CURRENT CHINESE NAME and record data-vintage/CRS unknowns.
 Neither 200 nor a polygon means officially current 2026 certified boundary.
 """
 import collections,datetime,hashlib,json,pathlib,urllib.error,urllib.request
@@ -35,7 +35,7 @@ def features_payload(raw):
   if data.get("type")=="FeatureCollection":return data.get("features") or [],"FEATURE_COLLECTION"
   if data.get("type")=="Feature":return [data],"FEATURE"
  return [],"UNRECOGNIZED_JSON_STRUCTURE"
-def validate(fs,targetcode):
+def validate(fs,targetcode,targetname):
  vals=[]
  for f in fs:
   prop=f.get("properties") or {};c=str(prop.get("adcode") or "")
@@ -47,7 +47,7 @@ def validate(fs,targetcode):
    bounds=[round(float(v),5) for v in geom.bounds]
    near=(70<=bounds[0]<=140 and 0<=bounds[1]<=56 and 70<=bounds[2]<=140 and 0<=bounds[3]<=56)
    vals.append({"feature_code":c,"feature_name":str(prop.get("name") or ""),"geometry_type":geom.geom_type,
-    "geom_valid":bool(geom.is_valid),"geom_bounds_lonlat":bounds,"rough_geographic_range":near,"matches_requested_code":c==targetcode})
+    "geom_valid":bool(geom.is_valid),"geom_bounds_lonlat":bounds,"rough_geographic_range":near,"matches_requested_code":c==targetcode,"matches_requested_name":str(prop.get("name") or "")==targetname})
   except Exception as ex:vals.append({"geom_parse_error":repr(ex),"feature_code":c})
  return vals
 results=[];fallback_cache={}
@@ -61,9 +61,9 @@ for target in targets:
  if response.get("raw"):
   fs,structure=features_payload(response["raw"])
   record["direct_structure"]=structure
-  check=validate(fs,code)
+  check=validate(fs,code,target["name"])
   record["direct_shape_features"]=check[:6]
-  good=[x for x in check if x.get("matches_requested_code") and x.get("geom_valid") and x.get("rough_geographic_range")]
+  good=[x for x in check if x.get("matches_requested_code") and x.get("matches_requested_name") and x.get("geom_valid") and x.get("rough_geographic_range")]
   record["direct_validated_geometry"]=len(good)==1 and len(check)==1
   outp=OUT/("datav_county_"+code+".json");outp.write_bytes(response["raw"])
  if not record["direct_validated_geometry"]:
@@ -79,16 +79,16 @@ for target in targets:
   if r.get("raw"):
    fs,struct=features_payload(r["raw"]);record["parent_structure"]=struct
    candidate=[f for f in fs if str((f.get("properties") or {}).get("adcode") or "")==code]
-   checks=validate(candidate,code)
+   checks=validate(candidate,code,target["name"])
    record["parent_candidate_features"]=checks[:5]
-   record["parent_direct_feature_code_match"]=len(checks)==1 and checks[0].get("geom_valid") and checks[0].get("rough_geographic_range")
+   record["parent_direct_feature_code_match"]=len(checks)==1 and checks[0].get("matches_requested_name") and checks[0].get("geom_valid") and checks[0].get("rough_geographic_range")
  record["alternative_coded_geometry_located"]=record["direct_validated_geometry"] or record["parent_direct_feature_code_match"]
  record["boundary_status"]="THIRD_PARTY_LIVE_GEOMETRY_OBTAINED_VINTAGE_UNVERIFIED" if record["alternative_coded_geometry_located"] else "NOT_FOUND_OR_UNVERIFIED_FROM_DATAV"
  results.append(record)
  print("NINE_COUNTY_BOUNDARY_REAL_CHECK",code,target["name"],record["direct_status"],
        "parent",record["parent_status"],"geometry",record["alternative_coded_geometry_located"],flush=True)
 confirmed=sum(x["alternative_coded_geometry_located"] for x in results)
-report={"schema":"RET_NINE_MISSING_MAINLAND_CODED_COUNTY_BOUNDARIES_REAL_HTTP_QA_V1",
+report={"schema":"RET_NINE_MISSING_MAINLAND_CODED_COUNTY_BOUNDARIES_REAL_HTTP_QA_V2_STRICT_CODE_NAME",
  "created_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),
  "prior_2025_polygon_diff_sha256":hashlib.sha256(SRC.read_bytes()).hexdigest(),
  "source":"DataV.GeoAtlas /areas_v3/bound/{adcode}.json and {parent}_full.json",
@@ -99,6 +99,7 @@ report={"schema":"RET_NINE_MISSING_MAINLAND_CODED_COUNTY_BOUNDARIES_REAL_HTTP_QA
  "full_national_2847_county_status_unchanged":True,"formal_valid_county_screenings":0,
  "target_results":results,
  "limiting_conditions":["Third-party DataV can be outdated: observed geometry alone is not an official legal 2026 boundary",
+ "Known false positive: source 460302 returned name 南沙区, but 2025 code 460302 belongs to 西沙区; reject code-only match",
  "A successful response for parent and requested code must still pass unique feature code and shape QA",
  "No residential site, microclimate, drinking water or hazard data established by administrative polygon",
  "If 2026 new districts have no public boundary, maintain explicit PENDING not invented polygon"]}
