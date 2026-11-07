@@ -1,0 +1,90 @@
+name: Retirement 73 county longer-source nonfatal winter summer sunshine rain preference QA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-first73-preference-qa.yml'
+jobs:
+  non-fatal-observation-triage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 verify V1.6 only 73-candidate preference action
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["state_revision"]==57
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-73-PREFERENCE-TRIAGE-010"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["current_state_ref"]["git_blob_sha"]==subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          PY
+      - name: Compute honest source-vetted nonfatal preference signals for 73 dual R1/R2
+        run: |
+          python -m py_compile research_engine/retirement/first_73_longer_R1R2_preference_QA.py
+          python -u research_engine/retirement/first_73_longer_R1R2_preference_QA.py
+      - name: Ensure preference and missingness never act as formal exclusion
+        id: qa
+        run: |
+          python - <<'PY'
+          import csv,json,hashlib
+          root="research_engine/retirement/output/"
+          d=json.load(open(root+"first_73_longer_source_climate_preference_nonfatal_audit.json"))
+          assert d["analyzed_longer_source_R1R2_candidate_count"]==73
+          assert d["formal_valid_county_screenings"]==0 and d["confirmed_county_exclusions"]==0
+          assert d["national_carry_forward"]==2847
+          assert d["ideal_type"]=="NON_HARD_USER_PREFERENCE_NOT_A_FATAL_HEALTH_THRESHOLD"
+          b=open(root+"first_73_longer_source_climate_preference_nonfatal_audit.csv","rb").read()
+          assert hashlib.sha256(b).hexdigest()==d["output_73_csv_sha256"]
+          rows=list(csv.DictReader(open(root+"first_73_longer_source_climate_preference_nonfatal_audit.csv",encoding="utf-8-sig")))
+          assert len(rows)==73 and len({x["candidate_code"] for x in rows})==73
+          assert all(x["formal_A_B_C_D_grade"]=="" and x["preference_screen_is_exclusion"]=="False" for x in rows)
+          for key,value in d["parameter_status_counts"].items():assert sum(value.values())==73
+          print("FIRST73_NONFATAL_PREFERENCES_PASS",d["source_param_observation_count_by_type"],d["all_four_ideal_preference_met_count"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: first-73-real-dual-long-source-county-nonfatal-climate-preference-qa
+          path: |
+            research_engine/retirement/output/first_73_longer_source_climate_preference_nonfatal_audit.json
+            research_engine/retirement/output/first_73_longer_source_climate_preference_nonfatal_audit.csv
+          retention-days: 30
+      - name: Persist source trace and remote verify, never touch formal Library Master
+        if: steps.qa.outcome == 'success'
+        run: |
+          cp research_engine/retirement/output/first_73_longer_source_climate_preference_nonfatal_audit.json research_engine/retirement/status/first_73_longer_source_climate_preference_nonfatal_audit.json
+          cp research_engine/retirement/output/first_73_longer_source_climate_preference_nonfatal_audit.csv research_engine/retirement/status/first_73_longer_source_climate_preference_nonfatal_audit.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/first_73_longer_source_climate_preference_nonfatal_audit.json research_engine/retirement/status/first_73_longer_source_climate_preference_nonfatal_audit.csv
+          git commit -m "Record 73 source-vetted R1/R2 county climatic nonfatal preferences with independent station/model differences and all unmeasured parameters"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          p="research_engine/retirement/status/"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+p+"first_73_longer_source_climate_preference_nonfatal_audit.json"]))
+          b=subprocess.check_output(["git","show","origin/main:"+p+"first_73_longer_source_climate_preference_nonfatal_audit.csv"])
+          assert hashlib.sha256(b).hexdigest()==d["output_73_csv_sha256"]
+          assert d["formal_valid_county_screenings"]==0 and d["confirmed_county_exclusions"]==0
+          print("FIRST73_NONFATAL_SOURCE_REMOTE_PASS",d["analyzed_longer_source_R1R2_candidate_count"])
+          PY
