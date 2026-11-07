@@ -5,7 +5,7 @@ import json,hashlib,urllib.request,datetime,pathlib,zipfile,io,sys,os
 DATASET_ID="cece16f1863b4ebd839894f6df26f8ac"
 FILES={
  "tasmax":{"id":"dba1c67431a07f5c3a7d18a83bd876d2","name":"China_tasmax_1km_1991-2020.zip","expected":293775088},
- "sunp":{"id":"cc20e819b4c903a1dc200aeead645e7c","name":"China_sunp_1km_1991-2020.zip","expected":287000000}
+ "sunp":{"id":"cc20e819b4c903a1dc200aeead645e7c","name":"China_sunp_1km_1991-2020.zip","expected":286802207}
 }
 BASE=pathlib.Path("research_engine/retirement/output/scidb_download")
 OUT=pathlib.Path("research_engine/retirement/output/scidb_national_grid_probe.json")
@@ -51,7 +51,7 @@ def main():
     sample=[]
     for b in range(1,ds.count+1):
      a=ds.read(b,out_shape=(min(1000,ds.height),min(1000,ds.width)),masked=True)
-     vals=a.compressed()
+     vals=a.compressed(); vals=vals[np.isfinite(vals) & (vals > -1e20)]
      sample.append({"band":b,"sample_valid":int(vals.size),"sample_min":float(vals.min()) if vals.size else None,
        "sample_max":float(vals.max()) if vals.size else None,"sample_mean":float(vals.mean()) if vals.size else None})
     qa.update({"archive_sha256":qa["sha256"],"geotiff_member":member.filename,"geotiff_bytes":tif.stat().st_size,
