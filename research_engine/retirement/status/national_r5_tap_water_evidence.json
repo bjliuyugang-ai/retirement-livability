@@ -1,0 +1,41 @@
+{
+  "schema": "RET_NATIONAL_R5_PARTIAL_CITED_EVIDENCE_V1",
+  "at_utc": "2026-11-07T01:04:23.957662+00:00",
+  "source_CSV_sha256": "bf30472cd62af1f7b9fdbecae6ea16ef9ec304f4ee819ac3946e8925e83fe55b",
+  "evidence_source": "research_engine/retirement/evidence/stage3_mengzi_2026_tapwater_16_site_observations_v1.json",
+  "evidence_source_sha256": "815a5b21365c134d13d21f1080927bafc1c480a704c78e26e8ce58f15b82a901",
+  "input": 2847,
+  "R5_carry_forward": 2847,
+  "R5_confirmed_exclusions": 0,
+  "R5_unscanned": 2846,
+  "R5_direct_evidence_counties": 1,
+  "formal_valid_county_screenings": 0,
+  "formal_grade_changes": 0,
+  "source_level": "REGIONAL_OR_NAMED_SITE_NOT_RESIDENTIAL_OR_WHOLE_COUNTY",
+  "records": [
+    {
+      "code": "532503",
+      "county": "蒙自市",
+      "published_tap_records": 16,
+      "monitored_named_sites": 8,
+      "sampling_dates": [
+        "2026-03-02",
+        "2026-09-01/2026-09-17"
+      ],
+      "within_source_table_limits": 16,
+      "complete_potable_water_standard_verified": false,
+      "residential_building_supply_verified": false,
+      "hazard_spatial_overlay_completed": false,
+      "county_climate_grade_authorized": false
+    }
+  ],
+  "CSV_sha256": "d021fdc32474efeedaaae2cc7d1112a7c065b0b27a680532a54e67c697be01a5",
+  "next_parameter_round": "FINAL_GAP_LIST",
+  "limitations": [
+    "No missing parameter means exclusion",
+    "Citywide/regional environmental quality is not dwelling-level exposure",
+    "Named tap monitoring cannot prove whole municipality drinking water safety",
+    "All previously recorded errors and source references retained in national ledger"
+  ],
+  "R5_named_tap_monitoring_counties": 1
+}
