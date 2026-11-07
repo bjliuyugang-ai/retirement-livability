@@ -1,0 +1,71 @@
+name: Retirement national R0 provisional cascade register
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-national-cascade-r0.yml'
+jobs:
+  build-provisional-national-r0:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Regenerate attributed third-party 2025 and 2026 notices preliminary candidate inventory
+        run: python research_engine/retirement/provisional_roster.py
+      - name: Build national R0 candidate ledger without claiming any climate screening
+        run: python research_engine/retirement/build_national_cascade_r0.py
+      - name: Assert exact 2847 candidate identities and 0 valid screens
+        run: |
+          python - <<'PY'
+          import csv,json
+          p="research_engine/retirement/output/national_cascade_r0_provisional.csv"
+          s=json.load(open("research_engine/retirement/output/national_cascade_r0_summary.json"))
+          rows=list(csv.DictReader(open(p,encoding="utf-8-sig")))
+          assert len(rows)==2847==s["candidate_count"]
+          assert all(r["cascade_status"]=="ACTIVE_PENDING" and r["R1_status"]=="NOT_SCREENED" for r in rows)
+          assert all(r["valid_county_screening"]=="False" for r in rows)
+          assert s["formal_valid_county_screenings"]==0
+          assert s["2026_official_national_county_roster_verified"] is False
+          print("NATIONAL_R0_PROVISIONAL_INVENTORY_PASS_2847_NOT_SCREENED")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: national-provisional-R0-2847
+          path: |
+            research_engine/retirement/output/national_cascade_r0_provisional.csv
+            research_engine/retirement/output/national_cascade_r0_summary.json
+          retention-days: 30
+      - name: Publish provisional R0 register and independently verify persisted SHA
+        run: |
+          mkdir -p research_engine/retirement/status
+          cp research_engine/retirement/output/national_cascade_r0_provisional.csv research_engine/retirement/status/national_cascade_r0_provisional.csv
+          cp research_engine/retirement/output/national_cascade_r0_summary.json research_engine/retirement/status/national_cascade_r0_summary.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/national_cascade_r0_provisional.csv research_engine/retirement/status/national_cascade_r0_summary.json
+          git diff --cached --quiet && exit 2 || true
+          git commit -m "Persist 2847 provisional national R0 register (not scanned)"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          base="research_engine/retirement/status/"
+          s=json.loads(subprocess.check_output(["git","show","origin/main:"+base+"national_cascade_r0_summary.json"]))
+          b=subprocess.check_output(["git","show","origin/main:"+base+"national_cascade_r0_provisional.csv"])
+          assert hashlib.sha256(b).hexdigest()==s["output_sha256"]
+          assert s["candidate_count"]==2847 and s["formal_valid_county_screenings"]==0
+          print("REMOTE_R0_CASCADED_INVENTORY_CHECK_PASS")
+          PY
