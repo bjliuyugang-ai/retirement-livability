@@ -1,4 +1,5 @@
 name: Retirement 132 short-history CN stations actual R2 rain and sunshine source audit
+# Rerun after recognizing 132 stations belong to 131 distinct counties, preserve two 150782 station records
 on:
   workflow_dispatch:
   push:
