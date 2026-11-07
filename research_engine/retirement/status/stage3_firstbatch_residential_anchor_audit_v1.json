@@ -1,0 +1,181 @@
+{
+  "schema": "RET_STAGE3_FIRST_BATCH_RESIDENTIAL_ANCHOR_AUDIT_V1",
+  "snapshot_date": "2026-11-07",
+  "scope": "第三关第一批4县域中的2个优先县域; 减少继续泛搜; 确认具体地点数据是否已达到有效广筛标准",
+  "upstream": "research_engine/retirement/status/latest-first-batch-prescreen.json",
+  "new_source": "research_engine/retirement/evidence/stage3_mengzi_2026_tapwater_16_site_observations_v1.json",
+  "decision_type": "EVIDENCE_READINESS_NOT_FINAL_GRADING",
+  "units": [
+    {
+      "county": "云南省红河州蒙自市",
+      "candidate_code": "532503",
+      "previous_master_grade": "B (暂定, 不变)",
+      "focused_residential_anchors": [
+        {
+          "name": "柒彩滇南·第一城",
+          "identity_type": "MONITORED_NAMED_BUILT_SITE",
+          "location_basis": {
+            "official_medical_registry": "https://hhmz.gov.cn/info/49931/651871.htm",
+            "description": "2026医保定点机构地址包含蒙自市天马路柒彩滇南第壹城商铺",
+            "exact_building_geocoordinates": "UNKNOWN"
+          },
+          "water": {
+            "status": "TWO_QUARTER_2026_OFFICIAL_TAP_SAMPLES_PASS_LISTED_INDICATORS",
+            "q1_sample": "2026-03-02",
+            "q1_bacteria": "未检出",
+            "q1_turbidity_NTU": "<0.5",
+            "q1_permanganate_index_mgL": 1.11,
+            "q1_chlorine_mgL": 0.37,
+            "q3_sample": "2026-09-17",
+            "q3_bacteria": "未检出",
+            "q3_turbidity_NTU": "<0.5",
+            "q3_permanganate_index_mgL": 1.01,
+            "q3_chlorine_mgL": 0.18,
+            "same_building_indoor_distribution_proven": false,
+            "all_GB5749_indicators_tested": false
+          },
+          "air": {
+            "status": "CITY_SCALE_ONLY_NO_NEIGHBORHOOD_OZONE_PM25"
+          },
+          "climate": {
+            "status": "ERA5_COUNTY_POINT_NOT_RESIDENTIAL_COORDINATE"
+          },
+          "pollution": {
+            "status": "INDUSTRIAL_POLLUTANT_SITE_TO_RESIDENCE_DISTANCE_UNVERIFIED"
+          },
+          "geohazards": {
+            "status": "RESIDENTIAL_SITE_HAZARD_OVERLAY_UNVERIFIED"
+          },
+          "stage3_decision": "CONTINUE_TARGETED_QA_NO_FORMAL_GRADE"
+        },
+        {
+          "name": "四季花城",
+          "identity_type": "MONITORED_NAMED_SITE",
+          "location_basis": {
+            "official_tap_site": "https://www.hh.gov.cn/info/11811/1288552.htm",
+            "exact_building_geocoordinates": "UNKNOWN"
+          },
+          "water": {
+            "status": "TWO_QUARTER_2026_OFFICIAL_TAP_SAMPLES_PASS_LISTED_INDICATORS",
+            "q1_sample": "2026-03-02",
+            "q1_bacteria": "未检出",
+            "q1_turbidity_NTU": "<0.5",
+            "q1_permanganate_index_mgL": 1.39,
+            "q1_chlorine_mgL": 0.34,
+            "q3_sample": "2026-09-01",
+            "q3_bacteria": "未检出",
+            "q3_turbidity_NTU": "<0.5",
+            "q3_permanganate_index_mgL": 0.808,
+            "q3_chlorine_mgL": 0.15,
+            "same_building_indoor_distribution_proven": false,
+            "all_GB5749_indicators_tested": false
+          },
+          "air": {
+            "status": "CITY_SCALE_ONLY_NO_NEIGHBORHOOD_OZONE_PM25"
+          },
+          "climate": {
+            "status": "ERA5_COUNTY_POINT_NOT_RESIDENTIAL_COORDINATE"
+          },
+          "pollution": {
+            "status": "INDUSTRIAL_POLLUTANT_SITE_TO_RESIDENCE_DISTANCE_UNVERIFIED"
+          },
+          "geohazards": {
+            "status": "RESIDENTIAL_SITE_HAZARD_OVERLAY_UNVERIFIED"
+          },
+          "stage3_decision": "CONTINUE_TARGETED_QA_NO_FORMAL_GRADE"
+        }
+      ],
+      "regional_sources": [
+        {
+          "kind": "2026_JULY_RESERVOIR_WATER",
+          "url": "https://www.hh.gov.cn/info/9311/1279282.htm",
+          "claim": "五里冲水库、菲白水库2026年7月均为Ⅱ类水源；非末梢水"
+        },
+        {
+          "kind": "2026_ENVIRONMENT_OFFICIAL_BUDGET",
+          "url": "https://www.hh.gov.cn/info/11381/1247962.htm",
+          "claim": "区域存在需持续关注的工业源、扬尘、臭氧及蒙自矿冶公司等排放监测；不能外推具体社区暴露"
+        },
+        {
+          "kind": "2026_URBAN_WATER_PROJECT",
+          "url": "https://www.hh.gov.cn/info/49871/1266672.htm",
+          "claim": "2026大屯海流域治理项目位于文澜、文萃、雨过铺等街道，不能直接推断上述居住点受污染"
+        }
+      ],
+      "outstanding_gates": [
+        "社区楼栋坐标及海拔",
+        "同点位多年气候站/格点一致性",
+        "空气PM2.5和臭氧分站时序",
+        "工业点源与风向/相对距离",
+        "住宅内管道或二次供水及完整水质项目",
+        "洪涝/滑坡地质灾害叠加",
+        "县级现行行政代码口径"
+      ]
+    },
+    {
+      "county": "四川省攀枝花市东区",
+      "candidate_code": "510402",
+      "previous_master_grade": "C (东区/仁和区组合暂定, 不变)",
+      "focused_residential_anchors": [
+        {
+          "name": "炳草岗街道望江街社区",
+          "identity_type": "DOCUMENTED_RESIDENTIAL_COMMUNITY_NOT_EXACT_SITE",
+          "location_basis": {
+            "published_area": "https://jilu.china.com.cn/2023-07/27/content_42462686.htm",
+            "description": "2023年公开报道明确炳草岗街道望江街社区是已建居住型社区, 不能替代当前坐标和安全核验"
+          },
+          "water": {
+            "status": "SUPPLY_COMPANY_COVERAGE_NEARBY_ONLY_NO_SITE_TAP_SAMPLE",
+            "source": "https://www.pzhwater.com/gsjj/",
+            "scope": "东城分公司炳草岗水厂/大渡口水厂服务大范围; 望江街社区实际接入厂和2026末梢水结果待核"
+          },
+          "air": {
+            "status": "CITY_SCALE_2025_GOOD_AIR_DAYS_REPORTED_NO_LOCAL_OZONE_PM25",
+            "news_source": "https://cbgc.scol.com.cn/news/7421854",
+            "data": "市域2025优良率98.9%不能代表街区分站"
+          },
+          "climate": {
+            "status": "ERA5_DONG_DISTRICT_POINT_NOT_MAPPED_TO_WANGJIANG_RESIDENTIAL_UNITS",
+            "note": "同县3点冬日均最高温跨度17.342至22.008摄氏度, 夏季均最高温跨度25.673至30.337摄氏度"
+          },
+          "pollution": {
+            "status": "HISTORIC_INDUSTRIAL_QA_CONTEXT_ONLY_NOT_CURRENT_SITE_EXPOSURE",
+            "source": "https://jxj.panzhihua.gov.cn/zfxxgk/tzgg/10296534.shtml"
+          },
+          "geohazards": {
+            "status": "OFFICIAL_2026_DISTRICT_HAZARD_APPENDICES_ANNOUNCED_NOT_GEOCODE_MATCHED",
+            "source": "https://www.panzhihua.gov.cn/zfxxgk1/fdzdgknr/zdmsxx/yjdt/ssqk/10289837.shtml"
+          },
+          "stage3_decision": "CONTINUE_TARGETED_QA_NO_FORMAL_GRADE"
+        }
+      ],
+      "external_source_pitfall": {
+        "page": "https://pzhwater.com/szgs/",
+        "finding": "标题为水质供水,实际展示2024年污水处理厂外排口氨氮/COD数据",
+        "must_not_be_used_as_potable_water_tap_evidence": true
+      },
+      "outstanding_gates": [
+        "望江街居住楼栋坐标及实际住宅海拔",
+        "水厂供水边界与望江街实际管网/末梢水监测",
+        "PM2.5/臭氧最近多年分站资料",
+        "工业源距离和主导风向",
+        "2026地灾隐患点及高风险区附件与住所位置叠加",
+        "现行县区官方代码及边界对账",
+        "多年气象站与ERA5实测差异"
+      ]
+    }
+  ],
+  "summary": {
+    "priority_counties": 2,
+    "actual_site_anchors": 3,
+    "sites_with_official_2026_direct_tap_sample_on_two_dates": 2,
+    "sites_with_2026_residential_ozone_PM25": 0,
+    "sites_with_confirmed_hazard_overlay": 0,
+    "sites_with_confirmed_real_residential_altitude": 0,
+    "valid_county_screenings": 0,
+    "formal_grade_changes": 0,
+    "action_decision": "PARTIAL_SITE_ANCHORS_IDENTIFIED_CURRENT_ACTION_CONTINUES",
+    "fixed_next_action": "Prioritize source-to-residence spatial crosswalk for two Mengzi tap sample anchors and Wangjiangjie Dong district; no more global climate point expansions"
+  },
+  "limits": "All listed-sample PASS claims limited to published measures and dates. Gaps remain; user-approved fast-track does not waive frozen A/B/C/D formal standard."
+}
