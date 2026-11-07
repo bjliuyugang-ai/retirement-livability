@@ -1,0 +1,86 @@
+name: Retirement NASA 1991-2020 regional gridded real R1 30 historic county anchors
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-nasa-regional-r1-30.yml'
+jobs:
+  real-nasa-national-climatology:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate V1.6 single current SOURCE SCALE action
+        run: |
+          python - <<'PY'
+          import json
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-SOURCE-SCALE-002"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          PY
+      - name: Request real NASA 1991-2020 regional Tmax grids across 30 county anchors
+        run: |
+          python -m py_compile research_engine/retirement/national_r1_nasa_regional_scale.py
+          python -u research_engine/retirement/national_r1_nasa_regional_scale.py
+      - name: Assert real measurements, explicit model conflicts and provisional quality
+        run: |
+          python - <<'PY'
+          import json,hashlib,csv
+          p="research_engine/retirement/output/national_R1_NASA_secondary_expansion.json"
+          d=json.load(open(p))
+          assert d["input_historic_anchor_count"]==30
+          assert len(d["records"])+len(d["failures"])==30
+          assert d["new_counties_with_NASA_Tmax_only_R1_evidence"]>0
+          assert d["total_R1_some_point_evidence_counties"]==22+d["new_counties_with_NASA_Tmax_only_R1_evidence"]
+          assert d["real_national_formal_valid_county_screenings"]==0
+          csvp="research_engine/retirement/output/national_R1_NASA_secondary_30_anchors.csv"
+          assert hashlib.sha256(open(csvp,"rb").read()).hexdigest()==d["output_csv_sha256"]
+          rows=list(csv.DictReader(open(csvp,encoding="utf-8-sig")))
+          assert len(rows)==2847
+          print("NASA_REGIONAL_ACTUAL_CLIMATE_DATA_PASS",len(d["records"]),d["new_counties_with_NASA_Tmax_only_R1_evidence"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nasa-1991-2020-region-30-historic-county-real-R1-ERA5-conflict
+          path: |
+            research_engine/retirement/output/national_R1_NASA_secondary_expansion.json
+            research_engine/retirement/output/national_R1_NASA_secondary_30_anchors.csv
+          retention-days: 30
+      - name: Preserve real NASA region results without modifying V1.6 state or Master
+        run: |
+          cp research_engine/retirement/output/national_R1_NASA_secondary_expansion.json research_engine/retirement/status/national_R1_NASA_secondary_expansion.json
+          cp research_engine/retirement/output/national_R1_NASA_secondary_30_anchors.csv research_engine/retirement/status/national_R1_NASA_secondary_30_anchors.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/national_R1_NASA_secondary_expansion.json research_engine/retirement/status/national_R1_NASA_secondary_30_anchors.csv
+          git commit -m "Persist real NASA regional Tmax 1991-2020 for up to 30 provincial county anchors and model conflict flags"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 3
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,subprocess,json
+          stem="research_engine/retirement/status/"
+          a=stem+"national_R1_NASA_secondary_expansion.json"
+          b=stem+"national_R1_NASA_secondary_30_anchors.csv"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+a]))
+          raw=subprocess.check_output(["git","show","origin/main:"+b])
+          assert hashlib.sha256(raw).hexdigest()==d["output_csv_sha256"]
+          assert d["real_national_formal_valid_county_screenings"]==0
+          assert d["total_R1_some_point_evidence_counties"]>22
+          print("NASA_SECONDARY_REMOTE_EVIDENCE_SHA_PASS",d["total_R1_some_point_evidence_counties"])
+          PY
