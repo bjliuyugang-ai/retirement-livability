@@ -28,7 +28,7 @@
     "national_git_blob_sha": "17b590d346e29b5c56ec71c6cf845d864882a53a",
     "points_path": "research_engine/retirement/status/Fujian2025_12_109_official_intake_sources.csv",
     "points_git_blob_sha": "a3045056e2bd568746ab83c1d29315315c16c22e",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-R5-WATER-POLLUTION-014",
   "closed_result_refs": [
@@ -84,11 +84,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "999f702bd179a5196ce74b6cb32379175f3aa86a",
+    "verified_at": "2026-11-07T04:46:51.340Z"
   },
-  "updated_at": "2026-11-07T04:45:31.671Z",
-  "state_revision": 66,
+  "updated_at": "2026-11-07T04:46:51.340Z",
+  "state_revision": 67,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
