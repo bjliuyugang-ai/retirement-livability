@@ -28,7 +28,7 @@
     "city_git_blob_sha": "f8c7d03a4ed753b034e5c947fcde3d310800473a",
     "national_path": "research_engine/retirement/status/national_R4_2025_168_city_PM25_CONTEXT_ONLY_2847.csv",
     "national_git_blob_sha": "15d008640cd432eddc3d78946963b19acdb72417",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-R4-AIR-POLLUTION-012",
   "closed_result_refs": [
@@ -82,11 +82,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "78af77545a3ba2ba87435dfa9a495b8855460a98",
+    "verified_at": "2026-11-07T04:38:16.702Z"
   },
-  "updated_at": "2026-11-07T04:37:40.661Z",
-  "state_revision": 62,
+  "updated_at": "2026-11-07T04:38:16.702Z",
+  "state_revision": 63,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
