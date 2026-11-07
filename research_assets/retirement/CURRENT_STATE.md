@@ -47,3 +47,5 @@ RET-SPATIAL-001：执行2017口径geoBoundaries历史县级边界空间匹配真
 - RES-STAGE3-11POINT-FIRSTBATCH-42317771144: 用户明确授权从11个已有ERA5点位直接进入第三关方法验证。首次4个县域11点初筛已生成逐点偏好命中与县域风险分层（研究增量）；现行行政身份、CMA站点、住宅海拔、空气/水/污染/灾害未关闭，正式有效县级广筛仍为0。旧RET-CMA-ERA5-CROSSCHECK-003标记DEFERRED而非PASS。详见 research_engine/retirement/status/latest-first-batch-prescreen.json。
 
 - RES-STAGE3-ENVIRONMENT-EVIDENCE-20261107: 按用户批准的第三关初筛（4县域11点），继续核验第一优先级蒙自/攀枝花东区的空气、水源、工业整改和地质灾害公示。已取得2025年蒙自PM2.5官方来源及官方公报内优良率98.8%/99.2%冲突、2025年单年气候；攀枝花2025年新闻发布会城市级空气数据及2026年工业整改/地灾公告。住宅级污染、末梢水、灾害坐标及1991—2020气象站证据仍待核，正式县级有效广筛0。机器证据：research_engine/retirement/evidence/stage3_firstbatch_public_environment_evidence_20261107.json；状态为PARTIAL，不代表完成当前唯一动作。
+
+- RES-STAGE3-2026-MENGZI-TAP-AND-ANCHOR-20261107-002: 第三关第一批居住片区证据突破：2026年红河州卫健委Q1/Q3官方末梢水公报，共8个实采点、16条监测记录，已报告指标均符合各自公告限值；其中柒彩滇南·第一城及四季花城各有两季记录，均非楼栋完整106项确认。攀枝花东区炳草岗望江街社区作为现有居住型社区锚点；水务集团页面披露炳草岗水厂服务片区，但“水质供水”页面为污水排放数据，禁止误用为自来水检测。三处都缺完整住宅坐标/住宅海拔、独立气候站、空气分站、污染点源、地灾GIS叠加，不改变Master暂定等级，正式有效县级广筛0。证据：research_engine/retirement/evidence/stage3_mengzi_2026_tapwater_16_site_observations_v1.json、research_engine/retirement/status/stage3_firstbatch_residential_anchor_audit_v1.json。
