@@ -1,0 +1,83 @@
+name: Retirement two-year official Fujian 2024-25 city ozone and county particulate comparison
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-R4-Fujian-two-year-ozone.yml'
+jobs:
+  official-two-year-pollution:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Only current R4-O3 source-trend single action, verified state
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R4-O3-TREND-013"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["current_state_ref"]["git_blob_sha"]==subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          PY
+      - name: Download provincial 2024 and 2025 air annual published values and compute honest city/county trends
+        run: |
+          python -m pip -q install beautifulsoup4
+          python -u research_engine/retirement/R4_fujian_2024_2025_city_O3_county_PM25.py
+      - name: Assert exactly 58 county PM25 records and 10 city ozone values
+        id: qa
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          b="research_engine/retirement/output/"
+          d=json.load(open(b+"Fujian2024_2025_air_pollution_two_year_evidence.json"))
+          assert d["county_twoyear_matched"]==58 and d["city_twoyear_matched"]==10
+          assert d["county_numerical_ozone_values_available"]==0
+          assert d["formal_valid_county_screenings"]==0
+          assert d["county_PM25_decreased"]+d["county_PM25_increased"]+d["county_PM25_unchanged"]==58
+          assert d["city_O3_decreased"]+d["city_O3_increased"]+d["city_O3_unchanged"]==10
+          for p,key in [("Fujian2024_2025_county_PM25_two_year_source.csv","county_csv_sha256"),
+                        ("Fujian2024_2025_10city_PM25_O3_two_year_source.csv","city_csv_sha256")]:
+            assert hashlib.sha256(open(b+p,"rb").read()).hexdigest()==d[key]
+          print("FJ2024_25_REAL_CITY_O3_10_COUNTY_PM25_58_QA_PASS")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: official-Fujian-2024-2025-58county-pm25-and-10city-ozone
+          path: research_engine/retirement/output/Fujian2024_2025*
+          retention-days: 30
+      - name: Persist source-verified 2024-2025 air comparison without altering national R4 grade
+        if: steps.qa.outcome == 'success'
+        run: |
+          cp research_engine/retirement/output/Fujian2024_2025_air_pollution_two_year_evidence.json research_engine/retirement/status/Fujian2024_2025_air_pollution_two_year_evidence.json
+          cp research_engine/retirement/output/Fujian2024_2025_county_PM25_two_year_source.csv research_engine/retirement/status/Fujian2024_2025_county_PM25_two_year_source.csv
+          cp research_engine/retirement/output/Fujian2024_2025_10city_PM25_O3_two_year_source.csv research_engine/retirement/status/Fujian2024_2025_10city_PM25_O3_two_year_source.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/Fujian2024_2025*
+          git commit -m "Archive official two-year 10 Fujian city ozone numeric and 58 county PM2.5 annual comparisons"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import json,hashlib,subprocess
+          b="research_engine/retirement/status/"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+b+"Fujian2024_2025_air_pollution_two_year_evidence.json"]))
+          for p,key in [("Fujian2024_2025_county_PM25_two_year_source.csv","county_csv_sha256"),("Fujian2024_2025_10city_PM25_O3_two_year_source.csv","city_csv_sha256")]:
+            assert hashlib.sha256(subprocess.check_output(["git","show","origin/main:"+b+p])).hexdigest()==d[key]
+          print("OFFICIAL_TWO_YEAR_O3_REMOTE_PASS",d["city_O3_increased"],d["city_O3_decreased"])
+          PY
