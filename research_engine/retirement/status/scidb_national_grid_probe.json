@@ -1,0 +1,86 @@
+{
+  "schema": "RET_SCIDB_CHINA_1KM_CLIMATE_ACCESS_PROBE_V1",
+  "dataset_id": "cece16f1863b4ebd839894f6df26f8ac",
+  "tested_at_utc": "2026-11-07T15:18:51.353413+00:00",
+  "endpoint": "https://www.scidb.cn/api/gin-sdb-filetree/public/file/childrenFileListByPath",
+  "formal_valid_county_screenings": 0,
+  "county_exclusions": 0,
+  "attempts": [
+    {
+      "version": "V8",
+      "path": "/",
+      "http_status": 200,
+      "response_sha256": "3c99772cc38add0d2f7e075e034865911f88d512d565d46b90bca09b31b875e7",
+      "response_bytes": 65,
+      "api_code": 20000,
+      "message": "成功",
+      "data_type": "list",
+      "items": []
+    },
+    {
+      "version": "V8",
+      "path": "/V8",
+      "http_status": 200,
+      "response_sha256": "eb8b53ca7ef30486ade5c0e3b345d6d236a419d675365429e95dcd654c8442f7",
+      "response_bytes": 1907,
+      "api_code": 20000,
+      "message": "成功",
+      "data_type": "list",
+      "items": [
+        {
+          "id": "e73636fe78dece484202286ce54615af",
+          "fileName": "code",
+          "path": "/V8/code",
+          "size": 0
+        },
+        {
+          "id": "2012c0840196d632bd19e2c0c4e0cf57",
+          "fileName": "future_data",
+          "path": "/V8/future_data",
+          "size": 0
+        },
+        {
+          "id": "565026bbe794aac39160072048c09753",
+          "fileName": "history_data",
+          "path": "/V8/history_data",
+          "size": 0
+        },
+        {
+          "id": "58832123283814a22718b3fc28a2a16b",
+          "fileName": "Documentation.docx",
+          "path": "/V8/Documentation.docx",
+          "size": 18578
+        }
+      ]
+    }
+  ],
+  "status": "FILE_TREE_ACCESS_PASS",
+  "working_version": "V8",
+  "working_path": "/V8",
+  "root_items": [
+    {
+      "id": "e73636fe78dece484202286ce54615af",
+      "fileName": "code",
+      "path": "/V8/code",
+      "size": 0
+    },
+    {
+      "id": "2012c0840196d632bd19e2c0c4e0cf57",
+      "fileName": "future_data",
+      "path": "/V8/future_data",
+      "size": 0
+    },
+    {
+      "id": "565026bbe794aac39160072048c09753",
+      "fileName": "history_data",
+      "path": "/V8/history_data",
+      "size": 0
+    },
+    {
+      "id": "58832123283814a22718b3fc28a2a16b",
+      "fileName": "Documentation.docx",
+      "path": "/V8/Documentation.docx",
+      "size": 18578
+    }
+  ]
+}
