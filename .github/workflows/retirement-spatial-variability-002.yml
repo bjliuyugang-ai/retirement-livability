@@ -1,0 +1,79 @@
+name: Retirement four-county ERA5 spatial representativeness assault
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-spatial-variability-002.yml'
+jobs:
+  climate-multigrid:
+    runs-on: ubuntu-latest
+    timeout-minutes: 27
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 read authoritative state and claim unique ACTION
+        id: precheck
+        run: python research_engine/retirement/spatial_variability_002_state.py precheck
+      - name: S3 run 12 real ERA5 daily 1991-2020 requests in four heterogeneous counties
+        id: assay
+        continue-on-error: true
+        run: python research_engine/retirement/spatial_variability_002.py
+      - name: S4-S5 separately judge engineering and research evidence, write logs
+        id: finalize
+        if: always() && steps.precheck.outcome == 'success'
+        run: python research_engine/retirement/spatial_variability_002_state.py finalize
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: four-county-multigrid-era5-evidence
+          path: research_engine/retirement/output/
+          retention-days: 30
+      - name: Write checkpoint only if version has not advanced
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl research_assets/retirement/CURRENT_STATE.md research_engine/retirement/status/latest-spatial-variability-002.json
+          git diff --cached --quiet && exit 2 || true
+          git commit -m "Record four-county ERA5 spatial variability experiment"
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          pre=json.load(open("research_engine/retirement/output/spatial_variability_002_precheck.json"))
+          state=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]))
+          assert state["state_revision"]==pre["source_revision"],"CAS_STATE_CONFLICT"
+          assert state["current_state_ref"]["git_blob_sha"]==pre["current_blob"],"CAS_CURRENT_CONFLICT"
+          PY
+          git rebase origin/main
+          git push origin HEAD:main
+      - name: S6 verify remote result then publish postcheck
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git fetch origin main
+          python research_engine/retirement/spatial_variability_002_state.py postcheck
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
+          git commit -m "Verify four-county spatial representativeness state handoff"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          d=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]))
+          assert d["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert d["last_verified_run"]["action_id"]=="RET-CLIMATE-SPATIAL-REPRESENTATIVENESS-002"
+          print("POSTCHECK_PASS",d["last_verified_run"])
+          PY
+      - name: Enforce actual source success rather than merely uploading failure
+        if: steps.assay.outcome == 'failure'
+        run: exit 1
