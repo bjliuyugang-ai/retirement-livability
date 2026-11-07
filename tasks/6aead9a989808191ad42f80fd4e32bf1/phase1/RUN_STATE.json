@@ -12,25 +12,23 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "5a5e02d9153fe5751563a73266ed133e15965f20"
+    "git_blob_sha": "37bae81591dee35716daed79acefc6bf33cab950"
   },
   "last_verified_run": {
-    "run_id": "MANUAL-R5-2025DEC-FJ109_INTAKES_56_COUNTIES-20261107-015",
-    "action_id": "RET-CASCADE-NATIONAL-R5-WATER-POLLUTION-014",
-    "result_id": "RES-R5-FUJIAN2025DEC-109_SOURCES_56_COUNTY-20261107",
+    "run_id": "MANUAL-2025_7COUNTY_TAP_PLANT_REAL_SOURCES-20261107-016",
+    "action_id": "RET-CASCADE-NATIONAL-R5_TAP_WATER_ENDPOINT-015",
+    "result_id": "RES-R5_4NEW_COUNTY_FINISHED_TAP_OUTLET_61_PARTIAL-20261107",
     "execution_status": "EXECUTED",
-    "engineering_status": "PASS",
-    "research_delta_status": "DELTA_VERIFIED_56_NEW_REAL_COUNTY_RAW_DRINKING_WATER_SOURCE_RECORDS",
+    "engineering_status": "PASS_WITH_THREE_SOURCE_BLOCKERS",
+    "research_delta_status": "DELTA_VERIFIED_FOUR_NEW_FINISHED_TAP_COUNTIES",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/Fujian2025_12_R5_official_raw_water_source_evidence.json",
-    "evidence_git_blob_sha": "2e2da1d406f5b1ff40d24390964b7cf6a9ab913d",
-    "national_path": "research_engine/retirement/status/national_R5_Fujian2025_12_109_official_source_intakes_2847.csv",
-    "national_git_blob_sha": "17b590d346e29b5c56ec71c6cf845d864882a53a",
-    "points_path": "research_engine/retirement/status/Fujian2025_12_109_official_intake_sources.csv",
-    "points_git_blob_sha": "a3045056e2bd568746ab83c1d29315315c16c22e",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/status/R5_2025_crossprovince_7counties_finished_tap_plant_source_evidence.json",
+    "evidence_git_blob_sha": "45a2288088522e07e8032012425eb18b1af465ed",
+    "national_csv_path": "research_engine/retirement/status/national_R5_2025_7district_finished_water_source_partial_2847.csv",
+    "national_csv_git_blob_sha": "b941a79ee82704c001c7e68640c09ee54bd2641e",
+    "status": "AWAITING_POSTCHECK"
   },
-  "last_completed_action_id": "RET-CASCADE-NATIONAL-R5-WATER-POLLUTION-014",
+  "last_completed_action_id": "RET-CASCADE-NATIONAL-R5_TAP_WATER_ENDPOINT-015",
   "closed_result_refs": [
     "RES-CLIMATE-12POINT-20261106",
     "RES-SPATIAL-ENGINEERING-42244926780",
@@ -62,20 +60,21 @@
     "RES-R3-201_STATIONS_PLUS36_DEM_205_COUNTRY_PARTIAL-20261107",
     "RES-MEE-2025-168_CITY_PM25_1510_PARENT_CONTEXT_ONLY-20261107",
     "RES-R4-58_FJ_COUNTY_2YEAR_PM25_AND_10CITY_O3_ALL_UP-20261107",
-    "RES-R5-FUJIAN2025DEC-109_SOURCES_56_COUNTY-20261107"
+    "RES-R5-FUJIAN2025DEC-109_SOURCES_56_COUNTY-20261107",
+    "RES-R5_4NEW_COUNTY_FINISHED_TAP_OUTLET_61_PARTIAL-20261107"
   ],
   "active_action": {
-    "action_id": "RET-CASCADE-NATIONAL-R5_TAP_WATER_ENDPOINT-015",
-    "question_id": "Q_R5_HOUSEHOLD_TAP_ENDPOINT_EVIDENCE_VERSUS_SOURCE_WATER",
-    "decision": "在R5福建56县原水取水口初证之外，实际取得独立2025或2026县级出厂水/管网末梢水质量报告或具体指标与采样单位；建立取水口—净水厂—末梢水三级证据层，不把原水109点全达标自动算成56县居民饮水安全",
-    "method": "检索省、市、县卫健委管网末梢水监测季度公告及住建、水务部门水厂出厂水月报，优先具有城镇/县域/采样点名字和菌落数、浑浊度、余氯、重金属具体指标的正式表；对每条编码、时间、县区和样本类型做交叉核对，县级记录加证据而非一律通过。若实际数据未公开，则记missing不阻塞全国下一水质地理区域",
-    "expected_evidence": "来自官方独立卫健/住建部门的可核验出厂或末梢水监测记录、县级代码、采样期/指标/单位，新增覆盖县数、缺失及实际水质风险，无凭空补齐",
-    "pass_criteria": "至少取到一个真实县级住户供水末梢或出厂水报告的明确数据并写入独立来源/统计时段，或列出可复现被拒来源及切换省份；所有R5旧原水证据保留",
-    "fallback": "如果福建县级末梢报告不足，转广东/江苏/浙江卫健或水务官方2025末梢水数据，保留福建56县为原水SOURCE_ONLY，不无限查单个县",
+    "action_id": "RET-CASCADE-NATIONAL-R0_R5_UNIFIED_AUDIT-016",
+    "question_id": "Q_2847_COUNTY_CONSOLIDATED_R1_R5_PARTIAL_EVIDENCE_MISSINGNESS",
+    "decision": "将R1 214、R2 199、R3 205、R4福建县级PM2.5记录和168个官方城市背景、R5 61县级水源/末梢/出厂分层全部以唯一县级代码并入一个2847行总表，逐列标注实际空间口径、时间基期、缺失与来源；不得把市均视作县实测、把站点高程视作住宅海拔、把2025年原水源达标视作家庭末梢安全，也不得因数据缺失淘汰",
+    "method": "读取并校验各轮正式封存源文件、Git blob与CSV SHA；以R0 2847候选底盘为唯一键，逐源左连接R1(长期/短史气温)、R2(长期/短史日照降雨)、R3站点海拔/DEM、R4官方县级PM2.5及市级污染背景、R5原水/出厂/末梢；列出每轮证据身份及所有必需缺口，形成省级覆盖率与待补优先顺序，保持Library Master只读",
+    "expected_evidence": "一张2847行统一全国证据表，一张逐轮证据覆盖/证据强弱/缺失交叉表，和高价值候选筛选下一轮优先级；所有结果输入输出可复算SHA并执行S0-S6",
+    "pass_criteria": "所有2847候选唯一、县级直接/上级城市背景/待核三类明确区分，各参数不以缺失计失败、不把次级报告当正式判断，已确认淘汰0、有效正式评级0",
+    "fallback": "如任一源存在版本污染则保留其历史只读引证，源SHA不一致改HOLD不阻塞其他轮，禁止修饰未知为合格",
     "status": "READY",
     "timebox_end": "2026-11-08T15:26:00Z"
   },
-  "phase": "NATIONAL_R5_DRINKING_WATER_SOURCE_VERSUS_TAP_ENDPOINT_QA",
+  "phase": "NATIONWIDE_FIRST_STAGE_R0_R5_UNIFIED_RECORD_AND_MISSING_AUDIT",
   "milestone_deadline": {
     "time_zone": "Asia/Shanghai",
     "checkpoint_24h": "2026-11-07T23:26:00+08:00",
@@ -84,12 +83,11 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "999f702bd179a5196ce74b6cb32379175f3aa86a",
-    "verified_at": "2026-11-07T04:46:51.340Z"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-07T04:46:51.340Z",
-  "state_revision": 67,
+  "updated_at": "2026-11-07T04:54:36.757Z",
+  "state_revision": 68,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -208,19 +206,14 @@
     },
     "R5": {
       "input_counties": 2847,
-      "existing_R5_point_sources_before": 1,
-      "new_official_Fujian_2025DEC_source_water_counties": 56,
-      "official_Fujian_2025DEC_intake_points": 109,
-      "exact_code_matched_source_intake_points": 82,
-      "actual_raw_water_source_partial_counties": 57,
-      "remaining_no_R5_source": 2790,
-      "household_tap_endpoint_verified_counties": 0,
+      "previous_untreated_water_source_and_Mengzi_counties": 57,
+      "new_2025_finished_tap_or_treated_counties": 4,
+      "partial_source_or_finished_water_counties": 61,
+      "unscanned": 2786,
+      "blocked_source_documents": 3,
       "confirmed_exits": 0,
       "carry_forward": 2847,
-      "formal_valid_county_screenings": 0,
-      "evidence_path": "research_engine/retirement/status/Fujian2025_12_R5_official_raw_water_source_evidence.json",
-      "national_R5_source_only": "research_engine/retirement/status/national_R5_Fujian2025_12_109_official_source_intakes_2847.csv",
-      "water_evidence_limit": "SOURCE_RAW_WATER_NOT_HOUSEHOLD_TAP"
+      "formal_valid_county_screenings": 0
     },
     "R1R2_joint": {
       "input_counties": 2847,
