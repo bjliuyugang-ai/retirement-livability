@@ -1,0 +1,70 @@
+name: Retirement real 2025 MEE national city air quality PDF text source probe
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-MEE-2025-air-PDF-probe.yml'
+jobs:
+  official-city-air-pdf-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify live V1.6 unique air-pollution R4 action
+        run: |
+          python - <<'PY'
+          import json
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R4-AIR-POLLUTION-012"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          print("R4_SOURCE_PROBE_PREFLIGHT_PASS",s["state_revision"])
+          PY
+      - name: Install pypdf
+        run: python -m pip -q install pypdf
+      - name: Actually fetch official full 2025-12 MEE report and inspect extractable table text
+        run: python -u research_engine/retirement/MEE_2025_air_quality_pdf_structure_probe.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: MEE-official-2025-12-city-air-PDF-inspection-source-hash-and-original
+          path: |
+            research_engine/retirement/output/MEE_2025_official_city_air_PDF_structure_QA.json
+            research_engine/retirement/output/MEE_2025_12_monthly_city_air_quality_official_original.pdf
+          retention-days: 14
+      - name: Persist true PDF source accessibility, schema and text extraction outcome
+        run: |
+          mkdir -p research_engine/retirement/status
+          cp research_engine/retirement/output/MEE_2025_official_city_air_PDF_structure_QA.json research_engine/retirement/status/MEE_2025_official_city_air_PDF_structure_QA.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/MEE_2025_official_city_air_PDF_structure_QA.json
+          git commit -m "Archive actual official 2025-12 national city air PDF access and table-text inspection, no claimed county grades"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import json,hashlib,subprocess
+          p="research_engine/retirement/status/MEE_2025_official_city_air_PDF_structure_QA.json"
+          a=open(p,"rb").read()
+          b=subprocess.check_output(["git","show","origin/main:"+p])
+          assert hashlib.sha256(a).hexdigest()==hashlib.sha256(b).hexdigest()
+          d=json.loads(b)
+          assert d["formal_valid_county_screenings"]==0
+          print("MEE_2025_AIR_SOURCE_REMOTE_SHA_PASS",d["status"])
+          PY
