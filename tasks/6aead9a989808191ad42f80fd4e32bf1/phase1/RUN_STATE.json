@@ -12,21 +12,19 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "a5fd6ec1938cd1354c3c70fb9ed4e920d961a9ce"
+    "git_blob_sha": "3df97395b991d228119a2294a88d106652201f33"
   },
   "last_verified_run": {
-    "run_id": "42317771144",
-    "action_id": "RET-STAGE3-FIRSTBATCH-001",
-    "result_id": "RES-STAGE3-11POINT-FIRSTBATCH-42317771144",
+    "run_id": "MANUAL-STAGE3-EVIDENCE-20261107-001",
+    "action_id": "RET-STAGE3-EVIDENCE-GAPS-002",
+    "result_id": "RES-STAGE3-ENVIRONMENT-EVIDENCE-20261107",
     "execution_status": "EXECUTED",
     "engineering_status": "PASS",
-    "research_delta_status": "DELTA_VERIFIED",
+    "research_delta_status": "PARTIAL_DELTA_VERIFIED",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/latest-first-batch-prescreen.json",
-    "evidence_sha256": "7e3488ded193b7bbaea12ccbfd9ced6ad32c994f0003915cb708d8729ec41e2a",
-    "csv_evidence_path": "research_engine/retirement/status/first-batch-prescreen-counties.csv",
-    "csv_sha256": "1750c7934e896e090cc698101a564f4edc3bcc0f662a7c9f36f28886b08680ed",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/evidence/stage3_firstbatch_public_environment_evidence_20261107.json",
+    "evidence_git_blob_sha": "ba19c7dde0224bd39b1548e8b249dfe0a201c53f",
+    "status": "AWAITING_POSTCHECK"
   },
   "last_completed_action_id": "RET-STAGE3-FIRSTBATCH-001",
   "closed_result_refs": [
@@ -37,7 +35,8 @@
     "RES-SECONDARY-GEOMETRY-CODE-QA-42251289106",
     "RES-DEM-ERA5-MOISTURE-EXPLORATORY-42251953046",
     "RES-SPATIAL-MULTIGRID-002-42317042892",
-    "RES-STAGE3-11POINT-FIRSTBATCH-42317771144"
+    "RES-STAGE3-11POINT-FIRSTBATCH-42317771144",
+    "RES-STAGE3-ENVIRONMENT-EVIDENCE-20261107"
   ],
   "active_action": {
     "action_id": "RET-STAGE3-EVIDENCE-GAPS-002",
@@ -59,12 +58,11 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "8b63411a3ddda39cc8c89967727a4cd891383bb3",
-    "verified_at": "2026-11-07T00:22:03.449599+00:00"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-07T00:22:03.449615+00:00",
-  "state_revision": 21,
+  "updated_at": "2026-11-07T00:24:29.679Z",
+  "state_revision": 22,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -80,5 +78,21 @@
       "deferred_at": "2026-11-07T00:22:01.128598+00:00",
       "may_revisit_for_formal_grade": true
     }
-  ]
+  ],
+  "stage3_evidence_gap_progress": {
+    "reviewed_units": [
+      "蒙自市",
+      "攀枝花市东区"
+    ],
+    "status": "PARTIAL_VERIFIED",
+    "unanswered": [
+      "真实住宅片区",
+      "2026官方完整县级口径",
+      "站点长期气候",
+      "供水末梢",
+      "污染暴露",
+      "地灾坐标"
+    ],
+    "result_ref": "RES-STAGE3-ENVIRONMENT-EVIDENCE-20261107"
+  }
 }
