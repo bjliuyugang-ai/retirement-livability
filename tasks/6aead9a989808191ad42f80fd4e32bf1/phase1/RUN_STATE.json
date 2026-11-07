@@ -28,7 +28,7 @@
     "national_r0_git_blob_sha": "407557a30eb22d4477f6e64614663cefbc286d2b",
     "method_path": "research_assets/retirement/STAGED_PARAMETER_CASCADE_V1.0_20261107.md",
     "method_git_blob_sha": "72f37744723ca00686d27d43cc9f51a7e8ef9735",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-STAGE3-FIRSTBATCH-001",
   "closed_result_refs": [
@@ -65,11 +65,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "b5895d20a0f777c31180b493bd3993ae631bf782",
+    "verified_at": "2026-11-07T00:44:43.984Z"
   },
-  "updated_at": "2026-11-07T00:44:22.687Z",
-  "state_revision": 26,
+  "updated_at": "2026-11-07T00:44:43.984Z",
+  "state_revision": 27,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
