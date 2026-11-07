@@ -26,7 +26,7 @@
     "evidence_sha256": "a846dd0df6291eca011420484c7c37c71b96778389eecc5c622c1c77b1aebb58",
     "csv_path": "research_engine/retirement/status/national_r3_first_real_batch.csv",
     "csv_sha256": "fbe2ff82d165781ab1d8e2ee6a66db72812fed15281ff447d726bc1b2a3652ec",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-R3-001",
   "closed_result_refs": [
@@ -66,11 +66,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "7583d431316b3f272d1ff8be32d2d700dadc8a46",
+    "verified_at": "2026-11-07T01:01:47.679008+00:00"
   },
-  "updated_at": "2026-11-07T01:01:44.966480+00:00",
-  "state_revision": 34,
+  "updated_at": "2026-11-07T01:01:47.679028+00:00",
+  "state_revision": 35,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
