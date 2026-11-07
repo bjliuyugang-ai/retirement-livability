@@ -1,0 +1,75 @@
+name: Retirement stage3 first 11-point county pre-screen
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-stage3-first-batch.yml'
+jobs:
+  pre-screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 read V1.6 state and claim first-batch fast-track
+        id: precheck
+        run: python research_engine/retirement/first_batch_prescreen_state.py precheck
+      - name: S3 actually process 11 frozen points and produce 4 county pre-screen decisions
+        id: screen
+        run: python research_engine/retirement/first_batch_prescreen.py
+      - name: S4-S5 verify evidence and append state with deferred stage2 blockers
+        id: finalize
+        run: python research_engine/retirement/first_batch_prescreen_state.py finalize
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: stage3-first-11-points-4-counties
+          path: research_engine/retirement/output/first_batch_prescreen*
+          retention-days: 30
+      - name: Push completed evidence with source revision conflict check
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl research_assets/retirement/CURRENT_STATE.md research_engine/retirement/status/latest-first-batch-prescreen.json research_engine/retirement/status/first-batch-prescreen-counties.csv
+          git diff --cached --quiet && exit 2 || true
+          git commit -m "Publish 11-point four-county stage3 pre-screen and unresolved formal QA"
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          pre=json.load(open("research_engine/retirement/output/first_batch_precheck.json"))
+          remote=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]))
+          assert remote["state_revision"]==pre["source_revision"],"CAS_STATE_CONFLICT"
+          assert remote["current_state_ref"]["git_blob_sha"]==pre["current_blob"],"CAS_CURRENT_CONFLICT"
+          PY
+          git rebase origin/main
+          git push origin HEAD:main
+      - name: S6 re-read remote evidence and verify SHA before next-action handoff
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git fetch origin main
+          python research_engine/retirement/first_batch_prescreen_state.py postcheck
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
+          git commit -m "Verify stage3 first-batch remote writeback and next action"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          s=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]))
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["last_verified_run"]["action_id"]=="RET-STAGE3-FIRSTBATCH-001"
+          assert s["active_action"]["action_id"]=="RET-STAGE3-EVIDENCE-GAPS-002"
+          print("V1.6_POSTCHECK_PASS_STAGE3",s["last_verified_run"]["result_id"])
+          PY
