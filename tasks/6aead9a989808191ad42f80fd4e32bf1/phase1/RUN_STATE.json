@@ -30,7 +30,7 @@
     "classification_git_blob_sha": "15d824588a0fb100c28b1d398c8390083b402716",
     "official_access_error_path": "research_engine/retirement/status/mca_official_api_real_access_QA.json",
     "official_access_error_git_blob_sha": "4701c1787fbcb898b0079fa976bfdfc526b0b6cd",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-OFFICIAL-CODE-RECON-005",
   "closed_result_refs": [
@@ -77,11 +77,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "9c624d380a0e01f6270541b2572294deddae36ea",
+    "verified_at": "2026-11-07T01:59:11.473Z"
   },
-  "updated_at": "2026-11-07T01:58:43.969Z",
-  "state_revision": 48,
+  "updated_at": "2026-11-07T01:59:11.473Z",
+  "state_revision": 49,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
