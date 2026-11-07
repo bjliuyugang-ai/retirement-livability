@@ -30,7 +30,7 @@
     "province_git_blob_sha": "bb0727e719190388253c5b4a03e55355aa5ff6fd",
     "followups_path": "research_engine/retirement/status/national_R0_R5_high_evidence_local_followups.csv",
     "followups_git_blob_sha": "6263552aae854ddfbd85f89c6d823dec95b92924",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-R0_R5_UNIFIED_AUDIT-016",
   "closed_result_refs": [
@@ -88,11 +88,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "386e52dadaae4f2ef47ba591cc23e0460fae9c81",
+    "verified_at": "2026-11-07T05:02:10.475Z"
   },
-  "updated_at": "2026-11-07T05:00:39.165Z",
-  "state_revision": 70,
+  "updated_at": "2026-11-07T05:02:10.475Z",
+  "state_revision": 71,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
