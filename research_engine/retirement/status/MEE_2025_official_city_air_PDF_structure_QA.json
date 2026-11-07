@@ -1,0 +1,28 @@
+{
+  "schema": "RET_MEE_OFFICIAL_2025_12_CITY_AIR_PDF_REAL_STRUCTURE_V1",
+  "attempted_at_utc": "2026-11-07T04:31:54.000518+00:00",
+  "source_URL": "https://www.mee.gov.cn/hjzl/dqhj/cskqzlzkyb/202601/W020260130583204381295.pdf",
+  "source_level": "Chinese Ministry of Ecology and Environment city-level air monthly report, not county or dwelling",
+  "source_document_year": 2025,
+  "official_2026_current_county_roster_verified": false,
+  "formal_valid_county_screenings": 0,
+  "status": "OFFICIAL_PDF_DOWNLOADED_TEXT_UNAVAILABLE",
+  "pdf_file_length_bytes": 15027750,
+  "pdf_sha256": "d93e9d8c0d13945331ddaf1a98a5b4d80e5b0acca320f778c98aa163a3bd0ed8",
+  "page_count": 9,
+  "total_extracted_characters": 7,
+  "textually_sparse_pages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "keyword_page_count": 0,
+  "keyword_pages": [],
+  "potential_table_page_samples": []
+}
