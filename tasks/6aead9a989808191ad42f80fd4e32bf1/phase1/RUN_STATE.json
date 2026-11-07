@@ -12,23 +12,23 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "2e5ff69bf9f8ea02d61ac426bf7b4175a8ac4432"
+    "git_blob_sha": "e28fd9497d33731aa56ccaeb23fdadb8263fee78"
   },
   "last_verified_run": {
-    "run_id": "42320769375",
-    "action_id": "RET-CASCADE-NATIONAL-R1-001",
-    "result_id": "RES-NATIONAL-R1-12-REAL-ERA5-COUNTY-POINTS-42320769375",
+    "run_id": "42321222770",
+    "action_id": "RET-CASCADE-NATIONAL-R1-EXPAND-002",
+    "result_id": "RES-NATIONAL-R1-DISTRIBUTED-EXPAND-42321222770",
     "execution_status": "EXECUTED",
     "engineering_status": "PASS",
-    "research_delta_status": "DELTA_VERIFIED_12_REAL_COUNTY_POINT_DATA",
+    "research_delta_status": "DELTA_VERIFIED_10_REAL_R1_COUNTY_POINTS",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/national_r1_first_real_batch_evidence.json",
-    "evidence_sha256": "b313b2f33b6bfad600f9374d8bdab9184e0d43797cd0e7668a82fa3c149596b4",
-    "csv_path": "research_engine/retirement/status/national_r1_first_real_batch.csv",
-    "csv_sha256": "c8d60123e179727163bbaff655780d8abb6a4144a1d18656dbaa644236894e25",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/status/national_r1_expanded_summary.json",
+    "evidence_sha256": "7739e7d147c2b2f0824f12c936321ddefbf33e88acbdaf250b7d2294dada254d",
+    "csv_path": "research_engine/retirement/status/national_r1_expanded.csv",
+    "csv_sha256": "ab755d725826ed72846b66c52b21f7e6f9d22e8255bfe104bb9d2b46c51e153c",
+    "status": "AWAITING_POSTCHECK"
   },
-  "last_completed_action_id": "RET-CASCADE-NATIONAL-R1-001",
+  "last_completed_action_id": "RET-CASCADE-NATIONAL-R1-EXPAND-002",
   "closed_result_refs": [
     "RES-CLIMATE-12POINT-20261106",
     "RES-SPATIAL-ENGINEERING-42244926780",
@@ -41,20 +41,21 @@
     "RES-STAGE3-ENVIRONMENT-EVIDENCE-20261107",
     "RES-STAGE3-2026-MENGZI-TAP-AND-ANCHOR-20261107-002",
     "RES-CASCADE-R1R5-4COUNTY-AND-R0-2847-20261107",
-    "RES-NATIONAL-R1-12-REAL-ERA5-COUNTY-POINTS-42320769375"
+    "RES-NATIONAL-R1-12-REAL-ERA5-COUNTY-POINTS-42320769375",
+    "RES-NATIONAL-R1-DISTRIBUTED-EXPAND-42321222770"
   ],
   "active_action": {
-    "action_id": "RET-CASCADE-NATIONAL-R1-EXPAND-002",
-    "question_id": "Q-NATIONAL_FIRST_PARAMETER_FILTER",
-    "decision": "把真实R1温度取证从12个历史编码县域向更多省份和县级居住片区扩展；已有证据缓存复用、无数据保持未扫描，达到可量化覆盖再继续其他参数",
-    "method": "基于可核查真实坐标与县级历史边界/临时代码映射分批下载1991-2020 ERA5温度，并在每批里区分格点已测、县域代表性未核、未扫描和正式广筛",
-    "expected_evidence": "每批新增县级R1实际温度证据、输入/继续/退出审计、失败和未扫描原因以及历史地貌例外",
-    "pass_criteria": "新增R1真实样本且增量可复现；不因缺失数据卡住全国后续轮次、不提前宣布正式县域筛选",
-    "fallback": "历史县界/站点接口失败则优先读取已有经溯源城市气候事实，依旧将未取到的数据留在R1_NOT_SCREENED",
+    "action_id": "RET-CASCADE-NATIONAL-R2-001",
+    "question_id": "Q-NATIONAL_SECOND_PARAMETER_FILTER",
+    "decision": "直接由全国2847个R1继续队列进入R2，使用已有1991—2020气候数据计算日照/降雨/湿度初筛；R1未扫描保留为未知，不因数据缺口停滞",
+    "method": "读取全国R1新增全量台账；从12点历史原始ERA5提取真实降雨和日照，4县已存湿度数据做局部探索，其他地区继续待核；对已确定不可接受且空间例外核实者才有权提前淘汰",
+    "expected_evidence": "R1→R2全量输入输出数量一致；至少12个历史气候点得到真实日照与降雨多年证据；R1未知状态保持不变；退出与缺失分别入库",
+    "pass_criteria": "真实R2参数级证据可复算、输入=上一轮R1继续2847，状态及证据完整S0—S6",
+    "fallback": "不重复获取Open-Meteo数据；优先复用历史归档；缺值待核、继续下一轮",
     "status": "READY",
     "timebox_end": "2026-11-08T15:26:00Z"
   },
-  "phase": "NATIONAL_R1_TEMPERATURE_EVIDENCE_EXPANSION",
+  "phase": "NATIONAL_PARAMETER_CASCADE_R2_READY",
   "milestone_deadline": {
     "time_zone": "Asia/Shanghai",
     "checkpoint_24h": "2026-11-07T23:26:00+08:00",
@@ -63,12 +64,11 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "55b268ec84370bb58bbaab645f4502eafcf27724",
-    "verified_at": "2026-11-07T00:51:42.786990+00:00"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-07T00:51:42.787005+00:00",
-  "state_revision": 29,
+  "updated_at": "2026-11-07T00:58:18.488001+00:00",
+  "state_revision": 30,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -129,14 +129,15 @@
   },
   "r1_nationwide_progress": {
     "provisional_roster": 2847,
-    "R1_point_data_counties": 12,
-    "R1_unscanned_counties": 2835,
+    "R1_point_data_counties": 22,
+    "R1_unscanned_counties": 2825,
     "R1_confirmed_exits": 0,
     "R1_carry_forward": 2847,
+    "R1_new_expanded_point_data": 10,
+    "R1_new_failed_or_unscanned_targets": 20,
+    "R1_new_province_prefixes": 7,
     "formal_valid_county_screenings": 0,
-    "source_artifact_run": "42245826626",
-    "source_artifact_id": "13518156891",
-    "output": "research_engine/retirement/status/national_r1_first_real_batch_evidence.json",
-    "county_register": "research_engine/retirement/status/national_r1_first_real_batch.csv"
+    "output": "research_engine/retirement/status/national_r1_expanded_summary.json",
+    "county_register": "research_engine/retirement/status/national_r1_expanded.csv"
   }
 }
