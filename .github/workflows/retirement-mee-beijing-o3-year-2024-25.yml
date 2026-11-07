@@ -1,0 +1,93 @@
+name: Retirement MEE actual 2024 2025 Beijing ozone annual PM2.5 good days R4
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-mee-beijing-o3-year-2024-25.yml'
+jobs:
+  source-yearly-ozone-confirmation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Gate V1.6 latest ozone yearly source action
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["state_revision"]==63
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R4-O3-TREND-013"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["current_state_ref"]["git_blob_sha"]==subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          PY
+      - name: Actually read annual 2024 and 2025 MEE source HTML, extract named city O3
+        run: |
+          python -m pip -q install beautifulsoup4
+          python -m py_compile research_engine/retirement/mee_2024_2025_beijing_o3_actual.py
+          python -u research_engine/retirement/mee_2024_2025_beijing_o3_actual.py
+      - name: Check 2024 vs 2025 Beijing O3/PM2.5, 2847, no false city-county measurements
+        id: qa
+        run: |
+          python - <<'PY'
+          import hashlib,json,csv
+          p="research_engine/retirement/output/"
+          d=json.load(open(p+"mee_official_2024_2025_Beijing_O3_air_QA.json"))
+          a=d["source_html_results"]["2024"]["Beijing_specific"]
+          b=d["source_html_results"]["2025"]["Beijing_specific"]
+          assert [a["PM25_ug_m3"],a["O3_ug_m3"],a["good_air_days_pct"]]==[30.5,171,79.2]
+          assert [b["PM25_ug_m3"],b["O3_ug_m3"],b["good_air_days_pct"]]==[27.0,159,85.2]
+          assert d["annual_city_O3_2024_2025_comparable_city_count"]==1
+          assert d["remaining_168_key_cities_without_individual_city_O3_sources"]==167
+          assert d["individual_county_residential_PM25_O3_verified"]==0 and d["formal_valid_county_screenings"]==0
+          name="national_R4_city_PM25_2025_Beijing_O3_2024_2025_2847_CONTEXT_ONLY.csv"
+          raw=open(p+name,"rb").read()
+          assert hashlib.sha256(raw).hexdigest()==d["new_national_R4_context_csv_sha256"]
+          rows=list(csv.DictReader(open(p+name,encoding="utf-8-sig")))
+          assert len(rows)==2847
+          print("MEE_REAL_O3_YEAR_COMPARISON_PASS",a,b,d["provisional_Beijing_district_codes_given_MUNICIPAL_CONTEXT_ONLY"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: official-MEE-2024-2025-named-Beijing-annual-O3-PM25-and-2847-county-context-only
+          path: |
+            research_engine/retirement/output/mee_official_2024_2025_Beijing_O3_air_QA.json
+            research_engine/retirement/output/national_R4_city_PM25_2025_Beijing_O3_2024_2025_2847_CONTEXT_ONLY.csv
+          retention-days: 30
+      - name: Persist official year/source identified city O3 values, not county exposure
+        if: steps.qa.outcome == 'success'
+        run: |
+          cp research_engine/retirement/output/mee_official_2024_2025_Beijing_O3_air_QA.json research_engine/retirement/status/mee_official_2024_2025_Beijing_O3_air_QA.json
+          cp research_engine/retirement/output/national_R4_city_PM25_2025_Beijing_O3_2024_2025_2847_CONTEXT_ONLY.csv research_engine/retirement/status/national_R4_city_PM25_2025_Beijing_O3_2024_2025_2847_CONTEXT_ONLY.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/mee_official_2024_2025_Beijing_O3_air_QA.json research_engine/retirement/status/national_R4_city_PM25_2025_Beijing_O3_2024_2025_2847_CONTEXT_ONLY.csv
+          git commit -m "Archive actual 2024 and 2025 official Beijing PM2.5, ozone and good-air days, without county air quality claims"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = "4" ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          r="research_engine/retirement/status/"
+          x=json.loads(subprocess.check_output(["git","show","origin/main:"+r+"mee_official_2024_2025_Beijing_O3_air_QA.json"]))
+          z=subprocess.check_output(["git","show","origin/main:"+r+"national_R4_city_PM25_2025_Beijing_O3_2024_2025_2847_CONTEXT_ONLY.csv"])
+          assert hashlib.sha256(z).hexdigest()==x["new_national_R4_context_csv_sha256"]
+          assert x["individual_county_residential_PM25_O3_verified"]==0
+          print("REAL_MEE_O3_CITY_CONTEXT_REMOTE_SHA_PASS",x["annual_city_O3_2025_direct_source_cities"])
+          PY
