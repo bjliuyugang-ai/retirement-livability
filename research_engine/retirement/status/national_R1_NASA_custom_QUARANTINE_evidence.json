@@ -1,0 +1,41 @@
+{
+  "schema": "RET_NASA_POWER_CUSTOM_METRICS_QUARANTINED_V1",
+  "at_utc": "2026-11-07T01:19:30.164977+00:00",
+  "same_year_daily_vs_climatology_QA": "research_engine/retirement/status/nasa_daily_vs_climatology_semantic_QA.json",
+  "same_year_test_point": "Linan",
+  "same_year_test_period": "2019-2020",
+  "observed_direct_max_average_discrepancies_c": [
+    10.208,
+    10.89,
+    3.257,
+    7.542
+  ],
+  "same_year_months_compared": [
+    "JAN",
+    "FEB",
+    "JUL",
+    "DEC"
+  ],
+  "same_year_months_outside_2c_tolerance": 4,
+  "source_custom_point_climatology_requested": 30,
+  "source_custom_point_climatology_responses_received": 30,
+  "already_ERA5_sites_compared": 10,
+  "NASA_ERA5_overlap_ge3c_conflicts": 10,
+  "NASA_only_data_sites_REJECTED_for_R1_screening": 20,
+  "new_acceptable_R1_temperature_screenings": 0,
+  "canonical_R1_exploratory_ERA5_point_counties_retained": 22,
+  "canonical_R1_not_scanned_counties": 2825,
+  "provisional_county_candidates": 2847,
+  "formal_valid_county_screenings": 0,
+  "confirmed_county_exclusions": 0,
+  "final_Master_changes": 0,
+  "quality_status": "QUARANTINED_NASA_CUSTOM_MAXAVG_MINAVG_UNTIL_INDEPENDENT_SEMANTICS_RESOLVED",
+  "regional_API_conflict": "Regional response header 2001-2025 ignored requested 1991-2020, excluded earlier",
+  "canonical_ledger_input": "research_engine/retirement/status/national_r5_tap_water_batch.csv",
+  "canonical_input_sha256": "d021fdc32474efeedaaae2cc7d1112a7c065b0b27a680532a54e67c697be01a5",
+  "corrected_2847_audit_csv_sha256": "5513c000af67fc162c8900b66e9cd93ed040e2358da7c148b8b6bc933e679229",
+  "source_raw_30_summary": "research_engine/retirement/status/national_R1_NASA_CUSTOM_30_result.json",
+  "original_raw_source_retrievable_via_run": "42323013085",
+  "reason": "At same coordinate and 2019-2020 daily NASA T2M_MAX mean disagreed with NASA climatology T2M_MAX_AVG by 3-11 C. API values cannot be used as direct average daily Tmax or screen thresholds without resolving aggregation and elevation.",
+  "next_data_source_priority": "Find official long-term station or independently verified bulk monthly/daily data with explicit daily extremes averaging and county crosswalk."
+}
