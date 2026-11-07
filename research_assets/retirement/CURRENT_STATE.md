@@ -41,3 +41,5 @@ RET-SPATIAL-001：执行2017口径geoBoundaries历史县级边界空间匹配真
 - RES-DEM-ERA5-MOISTURE-EXPLORATORY-42251953046: 12县级点位完成36个县内Copernicus DEM海拔采样；ERA5露点/湿度真实读取数和地形例外标记详见证据；属于探索性数据工程，正式广筛0。
 
 - RES-SPATIAL-MULTIGRID-002-42315459712: 多格点气候差异实测被阻塞，原始错误见证据；县级有效广筛仍为0。
+
+- RES-SPATIAL-MULTIGRID-002-42317042892: 4个高海拔差异县域完成12格点1991-2020 ERA5气候差异实测，保留微气候例外，不能据此完成正式县级广筛。
