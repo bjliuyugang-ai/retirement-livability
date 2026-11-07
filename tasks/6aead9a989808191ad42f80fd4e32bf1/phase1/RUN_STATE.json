@@ -26,7 +26,7 @@
     "evidence_git_blob_sha": "1053f37ee0c227d0ab7d6357872138cccf712d9d",
     "nationalcsv_path": "research_engine/retirement/status/national_R2_meteostat_station_source_2847.csv",
     "nationalcsv_git_blob_sha": "4839e2b97b8cd8fb6b4c4bc02ee5d233e1c70c86",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-METEOSTAT-R2-004",
   "closed_result_refs": [
@@ -72,11 +72,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "f85826adbf92beb45889d20aa6675f9521128b0b",
+    "verified_at": "2026-11-07T01:49:16.110Z"
   },
-  "updated_at": "2026-11-07T01:48:54.326Z",
-  "state_revision": 46,
+  "updated_at": "2026-11-07T01:49:16.110Z",
+  "state_revision": 47,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
