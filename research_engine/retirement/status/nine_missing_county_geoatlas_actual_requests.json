@@ -1,14 +1,14 @@
 {
-  "schema": "RET_NINE_MISSING_MAINLAND_CODED_COUNTY_BOUNDARIES_REAL_HTTP_QA_V1",
-  "created_utc": "2026-11-07T02:01:02.034435+00:00",
+  "schema": "RET_NINE_MISSING_MAINLAND_CODED_COUNTY_BOUNDARIES_REAL_HTTP_QA_V2_STRICT_CODE_NAME",
+  "created_utc": "2026-11-07T02:02:52.598484+00:00",
   "prior_2025_polygon_diff_sha256": "6dfd2c56352dbc15eb3b55f1438f79ac430ef7ae47e74499a19f640ba7ac1926",
   "source": "DataV.GeoAtlas /areas_v3/bound/{adcode}.json and {parent}_full.json",
   "input_county_targets": 9,
   "2025_missing_counties": 7,
   "2026_two_new_established": 2,
   "distinct_parent_fallback_groups": 7,
-  "alternative_live_coded_geometries_located": 1,
-  "not_found_or_unverified": 8,
+  "alternative_live_coded_geometries_located": 0,
+  "not_found_or_unverified": 9,
   "official_2026_boundary_certified_count": 0,
   "source_crs_explicitly_verified": false,
   "full_national_2847_county_status_unchanged": true,
@@ -23,11 +23,27 @@
       "direct_error": null,
       "direct_response_sha256": "24aa3c15fa0248c9d5cdd84ae5f34cd115002b0833f17534b59db0011cbb6ca8",
       "direct_response_bytes": 20968,
-      "direct_validated_geometry": true,
+      "direct_validated_geometry": false,
       "parent_code": "460300",
-      "parent_status": null,
+      "parent_status": "HTTP_200",
       "parent_direct_feature_code_match": false,
-      "parent_candidate_features": [],
+      "parent_candidate_features": [
+        {
+          "feature_code": "460302",
+          "feature_name": "南沙区",
+          "geometry_type": "MultiPolygon",
+          "geom_valid": true,
+          "geom_bounds_lonlat": [
+            109.464,
+            3.84024,
+            117.83582,
+            11.52265
+          ],
+          "rough_geographic_range": true,
+          "matches_requested_code": true,
+          "matches_requested_name": false
+        }
+      ],
       "current_2026_official_boundary_proof": false,
       "direct_structure": "FEATURE_COLLECTION",
       "direct_shape_features": [
@@ -43,11 +59,15 @@
             11.53088
           ],
           "rough_geographic_range": true,
-          "matches_requested_code": true
+          "matches_requested_code": true,
+          "matches_requested_name": false
         }
       ],
-      "alternative_coded_geometry_located": true,
-      "boundary_status": "THIRD_PARTY_LIVE_GEOMETRY_OBTAINED_VINTAGE_UNVERIFIED"
+      "parent_response_sha256": "65c171226c7198498ea4ede4eb39825f0cb74e3af05cb83869bc82d66a6a6e22",
+      "parent_response_bytes": 14496,
+      "parent_structure": "FEATURE_COLLECTION",
+      "alternative_coded_geometry_located": false,
+      "boundary_status": "NOT_FOUND_OR_UNVERIFIED_FROM_DATAV"
     },
     {
       "code": "460303",
@@ -220,6 +240,7 @@
   ],
   "limiting_conditions": [
     "Third-party DataV can be outdated: observed geometry alone is not an official legal 2026 boundary",
+    "Known false positive: source 460302 returned name 南沙区, but 2025 code 460302 belongs to 西沙区; reject code-only match",
     "A successful response for parent and requested code must still pass unique feature code and shape QA",
     "No residential site, microclimate, drinking water or hazard data established by administrative polygon",
     "If 2026 new districts have no public boundary, maintain explicit PENDING not invented polygon"
