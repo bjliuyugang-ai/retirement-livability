@@ -1,0 +1,4331 @@
+{
+  "schema": "RET_NATIONAL_R3_STATION_ALTITUDE_201OBS_36DEM_POINTS_205_COUNTY_CANDIDATES_V1",
+  "at_utc": "2026-11-07T04:27:46.616489+00:00",
+  "source_226_station_json_sha256": "a2e3c5987be8bf441d31f15d474813f6f280b3eff39872ebac416b71a570c3e8",
+  "source_36DEM_summary_sha256": "a846dd0df6291eca011420484c7c37c71b96778389eecc5c622c1c77b1aebb58",
+  "source_R1R2_national_csv_sha256": "e6f2a0292a164bcf8ea8a408c0e73d13c16d2205b6235876322b4561c041a91c",
+  "national_provisional_input": 2847,
+  "station_altitude_point_records": 201,
+  "station_altitude_distinct_county_candidates": 198,
+  "existing_dem_sample_counties": 12,
+  "existing_dem_points": 36,
+  "station_and_dem_same_code_counties": 5,
+  "distinct_county_candidates_with_ANY_station_or_dem_R3_point_evidence": 205,
+  "R3_unknown_no_elevation_points_counties": 2642,
+  "confirmed_exclusions": 0,
+  "formal_valid_county_screenings": 0,
+  "2026_official_county_shapes_verified": 0,
+  "actual_residence_altitude_verified": 0,
+  "station_band_counts": {
+    "STATION_POINT_LE1500M": 162,
+    "STATION_POINT_1500_TO1800M": 10,
+    "STATION_POINT_GT2000M": 24,
+    "STATION_POINT_1800_TO2000M": 2
+  },
+  "multi_station_altitude_spread_ge300_counties": 1,
+  "station_vs_DEM_nonoverlap_candidate_counties": [
+    {
+      "code": "350203",
+      "name": "思明区",
+      "station_min": 139,
+      "station_max": 139,
+      "dem_min": 0.0,
+      "dem_max": 2.0
+    },
+    {
+      "code": "450103",
+      "name": "青秀区",
+      "station_min": 73,
+      "station_max": 73,
+      "dem_min": 85.0,
+      "dem_max": 253.0
+    }
+  ],
+  "station_level_records": [
+    {
+      "candidate_code": "110108",
+      "county_name": "海淀区",
+      "station_ids": [
+        "54511"
+      ],
+      "station_locations": [
+        {
+          "lat": 39.9333,
+          "lon": 116.2833,
+          "elev_m": 55,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 55,
+      "max_m": 55,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "120104",
+      "county_name": "南开区",
+      "station_ids": [
+        "54527"
+      ],
+      "station_locations": [
+        {
+          "lat": 39.1,
+          "lon": 117.1667,
+          "elev_m": 5,
+          "R1_monthly_observation_count": 272,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 5,
+      "max_m": 5,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "130104",
+      "county_name": "桥西区",
+      "station_ids": [
+        "53698"
+      ],
+      "station_locations": [
+        {
+          "lat": 38.0333,
+          "lon": 114.4167,
+          "elev_m": 81,
+          "R1_monthly_observation_count": 276,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 81,
+      "max_m": 81,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "130225",
+      "county_name": "乐亭县",
+      "station_ids": [
+        "54539"
+      ],
+      "station_locations": [
+        {
+          "lat": 39.4333,
+          "lon": 118.9,
+          "elev_m": 12,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 12,
+      "max_m": 12,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "130730",
+      "county_name": "怀来县",
+      "station_ids": [
+        "54405"
+      ],
+      "station_locations": [
+        {
+          "lat": 40.4,
+          "lon": 115.5,
+          "elev_m": 538,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 538,
+      "max_m": 538,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "130802",
+      "county_name": "双桥区",
+      "station_ids": [
+        "54423"
+      ],
+      "station_locations": [
+        {
+          "lat": 40.9667,
+          "lon": 117.9333,
+          "elev_m": 374,
+          "R1_monthly_observation_count": 268,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 374,
+      "max_m": 374,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "130981",
+      "county_name": "泊头市",
+      "station_ids": [
+        "54618"
+      ],
+      "station_locations": [
+        {
+          "lat": 38.0833,
+          "lon": 116.55,
+          "elev_m": 0,
+          "R1_monthly_observation_count": 217,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 0,
+      "max_m": 0,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "140105",
+      "county_name": "小店区",
+      "station_ids": [
+        "53772"
+      ],
+      "station_locations": [
+        {
+          "lat": 37.7833,
+          "lon": 112.55,
+          "elev_m": 779,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 779,
+      "max_m": 779,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "140213",
+      "county_name": "平城区",
+      "station_ids": [
+        "53487"
+      ],
+      "station_locations": [
+        {
+          "lat": 40.1,
+          "lon": 113.3333,
+          "elev_m": 1069,
+          "R1_monthly_observation_count": 270,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1069,
+      "max_m": 1069,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "140781",
+      "county_name": "介休市",
+      "station_ids": [
+        "53863"
+      ],
+      "station_locations": [
+        {
+          "lat": 37.05,
+          "lon": 111.9333,
+          "elev_m": 750,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 750,
+      "max_m": 750,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "140802",
+      "county_name": "盐湖区",
+      "station_ids": [
+        "53959"
+      ],
+      "station_locations": [
+        {
+          "lat": 35.0333,
+          "lon": 111.0167,
+          "elev_m": 376,
+          "R1_monthly_observation_count": 274,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 376,
+      "max_m": 376,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "140981",
+      "county_name": "原平市",
+      "station_ids": [
+        "53673"
+      ],
+      "station_locations": [
+        {
+          "lat": 38.75,
+          "lon": 112.7,
+          "elev_m": 838,
+          "R1_monthly_observation_count": 264,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 838,
+      "max_m": 838,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "150102",
+      "county_name": "新城区",
+      "station_ids": [
+        "53463"
+      ],
+      "station_locations": [
+        {
+          "lat": 40.8167,
+          "lon": 111.6833,
+          "elev_m": 1065,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 1065,
+      "max_m": 1065,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "150223",
+      "county_name": "达尔罕茂明安联合旗",
+      "station_ids": [
+        "53352"
+      ],
+      "station_locations": [
+        {
+          "lat": 41.7,
+          "lon": 110.4333,
+          "elev_m": 1377,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1377,
+      "max_m": 1377,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "150402",
+      "county_name": "红山区",
+      "station_ids": [
+        "54218"
+      ],
+      "station_locations": [
+        {
+          "lat": 42.2667,
+          "lon": 118.9667,
+          "elev_m": 572,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 572,
+      "max_m": 572,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "150422",
+      "county_name": "巴林左旗",
+      "station_ids": [
+        "54027"
+      ],
+      "station_locations": [
+        {
+          "lat": 43.9833,
+          "lon": 119.4,
+          "elev_m": 485,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 485,
+      "max_m": 485,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "150424",
+      "county_name": "林西县",
+      "station_ids": [
+        "54115"
+      ],
+      "station_locations": [
+        {
+          "lat": 43.6,
+          "lon": 118.0667,
+          "elev_m": 800,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 800,
+      "max_m": 800,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "150502",
+      "county_name": "科尔沁区",
+      "station_ids": [
+        "54135"
+      ],
+      "station_locations": [
+        {
+          "lat": 43.6,
+          "lon": 122.2667,
+          "elev_m": 180,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 180,
+      "max_m": 180,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "150526",
+      "county_name": "扎鲁特旗",
+      "station_ids": [
+        "54026"
+      ],
+      "station_locations": [
+        {
+          "lat": 44.5667,
+          "lon": 120.9,
+          "elev_m": 266,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 266,
+      "max_m": 266,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "150624",
+      "county_name": "鄂托克旗",
+      "station_ids": [
+        "53529"
+      ],
+      "station_locations": [
+        {
+          "lat": 39.1,
+          "lon": 107.9833,
+          "elev_m": 1381,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1381,
+      "max_m": 1381,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "150702",
+      "county_name": "海拉尔区",
+      "station_ids": [
+        "50527"
+      ],
+      "station_locations": [
+        {
+          "lat": 49.2167,
+          "lon": 119.75,
+          "elev_m": 611,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 611,
+      "max_m": 611,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "150782",
+      "county_name": "牙克石市",
+      "station_ids": [
+        "50434",
+        "50632"
+      ],
+      "station_locations": [
+        {
+          "lat": 50.45,
+          "lon": 121.7,
+          "elev_m": 733,
+          "R1_monthly_observation_count": 273,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        },
+        {
+          "lat": 48.7667,
+          "lon": 121.9167,
+          "elev_m": 739,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 733,
+      "max_m": 739,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "150824",
+      "county_name": "乌拉特中旗",
+      "station_ids": [
+        "53336"
+      ],
+      "station_locations": [
+        {
+          "lat": 41.5667,
+          "lon": 108.5167,
+          "elev_m": 1290,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 1290,
+      "max_m": 1290,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "150825",
+      "county_name": "乌拉特后旗",
+      "station_ids": [
+        "53231"
+      ],
+      "station_locations": [
+        {
+          "lat": 41.45,
+          "lon": 106.3833,
+          "elev_m": 1510,
+          "R1_monthly_observation_count": 241,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1510,
+      "max_m": 1510,
+      "station_elevation_band": "STATION_POINT_1500_TO1800M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "150922",
+      "county_name": "化德县",
+      "station_ids": [
+        "53391"
+      ],
+      "station_locations": [
+        {
+          "lat": 41.9,
+          "lon": 114.0,
+          "elev_m": 1484,
+          "R1_monthly_observation_count": 276,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1484,
+      "max_m": 1484,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "152202",
+      "county_name": "阿尔山市",
+      "station_ids": [
+        "50727"
+      ],
+      "station_locations": [
+        {
+          "lat": 47.1667,
+          "lon": 119.95,
+          "elev_m": 1028,
+          "R1_monthly_observation_count": 276,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1028,
+      "max_m": 1028,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "152501",
+      "county_name": "二连浩特市",
+      "station_ids": [
+        "53068"
+      ],
+      "station_locations": [
+        {
+          "lat": 43.65,
+          "lon": 112.0,
+          "elev_m": 966,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 966,
+      "max_m": 966,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "152502",
+      "county_name": "锡林浩特市",
+      "station_ids": [
+        "54102"
+      ],
+      "station_locations": [
+        {
+          "lat": 43.95,
+          "lon": 116.0667,
+          "elev_m": 991,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 991,
+      "max_m": 991,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "152522",
+      "county_name": "阿巴嘎旗",
+      "station_ids": [
+        "53192"
+      ],
+      "station_locations": [
+        {
+          "lat": 44.0167,
+          "lon": 114.95,
+          "elev_m": 1128,
+          "R1_monthly_observation_count": 276,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1128,
+      "max_m": 1128,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "152524",
+      "county_name": "苏尼特右旗",
+      "station_ids": [
+        "53276"
+      ],
+      "station_locations": [
+        {
+          "lat": 42.4,
+          "lon": 112.9,
+          "elev_m": 1152,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1152,
+      "max_m": 1152,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "152525",
+      "county_name": "东乌珠穆沁旗",
+      "station_ids": [
+        "50915"
+      ],
+      "station_locations": [
+        {
+          "lat": 45.5167,
+          "lon": 116.9667,
+          "elev_m": 840,
+          "R1_monthly_observation_count": 275,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 840,
+      "max_m": 840,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "152526",
+      "county_name": "西乌珠穆沁旗",
+      "station_ids": [
+        "54012"
+      ],
+      "station_locations": [
+        {
+          "lat": 44.5833,
+          "lon": 117.6,
+          "elev_m": 997,
+          "R1_monthly_observation_count": 275,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 997,
+      "max_m": 997,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "152531",
+      "county_name": "多伦县",
+      "station_ids": [
+        "54208"
+      ],
+      "station_locations": [
+        {
+          "lat": 42.1833,
+          "lon": 116.4667,
+          "elev_m": 1247,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1247,
+      "max_m": 1247,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "152921",
+      "county_name": "阿拉善左旗",
+      "station_ids": [
+        "52495",
+        "53502"
+      ],
+      "station_locations": [
+        {
+          "lat": 40.75,
+          "lon": 104.5,
+          "elev_m": 1329,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        },
+        {
+          "lat": 39.7833,
+          "lon": 105.75,
+          "elev_m": 1033,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1033,
+      "max_m": 1329,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "152923",
+      "county_name": "额济纳旗",
+      "station_ids": [
+        "52267"
+      ],
+      "station_locations": [
+        {
+          "lat": 41.95,
+          "lon": 101.0667,
+          "elev_m": 941,
+          "R1_monthly_observation_count": 188,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 941,
+      "max_m": 941,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "210112",
+      "county_name": "浑南区",
+      "station_ids": [
+        "54342"
+      ],
+      "station_locations": [
+        {
+          "lat": 41.7333,
+          "lon": 123.5167,
+          "elev_m": 43,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 43,
+      "max_m": 43,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "210504",
+      "county_name": "明山区",
+      "station_ids": [
+        "54346"
+      ],
+      "station_locations": [
+        {
+          "lat": 41.3167,
+          "lon": 123.7833,
+          "elev_m": 183,
+          "R1_monthly_observation_count": 276,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 183,
+      "max_m": 183,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "210603",
+      "county_name": "振兴区",
+      "station_ids": [
+        "54497"
+      ],
+      "station_locations": [
+        {
+          "lat": 40.05,
+          "lon": 124.3333,
+          "elev_m": 14,
+          "R1_monthly_observation_count": 276,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 14,
+      "max_m": 14,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "210702",
+      "county_name": "古塔区",
+      "station_ids": [
+        "54337"
+      ],
+      "station_locations": [
+        {
+          "lat": 41.1333,
+          "lon": 121.1167,
+          "elev_m": 70,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 70,
+      "max_m": 70,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "210803",
+      "county_name": "西市区",
+      "station_ids": [
+        "54471"
+      ],
+      "station_locations": [
+        {
+          "lat": 40.6667,
+          "lon": 122.2,
+          "elev_m": 4,
+          "R1_monthly_observation_count": 270,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 4,
+      "max_m": 4,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "210922",
+      "county_name": "彰武县",
+      "station_ids": [
+        "54236"
+      ],
+      "station_locations": [
+        {
+          "lat": 42.4167,
+          "lon": 122.5333,
+          "elev_m": 84,
+          "R1_monthly_observation_count": 276,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 84,
+      "max_m": 84,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "220106",
+      "county_name": "绿园区",
+      "station_ids": [
+        "54161"
+      ],
+      "station_locations": [
+        {
+          "lat": 43.9,
+          "lon": 125.2167,
+          "elev_m": 238,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 238,
+      "max_m": 238,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "220302",
+      "county_name": "铁西区",
+      "station_ids": [
+        "54157"
+      ],
+      "station_locations": [
+        {
+          "lat": 43.1833,
+          "lon": 124.3333,
+          "elev_m": 165,
+          "R1_monthly_observation_count": 276,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 165,
+      "max_m": 165,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "220721",
+      "county_name": "前郭尔罗斯蒙古族自治县",
+      "station_ids": [
+        "50949"
+      ],
+      "station_locations": [
+        {
+          "lat": 45.1167,
+          "lon": 124.8333,
+          "elev_m": 138,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 138,
+      "max_m": 138,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "222401",
+      "county_name": "延吉市",
+      "station_ids": [
+        "54292"
+      ],
+      "station_locations": [
+        {
+          "lat": 42.8833,
+          "lon": 129.4667,
+          "elev_m": 178,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 178,
+      "max_m": 178,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "230110",
+      "county_name": "香坊区",
+      "station_ids": [
+        "50953"
+      ],
+      "station_locations": [
+        {
+          "lat": 45.75,
+          "lon": 126.7667,
+          "elev_m": 143,
+          "R1_monthly_observation_count": 273,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 143,
+      "max_m": 143,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "230128",
+      "county_name": "通河县",
+      "station_ids": [
+        "50963"
+      ],
+      "station_locations": [
+        {
+          "lat": 45.9667,
+          "lon": 128.7333,
+          "elev_m": 110,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 110,
+      "max_m": 110,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "230183",
+      "county_name": "尚志市",
+      "station_ids": [
+        "50968"
+      ],
+      "station_locations": [
+        {
+          "lat": 45.2167,
+          "lon": 127.9667,
+          "elev_m": 191,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 191,
+      "max_m": 191,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "230208",
+      "county_name": "梅里斯达斡尔族区",
+      "station_ids": [
+        "50745"
+      ],
+      "station_locations": [
+        {
+          "lat": 47.3833,
+          "lon": 123.9167,
+          "elev_m": 148,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 148,
+      "max_m": 148,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "230229",
+      "county_name": "克山县",
+      "station_ids": [
+        "50658"
+      ],
+      "station_locations": [
+        {
+          "lat": 48.05,
+          "lon": 125.8833,
+          "elev_m": 237,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 237,
+      "max_m": 237,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "230302",
+      "county_name": "鸡冠区",
+      "station_ids": [
+        "50978"
+      ],
+      "station_locations": [
+        {
+          "lat": 45.2833,
+          "lon": 130.95,
+          "elev_m": 234,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 234,
+      "max_m": 234,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "230882",
+      "county_name": "富锦市",
+      "station_ids": [
+        "50788"
+      ],
+      "station_locations": [
+        {
+          "lat": 47.2333,
+          "lon": 131.9833,
+          "elev_m": 65,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 65,
+      "max_m": 65,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "231005",
+      "county_name": "西安区",
+      "station_ids": [
+        "54094"
+      ],
+      "station_locations": [
+        {
+          "lat": 44.5667,
+          "lon": 129.6,
+          "elev_m": 242,
+          "R1_monthly_observation_count": 276,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 242,
+      "max_m": 242,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "231081",
+      "county_name": "绥芬河市",
+      "station_ids": [
+        "54096"
+      ],
+      "station_locations": [
+        {
+          "lat": 44.3833,
+          "lon": 131.15,
+          "elev_m": 498,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 498,
+      "max_m": 498,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "231124",
+      "county_name": "孙吴县",
+      "station_ids": [
+        "50564"
+      ],
+      "station_locations": [
+        {
+          "lat": 49.4333,
+          "lon": 127.35,
+          "elev_m": 235,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 235,
+      "max_m": 235,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "231183",
+      "county_name": "嫩江市",
+      "station_ids": [
+        "50557"
+      ],
+      "station_locations": [
+        {
+          "lat": 49.1667,
+          "lon": 125.2333,
+          "elev_m": 243,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 243,
+      "max_m": 243,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "231281",
+      "county_name": "安达市",
+      "station_ids": [
+        "50854"
+      ],
+      "station_locations": [
+        {
+          "lat": 46.3833,
+          "lon": 125.3167,
+          "elev_m": 150,
+          "R1_monthly_observation_count": 272,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 150,
+      "max_m": 150,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "231283",
+      "county_name": "海伦市",
+      "station_ids": [
+        "50756"
+      ],
+      "station_locations": [
+        {
+          "lat": 47.4333,
+          "lon": 126.9667,
+          "elev_m": 240,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 240,
+      "max_m": 240,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "232721",
+      "county_name": "呼玛县",
+      "station_ids": [
+        "50353"
+      ],
+      "station_locations": [
+        {
+          "lat": 51.7167,
+          "lon": 126.65,
+          "elev_m": 179,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 179,
+      "max_m": 179,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "310104",
+      "county_name": "徐汇区",
+      "station_ids": [
+        "58367"
+      ],
+      "station_locations": [
+        {
+          "lat": 31.1667,
+          "lon": 121.4333,
+          "elev_m": 7,
+          "R1_monthly_observation_count": 268,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 7,
+      "max_m": 7,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "310113",
+      "county_name": "宝山区",
+      "station_ids": [
+        "58362"
+      ],
+      "station_locations": [
+        {
+          "lat": 31.4,
+          "lon": 121.4667,
+          "elev_m": 8,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 8,
+      "max_m": 8,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "320104",
+      "county_name": "秦淮区",
+      "station_ids": [
+        "58238"
+      ],
+      "station_locations": [
+        {
+          "lat": 32.0,
+          "lon": 118.8,
+          "elev_m": 12,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 12,
+      "max_m": 12,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "320302",
+      "county_name": "鼓楼区",
+      "station_ids": [
+        "58027"
+      ],
+      "station_locations": [
+        {
+          "lat": 34.2833,
+          "lon": 117.15,
+          "elev_m": 42,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 42,
+      "max_m": 42,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "320707",
+      "county_name": "赣榆区",
+      "station_ids": [
+        "58040"
+      ],
+      "station_locations": [
+        {
+          "lat": 34.8333,
+          "lon": 119.1333,
+          "elev_m": 10,
+          "R1_monthly_observation_count": 274,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 10,
+      "max_m": 10,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "320981",
+      "county_name": "东台市",
+      "station_ids": [
+        "58251"
+      ],
+      "station_locations": [
+        {
+          "lat": 32.8667,
+          "lon": 120.3167,
+          "elev_m": 5,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 5,
+      "max_m": 5,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "330102",
+      "county_name": "上城区",
+      "station_ids": [
+        "58457"
+      ],
+      "station_locations": [
+        {
+          "lat": 30.2333,
+          "lon": 120.1667,
+          "elev_m": 43,
+          "R1_monthly_observation_count": 358,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 43,
+      "max_m": 43,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "330802",
+      "county_name": "柯城区",
+      "station_ids": [
+        "58633"
+      ],
+      "station_locations": [
+        {
+          "lat": 28.9667,
+          "lon": 118.8667,
+          "elev_m": 71,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 71,
+      "max_m": 71,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "330902",
+      "county_name": "定海区",
+      "station_ids": [
+        "58477"
+      ],
+      "station_locations": [
+        {
+          "lat": 30.0333,
+          "lon": 122.1167,
+          "elev_m": 37,
+          "R1_monthly_observation_count": 273,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 37,
+      "max_m": 37,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "340104",
+      "county_name": "蜀山区",
+      "station_ids": [
+        "58321"
+      ],
+      "station_locations": [
+        {
+          "lat": 31.8667,
+          "lon": 117.2333,
+          "elev_m": 36,
+          "R1_monthly_observation_count": 359,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 36,
+      "max_m": 36,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "340302",
+      "county_name": "龙子湖区",
+      "station_ids": [
+        "58221"
+      ],
+      "station_locations": [
+        {
+          "lat": 32.95,
+          "lon": 117.3667,
+          "elev_m": 22,
+          "R1_monthly_observation_count": 275,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 22,
+      "max_m": 22,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "340811",
+      "county_name": "宜秀区",
+      "station_ids": [
+        "58424"
+      ],
+      "station_locations": [
+        {
+          "lat": 30.5333,
+          "lon": 117.05,
+          "elev_m": 20,
+          "R1_monthly_observation_count": 271,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 20,
+      "max_m": 20,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "341525",
+      "county_name": "霍山县",
+      "station_ids": [
+        "58314"
+      ],
+      "station_locations": [
+        {
+          "lat": 31.4,
+          "lon": 116.3333,
+          "elev_m": 68,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 68,
+      "max_m": 68,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "341602",
+      "county_name": "谯城区",
+      "station_ids": [
+        "58102"
+      ],
+      "station_locations": [
+        {
+          "lat": 33.8833,
+          "lon": 115.7667,
+          "elev_m": 42,
+          "R1_monthly_observation_count": 276,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 42,
+      "max_m": 42,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "350102",
+      "county_name": "鼓楼区",
+      "station_ids": [
+        "58847"
+      ],
+      "station_locations": [
+        {
+          "lat": 26.0833,
+          "lon": 119.2833,
+          "elev_m": 85,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 85,
+      "max_m": 85,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "350203",
+      "county_name": "思明区",
+      "station_ids": [
+        "59134"
+      ],
+      "station_locations": [
+        {
+          "lat": 24.4833,
+          "lon": 118.0833,
+          "elev_m": 139,
+          "R1_monthly_observation_count": 357,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 139,
+      "max_m": 139,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": [
+        {
+          "latitude": 24.48,
+          "longitude": 118.09,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 2.0
+        },
+        {
+          "latitude": 24.49628,
+          "longitude": 118.19653,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 0.0
+        },
+        {
+          "latitude": 24.4282,
+          "longitude": 118.1498,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 0.0
+        }
+      ],
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "350481",
+      "county_name": "永安市",
+      "station_ids": [
+        "58921"
+      ],
+      "station_locations": [
+        {
+          "lat": 25.9667,
+          "lon": 117.35,
+          "elev_m": 204,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 204,
+      "max_m": 204,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "350702",
+      "county_name": "延平区",
+      "station_ids": [
+        "58834"
+      ],
+      "station_locations": [
+        {
+          "lat": 26.65,
+          "lon": 118.1667,
+          "elev_m": 128,
+          "R1_monthly_observation_count": 278,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 128,
+      "max_m": 128,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "360104",
+      "county_name": "青云谱区",
+      "station_ids": [
+        "58606"
+      ],
+      "station_locations": [
+        {
+          "lat": 28.6,
+          "lon": 115.9167,
+          "elev_m": 50,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 50,
+      "max_m": 50,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "360203",
+      "county_name": "珠山区",
+      "station_ids": [
+        "58527"
+      ],
+      "station_locations": [
+        {
+          "lat": 29.3,
+          "lon": 117.2,
+          "elev_m": 60,
+          "R1_monthly_observation_count": 269,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 60,
+      "max_m": 60,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "360702",
+      "county_name": "章贡区",
+      "station_ids": [
+        "57993"
+      ],
+      "station_locations": [
+        {
+          "lat": 25.85,
+          "lon": 114.95,
+          "elev_m": 125,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 125,
+      "max_m": 125,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "360802",
+      "county_name": "吉州区",
+      "station_ids": [
+        "57799"
+      ],
+      "station_locations": [
+        {
+          "lat": 27.1167,
+          "lon": 114.9667,
+          "elev_m": 78,
+          "R1_monthly_observation_count": 275,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 78,
+      "max_m": 78,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "361021",
+      "county_name": "南城县",
+      "station_ids": [
+        "58715"
+      ],
+      "station_locations": [
+        {
+          "lat": 27.5833,
+          "lon": 116.65,
+          "elev_m": 82,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 82,
+      "max_m": 82,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "370105",
+      "county_name": "天桥区",
+      "station_ids": [
+        "54823"
+      ],
+      "station_locations": [
+        {
+          "lat": 36.6833,
+          "lon": 116.9833,
+          "elev_m": 58,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 58,
+      "max_m": 58,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "370202",
+      "county_name": "市南区",
+      "station_ids": [
+        "54857"
+      ],
+      "station_locations": [
+        {
+          "lat": 36.0667,
+          "lon": 120.3333,
+          "elev_m": 77,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 77,
+      "max_m": 77,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "370702",
+      "county_name": "潍城区",
+      "station_ids": [
+        "54843"
+      ],
+      "station_locations": [
+        {
+          "lat": 36.7,
+          "lon": 119.0833,
+          "elev_m": 51,
+          "R1_monthly_observation_count": 269,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 51,
+      "max_m": 51,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "370881",
+      "county_name": "曲阜市",
+      "station_ids": [
+        "54916"
+      ],
+      "station_locations": [
+        {
+          "lat": 35.5667,
+          "lon": 116.85,
+          "elev_m": 53,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 53,
+      "max_m": 53,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "371082",
+      "county_name": "荣成市",
+      "station_ids": [
+        "54776"
+      ],
+      "station_locations": [
+        {
+          "lat": 37.4,
+          "lon": 122.6833,
+          "elev_m": 47,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 47,
+      "max_m": 47,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "371621",
+      "county_name": "惠民县",
+      "station_ids": [
+        "54725"
+      ],
+      "station_locations": [
+        {
+          "lat": 37.5,
+          "lon": 117.5333,
+          "elev_m": 12,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 12,
+      "max_m": 12,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "371703",
+      "county_name": "定陶区",
+      "station_ids": [
+        "54909"
+      ],
+      "station_locations": [
+        {
+          "lat": 35.0667,
+          "lon": 115.5667,
+          "elev_m": 49,
+          "R1_monthly_observation_count": 229,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 49,
+      "max_m": 49,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "410103",
+      "county_name": "二七区",
+      "station_ids": [
+        "57083"
+      ],
+      "station_locations": [
+        {
+          "lat": 34.7167,
+          "lon": 113.65,
+          "elev_m": 111,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 111,
+      "max_m": 111,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "410503",
+      "county_name": "北关区",
+      "station_ids": [
+        "53898"
+      ],
+      "station_locations": [
+        {
+          "lat": 36.1167,
+          "lon": 114.3667,
+          "elev_m": 76,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 76,
+      "max_m": 76,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "411224",
+      "county_name": "卢氏县",
+      "station_ids": [
+        "57067"
+      ],
+      "station_locations": [
+        {
+          "lat": 34.05,
+          "lon": 111.0333,
+          "elev_m": 570,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 570,
+      "max_m": 570,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "411502",
+      "county_name": "浉河区",
+      "station_ids": [
+        "57297"
+      ],
+      "station_locations": [
+        {
+          "lat": 32.1333,
+          "lon": 114.05,
+          "elev_m": 115,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 115,
+      "max_m": 115,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "411702",
+      "county_name": "驿城区",
+      "station_ids": [
+        "57290"
+      ],
+      "station_locations": [
+        {
+          "lat": 33.0,
+          "lon": 114.0167,
+          "elev_m": 83,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 83,
+      "max_m": 83,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "420112",
+      "county_name": "东西湖区",
+      "station_ids": [
+        "57494"
+      ],
+      "station_locations": [
+        {
+          "lat": 30.6167,
+          "lon": 114.1333,
+          "elev_m": 23,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 23,
+      "max_m": 23,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "420502",
+      "county_name": "西陵区",
+      "station_ids": [
+        "57461"
+      ],
+      "station_locations": [
+        {
+          "lat": 30.7,
+          "lon": 111.3,
+          "elev_m": 134,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 134,
+      "max_m": 134,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "420682",
+      "county_name": "老河口市",
+      "station_ids": [
+        "57265"
+      ],
+      "station_locations": [
+        {
+          "lat": 32.3833,
+          "lon": 111.6667,
+          "elev_m": 91,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 91,
+      "max_m": 91,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "422801",
+      "county_name": "恩施市",
+      "station_ids": [
+        "57447"
+      ],
+      "station_locations": [
+        {
+          "lat": 30.2833,
+          "lon": 109.4667,
+          "elev_m": 458,
+          "R1_monthly_observation_count": 276,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 458,
+      "max_m": 458,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "430104",
+      "county_name": "岳麓区",
+      "station_ids": [
+        "57687"
+      ],
+      "station_locations": [
+        {
+          "lat": 28.2333,
+          "lon": 112.8667,
+          "elev_m": 68,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 68,
+      "max_m": 68,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "430702",
+      "county_name": "武陵区",
+      "station_ids": [
+        "57662"
+      ],
+      "station_locations": [
+        {
+          "lat": 29.05,
+          "lon": 111.6833,
+          "elev_m": 35,
+          "R1_monthly_observation_count": 272,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 35,
+      "max_m": 35,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "431102",
+      "county_name": "零陵区",
+      "station_ids": [
+        "57866"
+      ],
+      "station_locations": [
+        {
+          "lat": 26.2333,
+          "lon": 111.6167,
+          "elev_m": 174,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 174,
+      "max_m": 174,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "431228",
+      "county_name": "芷江侗族自治县",
+      "station_ids": [
+        "57745"
+      ],
+      "station_locations": [
+        {
+          "lat": 27.45,
+          "lon": 109.6833,
+          "elev_m": 273,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 273,
+      "max_m": 273,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "440106",
+      "county_name": "天河区",
+      "station_ids": [
+        "59287"
+      ],
+      "station_locations": [
+        {
+          "lat": 23.1667,
+          "lon": 113.3333,
+          "elev_m": 8,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 8,
+      "max_m": 8,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "440203",
+      "county_name": "武江区",
+      "station_ids": [
+        "59082"
+      ],
+      "station_locations": [
+        {
+          "lat": 24.8,
+          "lon": 113.5833,
+          "elev_m": 68,
+          "R1_monthly_observation_count": 276,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 68,
+      "max_m": 68,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "440511",
+      "county_name": "金平区",
+      "station_ids": [
+        "59316"
+      ],
+      "station_locations": [
+        {
+          "lat": 23.4,
+          "lon": 116.6833,
+          "elev_m": 3,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 3,
+      "max_m": 3,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "441502",
+      "county_name": "城区",
+      "station_ids": [
+        "59501"
+      ],
+      "station_locations": [
+        {
+          "lat": 22.7833,
+          "lon": 115.3667,
+          "elev_m": 5,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 5,
+      "max_m": 5,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "441602",
+      "county_name": "源城区",
+      "station_ids": [
+        "59293"
+      ],
+      "station_locations": [
+        {
+          "lat": 23.7333,
+          "lon": 114.6833,
+          "elev_m": 41,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 41,
+      "max_m": 41,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "441702",
+      "county_name": "江城区",
+      "station_ids": [
+        "59663"
+      ],
+      "station_locations": [
+        {
+          "lat": 21.8667,
+          "lon": 111.9667,
+          "elev_m": 22,
+          "R1_monthly_observation_count": 274,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 22,
+      "max_m": 22,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "450103",
+      "county_name": "青秀区",
+      "station_ids": [
+        "59431"
+      ],
+      "station_locations": [
+        {
+          "lat": 22.8167,
+          "lon": 108.35,
+          "elev_m": 73,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 73,
+      "max_m": 73,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": [
+        {
+          "latitude": 22.82,
+          "longitude": 108.37,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 85.0
+        },
+        {
+          "latitude": 22.96322,
+          "longitude": 108.79116,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 253.0
+        },
+        {
+          "latitude": 22.6923,
+          "longitude": 108.68576,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 129.0
+        }
+      ],
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "450303",
+      "county_name": "叠彩区",
+      "station_ids": [
+        "57957"
+      ],
+      "station_locations": [
+        {
+          "lat": 25.3333,
+          "lon": 110.3,
+          "elev_m": 166,
+          "R1_monthly_observation_count": 358,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 166,
+      "max_m": 166,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "450403",
+      "county_name": "万秀区",
+      "station_ids": [
+        "59265"
+      ],
+      "station_locations": [
+        {
+          "lat": 23.4833,
+          "lon": 111.3,
+          "elev_m": 120,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 120,
+      "max_m": 120,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "450702",
+      "county_name": "钦南区",
+      "station_ids": [
+        "59632"
+      ],
+      "station_locations": [
+        {
+          "lat": 21.95,
+          "lon": 108.6167,
+          "elev_m": 6,
+          "R1_monthly_observation_count": 276,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 6,
+      "max_m": 6,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "450881",
+      "county_name": "桂平市",
+      "station_ids": [
+        "59254"
+      ],
+      "station_locations": [
+        {
+          "lat": 23.4,
+          "lon": 110.0833,
+          "elev_m": 44,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 44,
+      "max_m": 44,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "451002",
+      "county_name": "右江区",
+      "station_ids": [
+        "59211"
+      ],
+      "station_locations": [
+        {
+          "lat": 23.9,
+          "lon": 106.6,
+          "elev_m": 242,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 242,
+      "max_m": 242,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "451202",
+      "county_name": "金城江区",
+      "station_ids": [
+        "59023"
+      ],
+      "station_locations": [
+        {
+          "lat": 24.7,
+          "lon": 108.05,
+          "elev_m": 214,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 214,
+      "max_m": 214,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "451423",
+      "county_name": "龙州县",
+      "station_ids": [
+        "59417"
+      ],
+      "station_locations": [
+        {
+          "lat": 22.3667,
+          "lon": 106.75,
+          "elev_m": 129,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 129,
+      "max_m": 129,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "460108",
+      "county_name": "美兰区",
+      "station_ids": [
+        "59758"
+      ],
+      "station_locations": [
+        {
+          "lat": 20.0333,
+          "lon": 110.35,
+          "elev_m": 15,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 15,
+      "max_m": 15,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": [
+        {
+          "latitude": 20.04,
+          "longitude": 110.35,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 11.0
+        },
+        {
+          "latitude": 19.82416,
+          "longitude": 110.67157,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 24.0
+        },
+        {
+          "latitude": 20.00623,
+          "longitude": 110.5875,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 0.0
+        }
+      ],
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "460203",
+      "county_name": "吉阳区",
+      "station_ids": [
+        "59948"
+      ],
+      "station_locations": [
+        {
+          "lat": 18.2333,
+          "lon": 109.5167,
+          "elev_m": 7,
+          "R1_monthly_observation_count": 253,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 7,
+      "max_m": 7,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": [
+        {
+          "latitude": 18.25,
+          "longitude": 109.51,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 15.0
+        },
+        {
+          "latitude": 18.19436,
+          "longitude": 109.72989,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 0.0
+        },
+        {
+          "latitude": 18.37556,
+          "longitude": 109.66683,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 208.0
+        }
+      ],
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "469002",
+      "county_name": "琼海市",
+      "station_ids": [
+        "59855"
+      ],
+      "station_locations": [
+        {
+          "lat": 19.2333,
+          "lon": 110.4667,
+          "elev_m": 25,
+          "R1_monthly_observation_count": 279,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 25,
+      "max_m": 25,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "500107",
+      "county_name": "九龙坡区",
+      "station_ids": [
+        "57516"
+      ],
+      "station_locations": [
+        {
+          "lat": 29.5167,
+          "lon": 106.4833,
+          "elev_m": 351,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 351,
+      "max_m": 351,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "500242",
+      "county_name": "酉阳土家族苗族自治县",
+      "station_ids": [
+        "57633"
+      ],
+      "station_locations": [
+        {
+          "lat": 28.8333,
+          "lon": 108.7667,
+          "elev_m": 665,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 665,
+      "max_m": 665,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "510105",
+      "county_name": "青羊区",
+      "station_ids": [
+        "56294"
+      ],
+      "station_locations": [
+        {
+          "lat": 30.6667,
+          "lon": 104.0167,
+          "elev_m": 508,
+          "R1_monthly_observation_count": 300,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 508,
+      "max_m": 508,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "511302",
+      "county_name": "顺庆区",
+      "station_ids": [
+        "57411"
+      ],
+      "station_locations": [
+        {
+          "lat": 30.8,
+          "lon": 106.0833,
+          "elev_m": 310,
+          "R1_monthly_observation_count": 273,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 310,
+      "max_m": 310,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "511502",
+      "county_name": "翠屏区",
+      "station_ids": [
+        "56492"
+      ],
+      "station_locations": [
+        {
+          "lat": 28.8,
+          "lon": 104.6,
+          "elev_m": 342,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 342,
+      "max_m": 342,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "511781",
+      "county_name": "万源市",
+      "station_ids": [
+        "57237"
+      ],
+      "station_locations": [
+        {
+          "lat": 32.0667,
+          "lon": 108.0333,
+          "elev_m": 674,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 674,
+      "max_m": 674,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "513201",
+      "county_name": "马尔康市",
+      "station_ids": [
+        "56172"
+      ],
+      "station_locations": [
+        {
+          "lat": 31.9,
+          "lon": 102.2333,
+          "elev_m": 2666,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 2666,
+      "max_m": 2666,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "513224",
+      "county_name": "松潘县",
+      "station_ids": [
+        "56182"
+      ],
+      "station_locations": [
+        {
+          "lat": 32.65,
+          "lon": 103.5667,
+          "elev_m": 2852,
+          "R1_monthly_observation_count": 276,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 2852,
+      "max_m": 2852,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "513232",
+      "county_name": "若尔盖县",
+      "station_ids": [
+        "56079"
+      ],
+      "station_locations": [
+        {
+          "lat": 33.5833,
+          "lon": 102.9667,
+          "elev_m": 3441,
+          "R1_monthly_observation_count": 186,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 3441,
+      "max_m": 3441,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "513324",
+      "county_name": "九龙县",
+      "station_ids": [
+        "56462"
+      ],
+      "station_locations": [
+        {
+          "lat": 29.0,
+          "lon": 101.5,
+          "elev_m": 2994,
+          "R1_monthly_observation_count": 267,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 2994,
+      "max_m": 2994,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "513328",
+      "county_name": "甘孜县",
+      "station_ids": [
+        "56146"
+      ],
+      "station_locations": [
+        {
+          "lat": 31.6167,
+          "lon": 100.0,
+          "elev_m": 3394,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 3394,
+      "max_m": 3394,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "513334",
+      "county_name": "理塘县",
+      "station_ids": [
+        "56257"
+      ],
+      "station_locations": [
+        {
+          "lat": 30.0,
+          "lon": 100.2667,
+          "elev_m": 3950,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 3950,
+      "max_m": 3950,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "513401",
+      "county_name": "西昌市",
+      "station_ids": [
+        "56571"
+      ],
+      "station_locations": [
+        {
+          "lat": 27.9,
+          "lon": 102.2667,
+          "elev_m": 1599,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 1599,
+      "max_m": 1599,
+      "station_elevation_band": "STATION_POINT_1500_TO1800M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "513402",
+      "county_name": "会理市",
+      "station_ids": [
+        "56671"
+      ],
+      "station_locations": [
+        {
+          "lat": 26.65,
+          "lon": 102.25,
+          "elev_m": 1788,
+          "R1_monthly_observation_count": 278,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1788,
+      "max_m": 1788,
+      "station_elevation_band": "STATION_POINT_1500_TO1800M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "520103",
+      "county_name": "云岩区",
+      "station_ids": [
+        "57816"
+      ],
+      "station_locations": [
+        {
+          "lat": 26.5833,
+          "lon": 106.7167,
+          "elev_m": 1074,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 1074,
+      "max_m": 1074,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "520303",
+      "county_name": "汇川区",
+      "station_ids": [
+        "57713"
+      ],
+      "station_locations": [
+        {
+          "lat": 27.7,
+          "lon": 106.8833,
+          "elev_m": 845,
+          "R1_monthly_observation_count": 264,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 845,
+      "max_m": 845,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "520502",
+      "county_name": "七星关区",
+      "station_ids": [
+        "57707"
+      ],
+      "station_locations": [
+        {
+          "lat": 27.3,
+          "lon": 105.2333,
+          "elev_m": 1511,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1511,
+      "max_m": 1511,
+      "station_elevation_band": "STATION_POINT_1500_TO1800M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "522302",
+      "county_name": "兴仁市",
+      "station_ids": [
+        "57902"
+      ],
+      "station_locations": [
+        {
+          "lat": 25.4333,
+          "lon": 105.1833,
+          "elev_m": 1379,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1379,
+      "max_m": 1379,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "530112",
+      "county_name": "西山区",
+      "station_ids": [
+        "56778"
+      ],
+      "station_locations": [
+        {
+          "lat": 25.0167,
+          "lon": 102.6833,
+          "elev_m": 1892,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 1892,
+      "max_m": 1892,
+      "station_elevation_band": "STATION_POINT_1800_TO2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "530581",
+      "county_name": "腾冲市",
+      "station_ids": [
+        "56739"
+      ],
+      "station_locations": [
+        {
+          "lat": 25.1167,
+          "lon": 98.4833,
+          "elev_m": 1649,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 1649,
+      "max_m": 1649,
+      "station_elevation_band": "STATION_POINT_1500_TO1800M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "530722",
+      "county_name": "永胜县",
+      "station_ids": [
+        "56651"
+      ],
+      "station_locations": [
+        {
+          "lat": 26.8333,
+          "lon": 100.4667,
+          "elev_m": 2394,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 2394,
+      "max_m": 2394,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "530802",
+      "county_name": "思茅区",
+      "station_ids": [
+        "56964"
+      ],
+      "station_locations": [
+        {
+          "lat": 22.7667,
+          "lon": 100.9833,
+          "elev_m": 1303,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 1303,
+      "max_m": 1303,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "530828",
+      "county_name": "澜沧拉祜族自治县",
+      "station_ids": [
+        "56954"
+      ],
+      "station_locations": [
+        {
+          "lat": 22.5667,
+          "lon": 99.9333,
+          "elev_m": 1054,
+          "R1_monthly_observation_count": 281,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1054,
+      "max_m": 1054,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "530902",
+      "county_name": "临翔区",
+      "station_ids": [
+        "56951"
+      ],
+      "station_locations": [
+        {
+          "lat": 23.95,
+          "lon": 100.2167,
+          "elev_m": 1503,
+          "R1_monthly_observation_count": 278,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1503,
+      "max_m": 1503,
+      "station_elevation_band": "STATION_POINT_1500_TO1800M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "532301",
+      "county_name": "楚雄市",
+      "station_ids": [
+        "56768"
+      ],
+      "station_locations": [
+        {
+          "lat": 25.0167,
+          "lon": 101.5333,
+          "elev_m": 1773,
+          "R1_monthly_observation_count": 279,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1773,
+      "max_m": 1773,
+      "station_elevation_band": "STATION_POINT_1500_TO1800M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "532503",
+      "county_name": "蒙自市",
+      "station_ids": [
+        "56985"
+      ],
+      "station_locations": [
+        {
+          "lat": 23.3833,
+          "lon": 103.3833,
+          "elev_m": 1302,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 1302,
+      "max_m": 1302,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": [
+        {
+          "latitude": 23.37,
+          "longitude": 103.39,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 1311.0
+        },
+        {
+          "latitude": 23.46124,
+          "longitude": 103.759,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 2087.0
+        },
+        {
+          "latitude": 23.07155,
+          "longitude": 103.27251,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 376.0
+        }
+      ],
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "533422",
+      "county_name": "德钦县",
+      "station_ids": [
+        "56444"
+      ],
+      "station_locations": [
+        {
+          "lat": 28.5,
+          "lon": 98.9,
+          "elev_m": 3488,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 3488,
+      "max_m": 3488,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "540102",
+      "county_name": "城关区",
+      "station_ids": [
+        "55591"
+      ],
+      "station_locations": [
+        {
+          "lat": 29.6667,
+          "lon": 91.1333,
+          "elev_m": 3650,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 3650,
+      "max_m": 3650,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "540302",
+      "county_name": "卡若区",
+      "station_ids": [
+        "56137"
+      ],
+      "station_locations": [
+        {
+          "lat": 31.15,
+          "lon": 97.1667,
+          "elev_m": 3307,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 3307,
+      "max_m": 3307,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "540625",
+      "county_name": "申扎县",
+      "station_ids": [
+        "55472"
+      ],
+      "station_locations": [
+        {
+          "lat": 30.95,
+          "lon": 88.6333,
+          "elev_m": 4671,
+          "R1_monthly_observation_count": 188,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 4671,
+      "max_m": 4671,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "540626",
+      "county_name": "索县",
+      "station_ids": [
+        "56106"
+      ],
+      "station_locations": [
+        {
+          "lat": 31.8833,
+          "lon": 93.7833,
+          "elev_m": 4024,
+          "R1_monthly_observation_count": 186,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 4024,
+      "max_m": 4024,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "542523",
+      "county_name": "噶尔县",
+      "station_ids": [
+        "55228"
+      ],
+      "station_locations": [
+        {
+          "lat": 32.5,
+          "lon": 80.0833,
+          "elev_m": 4279,
+          "R1_monthly_observation_count": 200,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 4279,
+      "max_m": 4279,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "610112",
+      "county_name": "未央区",
+      "station_ids": [
+        "57036"
+      ],
+      "station_locations": [
+        {
+          "lat": 34.3,
+          "lon": 108.9333,
+          "elev_m": 398,
+          "R1_monthly_observation_count": 216,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 398,
+      "max_m": 398,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "610117",
+      "county_name": "高陵区",
+      "station_ids": [
+        "57131"
+      ],
+      "station_locations": [
+        {
+          "lat": 34.4333,
+          "lon": 108.9667,
+          "elev_m": 411,
+          "R1_monthly_observation_count": 180,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 411,
+      "max_m": 411,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "610602",
+      "county_name": "宝塔区",
+      "station_ids": [
+        "53845"
+      ],
+      "station_locations": [
+        {
+          "lat": 36.6,
+          "lon": 109.5,
+          "elev_m": 959,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 959,
+      "max_m": 959,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "610702",
+      "county_name": "汉台区",
+      "station_ids": [
+        "57127"
+      ],
+      "station_locations": [
+        {
+          "lat": 33.0667,
+          "lon": 107.0333,
+          "elev_m": 509,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 509,
+      "max_m": 509,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "610803",
+      "county_name": "横山区",
+      "station_ids": [
+        "53646"
+      ],
+      "station_locations": [
+        {
+          "lat": 38.2333,
+          "lon": 109.7,
+          "elev_m": 1058,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1058,
+      "max_m": 1058,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "620102",
+      "county_name": "城关区",
+      "station_ids": [
+        "52889"
+      ],
+      "station_locations": [
+        {
+          "lat": 36.05,
+          "lon": 103.8833,
+          "elev_m": 1518,
+          "R1_monthly_observation_count": 216,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1518,
+      "max_m": 1518,
+      "station_elevation_band": "STATION_POINT_1500_TO1800M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "620123",
+      "county_name": "榆中县",
+      "station_ids": [
+        "52983"
+      ],
+      "station_locations": [
+        {
+          "lat": 35.8667,
+          "lon": 104.15,
+          "elev_m": 1875,
+          "R1_monthly_observation_count": 202,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1875,
+      "max_m": 1875,
+      "station_elevation_band": "STATION_POINT_1800_TO2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "620621",
+      "county_name": "民勤县",
+      "station_ids": [
+        "52681"
+      ],
+      "station_locations": [
+        {
+          "lat": 38.6333,
+          "lon": 103.0833,
+          "elev_m": 1367,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 1367,
+      "max_m": 1367,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "620623",
+      "county_name": "天祝藏族自治县",
+      "station_ids": [
+        "52787"
+      ],
+      "station_locations": [
+        {
+          "lat": 37.2,
+          "lon": 102.8667,
+          "elev_m": 3044,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 3044,
+      "max_m": 3044,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "620802",
+      "county_name": "崆峒区",
+      "station_ids": [
+        "53915"
+      ],
+      "station_locations": [
+        {
+          "lat": 35.55,
+          "lon": 106.6667,
+          "elev_m": 1348,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1348,
+      "max_m": 1348,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "620902",
+      "county_name": "肃州区",
+      "station_ids": [
+        "52533"
+      ],
+      "station_locations": [
+        {
+          "lat": 39.7667,
+          "lon": 98.4833,
+          "elev_m": 1478,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 1478,
+      "max_m": 1478,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "620923",
+      "county_name": "肃北蒙古族自治县",
+      "station_ids": [
+        "52323"
+      ],
+      "station_locations": [
+        {
+          "lat": 41.8,
+          "lon": 97.0333,
+          "elev_m": 1770,
+          "R1_monthly_observation_count": 186,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1770,
+      "max_m": 1770,
+      "station_elevation_band": "STATION_POINT_1500_TO1800M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "620981",
+      "county_name": "玉门市",
+      "station_ids": [
+        "52436"
+      ],
+      "station_locations": [
+        {
+          "lat": 40.2667,
+          "lon": 97.0333,
+          "elev_m": 1527,
+          "R1_monthly_observation_count": 270,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1527,
+      "max_m": 1527,
+      "station_elevation_band": "STATION_POINT_1500_TO1800M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "620982",
+      "county_name": "敦煌市",
+      "station_ids": [
+        "52418"
+      ],
+      "station_locations": [
+        {
+          "lat": 40.15,
+          "lon": 94.6833,
+          "elev_m": 1140,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 1140,
+      "max_m": 1140,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "621202",
+      "county_name": "武都区",
+      "station_ids": [
+        "56096"
+      ],
+      "station_locations": [
+        {
+          "lat": 33.4,
+          "lon": 104.9167,
+          "elev_m": 1079,
+          "R1_monthly_observation_count": 275,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1079,
+      "max_m": 1079,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "623001",
+      "county_name": "合作市",
+      "station_ids": [
+        "56080"
+      ],
+      "station_locations": [
+        {
+          "lat": 35.0,
+          "lon": 102.9,
+          "elev_m": 2910,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 2910,
+      "max_m": 2910,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "630104",
+      "county_name": "城西区",
+      "station_ids": [
+        "52866"
+      ],
+      "station_locations": [
+        {
+          "lat": 36.6167,
+          "lon": 101.7667,
+          "elev_m": 2262,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 2262,
+      "max_m": 2262,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "632224",
+      "county_name": "刚察县",
+      "station_ids": [
+        "52754"
+      ],
+      "station_locations": [
+        {
+          "lat": 37.3333,
+          "lon": 100.1333,
+          "elev_m": 330,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 330,
+      "max_m": 330,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "632525",
+      "county_name": "贵南县",
+      "station_ids": [
+        "52955"
+      ],
+      "station_locations": [
+        {
+          "lat": 35.5833,
+          "lon": 100.75,
+          "elev_m": 3201,
+          "R1_monthly_observation_count": 181,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 3201,
+      "max_m": 3201,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "632624",
+      "county_name": "达日县",
+      "station_ids": [
+        "56046"
+      ],
+      "station_locations": [
+        {
+          "lat": 33.75,
+          "lon": 99.65,
+          "elev_m": 3968,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 3968,
+      "max_m": 3968,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "632626",
+      "county_name": "玛多县",
+      "station_ids": [
+        "56033"
+      ],
+      "station_locations": [
+        {
+          "lat": 34.9167,
+          "lon": 98.2167,
+          "elev_m": 4273,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 4273,
+      "max_m": 4273,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "632701",
+      "county_name": "玉树市",
+      "station_ids": [
+        "56029"
+      ],
+      "station_locations": [
+        {
+          "lat": 33.0167,
+          "lon": 97.0167,
+          "elev_m": 3682,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 3682,
+      "max_m": 3682,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "632726",
+      "county_name": "曲麻莱县",
+      "station_ids": [
+        "56021"
+      ],
+      "station_locations": [
+        {
+          "lat": 34.1333,
+          "lon": 95.7833,
+          "elev_m": 4176,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 4176,
+      "max_m": 4176,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "632801",
+      "county_name": "格尔木市",
+      "station_ids": [
+        "52818",
+        "56004"
+      ],
+      "station_locations": [
+        {
+          "lat": 36.4167,
+          "lon": 94.9,
+          "elev_m": 2809,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        },
+        {
+          "lat": 34.2167,
+          "lon": 92.4333,
+          "elev_m": 4535,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 2809,
+      "max_m": 4535,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "632803",
+      "county_name": "茫崖市",
+      "station_ids": [
+        "52602"
+      ],
+      "station_locations": [
+        {
+          "lat": 38.8333,
+          "lon": 93.3833,
+          "elev_m": 2734,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 2734,
+      "max_m": 2734,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "632822",
+      "county_name": "都兰县",
+      "station_ids": [
+        "52836"
+      ],
+      "station_locations": [
+        {
+          "lat": 36.3,
+          "lon": 98.1,
+          "elev_m": 3192,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 3192,
+      "max_m": 3192,
+      "station_elevation_band": "STATION_POINT_GT2000M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "640106",
+      "county_name": "金凤区",
+      "station_ids": [
+        "53614"
+      ],
+      "station_locations": [
+        {
+          "lat": 38.4833,
+          "lon": 106.2167,
+          "elev_m": 1112,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 1112,
+      "max_m": 1112,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "640323",
+      "county_name": "盐池县",
+      "station_ids": [
+        "53723"
+      ],
+      "station_locations": [
+        {
+          "lat": 37.7833,
+          "lon": 107.4,
+          "elev_m": 1349,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1349,
+      "max_m": 1349,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "650102",
+      "county_name": "天山区",
+      "station_ids": [
+        "51463"
+      ],
+      "station_locations": [
+        {
+          "lat": 43.7833,
+          "lon": 87.6167,
+          "elev_m": 919,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 919,
+      "max_m": 919,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "650203",
+      "county_name": "克拉玛依区",
+      "station_ids": [
+        "51243"
+      ],
+      "station_locations": [
+        {
+          "lat": 45.6,
+          "lon": 84.85,
+          "elev_m": 428,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 428,
+      "max_m": 428,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "650402",
+      "county_name": "高昌区",
+      "station_ids": [
+        "51573"
+      ],
+      "station_locations": [
+        {
+          "lat": 42.9333,
+          "lon": 89.2,
+          "elev_m": 37,
+          "R1_monthly_observation_count": 281,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 37,
+      "max_m": 37,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "650502",
+      "county_name": "伊州区",
+      "station_ids": [
+        "52203"
+      ],
+      "station_locations": [
+        {
+          "lat": 42.8167,
+          "lon": 93.5167,
+          "elev_m": 739,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 739,
+      "max_m": 739,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "652325",
+      "county_name": "奇台县",
+      "station_ids": [
+        "51379"
+      ],
+      "station_locations": [
+        {
+          "lat": 44.0167,
+          "lon": 89.5667,
+          "elev_m": 794,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 794,
+      "max_m": 794,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "652722",
+      "county_name": "精河县",
+      "station_ids": [
+        "51334"
+      ],
+      "station_locations": [
+        {
+          "lat": 44.6167,
+          "lon": 82.9,
+          "elev_m": 321,
+          "R1_monthly_observation_count": 278,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 321,
+      "max_m": 321,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "652801",
+      "county_name": "库尔勒市",
+      "station_ids": [
+        "51656"
+      ],
+      "station_locations": [
+        {
+          "lat": 41.75,
+          "lon": 86.1333,
+          "elev_m": 933,
+          "R1_monthly_observation_count": 187,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 933,
+      "max_m": 933,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "652823",
+      "county_name": "尉犁县",
+      "station_ids": [
+        "51765"
+      ],
+      "station_locations": [
+        {
+          "lat": 40.6333,
+          "lon": 87.7,
+          "elev_m": 847,
+          "R1_monthly_observation_count": 274,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 847,
+      "max_m": 847,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "652824",
+      "county_name": "若羌县",
+      "station_ids": [
+        "51777"
+      ],
+      "station_locations": [
+        {
+          "lat": 39.0333,
+          "lon": 88.1667,
+          "elev_m": 889,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 889,
+      "max_m": 889,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "652825",
+      "county_name": "且末县",
+      "station_ids": [
+        "51747"
+      ],
+      "station_locations": [
+        {
+          "lat": 39.0,
+          "lon": 83.6667,
+          "elev_m": 1099,
+          "R1_monthly_observation_count": 264,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1099,
+      "max_m": 1099,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "652902",
+      "county_name": "库车市",
+      "station_ids": [
+        "51644"
+      ],
+      "station_locations": [
+        {
+          "lat": 41.7167,
+          "lon": 82.95,
+          "elev_m": 1100,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 1100,
+      "max_m": 1100,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "653101",
+      "county_name": "喀什市",
+      "station_ids": [
+        "51709"
+      ],
+      "station_locations": [
+        {
+          "lat": 39.4667,
+          "lon": 75.9833,
+          "elev_m": 1291,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 1291,
+      "max_m": 1291,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "653125",
+      "county_name": "莎车县",
+      "station_ids": [
+        "51811"
+      ],
+      "station_locations": [
+        {
+          "lat": 38.4333,
+          "lon": 77.2667,
+          "elev_m": 1232,
+          "R1_monthly_observation_count": 278,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1232,
+      "max_m": 1232,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "653130",
+      "county_name": "巴楚县",
+      "station_ids": [
+        "51716"
+      ],
+      "station_locations": [
+        {
+          "lat": 39.8,
+          "lon": 78.5667,
+          "elev_m": 1117,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1117,
+      "max_m": 1117,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "653201",
+      "county_name": "和田市",
+      "station_ids": [
+        "51828"
+      ],
+      "station_locations": [
+        {
+          "lat": 37.1333,
+          "lon": 79.9333,
+          "elev_m": 1375,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 1375,
+      "max_m": 1375,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "654002",
+      "county_name": "伊宁市",
+      "station_ids": [
+        "51431"
+      ],
+      "station_locations": [
+        {
+          "lat": 43.95,
+          "lon": 81.3333,
+          "elev_m": 663,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 663,
+      "max_m": 663,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "654226",
+      "county_name": "和布克赛尔蒙古自治县",
+      "station_ids": [
+        "51156"
+      ],
+      "station_locations": [
+        {
+          "lat": 46.7833,
+          "lon": 85.7167,
+          "elev_m": 1294,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 1294,
+      "max_m": 1294,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "654301",
+      "county_name": "阿勒泰市",
+      "station_ids": [
+        "51076"
+      ],
+      "station_locations": [
+        {
+          "lat": 47.7333,
+          "lon": 88.0833,
+          "elev_m": 737,
+          "R1_monthly_observation_count": 360,
+          "source_quality": "FULL_PERIOD_CANDIDATE_LONG_STATION"
+        }
+      ],
+      "min_m": 737,
+      "max_m": 737,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    },
+    {
+      "candidate_code": "654322",
+      "county_name": "富蕴县",
+      "station_ids": [
+        "51087"
+      ],
+      "station_locations": [
+        {
+          "lat": 46.9833,
+          "lon": 89.5167,
+          "elev_m": 827,
+          "R1_monthly_observation_count": 277,
+          "source_quality": "INTERIM_15Y_OBSERVATIONS_PENDING_30Y"
+        }
+      ],
+      "min_m": 827,
+      "max_m": 827,
+      "station_elevation_band": "STATION_POINT_LE1500M",
+      "previous_dem_sample_3_points": null,
+      "full_residential_altitude_grade_authorized": false
+    }
+  ],
+  "national_CSV_sha256": "18dac6ba93b3014a8b81e1df7f78b9f3f13c0d8637e09e9ddcd03cf750f0bfd4",
+  "key_limits": [
+    "Station elevation is a weather instrument altitude, not townhall nor dwelling",
+    "GLO90 Copernicus sampled 3 points are NOT a full county elevation map",
+    "Master V1.2 1500/1800/2000 metre band applies to ACTUAL RESIDENTIAL ELEVATION, not source station",
+    "Historic 2017 county geometry and third-party coded modern polygons do not establish certified 2026 current boundary",
+    "Even high-altitude station does not justify elimination if lower habitable valley might exist"
+  ]
+}
