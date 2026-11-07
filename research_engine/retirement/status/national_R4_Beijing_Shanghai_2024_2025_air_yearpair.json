@@ -1,0 +1,117 @@
+{
+  "schema": "RET_R4_BEIJING_SHANGHAI_YEARPAIR_2024_2025_MULTI_POLLUTANT_V1",
+  "generated_utc": "2026-11-07T04:41:26.167993+00:00",
+  "reference_cases": [
+    {
+      "city": "北京",
+      "year": 2024,
+      "pm25": 30.5,
+      "o3_p90": 171,
+      "good_pct": 79.2,
+      "url": "https://www.mee.gov.cn/ywdt/xwfb/202501/t20250124_1101318.shtml",
+      "publisher": "生态环境部",
+      "bytes": 53392,
+      "raw_sha256": "5b498a5c209b532ecb14be3e1431215cd9553565f49bbd5be3247d53bbe94177",
+      "source_actually_read": true,
+      "numeric_value_present": {
+        "pm25": true,
+        "o3": true,
+        "good_days_pct": true
+      },
+      "status": "SOURCE_HAS_ALL_THREE_NUMERICS"
+    },
+    {
+      "city": "北京",
+      "year": 2025,
+      "pm25": 27.0,
+      "o3_p90": 159,
+      "good_pct": 85.2,
+      "url": "https://www.mee.gov.cn/ywdt/xwfb/202601/t20260128_1142783.shtml",
+      "publisher": "生态环境部",
+      "bytes": 51748,
+      "raw_sha256": "ffa809141f5cd76710caf0f0b14abfce8dc337e98d9593ae07b5b191a4446fbb",
+      "source_actually_read": true,
+      "numeric_value_present": {
+        "pm25": true,
+        "o3": true,
+        "good_days_pct": true
+      },
+      "status": "SOURCE_HAS_ALL_THREE_NUMERICS"
+    },
+    {
+      "city": "上海",
+      "year": 2024,
+      "pm25": 28.0,
+      "o3_p90": 144,
+      "good_pct": 88.5,
+      "url": "https://tjj.sh.gov.cn/tjgb/20250324/a7fe18c6d5c24d66bfca89c5bb4cdcfb.html",
+      "publisher": "上海市统计局",
+      "bytes": 52505,
+      "raw_sha256": "80aa92406e9846c30b0eea12b4dcce615e51f5c1ca2d224a092d74dae35d06fd",
+      "source_actually_read": true,
+      "numeric_value_present": {
+        "pm25": false,
+        "o3": true,
+        "good_days_pct": true
+      },
+      "status": "SOURCE_REQUIRES_INDEPENDENT_VALUE_INSPECTION"
+    },
+    {
+      "city": "上海",
+      "year": 2025,
+      "pm25": 26.3,
+      "o3_p90": 159,
+      "good_pct": 88.5,
+      "url": "https://tjj.sh.gov.cn/tjgb/20260330/e0772941e8e041eaaad2df850b44ef98.html",
+      "publisher": "上海市统计局",
+      "bytes": 46257,
+      "raw_sha256": "53208d64119891cc374e6b70ede45f537667bc4152d71da1111609d75641348a",
+      "source_actually_read": true,
+      "numeric_value_present": {
+        "pm25": true,
+        "o3": true,
+        "good_days_pct": true
+      },
+      "status": "SOURCE_HAS_ALL_THREE_NUMERICS"
+    }
+  ],
+  "two_city_trends": [
+    {
+      "city": "北京",
+      "source_2024_status": "SOURCE_HAS_ALL_THREE_NUMERICS",
+      "source_2025_status": "SOURCE_HAS_ALL_THREE_NUMERICS",
+      "PM25_2024_ugm3": 30.5,
+      "PM25_2025_ugm3": 27.0,
+      "PM25_change_2025_minus_2024": -3.5,
+      "O3_p90_2024_ugm3": 171,
+      "O3_p90_2025_ugm3": 159,
+      "O3_change_2025_minus_2024": -12,
+      "good_air_days_2024_pct": 79.2,
+      "good_air_days_2025_pct": 85.2,
+      "county_residential_exposure_verified": false,
+      "all_two_year_values_verified_live": true
+    },
+    {
+      "city": "上海",
+      "source_2024_status": "SOURCE_REQUIRES_INDEPENDENT_VALUE_INSPECTION",
+      "source_2025_status": "SOURCE_HAS_ALL_THREE_NUMERICS",
+      "PM25_2024_ugm3": 28.0,
+      "PM25_2025_ugm3": 26.3,
+      "PM25_change_2025_minus_2024": -1.7,
+      "O3_p90_2024_ugm3": 144,
+      "O3_p90_2025_ugm3": 159,
+      "O3_change_2025_minus_2024": 15,
+      "good_air_days_2024_pct": 88.5,
+      "good_air_days_2025_pct": 88.5,
+      "county_residential_exposure_verified": false,
+      "all_two_year_values_verified_live": false
+    }
+  ],
+  "cities_with_two_year_online_value_crosscheck": 1,
+  "provisional_counties_in_2025_Beijing_plus_Shanghai": 32,
+  "source_geography": "MUNICIPALITY_WIDE_ANNUAL_AIR_METRICS_ONLY",
+  "no_county_air_monitoring_claim": true,
+  "no_fatal_county_exclusions": true,
+  "formal_valid_county_screenings": 0,
+  "quality_note": "Shanghai 2025 O3 p90 rises while PM2.5 falls; avoid declaring comprehensive environmental health safety from PM2.5 alone. Beijing both move down. These comparisons are independent of county residential industrial/transport exposure."
+}
