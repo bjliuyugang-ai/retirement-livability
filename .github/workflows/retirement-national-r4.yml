@@ -1,0 +1,79 @@
+name: Retirement national R4 PM25 ozone industrial evidence cascade
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-national-r4.yml'
+jobs:
+  air-industry-cascade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 V1.6 unique R4 and R3 POSTCHECK
+        run: python research_engine/retirement/national_r45_state.py R4 precheck
+      - name: S3 real R4 public-city pollution and industrial evidence, no dwelling exposure inferred
+        run: |
+          python -m py_compile research_engine/retirement/national_r4_r5_source_steps.py research_engine/retirement/national_r45_state.py
+          python -u research_engine/retirement/national_r4_r5_source_steps.py R4
+      - name: S4-S5 preserve national 2847 input, only actual source subset
+        id: finalize
+        run: python research_engine/retirement/national_r45_state.py R4 finalize
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nationwide-R4-city-environment-context-2847-ledger
+          path: |
+            research_engine/retirement/output/national_r4_city_context*
+          retention-days: 30
+      - name: Push scoped R4 evidence and state with optimistic concurrency check
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl research_assets/retirement/CURRENT_STATE.md research_engine/retirement/status/national_r4_city_context_evidence.json research_engine/retirement/status/national_r4_city_context_batch.csv
+          git commit -m "Persist source-bound national R4 environment evidence for 2 provisional counties"
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          pre=json.load(open("research_engine/retirement/output/national_r4_city_context_precheck.json"))
+          remote=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]))
+          assert remote["state_revision"]==pre["source_rev"]
+          assert remote["current_state_ref"]["git_blob_sha"]==pre["current_blob"]
+          PY
+          git rebase origin/main
+          git push origin HEAD:main
+      - name: S6 independently verify remote R4 evidence, then handoff R5
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git fetch origin main
+          python research_engine/retirement/national_r45_state.py R4 postcheck
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
+          git commit -m "Confirm R4 V1.6 remote source hashes and R5 handoff"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          s=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]))
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R5-001"
+          assert s["national_parameter_rounds"]["R4"]["real_source_counties"]==2
+          print("R4_S6_PASS",s["national_parameter_rounds"]["R4"])
+          PY
