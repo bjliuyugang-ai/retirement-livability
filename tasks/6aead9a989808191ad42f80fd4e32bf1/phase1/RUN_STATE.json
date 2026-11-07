@@ -26,7 +26,7 @@
     "evidence_git_blob_sha": "04a8787b3513c67906f24f63cdb3505568da2b18",
     "water_monitoring_path": "research_engine/retirement/evidence/stage3_mengzi_2026_tapwater_16_site_observations_v1.json",
     "water_monitoring_git_blob_sha": "5acefdf43e70b88325d66b6e5d63b7a7040eedfc",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-STAGE3-FIRSTBATCH-001",
   "closed_result_refs": [
@@ -61,11 +61,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "2e7af3b4605632b2abd32bd20001cdc4f7a11c64",
+    "verified_at": "2026-11-07T00:29:55.142Z"
   },
-  "updated_at": "2026-11-07T00:29:31.178Z",
-  "state_revision": 24,
+  "updated_at": "2026-11-07T00:29:55.142Z",
+  "state_revision": 25,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
