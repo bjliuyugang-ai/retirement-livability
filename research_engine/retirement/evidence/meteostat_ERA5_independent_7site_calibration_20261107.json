@@ -1,0 +1,133 @@
+{
+  "schema": "RET_CN_METEOSTAT_ERA5_OBS_SOURCE_CROSSCHECK_V1",
+  "created_on": "2026-11-07",
+  "source": [
+    {
+      "path": "research_engine/retirement/status/meteostat_CN_1991_2020_station_candidate_normals.json",
+      "git_blob_sha": "d0f76363699050c0d997d83033a27448f33de088"
+    },
+    {
+      "path": "research_engine/retirement/status/national_r1_expanded_summary.json",
+      "git_blob_sha": "19d02a54de80751c40e9ede15c7f66b99d04955d"
+    },
+    {
+      "path": "research_engine/retirement/status/national_r1_first_real_batch_evidence.json",
+      "git_blob_sha": "ed5fa72b3c54c64ac074b1d42bb2eeb9a4754872"
+    },
+    {
+      "path": "research_engine/retirement/status/national_R1_NASA_custom_QUARANTINE_evidence.json",
+      "git_blob_sha": "dbc653e15cc761ee3f72b1702cf853a1efe3e95f"
+    }
+  ],
+  "station_normals_CN_candidate_total": 70,
+  "unique_historic_anchors_with_close_station": 10,
+  "stations_ER5_winter_daily_max_coevaluated": 7,
+  "observed_winter_mean_absolute_difference_c": 0.882,
+  "observed_winter_max_absolute_difference_c": 1.816,
+  "comparisons": [
+    {
+      "code": "460108",
+      "count_2025": "Haikou",
+      "station_id": "59758",
+      "station_distance_km": 0.75,
+      "station_winter_daily_max_c": 22.209,
+      "ERA5_winter_daily_max_c": 20.96,
+      "station_minus_ERA5_c": 1.249,
+      "station_location_within_current_county_verified": false
+    },
+    {
+      "code": "530102",
+      "count_2025": "Kunming",
+      "station_id": "56778",
+      "station_distance_km": 3.73,
+      "station_winter_daily_max_c": 16.904,
+      "ERA5_winter_daily_max_c": 16.665,
+      "station_minus_ERA5_c": 0.239,
+      "station_location_within_current_county_verified": false
+    },
+    {
+      "code": "350203",
+      "count_2025": "Xiamen",
+      "station_id": "59134",
+      "station_distance_km": 0.77,
+      "station_winter_daily_max_c": 18.487,
+      "ERA5_winter_daily_max_c": 18.93,
+      "station_minus_ERA5_c": -0.443,
+      "station_location_within_current_county_verified": false
+    },
+    {
+      "code": "532503",
+      "count_2025": "Mengzi",
+      "station_id": "56985",
+      "station_distance_km": 1.63,
+      "station_winter_daily_max_c": 19.66,
+      "ERA5_winter_daily_max_c": 17.844,
+      "station_minus_ERA5_c": 1.816,
+      "station_location_within_current_county_verified": false
+    },
+    {
+      "code": "450304",
+      "count_2025": "Guilin",
+      "station_id": "57957",
+      "station_distance_km": 7.11,
+      "station_winter_daily_max_c": 13.576,
+      "ERA5_winter_daily_max_c": 14.72,
+      "station_minus_ERA5_c": -1.144,
+      "station_location_within_current_county_verified": false
+    },
+    {
+      "code": "520115",
+      "count_2025": "Guiyang",
+      "station_id": "57816",
+      "station_distance_km": 11.37,
+      "station_winter_daily_max_c": 9.682,
+      "ERA5_winter_daily_max_c": 8.587,
+      "station_minus_ERA5_c": 1.095,
+      "station_location_within_current_county_verified": false
+    },
+    {
+      "code": "450103",
+      "count_2025": "Nanning",
+      "station_id": "59431",
+      "station_distance_km": 2.08,
+      "station_winter_daily_max_c": 18.459,
+      "ERA5_winter_daily_max_c": 18.649,
+      "station_minus_ERA5_c": -0.19,
+      "station_location_within_current_county_verified": false
+    }
+  ],
+  "remaining_three_without_ERA5": [
+    {
+      "county": "青云谱区",
+      "code": "360104",
+      "station": "58606",
+      "distance_km": 2.55,
+      "station_winter_daily_max_c": 11.078
+    },
+    {
+      "county": "宁乡市",
+      "code": "430182",
+      "station": "57687",
+      "distance_km": 51.32,
+      "station_winter_daily_max_c": 10.507
+    },
+    {
+      "county": "即墨区",
+      "code": "370215",
+      "station": "54857",
+      "distance_km": 49.05,
+      "station_winter_daily_max_c": 4.978
+    }
+  ],
+  "source_constraints": [
+    "Meteorological source metadata GHCND/CLIMAT/ISD filtered; station-based normal preliminary only, not official CMA 30-year station normal",
+    "Nearest station within 65km does not establish within-county boundary or residential microclimate",
+    "30-year candidate threshold is at least 300 months and at least 20 years per calendar month, not full 360-month observation",
+    "NASA custom climatology Tmax and Tmin QUARANTINED because same-year daily-vs-climatology mismatch",
+    "2026 official county code roster and mapping remain open"
+  ],
+  "official_national_2026_county_roster_verified": false,
+  "formal_valid_county_screenings": 0,
+  "no_county_eliminations_from_source_discrepancies": true,
+  "next_action": "Station-to-historic-boundary and official code crosswalk with local altitude exceptions; expand county R1 using actual stations then pass missing records forward"
+}
