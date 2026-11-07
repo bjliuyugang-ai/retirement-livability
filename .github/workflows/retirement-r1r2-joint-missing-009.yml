@@ -1,0 +1,106 @@
+name: Retirement national R1 R2 2847 real dual-evidence and missingness audit
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-r1r2-joint-missing-009.yml'
+jobs:
+  actual-2847-county-evidence-crossover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: V1.6 S0-S2 guard unique current R1R2 joint action and previous state
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          p="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          s=json.load(open(p))
+          assert s["state_revision"]==55
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R1R2-JOINT-MISSINGNESS-009"
+          assert s["last_completed_action_id"]=="RET-CASCADE-NATIONAL-R2-INTERIM-008"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["current_state_ref"]["git_blob_sha"]==subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          print("V16_JOINT_R1R2_UNIQUE_GATE_PASS",s["state_revision"])
+          PY
+      - name: Run 2847-row R1+R2 actual data provenance, quality tiers and four quadrants
+        run: |
+          python -m py_compile research_engine/retirement/national_R1R2_joint_missingness_009.py
+          python -u research_engine/retirement/national_R1R2_joint_missingness_009.py
+      - name: Assert 214 R1, 199 R2, no invented rating and fully conserved 2847
+        id: audit
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json
+          root="research_engine/retirement/output/"
+          d=json.load(open(root+"national_R1R2_joint_missingness_evidence.json"))
+          assert d["input_county_candidates"]==2847
+          assert d["R1_any_history_station_point_counties"]==214
+          assert d["R1_longer_history_partial_counties"]==87
+          assert d["R1_short_history_observation_only_counties"]==127
+          assert d["R2_any_history_precip_or_sun_point_counties"]==199
+          assert d["R2_longer_history_partial_counties"]==73
+          assert d["R2_short_history_observation_only_counties"]==126
+          assert sum(d["four_quadrant_real_counts"].values())==2847
+          assert d["formal_valid_county_screenings"]==d["formal_A_B_C_D_grades"]==d["confirmed_exclusions"]==0
+          assert d["no_2026_official_county_denominator_certified"] is True
+          for k,p in d["outputs"].items():
+            raw=open(root+p,"rb").read()
+            assert hashlib.sha256(raw).hexdigest()==d["output_sha256"][k]
+          with open(root+d["outputs"]["national_csv"],encoding="utf-8-sig") as f:
+            rows=list(csv.DictReader(f))
+          assert len(rows)==2847
+          assert all(r["R1R2_conclusion_and_exclusion"]=="INDETERMINATE_KEEP_ACTIVE_NO_FORMAL_GRADE" for r in rows)
+          assert sum(r["R1R2_joint_evidence_quadrant"]=="BOTH_PARTIAL" for r in rows)==d["dual_evidence_counties_count"]
+          print("JOINT_2847_R1R2_OBSERVED_SOURCE_INDEPENDENT_PASS",d["four_quadrant_real_counts"],d["independent_parameter_source_counts"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: national-R1-R2-2847-true-evidence-intersection-and-prioritized-gaps
+          path: |
+            research_engine/retirement/output/national_R1R2_joint_missingness_evidence.json
+            research_engine/retirement/output/national_R1R2_joint_2847_evidence_and_missingness.csv
+            research_engine/retirement/output/national_R1R2_both_evidence_first_candidate_review.csv
+            research_engine/retirement/output/national_R1R2_province_quality_coverage.csv
+          retention-days: 30
+      - name: Persist actual four quadrant results and independently verify remote SHA
+        if: steps.audit.outcome == 'success'
+        run: |
+          cp research_engine/retirement/output/national_R1R2_joint_missingness_evidence.json research_engine/retirement/status/national_R1R2_joint_missingness_evidence.json
+          cp research_engine/retirement/output/national_R1R2_joint_2847_evidence_and_missingness.csv research_engine/retirement/status/national_R1R2_joint_2847_evidence_and_missingness.csv
+          cp research_engine/retirement/output/national_R1R2_both_evidence_first_candidate_review.csv research_engine/retirement/status/national_R1R2_both_evidence_first_candidate_review.csv
+          cp research_engine/retirement/output/national_R1R2_province_quality_coverage.csv research_engine/retirement/status/national_R1R2_province_quality_coverage.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/national_R1R2_joint_missingness_evidence.json research_engine/retirement/status/national_R1R2_joint_2847_evidence_and_missingness.csv research_engine/retirement/status/national_R1R2_both_evidence_first_candidate_review.csv research_engine/retirement/status/national_R1R2_province_quality_coverage.csv
+          git commit -m "Persist 2847-county R1 R2 true observed evidence intersection, quality tier and missingness priority"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          root="research_engine/retirement/status/"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+root+"national_R1R2_joint_missingness_evidence.json"]))
+          for k,p in d["outputs"].items():
+            x=subprocess.check_output(["git","show","origin/main:"+root+p])
+            assert hashlib.sha256(x).hexdigest()==d["output_sha256"][k]
+          assert d["formal_valid_county_screenings"]==0
+          print("JOINT_R1R2_REMOTE_EVIDENCE_ALL_SHA_PASS",d["four_quadrant_real_counts"])
+          PY
