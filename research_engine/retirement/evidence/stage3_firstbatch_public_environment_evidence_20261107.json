@@ -1,0 +1,82 @@
+{
+  "schema": "RET_STAGE3_11POINT_PUBLIC_ENVIRONMENT_SOURCES_V1",
+  "verified_scope": "Publicly accessible government sources / reporting on official press conferences; NOT residential exposure measurements",
+  "first_batch_source": "research_engine/retirement/status/latest-first-batch-prescreen.json",
+  "stage3_preliminary_county_units": 4,
+  "formal_county_screenings": 0,
+  "units": [
+    {
+      "county": "云南省红河州蒙自市",
+      "candidate_code_unverified": "532503",
+      "environment_2025": {
+        "source": "https://www.hh.gov.cn/info/9301/1289782.htm",
+        "publisher": "红河州生态环境局",
+        "published": "2026-09-29",
+        "year": 2025,
+        "pm25_annual_city_ug_m3": 24.9,
+        "air_good_day_rate_conflicting_in_same_document": [
+          98.8,
+          99.2
+        ],
+        "air_rate_qa": "SOURCE_INTERNAL_DISCREPANCY_REQUIRES_TARGETED_CLARIFICATION",
+        "regional_centralized_drinking_water_source_pct_grade3_or_better": 100,
+        "water_scope": "州域县级及以上集中式饮用水水源地，不是住宅水龙头或末梢水",
+        "industrial_regional_qa": "州域综合产业源与重金属治理不能外推具体住宅污染"
+      },
+      "statistics_2025": {
+        "source": "https://www.hhmz.gov.cn/info/38531/665841.htm",
+        "year": 2025,
+        "annual_mean_temp_c": 17.5,
+        "annual_precip_mm": 1152,
+        "caution": "单年度全市口径不可替代1991-2020住宅片区气候常年值"
+      },
+      "status": "PARTIAL_PUBLIC_ENVIRONMENT_EVIDENCE_ONLY",
+      "unresolved": [
+        "蒙自坝区实际住宅位置及空气分站/季节臭氧",
+        "具体水厂出厂和管网末梢水",
+        "居住区与冶炼等污染源空间距离/风向",
+        "坡地/内涝/暴雨风险",
+        "1991-2020站点与ERA5差值",
+        "2026县级身份独立认证"
+      ]
+    },
+    {
+      "county": "四川省攀枝花市东区",
+      "candidate_code_unverified": "510402",
+      "city_air_2025": {
+        "source": "https://cbgc.scol.com.cn/news/7421854",
+        "published": "2026-03-26",
+        "reporting": "川观新闻对攀枝花市生态环境局新闻发布会报道",
+        "year": 2025,
+        "city_good_air_day_rate_pct": 98.9,
+        "scope_warning": "市域统计不等于东区某住宅片区的长期暴露"
+      },
+      "remediation_2026": {
+        "source": "https://jxj.panzhihua.gov.cn/zfxxgk/tzgg/10296534.shtml",
+        "published": "2026-06-10",
+        "issue_historical": "督察曾指出2023年空气改善不稳、工业污染和扬尘管理问题",
+        "latest": "2026年该项整改验收公示；不可宣称目前仍存在相同违法行为",
+        "scope_warning": "需核实居住区相对于工业源的位置与暴露路径，不是污染暴露实测"
+      },
+      "geohazard_notice_2026": {
+        "source": "https://www.panzhihua.gov.cn/zfxxgk1/fdzdgknr/zdmsxx/yjdt/ssqk/10289837.shtml",
+        "published": "2026-04-30",
+        "scope_warning": "官方发布地灾隐患点和高风险区附件，尚未逐住宅坐标核对"
+      },
+      "status": "PARTIAL_PUBLIC_ENVIRONMENT_EVIDENCE_ONLY",
+      "unresolved": [
+        "东区候选社区具体坐标与工业排口距离",
+        "PM2.5臭氧分站、季节性污染与风向",
+        "供水厂出厂/末梢水",
+        "2026地质隐患图与住宅坐标交叉核验",
+        "1991-2020站点气候与ERA5差值",
+        "2026县级身份独立认证"
+      ]
+    }
+  ],
+  "evidence_quality": "PUBLISHED_SOURCES_VERIFIED_BUT_SPATIAL_EXPOSURE_NOT_VERIFIED",
+  "candidate_priority_decision": "Prioritize Panzhihua Dong District and Mengzi basin local exposure QA; preserve Jinghong/Dali exceptions and pending status",
+  "frozen_conclusions_preserved": true,
+  "formal_grades_changed": false,
+  "note": "Do not replace Library Master or count new formal county screening from source-gathering increment."
+}
