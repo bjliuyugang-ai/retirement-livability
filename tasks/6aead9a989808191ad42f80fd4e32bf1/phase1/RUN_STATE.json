@@ -12,27 +12,21 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "cc9f7945305adebe4f51e4d572cdd65097f1f22a"
+    "git_blob_sha": "db0665b9cd6bd803dbb81c491e34ebd924aeeed6"
   },
   "last_verified_run": {
-    "run_id": "MANUAL-2025-2026-NATIONAL-ADCODE-DELTA-20261107-006",
-    "action_id": "RET-CASCADE-NATIONAL-OFFICIAL-CODE-RECON-005",
-    "result_id": "RES-2025-2845_PLUS2026TWO-2838_GEOCODE_MATCH_7MISSING-20261107",
+    "run_id": "MANUAL-NINE-COUNTY-GEOM-SOURCE-QA-20261107-007",
+    "action_id": "RET-CASCADE-NATIONAL-GEOMETRY-HOLES-006",
+    "result_id": "RES-NINE-COUNTY-DATAV-STRICT_CODE_NAME_0_VALID-20261107",
     "execution_status": "EXECUTED",
-    "engineering_status": "PASS_WITH_OFFICIAL_API_BLOCKER",
-    "research_delta_status": "DELTA_VERIFIED_2025_ROSTER_2026_NEW_ESTABLISHMENTS_AND_GIS_GAPS",
+    "engineering_status": "PASS_VALIDATION_BLOCKED_SOURCE",
+    "research_delta_status": "DELTA_VERIFIED_SOURCE_QA_9_MISSING_GEOMETRIES_AND_460302_FALSE_POSITIVE",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/national_2025_roster_vs_2891_coded_geometry_evidence.json",
-    "evidence_git_blob_sha": "61c8d67c50caff9a623ca14be3bc7730cc45458e",
-    "diff_path": "research_engine/retirement/status/national_2025_roster_vs_2891_coded_geometry_diff.csv",
-    "diff_git_blob_sha": "253203336263ba870e8e7de054f9e70d9f95484e",
-    "classification_path": "research_engine/retirement/evidence/national_county_geometry_diff_53_classified_20261107.json",
-    "classification_git_blob_sha": "15d824588a0fb100c28b1d398c8390083b402716",
-    "official_access_error_path": "research_engine/retirement/status/mca_official_api_real_access_QA.json",
-    "official_access_error_git_blob_sha": "4701c1787fbcb898b0079fa976bfdfc526b0b6cd",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/status/nine_missing_county_geoatlas_actual_requests.json",
+    "evidence_git_blob_sha": "2d03205cee8b55adcda1cca031442c4d813bb8a6",
+    "status": "AWAITING_POSTCHECK"
   },
-  "last_completed_action_id": "RET-CASCADE-NATIONAL-OFFICIAL-CODE-RECON-005",
+  "last_completed_action_id": "RET-CASCADE-NATIONAL-GEOMETRY-HOLES-006",
   "closed_result_refs": [
     "RES-CLIMATE-12POINT-20261106",
     "RES-SPATIAL-ENGINEERING-42244926780",
@@ -55,20 +49,21 @@
     "RES-METEOSTAT-CN-70-STATION-NORMALS-7-ERA5-CROSSCHECK-20261107",
     "RES-CN-70STATIONS-69CODE-65NEW_R1-20261107",
     "RES-CN-69-R2-STATIONS-61NEW_PARTIAL-20261107",
-    "RES-2025-2845_PLUS2026TWO-2838_GEOCODE_MATCH_7MISSING-20261107"
+    "RES-2025-2845_PLUS2026TWO-2838_GEOCODE_MATCH_7MISSING-20261107",
+    "RES-NINE-COUNTY-DATAV-STRICT_CODE_NAME_0_VALID-20261107"
   ],
   "active_action": {
-    "action_id": "RET-CASCADE-NATIONAL-GEOMETRY-HOLES-006",
-    "question_id": "Q_2025_2026_MISSING_CODED_COUNTY_BOUNDARIES",
-    "decision": "优先对2025年末7个无对应县界的县级代码及2026两处新设县级单位逐项测试现行带码地图和公开政府地理边界，核实代码、位置、坐标系、边界与行政变更，不因无地图排除任何候选",
-    "method": "实际请求DataV GeoAtlas每县编号轮廓及上级市含县界GeoJSON；失败则切换可信政府地理地图/公开GIS，逐条记录HTTP错误、内容SHA、真实几何和现行县码，特别注意两江新区及2026两新县边界尚未更新问题",
-    "expected_evidence": "9处真实检索/获取明细、可恢复县界数量、每处缺失/版本错误原因、研究全量县级底盘保留证据",
-    "pass_criteria": "形成逐项真实获取结果与最少一个可复现有效边界或可核实的源级阻碍；不伪造2026正式地图",
-    "fallback": "若接口无有效数据，保留9县待核，转官方GIS手工来源和法定公告中边界信息，不能以旧界冒充新行政区",
+    "action_id": "RET-CASCADE-NATIONAL-CLIMATE-COVERAGE-SCALE-007",
+    "question_id": "Q_EXPAND_1991_2020_VALID_COUNTY_POINT_CLIMATE_COVERAGE_BEYOND_87_73",
+    "decision": "不继续重复未解决的9处历史/新设县界接口；重点扩大全国2760个R1无气温点位数据与2774个R2无降雨日照点位数据的真实有效来源覆盖，先用另一批可验证来源和坐标完成实测增量，再按同样2025代码县界交叉关联",
+    "method": "优先评估现有已下载的257个中国站、226个来源可核的站点但不足30年的实测月份与独立可信日值API；在不放宽1991—2020和不做正式评级的前提下分层（30年观测、非完整历史待核、模型探索），避免NASA MAXAVG聚合错误及OpenMeteo HTTP429。必须按具体新增县区ID、真实气象源、月份/样本、县界空间代表性保留证据",
+    "expected_evidence": "增加可复算、可追溯的新增R1或R2有真实气象数据县域；全国候选数=2847守恒，所有取不到数据待核并明确阻碍与来源替代",
+    "pass_criteria": "本轮至少一条可重复真实气象数据新增或明确新数据源阻断证据并切换，不以找到接口、安装包或空搜索算研发进展；只有合格的观测窗口才归入长基期站点",
+    "fallback": "官方数据集/批量API访问失败或数据源口径不符，则切换明确许可的观测数据批量归档，不将NASA错误常年值计入有效R1",
     "status": "READY",
     "timebox_end": "2026-11-08T15:26:00Z"
   },
-  "phase": "NATIONAL_NINE_MISSING_COUNTY_GEOMETRIES_ASSAULT",
+  "phase": "NATIONAL_R1_R2_TRUE_CLIMATE_COVERAGE_EXPANSION",
   "milestone_deadline": {
     "time_zone": "Asia/Shanghai",
     "checkpoint_24h": "2026-11-07T23:26:00+08:00",
@@ -77,12 +72,11 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "9c624d380a0e01f6270541b2572294deddae36ea",
-    "verified_at": "2026-11-07T01:59:11.473Z"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-07T01:59:11.473Z",
-  "state_revision": 49,
+  "updated_at": "2026-11-07T02:03:51.635Z",
+  "state_revision": 50,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -269,5 +263,19 @@
     "formal_valid_county_screenings": 0,
     "report_path": "research_engine/retirement/status/national_2025_roster_vs_2891_coded_geometry_evidence.json",
     "diff_path": "research_engine/retirement/status/national_2025_roster_vs_2891_coded_geometry_diff.csv"
+  },
+  "geometry_source_repair": {
+    "missing_2025": 7,
+    "new_2026": 2,
+    "total": 9,
+    "actual_strict_source_recovered": 0,
+    "unresolved": 9,
+    "falsepositive_detected_code": "460302",
+    "falsepositive_response_name": "南沙区",
+    "expected_name": "西沙区",
+    "official_2026_boundary_certified_count": 0,
+    "evidence_path": "research_engine/retirement/status/nine_missing_county_geoatlas_actual_requests.json",
+    "source_blob_sha": "2d03205cee8b55adcda1cca031442c4d813bb8a6",
+    "source_status": "BLOCKED_WITH_DOCUMENTED_SOURCE_ERRORS"
   }
 }
