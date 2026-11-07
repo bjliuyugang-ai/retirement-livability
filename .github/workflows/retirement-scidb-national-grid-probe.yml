@@ -1,4 +1,4 @@
-name: Retirement national 1km climate grid ScienceDB real access probe
+name: Retirement national 1km climate grid ScienceDB real download and raster QA
 on:
   push:
     branches: [main]
@@ -9,7 +9,7 @@ on:
 jobs:
   scidb-source-probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 35
     concurrency:
       group: retirement-phase1-state-single-writer
       cancel-in-progress: false
@@ -26,23 +26,24 @@ jobs:
         run: |
           python - <<'PY'
           import json
-          p="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
-          s=json.load(open(p,encoding="utf-8"))
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json",encoding="utf-8"))
           assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R1_R2_30YEAR_GRID_SCALE-017"
           assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
           print("CURRENT_ACTION_GATE_PASS",s["state_revision"],s["active_action"]["action_id"])
           PY
-      - name: Test ScienceDB API and discover exact version/file tree
-        id: probe
+      - name: Install GeoTIFF inspection dependency
+        run: python -m pip install --disable-pip-version-check rasterio numpy
+      - name: Download actual historical 1km Tmax and sunshine-percent GeoTIFF archives
+        id: download
         continue-on-error: true
         run: python -u research_engine/retirement/scidb_national_grid_probe.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: scidb-national-1km-climate-source-probe
+          name: scidb-national-1km-historical-raster-download-qa
           path: research_engine/retirement/output/scidb_national_grid_probe.json
           retention-days: 30
-      - name: Persist exact API response and errors for audit
+      - name: Persist actual download hashes, raster metadata, and failures
         if: always()
         run: |
           mkdir -p research_engine/retirement/status
@@ -55,7 +56,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add research_engine/retirement/status/scidb_national_grid_probe.json
           if ! git diff --cached --quiet; then
-            git commit -m "Record real ScienceDB national 1km climate data access probe"
+            git commit -m "Record ScienceDB national 1km historical climate raster download and QA"
             for i in 1 2 3; do
               git fetch origin main
               git rebase origin/main
@@ -64,14 +65,15 @@ jobs:
               sleep 2
             done
           fi
-      - name: Report probe result without claiming county screening
+      - name: Summarize result and preserve no-screening guard
         if: always()
         run: |
           python - <<'PY'
-          import json, pathlib
-          p=pathlib.Path("research_engine/retirement/status/scidb_national_grid_probe.json")
-          d=json.loads(p.read_text())
-          print("SCIDB_PROBE_STATUS",d.get("status"))
+          import json
+          d=json.load(open("research_engine/retirement/status/scidb_national_grid_probe.json"))
+          print("SOURCE_RASTER_STATUS",d.get("status"))
           print("FORMAL_VALID_COUNTY_SCREENINGS",d.get("formal_valid_county_screenings",0))
           print("COUNTY_EXCLUSIONS",d.get("county_exclusions",0))
+          for k,v in d.get("files",{}).items():
+            print(k,v.get("bytes"),v.get("geotiff_bytes"),v.get("geotiff_member"),v.get("error"))
           PY
