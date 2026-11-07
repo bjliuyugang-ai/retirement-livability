@@ -9,7 +9,7 @@ cases=[
   "url":"https://www.mee.gov.cn/ywdt/xwfb/202501/t20250124_1101318.shtml","publisher":"生态环境部"},
  {"city":"北京","year":2025,"pm25":27.0,"o3_p90":159,"good_pct":85.2,
   "url":"https://www.mee.gov.cn/ywdt/xwfb/202601/t20260128_1142783.shtml","publisher":"生态环境部"},
- {"city":"上海","year":2024,"pm25":28.0,"o3_p90":144,"good_pct":88.5,
+ {"city":"上海","year":2024,"pm25":28,"o3_p90":144,"good_pct":88.5,
   "url":"https://tjj.sh.gov.cn/tjgb/20250324/a7fe18c6d5c24d66bfca89c5bb4cdcfb.html","publisher":"上海市统计局"},
  {"city":"上海","year":2025,"pm25":26.3,"o3_p90":159,"good_pct":88.5,
   "url":"https://tjj.sh.gov.cn/tjgb/20260330/e0772941e8e041eaaad2df850b44ef98.html","publisher":"上海市统计局"}]
