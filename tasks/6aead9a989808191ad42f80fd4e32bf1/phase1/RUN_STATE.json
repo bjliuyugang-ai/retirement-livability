@@ -12,21 +12,23 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "25e740f0f4d0b0dbcc6dc986a78c13f2163d787b"
+    "git_blob_sha": "c91ae992aae5da20abc271df588de9fbba7ec3dc"
   },
   "last_verified_run": {
-    "run_id": "MANUAL-STAGE3-RESIDENTIAL-ANCHORS-20261107-002",
-    "action_id": "RET-STAGE3-EVIDENCE-GAPS-002",
-    "result_id": "RES-STAGE3-2026-MENGZI-TAP-AND-ANCHOR-20261107-002",
+    "run_id": "MANUAL-CASCADE-METHOD-20261107-001",
+    "action_id": "RET-CASCADE-METHOD-ADOPTION-001",
+    "result_id": "RES-CASCADE-R1R5-4COUNTY-AND-R0-2847-20261107",
     "execution_status": "EXECUTED",
     "engineering_status": "PASS",
-    "research_delta_status": "PARTIAL_DELTA_VERIFIED",
+    "research_delta_status": "METHOD_AND_PROVISIONAL_ROSTER_DELTA_VERIFIED",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/stage3_firstbatch_residential_anchor_audit_v1.json",
-    "evidence_git_blob_sha": "04a8787b3513c67906f24f63cdb3505568da2b18",
-    "water_monitoring_path": "research_engine/retirement/evidence/stage3_mengzi_2026_tapwater_16_site_observations_v1.json",
-    "water_monitoring_git_blob_sha": "5acefdf43e70b88325d66b6e5d63b7a7040eedfc",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/status/staged_parameter_cascade_v1.json",
+    "evidence_git_blob_sha": "1028f3dc94079765fb7066c6f5bc220c91cb3772",
+    "national_r0_path": "research_engine/retirement/status/national_cascade_r0_summary.json",
+    "national_r0_git_blob_sha": "407557a30eb22d4477f6e64614663cefbc286d2b",
+    "method_path": "research_assets/retirement/STAGED_PARAMETER_CASCADE_V1.0_20261107.md",
+    "method_git_blob_sha": "72f37744723ca00686d27d43cc9f51a7e8ef9735",
+    "status": "AWAITING_POSTCHECK"
   },
   "last_completed_action_id": "RET-STAGE3-FIRSTBATCH-001",
   "closed_result_refs": [
@@ -39,20 +41,22 @@
     "RES-SPATIAL-MULTIGRID-002-42317042892",
     "RES-STAGE3-11POINT-FIRSTBATCH-42317771144",
     "RES-STAGE3-ENVIRONMENT-EVIDENCE-20261107",
-    "RES-STAGE3-2026-MENGZI-TAP-AND-ANCHOR-20261107-002"
+    "RES-STAGE3-2026-MENGZI-TAP-AND-ANCHOR-20261107-002",
+    "RES-CASCADE-R1R5-4COUNTY-AND-R0-2847-20261107"
   ],
   "active_action": {
-    "action_id": "RET-STAGE3-EVIDENCE-GAPS-002",
-    "question_id": "Q-FIRST-VALID-COUNTY-SCREEN",
-    "decision": "从4县域11点初筛真实结果出发，逐项核验最有希望的候选住宅片区及其空气、水、污染和地灾底线，判断有无首批正式有效县级广筛",
-    "method": "先用本轮11点的候选区位分层缩小范围；核对现行官方代码、独立气候站、住宅海拔、空气/饮水/污染/灾害，缺口逐项待核",
-    "expected_evidence": "已冻结的4县域初筛结果、具体居住片区的来源与质量差集、第一批达标或待核判定",
-    "pass_criteria": "真实住宅片区与正式质量底线全项合格才允许计入有效县级广筛；不足留待核",
-    "fallback": "不拿ERA5代替站点、不将县域海拔最高值作为全县淘汰，不改变原20片区暂定分级",
+    "action_id": "RET-CASCADE-NATIONAL-R1-001",
+    "question_id": "Q-NATIONAL-FIRST_PARAMETER_FILTER",
+    "decision": "对2026临时2847县级工作底盘按冬夏温度参数开展可重复的R1筛选，缺失、证据冲突与偏好偏离全部留存下一轮；仅批准的、证据充分且例外核验完整的严重不适配才在本轮确证淘汰",
+    "method": "使用已封存11点与其他可溯源多年度气候事实做R1真实增量，逐县保存参数值、原始来源、统计期、空间范围、证据质量、暂留或确证退出；先覆盖现有资料，再按地理分组批量扩展，禁止单点停滞",
+    "expected_evidence": "可复现全国R0队列到R1逐参数表、输出输入数量对账、逐轮确认退出清单与待核清单、实际新增有效证据记录",
+    "pass_criteria": "本轮真实气温证据核查取得可量化广筛增量并写入可复现队列；R1未扫描与R1已扫描缺失必须分开，不能把临时名册当有效全国广筛",
+    "fallback": "气温来源失败或限流采用已有同口径历史证据，不阻塞其他行政区；不因单一ERA5格点或偏好阈值自动淘汰",
     "status": "READY",
+    "research_standard": "V1.2 + V1.3, plus incremental R1-R5 execution overlay",
     "timebox_end": "2026-11-08T15:26:00Z"
   },
-  "phase": "STAGE3_FIRST_BATCH_SCREENING_VALIDATION",
+  "phase": "STAGED_PARAMETER_NATIONWIDE_CASCADE",
   "milestone_deadline": {
     "time_zone": "Asia/Shanghai",
     "checkpoint_24h": "2026-11-07T23:26:00+08:00",
@@ -61,12 +65,11 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "2e7af3b4605632b2abd32bd20001cdc4f7a11c64",
-    "verified_at": "2026-11-07T00:29:55.142Z"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-07T00:29:55.142Z",
-  "state_revision": 25,
+  "updated_at": "2026-11-07T00:44:22.687Z",
+  "state_revision": 26,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -81,6 +84,13 @@
       "reason": "11 preliminary data points sufficient to test first-batch screening; unresolved CMA/official-code checks retained as formal blockers",
       "deferred_at": "2026-11-07T00:22:01.128598+00:00",
       "may_revisit_for_formal_grade": true
+    },
+    {
+      "action_id": "RET-STAGE3-EVIDENCE-GAPS-002",
+      "status": "DEFERRED_BY_EXPLICIT_USER_METHOD_CHANGE",
+      "deferred_at": "2026-11-07T00:44:22.687Z",
+      "reason": "Switch from full multi-parameter evidence collection per small site to sequential R1-R5 across broad national candidate pool; all historical site evidence retained",
+      "may_revisit_for_final_formal_grades": true
     }
   ],
   "stage3_evidence_gap_progress": {
@@ -106,5 +116,16 @@
       "地灾风险区及洪涝叠加"
     ],
     "recommended_target": "严格限于已列3个具体居住地点做GIS及风险证据对账，禁止再次泛搜全市"
+  },
+  "method_overlay": {
+    "path": "research_assets/retirement/STAGED_PARAMETER_CASCADE_V1.0_20261107.md",
+    "git_blob_sha": "72f37744723ca00686d27d43cc9f51a7e8ef9735",
+    "status": "USER_DIRECTED_OPERATIONAL_METHOD_WITH_ALL_FORMAL_GRADE_CONSTRAINTS_INHERITED",
+    "activated_at": "2026-11-07T00:44:22.687Z",
+    "prototype_path": "research_engine/retirement/status/staged_parameter_cascade_v1.json",
+    "provisional_r0_path": "research_engine/retirement/status/national_cascade_r0_summary.json",
+    "provisional_r0_candidates": 2847,
+    "valid_county_screenings": 0,
+    "quality_guard": "Missing!=failed; preferred target!=hard exclusion; county cannot be eliminated without local exception proof"
   }
 }
