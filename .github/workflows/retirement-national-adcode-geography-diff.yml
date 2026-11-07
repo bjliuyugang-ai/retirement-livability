@@ -41,7 +41,9 @@ jobs:
           import hashlib,json,csv
           b="research_engine/retirement/output/"
           d=json.load(open(b+"national_2025_roster_vs_2891_coded_geometry_evidence.json"))
-          assert d["historical_2025_non00_county_code_count"]==2847
+          assert d["historical_2025_non00_county_code_count"]==2845
+          assert d["provisional_R0_2026_supplemented_county_candidates"]==2847
+          assert sorted(x["code"] for x in d["new_2026_establishment_counties_in_provisional_R0"])==["653132","659013"]
           assert d["coded_geometry_feature_count"]==2891
           assert d["mapped_station_codes_consistent_with_2025_history"]==69
           assert d["actual_2026_official_live_roster_verified"] is False
