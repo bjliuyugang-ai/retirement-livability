@@ -1,0 +1,99 @@
+name: Retirement R3 actual station and Copernicus DEM altitudes for 205 county sites
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-R3-205-station-dem-altitude.yml'
+jobs:
+  R3-real-geometry-altitudes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 verify V1.6 unique R3 source action
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["state_revision"]==59
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R3-STATION-ALTITUDE-011"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["current_state_ref"]["git_blob_sha"]==subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          PY
+      - name: S3 combine actual point station altitude and 36 independent DEM samples, no synthetic geodata
+        run: |
+          python -m py_compile research_engine/retirement/national_R3_205_real_station_dem_altitude.py
+          python -u research_engine/retirement/national_R3_205_real_station_dem_altitude.py
+      - name: Validate 205 unique countries with real points, 2847 preserved, no official grade
+        id: qa
+        run: |
+          python - <<'PY'
+          import csv,json,hashlib
+          p="research_engine/retirement/output/"
+          d=json.load(open(p+"national_R3_205_station_dem_altitude_source_evidence.json"))
+          assert d["accepted_station_points"]==201
+          assert d["station_altitude_counties"]==198
+          assert d["DEM_3sample_counties"]==12
+          assert d["DEM_total_sample_points"]==36
+          assert d["overlap_station_and_DEM_counties"]==5
+          assert d["total_R3_partial_point_evidence_counties"]==205
+          assert d["R3_completely_unmeasured_counties"]==2642
+          assert d["all_carry_forward"]==2847
+          assert d["formal_valid_county_screenings"]==0 and d["confirmed_exclusions"]==0
+          for filename,key in [("national_R3_205_station_dem_altitude_partial_2847.csv","output_national_csv_sha256"),("national_R3_205_station_dem_point_evidence.csv","output_station_DEM_csv_sha256")]:
+            assert hashlib.sha256(open(p+filename,"rb").read()).hexdigest()==d[key]
+          with open(p+"national_R3_205_station_dem_altitude_partial_2847.csv",encoding="utf-8-sig") as f:
+            rows=list(csv.DictReader(f))
+          assert len(rows)==2847 and sum(x["R3_status"]!="NOT_SCREENED" for x in rows)==205
+          assert all(not x["confirmed_exit_round"] for x in rows)
+          assert all(x["R3_residential_altitude_verified"]=="FALSE" for x in rows if x["R3_status"]!="NOT_SCREENED")
+          print("R3_205_ALTITUDE_STATION_DEM_AUDIT_PASS",d["source_class_counts"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: national-R3-201-stations-36-real-DEM-points-205-county-partial-altitude
+          path: |
+            research_engine/retirement/output/national_R3_205_station_dem_altitude_source_evidence.json
+            research_engine/retirement/output/national_R3_205_station_dem_altitude_partial_2847.csv
+            research_engine/retirement/output/national_R3_205_station_dem_point_evidence.csv
+          retention-days: 30
+      - name: Persist actual R3 station/DEM proof and independently verify source sha
+        if: steps.qa.outcome == 'success'
+        run: |
+          cp research_engine/retirement/output/national_R3_205_station_dem_altitude_source_evidence.json research_engine/retirement/status/national_R3_205_station_dem_altitude_source_evidence.json
+          cp research_engine/retirement/output/national_R3_205_station_dem_altitude_partial_2847.csv research_engine/retirement/status/national_R3_205_station_dem_altitude_partial_2847.csv
+          cp research_engine/retirement/output/national_R3_205_station_dem_point_evidence.csv research_engine/retirement/status/national_R3_205_station_dem_point_evidence.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/national_R3_205_station_dem_altitude_source_evidence.json research_engine/retirement/status/national_R3_205_station_dem_altitude_partial_2847.csv research_engine/retirement/status/national_R3_205_station_dem_point_evidence.csv
+          git commit -m "Archive real station metadata 201 altitudes plus 36 Copernicus DEM sampled points across 205 candidate counties"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          root="research_engine/retirement/status/"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+root+"national_R3_205_station_dem_altitude_source_evidence.json"]))
+          for path,key in [("national_R3_205_station_dem_altitude_partial_2847.csv","output_national_csv_sha256"),("national_R3_205_station_dem_point_evidence.csv","output_station_DEM_csv_sha256")]:
+            raw=subprocess.check_output(["git","show","origin/main:"+root+path])
+            assert hashlib.sha256(raw).hexdigest()==d[key]
+          assert d["formal_valid_county_screenings"]==0
+          print("R3_REAL_ALTITUDE_REMOTE_SHA_PASS",d["total_R3_partial_point_evidence_counties"])
+          PY
