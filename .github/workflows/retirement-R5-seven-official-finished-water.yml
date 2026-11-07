@@ -1,0 +1,94 @@
+name: Retirement R5 real 2025 7 county government tap and treated water evidence
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-R5-seven-official-finished-water.yml'
+jobs:
+  verify-local-government-water-reports:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 assert current R5 finished household tap action
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R5_TAP_WATER_ENDPOINT-015"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["current_state_ref"]["git_blob_sha"]==subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          print("V16_FINISHED_WATER_ACTION_PREFLIGHT_PASS",s["state_revision"])
+          PY
+      - name: Install official HTML/PDF source extractors
+        run: python -m pip -q install pymupdf beautifulsoup4 lxml
+      - name: S3 actually read seven county source documents 2025 and country-level 2847 join
+        id: evidence
+        run: |
+          python -m py_compile research_engine/retirement/R5_2025_7official_county_finished_tap_plant_sourceQA.py
+          python -u research_engine/retirement/R5_2025_7official_county_finished_tap_plant_sourceQA.py
+      - name: S4 verify source matching, full 2847 ledger and no premature water grade
+        id: audit
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json
+          root="research_engine/retirement/output/"
+          d=json.load(open(root+"R5_2025_crossprovince_7counties_finished_tap_plant_source_evidence.json"))
+          assert d["sources_attempted"]==7
+          assert d["source_count_validated"]>=2
+          assert d["new_R5_counties_with_finished_water_sample_evidence"]>=1
+          assert d["all_source_or_finished_partial_county_evidence_after"]==57+d["new_R5_counties_with_finished_water_sample_evidence"]
+          assert d["formal_valid_county_screenings"]==0 and d["confirmed_exclusions"]==0
+          b=open(root+"national_R5_2025_7district_finished_water_source_partial_2847.csv","rb").read()
+          assert hashlib.sha256(b).hexdigest()==d["national_output_csv_sha256"]
+          rows=list(csv.DictReader(open(root+"national_R5_2025_7district_finished_water_source_partial_2847.csv",encoding="utf-8-sig")))
+          assert len(rows)==2847 and len(set(x["candidate_code"] for x in rows))==2847
+          assert sum(x["R5_status"]!="NOT_SCREENED" for x in rows)==d["all_source_or_finished_partial_county_evidence_after"]
+          assert all(x["confirmed_exit_round"]=="" for x in rows)
+          print("OFFICIAL_CROSS_PROVINCE_FINISHED_TAP_R5_PARTIAL_QA_PASS",d["source_count_validated"],d["new_R5_counties_with_finished_water_sample_evidence"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: real-2025-seven-official-counties-tap-rural-household-factory-sources
+          path: |
+            research_engine/retirement/output/R5_2025_crossprovince_7counties_finished_tap_plant_source_evidence.json
+            research_engine/retirement/output/national_R5_2025_7district_finished_water_source_partial_2847.csv
+          retention-days: 30
+      - name: S5-S6 record source verification and remote 2847 SHA postcheck
+        if: steps.audit.outcome == 'success'
+        run: |
+          cp research_engine/retirement/output/R5_2025_crossprovince_7counties_finished_tap_plant_source_evidence.json research_engine/retirement/status/R5_2025_crossprovince_7counties_finished_tap_plant_source_evidence.json
+          cp research_engine/retirement/output/national_R5_2025_7district_finished_water_source_partial_2847.csv research_engine/retirement/status/national_R5_2025_7district_finished_water_source_partial_2847.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/R5_2025_crossprovince_7counties_finished_tap_plant_source_evidence.json research_engine/retirement/status/national_R5_2025_7district_finished_water_source_partial_2847.csv
+          git commit -m "Archive 2025 county household tap and finished water source QA across seven Chinese counties; preserve separate Fujian raw intake evidence"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          root="research_engine/retirement/status/"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+root+"R5_2025_crossprovince_7counties_finished_tap_plant_source_evidence.json"]))
+          b=subprocess.check_output(["git","show","origin/main:"+root+"national_R5_2025_7district_finished_water_source_partial_2847.csv"])
+          assert hashlib.sha256(b).hexdigest()==d["national_output_csv_sha256"]
+          assert d["formal_valid_county_screenings"]==0
+          print("R5_FINISHED_TAP_SOURCE_REMOTE_SHA_PASS",d["new_R5_counties_with_finished_water_sample_evidence"])
+          PY
