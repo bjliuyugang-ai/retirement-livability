@@ -1,0 +1,90 @@
+name: Retirement nationwide R1 real temperature first 12 county-point batch
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-national-r1-real.yml'
+jobs:
+  r1-batch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 precheck unique R1 action with remote-state reference
+        id: precheck
+        run: python research_engine/retirement/national_r1_state.py precheck
+      - name: Download archived 12 real 1991-2020 ERA5 daily point files
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p research_engine/retirement/output/archived_climate_42245826626
+          gh run download 42245826626 --repo "${GITHUB_REPOSITORY}" \
+            --name retirement-climate-pilot-output \
+            --dir research_engine/retirement/output/archived_climate_42245826626
+          ls -lh research_engine/retirement/output/archived_climate_42245826626 | head -24
+      - name: S3 compute actual winter summer extremes in archived 12 historical county points
+        id: assay
+        run: |
+          python -m py_compile research_engine/retirement/national_r1_real_batch.py research_engine/retirement/national_r1_state.py
+          python -u research_engine/retirement/national_r1_real_batch.py
+      - name: S4-S5 verify 2847 equals 12 plus 2835 and write back national R1 evidence
+        id: finalize
+        run: python research_engine/retirement/national_r1_state.py finalize
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nationwide-R1-real-ERA5-12-county-batch
+          path: |
+            research_engine/retirement/output/national_r1_first_real_batch*
+          retention-days: 30
+      - name: Persist national R1 ledger with race-safe input revision check
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl research_assets/retirement/CURRENT_STATE.md research_engine/retirement/status/national_r1_first_real_batch_evidence.json research_engine/retirement/status/national_r1_first_real_batch.csv
+          git diff --cached --quiet && exit 2 || true
+          git commit -m "Archive nationwide R1 first 12 real point measurements and 2847-unit carry-forward"
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          pre=json.load(open("research_engine/retirement/output/national_r1_precheck.json"))
+          s=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]))
+          assert s["state_revision"]==pre["source_revision"],"CAS_R1_STATE_CONFLICT"
+          assert s["current_state_ref"]["git_blob_sha"]==pre["source_current_blob"],"CAS_R1_CURRENT_CONFLICT"
+          PY
+          git rebase origin/main
+          git push origin HEAD:main
+      - name: S6 verify independent remote evidence SHA and handoff
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git fetch origin main
+          python research_engine/retirement/national_r1_state.py postcheck
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
+          git commit -m "Verify S6 national R1 12-point data handoff"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          p="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          s=json.loads(subprocess.check_output(["git","show","origin/main:"+p]))
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["last_verified_run"]["action_id"]=="RET-CASCADE-NATIONAL-R1-001"
+          assert s["r1_nationwide_progress"]["R1_point_data_counties"]==12
+          assert s["r1_nationwide_progress"]["R1_unscanned_counties"]==2835
+          print("R1_REMOTE_S6_PASS",s["r1_nationwide_progress"])
+          PY
