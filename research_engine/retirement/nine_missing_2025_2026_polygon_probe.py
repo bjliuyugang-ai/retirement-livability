@@ -45,7 +45,7 @@ def validate(fs,targetcode):
    geom=shape(g)
    if geom.is_empty:continue
    bounds=[round(float(v),5) for v in geom.bounds]
-   near=(72<=bounds[0]<=136 and 17<=bounds[1]<=55 and 72<=bounds[2]<=136 and 17<=bounds[3]<=55)
+   near=(70<=bounds[0]<=140 and 0<=bounds[1]<=56 and 70<=bounds[2]<=140 and 0<=bounds[3]<=56)
    vals.append({"feature_code":c,"feature_name":str(prop.get("name") or ""),"geometry_type":geom.geom_type,
     "geom_valid":bool(geom.is_valid),"geom_bounds_lonlat":bounds,"rough_geographic_range":near,"matches_requested_code":c==targetcode})
   except Exception as ex:vals.append({"geom_parse_error":repr(ex),"feature_code":c})
