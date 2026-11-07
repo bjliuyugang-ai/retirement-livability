@@ -1,0 +1,245 @@
+{
+  "schema": "NASA_REGIONAL_1991_2020_FEATURE_INSPECTION_V1",
+  "at_utc": "2026-11-07T01:10:35.876606+00:00",
+  "source_artifact_run": "42322382752",
+  "source_archive": "independent-custom-climate-and-bulk-source-probe",
+  "region_raw_sha256": "2333083716df0e9988f61c99bb6aa00c575da6b4fc85192d10605c05ef5bdd64",
+  "point_raw_sha256": "6eb7c6e25f9921dd034ca2295c699eb35d89c543502893c83f4153293cab4126",
+  "feature_count": 15,
+  "top_level_keys": [
+    "features",
+    "header",
+    "messages",
+    "parameters",
+    "times",
+    "type"
+  ],
+  "regional_header": {
+    "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
+    "api": {
+      "version": "v2.10.1",
+      "name": "POWER Climatology API"
+    },
+    "sources": [
+      "MERRA2",
+      "POWER"
+    ],
+    "fill_value": -999.0,
+    "time_standard": "LST",
+    "start": "20010101",
+    "end": "20251231"
+  },
+  "regional_parameters": {
+    "T2M_MAX_AVG": {
+      "units": "C",
+      "longname": "Temperature at 2 Meters Maximum Average"
+    }
+  },
+  "regional_times": {
+    "data": 0.162,
+    "process": 0.01
+  },
+  "feature_sample": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.5,
+          22.0,
+          931.55
+        ]
+      },
+      "properties": {
+        "parameter": {
+          "T2M_MAX_AVG": {
+            "JAN": 24.44,
+            "FEB": 27.99,
+            "MAR": 31.38,
+            "APR": 33.85,
+            "MAY": 34.26,
+            "JUN": 32.01,
+            "JUL": 30.34,
+            "AUG": 29.21,
+            "SEP": 28.79,
+            "OCT": 27.67,
+            "NOV": 26.37,
+            "DEC": 24.05,
+            "ANN": 34.68
+          }
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.125,
+          22.0,
+          880.16
+        ]
+      },
+      "properties": {
+        "parameter": {
+          "T2M_MAX_AVG": {
+            "JAN": 24.57,
+            "FEB": 28.08,
+            "MAR": 31.36,
+            "APR": 33.68,
+            "MAY": 34.23,
+            "JUN": 32.42,
+            "JUL": 31.52,
+            "AUG": 30.87,
+            "SEP": 30.21,
+            "OCT": 28.71,
+            "NOV": 27.1,
+            "DEC": 24.32,
+            "ANN": 34.57
+          }
+        }
+      }
+    }
+  ],
+  "feature_geometries": [
+    {
+      "type": "Point",
+      "coordinates": [
+        102.5,
+        22.0,
+        931.55
+      ]
+    },
+    {
+      "type": "Point",
+      "coordinates": [
+        103.125,
+        22.0,
+        880.16
+      ]
+    },
+    {
+      "type": "Point",
+      "coordinates": [
+        103.75,
+        22.0,
+        988.14
+      ]
+    },
+    {
+      "type": "Point",
+      "coordinates": [
+        102.5,
+        22.5,
+        1071.68
+      ]
+    },
+    {
+      "type": "Point",
+      "coordinates": [
+        103.125,
+        22.5,
+        1108.21
+      ]
+    },
+    {
+      "type": "Point",
+      "coordinates": [
+        103.75,
+        22.5,
+        935.53
+      ]
+    },
+    {
+      "type": "Point",
+      "coordinates": [
+        102.5,
+        23.0,
+        1378.87
+      ]
+    },
+    {
+      "type": "Point",
+      "coordinates": [
+        103.125,
+        23.0,
+        1354.2
+      ]
+    },
+    {
+      "type": "Point",
+      "coordinates": [
+        103.75,
+        23.0,
+        1296.2
+      ]
+    },
+    {
+      "type": "Point",
+      "coordinates": [
+        102.5,
+        23.5,
+        1544.88
+      ]
+    },
+    {
+      "type": "Point",
+      "coordinates": [
+        103.125,
+        23.5,
+        1562.05
+      ]
+    },
+    {
+      "type": "Point",
+      "coordinates": [
+        103.75,
+        23.5,
+        1625.07
+      ]
+    },
+    {
+      "type": "Point",
+      "coordinates": [
+        102.5,
+        24.0,
+        1725.89
+      ]
+    },
+    {
+      "type": "Point",
+      "coordinates": [
+        103.125,
+        24.0,
+        1651.72
+      ]
+    },
+    {
+      "type": "Point",
+      "coordinates": [
+        103.75,
+        24.0,
+        1649.24
+      ]
+    }
+  ],
+  "feature_property_keys": [
+    [
+      "parameter"
+    ],
+    [
+      "parameter"
+    ],
+    [
+      "parameter"
+    ],
+    [
+      "parameter"
+    ],
+    [
+      "parameter"
+    ]
+  ],
+  "status": "ACTUAL_REGION_DATA_SCHEMA_READ",
+  "formal_valid_county_screenings": 0
+}
