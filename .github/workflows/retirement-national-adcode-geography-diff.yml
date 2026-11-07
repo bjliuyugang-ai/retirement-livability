@@ -1,0 +1,86 @@
+name: Retirement full 2025 historical county code versus 2891 coded polygon geometry audit
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-national-adcode-geography-diff.yml'
+jobs:
+  all-counties-code-diff:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 verify V1.6 latest official-code-recon unique action
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["state_revision"]==47
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-OFFICIAL-CODE-RECON-005"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["current_state_ref"]["git_blob_sha"]==subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          PY
+      - name: S3 download and compare exact 2025/2024 county codes and nationwide coded geometries
+        run: |
+          python -m py_compile research_engine/retirement/national_2025_roster_polygon_code_audit.py
+          python -u research_engine/retirement/national_2025_roster_polygon_code_audit.py
+      - name: Check nationwide 2847 baseline, 2891 geometry, 69 station roster identity
+        id: qa
+        run: |
+          python - <<'PY'
+          import hashlib,json,csv
+          b="research_engine/retirement/output/"
+          d=json.load(open(b+"national_2025_roster_vs_2891_coded_geometry_evidence.json"))
+          assert d["historical_2025_non00_county_code_count"]==2847
+          assert d["coded_geometry_feature_count"]==2891
+          assert d["mapped_station_codes_consistent_with_2025_history"]==69
+          assert d["actual_2026_official_live_roster_verified"] is False
+          assert d["no_2026_formal_county_screenings"]==0
+          raw=open(b+"national_2025_roster_vs_2891_coded_geometry_diff.csv","rb").read()
+          assert hashlib.sha256(raw).hexdigest()==d["national_diff_csv_sha256"]
+          print("MCA_HISTORICAL_PROVENANCE_AUDIT_PASS",d["2025_county_codes_missing_coded_geometry_count"],
+              d["coded_geometry_codes_absent_2025_roster_count"],d["same_code_different_name_count"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: 2025-county-code-history-versus-2891-third-party-geometries
+          path: |
+            research_engine/retirement/output/national_2025_roster_vs_2891_coded_geometry_evidence.json
+            research_engine/retirement/output/national_2025_roster_vs_2891_coded_geometry_diff.csv
+          retention-days: 30
+      - name: Persist precise code-and-geometry gaps, no false official certification
+        if: steps.qa.outcome == 'success'
+        run: |
+          cp research_engine/retirement/output/national_2025_roster_vs_2891_coded_geometry_evidence.json research_engine/retirement/status/national_2025_roster_vs_2891_coded_geometry_evidence.json
+          cp research_engine/retirement/output/national_2025_roster_vs_2891_coded_geometry_diff.csv research_engine/retirement/status/national_2025_roster_vs_2891_coded_geometry_diff.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/national_2025_roster_vs_2891_coded_geometry_*
+          git commit -m "Archive historical 2025 vs 2024 administrative code changes and 2891 coded county GIS gaps"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          root="research_engine/retirement/status/"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+root+"national_2025_roster_vs_2891_coded_geometry_evidence.json"]))
+          raw=subprocess.check_output(["git","show","origin/main:"+root+"national_2025_roster_vs_2891_coded_geometry_diff.csv"])
+          assert hashlib.sha256(raw).hexdigest()==d["national_diff_csv_sha256"]
+          assert d["no_2026_formal_county_screenings"]==0
+          print("NATIONAL_ADCODE_DELTA_REMOTE_SHA_PASS",d["mapped_station_codes_consistent_with_2025_history"])
+          PY
