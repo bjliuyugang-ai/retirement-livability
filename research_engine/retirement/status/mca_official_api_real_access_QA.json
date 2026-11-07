@@ -1,0 +1,15 @@
+{
+  "schema": "RET_MCA_OFFICIAL_XZQH_API_REAL_ACCESS_QA_V1",
+  "created_at_utc": "2026-11-07T01:50:27.002772+00:00",
+  "url": "https://dmfw.mca.gov.cn/9095/xzqh/getList?code=&maxLevel=3",
+  "source_owner": "中华人民共和国民政部 国家地名信息库",
+  "asof_date_verified": false,
+  "official_county_code_records_extracted": 0,
+  "source_status": "OFFICIAL_API_BLOCKED_WITH_REAL_ERROR",
+  "claims_forbidden": [
+    "HTTP 200 alone does not certify 2026 county roster",
+    "Nested admin units may include province/city/county level and direct-admin counties",
+    "If a source is blocked, third-party mirrors remain unofficial"
+  ],
+  "error": "URLError(gaierror(-3, 'Temporary failure in name resolution'))"
+}
