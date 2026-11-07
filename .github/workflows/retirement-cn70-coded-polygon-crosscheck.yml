@@ -1,0 +1,98 @@
+name: Retirement 70 station exact coded-county independent polygon QA
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-cn70-coded-polygon-crosscheck.yml'
+jobs:
+  code-bearing-county-geospatial-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 11
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 require current V1.6 unique county-mapping action and remote postcheck
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["state_revision"]==43
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-STATION-COUNTY-QA-003"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          actual=subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          assert s["current_state_ref"]["git_blob_sha"]==actual
+          print("S0_S2_V16_SOURCE_PREFLIGHT_PASS",s["active_action"]["action_id"])
+          PY
+      - name: Install exact polygon geometry validator
+        run: python -m pip -q install shapely
+      - name: S3 run actual coded county GeoJSON download and station spatial join
+        run: |
+          python -m py_compile research_engine/retirement/meteostat_70_coded_polygon_R1.py
+          python -u research_engine/retirement/meteostat_70_coded_polygon_R1.py
+      - name: Independent 2847-row and nonofficial-quality audit
+        id: qa
+        run: |
+          python - <<'PY'
+          import json,hashlib,csv
+          b="research_engine/retirement/output/"
+          d=json.load(open(b+"meteostat_70_station_coded_county_spatial_QA.json"))
+          assert 2700<=d["coded_geo_features"]<=3300
+          assert d["input_1991_2020_long_observation_stations"]==70
+          assert d["station_provisional_code_geoposition_and_name_accepted"]>=15
+          assert d["station_unresolved_due_to_code_or_identity"]>=0
+          assert d["official_current_2026_county_roster_verified"] is False
+          assert d["formal_valid_county_screenings"]==0 and d["confirmed_fatal_county_exclusions"]==0
+          p=b+"national_R1_meteostat_coded_county_candidate_overlay_2847.csv"
+          raw=open(p,"rb").read()
+          assert hashlib.sha256(raw).hexdigest()==d["output_national_overlay_csv_sha256"]
+          rows=list(csv.DictReader(open(p,encoding="utf-8-sig")))
+          assert len(rows)==2847 and len({x["candidate_code"] for x in rows})==2847
+          assert sum(x["R1_status"]!="NOT_SCREENED" for x in rows)==d["total_provisional_counties_with_any_R1_point_temperature"]
+          assert all(x["confirmed_exit_round"]=="" for x in rows)
+          print("S3_SPATIAL_QA_PASS",d["station_provisional_code_geoposition_and_name_accepted"],d["new_provisional_counties_with_station_point_temperature"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nationwide-70-Meteostat-station-coded-county-shapefile-2017-crosscheck
+          path: |
+            research_engine/retirement/output/meteostat_70_station_coded_county_spatial_QA.json
+            research_engine/retirement/output/meteostat_70_station_coded_county_spatial_QA.csv
+            research_engine/retirement/output/national_R1_meteostat_coded_county_candidate_overlay_2847.csv
+          retention-days: 30
+      - name: S4-S5 persist true coded county spatial results without changing formal Library Master
+        if: steps.qa.outcome == 'success'
+        run: |
+          cp research_engine/retirement/output/meteostat_70_station_coded_county_spatial_QA.json research_engine/retirement/status/meteostat_70_station_coded_county_spatial_QA.json
+          cp research_engine/retirement/output/meteostat_70_station_coded_county_spatial_QA.csv research_engine/retirement/status/meteostat_70_station_coded_county_spatial_QA.csv
+          cp research_engine/retirement/output/national_R1_meteostat_coded_county_candidate_overlay_2847.csv research_engine/retirement/status/national_R1_meteostat_coded_county_candidate_overlay_2847.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/meteostat_70_station_coded_county_spatial_QA.json research_engine/retirement/status/meteostat_70_station_coded_county_spatial_QA.csv research_engine/retirement/status/national_R1_meteostat_coded_county_candidate_overlay_2847.csv
+          git commit -m "Record independent coded county GeoJSON GIS validation of all 70 Meteostat stations and full 2847 provisional county R1 overlay"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          root="research_engine/retirement/status/"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+root+"meteostat_70_station_coded_county_spatial_QA.json"]))
+          for suffix,expected in [("meteostat_70_station_coded_county_spatial_QA.csv",d["output_station_csv_sha256"]),("national_R1_meteostat_coded_county_candidate_overlay_2847.csv",d["output_national_overlay_csv_sha256"])]:
+            raw=subprocess.check_output(["git","show","origin/main:"+root+suffix])
+            assert hashlib.sha256(raw).hexdigest()==expected
+          assert d["formal_valid_county_screenings"]==0
+          print("SOURCE_REMOTE_POSTCHECK_PASS",d["station_provisional_code_geoposition_and_name_accepted"],d["total_provisional_counties_with_any_R1_point_temperature"])
+          PY
