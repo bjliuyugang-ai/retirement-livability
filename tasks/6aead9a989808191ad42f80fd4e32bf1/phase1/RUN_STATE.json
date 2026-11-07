@@ -28,7 +28,7 @@
     "station_csv_git_blob_sha": "c7ff13ac8607def367f732c06112bda3d53e3964",
     "national_csv_path": "research_engine/retirement/status/national_R1_226_obs_station_quality_tiers_2847.csv",
     "national_csv_git_blob_sha": "8fe77f9dbc0bb99df82dce73abf5b6241655af3f",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-CLIMATE-COVERAGE-SCALE-007",
   "closed_result_refs": [
@@ -77,11 +77,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "5372da8d0c546c7b55af3f425594e16bb0ce06c7",
+    "verified_at": "2026-11-07T04:11:11.008Z"
   },
-  "updated_at": "2026-11-07T04:10:39.865Z",
-  "state_revision": 52,
+  "updated_at": "2026-11-07T04:11:11.008Z",
+  "state_revision": 53,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
