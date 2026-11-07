@@ -12,21 +12,25 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "db0665b9cd6bd803dbb81c491e34ebd924aeeed6"
+    "git_blob_sha": "bb65c51707e93ea27e78f4ae32d7393699687f88"
   },
   "last_verified_run": {
-    "run_id": "MANUAL-NINE-COUNTY-GEOM-SOURCE-QA-20261107-007",
-    "action_id": "RET-CASCADE-NATIONAL-GEOMETRY-HOLES-006",
-    "result_id": "RES-NINE-COUNTY-DATAV-STRICT_CODE_NAME_0_VALID-20261107",
+    "run_id": "MANUAL-MSTA-CN226-TIERED-R1-20261107-008",
+    "action_id": "RET-CASCADE-NATIONAL-CLIMATE-COVERAGE-SCALE-007",
+    "result_id": "RES-CN226-GIS-SHORT_HISTORY_127_NEW_R1-20261107",
     "execution_status": "EXECUTED",
-    "engineering_status": "PASS_VALIDATION_BLOCKED_SOURCE",
-    "research_delta_status": "DELTA_VERIFIED_SOURCE_QA_9_MISSING_GEOMETRIES_AND_460302_FALSE_POSITIVE",
+    "engineering_status": "PASS",
+    "research_delta_status": "DELTA_VERIFIED_127_NEW_SHORT_HISTORY_REAL_CANDIDATE_STATION_EVIDENCE",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/nine_missing_county_geoatlas_actual_requests.json",
-    "evidence_git_blob_sha": "2d03205cee8b55adcda1cca031442c4d813bb8a6",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/status/meteostat_CN_226_R1_tiered_expansion_evidence.json",
+    "evidence_git_blob_sha": "b968ab5028098d08f6f17184e865262f44361654",
+    "station_csv_path": "research_engine/retirement/status/meteostat_CN_226_station_spatial_period_quality.csv",
+    "station_csv_git_blob_sha": "c7ff13ac8607def367f732c06112bda3d53e3964",
+    "national_csv_path": "research_engine/retirement/status/national_R1_226_obs_station_quality_tiers_2847.csv",
+    "national_csv_git_blob_sha": "8fe77f9dbc0bb99df82dce73abf5b6241655af3f",
+    "status": "AWAITING_POSTCHECK"
   },
-  "last_completed_action_id": "RET-CASCADE-NATIONAL-GEOMETRY-HOLES-006",
+  "last_completed_action_id": "RET-CASCADE-NATIONAL-CLIMATE-COVERAGE-SCALE-007",
   "closed_result_refs": [
     "RES-CLIMATE-12POINT-20261106",
     "RES-SPATIAL-ENGINEERING-42244926780",
@@ -50,20 +54,21 @@
     "RES-CN-70STATIONS-69CODE-65NEW_R1-20261107",
     "RES-CN-69-R2-STATIONS-61NEW_PARTIAL-20261107",
     "RES-2025-2845_PLUS2026TWO-2838_GEOCODE_MATCH_7MISSING-20261107",
-    "RES-NINE-COUNTY-DATAV-STRICT_CODE_NAME_0_VALID-20261107"
+    "RES-NINE-COUNTY-DATAV-STRICT_CODE_NAME_0_VALID-20261107",
+    "RES-CN226-GIS-SHORT_HISTORY_127_NEW_R1-20261107"
   ],
   "active_action": {
-    "action_id": "RET-CASCADE-NATIONAL-CLIMATE-COVERAGE-SCALE-007",
-    "question_id": "Q_EXPAND_1991_2020_VALID_COUNTY_POINT_CLIMATE_COVERAGE_BEYOND_87_73",
-    "decision": "不继续重复未解决的9处历史/新设县界接口；重点扩大全国2760个R1无气温点位数据与2774个R2无降雨日照点位数据的真实有效来源覆盖，先用另一批可验证来源和坐标完成实测增量，再按同样2025代码县界交叉关联",
-    "method": "优先评估现有已下载的257个中国站、226个来源可核的站点但不足30年的实测月份与独立可信日值API；在不放宽1991—2020和不做正式评级的前提下分层（30年观测、非完整历史待核、模型探索），避免NASA MAXAVG聚合错误及OpenMeteo HTTP429。必须按具体新增县区ID、真实气象源、月份/样本、县界空间代表性保留证据",
-    "expected_evidence": "增加可复算、可追溯的新增R1或R2有真实气象数据县域；全国候选数=2847守恒，所有取不到数据待核并明确阻碍与来源替代",
-    "pass_criteria": "本轮至少一条可重复真实气象数据新增或明确新数据源阻断证据并切换，不以找到接口、安装包或空搜索算研发进展；只有合格的观测窗口才归入长基期站点",
-    "fallback": "官方数据集/批量API访问失败或数据源口径不符，则切换明确许可的观测数据批量归档，不将NASA错误常年值计入有效R1",
+    "action_id": "RET-CASCADE-NATIONAL-R2-INTERIM-008",
+    "question_id": "Q_R2_15YEAR_CLASS_STATION_OBS_PRECIP_SUN_EXPANSION",
+    "decision": "同一批132个通过两套县界实际坐标检验的15年级别短历史温度站点，尽快批量寻找降水和日照原始观测增量，保留R2此前73个较长历史部分参数证据；真实缺失不阻塞候选",
+    "method": "读取Meteostat原始1991—2020月度Parquet并校验之前留存SHA，按每个降水/日照参数独立来源标签剔除模型补全。至少180个月且每个日历月至少10年仅记临时短史参数证据，不采用缺失期不明的全30年平均值做冷热湿评价。保留198?源不足站点与GIS冲突HOLD",
+    "expected_evidence": "132个候选站的prcp/tsun观测来源、逐月年月数、额外R2县域初证和缺失分类、2847行完整过账及摘要SHA；不更改既有73长历史R2指标",
+    "pass_criteria": "输出真实参数级新增有效短史观测证据县域数量且与历史覆盖完全分离，逐项源/年月/县码可复核，严格不夸大为完整1991—2020气候常年值",
+    "fallback": "若Meteostat日照短史资料缺失，降水单独记初证、日照继续待核；不得重复已失效NASA常年值",
     "status": "READY",
     "timebox_end": "2026-11-08T15:26:00Z"
   },
-  "phase": "NATIONAL_R1_R2_TRUE_CLIMATE_COVERAGE_EXPANSION",
+  "phase": "NATIONAL_R2_INTERIM_STATION_OBSERVATION_ASSAULT",
   "milestone_deadline": {
     "time_zone": "Asia/Shanghai",
     "checkpoint_24h": "2026-11-07T23:26:00+08:00",
@@ -72,12 +77,11 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "90a6bf8f33fec713557d27d5a4c1d4954c6df438",
-    "verified_at": "2026-11-07T02:04:16.278Z"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-07T02:04:16.278Z",
-  "state_revision": 51,
+  "updated_at": "2026-11-07T04:10:39.865Z",
+  "state_revision": 52,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -278,5 +282,21 @@
     "evidence_path": "research_engine/retirement/status/nine_missing_county_geoatlas_actual_requests.json",
     "source_blob_sha": "2d03205cee8b55adcda1cca031442c4d813bb8a6",
     "source_status": "BLOCKED_WITH_DOCUMENTED_SOURCE_ERRORS"
+  },
+  "climate_coverage_tiered_226": {
+    "long_1991_2020_station_qa_count": 70,
+    "source_vetted_15y_window_eligible": 208,
+    "additional_short_window_candidates": 138,
+    "additional_short_window_stations_spatial_accept": 132,
+    "additional_R1_counties_short_obs": 127,
+    "prior_R1_ERA5_or_long_station_counties": 87,
+    "total_R1_partial_any_period": 214,
+    "remaining_R1_completely_unobserved": 2633,
+    "R2_long_partial_counties_unchanged": 73,
+    "formal_valid_county_screenings": 0,
+    "official_2026_county_geometry_certified": false,
+    "report_path": "research_engine/retirement/status/meteostat_CN_226_R1_tiered_expansion_evidence.json",
+    "station_csv_path": "research_engine/retirement/status/meteostat_CN_226_station_spatial_period_quality.csv",
+    "national_csv_path": "research_engine/retirement/status/national_R1_226_obs_station_quality_tiers_2847.csv"
   }
 }
