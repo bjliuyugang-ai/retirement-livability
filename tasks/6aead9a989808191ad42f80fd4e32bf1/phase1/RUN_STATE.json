@@ -12,23 +12,27 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "2b6efef4aea07ab6bfe241818f471ebb17e42b57"
+    "git_blob_sha": "cc9f7945305adebe4f51e4d572cdd65097f1f22a"
   },
   "last_verified_run": {
-    "run_id": "MANUAL-CN-R2-69STATIONS-OBS-20261107-005",
-    "action_id": "RET-CASCADE-NATIONAL-METEOSTAT-R2-004",
-    "result_id": "RES-CN-69-R2-STATIONS-61NEW_PARTIAL-20261107",
+    "run_id": "MANUAL-2025-2026-NATIONAL-ADCODE-DELTA-20261107-006",
+    "action_id": "RET-CASCADE-NATIONAL-OFFICIAL-CODE-RECON-005",
+    "result_id": "RES-2025-2845_PLUS2026TWO-2838_GEOCODE_MATCH_7MISSING-20261107",
     "execution_status": "EXECUTED",
-    "engineering_status": "PASS",
-    "research_delta_status": "DELTA_VERIFIED_61_NEW_R2_PARTIAL_COUNTY_CANDIDATES",
+    "engineering_status": "PASS_WITH_OFFICIAL_API_BLOCKER",
+    "research_delta_status": "DELTA_VERIFIED_2025_ROSTER_2026_NEW_ESTABLISHMENTS_AND_GIS_GAPS",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/national_R2_meteostat_station_source_evidence.json",
-    "evidence_git_blob_sha": "1053f37ee0c227d0ab7d6357872138cccf712d9d",
-    "nationalcsv_path": "research_engine/retirement/status/national_R2_meteostat_station_source_2847.csv",
-    "nationalcsv_git_blob_sha": "4839e2b97b8cd8fb6b4c4bc02ee5d233e1c70c86",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/status/national_2025_roster_vs_2891_coded_geometry_evidence.json",
+    "evidence_git_blob_sha": "61c8d67c50caff9a623ca14be3bc7730cc45458e",
+    "diff_path": "research_engine/retirement/status/national_2025_roster_vs_2891_coded_geometry_diff.csv",
+    "diff_git_blob_sha": "253203336263ba870e8e7de054f9e70d9f95484e",
+    "classification_path": "research_engine/retirement/evidence/national_county_geometry_diff_53_classified_20261107.json",
+    "classification_git_blob_sha": "15d824588a0fb100c28b1d398c8390083b402716",
+    "official_access_error_path": "research_engine/retirement/status/mca_official_api_real_access_QA.json",
+    "official_access_error_git_blob_sha": "4701c1787fbcb898b0079fa976bfdfc526b0b6cd",
+    "status": "AWAITING_POSTCHECK"
   },
-  "last_completed_action_id": "RET-CASCADE-NATIONAL-METEOSTAT-R2-004",
+  "last_completed_action_id": "RET-CASCADE-NATIONAL-OFFICIAL-CODE-RECON-005",
   "closed_result_refs": [
     "RES-CLIMATE-12POINT-20261106",
     "RES-SPATIAL-ENGINEERING-42244926780",
@@ -50,20 +54,21 @@
     "RES-NATIONAL-2847-FIVE-ROUND-COVERAGE-GAP-AUDIT-42322194367",
     "RES-METEOSTAT-CN-70-STATION-NORMALS-7-ERA5-CROSSCHECK-20261107",
     "RES-CN-70STATIONS-69CODE-65NEW_R1-20261107",
-    "RES-CN-69-R2-STATIONS-61NEW_PARTIAL-20261107"
+    "RES-CN-69-R2-STATIONS-61NEW_PARTIAL-20261107",
+    "RES-2025-2845_PLUS2026TWO-2838_GEOCODE_MATCH_7MISSING-20261107"
   ],
   "active_action": {
-    "action_id": "RET-CASCADE-NATIONAL-OFFICIAL-CODE-RECON-005",
-    "question_id": "Q_2026_OFFICIAL_CURRENT_COUNTY_CODE_AND_BOUNDARY_RECON",
-    "decision": "针对69个已关联气象站的县级候选和全国2847个临时代码底盘，优先查验2025—2026民政部正式行政区划代码、2026行政区划调整与现行县界数据来源；建立现行官方与第三方地图差集，并把存在代码和历史县界冲突的站点HOLD，推进可支撑正式第一阶段筛选的县级单元核验",
-    "method": "直接获取可追溯的中华人民共和国县以上行政区划代码正式发布数据，核对年份/版本与69个站点临时代码及2891第三方边界属性，逐县记录身份、行政变更和名称冲突；如2026官方完整名单尚未发布，明确标注现行口径局限，不伪称已官方认证",
-    "expected_evidence": "官方来源URL、发布时间、全国官方代码数量、与2847临时代码差异、69站点中官方身份已核对数量、不可用代码及地形/住宅未核状态；更新全国台账的候选质量标记",
-    "pass_criteria": "真实读取官方发布数据并完成逐条代码对账，数据不足则按证据仅确认少量而非虚构全国完成",
-    "fallback": "先用官方民政部变更公告及数据可获取的最新年度县以上代码逐条确认，最新2026未发布则继续2025/2024版本核对并保持CURRENT_UNKNOWN",
+    "action_id": "RET-CASCADE-NATIONAL-GEOMETRY-HOLES-006",
+    "question_id": "Q_2025_2026_MISSING_CODED_COUNTY_BOUNDARIES",
+    "decision": "优先对2025年末7个无对应县界的县级代码及2026两处新设县级单位逐项测试现行带码地图和公开政府地理边界，核实代码、位置、坐标系、边界与行政变更，不因无地图排除任何候选",
+    "method": "实际请求DataV GeoAtlas每县编号轮廓及上级市含县界GeoJSON；失败则切换可信政府地理地图/公开GIS，逐条记录HTTP错误、内容SHA、真实几何和现行县码，特别注意两江新区及2026两新县边界尚未更新问题",
+    "expected_evidence": "9处真实检索/获取明细、可恢复县界数量、每处缺失/版本错误原因、研究全量县级底盘保留证据",
+    "pass_criteria": "形成逐项真实获取结果与最少一个可复现有效边界或可核实的源级阻碍；不伪造2026正式地图",
+    "fallback": "若接口无有效数据，保留9县待核，转官方GIS手工来源和法定公告中边界信息，不能以旧界冒充新行政区",
     "status": "READY",
     "timebox_end": "2026-11-08T15:26:00Z"
   },
-  "phase": "NATIONWIDE_OFFICIAL_CURRENT_ADCODE_RECON_AFTER_REAL_R1_R2_DATA",
+  "phase": "NATIONAL_NINE_MISSING_COUNTY_GEOMETRIES_ASSAULT",
   "milestone_deadline": {
     "time_zone": "Asia/Shanghai",
     "checkpoint_24h": "2026-11-07T23:26:00+08:00",
@@ -72,12 +77,11 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "f85826adbf92beb45889d20aa6675f9521128b0b",
-    "verified_at": "2026-11-07T01:49:16.110Z"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-07T01:49:16.110Z",
-  "state_revision": 47,
+  "updated_at": "2026-11-07T01:58:43.969Z",
+  "state_revision": 48,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -240,5 +244,29 @@
     "source_git_blob_sha": "fb027b03550b02d024aef260086f849f8b1df215",
     "national_overlay": "research_engine/retirement/status/national_R1_meteostat_coded_county_candidate_overlay_2847.csv",
     "official_2026_roster_verified": false
+  },
+  "official_code_crosscheck": {
+    "historical_2025_county_codes": 2845,
+    "new2026_provisional_codes": [
+      "653132",
+      "659013"
+    ],
+    "R0_total": 2847,
+    "historical_2025_geometry_matching_codes": 2838,
+    "missing_2025_geometry_count": 7,
+    "extra_geometry_codes": 53,
+    "extra_code_groups": {
+      "outside_mainland_roster_tw_hk_macau": 39,
+      "not_county_or_special_administration_end00": 7,
+      "formally_retired_2025_previous_codes": 2,
+      "historical_alias_possible_renumbering": 4,
+      "other_unresolved": 1
+    },
+    "station_codes_consistent_2025": 69,
+    "official_mca_portal": "DNS_FAILURE",
+    "official_2026_complete_roster_verified": false,
+    "formal_valid_county_screenings": 0,
+    "report_path": "research_engine/retirement/status/national_2025_roster_vs_2891_coded_geometry_evidence.json",
+    "diff_path": "research_engine/retirement/status/national_2025_roster_vs_2891_coded_geometry_diff.csv"
   }
 }
