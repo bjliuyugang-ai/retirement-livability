@@ -28,7 +28,7 @@
     "stationcsv_git_blob_sha": "b158bc89119c77eaa58a12a823cbac2112b4772b",
     "nationalcsv_path": "research_engine/retirement/status/national_R1_meteostat_coded_county_candidate_overlay_2847.csv",
     "nationalcsv_git_blob_sha": "937f3117be47782385a2242c8be3945561e0b6ff",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-STATION-COUNTY-QA-003",
   "closed_result_refs": [
@@ -73,11 +73,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "e74b0f66e567080a991c7220a95907346c317839",
+    "verified_at": "2026-11-07T01:45:59.945Z"
   },
-  "updated_at": "2026-11-07T01:45:32.229Z",
-  "state_revision": 44,
+  "updated_at": "2026-11-07T01:45:59.945Z",
+  "state_revision": 45,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
