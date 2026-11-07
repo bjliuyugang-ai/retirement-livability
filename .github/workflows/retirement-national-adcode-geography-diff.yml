@@ -1,4 +1,5 @@
 name: Retirement full 2025 historical county code versus 2891 coded polygon geometry audit
+# 2025 historical denominator 2845 plus two legally announced 2026 county formations
 on:
   workflow_dispatch:
   push:
