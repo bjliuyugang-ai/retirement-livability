@@ -1,0 +1,419 @@
+{
+  "schema": "RET_NATIONAL_R3_REAL_DEM_ALTITUDE_BATCH_V1",
+  "generated_at_utc": "2026-11-07T01:01:44.913606+00:00",
+  "source_R2_CSV_sha256": "6c665360f0a302289b4491d266b67fc467c4534d815265960484c107bacb38e7",
+  "source_DEM_sha256": "28250d8ba6a7594ba3b403b798430582c9002eb581b119e5400d41f417f16a77",
+  "input": 2847,
+  "R3_DEM_three_point_counties": 12,
+  "DEM_total_samples": 36,
+  "R3_unscanned": 2835,
+  "R3_confirmed_exclusions": 0,
+  "R3_carry_forward": 2847,
+  "formal_valid_county_screenings": 0,
+  "formal_grade_changes": 0,
+  "R3_records": [
+    {
+      "site": "Haikou",
+      "candidate_code": "460108",
+      "point_count": 3,
+      "historical_polygon_dem_points": [
+        {
+          "latitude": 20.04,
+          "longitude": 110.35,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 11.0
+        },
+        {
+          "latitude": 19.82416,
+          "longitude": 110.67157,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 24.0
+        },
+        {
+          "latitude": 20.00623,
+          "longitude": 110.5875,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 0.0
+        }
+      ],
+      "min_m": 0.0,
+      "max_m": 24.0,
+      "span_m": 24.0,
+      "samples_below_1500_m": 3,
+      "samples_above_2000_m": 0,
+      "residential_elevation_verified": false,
+      "county_exclusion_authorized": false,
+      "risk_note": "DEM polygons are exploratory; no actual dwelling verified, county-level local exceptions remain open"
+    },
+    {
+      "site": "Kunming",
+      "candidate_code": "530102",
+      "point_count": 3,
+      "historical_polygon_dem_points": [
+        {
+          "latitude": 25.04,
+          "longitude": 102.71,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 1902.0
+        },
+        {
+          "latitude": 25.37973,
+          "longitude": 102.63473,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 2073.0
+        },
+        {
+          "latitude": 25.18625,
+          "longitude": 102.57789,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 2144.0
+        }
+      ],
+      "min_m": 1902.0,
+      "max_m": 2144.0,
+      "span_m": 242.0,
+      "samples_below_1500_m": 0,
+      "samples_above_2000_m": 2,
+      "residential_elevation_verified": false,
+      "county_exclusion_authorized": false,
+      "risk_note": "DEM polygons are exploratory; no actual dwelling verified, county-level local exceptions remain open"
+    },
+    {
+      "site": "Xiamen",
+      "candidate_code": "350203",
+      "point_count": 3,
+      "historical_polygon_dem_points": [
+        {
+          "latitude": 24.48,
+          "longitude": 118.09,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 2.0
+        },
+        {
+          "latitude": 24.49628,
+          "longitude": 118.19653,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 0.0
+        },
+        {
+          "latitude": 24.4282,
+          "longitude": 118.1498,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 0.0
+        }
+      ],
+      "min_m": 0.0,
+      "max_m": 2.0,
+      "span_m": 2.0,
+      "samples_below_1500_m": 3,
+      "samples_above_2000_m": 0,
+      "residential_elevation_verified": false,
+      "county_exclusion_authorized": false,
+      "risk_note": "DEM polygons are exploratory; no actual dwelling verified, county-level local exceptions remain open"
+    },
+    {
+      "site": "Panzhihua",
+      "candidate_code": "510402",
+      "point_count": 3,
+      "historical_polygon_dem_points": [
+        {
+          "latitude": 26.58,
+          "longitude": 101.72,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 1164.0
+        },
+        {
+          "latitude": 26.64703,
+          "longitude": 101.80937,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 1409.0
+        },
+        {
+          "latitude": 26.53109,
+          "longitude": 101.79289,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 1882.0
+        }
+      ],
+      "min_m": 1164.0,
+      "max_m": 1882.0,
+      "span_m": 718.0,
+      "samples_below_1500_m": 2,
+      "samples_above_2000_m": 0,
+      "residential_elevation_verified": false,
+      "county_exclusion_authorized": false,
+      "risk_note": "DEM polygons are exploratory; no actual dwelling verified, county-level local exceptions remain open"
+    },
+    {
+      "site": "Mengzi",
+      "candidate_code": "532503",
+      "point_count": 3,
+      "historical_polygon_dem_points": [
+        {
+          "latitude": 23.37,
+          "longitude": 103.39,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 1311.0
+        },
+        {
+          "latitude": 23.46124,
+          "longitude": 103.759,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 2087.0
+        },
+        {
+          "latitude": 23.07155,
+          "longitude": 103.27251,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 376.0
+        }
+      ],
+      "min_m": 376.0,
+      "max_m": 2087.0,
+      "span_m": 1711.0,
+      "samples_below_1500_m": 2,
+      "samples_above_2000_m": 1,
+      "residential_elevation_verified": false,
+      "county_exclusion_authorized": false,
+      "risk_note": "DEM polygons are exploratory; no actual dwelling verified, county-level local exceptions remain open"
+    },
+    {
+      "site": "Jinghong",
+      "candidate_code": "532801",
+      "point_count": 3,
+      "historical_polygon_dem_points": [
+        {
+          "latitude": 22.01,
+          "longitude": 100.8,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 560.0
+        },
+        {
+          "latitude": 22.47999,
+          "longitude": 101.40514,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 1445.0
+        },
+        {
+          "latitude": 21.56438,
+          "longitude": 100.53957,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 1056.0
+        }
+      ],
+      "min_m": 560.0,
+      "max_m": 1445.0,
+      "span_m": 885.0,
+      "samples_below_1500_m": 3,
+      "samples_above_2000_m": 0,
+      "residential_elevation_verified": false,
+      "county_exclusion_authorized": false,
+      "risk_note": "DEM polygons are exploratory; no actual dwelling verified, county-level local exceptions remain open"
+    },
+    {
+      "site": "Guilin",
+      "candidate_code": "450304",
+      "point_count": 3,
+      "historical_polygon_dem_points": [
+        {
+          "latitude": 25.27,
+          "longitude": 110.29,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 158.0
+        },
+        {
+          "latitude": 25.14308,
+          "longitude": 110.30888,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 148.0
+        },
+        {
+          "latitude": 25.20177,
+          "longitude": 110.23866,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 167.0
+        }
+      ],
+      "min_m": 148.0,
+      "max_m": 167.0,
+      "span_m": 19.0,
+      "samples_below_1500_m": 3,
+      "samples_above_2000_m": 0,
+      "residential_elevation_verified": false,
+      "county_exclusion_authorized": false,
+      "risk_note": "DEM polygons are exploratory; no actual dwelling verified, county-level local exceptions remain open"
+    },
+    {
+      "site": "Quanzhou",
+      "candidate_code": "350503",
+      "point_count": 3,
+      "historical_polygon_dem_points": [
+        {
+          "latitude": 24.87,
+          "longitude": 118.68,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 5.0
+        },
+        {
+          "latitude": 24.98071,
+          "longitude": 118.57066,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 21.0
+        },
+        {
+          "latitude": 24.9507,
+          "longitude": 118.64897,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 39.0
+        }
+      ],
+      "min_m": 5.0,
+      "max_m": 39.0,
+      "span_m": 34.0,
+      "samples_below_1500_m": 3,
+      "samples_above_2000_m": 0,
+      "residential_elevation_verified": false,
+      "county_exclusion_authorized": false,
+      "risk_note": "DEM polygons are exploratory; no actual dwelling verified, county-level local exceptions remain open"
+    },
+    {
+      "site": "Dali",
+      "candidate_code": "532901",
+      "point_count": 3,
+      "historical_polygon_dem_points": [
+        {
+          "latitude": 25.61,
+          "longitude": 100.27,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 1972.0
+        },
+        {
+          "latitude": 26.00967,
+          "longitude": 100.1628,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 2299.0
+        },
+        {
+          "latitude": 25.81378,
+          "longitude": 100.02514,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 3307.0
+        }
+      ],
+      "min_m": 1972.0,
+      "max_m": 3307.0,
+      "span_m": 1335.0,
+      "samples_below_1500_m": 0,
+      "samples_above_2000_m": 2,
+      "residential_elevation_verified": false,
+      "county_exclusion_authorized": false,
+      "risk_note": "DEM polygons are exploratory; no actual dwelling verified, county-level local exceptions remain open"
+    },
+    {
+      "site": "Guiyang",
+      "candidate_code": "520115",
+      "point_count": 3,
+      "historical_polygon_dem_points": [
+        {
+          "latitude": 26.65,
+          "longitude": 106.63,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 1294.0
+        },
+        {
+          "latitude": 26.61584,
+          "longitude": 106.47055,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 1243.0
+        },
+        {
+          "latitude": 26.7292,
+          "longitude": 106.52022,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 1240.0
+        }
+      ],
+      "min_m": 1240.0,
+      "max_m": 1294.0,
+      "span_m": 54.0,
+      "samples_below_1500_m": 3,
+      "samples_above_2000_m": 0,
+      "residential_elevation_verified": false,
+      "county_exclusion_authorized": false,
+      "risk_note": "DEM polygons are exploratory; no actual dwelling verified, county-level local exceptions remain open"
+    },
+    {
+      "site": "Nanning",
+      "candidate_code": "450103",
+      "point_count": 3,
+      "historical_polygon_dem_points": [
+        {
+          "latitude": 22.82,
+          "longitude": 108.37,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 85.0
+        },
+        {
+          "latitude": 22.96322,
+          "longitude": 108.79116,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 253.0
+        },
+        {
+          "latitude": 22.6923,
+          "longitude": 108.68576,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 129.0
+        }
+      ],
+      "min_m": 85.0,
+      "max_m": 253.0,
+      "span_m": 168.0,
+      "samples_below_1500_m": 3,
+      "samples_above_2000_m": 0,
+      "residential_elevation_verified": false,
+      "county_exclusion_authorized": false,
+      "risk_note": "DEM polygons are exploratory; no actual dwelling verified, county-level local exceptions remain open"
+    },
+    {
+      "site": "Sanya",
+      "candidate_code": "460203",
+      "point_count": 3,
+      "historical_polygon_dem_points": [
+        {
+          "latitude": 18.25,
+          "longitude": 109.51,
+          "role": "original_climate_point",
+          "copernicus_glo90_elevation_m": 15.0
+        },
+        {
+          "latitude": 18.19436,
+          "longitude": 109.72989,
+          "role": "geometry_interior_sample_1",
+          "copernicus_glo90_elevation_m": 0.0
+        },
+        {
+          "latitude": 18.37556,
+          "longitude": 109.66683,
+          "role": "geometry_interior_sample_2",
+          "copernicus_glo90_elevation_m": 208.0
+        }
+      ],
+      "min_m": 0.0,
+      "max_m": 208.0,
+      "span_m": 208.0,
+      "samples_below_1500_m": 3,
+      "samples_above_2000_m": 0,
+      "residential_elevation_verified": false,
+      "county_exclusion_authorized": false,
+      "risk_note": "DEM polygons are exploratory; no actual dwelling verified, county-level local exceptions remain open"
+    }
+  ],
+  "csv_sha256": "fbe2ff82d165781ab1d8e2ee6a66db72812fed15281ff447d726bc1b2a3652ec",
+  "limitations": [
+    "Historical county DEM samples are not actual residences",
+    "High-elevation points cannot eliminate lower residential areas without audit",
+    "2026 official county boundaries remain unverified",
+    "Only 12 of 2847 counties have R3 elevation point evidence"
+  ]
+}

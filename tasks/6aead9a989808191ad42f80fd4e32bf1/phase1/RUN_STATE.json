@@ -12,23 +12,23 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "0ec93ef0ffc9fbccf131bec1b4fc2c6a8095712c"
+    "git_blob_sha": "b446685bb1c07036b41fbd257aa2aa408954c7ec"
   },
   "last_verified_run": {
-    "run_id": "42321544843",
-    "action_id": "RET-CASCADE-NATIONAL-R2-001",
-    "result_id": "RES-NATIONAL-R2-12-SUNRAIN-HUMIDITY-ERA5-42321544843",
+    "run_id": "42321725405",
+    "action_id": "RET-CASCADE-NATIONAL-R3-001",
+    "result_id": "RES-NATIONAL-R3-12COUNTY-36DEM-SAMPLES-42321725405",
     "execution_status": "EXECUTED",
     "engineering_status": "PASS",
-    "research_delta_status": "DELTA_VERIFIED_12_REAL_R2_COUNTY_POINTS",
+    "research_delta_status": "DELTA_VERIFIED_12_COUNTY_36_DEM_SAMPLES",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/national_r2_first_real_batch_evidence.json",
-    "evidence_sha256": "142749121c546997e9624e02421fee92c4f3a65275b550d315085df363ed4061",
-    "csv_path": "research_engine/retirement/status/national_r2_first_real_batch.csv",
-    "csv_sha256": "6c665360f0a302289b4491d266b67fc467c4534d815265960484c107bacb38e7",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/status/national_r3_first_real_batch_evidence.json",
+    "evidence_sha256": "a846dd0df6291eca011420484c7c37c71b96778389eecc5c622c1c77b1aebb58",
+    "csv_path": "research_engine/retirement/status/national_r3_first_real_batch.csv",
+    "csv_sha256": "fbe2ff82d165781ab1d8e2ee6a66db72812fed15281ff447d726bc1b2a3652ec",
+    "status": "AWAITING_POSTCHECK"
   },
-  "last_completed_action_id": "RET-CASCADE-NATIONAL-R2-001",
+  "last_completed_action_id": "RET-CASCADE-NATIONAL-R3-001",
   "closed_result_refs": [
     "RES-CLIMATE-12POINT-20261106",
     "RES-SPATIAL-ENGINEERING-42244926780",
@@ -43,20 +43,21 @@
     "RES-CASCADE-R1R5-4COUNTY-AND-R0-2847-20261107",
     "RES-NATIONAL-R1-12-REAL-ERA5-COUNTY-POINTS-42320769375",
     "RES-NATIONAL-R1-DISTRIBUTED-EXPAND-42321222770",
-    "RES-NATIONAL-R2-12-SUNRAIN-HUMIDITY-ERA5-42321544843"
+    "RES-NATIONAL-R2-12-SUNRAIN-HUMIDITY-ERA5-42321544843",
+    "RES-NATIONAL-R3-12COUNTY-36DEM-SAMPLES-42321725405"
   ],
   "active_action": {
-    "action_id": "RET-CASCADE-NATIONAL-R3-001",
-    "question_id": "Q-NATIONAL_RESIDENTIAL_ALTITUDE",
-    "decision": "由2847个R2保留单元进入R3，以现有12县36个DEM采样及局部地形例外证据做真实住宅海拔的探索性初筛，不按单个高点剔除整个县",
-    "method": "实际从已保存DEM资料生成县域内高差、海拔偏好/例外清单；住宅位置不明标待核，其他未扫描县级单元继续流转",
-    "expected_evidence": "2847个地区R2→R3队列对账，12县DEM多点证据、局部例外及0未经授权淘汰的审计",
-    "pass_criteria": "R3使用真实DEM数据并保留住宅海拔未核边界；无已证实不可补偿重大风险不剔除",
-    "fallback": "区域地形信息不可用标待核，继续推进R4",
+    "action_id": "RET-CASCADE-NATIONAL-R4-001",
+    "question_id": "Q_NATIONWIDE_AIR_INDUSTRIAL",
+    "decision": "继续R4空气质量及工业历史污染，从2847个R3继续县区中优先复用已核实的蒙自、攀枝花市级环境资料，缺失视为待核；不能把城市级均值冒充住宅长期安全",
+    "method": "将官方可溯源PM2.5/优良率、整改通报和具体住宅点位缺口映射到县级名录，独立标来源等级；只按确认的不可规避重大健康风险淘汰",
+    "expected_evidence": "2847单元R3→R4台账、至少两县环境资料核查、缺口和初筛去留，退场须满足全部八项前置门禁",
+    "pass_criteria": "实际空气/污染证据可复核，保留所有缺失区域继续R5；不改变正式等级",
+    "fallback": "城市资料无法对应住宅则记CITY_CONTEXT_NOT_RESIDENTIAL，继续R5不暂停",
     "status": "READY",
     "timebox_end": "2026-11-08T15:26:00Z"
   },
-  "phase": "NATIONAL_PARAMETER_CASCADE_R3_READY",
+  "phase": "NATIONAL_PARAMETER_CASCADE_R4_READY",
   "milestone_deadline": {
     "time_zone": "Asia/Shanghai",
     "checkpoint_24h": "2026-11-07T23:26:00+08:00",
@@ -65,12 +66,11 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "ee8c862a9563b36a51a54e0a6781679ea7e1e779",
-    "verified_at": "2026-11-07T01:00:07.459653+00:00"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-07T01:00:07.459665+00:00",
-  "state_revision": 33,
+  "updated_at": "2026-11-07T01:01:44.966480+00:00",
+  "state_revision": 34,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -148,6 +148,15 @@
       "point_sun_rain_sites": 12,
       "model_humidity_sites": 11,
       "R2_unscanned": 2835,
+      "confirmed_exits": 0,
+      "carry_forward": 2847,
+      "formal_valid_county_screenings": 0
+    },
+    "R3": {
+      "input_counties": 2847,
+      "DEM_3_point_counties": 12,
+      "DEM_total_samples": 36,
+      "R3_unscanned": 2835,
       "confirmed_exits": 0,
       "carry_forward": 2847,
       "formal_valid_county_screenings": 0

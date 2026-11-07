@@ -57,3 +57,5 @@ RET-SPATIAL-001：执行2017口径geoBoundaries历史县级边界空间匹配真
 - RES-NATIONAL-R1-DISTRIBUTED-EXPAND-42321222770: 本轮全国R1从12个已取数历史县级点位扩展到22，新增10个真实1991—2020 ERA5温度取数点，历史县界/2025临时代码精确拼音关联、跨7省级代码前缀。另2825个县级R1未扫描（含20个接口失败/验证失败），确证淘汰0、下轮继续2847、正式有效县级广筛0。各结果严格记为点位/2017历史县界探索性，不作2026官方或居住片区证实。已批准递进法，唯一下一动作转R2，不阻塞于R1缺失。证据：research_engine/retirement/status/national_r1_expanded_summary.json，全量CSV：research_engine/retirement/status/national_r1_expanded.csv。
 
 - RES-NATIONAL-R2-12-SUNRAIN-HUMIDITY-ERA5-42321544843: R2已按用户漏斗要求实际衔接：全国2847个R1继续地区全部进入R2，重用12个已缓存1991—2020 ERA5逐日原始点位获得年日照、冬季日照、年降水和连续阴雨证据，其中11点位已有湿度/露点独立字段；R2真实点位12、R2尚未扫描2835、R2确证淘汰0、进入R3共2847，正式有效县级广筛0。R1未扫描与已有不足证据保留待核。证据：research_engine/retirement/status/national_r2_first_real_batch_evidence.json，全国台账：research_engine/retirement/status/national_r2_first_real_batch.csv。
+
+- RES-NATIONAL-R3-12COUNTY-36DEM-SAMPLES-42321725405: 按逐参数漏斗R3真实运行：全国2847个保留县级候选输入；12个历史编码县域关联36个Copernicus DEM GLO90真实采样点，记录原点/县内最低最高/跨度与低海拔潜在例外，2835个R3未扫描、确证淘汰0、继续2847。没有任何住宅精确定位和2026官方现行县界确认，因此正式有效县级广筛0。依据：research_engine/retirement/status/national_r3_first_real_batch_evidence.json；全量：research_engine/retirement/status/national_r3_first_real_batch.csv。
