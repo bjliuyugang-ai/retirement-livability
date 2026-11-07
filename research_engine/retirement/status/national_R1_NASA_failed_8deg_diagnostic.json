@@ -1,0 +1,111 @@
+{
+  "source_failed_run": "42322759970",
+  "scope": "NASA regional 8x8 deg tiled batch",
+  "success": 0,
+  "failed_anchor_count": 30,
+  "tile_results": [
+    {
+      "index": 1,
+      "lat_min": 24,
+      "lon_min": 104,
+      "requested_anchors": 6,
+      "status": "BLOCKED_WITH_EVIDENCE",
+      "error": "ValueError('Wrong NASA climatology period ')"
+    },
+    {
+      "index": 2,
+      "lat_min": 24,
+      "lon_min": 112,
+      "requested_anchors": 6,
+      "status": "BLOCKED_WITH_EVIDENCE",
+      "error": "ValueError('Wrong NASA climatology period ')"
+    },
+    {
+      "index": 3,
+      "lat_min": 32,
+      "lon_min": 96,
+      "requested_anchors": 3,
+      "status": "BLOCKED_WITH_EVIDENCE",
+      "error": "ValueError('Wrong NASA climatology period ')"
+    },
+    {
+      "index": 4,
+      "lat_min": 32,
+      "lon_min": 104,
+      "requested_anchors": 1,
+      "status": "BLOCKED_WITH_EVIDENCE",
+      "error": "ValueError('Wrong NASA climatology period ')"
+    },
+    {
+      "index": 5,
+      "lat_min": 32,
+      "lon_min": 112,
+      "requested_anchors": 2,
+      "status": "BLOCKED_WITH_EVIDENCE",
+      "error": "ValueError('Wrong NASA climatology period ')"
+    },
+    {
+      "index": 6,
+      "lat_min": 32,
+      "lon_min": 120,
+      "requested_anchors": 1,
+      "status": "BLOCKED_WITH_EVIDENCE",
+      "error": "ValueError('Wrong NASA climatology period ')"
+    },
+    {
+      "index": 7,
+      "lat_min": 40,
+      "lon_min": 88,
+      "requested_anchors": 1,
+      "status": "BLOCKED_WITH_EVIDENCE",
+      "error": "ValueError('Wrong NASA climatology period ')"
+    },
+    {
+      "index": 8,
+      "lat_min": 40,
+      "lon_min": 112,
+      "requested_anchors": 4,
+      "status": "BLOCKED_WITH_EVIDENCE",
+      "error": "ValueError('Wrong NASA climatology period ')"
+    },
+    {
+      "index": 9,
+      "lat_min": 40,
+      "lon_min": 120,
+      "requested_anchors": 2,
+      "status": "BLOCKED_WITH_EVIDENCE",
+      "error": "ValueError('Wrong NASA climatology period ')"
+    },
+    {
+      "index": 10,
+      "lat_min": 40,
+      "lon_min": 128,
+      "requested_anchors": 1,
+      "status": "BLOCKED_WITH_EVIDENCE",
+      "error": "ValueError('Wrong NASA climatology period ')"
+    },
+    {
+      "index": 11,
+      "lat_min": 48,
+      "lon_min": 112,
+      "requested_anchors": 1,
+      "status": "BLOCKED_WITH_EVIDENCE",
+      "error": "ValueError('Wrong NASA climatology period ')"
+    },
+    {
+      "index": 12,
+      "lat_min": 48,
+      "lon_min": 120,
+      "requested_anchors": 2,
+      "status": "BLOCKED_WITH_EVIDENCE",
+      "error": "ValueError('Wrong NASA climatology period ')"
+    }
+  ],
+  "all_failed_reason_counts": {
+    "ValueError('Wrong NASA climatology period ')": 12
+  },
+  "R1_counties_before": 22,
+  "R1_counties_after": 22,
+  "formal_valid_county_screenings": 0,
+  "next": "Change tiling size or request path only after classifying actual errors"
+}
