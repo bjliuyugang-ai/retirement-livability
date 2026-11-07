@@ -1,0 +1,94 @@
+name: Retirement real 73 longer-source county climate preference diagnostic no grading
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-73-preference-triage-010.yml'
+jobs:
+  audited-73-climate-preference:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: V1.6 verify unique 73-long R1R2 preference action
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["state_revision"]==57
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-73-PREFERENCE-TRIAGE-010"
+          assert s["last_completed_action_id"]=="RET-CASCADE-NATIONAL-R1R2-JOINT-MISSINGNESS-009"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["current_state_ref"]["git_blob_sha"]==subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          PY
+      - name: Execute actual source-specific V1.2 winter summer sunshine rainfall preference evidence cross
+        run: |
+          python -m py_compile research_engine/retirement/national_73_preference_ideal_triage_010.py
+          python -u research_engine/retirement/national_73_preference_ideal_triage_010.py
+      - name: Nonfatal ideal and evidence digest quality audit
+        id: audit
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json
+          root="research_engine/retirement/output/"
+          d=json.load(open(root+"national_73_climate_ideal_source_comparison_evidence.json"))
+          assert d["only_dual_longer_source_candidate_counties"]==73
+          assert d["no_formal_A_B_C_D_grades"]==0
+          assert d["confirmed_county_eliminations"]==0
+          assert d["nationwide_2847_candidate_register_unchanged"] is True
+          raw=open(root+"national_73_longer_R1_R2_climate_ideal_preference_triage.csv","rb").read()
+          assert hashlib.sha256(raw).hexdigest()==d["output_CSV_sha256"]
+          rows=list(csv.DictReader(open(root+"national_73_longer_R1_R2_climate_ideal_preference_triage.csv",encoding="utf-8-sig")))
+          assert len(rows)==73 and len({x["candidate_code"] for x in rows})==73
+          assert all(x["suitability_grade"]=="UNASSESSED_PENDING_RESIDENTIAL_AND_HEALTH_RISK" for x in rows)
+          assert all(x["early_elimination"]=="False" for x in rows)
+          for param,counts in d["per_parameter_status_counts"].items():
+            assert sum(counts.values())==73,param
+          print("FROZEN_NONFATAL_73_CLIMATE_IDEAL_ACTUAL_SOURCE_PASS",
+            d["candidate_with_four_parameter_source_values"],d["per_parameter_status_counts"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: 73-source-reliable-counties-nonfatal-climate-ideal-triage
+          path: |
+            research_engine/retirement/output/national_73_climate_ideal_source_comparison_evidence.json
+            research_engine/retirement/output/national_73_longer_R1_R2_climate_ideal_preference_triage.csv
+          retention-days: 30
+      - name: Persist source-validated nonfatal diagnostic and remote checksum
+        if: steps.audit.outcome == 'success'
+        run: |
+          cp research_engine/retirement/output/national_73_climate_ideal_source_comparison_evidence.json research_engine/retirement/status/national_73_climate_ideal_source_comparison_evidence.json
+          cp research_engine/retirement/output/national_73_longer_R1_R2_climate_ideal_preference_triage.csv research_engine/retirement/status/national_73_longer_R1_R2_climate_ideal_preference_triage.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/national_73_climate_ideal_source_comparison_evidence.json research_engine/retirement/status/national_73_longer_R1_R2_climate_ideal_preference_triage.csv
+          git commit -m "Archive 73 real 1991-2020 longer-source county climate point ideal comparisons without formal grades"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          root="research_engine/retirement/status/"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+root+"national_73_climate_ideal_source_comparison_evidence.json"]))
+          raw=subprocess.check_output(["git","show","origin/main:"+root+"national_73_longer_R1_R2_climate_ideal_preference_triage.csv"])
+          assert hashlib.sha256(raw).hexdigest()==d["output_CSV_sha256"]
+          assert d["confirmed_county_eliminations"]==0
+          print("73_PREF_SOURCE_SHA_PASS",d["candidate_with_four_parameter_source_values"],d["candidates_with_any_ideal_deviation"])
+          PY
