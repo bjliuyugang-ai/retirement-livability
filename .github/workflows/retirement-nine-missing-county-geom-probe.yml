@@ -1,0 +1,85 @@
+name: Retirement actual DataV geometries for seven missing 2025 plus two 2026 counties
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-nine-missing-county-geom-probe.yml'
+jobs:
+  nine-real-http-geometries:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Gate V1.6 current unique 9-missing-county action
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["state_revision"]==49
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-GEOMETRY-HOLES-006"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["current_state_ref"]["git_blob_sha"]==subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          PY
+      - name: Real 9 missing county and parent feature requests, inspect codes and geometry
+        run: |
+          python -m pip -q install shapely
+          python -m py_compile research_engine/retirement/nine_missing_2025_2026_polygon_probe.py
+          python -u research_engine/retirement/nine_missing_2025_2026_polygon_probe.py
+      - name: Audit honest nine outcomes and no official certified boundary claims
+        id: qa
+        run: |
+          python - <<'PY'
+          import json
+          p="research_engine/retirement/output/nine_missing_county_geoatlas_actual_requests.json"
+          d=json.load(open(p))
+          assert d["input_county_targets"]==9
+          assert d["2025_missing_counties"]==7
+          assert d["2026_two_new_established"]==2
+          assert d["alternative_live_coded_geometries_located"]+d["not_found_or_unverified"]==9
+          assert d["official_2026_boundary_certified_count"]==0
+          assert d["formal_valid_county_screenings"]==0
+          assert len(set(x["code"] for x in d["target_results"]))==9
+          print("NINE_MISSING_REAL_HTTP_QA_PASS",d["alternative_live_coded_geometries_located"],d["not_found_or_unverified"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nine-real-2025-2026-county-direct-and-parent-geometry-source-evidence
+          path: |
+            research_engine/retirement/output/nine_missing_county_geoatlas_actual_requests.json
+            research_engine/retirement/output/datav_county_*.json
+            research_engine/retirement/output/datav_parent_*_full.json
+          retention-days: 30
+      - name: Persist actual HTTP results with remote SHA and keep unverified counties unknown
+        if: steps.qa.outcome == 'success'
+        run: |
+          cp research_engine/retirement/output/nine_missing_county_geoatlas_actual_requests.json research_engine/retirement/status/nine_missing_county_geoatlas_actual_requests.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/nine_missing_county_geoatlas_actual_requests.json
+          git commit -m "Record real DataV direct/parent geometry lookup for 9 newly missing mainland county polygons"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          p="research_engine/retirement/status/nine_missing_county_geoatlas_actual_requests.json"
+          b=subprocess.check_output(["git","show","origin/main:"+p])
+          assert hashlib.sha256(b).hexdigest()==hashlib.sha256(open(p,"rb").read()).hexdigest()
+          assert json.loads(b)["official_2026_boundary_certified_count"]==0
+          print("NINE_BOUNDARY_REMOTE_SHA_PASS",json.loads(b)["alternative_live_coded_geometries_located"])
+          PY
