@@ -28,7 +28,7 @@
     "national_git_blob_sha": "a40eb651cb07f5615a68acd4d1189816af423d8d",
     "points_path": "research_engine/retirement/status/national_R3_205_station_dem_point_evidence.csv",
     "points_git_blob_sha": "3d0a4540160906bcb082333d20b2da29f7395866",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-R3-STATION-ALTITUDE-011",
   "closed_result_refs": [
@@ -81,11 +81,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "5335be11d98d0a639b8e36634c6cf7ccb0b98aa6",
+    "verified_at": "2026-11-07T04:29:17.311Z"
   },
-  "updated_at": "2026-11-07T04:28:41.204Z",
-  "state_revision": 60,
+  "updated_at": "2026-11-07T04:29:17.311Z",
+  "state_revision": 61,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
