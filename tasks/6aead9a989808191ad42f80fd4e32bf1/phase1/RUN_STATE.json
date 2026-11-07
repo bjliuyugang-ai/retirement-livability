@@ -24,7 +24,7 @@
     "research_closure_status": "OPEN",
     "evidence_path": "research_engine/retirement/status/latest-spatial-variability-002.json",
     "evidence_sha256": "49be49ccb42ceafd03b705b3ba98977f867bc9c5a3fb6efb75ad0d4bad62e26d",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-CLIMATE-SPATIAL-REPRESENTATIVENESS-002",
   "closed_result_refs": [
@@ -56,11 +56,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "e48957a44ddd5b21f9b2230bc329b40e1d968c3e",
+    "verified_at": "2026-11-07T00:16:05.872273+00:00"
   },
-  "updated_at": "2026-11-07T00:16:02.942442+00:00",
-  "state_revision": 18,
+  "updated_at": "2026-11-07T00:16:05.872292+00:00",
+  "state_revision": 19,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
