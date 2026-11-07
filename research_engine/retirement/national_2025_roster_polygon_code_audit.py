@@ -61,8 +61,12 @@ for f in features:
  if not re.fullmatch(r"[0-9]{6}",code):raise RuntimeError("GeoJSON invalid 6-digit code")
  if code in geo:raise RuntimeError("duplicate geom code")
  geo[code]=name
-if len(geo)!=2891 or len(county25)!=2847 or len(bycode)!=2847:raise RuntimeError("Unexpected national denominator or geometry feature count "+str((len(geo),len(county25),len(bycode))))
-if set(bycode)!=set(county25):raise RuntimeError("R0 2847 candidate IDs differ from 2025 source IDs")
+if len(geo)!=2891 or len(county25)!=2845 or len(bycode)!=2847:raise RuntimeError("Unexpected national denominator or geometry feature count "+str((len(geo),len(county25),len(bycode))))
+if not set(county25).issubset(set(bycode)):raise RuntimeError("2025 historical county codes unexpectedly absent in R0")
+new2026=sorted(set(bycode)-set(county25))
+if new2026!=["653132","659013"]:raise RuntimeError("Unexpected 2026 county supplement "+str(new2026))
+if not all(bycode[x]["source_class"]=="2026_LEGAL_ANNOUNCEMENT_PLUS_SECONDARY_CODE" for x in new2026):
+ raise RuntimeError("2026 new county codes lack explicit supplemental provenance")
 if any(bycode[k]["candidate_name"]!=v for k,v in county25.items()):raise RuntimeError("R0 name mismatch 2025 source")
 codes_missing_geom=sorted(set(county25)-set(geo))
 extra_geom=sorted(set(geo)-set(county25))
@@ -76,9 +80,10 @@ station_wrong=[s for s in accepted if s["2026_candidate_county_code"] not in cou
 if len(station_wrong)!=0:raise RuntimeError("Mapped climate station code not in independent 2025 roster")
 # Do not treat 2025 compilation as official 2026 current; geo snapshot vintage unknown.
 status_rows=[]
-for code in sorted(set(county25)|set(geo)):
+for code in sorted(set(bycode)|set(geo)):
  code_25=county25.get(code);geo_name=geo.get(code)
- if code_25 is None:status="GEOMETRY_CODE_NOT_IN_2025_COUNTY_ROSTER"
+ if code_25 is None and code in bycode:status="NEW_2026_ESTABLISHMENT_PRELIMINARY_CODE_NOT_IN_2025_HISTORY"
+ elif code_25 is None:status="GEOMETRY_CODE_NOT_IN_2025_COUNTY_ROSTER"
  elif geo_name is None:status="2025_COUNTY_HAS_NO_CODED_GEOMETRY"
  elif code_25!=geo_name:status="SAME_CODE_NAME_MISMATCH"
  else:status="SOURCE_LEVEL_CODE_NAME_CONCORDANT"
@@ -107,7 +112,11 @@ report={"schema":"RET_2025_HISTORICAL_ROSTER_VS_THIRD_PARTY_CODED_GEOMETRY_AUDIT
  "source_historical_code_entries_2024":len(yr24),
  "historical_2025_non00_county_code_count":len(county25),
  "historical_2024_non00_county_code_count":len(county24),
- "mapped_2025_counties_in_real_R0":len(bycode),
+ "mapped_2025_counties_in_real_R0":len(county25),
+ "provisional_R0_2026_supplemented_county_candidates":len(bycode),
+ "new_2026_establishment_counties_in_provisional_R0":[{"code":k,"name":bycode[k]["candidate_name"],
+   "establishment_announcement_url":"https://www.xinjiang.gov.cn/xinjiang/tzgg/202603/285e5d25b8ad4eae8df6b0f0efe847f6.shtml" if k=="653132" else "https://www.xinjiang.gov.cn/xinjiang/tzgg/202604/3691350b13064945947d8f78933ccb3e.shtml",
+   "government_verified_establishment":True,"six_digit_code_source_quality":"SECONDARY_CODE_UNVERIFIED_WITH_LIVE_MCA"} for k in new2026],
  "coded_geometry_feature_count":len(geo),
  "geometry_code_in_2025_name_same_count":len(samecodes)-len(name_different),
  "2025_county_codes_missing_coded_geometry_count":len(codes_missing_geom),
@@ -125,7 +134,7 @@ report={"schema":"RET_2025_HISTORICAL_ROSTER_VS_THIRD_PARTY_CODED_GEOMETRY_AUDIT
  "R1_partial_evidence_counties_retained":87,"R2_partial_evidence_counties_retained":73,
  "no_2026_formal_county_screenings":0,"no_unauthorized_county_exclusions":0,
  "national_diff_csv_sha256":sha(outfile.read_bytes()),
- "interpretation_limits":["2025 archived geoname compilation is NOT direct 2026 authenticated official endpoint result",
+ "interpretation_limits":["2025 archived geoname compilation is NOT direct 2026 authenticated official endpoint result", "2026 two additional county creations are legally announced, but six-digit codes and county polygon require separate formal verification",
  "Third-party GeoJSON code geometry date and map certification NOT established",
  "Source code/name differences indicate possible stale geometry, aliases, direct-admin jurisdiction or polygons; no automatic administrative exclusion",
  "All 2847 counties retained for real screening; missing coded geometry becomes spatial QA pending, not excluded"]}
