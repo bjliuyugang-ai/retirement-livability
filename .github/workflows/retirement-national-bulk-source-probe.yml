@@ -1,0 +1,77 @@
+name: Retirement R1 nationwide source scaling NASA POWER Meteostat real access probe
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-national-bulk-source-probe.yml'
+jobs:
+  climate-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Verify V1.6 unique national data-source scale action and no hourly schedule
+        id: gate
+        run: |
+          python - <<'PY'
+          import json
+          p="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          s=json.load(open(p))
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-SOURCE-SCALE-002"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          print("SOURCE_SCALE_ACTION_GATED",s["state_revision"])
+          PY
+      - name: Probe NASA 1991-2020 real point/regional climate and Meteostat monthly bulk
+        id: fetch
+        continue-on-error: true
+        run: python -u research_engine/retirement/national_bulk_source_probe.py
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.gate.outcome == 'success'
+        with:
+          name: independent-custom-climate-and-bulk-source-probe
+          path: |
+            research_engine/retirement/output/national_bulk_source_probe.json
+            research_engine/retirement/output/nasa_power_custom*.json
+            research_engine/retirement/output/nasa_power_2deg*.json
+          retention-days: 30
+      - name: Write true source test results, including blocked sources
+        if: always() && steps.gate.outcome == 'success'
+        run: |
+          mkdir -p research_engine/retirement/status
+          cp research_engine/retirement/output/national_bulk_source_probe.json research_engine/retirement/status/national_bulk_source_probe.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/national_bulk_source_probe.json
+          git commit -m "Record NASA POWER/Meteostat actual source tests with real error and response hashes"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          p="research_engine/retirement/status/national_bulk_source_probe.json"
+          local=open(p,"rb").read()
+          remote=subprocess.check_output(["git","show","origin/main:"+p])
+          assert hashlib.sha256(local).hexdigest()==hashlib.sha256(remote).hexdigest()
+          d=json.loads(remote)
+          assert d["formal_valid_county_screenings"]==0
+          print("REAL_SOURCE_PROBE_REMOTE_HASH_PASS",d["status"])
+          PY
+      - name: Mark remote source probe blocked if all tests failed
+        if: steps.fetch.outcome == 'failure'
+        run: exit 1
