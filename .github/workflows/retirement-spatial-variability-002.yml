@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/retirement-spatial-variability-002.yml'
+      - 'research_engine/retirement/spatial_variability_002.py'
 jobs:
   climate-multigrid:
     runs-on: ubuntu-latest
