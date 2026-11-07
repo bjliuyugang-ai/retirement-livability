@@ -43,3 +43,5 @@ RET-SPATIAL-001：执行2017口径geoBoundaries历史县级边界空间匹配真
 - RES-SPATIAL-MULTIGRID-002-42315459712: 多格点气候差异实测被阻塞，原始错误见证据；县级有效广筛仍为0。
 
 - RES-SPATIAL-MULTIGRID-002-42317042892: 4个高海拔差异县域完成12格点1991-2020 ERA5气候差异实测，保留微气候例外，不能据此完成正式县级广筛。
+
+- RES-STAGE3-11POINT-FIRSTBATCH-42317771144: 用户明确授权从11个已有ERA5点位直接进入第三关方法验证。首次4个县域11点初筛已生成逐点偏好命中与县域风险分层（研究增量）；现行行政身份、CMA站点、住宅海拔、空气/水/污染/灾害未关闭，正式有效县级广筛仍为0。旧RET-CMA-ERA5-CROSSCHECK-003标记DEFERRED而非PASS。详见 research_engine/retirement/status/latest-first-batch-prescreen.json。

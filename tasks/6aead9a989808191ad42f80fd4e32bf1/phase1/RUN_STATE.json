@@ -12,21 +12,23 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "7bf3971086339c9eb80fcf32836ef8877e39f1d2"
+    "git_blob_sha": "a5fd6ec1938cd1354c3c70fb9ed4e920d961a9ce"
   },
   "last_verified_run": {
-    "run_id": "42317042892",
-    "action_id": "RET-CLIMATE-SPATIAL-REPRESENTATIVENESS-002",
-    "result_id": "RES-SPATIAL-MULTIGRID-002-42317042892",
+    "run_id": "42317771144",
+    "action_id": "RET-STAGE3-FIRSTBATCH-001",
+    "result_id": "RES-STAGE3-11POINT-FIRSTBATCH-42317771144",
     "execution_status": "EXECUTED",
     "engineering_status": "PASS",
     "research_delta_status": "DELTA_VERIFIED",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/latest-spatial-variability-002.json",
-    "evidence_sha256": "49be49ccb42ceafd03b705b3ba98977f867bc9c5a3fb6efb75ad0d4bad62e26d",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/status/latest-first-batch-prescreen.json",
+    "evidence_sha256": "7e3488ded193b7bbaea12ccbfd9ced6ad32c994f0003915cb708d8729ec41e2a",
+    "csv_evidence_path": "research_engine/retirement/status/first-batch-prescreen-counties.csv",
+    "csv_sha256": "1750c7934e896e090cc698101a564f4edc3bcc0f662a7c9f36f28886b08680ed",
+    "status": "AWAITING_POSTCHECK"
   },
-  "last_completed_action_id": "RET-CLIMATE-SPATIAL-REPRESENTATIVENESS-002",
+  "last_completed_action_id": "RET-STAGE3-FIRSTBATCH-001",
   "closed_result_refs": [
     "RES-CLIMATE-12POINT-20261106",
     "RES-SPATIAL-ENGINEERING-42244926780",
@@ -34,20 +36,21 @@
     "RES-2026-PROVISIONAL-ROSTER-42249396217",
     "RES-SECONDARY-GEOMETRY-CODE-QA-42251289106",
     "RES-DEM-ERA5-MOISTURE-EXPLORATORY-42251953046",
-    "RES-SPATIAL-MULTIGRID-002-42317042892"
+    "RES-SPATIAL-MULTIGRID-002-42317042892",
+    "RES-STAGE3-11POINT-FIRSTBATCH-42317771144"
   ],
   "active_action": {
-    "action_id": "RET-CMA-ERA5-CROSSCHECK-003",
-    "question_id": "Q-CLIMATE-REPRESENTATIVENESS",
-    "decision": "交叉检验ERA5多点气候差异与可溯源站点1991-2020标准值，判别是否具备县级广筛资格",
-    "method": "优先CMA真实常年值/可下载历史站点数据；同基期同空间口径比较；局部微气候例外逐项标待核",
-    "expected_evidence": "站点真实来源、日期、气温/日照/湿度与格点差异、无法核验县域列表",
-    "pass_criteria": "以合格身份与空间证据支持逐县有效判断；不具备资格明确待核和阻塞而非误判D",
-    "fallback": "站点数据不可达则扩宽独立空间来源并以不具备正式广筛资格裁决",
-    "timebox_end": "2026-11-08T15:26:00Z",
-    "status": "READY"
+    "action_id": "RET-STAGE3-EVIDENCE-GAPS-002",
+    "question_id": "Q-FIRST-VALID-COUNTY-SCREEN",
+    "decision": "从4县域11点初筛真实结果出发，逐项核验最有希望的候选住宅片区及其空气、水、污染和地灾底线，判断有无首批正式有效县级广筛",
+    "method": "先用本轮11点的候选区位分层缩小范围；核对现行官方代码、独立气候站、住宅海拔、空气/饮水/污染/灾害，缺口逐项待核",
+    "expected_evidence": "已冻结的4县域初筛结果、具体居住片区的来源与质量差集、第一批达标或待核判定",
+    "pass_criteria": "真实住宅片区与正式质量底线全项合格才允许计入有效县级广筛；不足留待核",
+    "fallback": "不拿ERA5代替站点、不将县域海拔最高值作为全县淘汰，不改变原20片区暂定分级",
+    "status": "READY",
+    "timebox_end": "2026-11-08T15:26:00Z"
   },
-  "phase": "CMA_ERA5_CROSSCHECK_ASSAULT",
+  "phase": "STAGE3_FIRST_BATCH_SCREENING_VALIDATION",
   "milestone_deadline": {
     "time_zone": "Asia/Shanghai",
     "checkpoint_24h": "2026-11-07T23:26:00+08:00",
@@ -56,17 +59,25 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "e48957a44ddd5b21f9b2230bc329b40e1d968c3e",
-    "verified_at": "2026-11-07T00:16:05.872273+00:00"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-07T00:16:05.872292+00:00",
-  "state_revision": 19,
+  "updated_at": "2026-11-07T00:22:01.130297+00:00",
+  "state_revision": 20,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
       "status": "OPEN_2026_NATIONWIDE_OFFICIAL_RECONCILIATION",
       "reason": "Official MCA source DNS failed; mirror and Xinjiang government legal notices support only a provisional roster, not official national code certification"
+    }
+  ],
+  "deferred_actions": [
+    {
+      "action_id": "RET-CMA-ERA5-CROSSCHECK-003",
+      "status": "DEFERRED_BY_EXPLICIT_USER_DECISION",
+      "reason": "11 preliminary data points sufficient to test first-batch screening; unresolved CMA/official-code checks retained as formal blockers",
+      "deferred_at": "2026-11-07T00:22:01.128598+00:00",
+      "may_revisit_for_formal_grade": true
     }
   ]
 }

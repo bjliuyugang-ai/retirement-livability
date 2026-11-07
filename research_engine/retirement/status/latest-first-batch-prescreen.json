@@ -1,0 +1,501 @@
+{
+  "schema": "RET_STAGE3_FIRST_BATCH_PRESCREEN_V1",
+  "generated_utc": "2026-11-07T00:22:01.049532+00:00",
+  "run_scope": "2026-11-07 user-authorized leap from stage2 quality-research to stage3 method validation",
+  "stage3_preliminary_county_units": 4,
+  "preliminary_point_records": 11,
+  "valid_county_screenings": 0,
+  "formal_a_b_c_d_count": 0,
+  "source": {
+    "frozen_11point_evidence": "research_engine/retirement/evidence/spatial_002_frozen_partial_42315459712.json",
+    "source_sha256": "a538a58e0395ba87059ddd4a6e9710a5c850f3a639897db1c04f4a73831735c6",
+    "code_candidate": "retirement-climate-pilot/status/latest-adcode-probe.json",
+    "code_sha256": "bf73470ba083ac7e15c0d2770a2b238e869ed30905daa3649209641282145d8a",
+    "dem_evidence": "research_engine/retirement/status/latest-microclimate-pilot.json",
+    "dem_sha256": "28250d8ba6a7594ba3b403b798430582c9002eb581b119e5400d41f417f16a77"
+  },
+  "research_standard": {
+    "winter_day_preference_c": [
+      18,
+      25
+    ],
+    "summer_day_preference_c": [
+      25,
+      29
+    ],
+    "annual_rh_preference_pct": [
+      50,
+      70
+    ],
+    "altitude_reference_m": [
+      0,
+      1500
+    ],
+    "hard_exclusion_inferred_from_preference": false
+  },
+  "limitations": [
+    "11 coordinates represent four historical candidate counties, not 11 validated counties",
+    "Point positions are not confirmed residential communities; ERA5 sample grids may overlap",
+    "Working rankings/flags are NOT formal A/B/C/D and cannot trigger second-stage enrollment",
+    "2000m DEM sample does not eliminate an entire county; local low-elevation areas remain assessable",
+    "2026 official national county register and actual residential exposure still unverified",
+    "No missing value is treated as proof of inadequacy"
+  ],
+  "point_rows": [
+    {
+      "site": "Panzhihua",
+      "candidate_county": "四川省攀枝花市东区",
+      "archival_code": "510402",
+      "point_index_in_frozen_source": 0,
+      "latitude": 26.58,
+      "longitude": 101.72,
+      "sample_dem_elevation_m": 1164,
+      "winter_mean_daily_max_c": 22.008,
+      "summer_mean_daily_max_c": 30.337,
+      "annual_relative_humidity_pct": 62.624,
+      "summer_mean_dewpoint_c": 21.285,
+      "era5_annual_sunshine_hours_estimated": 3440.8,
+      "preference_checks": {
+        "winter_day_18_25_preference": true,
+        "summer_day_25_29_preference": false,
+        "annual_humidity_50_70_preference": true,
+        "altitude_at_or_below_1500_preference": true
+      },
+      "preference_mismatch_flags": [
+        "summer_day_25_29_preference"
+      ],
+      "independent_era5_grid_verified": false,
+      "residential_location_verified": false,
+      "official_climate_station_crosschecked": false,
+      "formal_grading": "UNASSESSED",
+      "observation_type": "ERA5_MODEL_POINT_EXPLORATORY"
+    },
+    {
+      "site": "Panzhihua",
+      "candidate_county": "四川省攀枝花市东区",
+      "archival_code": "510402",
+      "point_index_in_frozen_source": 1,
+      "latitude": 26.64703,
+      "longitude": 101.80937,
+      "sample_dem_elevation_m": 1409,
+      "winter_mean_daily_max_c": 19.176,
+      "summer_mean_daily_max_c": 28.306,
+      "annual_relative_humidity_pct": 64.632,
+      "summer_mean_dewpoint_c": 19.855,
+      "era5_annual_sunshine_hours_estimated": 3372.9,
+      "preference_checks": {
+        "winter_day_18_25_preference": true,
+        "summer_day_25_29_preference": true,
+        "annual_humidity_50_70_preference": true,
+        "altitude_at_or_below_1500_preference": true
+      },
+      "preference_mismatch_flags": [],
+      "independent_era5_grid_verified": false,
+      "residential_location_verified": false,
+      "official_climate_station_crosschecked": false,
+      "formal_grading": "UNASSESSED",
+      "observation_type": "ERA5_MODEL_POINT_EXPLORATORY"
+    },
+    {
+      "site": "Panzhihua",
+      "candidate_county": "四川省攀枝花市东区",
+      "archival_code": "510402",
+      "point_index_in_frozen_source": 2,
+      "latitude": 26.53109,
+      "longitude": 101.79289,
+      "sample_dem_elevation_m": 1882,
+      "winter_mean_daily_max_c": 17.342,
+      "summer_mean_daily_max_c": 25.673,
+      "annual_relative_humidity_pct": 61.725,
+      "summer_mean_dewpoint_c": 16.617,
+      "era5_annual_sunshine_hours_estimated": 3440.8,
+      "preference_checks": {
+        "winter_day_18_25_preference": false,
+        "summer_day_25_29_preference": true,
+        "annual_humidity_50_70_preference": true,
+        "altitude_at_or_below_1500_preference": false
+      },
+      "preference_mismatch_flags": [
+        "winter_day_18_25_preference",
+        "altitude_at_or_below_1500_preference"
+      ],
+      "independent_era5_grid_verified": false,
+      "residential_location_verified": false,
+      "official_climate_station_crosschecked": false,
+      "formal_grading": "UNASSESSED",
+      "observation_type": "ERA5_MODEL_POINT_EXPLORATORY"
+    },
+    {
+      "site": "Mengzi",
+      "candidate_county": "云南省红河州蒙自市",
+      "archival_code": "532503",
+      "point_index_in_frozen_source": 0,
+      "latitude": 23.37,
+      "longitude": 103.39,
+      "sample_dem_elevation_m": 1311,
+      "winter_mean_daily_max_c": 17.844,
+      "summer_mean_daily_max_c": 27.173,
+      "annual_relative_humidity_pct": 83.196,
+      "summer_mean_dewpoint_c": 20.58,
+      "era5_annual_sunshine_hours_estimated": 2973.8,
+      "preference_checks": {
+        "winter_day_18_25_preference": false,
+        "summer_day_25_29_preference": true,
+        "annual_humidity_50_70_preference": false,
+        "altitude_at_or_below_1500_preference": true
+      },
+      "preference_mismatch_flags": [
+        "winter_day_18_25_preference",
+        "annual_humidity_50_70_preference"
+      ],
+      "independent_era5_grid_verified": false,
+      "residential_location_verified": false,
+      "official_climate_station_crosschecked": false,
+      "formal_grading": "UNASSESSED",
+      "observation_type": "ERA5_MODEL_POINT_EXPLORATORY"
+    },
+    {
+      "site": "Mengzi",
+      "candidate_county": "云南省红河州蒙自市",
+      "archival_code": "532503",
+      "point_index_in_frozen_source": 1,
+      "latitude": 23.46124,
+      "longitude": 103.759,
+      "sample_dem_elevation_m": 2087,
+      "winter_mean_daily_max_c": 13.987,
+      "summer_mean_daily_max_c": 22.952,
+      "annual_relative_humidity_pct": 79.328,
+      "summer_mean_dewpoint_c": 15.663,
+      "era5_annual_sunshine_hours_estimated": 2860.5,
+      "preference_checks": {
+        "winter_day_18_25_preference": false,
+        "summer_day_25_29_preference": false,
+        "annual_humidity_50_70_preference": false,
+        "altitude_at_or_below_1500_preference": false
+      },
+      "preference_mismatch_flags": [
+        "winter_day_18_25_preference",
+        "summer_day_25_29_preference",
+        "annual_humidity_50_70_preference",
+        "altitude_at_or_below_1500_preference"
+      ],
+      "independent_era5_grid_verified": false,
+      "residential_location_verified": false,
+      "official_climate_station_crosschecked": false,
+      "formal_grading": "UNASSESSED",
+      "observation_type": "ERA5_MODEL_POINT_EXPLORATORY"
+    },
+    {
+      "site": "Mengzi",
+      "candidate_county": "云南省红河州蒙自市",
+      "archival_code": "532503",
+      "point_index_in_frozen_source": 2,
+      "latitude": 23.07155,
+      "longitude": 103.27251,
+      "sample_dem_elevation_m": 376,
+      "winter_mean_daily_max_c": 24.139,
+      "summer_mean_daily_max_c": 32.994,
+      "annual_relative_humidity_pct": 81.068,
+      "summer_mean_dewpoint_c": 25.819,
+      "era5_annual_sunshine_hours_estimated": 2952.2,
+      "preference_checks": {
+        "winter_day_18_25_preference": true,
+        "summer_day_25_29_preference": false,
+        "annual_humidity_50_70_preference": false,
+        "altitude_at_or_below_1500_preference": true
+      },
+      "preference_mismatch_flags": [
+        "summer_day_25_29_preference",
+        "annual_humidity_50_70_preference"
+      ],
+      "independent_era5_grid_verified": false,
+      "residential_location_verified": false,
+      "official_climate_station_crosschecked": false,
+      "formal_grading": "UNASSESSED",
+      "observation_type": "ERA5_MODEL_POINT_EXPLORATORY"
+    },
+    {
+      "site": "Jinghong",
+      "candidate_county": "云南省西双版纳州景洪市",
+      "archival_code": "532801",
+      "point_index_in_frozen_source": 0,
+      "latitude": 22.01,
+      "longitude": 100.8,
+      "sample_dem_elevation_m": 560,
+      "winter_mean_daily_max_c": 27.603,
+      "summer_mean_daily_max_c": 32.175,
+      "annual_relative_humidity_pct": 77.736,
+      "summer_mean_dewpoint_c": 24.46,
+      "era5_annual_sunshine_hours_estimated": 3279.7,
+      "preference_checks": {
+        "winter_day_18_25_preference": false,
+        "summer_day_25_29_preference": false,
+        "annual_humidity_50_70_preference": false,
+        "altitude_at_or_below_1500_preference": true
+      },
+      "preference_mismatch_flags": [
+        "winter_day_18_25_preference",
+        "summer_day_25_29_preference",
+        "annual_humidity_50_70_preference"
+      ],
+      "independent_era5_grid_verified": false,
+      "residential_location_verified": false,
+      "official_climate_station_crosschecked": false,
+      "formal_grading": "UNASSESSED",
+      "observation_type": "ERA5_MODEL_POINT_EXPLORATORY"
+    },
+    {
+      "site": "Jinghong",
+      "candidate_county": "云南省西双版纳州景洪市",
+      "archival_code": "532801",
+      "point_index_in_frozen_source": 1,
+      "latitude": 22.47999,
+      "longitude": 101.40514,
+      "sample_dem_elevation_m": 1445,
+      "winter_mean_daily_max_c": 20.363,
+      "summer_mean_daily_max_c": 25.895,
+      "annual_relative_humidity_pct": 78.213,
+      "summer_mean_dewpoint_c": 19.104,
+      "era5_annual_sunshine_hours_estimated": 3088.3,
+      "preference_checks": {
+        "winter_day_18_25_preference": true,
+        "summer_day_25_29_preference": true,
+        "annual_humidity_50_70_preference": false,
+        "altitude_at_or_below_1500_preference": true
+      },
+      "preference_mismatch_flags": [
+        "annual_humidity_50_70_preference"
+      ],
+      "independent_era5_grid_verified": false,
+      "residential_location_verified": false,
+      "official_climate_station_crosschecked": false,
+      "formal_grading": "UNASSESSED",
+      "observation_type": "ERA5_MODEL_POINT_EXPLORATORY"
+    },
+    {
+      "site": "Jinghong",
+      "candidate_county": "云南省西双版纳州景洪市",
+      "archival_code": "532801",
+      "point_index_in_frozen_source": 2,
+      "latitude": 21.56438,
+      "longitude": 100.53957,
+      "sample_dem_elevation_m": 1056,
+      "winter_mean_daily_max_c": 24.151,
+      "summer_mean_daily_max_c": 28.255,
+      "annual_relative_humidity_pct": 79.858,
+      "summer_mean_dewpoint_c": 21.522,
+      "era5_annual_sunshine_hours_estimated": 3297.5,
+      "preference_checks": {
+        "winter_day_18_25_preference": true,
+        "summer_day_25_29_preference": true,
+        "annual_humidity_50_70_preference": false,
+        "altitude_at_or_below_1500_preference": true
+      },
+      "preference_mismatch_flags": [
+        "annual_humidity_50_70_preference"
+      ],
+      "independent_era5_grid_verified": false,
+      "residential_location_verified": false,
+      "official_climate_station_crosschecked": false,
+      "formal_grading": "UNASSESSED",
+      "observation_type": "ERA5_MODEL_POINT_EXPLORATORY"
+    },
+    {
+      "site": "Dali",
+      "candidate_county": "云南省大理州大理市",
+      "archival_code": "532901",
+      "point_index_in_frozen_source": 0,
+      "latitude": 25.61,
+      "longitude": 100.27,
+      "sample_dem_elevation_m": 1972,
+      "winter_mean_daily_max_c": 16.94,
+      "summer_mean_daily_max_c": 25.238,
+      "annual_relative_humidity_pct": 68.803,
+      "summer_mean_dewpoint_c": 17.079,
+      "era5_annual_sunshine_hours_estimated": 3424.5,
+      "preference_checks": {
+        "winter_day_18_25_preference": false,
+        "summer_day_25_29_preference": true,
+        "annual_humidity_50_70_preference": true,
+        "altitude_at_or_below_1500_preference": false
+      },
+      "preference_mismatch_flags": [
+        "winter_day_18_25_preference",
+        "altitude_at_or_below_1500_preference"
+      ],
+      "independent_era5_grid_verified": false,
+      "residential_location_verified": false,
+      "official_climate_station_crosschecked": false,
+      "formal_grading": "UNASSESSED",
+      "observation_type": "ERA5_MODEL_POINT_EXPLORATORY"
+    },
+    {
+      "site": "Dali",
+      "candidate_county": "云南省大理州大理市",
+      "archival_code": "532901",
+      "point_index_in_frozen_source": 1,
+      "latitude": 26.00967,
+      "longitude": 100.1628,
+      "sample_dem_elevation_m": 2299,
+      "winter_mean_daily_max_c": 15.633,
+      "summer_mean_daily_max_c": 24.008,
+      "annual_relative_humidity_pct": 64.293,
+      "summer_mean_dewpoint_c": 14.652,
+      "era5_annual_sunshine_hours_estimated": 3491.6,
+      "preference_checks": {
+        "winter_day_18_25_preference": false,
+        "summer_day_25_29_preference": false,
+        "annual_humidity_50_70_preference": true,
+        "altitude_at_or_below_1500_preference": false
+      },
+      "preference_mismatch_flags": [
+        "winter_day_18_25_preference",
+        "summer_day_25_29_preference",
+        "altitude_at_or_below_1500_preference"
+      ],
+      "independent_era5_grid_verified": false,
+      "residential_location_verified": false,
+      "official_climate_station_crosschecked": false,
+      "formal_grading": "UNASSESSED",
+      "observation_type": "ERA5_MODEL_POINT_EXPLORATORY"
+    }
+  ],
+  "county_rows": [
+    {
+      "site": "Panzhihua",
+      "county": "四川省攀枝花市东区",
+      "archival_code": "510402",
+      "point_count_used": 3,
+      "geometric_dem_span_m": 718,
+      "winter_daytime_max_range_c": [
+        17.342,
+        22.008
+      ],
+      "summer_daytime_max_range_c": [
+        25.673,
+        30.337
+      ],
+      "humidity_range_pct": [
+        61.725,
+        64.632
+      ],
+      "points_meeting_three_climate_preferences": 1,
+      "prior_master_region": "东区／仁和区候选片区",
+      "prior_master_provisional_grade": "C",
+      "working_priority": "P1_LOCAL_RESIDENTIAL_EXPOSURE_QA",
+      "working_conclusion": "冬季日间适宜的点位与夏季相对温和的点位并存，城市河谷及工业污染暴露须分区核验。",
+      "stage3_first_batch_preliminary": "PRE_SCREEN_DONE_FORMAL_PENDING",
+      "formal_county_grade": "UNASSESSED",
+      "formal_county_screening_valid": false,
+      "formal_blockers": [
+        "2026官方行政身份及边界全国对账未完成",
+        "ERA5格点及气象站1991—2020同口径交叉核验未完成",
+        "非实际候选住宅片区；局部微气候仍待核",
+        "空气、饮用水、污染源及灾害底线尚未完成住宅级核验"
+      ],
+      "sunshine_data_caveat": "ERA5 sunshine_duration 不能代替有来源的观测年日照，不用于正式评级"
+    },
+    {
+      "site": "Mengzi",
+      "county": "云南省红河州蒙自市",
+      "archival_code": "532503",
+      "point_count_used": 3,
+      "geometric_dem_span_m": 1711,
+      "winter_daytime_max_range_c": [
+        13.987,
+        24.139
+      ],
+      "summer_daytime_max_range_c": [
+        22.952,
+        32.994
+      ],
+      "humidity_range_pct": [
+        79.328,
+        83.196
+      ],
+      "points_meeting_three_climate_preferences": 0,
+      "prior_master_region": "蒙自坝区／城市成熟社区",
+      "prior_master_provisional_grade": "B",
+      "working_priority": "P1_BASIN_VS_VALLEY_REPRESENTATIVENESS",
+      "working_conclusion": "坝区和周边山地/低海拔河谷季节温差显著；年湿度再分析值不应直接替代官方观测。",
+      "stage3_first_batch_preliminary": "PRE_SCREEN_DONE_FORMAL_PENDING",
+      "formal_county_grade": "UNASSESSED",
+      "formal_county_screening_valid": false,
+      "formal_blockers": [
+        "2026官方行政身份及边界全国对账未完成",
+        "ERA5格点及气象站1991—2020同口径交叉核验未完成",
+        "非实际候选住宅片区；局部微气候仍待核",
+        "空气、饮用水、污染源及灾害底线尚未完成住宅级核验"
+      ],
+      "sunshine_data_caveat": "ERA5 sunshine_duration 不能代替有来源的观测年日照，不用于正式评级"
+    },
+    {
+      "site": "Jinghong",
+      "county": "云南省西双版纳州景洪市",
+      "archival_code": "532801",
+      "point_count_used": 3,
+      "geometric_dem_span_m": 885,
+      "winter_daytime_max_range_c": [
+        20.363,
+        27.603
+      ],
+      "summer_daytime_max_range_c": [
+        25.895,
+        32.175
+      ],
+      "humidity_range_pct": [
+        77.736,
+        79.858
+      ],
+      "points_meeting_three_climate_preferences": 0,
+      "prior_master_region": "景洪城区／城市成熟区",
+      "prior_master_provisional_grade": "D",
+      "working_priority": "P2_PRESERVE_POTENTIAL_MICROCLIMATE_EXCEPTION",
+      "working_conclusion": "热湿与夏季高温是明显偏好冲突；较高海拔点可能不同，但不能据此推翻原暂定等级。",
+      "stage3_first_batch_preliminary": "PRE_SCREEN_DONE_FORMAL_PENDING",
+      "formal_county_grade": "UNASSESSED",
+      "formal_county_screening_valid": false,
+      "formal_blockers": [
+        "2026官方行政身份及边界全国对账未完成",
+        "ERA5格点及气象站1991—2020同口径交叉核验未完成",
+        "非实际候选住宅片区；局部微气候仍待核",
+        "空气、饮用水、污染源及灾害底线尚未完成住宅级核验"
+      ],
+      "sunshine_data_caveat": "ERA5 sunshine_duration 不能代替有来源的观测年日照，不用于正式评级"
+    },
+    {
+      "site": "Dali",
+      "county": "云南省大理州大理市",
+      "archival_code": "532901",
+      "point_count_used": 2,
+      "geometric_dem_span_m": 1335,
+      "winter_daytime_max_range_c": [
+        15.633,
+        16.94
+      ],
+      "summer_daytime_max_range_c": [
+        24.008,
+        25.238
+      ],
+      "humidity_range_pct": [
+        64.293,
+        68.803
+      ],
+      "points_meeting_three_climate_preferences": 0,
+      "prior_master_region": null,
+      "prior_master_provisional_grade": null,
+      "working_priority": "P2_HIGH_ELEVATION_WINTER_LIMIT",
+      "working_conclusion": "夏季气温相对温和，但采样海拔偏高、冬季偏凉，不能将全市视为均一气候。",
+      "stage3_first_batch_preliminary": "PRE_SCREEN_DONE_FORMAL_PENDING",
+      "formal_county_grade": "UNASSESSED",
+      "formal_county_screening_valid": false,
+      "formal_blockers": [
+        "2026官方行政身份及边界全国对账未完成",
+        "ERA5格点及气象站1991—2020同口径交叉核验未完成",
+        "非实际候选住宅片区；局部微气候仍待核",
+        "空气、饮用水、污染源及灾害底线尚未完成住宅级核验"
+      ],
+      "sunshine_data_caveat": "ERA5 sunshine_duration 不能代替有来源的观测年日照，不用于正式评级"
+    }
+  ]
+}
