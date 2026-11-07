@@ -12,25 +12,23 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "28f19762eec2aa553cbbdea68fd4220886d607d8"
+    "git_blob_sha": "b7e04197a7f207e46ff170a734b2629a61dde9a1"
   },
   "last_verified_run": {
-    "run_id": "MANUAL-R1R2-2847-INTERSECTION-20261107-010",
-    "action_id": "RET-CASCADE-NATIONAL-R1R2-JOINT-MISSINGNESS-009",
-    "result_id": "RES-214-R1_199-R2_INTERSECTION199_2633_NO_SOURCES-20261107",
+    "run_id": "MANUAL-73-FROZEN-IDEAL-PREFERENCE-20261107-011",
+    "action_id": "RET-CASCADE-NATIONAL-73-PREFERENCE-TRIAGE-010",
+    "result_id": "RES-73-LONG_HISTORY-NONFATAL_IDEALS-42_4PARAM-20261107",
     "execution_status": "EXECUTED",
     "engineering_status": "PASS",
-    "research_delta_status": "DELTA_VERIFIED_2847_R1_R2_FOUR_QUADRANT_CASCADE",
+    "research_delta_status": "DELTA_VERIFIED_73_FROZEN_NONFATAL_CLIMATE_PREFERENCE_RECORDS",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/national_2847_R1_R2_joint_cascade_summary.json",
-    "evidence_git_blob_sha": "aa3914cb638a4715a97a1bb2bb0d65444e47e1f1",
-    "nationalcsv_path": "research_engine/retirement/status/national_2847_R1_R2_joint_cascade_evidence_and_next_gap.csv",
-    "nationalcsv_git_blob_sha": "bbb698344b4f512882797d68858a53978b697fe2",
-    "bothcsv_path": "research_engine/retirement/status/national_R1_R2_double_observed_candidate_list.csv",
-    "bothcsv_git_blob_sha": "934dc3f04579080dfd894f6c4157256dfce906c3",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/status/national_73_climate_ideal_source_comparison_evidence.json",
+    "evidence_git_blob_sha": "e75321e0acfe6bbc74192e34cd0c91a8a221f597",
+    "csv_path": "research_engine/retirement/status/national_73_longer_R1_R2_climate_ideal_preference_triage.csv",
+    "csv_git_blob_sha": "3c0385dd8bff56c7884850a7916474f6cae7d980",
+    "status": "AWAITING_POSTCHECK"
   },
-  "last_completed_action_id": "RET-CASCADE-NATIONAL-R1R2-JOINT-MISSINGNESS-009",
+  "last_completed_action_id": "RET-CASCADE-NATIONAL-73-PREFERENCE-TRIAGE-010",
   "closed_result_refs": [
     "RES-CLIMATE-12POINT-20261106",
     "RES-SPATIAL-ENGINEERING-42244926780",
@@ -57,20 +55,21 @@
     "RES-NINE-COUNTY-DATAV-STRICT_CODE_NAME_0_VALID-20261107",
     "RES-CN226-GIS-SHORT_HISTORY_127_NEW_R1-20261107",
     "RES-CN132-R2-126_NEW_SHORT_OBS_COUNTIES-20261107",
-    "RES-214-R1_199-R2_INTERSECTION199_2633_NO_SOURCES-20261107"
+    "RES-214-R1_199-R2_INTERSECTION199_2633_NO_SOURCES-20261107",
+    "RES-73-LONG_HISTORY-NONFATAL_IDEALS-42_4PARAM-20261107"
   ],
   "active_action": {
-    "action_id": "RET-CASCADE-NATIONAL-73-PREFERENCE-TRIAGE-010",
-    "question_id": "Q_FIRST_PREFERENCE_DEVIATION_FROZEN_NONFATAL_CLIMATE_IDEALS",
-    "decision": "对73个R1/R2同时有较长来源的县级候选，按V1.2冻结非硬淘汰偏好目标初步比较冬白天、夏白天、年日照及年雨量；只对真实同站参数判断偏离，不因不足或单项偏离给予正式A/B/C/D、也不排除任何候选",
-    "method": "在2847全国交叉台账中选R1/R2双较长来源73县，从原始70站Meteostat及12站ERA5点位获取已有真实温度/雨日照资料，分模型和气象站分别对照冬日间18-25C、夏日间25-29C、日照≥2200h、年雨≤1000mm的非硬偏好；原始数据缺失直接标未测算，站点地点不能冒充住宅微气候",
-    "expected_evidence": "73个县级候选逐参数数值、源ID、偏好对照/缺失、需要补的潮湿/热极端/风险清单，全国源不改变，正式县级A/B/C/D与淘汰保持0",
-    "pass_criteria": "73县真实数值和缺失可追溯，不引用不合格NASA、不将模型值与气象站无说明合并，不以理想目标当医疗硬线",
-    "fallback": "如来源站点和ERA5格点不同不能直接比较，分源显示和标注空间异质性争议，不计算综合分",
+    "action_id": "RET-CASCADE-NATIONAL-R3-STATION-ALTITUDE-011",
+    "question_id": "Q_R3_TERRAIN_ALTITUDE_SOURCE_EVIDENCE_ALL_214_R1_COUNTIES",
+    "decision": "从现有226个中国气象站真实metadata提取已通过双GIS匹配的69个较长来源站点与132个短历史站点的海拔，实际增加R3地形/海拔来源空间覆盖。不得把气象站海拔等同住宅海拔、不得根据单站高海拔将县域淘汰",
+    "method": "严格复用已归档stations.db和Meteostat CN 226双GIS质量输出，按县级代码关联海拔；与先前12个县域共36个DEM真实采样点并列记录。对多站、山地高差和海拔>1500/1800/2000形成原始点位参考区间和待核住宅条件，官方2026县界未证者继续HOLD",
+    "expected_evidence": "2847行R3完整台账，实际有观测站海拔点位证据的不同县区数、单站海拔、已关联DEM县区差异、未扫描清单、空间代表性/住宅微气候和大海拔差异警示、完全保留所有候选",
+    "pass_criteria": "真实站点与已有地形资料关联、海拔来源和地点可回查；不作县级住宅海拔或正式评级，不误淘汰且记录自然条件可补偿区位",
+    "fallback": "没有精确住宅点位则以站点坐标和旧DEM点作为探索性来源，记录R3_PARTIAL_STATION_ELEVATION_ONLY并继续R4，不能在一个地区无限补DEM",
     "status": "READY",
     "timebox_end": "2026-11-08T15:26:00Z"
   },
-  "phase": "FIRST_73_SOURCE_STRONG_R1R2_NON_ELIMINATION_PREFERENCE_TRIAGE",
+  "phase": "NATIONAL_R3_REUSING_REAL_STATION_ALTITUDE_AND_DEM",
   "milestone_deadline": {
     "time_zone": "Asia/Shanghai",
     "checkpoint_24h": "2026-11-07T23:26:00+08:00",
@@ -79,12 +78,11 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "a14a216dec50dcff2a71c0a612f43c574cf301ab",
-    "verified_at": "2026-11-07T04:20:08.818Z"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-07T04:20:08.818Z",
-  "state_revision": 57,
+  "updated_at": "2026-11-07T04:22:58.040Z",
+  "state_revision": 58,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -199,6 +197,38 @@
       "confirmed_exits": 0,
       "carry_forward": 2847,
       "formal_valid_county_screenings": 0
+    },
+    "R1R2_joint": {
+      "input_counties": 2847,
+      "R1_any": 214,
+      "R2_any": 199,
+      "both": 199,
+      "only_R1": 15,
+      "only_R2": 0,
+      "neither": 2633,
+      "both_longer": 73,
+      "both_short_history": 125,
+      "mixed_long_short": 1,
+      "formal_valid_county_screenings": 0,
+      "completed": true
+    },
+    "ideal73": {
+      "candidate_counties": 73,
+      "with_all_four_ideal_parameter_values": 42,
+      "winter_within": 12,
+      "winter_below": 60,
+      "winter_above": 1,
+      "summer_within": 25,
+      "summer_below": 14,
+      "summer_above": 34,
+      "sun_within": 30,
+      "sun_missing": 31,
+      "sun_below": 12,
+      "rain_within": 44,
+      "rain_above": 29,
+      "qualified_official_county_screenings": 0,
+      "confirmed_exits": 0,
+      "evidence_path": "research_engine/retirement/status/national_73_climate_ideal_source_comparison_evidence.json"
     }
   },
   "national_cascade_gap_audit": {
