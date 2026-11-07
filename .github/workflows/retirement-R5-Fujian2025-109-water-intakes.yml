@@ -1,0 +1,92 @@
+name: Retirement R5 official 2025 December Fujian 109 centralized water intake samples
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-R5-Fujian2025-109-water-intakes.yml'
+jobs:
+  actual-source-intakes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check V1.6 currently verified unique R5 water source action
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R5-WATER-POLLUTION-014"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["current_state_ref"]["git_blob_sha"]==subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          PY
+      - name: Read 2025 December Fujian official 109 untreated water intake samples
+        run: |
+          python -m pip -q install beautifulsoup4
+          python -m py_compile research_engine/retirement/R5_Fujian2025_12_109_water_source_intakes.py
+          python -u research_engine/retirement/R5_Fujian2025_12_109_water_source_intakes.py
+      - name: Audit all 109 intake identities, exact county joins, no false tap-water data
+        id: audit
+        run: |
+          python - <<'PY'
+          import json,csv,hashlib
+          root="research_engine/retirement/output/"
+          d=json.load(open(root+"Fujian2025_12_R5_official_raw_water_source_evidence.json"))
+          assert d["all_official_source_intake_sites"]==109
+          assert d["source_raw_water_sites_meeting_classIII"]==109
+          assert d["sites_exact_county_code_matched"]+d["sites_prefecture_city_context_only"]+d["sites_unresolved_no_false_join"]==109
+          assert d["distinct_actual_county_code_source_evidence"]>=35
+          assert d["new_R5_partial_source_water_counties"]>0
+          assert d["official_household_tap_endpoints_verified"]==0
+          assert d["formal_valid_county_screenings"]==0 and d["confirmed_county_exclusions"]==0
+          p=root+"national_R5_Fujian2025_12_109_official_source_intakes_2847.csv"
+          assert hashlib.sha256(open(p,"rb").read()).hexdigest()==d["national_R5_csv_sha256"]
+          with open(p,encoding="utf-8-sig") as f:rows=list(csv.DictReader(f))
+          assert len(rows)==2847
+          assert sum(x["R5_status"]!="NOT_SCREENED" for x in rows)==d["R5_total_partial_counties"]
+          assert all(x["confirmed_exit_round"]=="" for x in rows)
+          print("FJ_REAL_R5_RAW_WATER_SOURCE_109_QA_PASS",d["distinct_actual_county_code_source_evidence"],d["R5_total_partial_counties"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Fujian-official-2025-12-109-untreated-water-sources-and-R5-county-register
+          path: |
+            research_engine/retirement/output/Fujian2025_12_R5_official_raw_water_source_evidence.json
+            research_engine/retirement/output/Fujian2025_12_109_official_intake_sources.csv
+            research_engine/retirement/output/national_R5_Fujian2025_12_109_official_source_intakes_2847.csv
+          retention-days: 30
+      - name: Persist exact intake-site source data and verify true GitHub remote hashes
+        if: steps.audit.outcome == 'success'
+        run: |
+          cp research_engine/retirement/output/Fujian2025_12_R5_official_raw_water_source_evidence.json research_engine/retirement/status/Fujian2025_12_R5_official_raw_water_source_evidence.json
+          cp research_engine/retirement/output/Fujian2025_12_109_official_intake_sources.csv research_engine/retirement/status/Fujian2025_12_109_official_intake_sources.csv
+          cp research_engine/retirement/output/national_R5_Fujian2025_12_109_official_source_intakes_2847.csv research_engine/retirement/status/national_R5_Fujian2025_12_109_official_source_intakes_2847.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/Fujian2025_12_R5_official_raw_water_source_evidence.json research_engine/retirement/status/Fujian2025_12_109_official_intake_sources.csv research_engine/retirement/status/national_R5_Fujian2025_12_109_official_source_intakes_2847.csv
+          git commit -m "Persist 109 provincial raw water source point outcomes and partial exact county R5 evidence, do not infer household taps"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import json,hashlib,subprocess
+          p="research_engine/retirement/status/"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+p+"Fujian2025_12_R5_official_raw_water_source_evidence.json"]))
+          for filename,key in [("Fujian2025_12_109_official_intake_sources.csv","intake_sites_csv_sha256"),("national_R5_Fujian2025_12_109_official_source_intakes_2847.csv","national_R5_csv_sha256")]:
+            assert hashlib.sha256(subprocess.check_output(["git","show","origin/main:"+p+filename])).hexdigest()==d[key]
+          print("FJ_R5_WATER_SOURCE_REMOTE_SHA_PASS",d["R5_total_partial_counties"],"NO_HOUSEHOLD_TAPS")
+          PY
