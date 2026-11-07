@@ -1,0 +1,26 @@
+{
+  "schema": "RET_CN_METEOSTAT_1991_2020_MONTHLY_STATION_NORMALS_V1",
+  "asof_utc": "2026-11-07T01:23:55.124861+00:00",
+  "source_urls": {
+    "monthly.parquet": "https://data.meteostat.net/monthly.parquet",
+    "stations.db": "https://data.meteostat.net/stations.db"
+  },
+  "period": "1991-2020",
+  "station_source_classes": "ghcnd/climat/isd_lite/metar only; exclude dwd_mosmix model in vetted observation months",
+  "official_2026_county_roster_verified": false,
+  "formal_county_screenings": 0,
+  "data_quality_limit": "MONTHLY_TMAX/TMIN observatory records; not station-certified 1991-2020 CMA normals or dwelling climate",
+  "source_sizes": {
+    "monthly_bytes": 152559044,
+    "stations_db_bytes": 32804864
+  },
+  "source_sha256": {
+    "monthly_parquet": "7f5f37abaf67e57cbaeacefa20fae58c202a53d4d7250b1d2044dc7d98b5d68c",
+    "station_sqlite": "c9766c89b9443e42611d6e22fa8eddfdbbebe793968260c41625a5580c9f1d5d"
+  },
+  "stations_CN_in_bbox": 257,
+  "stations_CN_with_monthly_any": 244,
+  "CN_monthly_rows_1991_2020": 72228,
+  "status": "STATION_NORMALS_OR_SPATIAL_QA_FAILED_WITH_EVIDENCE",
+  "error": "TypeError('list indices must be integers or slices, not str')"
+}
