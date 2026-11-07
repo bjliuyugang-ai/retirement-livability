@@ -1,0 +1,92 @@
+{
+  "schema": "NASA_SAME_POINT_SAME_YEAR_DAILY_CLIMATOLOGY_SEMANTIC_TEST_V1",
+  "generated_at_utc": "2026-11-07T01:18:17.935115+00:00",
+  "site": "Linan historic point, NOT residence",
+  "point": [
+    30.19634,
+    119.35251
+  ],
+  "period": "2019-2020",
+  "daily_source_url": "https://power.larc.nasa.gov/api/temporal/daily/point?latitude=30.19634&longitude=119.35251&community=SB&format=JSON&parameters=T2M_MAX,T2M_MIN,T2M&start=20190101&end=20201231",
+  "daily_sha256": "a115ba7640d99548975157891fda263442ea087711a47c20bbcac01c39f1247c",
+  "climatology_source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=30.19634&longitude=119.35251&community=SB&format=JSON&parameters=T2M_MAX_AVG,T2M_MIN_AVG,T2M&start=2019&end=2020",
+  "climatology_sha256": "c4ac19ef4e8d7a27f00c05da49ee620b6ad8c4bad25fb5e726dff4b9a58892b2",
+  "daily_header": {
+    "title": "NASA/POWER Source Native Resolution Daily Data",
+    "api": {
+      "version": "v2.10.3",
+      "name": "POWER Daily API"
+    },
+    "sources": [
+      "MERRA2",
+      "POWER"
+    ],
+    "fill_value": -999.0,
+    "time_standard": "LST",
+    "start": "20190101",
+    "end": "20201231"
+  },
+  "clim_header": {
+    "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
+    "api": {
+      "version": "v2.10.1",
+      "name": "POWER Climatology API"
+    },
+    "sources": [
+      "MERRA2",
+      "POWER"
+    ],
+    "fill_value": -999.0,
+    "time_standard": "LST",
+    "range": "2-year Meteorological and Solar Monthly & Annual Climatologies (January 2019 - December 2020)"
+  },
+  "comparisons": [
+    {
+      "month": "JAN",
+      "daily_max_mean_c": 8.712,
+      "climatology_MAX_AVG_c": 18.92,
+      "difference_clim_minus_daily_max_c": 10.208,
+      "daily_min_mean_c": 0.388,
+      "climatology_MIN_AVG_c": -3.76,
+      "difference_clim_minus_daily_min_c": -4.148,
+      "daily_samples": 62
+    },
+    {
+      "month": "FEB",
+      "daily_max_mean_c": 10.51,
+      "climatology_MAX_AVG_c": 21.4,
+      "difference_clim_minus_daily_max_c": 10.89,
+      "daily_min_mean_c": 1.627,
+      "climatology_MIN_AVG_c": -5.62,
+      "difference_clim_minus_daily_min_c": -7.247,
+      "daily_samples": 57
+    },
+    {
+      "month": "JUL",
+      "daily_max_mean_c": 29.173,
+      "climatology_MAX_AVG_c": 32.43,
+      "difference_clim_minus_daily_max_c": 3.257,
+      "daily_min_mean_c": 22.675,
+      "climatology_MIN_AVG_c": 19.29,
+      "difference_clim_minus_daily_min_c": -3.385,
+      "daily_samples": 62
+    },
+    {
+      "month": "DEC",
+      "daily_max_mean_c": 10.488,
+      "climatology_MAX_AVG_c": 18.03,
+      "difference_clim_minus_daily_max_c": 7.542,
+      "daily_min_mean_c": 0.776,
+      "climatology_MIN_AVG_c": -7.07,
+      "difference_clim_minus_daily_min_c": -7.846,
+      "daily_samples": 62
+    }
+  ],
+  "months_with_differences_ge2c": 4,
+  "semantic_qa_status": "INCONSISTENT_EXPECTED_DAILY_EXTREME_AVERAGES",
+  "formal_valid_county_screenings": 0,
+  "limitations": [
+    "If NASA climatology uses different aggregation methods, cannot use as average daily Tmax thresholds without resolving",
+    "Only one historical point, no station QA, no county grading"
+  ]
+}
