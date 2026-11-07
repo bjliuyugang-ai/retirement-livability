@@ -1,0 +1,74 @@
+name: Retirement CN 1991-2020 real station monthly temperature normals
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-meteostat-cn-normals.yml'
+jobs:
+  audited-long-climate-station-coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/cache@v4
+        with:
+          path: research_engine/retirement/output/meteostat_bulk_runtime
+          key: meteostat-station-monthly-2026-11-07-source-snapshot
+      - name: Install DuckDB for read-only station and monthly source join
+        run: python -m pip -q install duckdb
+      - name: Download or reuse full source and derive observed-only CN 1991-2020 monthly normals
+        id: science
+        continue-on-error: true
+        run: |
+          python -m py_compile research_engine/retirement/meteostat_CN_station_normals.py
+          python -u research_engine/retirement/meteostat_CN_station_normals.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: China-real-observational-station-1991-2020-monthly-normal-candidates
+          path: |
+            research_engine/retirement/output/meteostat_CN_1991_2020_station_candidate_normals.json
+            research_engine/retirement/output/meteostat_CN_1991_2020_station_candidate_normals.csv
+          retention-days: 30
+      - name: Persist actual CN station date coverage and nearby anchor evidence, even if incomplete
+        if: always()
+        run: |
+          cp research_engine/retirement/output/meteostat_CN_1991_2020_station_candidate_normals.json research_engine/retirement/status/meteostat_CN_1991_2020_station_candidate_normals.json
+          if [ -f research_engine/retirement/output/meteostat_CN_1991_2020_station_candidate_normals.csv ]; then
+            cp research_engine/retirement/output/meteostat_CN_1991_2020_station_candidate_normals.csv research_engine/retirement/status/meteostat_CN_1991_2020_station_candidate_normals.csv
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/meteostat_CN_1991_2020_station_candidate_normals.*
+          git commit -m "Record 1991-2020 CN station monthly observations and 42-anchor spatial crosswalk QA"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          root="research_engine/retirement/status/"
+          p=root+"meteostat_CN_1991_2020_station_candidate_normals.json"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+p]))
+          assert d["formal_county_screenings"]==0
+          if "station_csv_sha256" in d:
+            b=subprocess.check_output(["git","show","origin/main:"+root+"meteostat_CN_1991_2020_station_candidate_normals.csv"])
+            assert hashlib.sha256(b).hexdigest()==d["station_csv_sha256"]
+          print("METEOSTAT_1991_2020_CN_REMOTE_SOURCE_QA",d["status"])
+          PY
+      - name: Fail if actual complete-station quality threshold not reached
+        if: steps.science.outcome == 'failure'
+        run: exit 1
