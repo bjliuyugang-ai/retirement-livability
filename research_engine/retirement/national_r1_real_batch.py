@@ -79,8 +79,8 @@ for site in SITES:
           m["hot_ge35_days_per_year"]<=10)
     rec={"site":site,"candidate_county_name":bycode[code]["candidate_name"],"candidate_county_code":code,
       "candidate_official_2026_verified":False,"1991_2020_daily_rows":len(dates),
-      "latitude_requested":original.get("latitude"),
-      "longitude_requested":original.get("longitude"),
+      "api_returned_grid_center_latitude":original.get("latitude"),
+      "api_returned_grid_center_longitude":original.get("longitude"),
       "era5_grid_resolution_qa":"INDEPENDENCE_AND_RESIDENTIAL_REPRESENTATIVENESS_OPEN",
       "climate_model":"ERA5_OPEN_METEO_NOT_CMA",
       "calendar_period":"1991-01-01/2020-12-31",
