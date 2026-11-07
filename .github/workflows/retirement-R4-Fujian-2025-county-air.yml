@@ -1,0 +1,93 @@
+name: Retirement R4 real official Fujian 2025 58 county PM25 and ozone city context
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-R4-Fujian-2025-county-air.yml'
+jobs:
+  Fujian-real-county-air-2025:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Require latest unique R4 action and verified V1.6 state
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["state_revision"]==61
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R4-AIR-POLLUTION-012"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["current_state_ref"]["git_blob_sha"]==subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          PY
+      - name: Parse actual Fujian Province official HTML 2025 whole-year county pollutant records
+        run: |
+          python -m pip -q install beautifulsoup4
+          python -u research_engine/retirement/R4_fujian_2025_official_county_air.py
+      - name: Independent 58 county and R4 source provenance ledger check
+        id: qa
+        run: |
+          python - <<'PY'
+          import hashlib,json,csv
+          root="research_engine/retirement/output/"
+          d=json.load(open(root+"Fujian2025_official_R4_county_air_evidence.json"))
+          assert d["actual_county_source_records_2025_annual"]==58
+          assert d["actual_county_code_name_matched_to_provisional_2847"]>=45
+          assert d["new_R4_partial_counties"]>0
+          assert d["formal_valid_county_screenings"]==0 and d["confirmed_county_exclusions"]==0
+          assert d["county_ozone_numeric_source_coverage"]==0
+          raw=open(root+"national_R4_official_Fujian2025_county_PM25_2847.csv","rb").read()
+          assert hashlib.sha256(raw).hexdigest()==d["national_R4_register_sha256"]
+          with open(root+"national_R4_official_Fujian2025_county_PM25_2847.csv",encoding="utf-8-sig") as f:
+            rows=list(csv.DictReader(f))
+          assert len(rows)==2847
+          assert sum(x["R4_status"]!="NOT_SCREENED" for x in rows)==d["R4_total_partial_counties"]
+          assert all(x["confirmed_exit_round"]=="" for x in rows)
+          print("FJ2025_OFFICIAL_COUNTY_R4_QA_PASS",d["new_R4_partial_counties"],d["R4_total_partial_counties"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Fujian-provincial-official-2025-county-annual-PM25-R4-2847-ledger
+          path: |
+            research_engine/retirement/output/Fujian2025_official_R4_county_air_evidence.json
+            research_engine/retirement/output/Fujian_2025_58_county_air_PM25_source_matched.csv
+            research_engine/retirement/output/national_R4_official_Fujian2025_county_PM25_2847.csv
+          retention-days: 30
+      - name: Persist official county air records and verify remote source hash
+        if: steps.qa.outcome == 'success'
+        run: |
+          cp research_engine/retirement/output/Fujian2025_official_R4_county_air_evidence.json research_engine/retirement/status/Fujian2025_official_R4_county_air_evidence.json
+          cp research_engine/retirement/output/Fujian_2025_58_county_air_PM25_source_matched.csv research_engine/retirement/status/Fujian_2025_58_county_air_PM25_source_matched.csv
+          cp research_engine/retirement/output/national_R4_official_Fujian2025_county_PM25_2847.csv research_engine/retirement/status/national_R4_official_Fujian2025_county_PM25_2847.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/Fujian2025_official_R4_county_air_evidence.json research_engine/retirement/status/Fujian_2025_58_county_air_PM25_source_matched.csv research_engine/retirement/status/national_R4_official_Fujian2025_county_PM25_2847.csv
+          git commit -m "Persist real provincial 2025 Fujian county PM2.5 annual numeric observations and national R4 gap register"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          root="research_engine/retirement/status/"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+root+"Fujian2025_official_R4_county_air_evidence.json"]))
+          for p,key in [("Fujian_2025_58_county_air_PM25_source_matched.csv","Fujian_58_county_csv_sha256"),
+                        ("national_R4_official_Fujian2025_county_PM25_2847.csv","national_R4_register_sha256")]:
+            raw=subprocess.check_output(["git","show","origin/main:"+root+p])
+            assert hashlib.sha256(raw).hexdigest()==d[key]
+          print("FUJIAN2025_REAL_R4_REMOTE_SHA_PASS",d["R4_total_partial_counties"])
+          PY
