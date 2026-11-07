@@ -1,0 +1,114 @@
+{
+  "schema": "RET_R4_SECONDARY_2025_CHINA_CITY_PM25_O3_RAW_PDF_ACCESS_QA_V1",
+  "created_utc": "2026-11-07T04:33:26.669805+00:00",
+  "source_url": "https://pdf.dfcfw.com/pdf/H3_AP202601071816825617_1.pdf?1767856554000.pdf=",
+  "source_descriptor": "IPE Blue Map published '2025 年1-12月城市空气质量状况' hosted at dfcfw",
+  "published_data_caveat": "城市空气质量统计基于环境监测日均值分析，参考沙尘剔除规则，未经有效性审核，仅供参考；准确结果以生态环境部门发布为准",
+  "report_year": 2025,
+  "not_official_reviewed": true,
+  "formal_valid_county_screenings": 0,
+  "raw_pdf_bytes": 3398025,
+  "raw_pdf_sha256": "54c333be177c5bd6e345a698f1a7ca4823fcadf9f1c33ec045314b43b4507edd",
+  "pages": 12,
+  "extracted_text_characters": 0,
+  "rowlike_lines": 0,
+  "page_summaries": [
+    {
+      "page": 1,
+      "page_chars": 0,
+      "line_count": 0,
+      "likely_table_row_lines": 0,
+      "sample_lines": [],
+      "table_sample_lines": []
+    },
+    {
+      "page": 2,
+      "page_chars": 0,
+      "line_count": 0,
+      "likely_table_row_lines": 0,
+      "sample_lines": [],
+      "table_sample_lines": []
+    },
+    {
+      "page": 3,
+      "page_chars": 0,
+      "line_count": 0,
+      "likely_table_row_lines": 0,
+      "sample_lines": [],
+      "table_sample_lines": []
+    },
+    {
+      "page": 4,
+      "page_chars": 0,
+      "line_count": 0,
+      "likely_table_row_lines": 0,
+      "sample_lines": [],
+      "table_sample_lines": []
+    },
+    {
+      "page": 5,
+      "page_chars": 0,
+      "line_count": 0,
+      "likely_table_row_lines": 0,
+      "sample_lines": [],
+      "table_sample_lines": []
+    },
+    {
+      "page": 6,
+      "page_chars": 0,
+      "line_count": 0,
+      "likely_table_row_lines": 0,
+      "sample_lines": [],
+      "table_sample_lines": []
+    },
+    {
+      "page": 7,
+      "page_chars": 0,
+      "line_count": 0,
+      "likely_table_row_lines": 0,
+      "sample_lines": [],
+      "table_sample_lines": []
+    },
+    {
+      "page": 8,
+      "page_chars": 0,
+      "line_count": 0,
+      "likely_table_row_lines": 0,
+      "sample_lines": [],
+      "table_sample_lines": []
+    },
+    {
+      "page": 9,
+      "page_chars": 0,
+      "line_count": 0,
+      "likely_table_row_lines": 0,
+      "sample_lines": [],
+      "table_sample_lines": []
+    },
+    {
+      "page": 10,
+      "page_chars": 0,
+      "line_count": 0,
+      "likely_table_row_lines": 0,
+      "sample_lines": [],
+      "table_sample_lines": []
+    },
+    {
+      "page": 11,
+      "page_chars": 0,
+      "line_count": 0,
+      "likely_table_row_lines": 0,
+      "sample_lines": [],
+      "table_sample_lines": []
+    },
+    {
+      "page": 12,
+      "page_chars": 0,
+      "line_count": 0,
+      "likely_table_row_lines": 0,
+      "sample_lines": [],
+      "table_sample_lines": []
+    }
+  ],
+  "status": "REAL_SECONDARY_PDF_TEXT_INSUFFICIENT"
+}
