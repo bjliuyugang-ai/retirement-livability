@@ -12,23 +12,23 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "b446685bb1c07036b41fbd257aa2aa408954c7ec"
+    "git_blob_sha": "cf221432d5fe9501fcc7b6fc0be8e4ab43de3185"
   },
   "last_verified_run": {
-    "run_id": "42321725405",
-    "action_id": "RET-CASCADE-NATIONAL-R3-001",
-    "result_id": "RES-NATIONAL-R3-12COUNTY-36DEM-SAMPLES-42321725405",
+    "run_id": "42321931812",
+    "action_id": "RET-CASCADE-NATIONAL-R4-001",
+    "result_id": "RES-NATIONAL-R4-PARTIAL-SOURCE-ANCHORED-42321931812",
     "execution_status": "EXECUTED",
     "engineering_status": "PASS",
-    "research_delta_status": "DELTA_VERIFIED_12_COUNTY_36_DEM_SAMPLES",
+    "research_delta_status": "PARTIAL_DELTA_VERIFIED_2_R4_COUNTIES",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/national_r3_first_real_batch_evidence.json",
-    "evidence_sha256": "a846dd0df6291eca011420484c7c37c71b96778389eecc5c622c1c77b1aebb58",
-    "csv_path": "research_engine/retirement/status/national_r3_first_real_batch.csv",
-    "csv_sha256": "fbe2ff82d165781ab1d8e2ee6a66db72812fed15281ff447d726bc1b2a3652ec",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/status/national_r4_city_context_evidence.json",
+    "evidence_sha256": "265045b99e4a6a17e75d95850ba5ab4ed0a305dcc96bc3fe12c6e8d2daaf6a03",
+    "csv_path": "research_engine/retirement/status/national_r4_city_context_batch.csv",
+    "csv_sha256": "bf30472cd62af1f7b9fdbecae6ea16ef9ec304f4ee819ac3946e8925e83fe55b",
+    "status": "AWAITING_POSTCHECK"
   },
-  "last_completed_action_id": "RET-CASCADE-NATIONAL-R3-001",
+  "last_completed_action_id": "RET-CASCADE-NATIONAL-R4-001",
   "closed_result_refs": [
     "RES-CLIMATE-12POINT-20261106",
     "RES-SPATIAL-ENGINEERING-42244926780",
@@ -44,20 +44,21 @@
     "RES-NATIONAL-R1-12-REAL-ERA5-COUNTY-POINTS-42320769375",
     "RES-NATIONAL-R1-DISTRIBUTED-EXPAND-42321222770",
     "RES-NATIONAL-R2-12-SUNRAIN-HUMIDITY-ERA5-42321544843",
-    "RES-NATIONAL-R3-12COUNTY-36DEM-SAMPLES-42321725405"
+    "RES-NATIONAL-R3-12COUNTY-36DEM-SAMPLES-42321725405",
+    "RES-NATIONAL-R4-PARTIAL-SOURCE-ANCHORED-42321931812"
   ],
   "active_action": {
-    "action_id": "RET-CASCADE-NATIONAL-R4-001",
-    "question_id": "Q_NATIONWIDE_AIR_INDUSTRIAL",
-    "decision": "继续R4空气质量及工业历史污染，从2847个R3继续县区中优先复用已核实的蒙自、攀枝花市级环境资料，缺失视为待核；不能把城市级均值冒充住宅长期安全",
-    "method": "将官方可溯源PM2.5/优良率、整改通报和具体住宅点位缺口映射到县级名录，独立标来源等级；只按确认的不可规避重大健康风险淘汰",
-    "expected_evidence": "2847单元R3→R4台账、至少两县环境资料核查、缺口和初筛去留，退场须满足全部八项前置门禁",
-    "pass_criteria": "实际空气/污染证据可复核，保留所有缺失区域继续R5；不改变正式等级",
-    "fallback": "城市资料无法对应住宅则记CITY_CONTEXT_NOT_RESIDENTIAL，继续R5不暂停",
+    "action_id": "RET-CASCADE-NATIONAL-R5-001",
+    "question_id": "Q_NATIONAL_WATER_DISASTERS",
+    "decision": "从2847个R4继续县区进行R5饮用水与地灾底线初筛，利用蒙自2026年官方16条已归档末梢水记录作为可追溯来源，其他地区资料缺失继续保留",
+    "method": "用官方末梢水监测点实际来源建立区域级有限证据，不凭水源地达标证明住宅水质，不凭地灾清单没有坐标宣称安全",
+    "expected_evidence": "至少1县16条逐点末梢水观测的有限归属、R5缺失单元、全量2847传递对账",
+    "pass_criteria": "真实数据可溯源，R5通过或缺失不改变正式等级",
+    "fallback": "饮用水/地灾缺失全部留待最终缺口表而不阻塞",
     "status": "READY",
     "timebox_end": "2026-11-08T15:26:00Z"
   },
-  "phase": "NATIONAL_PARAMETER_CASCADE_R4_READY",
+  "phase": "NATIONAL_PARAMETER_CASCADE_R5_READY",
   "milestone_deadline": {
     "time_zone": "Asia/Shanghai",
     "checkpoint_24h": "2026-11-07T23:26:00+08:00",
@@ -66,12 +67,11 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "7583d431316b3f272d1ff8be32d2d700dadc8a46",
-    "verified_at": "2026-11-07T01:01:47.679008+00:00"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-07T01:01:47.679028+00:00",
-  "state_revision": 35,
+  "updated_at": "2026-11-07T01:03:50.989902+00:00",
+  "state_revision": 36,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -158,6 +158,14 @@
       "DEM_3_point_counties": 12,
       "DEM_total_samples": 36,
       "R3_unscanned": 2835,
+      "confirmed_exits": 0,
+      "carry_forward": 2847,
+      "formal_valid_county_screenings": 0
+    },
+    "R4": {
+      "input_counties": 2847,
+      "real_source_counties": 2,
+      "unscanned": 2845,
       "confirmed_exits": 0,
       "carry_forward": 2847,
       "formal_valid_county_screenings": 0

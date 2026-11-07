@@ -1,0 +1,53 @@
+{
+  "schema": "RET_NATIONAL_R4_PARTIAL_CITED_EVIDENCE_V1",
+  "at_utc": "2026-11-07T01:03:50.921702+00:00",
+  "source_CSV_sha256": "fbe2ff82d165781ab1d8e2ee6a66db72812fed15281ff447d726bc1b2a3652ec",
+  "evidence_source": "research_engine/retirement/evidence/stage3_firstbatch_public_environment_evidence_20261107.json",
+  "evidence_source_sha256": "cba00166c303128193bbb2341ba27245efa4b2eed37ce9e8ae0b458b37d4995a",
+  "input": 2847,
+  "R4_carry_forward": 2847,
+  "R4_confirmed_exclusions": 0,
+  "R4_unscanned": 2845,
+  "R4_direct_evidence_counties": 2,
+  "formal_valid_county_screenings": 0,
+  "formal_grade_changes": 0,
+  "source_level": "REGIONAL_OR_NAMED_SITE_NOT_RESIDENTIAL_OR_WHOLE_COUNTY",
+  "records": [
+    {
+      "code": "532503",
+      "county": "云南省红河州蒙自市",
+      "annual_city_PM25_ug_m3": 24.9,
+      "city_good_air_day_rate_pct": null,
+      "air_rate_conflicts": [
+        98.8,
+        99.2
+      ],
+      "air_source": "https://www.hh.gov.cn/info/9301/1289782.htm",
+      "industrial_source": null,
+      "source_quality": "CITY_OR_REGION_ONLY_NOT_RESIDENTIAL",
+      "current_city_air_rating_not_inferred": true,
+      "confirmed_noncompensable_residential_risk": false
+    },
+    {
+      "code": "510402",
+      "county": "四川省攀枝花市东区",
+      "annual_city_PM25_ug_m3": null,
+      "city_good_air_day_rate_pct": 98.9,
+      "air_rate_conflicts": null,
+      "air_source": "https://cbgc.scol.com.cn/news/7421854",
+      "industrial_source": "https://jxj.panzhihua.gov.cn/zfxxgk/tzgg/10296534.shtml",
+      "source_quality": "CITY_OR_REGION_ONLY_NOT_RESIDENTIAL",
+      "current_city_air_rating_not_inferred": true,
+      "confirmed_noncompensable_residential_risk": false
+    }
+  ],
+  "CSV_sha256": "bf30472cd62af1f7b9fdbecae6ea16ef9ec304f4ee819ac3946e8925e83fe55b",
+  "next_parameter_round": "R5",
+  "limitations": [
+    "No missing parameter means exclusion",
+    "Citywide/regional environmental quality is not dwelling-level exposure",
+    "Named tap monitoring cannot prove whole municipality drinking water safety",
+    "All previously recorded errors and source references retained in national ledger"
+  ],
+  "R4_city_context_counties": 2
+}

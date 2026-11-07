@@ -59,3 +59,5 @@ RET-SPATIAL-001：执行2017口径geoBoundaries历史县级边界空间匹配真
 - RES-NATIONAL-R2-12-SUNRAIN-HUMIDITY-ERA5-42321544843: R2已按用户漏斗要求实际衔接：全国2847个R1继续地区全部进入R2，重用12个已缓存1991—2020 ERA5逐日原始点位获得年日照、冬季日照、年降水和连续阴雨证据，其中11点位已有湿度/露点独立字段；R2真实点位12、R2尚未扫描2835、R2确证淘汰0、进入R3共2847，正式有效县级广筛0。R1未扫描与已有不足证据保留待核。证据：research_engine/retirement/status/national_r2_first_real_batch_evidence.json，全国台账：research_engine/retirement/status/national_r2_first_real_batch.csv。
 
 - RES-NATIONAL-R3-12COUNTY-36DEM-SAMPLES-42321725405: 按逐参数漏斗R3真实运行：全国2847个保留县级候选输入；12个历史编码县域关联36个Copernicus DEM GLO90真实采样点，记录原点/县内最低最高/跨度与低海拔潜在例外，2835个R3未扫描、确证淘汰0、继续2847。没有任何住宅精确定位和2026官方现行县界确认，因此正式有效县级广筛0。依据：research_engine/retirement/status/national_r3_first_real_batch_evidence.json；全量：research_engine/retirement/status/national_r3_first_real_batch.csv。
+
+- RES-NATIONAL-R4-PARTIAL-SOURCE-ANCHORED-42321931812: 全国逐参数漏斗R4已执行：2847候选继续，真实有据的区域/命名监测点县区2个，2845个此参数未扫描，确证淘汰0、进入下一轮2847、正式有效县级广筛0。R4依据2025年蒙自PM2.5、攀枝花城市空气和工业整改等公开来源，但均不是住宅暴露。R5依据2026年蒙自16条官方末梢水公开采样，不能代表具体楼栋水质及地灾安全。 证据：research_engine/retirement/status/national_r4_city_context_evidence.json；全量县级台账：research_engine/retirement/status/national_r4_city_context_batch.csv。
