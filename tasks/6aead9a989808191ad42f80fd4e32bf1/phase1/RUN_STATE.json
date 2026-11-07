@@ -26,7 +26,7 @@
     "evidence_sha256": "7e3488ded193b7bbaea12ccbfd9ced6ad32c994f0003915cb708d8729ec41e2a",
     "csv_evidence_path": "research_engine/retirement/status/first-batch-prescreen-counties.csv",
     "csv_sha256": "1750c7934e896e090cc698101a564f4edc3bcc0f662a7c9f36f28886b08680ed",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-STAGE3-FIRSTBATCH-001",
   "closed_result_refs": [
@@ -59,11 +59,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "8b63411a3ddda39cc8c89967727a4cd891383bb3",
+    "verified_at": "2026-11-07T00:22:03.449599+00:00"
   },
-  "updated_at": "2026-11-07T00:22:01.130297+00:00",
-  "state_revision": 20,
+  "updated_at": "2026-11-07T00:22:03.449615+00:00",
+  "state_revision": 21,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
