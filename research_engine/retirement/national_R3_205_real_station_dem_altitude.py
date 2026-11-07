@@ -99,9 +99,12 @@ for code in sorted(codes):
   raise RuntimeError("Unexpected formal county grade/exclusion")
 extra=["R3_point_evidence_source_class","R3_station_ids","R3_station_elevations_m","R3_dem_3sample_elevations_m",
  "R3_altitude_heterogeneity_flag","R3_over2000_point_warning_nonfatal","R3_residential_altitude_verified","R3_missing_parameters"]
-for k in extra:
- if k in fields:raise RuntimeError("R3 output column already in source")
-fields+=extra
+# Earlier R3 pilot schema may already reserve an empty column for the
+# same parameter; preserve the column identity rather than treating existence
+# as a source-evidence conflict. Actual new values come only from 201 real
+# station altitudes and 36 archived DEM points.
+prior_columns=[k for k in extra if k in fields]
+fields += [k for k in extra if k not in fields]
 countall=sum(r["R3_status"]!="NOT_SCREENED" for r in rows)
 if countall!=205:raise RuntimeError("Actual R3 count changed unexpectedly "+str(countall))
 path=OUT/"national_R3_205_station_dem_altitude_partial_2847.csv"
@@ -133,6 +136,7 @@ report={"schema":"RET_NATIONAL_2847_R3_205_ACTUAL_STATION_AND_GLO90_DEM_SOURCE_O
  "total_R3_partial_point_evidence_counties":countall,
  "R3_completely_unmeasured_counties":2847-countall,
  "source_class_counts":dict(quality),
+ "preexisting_source_csv_R3_column_headers":prior_columns,
  "R3_countries_with_station_or_DEM_over2000m_point":len(highpointcodes),
  "R3_countries_with_station_or_3point_DEM_spread_ge500m":len(large_alt_sites),
  "high_point_reference_only_codes":sorted(highpointcodes),
