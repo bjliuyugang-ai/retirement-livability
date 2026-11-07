@@ -1,0 +1,84 @@
+name: Retirement exact NASA 1991-2020 custom Tmax Tmin for 30 historic county points
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-nasa-exact-point30.yml'
+jobs:
+  thirty-original-custom-climate-points:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Unique V1.6 scale-source action and previous remote postcheck
+        run: |
+          python - <<'PY'
+          import json
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-SOURCE-SCALE-002"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          PY
+      - name: Query NASA point custom 1991-2020 Tmax and Tmin together, 30 historical anchors
+        run: |
+          python -m py_compile research_engine/retirement/nasa_1991_2020_custom_points_30.py
+          python -u research_engine/retirement/nasa_1991_2020_custom_points_30.py
+      - name: Validate actual selected years, 2847 denominator, conflicts, preservation
+        run: |
+          python - <<'PY'
+          import hashlib,json,csv
+          prefix="research_engine/retirement/output/"
+          x=json.load(open(prefix+"national_R1_NASA_CUSTOM_30_result.json"))
+          assert x["requested"]==30
+          assert x["successful_1991_2020_TMAX_AND_TMIN_MODEL_POINTS"]+x["failed_or_mismatched"]==30
+          assert x["new_R1_NASA_secondary_model_counties"]>0
+          assert x["R1_counties_with_any_partial_climate_point_evidence"]==22+x["new_R1_NASA_secondary_model_counties"]
+          assert x["formal_valid_county_screenings"]==0 and x["confirmed_exclusions"]==0
+          b=open(prefix+"national_R1_NASA_CUSTOM_1991_2020_30_point_evidence.csv","rb").read()
+          assert hashlib.sha256(b).hexdigest()==x["output_csv_sha256"]
+          r=list(csv.DictReader(open(prefix+"national_R1_NASA_CUSTOM_1991_2020_30_point_evidence.csv",encoding="utf-8-sig")))
+          assert len(r)==2847
+          print("REAL_NASA_CUSTOM_1991_2020_POINT_DATA_PASS",x["new_R1_NASA_secondary_model_counties"],x["NASA_ERA5_conflict_ge3c_count"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: NASA-actual-1991-2020-30-county-points-both-temp-variables-and-original-payload
+          path: |
+            research_engine/retirement/output/national_R1_NASA_CUSTOM_30_result.json
+            research_engine/retirement/output/national_R1_NASA_CUSTOM_1991_2020_30_point_evidence.csv
+            research_engine/retirement/output/nasa_point_1991_2020_original/
+          retention-days: 30
+      - name: Save real model evidence as independent overlay, no formal county grading
+        run: |
+          cp research_engine/retirement/output/national_R1_NASA_CUSTOM_30_result.json research_engine/retirement/status/national_R1_NASA_CUSTOM_30_result.json
+          cp research_engine/retirement/output/national_R1_NASA_CUSTOM_1991_2020_30_point_evidence.csv research_engine/retirement/status/national_R1_NASA_CUSTOM_1991_2020_30_point_evidence.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/national_R1_NASA_CUSTOM_30_result.json research_engine/retirement/status/national_R1_NASA_CUSTOM_1991_2020_30_point_evidence.csv
+          git commit -m "Persist NASA POWER real custom 1991-2020 county-anchored model observations and ERA5 conflict flags"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          root="research_engine/retirement/status/"
+          x=json.loads(subprocess.check_output(["git","show","origin/main:"+root+"national_R1_NASA_CUSTOM_30_result.json"]))
+          b=subprocess.check_output(["git","show","origin/main:"+root+"national_R1_NASA_CUSTOM_1991_2020_30_point_evidence.csv"])
+          assert hashlib.sha256(b).hexdigest()==x["output_csv_sha256"]
+          assert x["formal_valid_county_screenings"]==0
+          print("REMOTE_NASA_CUSTOM_1991_2020_SHA_PASS",x["new_R1_NASA_secondary_model_counties"])
+          PY
