@@ -1,0 +1,80 @@
+name: Retirement national R5 drinking tap water disaster evidence cascade
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-national-r5.yml'
+jobs:
+  water-hazard-cascade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 claim unique R5 after verified R4
+        run: python research_engine/retirement/national_r45_state.py R5 precheck
+      - name: S3 apply real 2026 named tap monitoring source with complete risk gaps retained
+        run: |
+          python -m py_compile research_engine/retirement/national_r4_r5_source_steps.py research_engine/retirement/national_r45_state.py
+          python -u research_engine/retirement/national_r4_r5_source_steps.py R5
+      - name: S4-S5 validate monitored source and carry forward 2847 without false-grade
+        id: finalize
+        run: python research_engine/retirement/national_r45_state.py R5 finalize
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: national-R5-2026-Mengzi-16-tap-observations-2847-ledger
+          path: |
+            research_engine/retirement/output/national_r5_tap_water*
+          retention-days: 30
+      - name: Persist R5 scoped source and updated national register
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl research_assets/retirement/CURRENT_STATE.md research_engine/retirement/status/national_r5_tap_water_evidence.json research_engine/retirement/status/national_r5_tap_water_batch.csv
+          git commit -m "Record 16 actual 2026 tap water monitoring results within national R5 missing-retained ledger"
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          pre=json.load(open("research_engine/retirement/output/national_r5_tap_water_precheck.json"))
+          s=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]))
+          assert s["state_revision"]==pre["source_rev"],"R5_CAS_STATE"
+          assert s["current_state_ref"]["git_blob_sha"]==pre["current_blob"],"R5_CAS_CURRENT"
+          PY
+          git rebase origin/main
+          git push origin HEAD:main
+      - name: S6 verify remote evidence hash, count and final gap-audit next action
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git fetch origin main
+          python research_engine/retirement/national_r45_state.py R5 postcheck
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
+          git commit -m "Verify source-based R5 evidence and national missing audit handoff"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          s=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]))
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-GAP-AUDIT-001"
+          assert s["national_parameter_rounds"]["R5"]["real_source_counties"]==1
+          assert s["national_parameter_rounds"]["R5"]["carry_forward"]==2847
+          print("R5_S6_PASS",s["national_parameter_rounds"]["R5"])
+          PY
