@@ -12,23 +12,25 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "2192544d944e1786bb5ce862e1fe1736293cd1c2"
+    "git_blob_sha": "318084c15aea48e14a3d26b183a3b11c8710312c"
   },
   "last_verified_run": {
-    "run_id": "42321981720",
-    "action_id": "RET-CASCADE-NATIONAL-R5-001",
-    "result_id": "RES-NATIONAL-R5-PARTIAL-SOURCE-ANCHORED-42321981720",
+    "run_id": "42322194367",
+    "action_id": "RET-CASCADE-NATIONAL-GAP-AUDIT-001",
+    "result_id": "RES-NATIONAL-2847-FIVE-ROUND-COVERAGE-GAP-AUDIT-42322194367",
     "execution_status": "EXECUTED",
     "engineering_status": "PASS",
-    "research_delta_status": "PARTIAL_DELTA_VERIFIED_1_R5_COUNTIES",
+    "research_delta_status": "DELTA_VERIFIED_2847_COUNTY_PARAMETER_COVERAGE_AND_GAP_AUDIT",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/national_r5_tap_water_evidence.json",
-    "evidence_sha256": "75018dbcde8b534dcc71315129910ce5f96221c34590d85f1e2ba972a5b39a19",
-    "csv_path": "research_engine/retirement/status/national_r5_tap_water_batch.csv",
-    "csv_sha256": "d021fdc32474efeedaaae2cc7d1112a7c065b0b27a680532a54e67c697be01a5",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/status/national_cascade_gap_coverage_audit.json",
+    "evidence_sha256": "c08ee3d1243bd42782c11a2ad3c6471b2b4db67a4b058eff8fbc2214166cdf98",
+    "csv_path": "research_engine/retirement/status/national_cascade_all_2847_audit.csv",
+    "csv_sha256": "5b6d375692860cbf06a5d49c726574e5bc95499f3a4232f97ad260f05e57f822",
+    "province_coverage_path": "research_engine/retirement/status/national_cascade_province_coverage.csv",
+    "province_coverage_sha256": "f55f2d6c079d6e07b590bc03d3442a470858dfca07ecd8ed350e67ae4b46156a",
+    "status": "AWAITING_POSTCHECK"
   },
-  "last_completed_action_id": "RET-CASCADE-NATIONAL-R5-001",
+  "last_completed_action_id": "RET-CASCADE-NATIONAL-GAP-AUDIT-001",
   "closed_result_refs": [
     "RES-CLIMATE-12POINT-20261106",
     "RES-SPATIAL-ENGINEERING-42244926780",
@@ -46,20 +48,21 @@
     "RES-NATIONAL-R2-12-SUNRAIN-HUMIDITY-ERA5-42321544843",
     "RES-NATIONAL-R3-12COUNTY-36DEM-SAMPLES-42321725405",
     "RES-NATIONAL-R4-PARTIAL-SOURCE-ANCHORED-42321931812",
-    "RES-NATIONAL-R5-PARTIAL-SOURCE-ANCHORED-42321981720"
+    "RES-NATIONAL-R5-PARTIAL-SOURCE-ANCHORED-42321981720",
+    "RES-NATIONAL-2847-FIVE-ROUND-COVERAGE-GAP-AUDIT-42322194367"
   ],
   "active_action": {
-    "action_id": "RET-CASCADE-NATIONAL-GAP-AUDIT-001",
-    "question_id": "Q_NATIONAL_MISSING_PARAMETER_PRIORITIES",
-    "decision": "正式整理全国2847县级候选的R1—R5逐参数证据覆盖、未扫描与待核清单、退出历史和需要重点补的缺口，不宣称全国筛选已经完成",
-    "method": "R5全国台账逐行对账，按R1真实取数、R2-R5不同空间证据及实际候选住宅定位排序，输出全国完整审计表、可复用证据与技术取数瓶颈",
-    "expected_evidence": "R1-R5各轮输入/证据数量、待补缺口总表、已确认退出记录和最终优先级清单，区分正式有效覆盖与探索性覆盖",
-    "pass_criteria": "所有2847地区去重并可追溯，未知不等于淘汰、单点不等于县域；用户可审查难取数据与真实覆盖率",
-    "fallback": "如资料仍不足，仍输出全量缺口与获取失败清单，诚实报告不可判定",
+    "action_id": "RET-CASCADE-NATIONAL-SOURCE-SCALE-002",
+    "question_id": "Q_R1_R5_TRUE_NATIONWIDE_DATA_COVERAGE",
+    "decision": "扩大跨省真实R1自然条件数据覆盖，重点解决2825县级候选完全无气候/环境参数证据和Open-Meteo HTTP429批量限流；不得继续围绕少数城市重复细节查询",
+    "method": "优先寻找可复核的全国县级或格网历史气候大批量数据源、缓存策略与节流/合法授权接口；按独立区域批次可重复计算，并保留官方县级代码更新差集。每次实际新增点位后再接续R2—R5；缺失不阻塞其他地区",
+    "expected_evidence": "每次取得跨省多地真实温度或其他自然参数证据，更新全国2847台账的真实测得数、未扫描数、失败分类，并给出来源、基期、位置及正式与探索性区别",
+    "pass_criteria": "新增可量化真实取数覆盖且逐轮过账一致；不以新工具、源列表或计划当成果；单一方法限流连续两次必须切换",
+    "fallback": "若现有ERA5接口HTTP429持续，则换可合法下载的公开气候数据源或已缓存数据，不重复耗尽配额",
     "status": "READY",
     "timebox_end": "2026-11-08T15:26:00Z"
   },
-  "phase": "NATIONAL_PARAMETER_CASCADE_FINAL_MISSING_AUDIT_READY",
+  "phase": "NATIONWIDE_DATA_COVERAGE_SCALE_ASSAULT",
   "milestone_deadline": {
     "time_zone": "Asia/Shanghai",
     "checkpoint_24h": "2026-11-07T23:26:00+08:00",
@@ -68,12 +71,11 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "f511b33e6f1a8370b52f5630ceb7a46d4034610a",
-    "verified_at": "2026-11-07T01:04:26.798553+00:00"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-07T01:04:26.798574+00:00",
-  "state_revision": 39,
+  "updated_at": "2026-11-07T01:06:31.281590+00:00",
+  "state_revision": 40,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -180,5 +182,25 @@
       "carry_forward": 2847,
       "formal_valid_county_screenings": 0
     }
+  },
+  "national_cascade_gap_audit": {
+    "provisional_counties": 2847,
+    "any_parameter_evidence_counties": 22,
+    "none_evidence_counties": 2825,
+    "R1_R5_true_partial_evidence_counts": [
+      22,
+      12,
+      12,
+      2,
+      1
+    ],
+    "R1_api_failed_429_count": 20,
+    "confirmed_exclusions": 0,
+    "carry_forward": 2847,
+    "formal_valid_county_screenings": 0,
+    "official_2026_denominator_verified": false,
+    "evidence_path": "research_engine/retirement/status/national_cascade_gap_coverage_audit.json",
+    "county_audit_csv": "research_engine/retirement/status/national_cascade_all_2847_audit.csv",
+    "province_coverage_csv": "research_engine/retirement/status/national_cascade_province_coverage.csv"
   }
 }

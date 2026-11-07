@@ -1,0 +1,403 @@
+{
+  "schema": "RET_NATIONAL_2847_COUNTY_PARAM_CASCADE_MISSING_AND_COVERAGE_AUDIT_V1",
+  "generated_at_utc": "2026-11-07T01:06:31.210011+00:00",
+  "scope": "Provisional nonofficial 2026-06 county candidate roster, 2017-2025 exploratory links",
+  "provisional_input_counties": 2847,
+  "official_current_2026_county_roster_certified": false,
+  "provisional_counties_with_some_real_parameter_evidence": 22,
+  "provisional_counties_with_zero_parameter_evidence": 2825,
+  "evidence_overlap_by_round_count": {
+    "0": 2825,
+    "1": 10,
+    "3": 10,
+    "4": 1,
+    "5": 1
+  },
+  "R1_with_real_point_temperature": 22,
+  "R1_not_scanned": 2825,
+  "R2_with_point_sun_rain": 12,
+  "R2_not_scanned": 2835,
+  "R3_with_three_point_DEM": 12,
+  "R3_not_scanned": 2835,
+  "R4_with_city_or_regional_air_context": 2,
+  "R4_not_scanned": 2845,
+  "R5_with_named_tap_observations_counties": 1,
+  "R5_not_scanned": 2846,
+  "R1_api_failed_candidate_count": 20,
+  "confirmed_exclusions": 0,
+  "cumulative_R1_to_R5_carry_forward": 2847,
+  "formal_valid_county_screenings": 0,
+  "formal_grades_modified": 0,
+  "geographic_coverage_unit": "County code candidates, not actual dwelling polygons",
+  "R1_actual_data_coverage_fraction": 0.00773,
+  "R2_actual_data_coverage_fraction": 0.00421,
+  "R3_actual_data_coverage_fraction": 0.00421,
+  "R4_actual_data_coverage_fraction": 0.0007,
+  "R5_actual_data_coverage_fraction": 0.00035,
+  "source_status_paths": {
+    "R0": "research_engine/retirement/status/national_cascade_r0_summary.json",
+    "R1": "research_engine/retirement/status/national_r1_expanded_summary.json",
+    "R2": "research_engine/retirement/status/national_r2_first_real_batch_evidence.json",
+    "R3": "research_engine/retirement/status/national_r3_first_real_batch_evidence.json",
+    "R4": "research_engine/retirement/status/national_r4_city_context_evidence.json",
+    "R5": "research_engine/retirement/status/national_r5_tap_water_evidence.json"
+  },
+  "source_sha256": {
+    "research_engine/retirement/status/national_cascade_r0_summary.json": "44f63c465841833cfe34a3f832891a33f2af381c11d1cc523e7e0d986d1d1c71",
+    "research_engine/retirement/status/national_r1_expanded_summary.json": "7739e7d147c2b2f0824f12c936321ddefbf33e88acbdaf250b7d2294dada254d",
+    "research_engine/retirement/status/national_r2_first_real_batch_evidence.json": "142749121c546997e9624e02421fee92c4f3a65275b550d315085df363ed4061",
+    "research_engine/retirement/status/national_r3_first_real_batch_evidence.json": "a846dd0df6291eca011420484c7c37c71b96778389eecc5c622c1c77b1aebb58",
+    "research_engine/retirement/status/national_r4_city_context_evidence.json": "265045b99e4a6a17e75d95850ba5ab4ed0a305dcc96bc3fe12c6e8d2daaf6a03",
+    "research_engine/retirement/status/national_r5_tap_water_evidence.json": "75018dbcde8b534dcc71315129910ce5f96221c34590d85f1e2ba972a5b39a19"
+  },
+  "output_all_counties_csv_sha256": "5b6d375692860cbf06a5d49c726574e5bc95499f3a4232f97ad260f05e57f822",
+  "output_by_province_csv_sha256": "f55f2d6c079d6e07b590bc03d3442a470858dfca07ecd8ed350e67ae4b46156a",
+  "top_evidence_counties": [
+    {
+      "code": "532503",
+      "name": "蒙自市",
+      "partial_parameter_rounds": 5,
+      "missing": []
+    },
+    {
+      "code": "510402",
+      "name": "东区",
+      "partial_parameter_rounds": 4,
+      "missing": [
+        "R5"
+      ]
+    },
+    {
+      "code": "350203",
+      "name": "思明区",
+      "partial_parameter_rounds": 3,
+      "missing": [
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "code": "350503",
+      "name": "丰泽区",
+      "partial_parameter_rounds": 3,
+      "missing": [
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "code": "450103",
+      "name": "青秀区",
+      "partial_parameter_rounds": 3,
+      "missing": [
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "code": "450304",
+      "name": "象山区",
+      "partial_parameter_rounds": 3,
+      "missing": [
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "code": "460108",
+      "name": "美兰区",
+      "partial_parameter_rounds": 3,
+      "missing": [
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "code": "460203",
+      "name": "吉阳区",
+      "partial_parameter_rounds": 3,
+      "missing": [
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "code": "520115",
+      "name": "观山湖区",
+      "partial_parameter_rounds": 3,
+      "missing": [
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "code": "530102",
+      "name": "五华区",
+      "partial_parameter_rounds": 3,
+      "missing": [
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "code": "532801",
+      "name": "景洪市",
+      "partial_parameter_rounds": 3,
+      "missing": [
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "code": "532901",
+      "name": "大理市",
+      "partial_parameter_rounds": 3,
+      "missing": [
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "code": "130709",
+      "name": "崇礼区",
+      "partial_parameter_rounds": 1,
+      "missing": [
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "code": "130881",
+      "name": "平泉市",
+      "partial_parameter_rounds": 1,
+      "missing": [
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "code": "150781",
+      "name": "满洲里市",
+      "partial_parameter_rounds": 1,
+      "missing": [
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "code": "150782",
+      "name": "牙克石市",
+      "partial_parameter_rounds": 1,
+      "missing": [
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "code": "211104",
+      "name": "大洼区",
+      "partial_parameter_rounds": 1,
+      "missing": [
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "code": "211382",
+      "name": "凌源市",
+      "partial_parameter_rounds": 1,
+      "missing": [
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "code": "222426",
+      "name": "安图县",
+      "partial_parameter_rounds": 1,
+      "missing": [
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "code": "330112",
+      "name": "临安区",
+      "partial_parameter_rounds": 1,
+      "missing": [
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "code": "360281",
+      "name": "乐平市",
+      "partial_parameter_rounds": 1,
+      "missing": [
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ]
+    },
+    {
+      "code": "650421",
+      "name": "鄯善县",
+      "partial_parameter_rounds": 1,
+      "missing": [
+        "R2",
+        "R3",
+        "R4",
+        "R5"
+      ]
+    }
+  ],
+  "R1_failed_sources": [
+    {
+      "code": "360104",
+      "county": "青云谱区",
+      "reason": "OPENMETEO_BATCH_REQUEST_FAILED",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    },
+    {
+      "code": "371703",
+      "county": "定陶区",
+      "reason": "OPENMETEO_BATCH_REQUEST_FAILED",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    },
+    {
+      "code": "420205",
+      "county": "铁山区",
+      "reason": "OPENMETEO_BATCH_REQUEST_FAILED",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    },
+    {
+      "code": "430182",
+      "county": "宁乡市",
+      "reason": "OPENMETEO_BATCH_REQUEST_FAILED",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    },
+    {
+      "code": "500233",
+      "county": "忠县",
+      "reason": "OPENMETEO_BATCH_REQUEST_FAILED",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    },
+    {
+      "code": "510727",
+      "county": "平武县",
+      "reason": "OPENMETEO_BATCH_REQUEST_FAILED",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    },
+    {
+      "code": "520281",
+      "county": "盘州市",
+      "reason": "OPENMETEO_BATCH_REQUEST_FAILED",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    },
+    {
+      "code": "530629",
+      "county": "威信县",
+      "reason": "OPENMETEO_BATCH_REQUEST_FAILED",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    },
+    {
+      "code": "620622",
+      "county": "古浪县",
+      "reason": "OPENMETEO_BATCH_REQUEST_FAILED",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    },
+    {
+      "code": "632802",
+      "county": "德令哈市",
+      "reason": "OPENMETEO_BATCH_REQUEST_FAILED",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    },
+    {
+      "code": "370215",
+      "county": "即墨区",
+      "reason": "OPENMETEO_BATCH_REQUEST_FAILED",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    },
+    {
+      "code": "421102",
+      "county": "黄州区",
+      "reason": "OPENMETEO_BATCH_REQUEST_FAILED",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    },
+    {
+      "code": "500101",
+      "county": "万州区",
+      "reason": "OPENMETEO_BATCH_REQUEST_FAILED",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    },
+    {
+      "code": "510781",
+      "county": "江油市",
+      "reason": "OPENMETEO_BATCH_REQUEST_FAILED",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    },
+    {
+      "code": "530627",
+      "county": "镇雄县",
+      "reason": "OPENMETEO_BATCH_REQUEST_FAILED",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    },
+    {
+      "code": "620111",
+      "county": "红古区",
+      "reason": "OPENMETEO_BATCH_REQUEST_FAILED",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    },
+    {
+      "code": "130708",
+      "county": "万全区",
+      "reason": "OPENMETEO_BATCH_REQUEST_FAILED",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    },
+    {
+      "code": "150785",
+      "county": "根河市",
+      "reason": "OPENMETEO_BATCH_REQUEST_FAILED",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    },
+    {
+      "code": "210115",
+      "county": "辽中区",
+      "reason": "OPENMETEO_BATCH_REQUEST_FAILED",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    },
+    {
+      "code": "371324",
+      "county": "兰陵县",
+      "reason": "OPENMETEO_BATCH_REQUEST_FAILED",
+      "error": "<HTTPError 429: 'Too Many Requests'>"
+    }
+  ],
+  "decision": "THIS_IS_AN_INTERIM_MISSING_DATA_AUDIT; THE FIVE ROUNDS HAVE TECHNICALLY EXECUTED BUT NATIONWIDE VALID_SCREENING IS FAR_FROM_COMPLETE",
+  "hard_limits": [
+    "No formal nationwide denominator from current official 2026 record",
+    "No 2026 legal identity certification for provisional 2847",
+    "Climatology of model point is not county-wide validated nor station normal",
+    "Citywide air data is not residential PM2.5/O3 evidence",
+    "Sixteen 2026 named tap samples are not full municipal or residential potability evidence",
+    "No confirmed residential hazard assessment for all provinces",
+    "Unknowns are not to be excluded; no certified unmitigable fatal case was established"
+  ]
+}
