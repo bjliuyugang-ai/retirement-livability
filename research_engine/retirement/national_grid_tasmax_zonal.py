@@ -389,5 +389,16 @@ if __name__=="__main__":
           "formal_valid_county_screenings":0,"confirmed_county_exclusions":0,"carry_forward_counties":2847}
         try:write_json(OUTJSON,err)
         except Exception:pass
+        try:
+            if not OUTCSV.exists():
+                _,fallback_rows=parse_csv(ROSTER)
+                with OUTCSV.open("w",encoding="utf-8-sig",newline="") as f:
+                    cols=["candidate_code","candidate_name","geometry_match_status","R1_grid_status","official_2026_code_verified","formal_valid_county_screening","county_exclusion"]
+                    w=csv.DictWriter(f,fieldnames=cols);w.writeheader()
+                    for row in fallback_rows:
+                        w.writerow({"candidate_code":row.get("code",""),"candidate_name":row.get("name",""),
+                          "geometry_match_status":"NOT_COMPUTED","R1_grid_status":"NO_VERIFIED_GRID_RESULT",
+                          "official_2026_code_verified":"False","formal_valid_county_screening":"False","county_exclusion":"False"})
+        except Exception:pass
         print(json.dumps(err,ensure_ascii=False))
         sys.exit(2)
