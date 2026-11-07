@@ -1,0 +1,66 @@
+name: Retirement 2024 2025 Beijing Shanghai annual air ozone and PM25 compare
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-2024-25-BJ-SH-ozone-crosscheck.yml'
+jobs:
+  real-official-yearpair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Guard current R4 ozone trend or later actual action; source-only not state writer
+        run: |
+          python - <<'PY'
+          import json
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["state_revision"]>=61
+          print("CURRENT_ACTION",s["active_action"]["action_id"])
+          PY
+      - name: Actually fetch 2024 2025 MEE Beijing and Shanghai municipal government official values
+        run: |
+          python -m py_compile research_engine/retirement/national_R4_BJ_SH_2024_2025_O3_pairs.py
+          python -u research_engine/retirement/national_R4_BJ_SH_2024_2025_O3_pairs.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: real-official-BJ-SH-annual-2024-2025-O3-and-PM25
+          path: research_engine/retirement/output/national_R4_Beijing_Shanghai_2024_2025_air_yearpair.json
+          retention-days: 30
+      - name: Preserve only factual dual-year evidence, no county residential claims
+        run: |
+          cp research_engine/retirement/output/national_R4_Beijing_Shanghai_2024_2025_air_yearpair.json research_engine/retirement/status/national_R4_Beijing_Shanghai_2024_2025_air_yearpair.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/national_R4_Beijing_Shanghai_2024_2025_air_yearpair.json
+          git commit -m "Archive verified 2024 2025 Shanghai ozone rise vs PM25 fall and Beijing official annual air contrasts"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import subprocess,json,hashlib
+          p="research_engine/retirement/status/national_R4_Beijing_Shanghai_2024_2025_air_yearpair.json"
+          b=subprocess.check_output(["git","show","origin/main:"+p])
+          assert hashlib.sha256(b).hexdigest()==hashlib.sha256(open(p,"rb").read()).hexdigest()
+          d=json.loads(b)
+          assert d["formal_valid_county_screenings"]==0
+          print("REAL_OFFICIAL_R4_TWO_CITY_SOURCE_SHA_PASS",d["cities_with_two_year_online_value_crosscheck"])
+          PY
