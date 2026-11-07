@@ -1,0 +1,97 @@
+name: Retirement national R4 complete 168 city PM25 plus 58 county PM25 and 11 city O3 sources
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-R4-168city-58county-O3-merge.yml'
+jobs:
+  auditable-official-r4-nationwide:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 unique R4 ozone and multi-year official source action
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["state_revision"]==63
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R4-O3-TREND-013"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["current_state_ref"]["git_blob_sha"]==subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          PY
+      - name: S3 merge real official 168 city 2025 PM25, 58 two-year county PM25 and 11 urban two-year ozone
+        run: |
+          python -m py_compile research_engine/retirement/national_R4_mixed_official_2024_2025_air_sources.py
+          python -u research_engine/retirement/national_R4_mixed_official_2024_2025_air_sources.py
+      - name: Source QA with exact 2847 conservation and no county level ozone fabrication
+        id: qa
+        run: |
+          python - <<'PY'
+          import csv,json,hashlib
+          r="research_engine/retirement/output/"
+          d=json.load(open(r+"national_R4_168cities_58counties_11urbanO3_composite_evidence.json"))
+          assert d["MEE_2025_168_priority_cities_annual_PM25"]==168
+          assert d["official_Fujian_direct_COUNTY_PM25_good_days_2024_2025_units"]==58
+          assert d["official_Fujian_named_10_urban_O3_2024_2025_units"]==10
+          assert d["official_Beijing_city_O3_2024_2025_units"]==1
+          assert d["all_named_urban_O3_yearly_2024_2025_source_units"]==11
+          assert d["combined_long_city_or_real_county_R4_partial_source_codes"]==60
+          assert d["direct_RESIDENTIAL_air_quality_counties"]==0
+          assert d["actual_county_level_numerical_ozone_available"]==0
+          assert d["formal_valid_county_screenings"]==0 and d["confirmed_exclusions"]==0
+          assert d["all_2847_county_candidates_carried_forward"]==2847
+          p=r+"national_R4_2847_168city_PM25_58county_PM25_10city_O3_source_layers.csv"
+          raw=open(p,"rb").read()
+          assert hashlib.sha256(raw).hexdigest()==d["output_national_CSV_sha256"]
+          rows=list(csv.DictReader(open(p,encoding="utf-8-sig")))
+          assert len(rows)==2847 and len({x["candidate_code"] for x in rows})==2847
+          assert sum(bool(x["R4_FJ_COUNTY_PM25_2025_ugm3"]) for x in rows)==58
+          assert not any(x["confirmed_exit_round"] for x in rows)
+          print("R4_168_58_11_ACTUAL_COMBINED_QA_PASS",d["county_codes_given_Fujian_CITY_O3_only_context"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: official-2024-2025-168-city-PM25-58-counties-PM25-11-cities-ozone-national-2847-R4
+          path: |
+            research_engine/retirement/output/national_R4_168cities_58counties_11urbanO3_composite_evidence.json
+            research_engine/retirement/output/national_R4_2847_168city_PM25_58county_PM25_10city_O3_source_layers.csv
+          retention-days: 30
+      - name: Persist and verify independent source hashes without formal county rating
+        if: steps.qa.outcome == 'success'
+        run: |
+          cp research_engine/retirement/output/national_R4_168cities_58counties_11urbanO3_composite_evidence.json research_engine/retirement/status/national_R4_168cities_58counties_11urbanO3_composite_evidence.json
+          cp research_engine/retirement/output/national_R4_2847_168city_PM25_58county_PM25_10city_O3_source_layers.csv research_engine/retirement/status/national_R4_2847_168city_PM25_58county_PM25_10city_O3_source_layers.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/national_R4_168cities_58counties_11urbanO3_composite_evidence.json research_engine/retirement/status/national_R4_2847_168city_PM25_58county_PM25_10city_O3_source_layers.csv
+          git commit -m "Persist R4 168 city PM25 context, 58 official county PM25 two-year numbers and 11 named urban ozone histories separately"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = "4" ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          root="research_engine/retirement/status/"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+root+"national_R4_168cities_58counties_11urbanO3_composite_evidence.json"]))
+          b=subprocess.check_output(["git","show","origin/main:"+root+"national_R4_2847_168city_PM25_58county_PM25_10city_O3_source_layers.csv"])
+          assert hashlib.sha256(b).hexdigest()==d["output_national_CSV_sha256"]
+          assert d["formal_valid_county_screenings"]==0
+          print("OFFICIAL_R4_MULTISOURCE_REMOTE_HASH_PASS",d["official_Fujian_direct_COUNTY_PM25_good_days_2024_2025_units"])
+          PY
