@@ -29,14 +29,14 @@ for year,url in source.items():
  with urllib.request.urlopen(req,timeout=65) as r:raw=r.read(1500000)
  if len(raw)<8000:raise RuntimeError("Official annual HTML abnormally short")
  html=BeautifulSoup(raw,"html.parser")
- clean=re.sub(r"\\s+","",html.get_text(" ",strip=True))
+ clean="".join(html.get_text(" ",strip=True).split())
  clean=clean.replace("－","—").replace("–","—").replace("—","—")
  # Explicitly bounded Beijing annual paragraph. No 12-month values from other cities.
  k=clean.find("1—12月，北京市")
  if k<0:raise RuntimeError("Official Beijing annual paragraph missing for "+year)
  segment=clean[k:k+420]
- numbers=[float(x) for x in re.findall(r"浓度为([0-9]+(?:\\.[0-9]+)?)微克/立方米",segment)]
- good=re.search(r"优良天数比例为([0-9]+(?:\\.[0-9]+)?)%",segment)
+ numbers=[float(x) for x in re.findall(r"浓度为([0-9]+(?:[.][0-9]+)?)微克/立方米",segment)]
+ good=re.search(r"优良天数比例为([0-9]+(?:[.][0-9]+)?)%",segment)
  if len(numbers)<2 or not good:raise RuntimeError("Could not extract Beijing PM and O3 and good-day for year "+year+" segment "+segment[:270])
  beijing={"city":"北京市","2025_prefecture_code":"110000",
  "year":int(year),"PM25_ug_m3":numbers[0],"O3_ug_m3":numbers[1],
@@ -45,11 +45,11 @@ for year,url in source.items():
  nr=clean.find("1—12月，全国339个地级及以上城市PM")
  if nr<0:raise RuntimeError("Official 339-city yearly general paragraph not found "+year)
  ntext=clean[nr:nr+600]
- nation_pm=re.search(r"PM2.5平均浓度为([0-9]+(?:\\.[0-9]+)?)微克/立方米",ntext)
- nation_o3=re.search(r"O3平均浓度为([0-9]+(?:\\.[0-9]+)?)微克/立方米",ntext)
+ nation_pm=re.search(r"PM2.5平均浓度为([0-9]+(?:[.][0-9]+)?)微克/立方米",ntext)
+ nation_o3=re.search(r"O3平均浓度为([0-9]+(?:[.][0-9]+)?)微克/立方米",ntext)
  # Separate national good-day paragraph
  nk=clean.find("1—12月，全国339个地级及以上城市平均空气质量优良天数比例为")
- nation_good=re.search(r"比例为([0-9]+(?:\\.[0-9]+)?)%",clean[nk:nk+140]) if nk>=0 else None
+ nation_good=re.search(r"比例为([0-9]+(?:[.][0-9]+)?)%",clean[nk:nk+140]) if nk>=0 else None
  if not nation_pm or not nation_o3 or not nation_good:raise RuntimeError("National aggregate parse not actual for year "+year)
  national={"national_339_city_PM25_mean_ug_m3":float(nation_pm.group(1)),
     "national_339_city_O3_90pct_mean_ug_m3":float(nation_o3.group(1)),
