@@ -1,0 +1,64 @@
+name: Retirement real Ministry of Civil Affairs 2025-2026 administrative code API probe
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-MCA-portal-probe.yml'
+jobs:
+  check-official-api:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Gate current V1.6 official-adcode action
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-OFFICIAL-CODE-RECON-005"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["current_state_ref"]["git_blob_sha"]==subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          PY
+      - name: Actually request MCA national geonames administrative code API
+        run: |
+          python -m py_compile research_engine/retirement/mca_official_adcode_probe.py
+          python -u research_engine/retirement/mca_official_adcode_probe.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: actual-MCA-official-division-API-response
+          path: |
+            research_engine/retirement/output/mca_official_api_real_access_QA.json
+            research_engine/retirement/output/mca_official_api_response_raw.json
+          retention-days: 14
+      - name: Persist actual official API response metadata and prove remote sha
+        run: |
+          cp research_engine/retirement/output/mca_official_api_real_access_QA.json research_engine/retirement/status/mca_official_api_real_access_QA.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/mca_official_api_real_access_QA.json
+          git commit -m "Record actual national Ministry of Civil Affairs county-code API response or access error"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          p="research_engine/retirement/status/mca_official_api_real_access_QA.json"
+          raw=subprocess.check_output(["git","show","origin/main:"+p])
+          assert hashlib.sha256(raw).hexdigest()==hashlib.sha256(open(p,"rb").read()).hexdigest()
+          print("MCA_REAL_API_REMOTE_SOURCE_QA",json.loads(raw)["source_status"])
+          PY
