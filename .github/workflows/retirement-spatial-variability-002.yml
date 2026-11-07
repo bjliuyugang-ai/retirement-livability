@@ -1,8 +1,6 @@
 name: Retirement four-county ERA5 spatial representativeness assault
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '31 * * * *'
   push:
     branches: [main]
     paths:
