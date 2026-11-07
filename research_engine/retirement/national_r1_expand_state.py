@@ -9,7 +9,7 @@ CURRENT=pathlib.Path("research_assets/retirement/CURRENT_STATE.md")
 SRC=OUTPUT/"national_r1_expanded_summary.json";CSV=OUTPUT/"national_r1_expanded.csv"
 DEST=ROOT/"status/national_r1_expanded_summary.json"
 DESTCSV=ROOT/"status/national_r1_expanded.csv"
-RUN=os.getenv("GITHUB_RUN_ID","LOCAL")
+RUN=os.getenv("R1_RECOVERY_ORIGINAL_RUN_ID",os.getenv("GITHUB_RUN_ID","LOCAL"))
 NOW=lambda:datetime.datetime.now(datetime.timezone.utc).isoformat()
 def sha(b):return hashlib.sha256(b).hexdigest()
 def blob(p):return subprocess.check_output(["git","hash-object",str(p)],text=True).strip()
