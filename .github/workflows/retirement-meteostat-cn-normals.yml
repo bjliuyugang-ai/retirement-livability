@@ -1,4 +1,5 @@
 name: Retirement CN 1991-2020 real station monthly temperature normals
+# Re-entry after station-metadata shadowing fix; same V1.6 unique action retained
 on:
   workflow_dispatch:
   push:
