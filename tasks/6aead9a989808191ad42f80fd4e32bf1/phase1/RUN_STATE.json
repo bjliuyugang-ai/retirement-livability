@@ -30,7 +30,7 @@
     "county_git_blob_sha": "4eec549a1fcdede7502b1d015b657a0afe63ef7f",
     "national_R4_path": "research_engine/retirement/status/national_R4_official_Fujian2025_county_PM25_2847.csv",
     "national_R4_git_blob_sha": "59f30d78aa51e4678b76fb907b95a43f1519b666",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-R4-O3-TREND-013",
   "closed_result_refs": [
@@ -85,11 +85,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "e5eb31a14b6f6d7a8e1f659c248a70164c89f8bc",
+    "verified_at": "2026-11-07T04:42:11.762Z"
   },
-  "updated_at": "2026-11-07T04:41:34.635Z",
-  "state_revision": 64,
+  "updated_at": "2026-11-07T04:42:11.762Z",
+  "state_revision": 65,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
