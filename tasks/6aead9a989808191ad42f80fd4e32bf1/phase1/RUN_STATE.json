@@ -28,7 +28,7 @@
     "nationalcsv_git_blob_sha": "bbb698344b4f512882797d68858a53978b697fe2",
     "bothcsv_path": "research_engine/retirement/status/national_R1_R2_double_observed_candidate_list.csv",
     "bothcsv_git_blob_sha": "934dc3f04579080dfd894f6c4157256dfce906c3",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-R1R2-JOINT-MISSINGNESS-009",
   "closed_result_refs": [
@@ -79,11 +79,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "a14a216dec50dcff2a71c0a612f43c574cf301ab",
+    "verified_at": "2026-11-07T04:20:08.818Z"
   },
-  "updated_at": "2026-11-07T04:19:40.573Z",
-  "state_revision": 56,
+  "updated_at": "2026-11-07T04:20:08.818Z",
+  "state_revision": 57,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
