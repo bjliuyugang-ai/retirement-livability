@@ -1,0 +1,87 @@
+name: Retirement nationwide R2 sunshine rainfall humidity sequential carry-forward
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-national-r2-real.yml'
+jobs:
+  r2-reuse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 assert R1 completed and unique active R2
+        id: precheck
+        run: python research_engine/retirement/national_r2_state.py precheck
+      - name: Recover archived 12 actual daily 1991-2020 sunshine and precipitation arrays
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p research_engine/retirement/output/archived_climate_42245826626
+          gh run download 42245826626 --repo "${GITHUB_REPOSITORY}" \
+            --name retirement-climate-pilot-output \
+            --dir research_engine/retirement/output/archived_climate_42245826626
+      - name: S3 compute sunshine rain humid 12 actual R2 point records and 2847 nationwide queue
+        run: |
+          python -m py_compile research_engine/retirement/national_r2_real_batch.py research_engine/retirement/national_r2_state.py
+          python -u research_engine/retirement/national_r2_real_batch.py
+      - name: S4-S5 source quality gates and write research V1.6 ledger
+        id: finalize
+        run: python research_engine/retirement/national_r2_state.py finalize
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: national-R2-real-sun-rain-12-points-and-2847-register
+          path: |
+            research_engine/retirement/output/national_r2_first_real_batch*
+          retention-days: 30
+      - name: Persist actual R2 results without changing original Library master
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl research_assets/retirement/CURRENT_STATE.md research_engine/retirement/status/national_r2_first_real_batch_evidence.json research_engine/retirement/status/national_r2_first_real_batch.csv
+          git diff --cached --quiet && exit 2 || true
+          git commit -m "Persist actual R2 sun precipitation humidity evidence and missing-retained 2847 roster"
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          pre=json.load(open("research_engine/retirement/output/national_r2_precheck.json"))
+          s=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]))
+          assert s["state_revision"]==pre["source_revision"],"R2_INPUT_REVISION_CHANGED"
+          assert s["current_state_ref"]["git_blob_sha"]==pre["source_current_blob"],"R2_CURRENT_SHA_CHANGED"
+          PY
+          git rebase origin/main
+          git push origin HEAD:main
+      - name: S6 independently check committed R2 evidence and R3 handoff
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git fetch origin main
+          python research_engine/retirement/national_r2_state.py postcheck
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
+          git commit -m "Verify R2 remote SHA and R3 next-action handoff"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          s=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]))
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["last_verified_run"]["action_id"]=="RET-CASCADE-NATIONAL-R2-001"
+          assert s["national_parameter_rounds"]["R2"]["point_sun_rain_sites"]==12
+          assert s["national_parameter_rounds"]["R2"]["carry_forward"]==2847
+          print("R2_S6_PASS",s["national_parameter_rounds"]["R2"])
+          PY
