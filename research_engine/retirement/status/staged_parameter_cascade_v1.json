@@ -1,0 +1,687 @@
+{
+  "schema": "RET_STAGED_PARAMETER_CASCADE_V1",
+  "generated_utc": "2026-11-07T00:42:11.793693+00:00",
+  "scope": "11 existing exploratory points, 4 historic candidate counties, method-validation only",
+  "user_decision": "Continue each parameter round despite missing data; verified fatal cases leave future routine collection; final unknowns remain for user decision",
+  "official_national_coverage_count": 0,
+  "valid_county_screenings": 0,
+  "formal_grades_changed": 0,
+  "input_units": 4,
+  "surviving_candidate_units": 4,
+  "verified_exclusions": 0,
+  "pending_units": 4,
+  "round_summary": [
+    {
+      "round": "R1",
+      "parameter": "temperature_extremes",
+      "input": 4,
+      "new_verified_exits": 0,
+      "carry_forward": 4,
+      "carry_forward_pending": 4,
+      "total_cumulative_exits": 0,
+      "missing_does_not_stop_other_counties": true
+    },
+    {
+      "round": "R2",
+      "parameter": "sunshine_humidity_rain",
+      "input": 4,
+      "new_verified_exits": 0,
+      "carry_forward": 4,
+      "carry_forward_pending": 4,
+      "total_cumulative_exits": 0,
+      "missing_does_not_stop_other_counties": true
+    },
+    {
+      "round": "R3",
+      "parameter": "actual_residence_altitude_local_exception",
+      "input": 4,
+      "new_verified_exits": 0,
+      "carry_forward": 4,
+      "carry_forward_pending": 4,
+      "total_cumulative_exits": 0,
+      "missing_does_not_stop_other_counties": true
+    },
+    {
+      "round": "R4",
+      "parameter": "air_industry_historical_pollution",
+      "input": 4,
+      "new_verified_exits": 0,
+      "carry_forward": 4,
+      "carry_forward_pending": 4,
+      "total_cumulative_exits": 0,
+      "missing_does_not_stop_other_counties": true
+    },
+    {
+      "round": "R5",
+      "parameter": "tapwater_natural_hazards",
+      "input": 4,
+      "new_verified_exits": 0,
+      "carry_forward": 4,
+      "carry_forward_pending": 4,
+      "total_cumulative_exits": 0,
+      "missing_does_not_stop_other_counties": true
+    }
+  ],
+  "excluded_archive": [],
+  "missing_parameter_count": 72,
+  "evidence_input_hashes": {
+    "research_engine/retirement/status/latest-first-batch-prescreen.json": "7e3488ded193b7bbaea12ccbfd9ced6ad32c994f0003915cb708d8729ec41e2a",
+    "research_engine/retirement/status/stage3_firstbatch_residential_anchor_audit_v1.json": "b6c11fe312581d1869780af76528409b7dafcfbe109cc4fdb2d2b44d76de6dff",
+    "research_engine/retirement/evidence/stage3_mengzi_2026_tapwater_16_site_observations_v1.json": "815a5b21365c134d13d21f1080927bafc1c480a704c78e26e8ce58f15b82a901",
+    "research_assets/retirement/STAGED_PARAMETER_CASCADE_V1.0_20261107.md": "26a487eb02ec0fd56c4d6b1e30bb97ff51c914600ed4065208eaeacd2a9e5296"
+  },
+  "hard_exclusion_gate_regression": "10 synthetic checks passed; tests do not assert real county elimination",
+  "records": [
+    {
+      "geography_id": "HISTORIC_COUNTY_CANDIDATE_510402",
+      "county": "四川省攀枝花市东区",
+      "archival_candidate_code": "510402",
+      "official_2026_county_code_verified": false,
+      "existing_master_provisional_grade_unchanged": "C",
+      "formal_grade": null,
+      "formal_county_screening_valid": false,
+      "queue_status": "FINAL_PENDING_USER_REVIEW",
+      "exit_round": null,
+      "exit_reason": null,
+      "exit_evidence": [],
+      "reinstatement_condition": null,
+      "rounds": {
+        "R1": {
+          "indicator_status": "PREFERENCE_MISMATCH",
+          "evidence_type": "1991-2020_ERA5_MODEL_POINT_NOT_RESIDENCE",
+          "values": {
+            "winter_mean_daily_max_c_range": [
+              17.342,
+              22.008
+            ],
+            "summer_mean_daily_max_c_range": [
+              25.673,
+              30.337
+            ],
+            "points_checked": 3,
+            "nonofficial_geography": true
+          },
+          "missing_fields": [
+            "site-specific 1991-2020 station normals",
+            "actual residential locations",
+            "continuous hot/cold stress episodes",
+            ">=35C annual days"
+          ],
+          "source_refs": [
+            "research_engine/retirement/status/latest-first-batch-prescreen.json"
+          ],
+          "reason": "One or more modeled grid points miss an ideal preference band; not a verified whole-county exclusion",
+          "round": "R1",
+          "parameter": "temperature_extremes",
+          "verified_fatal_claim": false
+        },
+        "R2": {
+          "indicator_status": "MISSING",
+          "evidence_type": "partial_ERA5_model_humidity_only",
+          "values": {
+            "ERA5_annual_relative_humidity_pct_range": [
+              61.725,
+              64.632
+            ],
+            "number_of_climate_preference_matches": 1
+          },
+          "missing_fields": [
+            "reliable yearly and winter sunshine from observed station",
+            "verified wet-day/continuous overcast counts",
+            "rainfall base-period validation",
+            "site-calibrated relative humidity and dewpoint"
+          ],
+          "source_refs": [
+            "research_engine/retirement/status/latest-first-batch-prescreen.json"
+          ],
+          "reason": "Model humidity does not stand in for independent observed sunshine, wet days or residential humidity",
+          "round": "R2",
+          "parameter": "sunshine_humidity_rain",
+          "verified_fatal_claim": false
+        },
+        "R3": {
+          "indicator_status": "MISSING",
+          "evidence_type": "three DEM samples in historic county polygon, not confirmed residential buildings",
+          "values": {
+            "sample_dem_span_m": 718,
+            "geography_exception_required": true
+          },
+          "missing_fields": [
+            "site-specific real residential altitude",
+            "river-valley/plateau/urban-subdistrict exception map",
+            "sample-to-polygon/ERA5 grid-independent QA"
+          ],
+          "source_refs": [
+            "research_engine/retirement/status/latest-first-batch-prescreen.json"
+          ],
+          "reason": "One high DEM sample is not a basis for excluding a whole county",
+          "round": "R3",
+          "parameter": "actual_residence_altitude_local_exception",
+          "verified_fatal_claim": false
+        },
+        "R4": {
+          "indicator_status": "MISSING",
+          "evidence_type": "city-scale public context only",
+          "values": {
+            "public_source_context_available": true
+          },
+          "missing_fields": [
+            "site-specific multi-year PM2.5 and ozone",
+            "industrial source-to-residence distance and wind",
+            "historical contaminated land survey"
+          ],
+          "source_refs": [
+            "research_engine/retirement/status/stage3_firstbatch_residential_anchor_audit_v1.json"
+          ],
+          "reason": "City-wide air figures or industrial remediation notices do not prove residential exposure",
+          "round": "R4",
+          "parameter": "air_industry_historical_pollution",
+          "verified_fatal_claim": false
+        },
+        "R5": {
+          "indicator_status": "MISSING",
+          "evidence_type": "no verified site-level complete tap data",
+          "values": {
+            "named_test_anchors": 1,
+            "2026_q1_q3_monitored_site_records": 0
+          },
+          "missing_fields": [
+            "actual building water supply connection and full drinking-water indicators",
+            "on-site flood and landslide hazards",
+            "seismic and extreme-weather avoidability",
+            "2026 officially verified administrative identity"
+          ],
+          "source_refs": [
+            "research_engine/retirement/status/stage3_firstbatch_residential_anchor_audit_v1.json"
+          ],
+          "reason": "Limited monitoring samples and municipal source quality cannot close all residential safety gates",
+          "round": "R5",
+          "parameter": "tapwater_natural_hazards",
+          "verified_fatal_claim": false
+        }
+      },
+      "missing_parameters": [
+        "R1:site-specific 1991-2020 station normals",
+        "R1:actual residential locations",
+        "R1:continuous hot/cold stress episodes",
+        "R1:>=35C annual days",
+        "R2:reliable yearly and winter sunshine from observed station",
+        "R2:verified wet-day/continuous overcast counts",
+        "R2:rainfall base-period validation",
+        "R2:site-calibrated relative humidity and dewpoint",
+        "R3:site-specific real residential altitude",
+        "R3:river-valley/plateau/urban-subdistrict exception map",
+        "R3:sample-to-polygon/ERA5 grid-independent QA",
+        "R4:site-specific multi-year PM2.5 and ozone",
+        "R4:industrial source-to-residence distance and wind",
+        "R4:historical contaminated land survey",
+        "R5:actual building water supply connection and full drinking-water indicators",
+        "R5:on-site flood and landslide hazards",
+        "R5:seismic and extreme-weather avoidability",
+        "R5:2026 officially verified administrative identity"
+      ],
+      "conflicting_parameters": [],
+      "prior_stage3_preliminary": "PRE_SCREEN_DONE_FORMAL_PENDING",
+      "evidence_quality": "EXPLORATORY_NOT_RESIDENTIAL",
+      "local_exception_review_status": "NOT_COMPLETE"
+    },
+    {
+      "geography_id": "HISTORIC_COUNTY_CANDIDATE_532503",
+      "county": "云南省红河州蒙自市",
+      "archival_candidate_code": "532503",
+      "official_2026_county_code_verified": false,
+      "existing_master_provisional_grade_unchanged": "B",
+      "formal_grade": null,
+      "formal_county_screening_valid": false,
+      "queue_status": "FINAL_PENDING_USER_REVIEW",
+      "exit_round": null,
+      "exit_reason": null,
+      "exit_evidence": [],
+      "reinstatement_condition": null,
+      "rounds": {
+        "R1": {
+          "indicator_status": "PREFERENCE_MISMATCH",
+          "evidence_type": "1991-2020_ERA5_MODEL_POINT_NOT_RESIDENCE",
+          "values": {
+            "winter_mean_daily_max_c_range": [
+              13.987,
+              24.139
+            ],
+            "summer_mean_daily_max_c_range": [
+              22.952,
+              32.994
+            ],
+            "points_checked": 3,
+            "nonofficial_geography": true
+          },
+          "missing_fields": [
+            "site-specific 1991-2020 station normals",
+            "actual residential locations",
+            "continuous hot/cold stress episodes",
+            ">=35C annual days"
+          ],
+          "source_refs": [
+            "research_engine/retirement/status/latest-first-batch-prescreen.json"
+          ],
+          "reason": "One or more modeled grid points miss an ideal preference band; not a verified whole-county exclusion",
+          "round": "R1",
+          "parameter": "temperature_extremes",
+          "verified_fatal_claim": false
+        },
+        "R2": {
+          "indicator_status": "MISSING",
+          "evidence_type": "partial_ERA5_model_humidity_only",
+          "values": {
+            "ERA5_annual_relative_humidity_pct_range": [
+              79.328,
+              83.196
+            ],
+            "number_of_climate_preference_matches": 0
+          },
+          "missing_fields": [
+            "reliable yearly and winter sunshine from observed station",
+            "verified wet-day/continuous overcast counts",
+            "rainfall base-period validation",
+            "site-calibrated relative humidity and dewpoint"
+          ],
+          "source_refs": [
+            "research_engine/retirement/status/latest-first-batch-prescreen.json"
+          ],
+          "reason": "Model humidity does not stand in for independent observed sunshine, wet days or residential humidity",
+          "round": "R2",
+          "parameter": "sunshine_humidity_rain",
+          "verified_fatal_claim": false
+        },
+        "R3": {
+          "indicator_status": "MISSING",
+          "evidence_type": "three DEM samples in historic county polygon, not confirmed residential buildings",
+          "values": {
+            "sample_dem_span_m": 1711,
+            "geography_exception_required": true
+          },
+          "missing_fields": [
+            "site-specific real residential altitude",
+            "river-valley/plateau/urban-subdistrict exception map",
+            "sample-to-polygon/ERA5 grid-independent QA"
+          ],
+          "source_refs": [
+            "research_engine/retirement/status/latest-first-batch-prescreen.json"
+          ],
+          "reason": "One high DEM sample is not a basis for excluding a whole county",
+          "round": "R3",
+          "parameter": "actual_residence_altitude_local_exception",
+          "verified_fatal_claim": false
+        },
+        "R4": {
+          "indicator_status": "MISSING",
+          "evidence_type": "city-scale public context only",
+          "values": {
+            "public_source_context_available": true
+          },
+          "missing_fields": [
+            "site-specific multi-year PM2.5 and ozone",
+            "industrial source-to-residence distance and wind",
+            "historical contaminated land survey"
+          ],
+          "source_refs": [
+            "research_engine/retirement/status/stage3_firstbatch_residential_anchor_audit_v1.json"
+          ],
+          "reason": "City-wide air figures or industrial remediation notices do not prove residential exposure",
+          "round": "R4",
+          "parameter": "air_industry_historical_pollution",
+          "verified_fatal_claim": false
+        },
+        "R5": {
+          "indicator_status": "MISSING",
+          "evidence_type": "partial official tap-sampling at named points",
+          "values": {
+            "named_test_anchors": 2,
+            "2026_q1_q3_monitored_site_records": 16
+          },
+          "missing_fields": [
+            "actual building water supply connection and full drinking-water indicators",
+            "on-site flood and landslide hazards",
+            "seismic and extreme-weather avoidability",
+            "2026 officially verified administrative identity"
+          ],
+          "source_refs": [
+            "research_engine/retirement/status/stage3_firstbatch_residential_anchor_audit_v1.json",
+            "research_engine/retirement/evidence/stage3_mengzi_2026_tapwater_16_site_observations_v1.json"
+          ],
+          "reason": "Limited monitoring samples and municipal source quality cannot close all residential safety gates",
+          "round": "R5",
+          "parameter": "tapwater_natural_hazards",
+          "verified_fatal_claim": false
+        }
+      },
+      "missing_parameters": [
+        "R1:site-specific 1991-2020 station normals",
+        "R1:actual residential locations",
+        "R1:continuous hot/cold stress episodes",
+        "R1:>=35C annual days",
+        "R2:reliable yearly and winter sunshine from observed station",
+        "R2:verified wet-day/continuous overcast counts",
+        "R2:rainfall base-period validation",
+        "R2:site-calibrated relative humidity and dewpoint",
+        "R3:site-specific real residential altitude",
+        "R3:river-valley/plateau/urban-subdistrict exception map",
+        "R3:sample-to-polygon/ERA5 grid-independent QA",
+        "R4:site-specific multi-year PM2.5 and ozone",
+        "R4:industrial source-to-residence distance and wind",
+        "R4:historical contaminated land survey",
+        "R5:actual building water supply connection and full drinking-water indicators",
+        "R5:on-site flood and landslide hazards",
+        "R5:seismic and extreme-weather avoidability",
+        "R5:2026 officially verified administrative identity"
+      ],
+      "conflicting_parameters": [],
+      "prior_stage3_preliminary": "PRE_SCREEN_DONE_FORMAL_PENDING",
+      "evidence_quality": "EXPLORATORY_NOT_RESIDENTIAL",
+      "local_exception_review_status": "NOT_COMPLETE"
+    },
+    {
+      "geography_id": "HISTORIC_COUNTY_CANDIDATE_532801",
+      "county": "云南省西双版纳州景洪市",
+      "archival_candidate_code": "532801",
+      "official_2026_county_code_verified": false,
+      "existing_master_provisional_grade_unchanged": "D",
+      "formal_grade": null,
+      "formal_county_screening_valid": false,
+      "queue_status": "FINAL_PENDING_USER_REVIEW",
+      "exit_round": null,
+      "exit_reason": null,
+      "exit_evidence": [],
+      "reinstatement_condition": null,
+      "rounds": {
+        "R1": {
+          "indicator_status": "PREFERENCE_MISMATCH",
+          "evidence_type": "1991-2020_ERA5_MODEL_POINT_NOT_RESIDENCE",
+          "values": {
+            "winter_mean_daily_max_c_range": [
+              20.363,
+              27.603
+            ],
+            "summer_mean_daily_max_c_range": [
+              25.895,
+              32.175
+            ],
+            "points_checked": 3,
+            "nonofficial_geography": true
+          },
+          "missing_fields": [
+            "site-specific 1991-2020 station normals",
+            "actual residential locations",
+            "continuous hot/cold stress episodes",
+            ">=35C annual days"
+          ],
+          "source_refs": [
+            "research_engine/retirement/status/latest-first-batch-prescreen.json"
+          ],
+          "reason": "One or more modeled grid points miss an ideal preference band; not a verified whole-county exclusion",
+          "round": "R1",
+          "parameter": "temperature_extremes",
+          "verified_fatal_claim": false
+        },
+        "R2": {
+          "indicator_status": "MISSING",
+          "evidence_type": "partial_ERA5_model_humidity_only",
+          "values": {
+            "ERA5_annual_relative_humidity_pct_range": [
+              77.736,
+              79.858
+            ],
+            "number_of_climate_preference_matches": 0
+          },
+          "missing_fields": [
+            "reliable yearly and winter sunshine from observed station",
+            "verified wet-day/continuous overcast counts",
+            "rainfall base-period validation",
+            "site-calibrated relative humidity and dewpoint"
+          ],
+          "source_refs": [
+            "research_engine/retirement/status/latest-first-batch-prescreen.json"
+          ],
+          "reason": "Model humidity does not stand in for independent observed sunshine, wet days or residential humidity",
+          "round": "R2",
+          "parameter": "sunshine_humidity_rain",
+          "verified_fatal_claim": false
+        },
+        "R3": {
+          "indicator_status": "MISSING",
+          "evidence_type": "three DEM samples in historic county polygon, not confirmed residential buildings",
+          "values": {
+            "sample_dem_span_m": 885,
+            "geography_exception_required": true
+          },
+          "missing_fields": [
+            "site-specific real residential altitude",
+            "river-valley/plateau/urban-subdistrict exception map",
+            "sample-to-polygon/ERA5 grid-independent QA"
+          ],
+          "source_refs": [
+            "research_engine/retirement/status/latest-first-batch-prescreen.json"
+          ],
+          "reason": "One high DEM sample is not a basis for excluding a whole county",
+          "round": "R3",
+          "parameter": "actual_residence_altitude_local_exception",
+          "verified_fatal_claim": false
+        },
+        "R4": {
+          "indicator_status": "MISSING",
+          "evidence_type": "no local environment evidence",
+          "values": {
+            "public_source_context_available": false
+          },
+          "missing_fields": [
+            "site-specific multi-year PM2.5 and ozone",
+            "industrial source-to-residence distance and wind",
+            "historical contaminated land survey"
+          ],
+          "source_refs": [],
+          "reason": "City-wide air figures or industrial remediation notices do not prove residential exposure",
+          "round": "R4",
+          "parameter": "air_industry_historical_pollution",
+          "verified_fatal_claim": false
+        },
+        "R5": {
+          "indicator_status": "MISSING",
+          "evidence_type": "no verified site-level complete tap data",
+          "values": {
+            "named_test_anchors": 0,
+            "2026_q1_q3_monitored_site_records": 0
+          },
+          "missing_fields": [
+            "actual building water supply connection and full drinking-water indicators",
+            "on-site flood and landslide hazards",
+            "seismic and extreme-weather avoidability",
+            "2026 officially verified administrative identity"
+          ],
+          "source_refs": [],
+          "reason": "Limited monitoring samples and municipal source quality cannot close all residential safety gates",
+          "round": "R5",
+          "parameter": "tapwater_natural_hazards",
+          "verified_fatal_claim": false
+        }
+      },
+      "missing_parameters": [
+        "R1:site-specific 1991-2020 station normals",
+        "R1:actual residential locations",
+        "R1:continuous hot/cold stress episodes",
+        "R1:>=35C annual days",
+        "R2:reliable yearly and winter sunshine from observed station",
+        "R2:verified wet-day/continuous overcast counts",
+        "R2:rainfall base-period validation",
+        "R2:site-calibrated relative humidity and dewpoint",
+        "R3:site-specific real residential altitude",
+        "R3:river-valley/plateau/urban-subdistrict exception map",
+        "R3:sample-to-polygon/ERA5 grid-independent QA",
+        "R4:site-specific multi-year PM2.5 and ozone",
+        "R4:industrial source-to-residence distance and wind",
+        "R4:historical contaminated land survey",
+        "R5:actual building water supply connection and full drinking-water indicators",
+        "R5:on-site flood and landslide hazards",
+        "R5:seismic and extreme-weather avoidability",
+        "R5:2026 officially verified administrative identity"
+      ],
+      "conflicting_parameters": [],
+      "prior_stage3_preliminary": "PRE_SCREEN_DONE_FORMAL_PENDING",
+      "evidence_quality": "EXPLORATORY_NOT_RESIDENTIAL",
+      "local_exception_review_status": "NOT_COMPLETE"
+    },
+    {
+      "geography_id": "HISTORIC_COUNTY_CANDIDATE_532901",
+      "county": "云南省大理州大理市",
+      "archival_candidate_code": "532901",
+      "official_2026_county_code_verified": false,
+      "existing_master_provisional_grade_unchanged": null,
+      "formal_grade": null,
+      "formal_county_screening_valid": false,
+      "queue_status": "FINAL_PENDING_USER_REVIEW",
+      "exit_round": null,
+      "exit_reason": null,
+      "exit_evidence": [],
+      "reinstatement_condition": null,
+      "rounds": {
+        "R1": {
+          "indicator_status": "PREFERENCE_MISMATCH",
+          "evidence_type": "1991-2020_ERA5_MODEL_POINT_NOT_RESIDENCE",
+          "values": {
+            "winter_mean_daily_max_c_range": [
+              15.633,
+              16.94
+            ],
+            "summer_mean_daily_max_c_range": [
+              24.008,
+              25.238
+            ],
+            "points_checked": 2,
+            "nonofficial_geography": true
+          },
+          "missing_fields": [
+            "site-specific 1991-2020 station normals",
+            "actual residential locations",
+            "continuous hot/cold stress episodes",
+            ">=35C annual days"
+          ],
+          "source_refs": [
+            "research_engine/retirement/status/latest-first-batch-prescreen.json"
+          ],
+          "reason": "One or more modeled grid points miss an ideal preference band; not a verified whole-county exclusion",
+          "round": "R1",
+          "parameter": "temperature_extremes",
+          "verified_fatal_claim": false
+        },
+        "R2": {
+          "indicator_status": "MISSING",
+          "evidence_type": "partial_ERA5_model_humidity_only",
+          "values": {
+            "ERA5_annual_relative_humidity_pct_range": [
+              64.293,
+              68.803
+            ],
+            "number_of_climate_preference_matches": 0
+          },
+          "missing_fields": [
+            "reliable yearly and winter sunshine from observed station",
+            "verified wet-day/continuous overcast counts",
+            "rainfall base-period validation",
+            "site-calibrated relative humidity and dewpoint"
+          ],
+          "source_refs": [
+            "research_engine/retirement/status/latest-first-batch-prescreen.json"
+          ],
+          "reason": "Model humidity does not stand in for independent observed sunshine, wet days or residential humidity",
+          "round": "R2",
+          "parameter": "sunshine_humidity_rain",
+          "verified_fatal_claim": false
+        },
+        "R3": {
+          "indicator_status": "MISSING",
+          "evidence_type": "three DEM samples in historic county polygon, not confirmed residential buildings",
+          "values": {
+            "sample_dem_span_m": 1335,
+            "geography_exception_required": true
+          },
+          "missing_fields": [
+            "site-specific real residential altitude",
+            "river-valley/plateau/urban-subdistrict exception map",
+            "sample-to-polygon/ERA5 grid-independent QA"
+          ],
+          "source_refs": [
+            "research_engine/retirement/status/latest-first-batch-prescreen.json"
+          ],
+          "reason": "One high DEM sample is not a basis for excluding a whole county",
+          "round": "R3",
+          "parameter": "actual_residence_altitude_local_exception",
+          "verified_fatal_claim": false
+        },
+        "R4": {
+          "indicator_status": "MISSING",
+          "evidence_type": "no local environment evidence",
+          "values": {
+            "public_source_context_available": false
+          },
+          "missing_fields": [
+            "site-specific multi-year PM2.5 and ozone",
+            "industrial source-to-residence distance and wind",
+            "historical contaminated land survey"
+          ],
+          "source_refs": [],
+          "reason": "City-wide air figures or industrial remediation notices do not prove residential exposure",
+          "round": "R4",
+          "parameter": "air_industry_historical_pollution",
+          "verified_fatal_claim": false
+        },
+        "R5": {
+          "indicator_status": "MISSING",
+          "evidence_type": "no verified site-level complete tap data",
+          "values": {
+            "named_test_anchors": 0,
+            "2026_q1_q3_monitored_site_records": 0
+          },
+          "missing_fields": [
+            "actual building water supply connection and full drinking-water indicators",
+            "on-site flood and landslide hazards",
+            "seismic and extreme-weather avoidability",
+            "2026 officially verified administrative identity"
+          ],
+          "source_refs": [],
+          "reason": "Limited monitoring samples and municipal source quality cannot close all residential safety gates",
+          "round": "R5",
+          "parameter": "tapwater_natural_hazards",
+          "verified_fatal_claim": false
+        }
+      },
+      "missing_parameters": [
+        "R1:site-specific 1991-2020 station normals",
+        "R1:actual residential locations",
+        "R1:continuous hot/cold stress episodes",
+        "R1:>=35C annual days",
+        "R2:reliable yearly and winter sunshine from observed station",
+        "R2:verified wet-day/continuous overcast counts",
+        "R2:rainfall base-period validation",
+        "R2:site-calibrated relative humidity and dewpoint",
+        "R3:site-specific real residential altitude",
+        "R3:river-valley/plateau/urban-subdistrict exception map",
+        "R3:sample-to-polygon/ERA5 grid-independent QA",
+        "R4:site-specific multi-year PM2.5 and ozone",
+        "R4:industrial source-to-residence distance and wind",
+        "R4:historical contaminated land survey",
+        "R5:actual building water supply connection and full drinking-water indicators",
+        "R5:on-site flood and landslide hazards",
+        "R5:seismic and extreme-weather avoidability",
+        "R5:2026 officially verified administrative identity"
+      ],
+      "conflicting_parameters": [],
+      "prior_stage3_preliminary": "PRE_SCREEN_DONE_FORMAL_PENDING",
+      "evidence_quality": "EXPLORATORY_NOT_RESIDENTIAL",
+      "local_exception_review_status": "NOT_COMPLETE"
+    }
+  ],
+  "limitations": [
+    "All 4 sampled counties are retained pending because no formally certified unmitigable exclusion was evidenced",
+    "This test does not replace 20 existing provisional Master grades",
+    "ERA5 preference mismatches are not D verdicts and cannot exclude residential areas",
+    "Administrative national coverage, microclimate exception checks and official station verification remain open"
+  ]
+}
