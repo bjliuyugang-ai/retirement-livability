@@ -26,7 +26,7 @@
     "evidence_sha256": "75018dbcde8b534dcc71315129910ce5f96221c34590d85f1e2ba972a5b39a19",
     "csv_path": "research_engine/retirement/status/national_r5_tap_water_batch.csv",
     "csv_sha256": "d021fdc32474efeedaaae2cc7d1112a7c065b0b27a680532a54e67c697be01a5",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-R5-001",
   "closed_result_refs": [
@@ -68,11 +68,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "f511b33e6f1a8370b52f5630ceb7a46d4034610a",
+    "verified_at": "2026-11-07T01:04:26.798553+00:00"
   },
-  "updated_at": "2026-11-07T01:04:24.022450+00:00",
-  "state_revision": 38,
+  "updated_at": "2026-11-07T01:04:26.798574+00:00",
+  "state_revision": 39,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
