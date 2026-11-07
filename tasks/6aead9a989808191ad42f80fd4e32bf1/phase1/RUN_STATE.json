@@ -23,15 +23,15 @@
     "research_delta_status": "NO_VERIFIED_GRID_ZONAL_RESEARCH_DELTA",
     "research_closure_status": "OPEN",
     "evidence_path": "research_engine/retirement/status/scidb_tasmax_1km_2838_county_zonal_evidence_20261107.json",
-    "evidence_git_blob_sha": "PENDING_REMOTE_POSTCHECK",
+    "evidence_git_blob_sha": "97f5b4c8519276ecf0b24400a4c7e7857776a21e",
     "county_csv_path": "research_engine/retirement/status/scidb_tasmax_1km_2838_county_zonal_1991_2020.csv",
-    "county_csv_git_blob_sha": "PENDING_REMOTE_POSTCHECK",
+    "county_csv_git_blob_sha": "eb48a6c3ff62aa9a0e3d4ed709480dfd0a240688",
     "exact_code_name_geometry_matches": 0,
     "complete_12_month_grid_counties": 0,
     "formal_valid_county_screenings": 0,
     "confirmed_county_exclusions": 0,
     "all_2847_carry_forward": true,
-    "status": "POSTCHECK_PENDING"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-R0_R5_UNIFIED_AUDIT-016",
   "closed_result_refs": [
@@ -91,12 +91,12 @@
   },
   "consecutive_no_delta": 1,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null,
-    "verified_at": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "d901b4f76199cae03dc6baa0574b7553ffb059af",
+    "verified_at": "2026-11-07T16:45:38.293670+00:00"
   },
-  "updated_at": "2026-11-07T16:45:36.460848+00:00",
-  "state_revision": 72,
+  "updated_at": "2026-11-07T16:45:38.293690+00:00",
+  "state_revision": 73,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
