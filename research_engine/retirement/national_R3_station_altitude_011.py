@@ -131,7 +131,7 @@ qa={"schema":"RET_NATIONAL_R3_STATION_ALTITUDE_201OBS_36DEM_POINTS_205_COUNTY_CA
  "confirmed_exclusions":0,"formal_valid_county_screenings":0,
  "2026_official_county_shapes_verified":0,"actual_residence_altitude_verified":0,
  "station_band_counts":dict(bandcounts),
- "multi_station_altitude_spread_ge300_counties":sum(r["R3_multi_station_large_altitude_gap"]=="YES_REVIEW_SITE_GEOMETRY" for r in rows),
+ "multi_station_altitude_spread_ge300_counties":sum(r.get("R3_multi_station_large_altitude_gap")=="YES_REVIEW_SITE_GEOMETRY" for r in rows),
  "station_vs_DEM_nonoverlap_candidate_counties":conflicts,
  "station_level_records":records,
  "national_CSV_sha256":sha(outcsv.read_bytes()),
