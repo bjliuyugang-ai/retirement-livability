@@ -1,0 +1,69 @@
+name: Retirement R1 distributed S6 postcheck collision recovery
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-r1-s6-recovery.yml'
+jobs:
+  recover-pending-postcheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Confirm only original R1 succeeded with pending S6
+        run: |
+          python - <<'PY'
+          import json
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["state_revision"]==30
+          assert s["last_verified_run"]["run_id"]=="42321222770"
+          assert s["last_verified_run"]["engineering_status"]=="PASS"
+          assert s["last_verified_run"]["action_id"]=="RET-CASCADE-NATIONAL-R1-EXPAND-002"
+          assert s["writeback_verification"]["status"]=="PENDING_REMOTE_CHECK"
+          assert s["r1_nationwide_progress"]["R1_point_data_counties"]==22
+          print("R1_POSTCHECK_RECOVERY_REQUIRED",s["state_revision"])
+          PY
+      - name: Independently revalidate remote original evidence hashes and append S6
+        env:
+          R1_RECOVERY_ORIGINAL_RUN_ID: '42321222770'
+        run: |
+          git fetch origin main
+          python research_engine/retirement/national_r1_expand_state.py postcheck
+      - name: Commit verified recovery without altering R1 result or existing 2847-row data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
+          git commit -m "Recover S6 postcheck for original R1 distributed run 42321222770"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              break
+            fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          s=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]))
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["state_revision"]==31
+          assert s["last_verified_run"]["run_id"]=="42321222770"
+          assert s["last_verified_run"]["status"]=="POSTCHECK_PASS"
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R2-001"
+          assert s["r1_nationwide_progress"]["R1_point_data_counties"]==22
+          print("V16_R1_22_POINTS_POSTCHECK_RECOVERED",s["state_revision"])
+          PY
