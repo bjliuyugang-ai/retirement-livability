@@ -1,0 +1,103 @@
+name: Retirement 226 CN station quality tier and GIS expansion beyond original 70
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-cn226-tiered-r1-expansion.yml'
+jobs:
+  actual-226-observation-station-geolocation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 11
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Gate V1.6 S0-S2 unique national climate source expansion
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          p="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          d=json.load(open(p))
+          assert d["state_revision"]==51
+          assert d["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-CLIMATE-COVERAGE-SCALE-007"
+          assert d["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert d["current_state_ref"]["git_blob_sha"]==subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          print("CN226_UNIQUE_SOURCE_GATED",d["state_revision"])
+          PY
+      - name: S3 actually match all 226 observed-source stations to coded and historic GIS
+        run: |
+          python -m pip -q install shapely
+          python -m py_compile research_engine/retirement/meteostat_CN_226_tiered_R1_expand.py
+          python -u research_engine/retirement/meteostat_CN_226_tiered_R1_expand.py
+      - name: Independently audit long baseline stays 87 and interim R1 is separate
+        id: audit
+        run: |
+          python - <<'PY'
+          import csv,json,hashlib
+          b="research_engine/retirement/output/"
+          x=json.load(open(b+"meteostat_CN_226_R1_tiered_expansion_evidence.json"))
+          assert x["original_226_observational_temperature_stations"]==226
+          assert x["original_70_long_period_stations"]==70
+          assert x["reproduced_69_long_station_identity_and_geometry_accepted"]==69
+          assert x["strict_long_period_or_ERA5_prior_R1_counties_unchanged"]==87
+          assert x["new_interim_only_candidate_counties"]>=1
+          assert x["R1_counties_with_any_real_point_including_short_history"]==87+x["new_interim_only_candidate_counties"]
+          assert x["R1_counties_still_with_no_interim_or_strict_observation"]==2847-x["R1_counties_with_any_real_point_including_short_history"]
+          assert x["R2_old_partial_counties_unchanged"]==73
+          assert x["formal_valid_county_screenings"]==0 and x["confirmed_exclusions"]==0
+          county=b+"national_R1_226_obs_station_quality_tiers_2847.csv"
+          st=b+"meteostat_CN_226_station_spatial_period_quality.csv"
+          assert hashlib.sha256(open(county,"rb").read()).hexdigest()==x["output_national_csv_sha256"]
+          assert hashlib.sha256(open(st,"rb").read()).hexdigest()==x["output_station_csv_sha256"]
+          with open(county,encoding="utf-8-sig") as f:rows=list(csv.DictReader(f))
+          assert len(rows)==2847 and len({z["candidate_code"] for z in rows})==2847
+          assert not any(z["confirmed_exit_round"] for z in rows)
+          print("CN226_REAL_TIERED_SPATIAL_QA_PASS",x["new_interim_only_candidate_counties"],x["station_quality_categories"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: CN226-real-observation-short-history-separate-from-30yr-with-2847-county-ledger
+          path: |
+            research_engine/retirement/output/meteostat_CN_226_R1_tiered_expansion_evidence.json
+            research_engine/retirement/output/national_R1_226_obs_station_quality_tiers_2847.csv
+            research_engine/retirement/output/meteostat_CN_226_station_spatial_period_quality.csv
+          retention-days: 30
+      - name: Persist actual county evidence source QA, no formal county grading
+        if: steps.audit.outcome == 'success'
+        run: |
+          cp research_engine/retirement/output/meteostat_CN_226_R1_tiered_expansion_evidence.json research_engine/retirement/status/meteostat_CN_226_R1_tiered_expansion_evidence.json
+          cp research_engine/retirement/output/national_R1_226_obs_station_quality_tiers_2847.csv research_engine/retirement/status/national_R1_226_obs_station_quality_tiers_2847.csv
+          cp research_engine/retirement/output/meteostat_CN_226_station_spatial_period_quality.csv research_engine/retirement/status/meteostat_CN_226_station_spatial_period_quality.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/meteostat_CN_226_R1_tiered_expansion_evidence.json research_engine/retirement/status/national_R1_226_obs_station_quality_tiers_2847.csv research_engine/retirement/status/meteostat_CN_226_station_spatial_period_quality.csv
+          git commit -m "Record real 226 CN station twin-GIS 1991-2020 source-period quality tiers and R1 interim county coverage"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import json,hashlib,subprocess
+          p="research_engine/retirement/status/"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+p+"meteostat_CN_226_R1_tiered_expansion_evidence.json"]))
+          for filename,key in [("national_R1_226_obs_station_quality_tiers_2847.csv","output_national_csv_sha256"),("meteostat_CN_226_station_spatial_period_quality.csv","output_station_csv_sha256")]:
+            raw=subprocess.check_output(["git","show","origin/main:"+p+filename])
+            assert hashlib.sha256(raw).hexdigest()==d[key]
+          assert d["strict_long_period_or_ERA5_prior_R1_counties_unchanged"]==87
+          assert d["formal_valid_county_screenings"]==0
+          print("CN226_REAL_REMOTE_SHA_PASS",d["new_interim_only_candidate_counties"])
+          PY
