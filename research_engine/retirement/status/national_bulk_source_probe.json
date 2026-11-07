@@ -1,0 +1,128 @@
+{
+  "generated_at_utc": "2026-11-07T01:08:29.521329+00:00",
+  "schema": "RET_NATIONWIDE_CLIMATE_HIGH_THROUGHPUT_SOURCE_QA_V1",
+  "stage": "SOURCE_PROBE_NOT_COUNTY_SCREENING",
+  "formal_valid_county_screenings": 0,
+  "official_2026_county_codes_verified": 0,
+  "sources": [
+    {
+      "name": "nasa_power_custom_1991_2020_mengzi_tmax_avg",
+      "url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M_MAX_AVG&community=SB&longitude=103.39&latitude=23.37&format=JSON&start=1991&end=2020",
+      "status": "PASS_TWELVE_MONTH_CUSTOM_1991_2020",
+      "http_status": 200,
+      "content_type": "application/json",
+      "raw_sha256": "6eb7c6e25f9921dd034ca2295c699eb35d89c543502893c83f4153293cab4126",
+      "raw_bytes": 854,
+      "months": {
+        "JAN": 21.58,
+        "FEB": 24.78,
+        "MAR": 28.97,
+        "APR": 31.61,
+        "MAY": 32.18,
+        "JUN": 30.64,
+        "JUL": 29.25,
+        "AUG": 28.58,
+        "SEP": 27.67,
+        "OCT": 26.02,
+        "NOV": 23.98,
+        "DEC": 21.7
+      },
+      "month_count": 12,
+      "parameter": "T2M_MAX_AVG",
+      "source_version": {
+        "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
+        "api": {
+          "version": "v2.10.1",
+          "name": "POWER Climatology API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)"
+      },
+      "actual_climate_data_downloaded": true
+    },
+    {
+      "name": "nasa_power_custom_1991_2020_mengzi_tmin_avg",
+      "url": "https://power.larc.nasa.gov/api/temporal/climatology/point?parameters=T2M_MIN_AVG&community=SB&longitude=103.39&latitude=23.37&format=JSON&start=1991&end=2020",
+      "status": "PASS_TWELVE_MONTH_CUSTOM_1991_2020",
+      "http_status": 200,
+      "content_type": "application/json",
+      "raw_sha256": "c6869ea544fc7e2a9ecd04ec120a4c7ca9eac0db8fc7c800da04f86279ba33ac",
+      "raw_bytes": 848,
+      "months": {
+        "JAN": -0.1,
+        "FEB": 2.66,
+        "MAR": 4.96,
+        "APR": 9.03,
+        "MAY": 12.29,
+        "JUN": 15.31,
+        "JUL": 15.97,
+        "AUG": 14.62,
+        "SEP": 11.62,
+        "OCT": 7.86,
+        "NOV": 3.9,
+        "DEC": -0.67
+      },
+      "month_count": 12,
+      "parameter": "T2M_MIN_AVG",
+      "source_version": {
+        "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
+        "api": {
+          "version": "v2.10.1",
+          "name": "POWER Climatology API"
+        },
+        "sources": [
+          "MERRA2",
+          "POWER"
+        ],
+        "fill_value": -999.0,
+        "time_standard": "LST",
+        "range": "30-year Meteorological and Solar Monthly & Annual Climatologies (January 1991 - December 2020)"
+      },
+      "actual_climate_data_downloaded": true
+    },
+    {
+      "name": "nasa_power_2deg_region_custom_tmax_avg",
+      "url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?parameters=T2M_MAX_AVG&community=SB&longitude-min=102&longitude-max=104&latitude-min=22&latitude-max=24&format=JSON&start=1991&end=2020",
+      "status": "REGIONAL_HTTP_JSON_RETURNED_NEEDS_SPATIAL_SCHEMA_QA",
+      "http_status": 200,
+      "content_type": "application/json",
+      "raw_sha256": "2333083716df0e9988f61c99bb6aa00c575da6b4fc85192d10605c05ef5bdd64",
+      "raw_bytes": 4788,
+      "response_structure": {
+        "top_level_type": "dict",
+        "top_level_keys": [
+          "features",
+          "header",
+          "messages",
+          "parameters",
+          "times",
+          "type"
+        ]
+      },
+      "actual_climate_data_downloaded": true
+    },
+    {
+      "name": "meteostat_all_station_monthly_parquet_head",
+      "url": "https://data.meteostat.net/monthly.parquet",
+      "status": "HEAD_RESPONDED",
+      "http_status": 200,
+      "content_type": null,
+      "content_length_header": "152559044",
+      "actual_climate_data_downloaded": false
+    }
+  ],
+  "notes": [
+    "1991-2020 NASA POWER derived climatology is independent source, not CMA normal",
+    "NASA T2M_MAX_AVG must not be confused with monthly all-time maximum T2M_MAX",
+    "Regional climatology may have coarse 0.5 degree grid and does not resolve county microclimate",
+    "No API source is assumed working before response-level tests"
+  ],
+  "nasa_custom_point_months_pass": 2,
+  "nasa_regional_json_obtained": true,
+  "status": "PASS_REAL_SOURCE_PROBE"
+}
