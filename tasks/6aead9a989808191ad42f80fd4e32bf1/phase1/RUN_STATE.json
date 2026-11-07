@@ -24,7 +24,7 @@
     "research_closure_status": "OPEN",
     "evidence_path": "research_engine/retirement/status/nine_missing_county_geoatlas_actual_requests.json",
     "evidence_git_blob_sha": "2d03205cee8b55adcda1cca031442c4d813bb8a6",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-GEOMETRY-HOLES-006",
   "closed_result_refs": [
@@ -72,11 +72,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "90a6bf8f33fec713557d27d5a4c1d4954c6df438",
+    "verified_at": "2026-11-07T02:04:16.278Z"
   },
-  "updated_at": "2026-11-07T02:03:51.635Z",
-  "state_revision": 50,
+  "updated_at": "2026-11-07T02:04:16.278Z",
+  "state_revision": 51,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
