@@ -28,7 +28,7 @@
     "csv_sha256": "5b6d375692860cbf06a5d49c726574e5bc95499f3a4232f97ad260f05e57f822",
     "province_coverage_path": "research_engine/retirement/status/national_cascade_province_coverage.csv",
     "province_coverage_sha256": "f55f2d6c079d6e07b590bc03d3442a470858dfca07ecd8ed350e67ae4b46156a",
-    "status": "AWAITING_POSTCHECK"
+    "status": "POSTCHECK_PASS"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-GAP-AUDIT-001",
   "closed_result_refs": [
@@ -71,11 +71,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "PENDING_REMOTE_CHECK",
-    "verified_commit": null
+    "status": "POSTCHECK_PASS",
+    "verified_commit": "6d42e33cec850b76e5ebe66293f23939d7db7c04",
+    "verified_at": "2026-11-07T01:06:34.152217+00:00"
   },
-  "updated_at": "2026-11-07T01:06:31.281590+00:00",
-  "state_revision": 40,
+  "updated_at": "2026-11-07T01:06:34.152253+00:00",
+  "state_revision": 41,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
