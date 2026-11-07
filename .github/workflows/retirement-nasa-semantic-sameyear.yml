@@ -1,0 +1,55 @@
+name: Retirement NASA custom parameter semantics same-year validation
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-nasa-semantic-sameyear.yml'
+jobs:
+  validate-nasa-vs-own-daily:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Retrieve actual NASA 2019-2020 daily and custom clim same coordinate
+        run: python -u research_engine/retirement/nasa_daily_vs_climate_semantic_qa.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: NASA-custom-parameter-sameyear-daily-validation
+          path: |
+            research_engine/retirement/output/NASA_PARAM_QA_*.json
+            research_engine/retirement/output/nasa_daily_vs_climatology_semantic_QA.json
+          retention-days: 30
+      - name: Save honest tested semantics, including conflicts
+        run: |
+          cp research_engine/retirement/output/nasa_daily_vs_climatology_semantic_QA.json research_engine/retirement/status/nasa_daily_vs_climatology_semantic_QA.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/nasa_daily_vs_climatology_semantic_QA.json
+          git commit -m "Record same-year NASA custom climatology versus daily temperatures and parameter QA"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          p="research_engine/retirement/status/nasa_daily_vs_climatology_semantic_QA.json"
+          b=subprocess.check_output(["git","show","origin/main:"+p])
+          assert hashlib.sha256(b).hexdigest()==hashlib.sha256(open(p,"rb").read()).hexdigest()
+          x=json.loads(b)
+          assert x["formal_valid_county_screenings"]==0
+          print("NASA_SEMANTIC_SOURCE_POSTCHECK",x["semantic_qa_status"])
+          PY
