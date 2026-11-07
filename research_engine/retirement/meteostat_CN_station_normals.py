@@ -7,7 +7,7 @@ observational-only summaries; preserve source-family counts and gaps.
 Join nearest CN stations to 42 existing archival county-point anchors ONLY
 as spatial candidates, never official county or residence confirmation.
 """
-import collections,datetime,hashlib,json,math,pathlib,sqlite3,statistics,time,urllib.request,csv
+import collections,datetime,hashlib,json,math,pathlib,sqlite3,statistics,time,urllib.request,csv,traceback
 import duckdb
 ROOT=pathlib.Path("research_engine/retirement");OUT=ROOT/"output";OUT.mkdir(parents=True,exist_ok=True)
 DATA=OUT/"meteostat_bulk_runtime";DATA.mkdir(parents=True,exist_ok=True)
@@ -76,8 +76,9 @@ try:
   ss=str(v).lower().split()
   return bool(ss) and all(x in allowed for x in ss)
  station_results=[]
- for sid,info in grouped.items():
-  obs=[(dt,x,y,sx,sy) for dt,x,y,sx,sy in info if x is not None and y is not None and observed(sx) and observed(sy)]
+ for sid,records_for_station in grouped.items():
+  info=byid[sid]
+  obs=[(dt,x,y,sx,sy) for dt,x,y,sx,sy in records_for_station if x is not None and y is not None and observed(sx) and observed(sy)]
   # Source family distribution across station months.
   providers=collections.Counter()
   for dt,x,y,sx,sy in obs:
@@ -168,6 +169,7 @@ try:
 except Exception as exc:
  out["status"]="STATION_NORMALS_OR_SPATIAL_QA_FAILED_WITH_EVIDENCE"
  out["error"]=repr(exc)
+ out["traceback"]=traceback.format_exc()
  print("METEOSTAT_CN_NORMALS_ERROR",repr(exc),flush=True)
 (OUT/"meteostat_CN_1991_2020_station_candidate_normals.json").write_text(json.dumps(out,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 if out["status"]!="REAL_30YEAR_CN_STATION_CANDIDATE_NORMALS_AND_SPATIAL_CROSSWALK":raise SystemExit(2)
