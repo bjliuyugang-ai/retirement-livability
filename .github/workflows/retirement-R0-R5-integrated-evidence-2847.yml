@@ -1,0 +1,97 @@
+name: Retirement national R0-R5 complete provisional evidence join and gap audit
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-R0-R5-integrated-evidence-2847.yml'
+jobs:
+  integrated-source-quality-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 enforce current unique integration action and existing V1.6 postcheck
+        run: |
+          python - <<'PY'
+          import json,subprocess
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R0_R5_UNIFIED_AUDIT-016"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["current_state_ref"]["git_blob_sha"]==subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          print("R0_R5_UNIFIED_V16_PREFLIGHT",s["state_revision"])
+          PY
+      - name: S3 actual 2847 county left join R1-R5 with source SHA verification
+        run: |
+          python -m py_compile research_engine/retirement/national_R0_R5_integrated_2847_audit.py
+          python -u research_engine/retirement/national_R0_R5_integrated_2847_audit.py
+      - name: S4 source-specific evidence and missing data audit invariant
+        id: audit
+        run: |
+          python - <<'PY'
+          import json,csv,hashlib
+          root="research_engine/retirement/output/"
+          d=json.load(open(root+"national_R0_R5_unified_evidence_audit.json"))
+          v=d["joined_source_counts"]
+          assert d["provisional_counties_total"]==2847
+          assert [v["R1"],v["R2"],v["R3"],v["R4_COUNTY"],v["R4_CITY_BG"],v["R5"]]==[214,199,205,58,1510,61]
+          assert d["formal_valid_county_screenings"]==0 and d["confirmed_exclusions"]==0
+          assert d["official_2026_legal_country_wide_roster_verified"] is False
+          for path,key in [("national_R0_R5_unified_2847_county_evidence_and_missing.csv","county_integrated_csv_sha256"),("national_R0_R5_by_province_evidence_coverage.csv","province_csv_sha256"),("national_R0_R5_high_evidence_local_followups.csv","high_evidence_150_followups_csv_sha256")]:
+            b=open(root+path,"rb").read()
+            assert hashlib.sha256(b).hexdigest()==d[key]
+          with open(root+"national_R0_R5_unified_2847_county_evidence_and_missing.csv",encoding="utf-8-sig") as f:rows=list(csv.DictReader(f))
+          assert len(rows)==2847 and len(set(x["县级候选代码_临时"] for x in rows))==2847
+          assert all(x["正式剔除"]=="否" for x in rows)
+          print("V16_FIVE_ROUND_PROVISIONAL_LEDGER_PASS",v,d["all_5_partial_counties"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: national-R0-R5-audited-2847-county-evidence-province-and-local-gap-matrices
+          path: |
+            research_engine/retirement/output/national_R0_R5_unified_evidence_audit.json
+            research_engine/retirement/output/national_R0_R5_unified_2847_county_evidence_and_missing.csv
+            research_engine/retirement/output/national_R0_R5_by_province_evidence_coverage.csv
+            research_engine/retirement/output/national_R0_R5_high_evidence_local_followups.csv
+          retention-days: 30
+      - name: S5-S6 persist national master evidence as ADDITIONAL working asset not overwrite Library
+        if: steps.audit.outcome == 'success'
+        run: |
+          cp research_engine/retirement/output/national_R0_R5_unified_evidence_audit.json research_engine/retirement/status/national_R0_R5_unified_evidence_audit.json
+          cp research_engine/retirement/output/national_R0_R5_unified_2847_county_evidence_and_missing.csv research_engine/retirement/status/national_R0_R5_unified_2847_county_evidence_and_missing.csv
+          cp research_engine/retirement/output/national_R0_R5_by_province_evidence_coverage.csv research_engine/retirement/status/national_R0_R5_by_province_evidence_coverage.csv
+          cp research_engine/retirement/output/national_R0_R5_high_evidence_local_followups.csv research_engine/retirement/status/national_R0_R5_high_evidence_local_followups.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/national_R0_R5_unified*
+          git add research_engine/retirement/status/national_R0_R5_by_province_evidence_coverage.csv research_engine/retirement/status/national_R0_R5_high_evidence_local_followups.csv
+          git commit -m "Persist R0-R5 unified 2847 county evidence, missingness, 31-province quality and 150-site research priorities"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import json,hashlib,subprocess
+          root="research_engine/retirement/status/"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+root+"national_R0_R5_unified_evidence_audit.json"]))
+          for path,key in [("national_R0_R5_unified_2847_county_evidence_and_missing.csv","county_integrated_csv_sha256"),("national_R0_R5_by_province_evidence_coverage.csv","province_csv_sha256"),("national_R0_R5_high_evidence_local_followups.csv","high_evidence_150_followups_csv_sha256")]:
+            raw=subprocess.check_output(["git","show","origin/main:"+root+path])
+            assert hashlib.sha256(raw).hexdigest()==d[key]
+          assert d["formal_valid_county_screenings"]==0
+          print("R0_R5_NATIONAL_EVIDENCE_REMOTE_SHA_PASS",d["joined_source_counts"])
+          PY
