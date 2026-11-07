@@ -1,0 +1,61 @@
+name: Retirement Meteostat 1991-2020 station bulk reality check
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-meteostat-bulk-qa.yml'
+jobs:
+  meteostat-source-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install DuckDB Parquet inspection
+        run: python -m pip -q install duckdb
+      - name: Actually download public Meteostat monthly bulk and station inventory, inspect 1991-2020
+        id: qa
+        continue-on-error: true
+        run: python -u research_engine/retirement/meteostat_bulk_1991_2020_QA.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: meteostat-bulk-monthly-1991-2020-stations-source-qa
+          path: research_engine/retirement/output/meteostat_1991_2020_bulk_station_QA.json
+          retention-days: 30
+      - name: Preserve observed source data coverage / error, not full bulk files
+        if: always()
+        run: |
+          cp research_engine/retirement/output/meteostat_1991_2020_bulk_station_QA.json research_engine/retirement/status/meteostat_1991_2020_bulk_station_QA.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/meteostat_1991_2020_bulk_station_QA.json
+          git commit -m "Record actual Meteostat China bbox station inventory and 1991-2020 monthly bulk coverage"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import hashlib,json,subprocess
+          p="research_engine/retirement/status/meteostat_1991_2020_bulk_station_QA.json"
+          b=subprocess.check_output(["git","show","origin/main:"+p])
+          assert hashlib.sha256(b).hexdigest()==hashlib.sha256(open(p,"rb").read()).hexdigest()
+          x=json.loads(b)
+          assert x["formal_county_screenings"]==0
+          print("METEOSTAT_REAL_SOURCE_QA_REMOTE",x["status"])
+          PY
+      - name: Report blocked coverage validation as failing test even if evidence persisted
+        if: steps.qa.outcome == 'failure'
+        run: exit 1
