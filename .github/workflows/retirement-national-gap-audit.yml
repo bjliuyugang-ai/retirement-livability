@@ -1,0 +1,82 @@
+name: Retirement nationwide R1 to R5 2847-county true evidence coverage and missing audit
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-national-gap-audit.yml'
+jobs:
+  consolidated-evidence-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 assert unique audit action and verified R5 handoff
+        run: python research_engine/retirement/national_cascade_gap_state.py precheck
+      - name: S3 audit every provisional county with real parameter evidence versus unscanned
+        run: |
+          python -m py_compile research_engine/retirement/national_cascade_gap_audit.py research_engine/retirement/national_cascade_gap_state.py
+          python -u research_engine/retirement/national_cascade_gap_audit.py
+      - name: S4-S5 enforce provenance and 2847 input, honest 22-real-county coverage
+        id: finalize
+        run: python research_engine/retirement/national_cascade_gap_state.py finalize
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: national-R1-R5-2847-full-county-audit-and-missing-table
+          path: |
+            research_engine/retirement/output/national_cascade_gap_coverage_audit.json
+            research_engine/retirement/output/national_cascade_all_2847_audit.csv
+            research_engine/retirement/output/national_cascade_province_coverage.csv
+          retention-days: 30
+      - name: Commit auditable national gaps without amending library Master
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl research_assets/retirement/CURRENT_STATE.md research_engine/retirement/status/national_cascade_gap_coverage_audit.json research_engine/retirement/status/national_cascade_all_2847_audit.csv research_engine/retirement/status/national_cascade_province_coverage.csv
+          git commit -m "Audit complete provisional 2847-county per-parameter gaps, 22 any-evidence candidates and zero formal completions"
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          p=json.load(open("research_engine/retirement/output/national_gap_precheck.json"))
+          s=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]))
+          assert s["state_revision"]==p["source_rev"],"CAS_STATE_REVISION_CHANGED"
+          assert s["current_state_ref"]["git_blob_sha"]==p["source_current_blob"],"CAS_CURRENT_STATE_DRIFT"
+          PY
+          git rebase origin/main
+          git push origin HEAD:main
+      - name: S6 verify remote audit files and data-source-scaling next action
+        if: steps.finalize.outcome == 'success'
+        run: |
+          git fetch origin main
+          python research_engine/retirement/national_cascade_gap_state.py postcheck
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
+          git commit -m "Verify V1.6 2847-county R1-R5 audit and gap-driven next action"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess
+          s=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]))
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-SOURCE-SCALE-002"
+          assert s["national_cascade_gap_audit"]["any_parameter_evidence_counties"]==22
+          assert s["national_cascade_gap_audit"]["none_evidence_counties"]==2825
+          print("R1_R5_NATIONAL_GAP_S6_PASS",s["national_cascade_gap_audit"])
+          PY
