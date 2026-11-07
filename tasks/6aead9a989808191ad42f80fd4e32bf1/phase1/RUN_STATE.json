@@ -12,23 +12,25 @@
   },
   "current_state_ref": {
     "path": "research_assets/retirement/CURRENT_STATE.md",
-    "git_blob_sha": "b7e04197a7f207e46ff170a734b2629a61dde9a1"
+    "git_blob_sha": "68254ef1ce866e97db52b66c877f549858f0f031"
   },
   "last_verified_run": {
-    "run_id": "MANUAL-73-FROZEN-IDEAL-PREFERENCE-20261107-011",
-    "action_id": "RET-CASCADE-NATIONAL-73-PREFERENCE-TRIAGE-010",
-    "result_id": "RES-73-LONG_HISTORY-NONFATAL_IDEALS-42_4PARAM-20261107",
+    "run_id": "MANUAL-R3-205-STATIONDEM-ALTITUDE-20261107-012",
+    "action_id": "RET-CASCADE-NATIONAL-R3-STATION-ALTITUDE-011",
+    "result_id": "RES-R3-201_STATIONS_PLUS36_DEM_205_COUNTRY_PARTIAL-20261107",
     "execution_status": "EXECUTED",
     "engineering_status": "PASS",
-    "research_delta_status": "DELTA_VERIFIED_73_FROZEN_NONFATAL_CLIMATE_PREFERENCE_RECORDS",
+    "research_delta_status": "DELTA_VERIFIED_205_R3_REAL_STATION_AND_DEM_ALTITUDE_PARTIAL_COUNTIES",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/national_73_climate_ideal_source_comparison_evidence.json",
-    "evidence_git_blob_sha": "e75321e0acfe6bbc74192e34cd0c91a8a221f597",
-    "csv_path": "research_engine/retirement/status/national_73_longer_R1_R2_climate_ideal_preference_triage.csv",
-    "csv_git_blob_sha": "3c0385dd8bff56c7884850a7916474f6cae7d980",
-    "status": "POSTCHECK_PASS"
+    "evidence_path": "research_engine/retirement/status/national_R3_205_station_dem_altitude_source_evidence.json",
+    "evidence_git_blob_sha": "655daa12cc73c27c44bb30c725b55e572d61765c",
+    "national_path": "research_engine/retirement/status/national_R3_205_station_dem_altitude_partial_2847.csv",
+    "national_git_blob_sha": "a40eb651cb07f5615a68acd4d1189816af423d8d",
+    "points_path": "research_engine/retirement/status/national_R3_205_station_dem_point_evidence.csv",
+    "points_git_blob_sha": "3d0a4540160906bcb082333d20b2da29f7395866",
+    "status": "AWAITING_POSTCHECK"
   },
-  "last_completed_action_id": "RET-CASCADE-NATIONAL-73-PREFERENCE-TRIAGE-010",
+  "last_completed_action_id": "RET-CASCADE-NATIONAL-R3-STATION-ALTITUDE-011",
   "closed_result_refs": [
     "RES-CLIMATE-12POINT-20261106",
     "RES-SPATIAL-ENGINEERING-42244926780",
@@ -56,20 +58,21 @@
     "RES-CN226-GIS-SHORT_HISTORY_127_NEW_R1-20261107",
     "RES-CN132-R2-126_NEW_SHORT_OBS_COUNTIES-20261107",
     "RES-214-R1_199-R2_INTERSECTION199_2633_NO_SOURCES-20261107",
-    "RES-73-LONG_HISTORY-NONFATAL_IDEALS-42_4PARAM-20261107"
+    "RES-73-LONG_HISTORY-NONFATAL_IDEALS-42_4PARAM-20261107",
+    "RES-R3-201_STATIONS_PLUS36_DEM_205_COUNTRY_PARTIAL-20261107"
   ],
   "active_action": {
-    "action_id": "RET-CASCADE-NATIONAL-R3-STATION-ALTITUDE-011",
-    "question_id": "Q_R3_TERRAIN_ALTITUDE_SOURCE_EVIDENCE_ALL_214_R1_COUNTIES",
-    "decision": "从现有226个中国气象站真实metadata提取已通过双GIS匹配的69个较长来源站点与132个短历史站点的海拔，实际增加R3地形/海拔来源空间覆盖。不得把气象站海拔等同住宅海拔、不得根据单站高海拔将县域淘汰",
-    "method": "严格复用已归档stations.db和Meteostat CN 226双GIS质量输出，按县级代码关联海拔；与先前12个县域共36个DEM真实采样点并列记录。对多站、山地高差和海拔>1500/1800/2000形成原始点位参考区间和待核住宅条件，官方2026县界未证者继续HOLD",
-    "expected_evidence": "2847行R3完整台账，实际有观测站海拔点位证据的不同县区数、单站海拔、已关联DEM县区差异、未扫描清单、空间代表性/住宅微气候和大海拔差异警示、完全保留所有候选",
-    "pass_criteria": "真实站点与已有地形资料关联、海拔来源和地点可回查；不作县级住宅海拔或正式评级，不误淘汰且记录自然条件可补偿区位",
-    "fallback": "没有精确住宅点位则以站点坐标和旧DEM点作为探索性来源，记录R3_PARTIAL_STATION_ELEVATION_ONLY并继续R4，不能在一个地区无限补DEM",
+    "action_id": "RET-CASCADE-NATIONAL-R4-AIR-POLLUTION-012",
+    "question_id": "Q_NATIONWIDE_OFFICIAL_AIR_QUALITY_PM25_OZONE_AND_POLLUTION_SOURCE",
+    "decision": "以2847全国临时县级底盘为对象扩大有真实源的空气质量与环境污染记录，先查可合法公开批量取得的城市/站点多年PM2.5、臭氧和优良率年度统计并关联到县级候选，标注城市值非住宅值、工业矿区历史暴露不明。需与现有R1=214、R2=199、R3=205分参数过账，缺失暂留",
+    "method": "优先生态环境部门全国城市环境空气质量年报、中国环境监测总站实测站和可复核公众历史年度报告，实际下载后提取数据年份、指标单位和县内空间代表性；逐级关联省/市/县官方或暂定代码并对源不可靠项HOLD。保留未经核验住宅区空气/工业污染例外，不直接全县淘汰",
+    "expected_evidence": "第一批具有可独立复核来源的PM2.5/臭氧城市/站点记录以及县级候选候选关联明细，原始文档URL/年份/数值/SHA、通过/待核数量、全国2847环境参数缺口",
+    "pass_criteria": "必须有实际数值取证且可追溯，不能把找到新闻、年报入口或网站当已经完成县级空气质量筛选；不得将城市年均当住宅污染已核",
+    "fallback": "公开API无法直接访问则转生态环境部正式PDF历史年报，提取城市空气数据并以历史与最新年分层；资料缺失全县待核不排除",
     "status": "READY",
     "timebox_end": "2026-11-08T15:26:00Z"
   },
-  "phase": "NATIONAL_R3_REUSING_REAL_STATION_ALTITUDE_AND_DEM",
+  "phase": "NATIONAL_R4_AIR_QUALITY_AND_POLLUTION_SOURCE_ASSAULT",
   "milestone_deadline": {
     "time_zone": "Asia/Shanghai",
     "checkpoint_24h": "2026-11-07T23:26:00+08:00",
@@ -78,12 +81,11 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "0151d90cb48828f9a226bca9ef848083e04076de",
-    "verified_at": "2026-11-07T04:23:38.064Z"
+    "status": "PENDING_REMOTE_CHECK",
+    "verified_commit": null
   },
-  "updated_at": "2026-11-07T04:23:38.064Z",
-  "state_revision": 59,
+  "updated_at": "2026-11-07T04:28:41.204Z",
+  "state_revision": 60,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -366,5 +368,22 @@
     "summary_path": "research_engine/retirement/status/national_2847_R1_R2_joint_cascade_summary.json",
     "full_cascade_csv": "research_engine/retirement/status/national_2847_R1_R2_joint_cascade_evidence_and_next_gap.csv",
     "both_evidence_list_csv": "research_engine/retirement/status/national_R1_R2_double_observed_candidate_list.csv"
+  },
+  "national_R3_altitude": {
+    "station_points": 201,
+    "station_candidate_codes": 198,
+    "DEM_sample_points": 36,
+    "DEM_counties": 12,
+    "overlap_codes": 5,
+    "unique_R3_partial_evidence_counties": 205,
+    "remaining_R3_unknown": 2642,
+    "station_or_dem_point_over2000_counties": 27,
+    "large_station_or_dem_altitude_range_counties": 5,
+    "residential_elevation_verified": 0,
+    "formal_valid_county_screenings": 0,
+    "confirmed_exits": 0,
+    "full_register_2847": "research_engine/retirement/status/national_R3_205_station_dem_altitude_partial_2847.csv",
+    "point_evidence": "research_engine/retirement/status/national_R3_205_station_dem_point_evidence.csv",
+    "source_evidence": "research_engine/retirement/status/national_R3_205_station_dem_altitude_source_evidence.json"
   }
 }
