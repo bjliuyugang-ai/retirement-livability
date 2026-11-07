@@ -1,0 +1,94 @@
+name: Retirement all 2847 county R1 R2 source-quality four-quadrant cascade audit
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-national-R1R2-cascade-overlap.yml'
+jobs:
+  R1R2-missingness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: S0-S2 gate V1.6 single R1/R2 joint candidate action
+        run: |
+          python - <<'PY'
+          import subprocess,json
+          s=json.load(open("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"))
+          assert s["state_revision"]==55
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R1R2-JOINT-MISSINGNESS-009"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["current_state_ref"]["git_blob_sha"]==subprocess.check_output(["git","hash-object","research_assets/retirement/CURRENT_STATE.md"],text=True).strip()
+          PY
+      - name: S3 compute real row-wise 2847-county R1/R2 intersection, separate evidence quality
+        run: |
+          python -m py_compile research_engine/retirement/national_R1_R2_joint_cascade.py
+          python -u research_engine/retirement/national_R1_R2_joint_cascade.py
+      - name: Independently validate all four quadrants, code conservation, no exclusions
+        id: check
+        run: |
+          python - <<'PY'
+          import csv,hashlib,json
+          p="research_engine/retirement/output/"
+          d=json.load(open(p+"national_2847_R1_R2_joint_cascade_summary.json"))
+          assert d["total_provisional_counties"]==2847
+          assert d["R1_has_any_long_or_short_source_evidence"]==214
+          assert d["R2_has_any_long_or_short_source_evidence"]==199
+          assert d["R1_R2_both_partial_evidence"]+d["R1_only_R2_missing"]==214
+          assert d["R1_R2_both_partial_evidence"]+d["R2_only_R1_missing"]==199
+          assert d["R1_R2_both_partial_evidence"]+d["R1_only_R2_missing"]+d["R2_only_R1_missing"]+d["R1_R2_both_missing"]==2847
+          assert d["confirmed_exclusions"]==0 and d["R1_R2_formal_valid_screenings"]==0
+          for name,key in [("national_2847_R1_R2_joint_cascade_evidence_and_next_gap.csv","national_cascade_csv_sha256"),("national_R1_R2_double_observed_candidate_list.csv","both_parameter_county_list_csv_sha256")]:
+            assert hashlib.sha256(open(p+name,"rb").read()).hexdigest()==d[key]
+          with open(p+"national_2847_R1_R2_joint_cascade_evidence_and_next_gap.csv",encoding="utf-8-sig") as f:records=list(csv.DictReader(f))
+          assert len(records)==2847
+          assert not any(z["confirmed_exit_round"] for z in records)
+          assert all(z["R1_R2_formal_grade_allowed"]=="FALSE" for z in records)
+          print("R1_R2_FOUR_QUADRANTS_PASS",d["R1_R2_both_partial_evidence"],d["R1_R2_both_missing"])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: national-2847-R1-R2-missingness-long-short-tier-cascade
+          path: |
+            research_engine/retirement/output/national_2847_R1_R2_joint_cascade_summary.json
+            research_engine/retirement/output/national_2847_R1_R2_joint_cascade_evidence_and_next_gap.csv
+            research_engine/retirement/output/national_R1_R2_double_observed_candidate_list.csv
+          retention-days: 30
+      - name: Persist R1/R2 separate long vs short cohorts and verify remote SHA
+        if: steps.check.outcome == 'success'
+        run: |
+          cp research_engine/retirement/output/national_2847_R1_R2_joint_cascade_summary.json research_engine/retirement/status/national_2847_R1_R2_joint_cascade_summary.json
+          cp research_engine/retirement/output/national_2847_R1_R2_joint_cascade_evidence_and_next_gap.csv research_engine/retirement/status/national_2847_R1_R2_joint_cascade_evidence_and_next_gap.csv
+          cp research_engine/retirement/output/national_R1_R2_double_observed_candidate_list.csv research_engine/retirement/status/national_R1_R2_double_observed_candidate_list.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/national_2847_R1_R2_joint_cascade_summary.json research_engine/retirement/status/national_2847_R1_R2_joint_cascade_evidence_and_next_gap.csv research_engine/retirement/status/national_R1_R2_double_observed_candidate_list.csv
+          git commit -m "Record all 2847 county temperature-vs-rain/sun source intersections and next missing parameter priority"
+          for i in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 4 ]; then exit 1; fi
+            sleep 2
+          done
+          git fetch origin main
+          python - <<'PY'
+          import json,hashlib,subprocess
+          root="research_engine/retirement/status/"
+          d=json.loads(subprocess.check_output(["git","show","origin/main:"+root+"national_2847_R1_R2_joint_cascade_summary.json"]))
+          for k,v in [("national_2847_R1_R2_joint_cascade_evidence_and_next_gap.csv","national_cascade_csv_sha256"),("national_R1_R2_double_observed_candidate_list.csv","both_parameter_county_list_csv_sha256")]:
+            raw=subprocess.check_output(["git","show","origin/main:"+root+k])
+            assert hashlib.sha256(raw).hexdigest()==d[v]
+          assert d["R1_R2_formal_valid_screenings"]==0
+          print("R1_R2_JOINT_CASCADE_REMOTE_SHA_PASS",d["R1_R2_both_partial_evidence"])
+          PY
