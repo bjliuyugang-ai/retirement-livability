@@ -29,7 +29,7 @@ def parse_text(raw):
  d={}
  for line in raw.decode("utf-8-sig").splitlines():
   if not line.strip():continue
-  m=re.fullmatch(r"([0-9]{6})\\s+(.+)",line.strip())
+  m=re.fullmatch(r"([0-9]{6})\s+(.+)",line.strip())
   if not m:raise RuntimeError("Invalid 2025/24 code line "+line[:80])
   code,name=m.group(1),m.group(2)
   if code in d:raise RuntimeError("Duplicate in year-end historical code list "+code)
