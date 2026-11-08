@@ -1,0 +1,188 @@
+name: Retirement Phase-1 named residential region crosswalk
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-national-34-region-crosswalk.yml'
+      - 'research_engine/retirement/national_34_region_pool_crosswalk.py'
+  workflow_dispatch:
+jobs:
+  named-region-crosswalk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: V1.6 S0-S2 precheck and claim named-region action
+        id: precheck
+        run: |
+          python - <<'PY'
+          import json,os
+          p="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          s=json.load(open(p,encoding="utf-8"))
+          assert s["schema_version"]=="1.6"
+          assert s["state_revision"]==79,s["state_revision"]
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-34-REGION-POOL-CROSSWALK-021"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          print("V16_PRECHECK_PASS",s["state_revision"],os.environ["GITHUB_RUN_ID"])
+          PY
+      - name: Crosswalk only the 29 named core samples plus 14 expansion entries
+        id: crosswalk
+        run: python -u research_engine/retirement/national_34_region_pool_crosswalk.py
+      - name: V1.6 S3-S5 record crosswalk and proceed to final candidate disposition
+        if: always() && steps.precheck.outcome == 'success' && steps.crosswalk.outcome == 'success'
+        run: |
+          python - <<'PY'
+          import json,hashlib,datetime,pathlib,os
+          S=pathlib.Path("research_engine/retirement/status")
+          ep=S/"national_40_named_region_candidate_crosswalk_20261108.json"
+          rp=S/"national_40_named_region_candidate_crosswalk_20261108.csv"
+          sp=pathlib.Path("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json")
+          lp=pathlib.Path("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl")
+          d=json.loads(ep.read_text(encoding="utf-8"));s=json.loads(sp.read_text(encoding="utf-8"))
+          run_id=os.environ["GITHUB_RUN_ID"];now=datetime.datetime.now(datetime.timezone.utc).isoformat()
+          def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+          result_id="RES-NATIONAL-40-NAMED-REGION-CROSSWALK-20261108-"+run_id
+          assert d["input_counts"]["core_sample_records"]==29
+          assert d["input_counts"]["expansion_records"]==14
+          assert d["input_counts"]["deduplicated_named_region_units"]==40
+          s["last_completed_action_id"]="RET-CASCADE-NATIONAL-34-REGION-POOL-CROSSWALK-021"
+          s["closed_result_refs"]=list(s.get("closed_result_refs",[]))+[result_id]
+          s["last_verified_run"]={
+            "run_id":"GHA-"+run_id,"action_id":"RET-CASCADE-NATIONAL-34-REGION-POOL-CROSSWALK-021",
+            "result_id":result_id,"execution_status":"EXECUTED_WITH_VERIFIED_NAMED_REGION_CROSSWALK",
+            "engineering_status":"PASS","research_delta_status":"DELTA_VERIFIED_40_NAMED_REGION_CROSSWALK_TO_214_R1_POINTS",
+            "research_closure_status":"OPEN","evidence_path":str(ep),"evidence_sha256":sha(ep),
+            "region_csv_path":str(rp),"region_csv_sha256":sha(rp),
+            "named_region_units":40,
+            "exact_code_match_units":d["region_crosswalk_counts"]["units_with_any_exact_R1_code_match"],
+            "no_exact_match_units":d["region_crosswalk_counts"]["units_with_no_exact_R1_code_match"],
+            "matched_climate_signal_units":d["region_crosswalk_counts"]["units_with_matched_climate_hardline_signal"],
+            "altitude_point_warning_units":d["region_crosswalk_counts"]["units_with_altitude_point_warning"],
+            "all_214_climate_signal_candidates":d["R1_evidence_register"]["climate_hardline_signal_candidates"],
+            "all_214_altitude_point_warnings":d["R1_evidence_register"]["altitude_point_warnings"],
+            "formal_residential_exclusions":0,"formal_valid_county_screenings":0,
+            "all_2847_carry_forward":True,"status":"WRITEBACK_PENDING"}
+          s["phase1_named_region_crosswalk_40"]={
+            "result_id":result_id,"core_29_records":29,"expansion_14_records":14,
+            "deduplicated_region_units":40,
+            "exact_R1_code_match_units":d["region_crosswalk_counts"]["units_with_any_exact_R1_code_match"],
+            "no_exact_R1_code_match_units":d["region_crosswalk_counts"]["units_with_no_exact_R1_code_match"],
+            "matched_climate_hardline_signal_units":d["region_crosswalk_counts"]["units_with_matched_climate_hardline_signal"],
+            "altitude_point_warning_units":d["region_crosswalk_counts"]["units_with_altitude_point_warning"],
+            "existing_V2_hardline_exit_units":d["region_crosswalk_counts"]["units_already_marked_exit_in_V2"],
+            "corrected_214_altitude_point_warnings":d["R1_evidence_register"]["altitude_point_warnings"],
+            "corrected_214_climate_or_altitude_union":d["R1_evidence_register"]["climate_or_altitude_point_warning_union"],
+            "formal_exclusions":0,"stage2_stage3_lists_not_reduced":True,
+            "evidence_path":str(ep),"region_csv":str(rp)}
+          # Correct the previous rollup's altitude join error in the durable state.
+          s["phase1_all214_R1_hardline_screen"]["altitude_point_warnings"]=d["R1_evidence_register"]["altitude_point_warnings"]
+          s["phase1_all214_R1_hardline_screen"]["climate_or_altitude_point_warning_union"]=d["R1_evidence_register"]["climate_or_altitude_point_warning_union"]
+          s["active_action"]={
+            "action_id":"RET-CASCADE-NATIONAL-40-REGION-DISPOSITION-022",
+            "question_id":"Q_FINALIZE_PHASE1_40_NAMED_REGION_KEEP_PENDING_EXIT",
+            "decision":"基于40个去重后的具体居住片区交叉映射结果，直接形成第一阶段保留/待核/硬线退出清单。对原始29个样点中的已触线样点保留退出状态；214点位新增信号只在能精确对应住宅片区时升级退出，城市多区/盆地只按具体住宅分片。不得把D档当作硬线缓冲区；缺失参数待定；第二、三阶段名单不缩减。",
+            "method":"逐项审阅40行交叉表，按既有样点证据、精确县区码、站点/ERA5口径冲突、日照缺失和实际住宅海拔形成四类处置；对硬线退出只保留最小具体片区，不扩展为全省/全市淘汰。输出第一阶段首轮候选池更新稿与明确的下一轮最少补证清单。",
+            "expected_evidence":"40个区域逐项最终处置；硬线退出数、优先保留数、条件保留数、待核数；冲突点与最少补证动作；不再返回2847全县参数表。",
+            "pass_criteria":"形成可直接使用的第一阶段候选池更新结果；退出/待核/保留边界明确；每个待核项只有一次补证或明确搁置动作。",
+            "fallback":"单一区域一轮匹配仍缺数据则保持待核，立即处理下一地区；不得阻塞整批。",
+            "status":"READY","timebox_end":"2026-11-08T15:26:00Z","last_run_id":run_id}
+          s["consecutive_no_delta"]=0;s["updated_at"]=now;s["state_revision"]=int(s["state_revision"])+1
+          sp.write_text(json.dumps(s,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          log={"kind":"S0-S5","run_id":"GHA-"+run_id,"action_id":"RET-CASCADE-NATIONAL-34-REGION-POOL-CROSSWALK-021",
+            "at":now,"source_state_revision":79,"precheck":"PASS","result_id":result_id,
+            "core_29_records":29,"expansion_14_records":14,"deduplicated_region_units":40,
+            "exact_code_match_units":d["region_crosswalk_counts"]["units_with_any_exact_R1_code_match"],
+            "no_exact_match_units":d["region_crosswalk_counts"]["units_with_no_exact_R1_code_match"],
+            "matched_climate_signal_units":d["region_crosswalk_counts"]["units_with_matched_climate_hardline_signal"],
+            "corrected_214_altitude_warnings":d["R1_evidence_register"]["altitude_point_warnings"],
+            "formal_residential_exclusions":0,"formal_valid_county_screenings":0,
+            "engineering_status":"PASS","research_delta_status":"DELTA_VERIFIED_40_NAMED_REGION_CROSSWALK_TO_214_R1_POINTS",
+            "research_closure_status":"OPEN","evidence_path":str(ep),"evidence_sha256":sha(ep),
+            "region_csv_path":str(rp),"region_csv_sha256":sha(rp),
+            "next_action_id":"RET-CASCADE-NATIONAL-40-REGION-DISPOSITION-022","writeback":"PENDING_REMOTE_CHECK"}
+          with lp.open("a",encoding="utf-8") as f:f.write(json.dumps(log,ensure_ascii=False)+"\n")
+          current=pathlib.Path("research_assets/retirement/CURRENT_STATE.md")
+          note=(f"\n\n- {result_id}: 完成29个首轮样点+14个扩样记录交叉映射，去重为40个具体居住片区；精确匹配214个R1点位证据，匹配片区{d['region_crosswalk_counts']['units_with_any_exact_R1_code_match']}个、无精确匹配{d['region_crosswalk_counts']['units_with_no_exact_R1_code_match']}个、匹配到气候硬线信号{d['region_crosswalk_counts']['units_with_matched_climate_hardline_signal']}个。同步修复214行汇总表的海拔字段映射错误：73长历史批次11个、127短历史批次16个点位>2000m，合计27个点位警示；正式住宅片区退出仍为0，所有缺失待定。明细：{rp}；审计：{ep}。下一动作直接形成40个居住片区的首轮保留/待核/退出清单，不再做2847县逐行参数表。")
+          current.write_text(current.read_text(encoding="utf-8")+note,encoding="utf-8")
+          print("STATE_WRITEBACK_PREPARED",s["state_revision"],result_id)
+          PY
+      - name: Persist crosswalk, corrected rollup and state
+        if: always() && steps.precheck.outcome == 'success' && steps.crosswalk.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/national_214_R1_all_evidence_hard_screen_20261108.csv research_engine/retirement/status/national_214_R1_hardline_signal_rollup_20261108.json research_engine/retirement/status/national_40_named_region_candidate_crosswalk_20261108.csv research_engine/retirement/status/national_40_named_region_candidate_crosswalk_20261108.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl research_assets/retirement/CURRENT_STATE.md
+          git commit -m "Crosswalk 40 named residential regions and correct altitude joins"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 3
+          done
+      - name: V1.6 S6 remote readback and postcheck
+        if: always() && steps.precheck.outcome == 'success' && steps.crosswalk.outcome == 'success'
+        run: |
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess,datetime,pathlib,os
+          run_id=os.environ["GITHUB_RUN_ID"]
+          sp="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          lp="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl"
+          ep="research_engine/retirement/status/national_40_named_region_candidate_crosswalk_20261108.json"
+          rp="research_engine/retirement/status/national_40_named_region_candidate_crosswalk_20261108.csv"
+          def show(p):return subprocess.check_output(["git","show","origin/main:"+p]).decode("utf-8")
+          s=json.loads(show(sp));logs=show(lp);d=json.loads(show(ep))
+          assert s["last_verified_run"]["run_id"]=="GHA-"+run_id
+          assert "GHA-"+run_id in logs
+          assert d["input_counts"]["deduplicated_named_region_units"]==40
+          for p in [ep,rp,"research_engine/retirement/status/national_214_R1_all_evidence_hard_screen_20261108.csv","research_engine/retirement/status/national_214_R1_hardline_signal_rollup_20261108.json"]:
+            subprocess.check_output(["git","cat-file","-e","origin/main:"+p])
+          commit=subprocess.check_output(["git","rev-parse","HEAD"]).decode().strip()
+          s["last_verified_run"]["status"]="POSTCHECK_PASS"
+          s["last_verified_run"]["evidence_git_blob_sha"]=subprocess.check_output(["git","rev-parse","origin/main:"+ep]).decode().strip()
+          s["last_verified_run"]["region_csv_git_blob_sha"]=subprocess.check_output(["git","rev-parse","origin/main:"+rp]).decode().strip()
+          s["writeback_verification"]={"status":"POSTCHECK_PASS","verified_commit":commit,
+            "verified_at":datetime.datetime.now(datetime.timezone.utc).isoformat()}
+          s["state_revision"]=int(s["state_revision"])+1
+          s["updated_at"]=datetime.datetime.now(datetime.timezone.utc).isoformat()
+          pathlib.Path(sp).write_text(json.dumps(s,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          with pathlib.Path(lp).open("a",encoding="utf-8") as f:
+            f.write(json.dumps({"kind":"S6_POSTCHECK","run_id":"GHA-"+run_id,
+              "action_id":"RET-CASCADE-NATIONAL-34-REGION-POOL-CROSSWALK-021",
+              "at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"status":"POSTCHECK_PASS",
+              "verified_commit":commit,"evidence_git_blob_sha":s["last_verified_run"]["evidence_git_blob_sha"],
+              "region_csv_git_blob_sha":s["last_verified_run"]["region_csv_git_blob_sha"],
+              "state_revision":s["state_revision"],"formal_residential_exclusions":0,
+              "next_action":s["active_action"]["action_id"]},ensure_ascii=False)+"\n")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
+          git commit -m "Verify named-region crosswalk and corrected altitude writeback"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 3
+          done
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess,os
+          s=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]).decode())
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["last_verified_run"]["run_id"]=="GHA-"+os.environ["GITHUB_RUN_ID"]
+          assert s["last_verified_run"]["status"]=="POSTCHECK_PASS"
+          print("REMOTE_S6_POSTCHECK_PASS",s["state_revision"],s["last_verified_run"]["run_id"])
+          PY
