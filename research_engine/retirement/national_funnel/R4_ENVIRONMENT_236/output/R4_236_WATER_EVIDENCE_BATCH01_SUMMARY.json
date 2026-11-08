@@ -1,0 +1,28 @@
+{
+  "schema": "RETIREMENT_R4_236_WATER_EVIDENCE_BATCH01_V1",
+  "generated_date": "2026-11-08",
+  "candidate_count": 236,
+  "source_ledger_rows": 26,
+  "coverage": {
+    "Fujian_candidate_raw_source_records": 18,
+    "Fujian_raw_water_intake_sites": 25,
+    "Lincang_direct_county_candidates": 7,
+    "Baoshan_direct_county_candidates": 5,
+    "Deqing_direct_county_candidates": 2,
+    "Wenshan_candidates_with_actual_local_result": 4,
+    "Wenshan_monitoring_plan_only": 1,
+    "Mengzi_tap_monitoring_rows": 16,
+    "Mengzi_tap_monitoring_sites": 8,
+    "candidate_rows_with_some_direct_local_or_city_supply_evidence": 45,
+    "no_candidate_specific_result_yet": 31
+  },
+  "guardrails": [
+    "原水水质、出厂水、管网末梢水分开记录，不能互相替代。",
+    "县/市/省级汇总只作对应层级背景，不自动推定每个候选片区达标。",
+    "GB5749—2006旧标准结果不当作GB5749—2022现行全项合格证明。",
+    "部分监测点或部分指标通过，不等于整个县全年饮水安全已确认。",
+    "本批只补充证据，不作正式淘汰或等级变更；缺失不是失败。"
+  ],
+  "formal_exclusions": 0,
+  "formal_grade_changes": 0
+}
