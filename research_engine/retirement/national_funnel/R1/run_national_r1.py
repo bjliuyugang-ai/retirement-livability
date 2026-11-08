@@ -492,6 +492,7 @@ def main() -> None:
                 "sunshine_pop_weighted_p10_h": None,
                 "sunshine_pop_weighted_p50_h": None,
                 "sunshine_pop_weighted_p90_h": None,
+                "sunshine_max_pop_any_h": None,
                 "sunshine_max_pop_ge10_h": None,
                 "sunshine_pop_share_ge1800": None,
                 "sunshine_status": "PENDING",
@@ -596,13 +597,14 @@ def main() -> None:
                 row["sunshine_pop_weighted_p10_h"] = round(weighted_quantile(vals, weights, 0.10), 1)
                 row["sunshine_pop_weighted_p50_h"] = round(weighted_quantile(vals, weights, 0.50), 1)
                 row["sunshine_pop_weighted_p90_h"] = round(weighted_quantile(vals, weights, 0.90), 1)
-                # Ignore cells with fewer than 10 estimated residents for the primary residential maximum,
-                # but retain the all-population coverage in the raw cell count.
+                # Any inhabited cell can be a local residential exception, so the
+                # hard-screen maximum uses every positive-population cell. The >=10
+                # resident-cell maximum is retained as a settlement-strength diagnostic.
+                max_any_h = float(np.max(annual[valid_pop]))
                 primary = valid_pop & (pop >= 10)
-                if not primary.any():
-                    primary = valid_pop
-                max_h = float(np.max(annual[primary]))
-                row["sunshine_max_pop_ge10_h"] = round(max_h, 1)
+                max_ge10_h = float(np.max(annual[primary])) if primary.any() else max_any_h
+                row["sunshine_max_pop_any_h"] = round(max_any_h, 1)
+                row["sunshine_max_pop_ge10_h"] = round(max_ge10_h, 1)
                 row["sunshine_pop_share_ge1800"] = round(
                     float(weights[vals >= SUNSHINE_LIMIT_H].sum() / weights.sum()), 4
                 ) if weights.sum() > 0 else 0.0
@@ -610,11 +612,11 @@ def main() -> None:
                 coverage = float(row["sunshine_population_coverage"] or 0)
                 if coverage < 0.90:
                     row["sunshine_status"] = "PENDING_INCOMPLETE_POPULATION_SUNSHINE_COVERAGE"
-                elif max_h < SUNSHINE_CLEAR_FAIL_H:
+                elif max_any_h < SUNSHINE_CLEAR_FAIL_H:
                     row["sunshine_status"] = "CLEAR_FAIL_BELOW_1800_GUARD75"
-                elif max_h < SUNSHINE_LIMIT_H:
+                elif max_any_h < SUNSHINE_LIMIT_H:
                     row["sunshine_status"] = "BOUNDARY_PENDING_1725_TO_1800"
-                elif max_h < SUNSHINE_CLEAR_PASS_H:
+                elif max_any_h < SUNSHINE_CLEAR_PASS_H:
                     row["sunshine_status"] = "PASS_NEAR_1800_REVIEW"
                 else:
                     row["sunshine_status"] = "PASS_HAS_POPULATED_RESIDENTIAL_CELL_GE1875"
