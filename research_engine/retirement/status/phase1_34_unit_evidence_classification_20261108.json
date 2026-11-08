@@ -56,7 +56,14 @@
   "next_action": "进入34个正式评价单元的环境健康、住宅微环境和居住质量参数轮次；硬线缺失继续待核，不阻塞整批。",
   "csv_integrity": {
     "formal_rows": 34,
-    "all_rows_have_11_columns": true,
-    "corrected_record": "CORE20-19 legacy_grade=C"
+    "all_rows_have_11_columns": true
+  },
+  "normalized_disposition_counts": {
+    "priority_keep": 2,
+    "conditional_keep": 3,
+    "preexclusion_pending": 3,
+    "hardline_signal_pending": 4,
+    "general_pending": 22,
+    "formal_exclusions": 0
   }
 }
