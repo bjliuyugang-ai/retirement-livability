@@ -1,0 +1,84 @@
+name: Retirement R4 nationwide 236 industrial permit batch
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/RUN_REQUEST.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  screen-national-industrial-permits:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    concurrency:
+      group: retirement-r4-permit-national-236
+      cancel-in-progress: false
+    env:
+      MAX_PAGES_PER_CATEGORY: '3'
+      MAX_DETAIL_PER_CITY: '10'
+      R4_WORKERS: '4'
+    steps:
+      - name: Checkout all 236 canonical candidates
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install only necessary geometry package
+        run: python -m pip install --disable-pip-version-check shapely
+      - name: Scan national MEE public permit data and geo-match to 236 candidates
+        run: python -u research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/run_national_permit_236.py
+      - name: Validate hard 236 scope, geographic coverage, and safe dispositions
+        if: success()
+        run: |
+          python - <<'PY'
+          import csv,json,pathlib
+          p=pathlib.Path("research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/output")
+          d=json.loads((p/"NATIONAL_236_PERMIT_BATCH_SUMMARY.json").read_text(encoding="utf-8"))
+          with (p/"NATIONAL_236_PERMIT_INDUSTRIAL_CANDIDATE_MATRIX.csv").open(encoding="utf-8-sig",newline="") as f:
+            rows=list(csv.DictReader(f))
+          assert len(rows)==236 and len({r["code"] for r in rows})==236
+          assert all(r["formal_R4_exclusion"]=="NO" for r in rows)
+          assert d["candidate_units_remaining"]==236 and d["formal_R4_exclusions"]==0
+          assert d["provinces"]==13 and d["municipal_code_groups"]==61
+          print("VALIDATED_COUNTRYWIDE_R4_INDUSTRIAL_PERMIT_236",json.dumps({
+            "candidates":len(rows),
+            "queried_city_groups":d["city_groups_with_queries"],
+            "category_queries_complete":d["industry_queries_completed"],
+            "category_queries_partial":d["industry_queries_partial_or_pending"],
+            "facility_sample_matched":d["facility_sample_with_candidate_polygon_match"]},ensure_ascii=False))
+          PY
+      - name: Upload nationwide candidate-matched results and coverage ledger
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retirement-r4-national-permit-236-${{ github.run_id }}
+          path: research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/output/
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Persist national outputs in repository
+        if: always()
+        run: |
+          out=research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/output
+          if [ ! -f "$out/NATIONAL_236_PERMIT_BATCH_SUMMARY.json" ]; then
+            echo "No complete summary to persist"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p "$out/runs/${{ github.run_id }}"
+          cp "$out/NATIONAL_236_PERMIT_BATCH_SUMMARY.json" "$out/runs/${{ github.run_id }}/"
+          cp "$out/NATIONAL_236_PERMIT_CITY_INDUSTRY_COVERAGE.csv" "$out/runs/${{ github.run_id }}/"
+          cp "$out/NATIONAL_236_PERMIT_INDUSTRIAL_CANDIDATE_MATRIX.csv" "$out/runs/${{ github.run_id }}/"
+          cp "$out/NATIONAL_236_PERMIT_FACILITY_DETAIL_SAMPLE.csv" "$out/runs/${{ github.run_id }}/"
+          git add "$out/runs/${{ github.run_id }}"
+          git commit -m "Save nationwide R4 industrial permit scan for 236 candidates"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 5
+          done
