@@ -1,0 +1,175 @@
+name: Retirement Phase-1 disposition of 40 named residential regions
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-national-40-region-disposition.yml'
+      - 'research_engine/retirement/national_40_region_disposition.py'
+  workflow_dispatch:
+jobs:
+  region-disposition:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: V1.6 S0-S2 precheck and claim
+        id: precheck
+        run: |
+          python - <<'PY'
+          import json,os
+          p="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          s=json.load(open(p,encoding="utf-8"))
+          assert s["schema_version"]=="1.6"
+          assert s["state_revision"]==81,s["state_revision"]
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-40-REGION-DISPOSITION-022"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          print("V16_PRECHECK_PASS",s["state_revision"],os.environ["GITHUB_RUN_ID"])
+          PY
+      - name: Finalize keep, pending, and hard-line exit dispositions for 40 named regions
+        id: disposition
+        run: python -u research_engine/retirement/national_40_region_disposition.py
+      - name: V1.6 S3-S5 record final dispositions and next bounded verification batch
+        if: always() && steps.precheck.outcome == 'success' && steps.disposition.outcome == 'success'
+        run: |
+          python - <<'PY'
+          import json,hashlib,datetime,pathlib,os
+          S=pathlib.Path("research_engine/retirement/status")
+          ep=S/"national_40_region_disposition_20261108.json"
+          cp=S/"national_40_region_disposition_20261108.csv"
+          sp=pathlib.Path("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json")
+          lp=pathlib.Path("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl")
+          d=json.loads(ep.read_text(encoding="utf-8"));s=json.loads(sp.read_text(encoding="utf-8"))
+          run_id=os.environ["GITHUB_RUN_ID"];now=datetime.datetime.now(datetime.timezone.utc).isoformat()
+          def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+          result_id="RES-NATIONAL-40-REGION-DISPOSITION-20261108-"+run_id
+          assert d["input_region_units"]==40
+          assert d["existing_sample_hardline_exit_units"]==12
+          assert d["new_hardline_preexit_units"]==3
+          assert d["temperature_conflict_units"]==1
+          s["last_completed_action_id"]="RET-CASCADE-NATIONAL-40-REGION-DISPOSITION-022"
+          s["closed_result_refs"]=list(s.get("closed_result_refs",[]))+[result_id]
+          s["last_verified_run"]={
+            "run_id":"GHA-"+run_id,"action_id":"RET-CASCADE-NATIONAL-40-REGION-DISPOSITION-022",
+            "result_id":result_id,"execution_status":"EXECUTED_WITH_VERIFIED_40_REGION_DISPOSITION",
+            "engineering_status":"PASS","research_delta_status":"DELTA_VERIFIED_40_NAMED_REGION_KEEP_PENDING_PREEXIT_DISPOSITION",
+            "research_closure_status":"OPEN","evidence_path":str(ep),"evidence_sha256":sha(ep),
+            "region_csv_path":str(cp),"region_csv_sha256":sha(cp),
+            "named_region_units":40,"existing_sample_hardline_exit_units":12,
+            "new_hardline_preexit_units":3,"temperature_conflict_units":1,
+            "altitude_split_units":d["altitude_split_units"],"priority_keep_units":d["priority_keep_units"],
+            "formal_residential_exclusions":0,"formal_valid_county_screenings":0,
+            "all_2847_carry_forward":True,"status":"WRITEBACK_PENDING"}
+          s["phase1_40_region_disposition"]={
+            "result_id":result_id,"named_region_units":40,
+            "existing_sample_hardline_exit_units":12,"new_hardline_preexit_units":3,
+            "temperature_conflict_units":1,"altitude_split_units":d["altitude_split_units"],
+            "priority_keep_units":d["priority_keep_units"],
+            "disposition_counts":d["disposition_counts"],
+            "formal_residential_exclusions":0,"stage2_stage3_lists_unchanged":True,
+            "evidence_path":str(ep),"region_csv":str(cp)}
+          s["active_action"]={
+            "action_id":"RET-CASCADE-NATIONAL-7-EXIT-SOURCE-VERIFICATION-023",
+            "question_id":"Q_VERIFY_4_NEW_HARDLINE_SIGNALS_AND_3_EXISTING_PREEXITS",
+            "decision":"下一轮只核实7个最有价值的硬线退出信号：新信号百色、武都、伊宁、荣成，以及原有预排除霞浦、勉县、利川。其余待核区域不阻塞，暂时搁置；优先保留/条件保留片区继续进入后续环境和居住质量轮次。",
+            "method":"对百色一次核验451002站1991-2020逐月平均日最高温冲突；对武都、伊宁、荣成一次确认站点坐标与实际城区住宅区的代表性；对霞浦、勉县、利川一次获取官方原始站值或统一统计期数据。一次原始源+一次替代源；仍不能确认则标记待核，不反复追索。任何确认触线的具体住宅片区直接退出，不放D。",
+            "expected_evidence":"7个区域逐项原始值、站点坐标、住宅片区距离/代表性、硬线确认状态、退出/待核结论；未确认者明确原因。",
+            "pass_criteria":"7项均完成一次主源与替代源验证或明确标记待核；确认硬线者退出第一阶段候选池；不减少第二、三阶段名单。",
+            "fallback":"一次主源+一次替代源仍无证据时转PENDING并停止单点追索，继续其他候选区域。",
+            "status":"READY","timebox_end":"2026-11-08T15:26:00Z","last_run_id":run_id}
+          s["consecutive_no_delta"]=0;s["updated_at"]=now;s["state_revision"]=int(s["state_revision"])+1
+          sp.write_text(json.dumps(s,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          log={"kind":"S0-S5","run_id":"GHA-"+run_id,"action_id":"RET-CASCADE-NATIONAL-40-REGION-DISPOSITION-022",
+            "at":now,"source_state_revision":81,"precheck":"PASS","result_id":result_id,
+            "named_region_units":40,"existing_sample_hardline_exit_units":12,
+            "new_hardline_preexit_units":3,"temperature_conflict_units":1,
+            "altitude_split_units":d["altitude_split_units"],"priority_keep_units":d["priority_keep_units"],
+            "formal_residential_exclusions":0,"formal_valid_county_screenings":0,
+            "engineering_status":"PASS","research_delta_status":"DELTA_VERIFIED_40_NAMED_REGION_KEEP_PENDING_PREEXIT_DISPOSITION",
+            "research_closure_status":"OPEN","evidence_path":str(ep),"evidence_sha256":sha(ep),
+            "region_csv_path":str(cp),"region_csv_sha256":sha(cp),
+            "next_action_id":"RET-CASCADE-NATIONAL-7-EXIT-SOURCE-VERIFICATION-023","writeback":"PENDING_REMOTE_CHECK"}
+          with lp.open("a",encoding="utf-8") as f:f.write(json.dumps(log,ensure_ascii=False)+"\n")
+          current=pathlib.Path("research_assets/retirement/CURRENT_STATE.md")
+          note=(f"\n\n- {result_id}: 对40个去重后的第一阶段居住片区形成首轮处置草案：12个既有样点继续退出；新增3个强冬季/夏季硬线预排除（武都、伊宁、荣成）；百色1个温度来源冲突待一次核验；大理按2000m实际住宅海拔分片；4个优先保留，其他按条件保留/待核流转。昆明中心城区1891m、蒙自坝区约1300m，DEM周边高点不作为住宅淘汰。正式住宅片区退出仍待最后一次住宅点代表性确认；第二、三阶段名单不缩减。明细：{cp}；审计：{ep}。下一轮只核实7个最有价值的预排除/冲突样点，其余缺数区域暂搁置，不再逐一耗时。")
+          current.write_text(current.read_text(encoding="utf-8")+note,encoding="utf-8")
+          print("STATE_WRITEBACK_PREPARED",s["state_revision"],result_id)
+          PY
+      - name: Persist region disposition and state
+        if: always() && steps.precheck.outcome == 'success' && steps.disposition.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/national_40_region_disposition_20261108.csv research_engine/retirement/status/national_40_region_disposition_20261108.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl research_assets/retirement/CURRENT_STATE.md
+          git commit -m "Record Phase-1 disposition for 40 named residential regions"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 3
+          done
+      - name: V1.6 S6 remote readback and postcheck
+        if: always() && steps.precheck.outcome == 'success' && steps.disposition.outcome == 'success'
+        run: |
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess,datetime,pathlib,os
+          run_id=os.environ["GITHUB_RUN_ID"]
+          sp="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          lp="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl"
+          ep="research_engine/retirement/status/national_40_region_disposition_20261108.json"
+          cp="research_engine/retirement/status/national_40_region_disposition_20261108.csv"
+          def show(p):return subprocess.check_output(["git","show","origin/main:"+p]).decode("utf-8")
+          s=json.loads(show(sp));logs=show(lp);d=json.loads(show(ep))
+          assert s["last_verified_run"]["run_id"]=="GHA-"+run_id
+          assert "GHA-"+run_id in logs
+          assert d["input_region_units"]==40
+          for p in [ep,cp]:subprocess.check_output(["git","cat-file","-e","origin/main:"+p])
+          commit=subprocess.check_output(["git","rev-parse","HEAD"]).decode().strip()
+          s["last_verified_run"]["status"]="POSTCHECK_PASS"
+          s["last_verified_run"]["evidence_git_blob_sha"]=subprocess.check_output(["git","rev-parse","origin/main:"+ep]).decode().strip()
+          s["last_verified_run"]["region_csv_git_blob_sha"]=subprocess.check_output(["git","rev-parse","origin/main:"+cp]).decode().strip()
+          s["writeback_verification"]={"status":"POSTCHECK_PASS","verified_commit":commit,
+            "verified_at":datetime.datetime.now(datetime.timezone.utc).isoformat()}
+          s["state_revision"]=int(s["state_revision"])+1
+          s["updated_at"]=datetime.datetime.now(datetime.timezone.utc).isoformat()
+          pathlib.Path(sp).write_text(json.dumps(s,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          with pathlib.Path(lp).open("a",encoding="utf-8") as f:
+            f.write(json.dumps({"kind":"S6_POSTCHECK","run_id":"GHA-"+run_id,
+              "action_id":"RET-CASCADE-NATIONAL-40-REGION-DISPOSITION-022",
+              "at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"status":"POSTCHECK_PASS",
+              "verified_commit":commit,"evidence_git_blob_sha":s["last_verified_run"]["evidence_git_blob_sha"],
+              "region_csv_git_blob_sha":s["last_verified_run"]["region_csv_git_blob_sha"],
+              "state_revision":s["state_revision"],"formal_residential_exclusions":0,
+              "next_action":s["active_action"]["action_id"]},ensure_ascii=False)+"\n")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
+          git commit -m "Verify 40-region Phase-1 disposition writeback"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 3
+          done
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess,os
+          s=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]).decode())
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["last_verified_run"]["run_id"]=="GHA-"+os.environ["GITHUB_RUN_ID"]
+          assert s["last_verified_run"]["status"]=="POSTCHECK_PASS"
+          print("REMOTE_S6_POSTCHECK_PASS",s["state_revision"],s["last_verified_run"]["run_id"])
+          PY
