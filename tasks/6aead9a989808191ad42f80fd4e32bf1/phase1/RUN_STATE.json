@@ -36,7 +36,9 @@
     "formal_residential_exclusions": 0,
     "formal_valid_county_screenings": 0,
     "all_2847_carry_forward": true,
-    "status": "WRITEBACK_PENDING"
+    "status": "POSTCHECK_PASS",
+    "evidence_git_blob_sha": "71f4eb7f67d128d7a02633ad9b83e5186ccb8910",
+    "region_csv_git_blob_sha": "9b1418b5bc9a6157e5fe219db67001e32e593a45"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-34-REGION-POOL-CROSSWALK-021",
   "closed_result_refs": [
@@ -100,11 +102,11 @@
   "consecutive_no_delta": 0,
   "writeback_verification": {
     "status": "POSTCHECK_PASS",
-    "verified_commit": "9407bcba76a3fcfdffdacfaa5ea59885a80746ad",
-    "verified_at": "2026-11-08T01:20:59.532287+00:00"
+    "verified_commit": "761d11aeed0fd46fa907723866910ae2498d25ec",
+    "verified_at": "2026-11-08T01:25:54.973618+00:00"
   },
-  "updated_at": "2026-11-08T01:25:52.552096+00:00",
-  "state_revision": 80,
+  "updated_at": "2026-11-08T01:25:54.973637+00:00",
+  "state_revision": 81,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
