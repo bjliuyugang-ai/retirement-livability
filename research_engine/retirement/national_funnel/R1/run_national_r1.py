@@ -49,12 +49,14 @@ GEOMETRY_URL = (
 )
 GEOMETRY_SHA256 = "22db6c54b9cb0118ecdcc8a117bf2da4fc24a2229cdba7e6e55dbb5dd56e8246"
 
-# WorldPop 2024 global 1km population-count mosaic, constrained, WGS84.
+# WorldPop 2024 global 1km unconstrained population-count mosaic, WGS84.
+# Unconstrained is used to retain rural and low-density populated cells.
 POP_URL = (
-    "https://data.worldpop.org/GIS/Population/Global_2015_2030/R2025A/2024/"
-    "0_Mosaicked/v1/1km_ua/constrained/"
-    "global_pop_2024_CN_1km_R2025A_UA_v1.tif"
+    "https://data.worldpop.org/GIS/Population/Global_2015_2030/R2024B/2024/"
+    "0_Mosaicked/v1/1km/unconstrained/"
+    "global_pop_2024_UC_1km_R2024B_v1.tif"
 )
+POP_FILENAME = "global_pop_2024_UC_1km_R2024B_v1.tif"
 
 # ScienceDB V8 1991-2020 1km monthly mean sunshine percentage, 12 bands.
 SUNP_URL = "https://china.scidb.cn/download?fileId=cc20e819b4c903a1dc200aeead645e7c"
@@ -91,6 +93,7 @@ def write_json(path: pathlib.Path, obj: dict) -> None:
     )
 
 def download(url: str, dest: pathlib.Path, expected_size: int | None = None) -> dict:
+    """Download with HTTP Range resume, byte-count validation and visible progress."""
     dest.parent.mkdir(parents=True, exist_ok=True)
     if dest.exists():
         size = dest.stat().st_size
@@ -103,40 +106,84 @@ def download(url: str, dest: pathlib.Path, expected_size: int | None = None) -> 
             }
         dest.unlink()
     part = dest.with_suffix(dest.suffix + ".part")
-    part.unlink(missing_ok=True)
-    req = urllib.request.Request(
-        url,
-        headers={"User-Agent": "Retirement-National-Funnel-R1/1.0", "Accept": "*/*"},
-    )
-    h = hashlib.sha256()
-    n = 0
-    with urllib.request.urlopen(req, timeout=240) as response:
-        status = response.status
-        final_url = response.geturl()
-        content_type = response.headers.get("Content-Type")
-        content_length = response.headers.get("Content-Length")
-        with part.open("wb") as f:
-            while True:
-                block = response.read(4 * 1024 * 1024)
-                if not block:
-                    break
-                f.write(block)
-                h.update(block)
-                n += len(block)
-    if expected_size is not None and n != expected_size:
-        part.unlink(missing_ok=True)
-        raise RuntimeError(f"DOWNLOAD_SIZE_MISMATCH expected={expected_size} got={n}")
-    part.replace(dest)
-    return {
-        "status": "DOWNLOADED",
-        "http_status": status,
-        "final_url": final_url,
-        "content_type": content_type,
-        "content_length_header": content_length,
-        "bytes": n,
-        "sha256": h.hexdigest(),
-        "url": url,
-    }
+    last_error = None
+    for attempt in range(1, 4):
+        offset = part.stat().st_size if part.exists() else 0
+        headers = {
+            "User-Agent": "Retirement-National-Funnel-R1/1.0",
+            "Accept": "*/*",
+        }
+        if offset:
+            headers["Range"] = f"bytes={offset}-"
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=300) as response:
+                status = response.status
+                final_url = response.geturl()
+                content_type = response.headers.get("Content-Type")
+                content_length = response.headers.get("Content-Length")
+                content_range = response.headers.get("Content-Range")
+                if offset and status == 206:
+                    mode = "ab"
+                else:
+                    mode = "wb"
+                    offset = 0
+                expected_total = expected_size
+                if expected_total is None and content_range and "/" in content_range:
+                    try:
+                        expected_total = int(content_range.rsplit("/", 1)[1])
+                    except ValueError:
+                        expected_total = None
+                elif expected_total is None and content_length and status == 200:
+                    try:
+                        expected_total = int(content_length)
+                    except ValueError:
+                        expected_total = None
+                downloaded = offset
+                with part.open(mode) as f:
+                    while True:
+                        block = response.read(8 * 1024 * 1024)
+                        if not block:
+                            break
+                        f.write(block)
+                        downloaded += len(block)
+                        if downloaded and downloaded % (64 * 1024 * 1024) < len(block):
+                            print(
+                                f"DOWNLOAD_PROGRESS file={dest.name} bytes={downloaded} "
+                                f"expected={expected_total or 'unknown'} attempt={attempt}",
+                                flush=True,
+                            )
+            actual_size = part.stat().st_size
+            if expected_total is not None and actual_size != expected_total:
+                raise RuntimeError(
+                    f"DOWNLOAD_SIZE_MISMATCH expected={expected_total} got={actual_size}"
+                )
+            if expected_size is not None and actual_size != expected_size:
+                raise RuntimeError(
+                    f"DOWNLOAD_SIZE_MISMATCH expected={expected_size} got={actual_size}"
+                )
+            digest = sha_file(part)
+            part.replace(dest)
+            return {
+                "status": "DOWNLOADED",
+                "http_status": status,
+                "final_url": final_url,
+                "content_type": content_type,
+                "content_length_header": content_length,
+                "content_range_header": content_range,
+                "bytes": actual_size,
+                "sha256": digest,
+                "attempts": attempt,
+                "url": url,
+            }
+        except Exception as exc:
+            last_error = f"{type(exc).__name__}: {exc}"
+            print(f"DOWNLOAD_RETRY file={dest.name} attempt={attempt} error={last_error}", flush=True)
+            if isinstance(exc, urllib.error.HTTPError) and exc.code == 416:
+                part.unlink(missing_ok=True)
+            if attempt < 3:
+                time.sleep(5 * attempt)
+    raise RuntimeError(f"DOWNLOAD_FAILED_AFTER_3_ATTEMPTS {last_error}")
 
 def load_roster() -> list[dict]:
     with ROSTER.open(encoding="utf-8-sig", newline="") as f:
@@ -410,9 +457,21 @@ def main() -> None:
     geometry_meta["exact_code_name_matches"] = len(exact)
     geometry_meta["missing_or_name_mismatch"] = len(roster) - len(exact)
 
+    write_json(progress_path, {
+        "run_id": RUN_ID, "phase": "SOURCE_DOWNLOAD_SUNP",
+        "processed_counties": 0, "total_counties": len(roster), "updated_at_utc": NOW(),
+    })
+    print("R1_SOURCE_DOWNLOAD_SUNP_START", flush=True)
     sunp_tif, sunp_download_meta = extract_sunp()
-    pop_path = CACHE / "global_pop_2024_CN_1km_R2025A_UA_v1.tif"
+    print("R1_SOURCE_DOWNLOAD_SUNP_COMPLETE", flush=True)
+    write_json(progress_path, {
+        "run_id": RUN_ID, "phase": "SOURCE_DOWNLOAD_POPULATION",
+        "processed_counties": 0, "total_counties": len(roster), "updated_at_utc": NOW(),
+    })
+    pop_path = CACHE / POP_FILENAME
+    print("R1_SOURCE_DOWNLOAD_POPULATION_START", flush=True)
     pop_download_meta = download(POP_URL, pop_path)
+    print("R1_SOURCE_DOWNLOADS_COMPLETE", flush=True)
 
     results = {}
     point_candidates = {}
@@ -610,7 +669,7 @@ def main() -> None:
                 ) if weights.sum() > 0 else 0.0
 
                 coverage = float(row["sunshine_population_coverage"] or 0)
-                if coverage < 0.90:
+                if coverage < 0.99:
                     row["sunshine_status"] = "PENDING_INCOMPLETE_POPULATION_SUNSHINE_COVERAGE"
                 elif max_any_h < SUNSHINE_CLEAR_FAIL_H:
                     row["sunshine_status"] = "CLEAR_FAIL_BELOW_1800_GUARD75"
@@ -664,10 +723,12 @@ def main() -> None:
             if not points:
                 if row["altitude_status"] == "PENDING":
                     row["altitude_status"] = "PENDING_NO_INHABITED_POPULATION_GRID"
-            elif not elevations or len(elevations) != len(points):
-                row["altitude_status"] = "PENDING_ELEVATION_API_INCOMPLETE"
+            elif not elevations:
+                row["altitude_status"] = "PENDING_ELEVATION_API_NO_VALID_RESULT"
             elif any(e <= ALTITUDE_LIMIT_M for e in elevations):
                 row["altitude_status"] = "PASS_LOW_ALTITUDE_RESIDENTIAL_EXCEPTION_FOUND"
+            elif len(elevations) != len(points):
+                row["altitude_status"] = "PENDING_ELEVATION_API_INCOMPLETE"
             elif len(points) == int(row["altitude_population_cells_total"]):
                 row["altitude_status"] = "CONFIRMED_FAIL_ALL_INHABITED_GRID_CELLS_ABOVE_2000"
             elif len(elevations) >= MAX_ALTITUDE_SAMPLES:
@@ -750,7 +811,8 @@ def main() -> None:
         "confirmed_exclusion_count": len(excluded),
         "remaining_for_R2_count": len(remaining),
         "pending_continue_count": len(pending),
-        "exclusion_rule": "A county-level unit is removed only when the population-grid sunshine estimate is clearly below 1,725h in all populated residential cells, or every inhabited population-grid cell has been sampled and is above 2,000m. Strong altitude samples with unsampled local cells remain pending and continue.",
+        "exclusion_rule": "A county-level unit is removed only when the unconstrained population-grid sunshine coverage is at least 99% and the maximum estimated annual sunshine among all positive-population cells is clearly below 1,725h, or every inhabited population-grid cell has been sampled and is above 2,000m. Strong altitude samples with unsampled local cells remain pending and continue.",
+        "sunshine_minimum_population_coverage_for_hard_exclusion": 0.99,
         "sunshine_source": {
             "name": "ScienceDB V8 China 1km monthly mean sunshine percentage",
             "period": "1991-2020",
@@ -763,9 +825,11 @@ def main() -> None:
             "license": "not independently confirmed on ScienceDB landing page; exploratory screening evidence",
         },
         "population_source": {
-            "name": "WorldPop 2024 Global2 constrained population count grid",
+            "name": "WorldPop 2024 Global2 R2024B unconstrained population count grid",
+            "release_status": "R2024B beta release",
             "resolution": "1km",
-            "license": "CC BY 4.0",
+            "population_use": "candidate inhabited-cell locator only; not a building/address register",
+            "license": "CC BY 4.0; verify exact release terms before redistribution",
             "download": pop_download_meta,
             "grid": population_grid_meta,
         },
@@ -789,6 +853,7 @@ def main() -> None:
         "limitations": [
             "This is a first-pass nationwide funnel, not final city-level certification.",
             "The 2,847 roster and third-party county geometry remain provisional; 9 roster units have no exact code/name geometry match and are pending.",
+            "WorldPop R2024B unconstrained population is a modelled population surface, not a building or address register; it identifies candidate inhabited cells and does not prove that a particular cell is an actual retirement residential site.",
             "Sunshine hours are derived from monthly mean sunshine percentage and astronomical day length, not directly summed from daily sunshine observations; the 75-hour guard band prevents borderline hard exclusions.",
             "Altitude samples are selected from populated 1km grid cells; counties with more than 10 inhabited cells and all 10 samples above 2,000m remain pending for local low-altitude exception checks.",
             "A county is an indexing unit, not a claim that its entire territory is one residential area. Separate valleys, basins, and populated settlements must remain independently evaluable.",
