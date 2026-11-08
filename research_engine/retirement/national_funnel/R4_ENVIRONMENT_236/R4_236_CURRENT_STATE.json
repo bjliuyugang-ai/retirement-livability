@@ -1,0 +1,74 @@
+{
+  "schema": "RETIREMENT_NATIONAL_R4_236_EXECUTION_STATE_V1",
+  "updated_at_utc": "2026-11-08",
+  "baseline": {
+    "candidate_count": 236,
+    "province_count": 13,
+    "city_code_groups": 61,
+    "input_file": "research_engine/retirement/national_funnel/FINAL_FILTER/runs/42453646573/FINAL_CARRY_FORWARD_AFTER_R1_R2_R3.csv",
+    "R1_R2_R3_clear": 178,
+    "R1_only_pending": 47,
+    "R2_R3_climate_pending": 11,
+    "policy": "All 236 participate in R4 while previous 58 are supplemented in parallel. Only reliably demonstrated severe, chronic, unavoidable residential environmental-health exposure can hard-exclude. Missingness is PENDING not failure. No county-level blanket exclusion for localizable hazards."
+  },
+  "completed_assets": [
+    {
+      "type": "AIR_1KM",
+      "run_id": 42456982212,
+      "coverage": 227,
+      "pending_geometry": 9,
+      "source": "CHAP annual PM2.5 and ozone 2000-2025, WorldPop-weighted county model proxies",
+      "status": "COMPLETED_FIRST_PASS"
+    },
+    {
+      "type": "WATER_EVIDENCE",
+      "file": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/output/R4_236_WATER_EVIDENCE_CANDIDATE_MATRIX_BATCH01.csv",
+      "status": "PARTIAL_LOCAL_AND_PROVINCIAL_SOURCES_NO_RESIDENTIAL_COMPLIANCE_CONCLUSION"
+    },
+    {
+      "type": "INDUSTRIAL_PERMIT_PILOT",
+      "run_id": 42464981119,
+      "facility_sample": 5,
+      "candidate_count_with_pilot_match": 4,
+      "status": "COMPLETED_PILOT_ONLY"
+    },
+    {
+      "type": "FLOOD_MODEL_1KM_RP100",
+      "run_id": 42466707216,
+      "coverage": 227,
+      "pending_geometry": 9,
+      "share_ge_10percent": 32,
+      "share_ge_20percent": 4,
+      "status": "COMPLETED_COUNTY_AREA_SCREEN_POPULATION_EXPOSURE_PENDING"
+    },
+    {
+      "type": "MASTER_V3",
+      "file": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/output/R4_236_ALL_CANDIDATE_EVIDENCE_MATRIX_V3.csv",
+      "summary": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/output/R4_236_ALL_CANDIDATE_EVIDENCE_MATRIX_V3_SUMMARY.json",
+      "status": "PERSISTED_236"
+    }
+  ],
+  "running_jobs": [
+    {
+      "type": "INDUSTRIAL_PERMIT_NATIONWIDE",
+      "run_id": 42466352739,
+      "status_at_last_check": "IN_PROGRESS",
+      "scope": "236 candidates / 13 provinces / 61 municipal code groups / eight industrial industry codes",
+      "output_prefix": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/output/runs/42466352739/",
+      "rule": "Limited pages and company samples must be labeled partial, never treated as a full city or county census."
+    }
+  ],
+  "pending_work": [
+    "Match full nationwide industrial public permits to county polygons and separately to actual inhabited residential subareas; verify truncated industry query coverage before interpreting absence.",
+    "Supplement local water source, plant outlet and tap-water data without confusing province/city summaries with county address supply.",
+    "Overlay 100-year riverine model exposure with inhabited location and officially mapped local flood defenses; 32 candidates with >10% modeled county footprint prioritize verification, not exclusion.",
+    "Obtain county-specific landslide/debris flow, contamination site/soil remediation and historical disaster zoning; do not make conclusions from province-level news.",
+    "Parallel supplement of 47 R1-only and 11 climate-pending units with stop rule if eventually reliably excluded in R4.",
+    "Resolve 9 provisional polygon mismatches for air/flood and other area data.",
+    "Issue final R4 hard-screen ledger only upon strong evidence. Keep previous D grade as non-exclusion."
+  ],
+  "formal_excluded_in_R4": 0,
+  "current_candidate_count": 236,
+  "no_auto_exclusion_from_area_model": true,
+  "original_funnel_result_preserved": true
+}
