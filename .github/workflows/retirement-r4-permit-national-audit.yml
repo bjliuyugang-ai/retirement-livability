@@ -18,6 +18,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Install geometry dependency for reproducing production scanner
+        run: python -m pip install --disable-pip-version-check shapely
       - name: Diagnose precise search and detail coordinate extraction
         run: |
           python -u research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/audit_industry_and_details.py
