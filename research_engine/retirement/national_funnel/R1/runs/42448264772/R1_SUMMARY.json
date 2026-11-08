@@ -1,0 +1,223 @@
+{
+  "schema": "RETIREMENT_NATIONAL_FUNNEL_R1_V1",
+  "run_id": "42448264772",
+  "status": "COMPLETED_WITH_PENDING",
+  "started_at_utc": "2026-11-08T04:48:44.150199+00:00",
+  "completed_at_utc": "2026-11-08T05:16:30.628664+00:00",
+  "input_count": 2847,
+  "geometry_exact_matches": 2838,
+  "geometry_pending": 9,
+  "sunshine_clear_fail_count": 759,
+  "sunshine_boundary_pending_count": 135,
+  "sunshine_other_pending_count": 61,
+  "altitude_confirmed_fail_count": 0,
+  "altitude_strong_fail_pending_count": 141,
+  "altitude_low_altitude_exception_count": 2697,
+  "confirmed_exclusion_count": 759,
+  "remaining_for_R2_count": 2088,
+  "pending_continue_count": 337,
+  "exclusion_rule": "First-pass county removal: population-weighted valid sunshine coverage >=90% and estimated annual sunshine maximum across valid positive-population cells <1725h; altitude exclusion only when all inhabited grid cells are confirmed >2000m. Strong altitude samples with unsampled local cells remain pending.",
+  "sunshine_minimum_population_coverage_for_hard_exclusion": 0.9,
+  "sunshine_source": {
+    "name": "ScienceDB V8 China 1km monthly mean sunshine percentage",
+    "period": "1991-2020",
+    "resolution": "1km",
+    "variable": "sunp monthly mean percentage of sunshine",
+    "conversion": "monthly sunp fraction × mean astronomical day length for that month × mean month days; summed over 12 months",
+    "sunp_scale": {
+      "sample_p99": 76.13999938964844,
+      "divisor": 100.0,
+      "mode": "percent_0_to_100"
+    },
+    "guard_band_hours": 75.0,
+    "archive": {
+      "archive": {
+        "status": "DOWNLOADED",
+        "http_status": 200,
+        "final_url": "https://china.scidb.cn/download?fileId=cc20e819b4c903a1dc200aeead645e7c",
+        "content_type": "application/octet-stream",
+        "content_length_header": "286802207",
+        "content_range_header": null,
+        "bytes": 286802207,
+        "sha256": "682984e41a4d46a0b89e7407ab8bfd592ef86484a95ffbd784f637473cfee4a0",
+        "attempts": 1,
+        "url": "https://china.scidb.cn/download?fileId=cc20e819b4c903a1dc200aeead645e7c"
+      },
+      "geotiff_member": "single GeoTIFF member",
+      "geotiff_bytes": 289738990,
+      "geotiff_sha256": "edff57a421fd4b4e650af0602f31e1509708e22bca75000a612f9c639f450add"
+    },
+    "license": "not independently confirmed on ScienceDB landing page; exploratory screening evidence"
+  },
+  "population_source": {
+    "name": "WorldPop 2024 Global2 R2024B unconstrained population count grid",
+    "release_status": "R2024B beta release",
+    "resolution": "1km",
+    "population_use": "candidate inhabited-cell locator only; not a building/address register",
+    "license": "CC BY 4.0; verify exact release terms before redistribution",
+    "download": {
+      "status": "DOWNLOADED",
+      "http_status": 200,
+      "final_url": "https://data.worldpop.org/GIS/Population/Global_2015_2030/R2024B/2024/0_Mosaicked/v1/1km/unconstrained/global_pop_2024_UC_1km_R2024B_v1.tif",
+      "content_type": "image/tiff",
+      "content_length_header": "868021365",
+      "content_range_header": null,
+      "bytes": 868021365,
+      "sha256": "e0ff729885f5449eb5bdd7347f9b337d99a8ee9bbbaadf2b3e679db8d8f53538",
+      "attempts": 1,
+      "url": "https://data.worldpop.org/GIS/Population/Global_2015_2030/R2024B/2024/0_Mosaicked/v1/1km/unconstrained/global_pop_2024_UC_1km_R2024B_v1.tif"
+    },
+    "grid": {
+      "source_url": "https://data.worldpop.org/GIS/Population/Global_2015_2030/R2024B/2024/0_Mosaicked/v1/1km/unconstrained/global_pop_2024_UC_1km_R2024B_v1.tif",
+      "source_crs": "EPSG:4326",
+      "source_width": 43200,
+      "source_height": 17280,
+      "source_transform": [
+        0.0083333333,
+        0.0,
+        -180.0,
+        0.0,
+        -0.0083333333,
+        84.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "target_crs": "EPSG:4326",
+      "target_width": 6165,
+      "target_height": 3538,
+      "target_transform": [
+        0.009999999999999998,
+        0.0,
+        73.433,
+        0.0,
+        -0.010000000000000002,
+        53.548,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "resampling": "average_to_sunp_1km_grid",
+      "positive_target_cells": 17775310,
+      "target_population_grid_sum_relative": 2057257088.0
+    }
+  },
+  "elevation_source": {
+    "name": "Copernicus DEM GLO-90 via Open-Meteo Elevation API",
+    "resolution": "90m",
+    "method": "main population cell first; only if >2,000m query up to 9 additional spatially dispersed populated cells to test lower-altitude exceptions",
+    "api_batch_size": 100,
+    "query_batches": [
+      {
+        "phase": "MAIN_POPULATED_CELL",
+        "points_submitted": 2838,
+        "points_completed": 2838,
+        "failed_batches": 0
+      },
+      {
+        "phase": "HIGH_ALTITUDE_EXCEPTION_CHECK",
+        "points_submitted": 1629,
+        "points_completed": 1629,
+        "failed_batches": 0
+      }
+    ],
+    "attribution": "Copernicus DEM and Open-Meteo"
+  },
+  "geometry_source": {
+    "url": "https://raw.githubusercontent.com/zzhonglei/GeoCode-Release/main/contributions/china-admin-boundaries/skill/data/china_county.geojson",
+    "sha256": "22db6c54b9cb0118ecdcc8a117bf2da4fc24a2229cdba7e6e55dbb5dd56e8246",
+    "feature_count": 2891,
+    "coded_feature_count": 2891,
+    "vintage": "third-party coded GeoJSON; vintage/datum not independently certified",
+    "exact_code_name_matches": 2838,
+    "status": "PROVISIONAL_GEOMETRY",
+    "download": {
+      "status": "DOWNLOADED",
+      "http_status": 200,
+      "final_url": "https://raw.githubusercontent.com/zzhonglei/GeoCode-Release/main/contributions/china-admin-boundaries/skill/data/china_county.geojson",
+      "content_type": "text/plain; charset=utf-8",
+      "content_length_header": "11856930",
+      "content_range_header": null,
+      "bytes": 11856930,
+      "sha256": "22db6c54b9cb0118ecdcc8a117bf2da4fc24a2229cdba7e6e55dbb5dd56e8246",
+      "attempts": 1,
+      "url": "https://raw.githubusercontent.com/zzhonglei/GeoCode-Release/main/contributions/china-admin-boundaries/skill/data/china_county.geojson"
+    },
+    "missing_or_name_mismatch": 9
+  },
+  "raster": {
+    "sunp_crs": "EPSG:4326",
+    "sunp_width": 6165,
+    "sunp_height": 3538,
+    "sunp_bands": 12,
+    "sunp_dtype": [
+      "float32",
+      "float32",
+      "float32",
+      "float32",
+      "float32",
+      "float32",
+      "float32",
+      "float32",
+      "float32",
+      "float32",
+      "float32",
+      "float32"
+    ],
+    "sunp_nodata": -3.4028234663852886e+38,
+    "sunp_bounds": [
+      73.433,
+      18.167999999999992,
+      135.083,
+      53.548
+    ],
+    "sunp_transform": [
+      0.009999999999999998,
+      0.0,
+      73.433,
+      0.0,
+      -0.010000000000000002,
+      53.548,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "sunp_tags": {
+      "AREA_OR_POINT": "Area"
+    },
+    "sunp_band1_tags": {
+      "STATISTICS_MAXIMUM": "85.139999389648",
+      "STATISTICS_MEAN": "-9999",
+      "STATISTICS_MINIMUM": "7.6999998092651",
+      "STATISTICS_STDDEV": "-9999"
+    }
+  },
+  "outputs": {
+    "all": "R1_ALL_2847.csv",
+    "remaining": "R1_REMAINING.csv",
+    "excluded": "R1_EXCLUDED.csv",
+    "pending": "R1_PENDING.csv",
+    "altitude_samples": "R1_ALTITUDE_SAMPLE_POINTS.csv"
+  },
+  "limitations": [
+    "This is a first-pass nationwide funnel, not final city-level certification.",
+    "The 2,847 roster and third-party county geometry remain provisional; 9 roster units have no exact code/name geometry match and are pending.",
+    "WorldPop R2024B unconstrained population is a modelled population surface, not a building or address register; it identifies candidate inhabited cells and does not prove that a particular cell is an actual retirement residential site.",
+    "Sunshine hours are derived from monthly mean sunshine percentage and astronomical day length, not directly summed from daily sunshine observations; the 75-hour guard band prevents borderline hard exclusions.",
+    "Altitude samples are selected from populated 1km grid cells; counties with more than 10 inhabited cells and all 10 samples above 2,000m remain pending for local low-altitude exception checks.",
+    "A county is an indexing unit, not a claim that its entire territory is one residential area. Separate valleys, basins, and populated settlements must remain independently evaluable."
+  ],
+  "result_role": "PROVISIONAL_FIRST_PASS_READY_FOR_R2",
+  "data_quality_policy": {
+    "standard": "FIT_FOR_PURPOSE_BASIC_VALIDITY",
+    "sunshine_population_coverage_minimum_for_hard_exclusion": 0.9,
+    "missing_data": "Use available valid data; below 90% coverage is pending and does not block other units.",
+    "quality_tiers": [
+      "HIGH",
+      "MEDIUM",
+      "LOW"
+    ],
+    "use": "Low-confidence data may support provisional comparison but is not the sole basis for hard exclusion."
+  },
+  "population_method_caveat": "WorldPop R2024B unconstrained 1km is a practical inhabited-cell proxy, not a building/address register. Use this as a national first-pass screen; refine settlement locations only for shortlisted areas."
+}

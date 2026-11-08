@@ -1,0 +1,11 @@
+{
+  "schema": "RETIREMENT_R1_LATEST_RUN_POINTER_V1",
+  "latest_run_id": "42448264772",
+  "status": "COMPLETED_WITH_PENDING",
+  "input_count": 2847,
+  "excluded_count": 759,
+  "remaining_count": 2088,
+  "pending_count": 337,
+  "run_directory": "research_engine/retirement/national_funnel/R1/runs/42448264772",
+  "next_round_input": "research_engine/retirement/national_funnel/R1/runs/42448264772/R1_REMAINING.csv"
+}

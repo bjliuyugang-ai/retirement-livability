@@ -1,0 +1,46 @@
+{
+  "schema": "RETIREMENT_NATIONAL_FUNNEL_RECALCULATION_STATUS_V1",
+  "status": "COMPLETED",
+  "active_run_id": "42448264772",
+  "previous_preliminary_run_id": "42445226808",
+  "previous_preliminary_exclusion_count": 762,
+  "previous_preliminary_remaining_count": 2085,
+  "previous_preliminary_archive": "R1_PRELIMINARY_SUPERSEDED_42445226808.json",
+  "do_not_use_previous_R1_remaining_or_excluded_csv": true,
+  "reasons": [
+    "Use fit-for-purpose data rather than requiring academic-grade completeness.",
+    "WorldPop R2024B unconstrained population grid is a practical candidate-inhabited-cell locator, with its beta/modelled-surface limitation disclosed.",
+    "ScienceDB V8 monthly sunshine percentage is converted to estimated annual sunshine hours and used for first-pass screening, not as a precise site-level measurement.",
+    "A 90% population-weighted sunshine coverage threshold is sufficient for this first-pass national screen; 99% is unnecessarily demanding.",
+    "The previous run's altitude exception decision order incorrectly marked low-altitude inhabited samples as incomplete when additional candidate points were intentionally not queried."
+  ],
+  "corrected_rules": {
+    "population_grid": "WorldPop 2024 R2024B unconstrained 1km",
+    "sunshine_hard_exclusion": "population-weighted sunshine coverage >=90%; maximum estimated annual sunshine among every valid positive-population cell <1725 hours",
+    "altitude_exception": "any observed inhabited sample <=2000m retains the unit",
+    "altitude_strong_fail": "all 10 samples >2000m with unsampled inhabited cells remains pending"
+  },
+  "updated_at_utc": "2026-11-08T05:16:30.628664+00:00",
+  "current_run_role": "FIRST_PASS_PROVISIONAL",
+  "formal_result_status": "PROVISIONAL_FIRST_PASS_READY_FOR_R2",
+  "population_methodology_caveat": [
+    "WorldPop R2024B unconstrained is not a direct upgrade to R2025A constrained; the two are different releases/models and their population totals are not directly comparable.",
+    "WorldPop unconstrained can allocate nonzero population to all land cells, including areas that may not be residential.",
+    "The active run is retained as a rural-omission sensitivity test, not as the final residential-cell mask."
+  ],
+  "formal_primary_method": "WorldPop R2025A constrained settlement cells, supplemented by independently supported rural-settlement exceptions",
+  "rural_exception_rule": "An unconstrained-only cell is not accepted as residential solely because its population estimate is positive; it needs independent settlement/building evidence or a strong population threshold and spatial context. Otherwise mark the county/local area pending.",
+  "data_quality_policy": {
+    "standard": "FIT_FOR_PURPOSE_BASIC_VALIDITY",
+    "sunshine_population_coverage_minimum_for_hard_exclusion": 0.9,
+    "rationale": "A 90% population-weighted valid-data coverage is adequate for this national first-pass screen; do not require near-perfect 99% coverage. Below 90% remains pending rather than blocking the entire national run.",
+    "missing_data": "Use available valid data; mark local gaps pending and continue other units.",
+    "quality_tiers": [
+      "HIGH",
+      "MEDIUM",
+      "LOW"
+    ],
+    "use": "LOW confidence may be used for provisional comparison but not as sole basis for hard exclusion."
+  },
+  "run_output_directory": "research_engine/retirement/national_funnel/R1/runs/42448264772"
+}
