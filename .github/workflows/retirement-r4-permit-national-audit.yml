@@ -1,0 +1,39 @@
+name: Retirement R4 national permit source audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/AUDIT_REQUEST.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit-public-permit-national:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Diagnose precise search and detail coordinate extraction
+        run: python -u research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/audit_industry_and_details.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: retirement-r4-national-permit-audit-${{ github.run_id }}
+          path: research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/output/AUDIT_INDUSTRIAL_SCAN_42466352739.json
+          retention-days: 30
+      - name: Persist national source diagnosis
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          out=research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/output
+          mkdir -p "$out/audits/${{ github.run_id }}"
+          cp "$out/AUDIT_INDUSTRIAL_SCAN_42466352739.json" "$out/audits/${{ github.run_id }}/"
+          git add "$out/audits/${{ github.run_id }}"
+          git commit -m "Record permit source diagnostic from national 236 batch"
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
