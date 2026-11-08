@@ -1,0 +1,105 @@
+{
+  "schema": "RETIREMENT_R4_236_MULTI_SOURCE_MASTER_V3",
+  "created_date": "2026-11-08",
+  "county_candidates": 236,
+  "source_files": {
+    "base": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/output/R4_236_ALL_CANDIDATE_EVIDENCE_MATRIX_V2.csv",
+    "pm": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/audit/R4_PM25_GB3095_2026_REFERENCE_CORRECTION_236.csv",
+    "flood": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/FLOOD_236/output/runs/42466707216/NATIONAL_236_FLOOD_RP100_CANDIDATE_SCREEN.csv"
+  },
+  "air_CHAP_computed": 227,
+  "flood_area_model_computed": 227,
+  "flood_area_model_pending_geometry": 9,
+  "flood_area_model_fraction_ge_0_1": 32,
+  "flood_area_model_fraction_ge_0_2": 4,
+  "flood_top_proxies": [
+    {
+      "code": "440403",
+      "name": "斗门区",
+      "area_fraction": 0.5789473684210527
+    },
+    {
+      "code": "440783",
+      "name": "开平市",
+      "area_fraction": 0.2072072072072072
+    },
+    {
+      "code": "441625",
+      "name": "东源县",
+      "area_fraction": 0.20625142596395163
+    },
+    {
+      "code": "532901",
+      "name": "大理市",
+      "area_fraction": 0.2059436913451512
+    },
+    {
+      "code": "441402",
+      "name": "梅江区",
+      "area_fraction": 0.19516129032258064
+    },
+    {
+      "code": "533102",
+      "name": "瑞丽市",
+      "area_fraction": 0.18349514563106797
+    },
+    {
+      "code": "441322",
+      "name": "博罗县",
+      "area_fraction": 0.1686046511627907
+    },
+    {
+      "code": "530403",
+      "name": "江川区",
+      "area_fraction": 0.15729047072330654
+    },
+    {
+      "code": "441422",
+      "name": "大埔县",
+      "area_fraction": 0.15332834704562454
+    },
+    {
+      "code": "510402",
+      "name": "东区",
+      "area_fraction": 0.15135135135135136
+    },
+    {
+      "code": "360222",
+      "name": "浮梁县",
+      "area_fraction": 0.13609831029185868
+    },
+    {
+      "code": "530127",
+      "name": "嵩明县",
+      "area_fraction": 0.13166485310119697
+    },
+    {
+      "code": "441427",
+      "name": "蕉岭县",
+      "area_fraction": 0.12927756653992395
+    },
+    {
+      "code": "513401",
+      "name": "西昌市",
+      "area_fraction": 0.12870956985661888
+    },
+    {
+      "code": "530112",
+      "name": "西山区",
+      "area_fraction": 0.12512820512820513
+    }
+  ],
+  "PM25_current_standard_proxy_count_gt_30": 0,
+  "PM25_future_standard_proxy_count_gt_25": 4,
+  "pilot_industrial_sample_matched_candidate_units": 4,
+  "all_236_kept": true,
+  "formal_exclusions": 0,
+  "notes": [
+    "Master V3 adds a national riverine flood area screen and correct GB3095-2026 PM2.5 proxy fields to V2.",
+    "No candidate is excluded by pollution model, flood model, or presence/absence of a five-firm industrial sample.",
+    "The concurrent nationwide industrial-permit batch has its own independent output and has not yet been merged.",
+    "All 58 previously pending climate/altitude/sunshine candidates remain in this master.",
+    "Flooding cell fraction is area proxy only; WorldPop population exposure was unavailable in the flood batch and is pending.",
+    "GB 3095 model proxy is not an official station-based regulatory annual/successive-year assessment."
+  ]
+}
