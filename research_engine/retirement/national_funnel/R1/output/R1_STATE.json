@@ -1,21 +1,12 @@
 {
   "schema": "RETIREMENT_NATIONAL_FUNNEL_STATE_V1",
   "current_round": "R1",
-  "current_round_status": "RECALCULATION_IN_PROGRESS",
+  "current_round_status": "COMPLETED_WITH_PENDING",
   "input_count": 2847,
-  "formal_excluded_count": 0,
-  "formal_remaining_count": null,
-  "previous_preliminary_run_id": "42445226808",
-  "previous_preliminary_exclusion_count": 762,
-  "previous_preliminary_remaining_count": 2085,
-  "previous_preliminary_status": "SUPERSEDED_NOT_FOR_R2",
-  "active_run_id": "42446830115",
-  "next_round_input": null,
-  "reason": [
-    "The first run used WorldPop R2025A constrained population cells, which can omit rural and low-density residential areas.",
-    "The first run's altitude status logic incorrectly marked a county pending when one queried inhabited cell was already at or below 2,000m but other candidate sample points were intentionally not queried.",
-    "The first run's sunshine maximum did not yet use every positive-population cell and its coverage threshold was less conservative."
-  ],
-  "use_guard": "Do not use R1_REMAINING.csv or R1_EXCLUDED.csv from the preliminary run as the input to R2. Wait for the active recalculation to complete.",
-  "updated_at_utc": "2026-11-08T04:27:30Z"
+  "remaining_count": 2085,
+  "excluded_count": 762,
+  "pending_continue_count": 2047,
+  "next_round_input": "R1_REMAINING.csv",
+  "updated_at_utc": "2026-11-08T04:20:44.734287+00:00",
+  "run_id": "42445226808"
 }

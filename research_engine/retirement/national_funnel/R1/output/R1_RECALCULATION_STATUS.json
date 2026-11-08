@@ -1,0 +1,23 @@
+{
+  "schema": "RETIREMENT_NATIONAL_FUNNEL_RECALCULATION_STATUS_V1",
+  "status": "RECALCULATION_IN_PROGRESS",
+  "active_run_id": "42446830115",
+  "previous_preliminary_run_id": "42445226808",
+  "previous_preliminary_exclusion_count": 762,
+  "previous_preliminary_remaining_count": 2085,
+  "previous_preliminary_archive": "R1_PRELIMINARY_SUPERSEDED_42445226808.json",
+  "do_not_use_previous_R1_remaining_or_excluded_csv": true,
+  "reasons": [
+    "Previous run used WorldPop R2025A constrained population, which can omit rural and low-density residential cells.",
+    "Previous run used only the >=10-population-cell sunshine maximum rather than every positive-population cell.",
+    "Previous run used a 90% sunshine population coverage threshold rather than the corrected 99% threshold.",
+    "Previous run's altitude exception decision order incorrectly marked low-altitude inhabited samples as incomplete when additional candidate points were intentionally not queried."
+  ],
+  "corrected_rules": {
+    "population_grid": "WorldPop 2024 R2024B unconstrained 1km",
+    "sunshine_hard_exclusion": "population-weighted sunshine coverage >=99%; maximum estimated annual sunshine among every positive-population cell <1725 hours",
+    "altitude_exception": "any observed inhabited sample <=2000m retains the unit",
+    "altitude_strong_fail": "all 10 samples >2000m with unsampled inhabited cells remains pending"
+  },
+  "updated_at_utc": "2026-11-08T04:40:00Z"
+}
