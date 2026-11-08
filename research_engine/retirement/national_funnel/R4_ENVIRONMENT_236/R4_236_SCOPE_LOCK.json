@@ -1,6 +1,5 @@
 {
   "schema": "RETIREMENT_R4_236_SCOPE_LOCK_V1",
-  "locked_at_utc": "2026-11-08T00:00:00Z",
   "source_final_merge_run_id": "42453646573",
   "input_count": 236,
   "membership_csv": "research_engine/retirement/national_funnel/FINAL_FILTER/runs/42453646573/FINAL_CARRY_FORWARD_AFTER_R1_R2_R3.csv",
@@ -13,7 +12,6 @@
   "fourth_round_scope": "ALL_236_ONLY",
   "parallel_work_rule": "47 R1-only pending and 11 R2/R3 climate-data pending continue into R4 in parallel with their own evidence supplementation; do not block R4 on these supplements. If a candidate is later reliably excluded by R4, stop unnecessary earlier supplementation. If it passes R4, resume or complete earlier supplementation. Missingness never equals failure.",
   "no_exclusion_from_pending_status": true,
-  "formal_exclusions_authorized_by_scope_lock": 0,
   "formal_grade_changes_authorized_by_scope_lock": 0,
   "workstreams": [
     "R4.1 1km gridded long-term PM2.5 and ground-level ozone using inhabited-population weighting",
@@ -22,5 +20,7 @@
     "R4.4 flood, landslide, debris-flow, seismic and other major natural hazard exposure at actual inhabited subareas"
   ],
   "screening_principle": "Only reliable evidence of severe, long-term and practically unavoidable exposure can support hard exclusion. City/province averages, raw source water, single-quarter tap samples, modelled grids and county-level flags are contextual evidence and cannot independently establish residential exposure or hard exclusion.",
-  "status": "R4_SCOPE_LOCKED_AWAITING_BATCH_EXECUTION"
+  "status": "R4_SCOPE_LOCKED_AWAITING_BATCH_EXECUTION",
+  "locked_date": "2026-11-08",
+  "formal_exclusions_from_pending_status": 0
 }
