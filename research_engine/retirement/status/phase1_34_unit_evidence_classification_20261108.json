@@ -1,0 +1,57 @@
+{
+  "schema": "RET_PHASE1_FORMAL_34_UNIT_EVIDENCE_CLASSIFICATION_V1",
+  "created_at_utc": "2026-11-08",
+  "authoritative_scope": {
+    "core20": 20,
+    "expansion14": 14,
+    "formal_units": 34,
+    "representative_sample_units": 29
+  },
+  "exact_mapping_policy": "Only same named residential unit or same clearly delimited district/basin can inherit sample evidence; same city/province is reference only, not automatic match.",
+  "current_status_counts": {
+    "待核｜温度一次补证": 4,
+    "优先保留｜样点四项通过": 1,
+    "条件保留｜统计期/来源待统一": 1,
+    "待核｜夏季重点复核": 1,
+    "待核｜不得套用主城区样点信号": 1,
+    "待核｜无直接硬线证据": 2,
+    "条件保留｜统计期偏旧": 1,
+    "待核｜市域气候不能替代城区站点": 1,
+    "待核｜缺统一硬线数据": 1,
+    "条件保留｜来源回溯": 1,
+    "待核｜高温日数/日照冲突": 1,
+    "样点硬线信号｜待原始站值复核": 1,
+    "待核｜旧D档不是新规则退出": 1,
+    "待核｜已有部分气候信息": 1,
+    "冬15.2℃、夏29.8℃；日照缺失": 1,
+    "优先保留｜证据较强": 1,
+    "待核｜暂留": 5,
+    "待核｜冬季优先": 3,
+    "预排除｜待原始气象数据复核": 1,
+    "预排除｜待官方原始站值复核": 1,
+    "预排除｜待统一基期复核": 1,
+    "待核｜短历史冬季信号": 2,
+    "待核｜强冬季信号": 1
+  },
+  "formal_residential_exclusions": 0,
+  "preexclusions_pending": [
+    "霞浦县城近海片区",
+    "勉县县城",
+    "利川城区"
+  ],
+  "priority_keep_units": [
+    "蒙自坝区／城市成熟社区",
+    "五指山市通什城区及成熟居住片区"
+  ],
+  "sample_only_keep_units_not_added_to_formal_roster": [
+    "昆明主城区",
+    "西昌城区"
+  ],
+  "important_nontransfer_rules": [
+    "百色城区站点信号不得外推到百色·靖西。",
+    "攀枝花主城区/低海拔河谷样点不得自动外推到攀枝花东区/仁和区或米易。",
+    "29个代表性气候样点不是34个正式候选名单。"
+  ],
+  "old_grade_rule": "旧版A/B/C/D仅保留历史参考；旧D档不自动退出，必须按新硬线证据流转。",
+  "next_action": "进入34个正式评价单元的环境健康、住宅微环境和居住质量参数轮次；硬线缺失继续待核，不阻塞整批。"
+}
