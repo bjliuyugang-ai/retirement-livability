@@ -20,8 +20,8 @@ UA = "Mozilla/5.0 (compatible; RetirementR4PublicEvidenceResearch/1.0; +https://
 class PageParser(HTMLParser):
     def __init__(self):
         super().__init__()
-        self.forms=[]; self.inputs=[]; self.selects=[]; self.scripts=[]; self.links=[]; self.buttons=[]
-        self._form=None; self._select=None; self._script=None
+        self.forms=[]; self.inputs=[]; self.selects=[]; self.scripts=[]; self.links=[]; self.buttons=[]; self.inline_scripts=[]
+        self._form=None; self._select=None; self._script=None; self._inline=[]
     def handle_starttag(self, tag, attrs):
         a=dict(attrs)
         if tag=="form":
@@ -39,6 +39,7 @@ class PageParser(HTMLParser):
         elif tag=="script":
             if a.get("src"):self.scripts.append(a["src"])
             self._script=a.get("src") is None
+            if self._script:self._inline=[]
         elif tag=="a":
             self.links.append({"href":a.get("href"),"text":""})
         elif tag in ("button","input") and (a.get("onclick") or a.get("type")=="submit"):
@@ -47,8 +48,11 @@ class PageParser(HTMLParser):
     def handle_endtag(self, tag):
         if tag=="form":self._form=None
         if tag=="select":self._select=None
-        if tag=="script":self._script=None
+        if tag=="script":
+            if self._script is not None and self._script:self.inline_scripts.append("".join(self._inline))
+            self._script=None; self._inline=[]
     def handle_data(self,data):
+        if self._script is True:self._inline.append(data)
         if self._select is not None and self._select["options"]:
             self._select["options"][-1]["text"]+=data.strip()
         if self.links and data.strip():
@@ -85,7 +89,7 @@ def main():
             page_out={k:v for k,v in page.items() if k!="body"}
             page_out.update({"title":re.findall(r"<title[^>]*>(.*?)</title>",page["body"],re.I|re.S)[:1],
                 "forms":parser.forms,"inputs":parser.inputs,"selects":parser.selects,
-                "script_srcs":parser.scripts,"links":[x for x in parser.links if x["href"] and any(t in x["href"].lower() for t in ("license","information","query","search","detail","getinformation"))],
+                "script_srcs":parser.scripts,"inline_script_snippets":[{"length":len(x),"snippets":snippets(x,["function getProvinces","function getCity","function query","function getHy","ajax","url:","province","city","registerentername"],radius=600,limit=40)} for x in parser.inline_scripts if len(x)>100],"links":[x for x in parser.links if x["href"] and any(t in x["href"].lower() for t in ("license","information","query","search","detail","getinformation"))],
                 "html_query_snippets":snippets(page["body"],["licenseInformation","getInformation","pageNo","currentPage","provinceCode","cityCode","unitName","industry","ajax","search"],limit=35)})
             result["pages"].append(page_out)
             all_scripts.extend(urljoin(page["final_url"],s) for s in parser.scripts)
