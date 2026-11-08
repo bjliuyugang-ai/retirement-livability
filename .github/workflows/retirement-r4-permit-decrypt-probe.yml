@@ -1,0 +1,39 @@
+name: Retirement R4 permit detail payload decrypt
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/DECRYPT_REQUEST.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  decrypt-public-detail-payloads:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install AES library
+        run: python -m pip install pycryptodome
+      - name: Decrypt read-only public detail payloads
+        run: python -u research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/decrypt_permit_detail_payloads.py
+      - name: Upload decoded output
+        uses: actions/upload-artifact@v4
+        with:
+          name: retirement-r4-permit-decrypted-payloads-${{ github.run_id }}
+          path: research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/permit_detail_decrypted_payloads.json
+          retention-days: 30
+      - name: Persist decoded output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          out=research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output
+          cp "$out/permit_detail_decrypted_payloads.json" "$out/permit_detail_decrypted_payloads_${{ github.run_id }}.json"
+          git add "$out/permit_detail_decrypted_payloads_${{ github.run_id }}.json"
+          git commit -m "Record decoded public permit detail payloads"
+          git push origin HEAD:main
