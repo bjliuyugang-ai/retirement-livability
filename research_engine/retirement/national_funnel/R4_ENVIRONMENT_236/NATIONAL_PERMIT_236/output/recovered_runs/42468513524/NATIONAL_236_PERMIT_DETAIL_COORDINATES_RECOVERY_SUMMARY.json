@@ -1,0 +1,95 @@
+{
+  "schema": "R4_NATIONAL_236_OFFICIAL_PERMIT_DETAIL_COORDINATES_RECOVERY_V1",
+  "created_at_utc": "2026-11-08T09:51:15.832176+00:00",
+  "candidate_count": 236,
+  "source_run_id": 42467472886,
+  "source_detail_pages": 70,
+  "sequential_detail_page_requests": 70,
+  "details_with_coords": 70,
+  "details_without_coords": 0,
+  "candidate_count_with_a_sampled_actual_facility": 8,
+  "facility_sample_points_matching_236_counties": 24,
+  "candidate_matches": [
+    {
+      "code": "330225",
+      "name": "象山县",
+      "companies": [
+        "浙江明靖再生资源有限公司"
+      ]
+    },
+    {
+      "code": "330226",
+      "name": "宁海县",
+      "companies": [
+        "光大环保能源（宁海）有限公司（应急填埋）",
+        "浙江浙能催化剂技术有限公司",
+        "宁波庚德行环境技术有限公司",
+        "宁海县馨源泰固废处置有限公司",
+        "宁海馨源泰环保科技有限公司",
+        "宁海虎鼎环保科技有限公司"
+      ]
+    },
+    {
+      "code": "331022",
+      "name": "三门县",
+      "companies": [
+        "台州市正通再生资源回收有限公司",
+        "三门鹏昱环保科技有限公司",
+        "台州海螺环保科技有限责任公司"
+      ]
+    },
+    {
+      "code": "331081",
+      "name": "温岭市",
+      "companies": [
+        "台州泓岛环保科技有限公司",
+        "台州市冠宁医疗废物处置有限公司",
+        "台州曙城京兰环境科技有限公司"
+      ]
+    },
+    {
+      "code": "331082",
+      "name": "临海市",
+      "companies": [
+        "临海市利民化工有限公司",
+        "浙江联盛化学股份有限公司",
+        "浙江台州市联创环保科技股份有限公司",
+        "台州禾和医疗废物处置有限公司"
+      ]
+    },
+    {
+      "code": "350123",
+      "name": "罗源县",
+      "companies": [
+        "福建省灿兴铂业有限公司"
+      ]
+    },
+    {
+      "code": "350181",
+      "name": "福清市",
+      "companies": [
+        "福建志坤能源科技开发有限公司",
+        "福建钰融科技有限公司",
+        "福清祥宏安再生资源回收有限公司",
+        "福州东德环保科技有限公司"
+      ]
+    },
+    {
+      "code": "350211",
+      "name": "集美区",
+      "companies": [
+        "绿滔（厦门）环境科技有限公司",
+        "厦门顺再顺环保科技有限公司"
+      ]
+    }
+  ],
+  "failures": [],
+  "formal_exclusions": 0,
+  "candidate_count_remaining": 236,
+  "guards": [
+    "70 permitted facilities only; not all facilities in 236 counties.",
+    "Exact county polygon match is provisional. Residential proximity, actual emissions, wind direction and groundwater travel unverified.",
+    "No candidate with 0 sample matched is proven free of industrial sources.",
+    "Pollutants on permit are licensed pollutant species, not actual emissions or violations."
+  ]
+}
