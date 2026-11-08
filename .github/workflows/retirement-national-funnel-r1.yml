@@ -26,13 +26,15 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: pip
 
       - name: Reuse public raster inputs across R1 retries
         uses: actions/cache@v4
         with:
           path: research_engine/retirement/national_funnel/R1/cache
           key: retirement-national-funnel-r1-inputs-v1-${{ runner.os }}
+
+      - name: Prepare output directory
+        run: mkdir -p research_engine/retirement/national_funnel/R1/output
 
       - name: Install raster processing dependencies
         run: |
@@ -56,6 +58,7 @@ jobs:
       - name: Commit R1 results and state to repository
         if: always()
         run: |
+          mkdir -p research_engine/retirement/national_funnel/R1/output
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A research_engine/retirement/national_funnel/R1/output
