@@ -1,0 +1,1863 @@
+{
+  "schema": "MEE_PERMIT_PUBLIC_PORTAL_DISCOVERY_V1",
+  "created_at_utc": "2026-11-08T08:32:30.074546+00:00",
+  "scope": "READ_ONLY_PUBLIC_INTERFACE_DISCOVERY_ONLY",
+  "credentials_used": false,
+  "pages": [
+    {
+      "url": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!licenseInformation.action",
+      "final_url": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!licenseInformation.action",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 30082,
+      "title": [
+        "许可信息公开"
+      ],
+      "forms": [
+        {
+          "attrs": {
+            "id": "mainForm",
+            "method": "post",
+            "action": "/perxxgkinfo/syssb/xkgg/xkgg!licenseInformation.action"
+          },
+          "inputs": [
+            {
+              "type": "hidden",
+              "name": "page.pageNo",
+              "id": "pageNo",
+              "value": "1",
+              "placeholder": null,
+              "onclick": null,
+              "onchange": null
+            },
+            {
+              "type": "hidden",
+              "name": "page.orderBy",
+              "id": "orderBy",
+              "value": "",
+              "placeholder": null,
+              "onclick": null,
+              "onchange": null
+            },
+            {
+              "type": "hidden",
+              "name": "page.order",
+              "id": "order",
+              "value": "",
+              "placeholder": null,
+              "onclick": null,
+              "onchange": null
+            },
+            {
+              "type": "hidden",
+              "name": "tempReportKey",
+              "id": null,
+              "value": "eef05971f3f940d9b1eb2824e8667a6e",
+              "placeholder": null,
+              "onclick": null,
+              "onchange": null
+            },
+            {
+              "type": "text",
+              "name": "registerentername",
+              "id": "registerentername",
+              "value": "",
+              "placeholder": null,
+              "onclick": null,
+              "onchange": null
+            },
+            {
+              "type": "text",
+              "name": "xkznum",
+              "id": "xkznum",
+              "value": "",
+              "placeholder": null,
+              "onclick": null,
+              "onchange": null
+            },
+            {
+              "type": "text",
+              "name": "treadname",
+              "id": "treadname",
+              "value": "",
+              "placeholder": null,
+              "onclick": "getHy('more')",
+              "onchange": null
+            },
+            {
+              "type": "hidden",
+              "name": "treadcode",
+              "id": "treadcode",
+              "value": "",
+              "placeholder": null,
+              "onclick": null,
+              "onchange": null
+            },
+            {
+              "type": "text",
+              "name": "publishtime",
+              "id": "publishtime",
+              "value": "",
+              "placeholder": null,
+              "onclick": "WdatePicker()",
+              "onchange": null
+            },
+            {
+              "type": "button",
+              "name": "",
+              "id": null,
+              "value": null,
+              "placeholder": null,
+              "onclick": "query()",
+              "onchange": null
+            }
+          ],
+          "selects": [
+            {
+              "name": "province",
+              "id": "province",
+              "options": [
+                {
+                  "value": "",
+                  "text": "==请选择省份=="
+                }
+              ]
+            },
+            {
+              "name": "city",
+              "id": "city",
+              "options": [
+                {
+                  "value": "",
+                  "text": "==请选择城市=="
+                }
+              ]
+            },
+            {
+              "name": "management",
+              "id": "management",
+              "options": [
+                {
+                  "value": "",
+                  "text": "==请选择管理类别=="
+                },
+                {
+                  "value": "1",
+                  "text": "重点管理"
+                },
+                {
+                  "value": "0",
+                  "text": "简化管理"
+                }
+              ]
+            }
+          ],
+          "buttons": []
+        }
+      ],
+      "inputs": [
+        {
+          "type": "hidden",
+          "name": "page.pageNo",
+          "id": "pageNo",
+          "value": "1",
+          "placeholder": null,
+          "onclick": null,
+          "onchange": null
+        },
+        {
+          "type": "hidden",
+          "name": "page.orderBy",
+          "id": "orderBy",
+          "value": "",
+          "placeholder": null,
+          "onclick": null,
+          "onchange": null
+        },
+        {
+          "type": "hidden",
+          "name": "page.order",
+          "id": "order",
+          "value": "",
+          "placeholder": null,
+          "onclick": null,
+          "onchange": null
+        },
+        {
+          "type": "hidden",
+          "name": "tempReportKey",
+          "id": null,
+          "value": "eef05971f3f940d9b1eb2824e8667a6e",
+          "placeholder": null,
+          "onclick": null,
+          "onchange": null
+        },
+        {
+          "type": "text",
+          "name": "registerentername",
+          "id": "registerentername",
+          "value": "",
+          "placeholder": null,
+          "onclick": null,
+          "onchange": null
+        },
+        {
+          "type": "text",
+          "name": "xkznum",
+          "id": "xkznum",
+          "value": "",
+          "placeholder": null,
+          "onclick": null,
+          "onchange": null
+        },
+        {
+          "type": "text",
+          "name": "treadname",
+          "id": "treadname",
+          "value": "",
+          "placeholder": null,
+          "onclick": "getHy('more')",
+          "onchange": null
+        },
+        {
+          "type": "hidden",
+          "name": "treadcode",
+          "id": "treadcode",
+          "value": "",
+          "placeholder": null,
+          "onclick": null,
+          "onchange": null
+        },
+        {
+          "type": "text",
+          "name": "publishtime",
+          "id": "publishtime",
+          "value": "",
+          "placeholder": null,
+          "onclick": "WdatePicker()",
+          "onchange": null
+        },
+        {
+          "type": "button",
+          "name": "",
+          "id": null,
+          "value": null,
+          "placeholder": null,
+          "onclick": "query()",
+          "onchange": null
+        },
+        {
+          "type": "text",
+          "name": "inPageNo",
+          "id": "inPageNo",
+          "value": "1",
+          "placeholder": null,
+          "onclick": null,
+          "onchange": null
+        },
+        {
+          "type": "submit",
+          "name": "pageNo_",
+          "id": "pageNo_",
+          "value": "跳转",
+          "placeholder": null,
+          "onclick": "javascript:gojumpPage()",
+          "onchange": null
+        }
+      ],
+      "selects": [
+        {
+          "name": "province",
+          "id": "province",
+          "options": [
+            {
+              "value": "",
+              "text": "==请选择省份=="
+            }
+          ]
+        },
+        {
+          "name": "city",
+          "id": "city",
+          "options": [
+            {
+              "value": "",
+              "text": "==请选择城市=="
+            }
+          ]
+        },
+        {
+          "name": "management",
+          "id": "management",
+          "options": [
+            {
+              "value": "",
+              "text": "==请选择管理类别=="
+            },
+            {
+              "value": "1",
+              "text": "重点管理"
+            },
+            {
+              "value": "0",
+              "text": "简化管理"
+            }
+          ]
+        }
+      ],
+      "script_srcs": [
+        "/perxxgkinfo/thscommon/javascript/baiduStatistics.js",
+        "/perxxgkinfo/thscommon/javascript/jquery.min.js",
+        "/perxxgkinfo/thscommon/javascript/json2.js",
+        "/perxxgkinfo/thscommon/javascript/jquery.artDialog.js",
+        "/perxxgkinfo/thscommon/javascript/My97DatePicker/WdatePicker.js",
+        "/perxxgkinfo/thscommon/javascript/jquery.media.js",
+        "/perxxgkinfo/thscommon/javascript/upload.js",
+        "/perxxgkinfo/thscommon/javascript/exportWord.js",
+        "/perxxgkinfo/util/xzxk/swfupload/swfupload.js",
+        "/perxxgkinfo/util/xzxk/swfupload/handlers.js",
+        "/perxxgkinfo/util/xzxk/swfupload/fileprogress.js",
+        "/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/languages/jquery.validationEngine-zh_CN.js",
+        "/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/jquery.validationEngine.js",
+        "/perxxgkinfo/js/urlhanzi.js",
+        "/perxxgkinfo/outside/choosedate/WdatePicker.js",
+        "/perxxgkinfo/outside/js/main.js",
+        "/perxxgkinfo/outside/js/scroll.js",
+        "../outside/choosedate/WdatePicker.js",
+        "../outside/js/jquery.js",
+        "../outside/js/main.js",
+        "https://zfwzgl.www.gov.cn/exposure/jiucuo.js",
+        "/perxxgkinfo/outside/js/particles.min.js",
+        "/perxxgkinfo/outside/js/app.js"
+      ],
+      "inline_script_snippets": [
+        {
+          "length": 4778,
+          "snippets": [
+            {
+              "term": "function getProvinces",
+              "offset": 857,
+              "snippet": ".jsp 之前定义。\r\n  function pageJumpGuard (pageNo) {\r\n    var maxJump = parseInt('3000', 10) || 0;\r\n    if (maxJump > 0 && pageNo > maxJump) {\r\n        alert(\"暂不支持跳转到第 \" + pageNo + \" 页（已超过最大允许 \" + maxJump + \" 页），请通过筛选条件缩小查询范围后再访问。\");\r\n        var inPageNo = document.getElementById(\"inPageNo\");\r\n        if (inPageNo) { inPageNo.value = \"\"; inPageNo.focus(); }\r\n        return false;\r\n    }\r\n    return true;\r\n};\r\n$(document).ready(function(){\r\n\t$(\"div.list_lh\").myScroll({\r\n\t\tspeed:4000, //数值越大，速度越慢\r\n\t\trowHeight:24 //li的高度\r\n\t});\r\n\t\r\n\t// 加载省\r\n\tgetProvinces();\r\n\t// 加载市\r\n\tgetCitys();\r\n\t\r\n});\r\n\r\n\r\n// 加载省\r\nfunction getProvinces(){\r\n\tvar province = '';\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":\"000000000000\"},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(province==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#province\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].region"
+            },
+            {
+              "term": "function getCity",
+              "offset": 1594,
+              "snippet": "c: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":\"000000000000\"},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(province==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#province\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 加载市\r\nfunction getCitys(){\r\n\tvar province = $(\"#province\").val();\r\n\tif(province==\"\" || province==null){\r\n\t\tprovince = \"\";\r\n    }\r\n\tvar city = '';\r\n\t$(\"#city\").empty();\r\n    $(\"#city\").prepend('<option value=\"\" selected=\"selected\">==请选择城市==</option>');\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":province},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(city==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#city\").append(\"<option selected='select"
+            },
+            {
+              "term": "function query",
+              "offset": 2512,
+              "snippet": "ype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":province},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(city==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#city\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#city\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 点击查询\r\nfunction query(){\r\n\t$('#pageNo').val(1);\r\n\t$('#mainForm').submit();\r\n}\r\n\r\n\r\n// 弹出选择行业类别\r\nfunction getHy(hytype) {\r\n\tvar hyids=$(\"#treadcode\").val();\r\n\t$.dialog.openhanzi('/perxxgkinfo/common/tree/xzxk-common-trade!selectHylist.action?hyids='+hyids+'&hytype='+hytype,{\r\n\t\tlock: true,\r\n\t\tbackground: '#333', // 背景色\r\n\t\topacity: 0.30,\t// 透明度\r\n\t\ttitle:'选择行业类别',\r\n\t\tlock:'ture',\r\n\t\twidth:'580px',\r\n\t\theight:'450px',\r\n\t\tfixed: true\r\n\t}); \r\n}\r\n\t\r\n\r\n// 行业类别选择回显（hynamehyid  hyname+hyid  火力发电4411）\r\nfunction returnTreeValue(hyid,hynamehyid,singlehyname,hytype){\r\n\tif(hytype=='one'){\t\r\n\t\t//防止undefinded\r\n\t\tif(ty"
+            },
+            {
+              "term": "function getHy",
+              "offset": 2601,
+              "snippet": "uccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(city==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#city\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#city\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 点击查询\r\nfunction query(){\r\n\t$('#pageNo').val(1);\r\n\t$('#mainForm').submit();\r\n}\r\n\r\n\r\n// 弹出选择行业类别\r\nfunction getHy(hytype) {\r\n\tvar hyids=$(\"#treadcode\").val();\r\n\t$.dialog.openhanzi('/perxxgkinfo/common/tree/xzxk-common-trade!selectHylist.action?hyids='+hyids+'&hytype='+hytype,{\r\n\t\tlock: true,\r\n\t\tbackground: '#333', // 背景色\r\n\t\topacity: 0.30,\t// 透明度\r\n\t\ttitle:'选择行业类别',\r\n\t\tlock:'ture',\r\n\t\twidth:'580px',\r\n\t\theight:'450px',\r\n\t\tfixed: true\r\n\t}); \r\n}\r\n\t\r\n\r\n// 行业类别选择回显（hynamehyid  hyname+hyid  火力发电4411）\r\nfunction returnTreeValue(hyid,hynamehyid,singlehyname,hytype){\r\n\tif(hytype=='one'){\t\r\n\t\t//防止undefinded\r\n\t\tif(typeof(hyid) == undefined){\r\n\t\t\thyid=\"\";\r\n\t\t}\r\n\t    var hyidarry = hyid.split(\",\");\r\n\t    $"
+            },
+            {
+              "term": "ajax",
+              "offset": 907,
+              "snippet": "   var maxJump = parseInt('3000', 10) || 0;\r\n    if (maxJump > 0 && pageNo > maxJump) {\r\n        alert(\"暂不支持跳转到第 \" + pageNo + \" 页（已超过最大允许 \" + maxJump + \" 页），请通过筛选条件缩小查询范围后再访问。\");\r\n        var inPageNo = document.getElementById(\"inPageNo\");\r\n        if (inPageNo) { inPageNo.value = \"\"; inPageNo.focus(); }\r\n        return false;\r\n    }\r\n    return true;\r\n};\r\n$(document).ready(function(){\r\n\t$(\"div.list_lh\").myScroll({\r\n\t\tspeed:4000, //数值越大，速度越慢\r\n\t\trowHeight:24 //li的高度\r\n\t});\r\n\t\r\n\t// 加载省\r\n\tgetProvinces();\r\n\t// 加载市\r\n\tgetCitys();\r\n\t\r\n});\r\n\r\n\r\n// 加载省\r\nfunction getProvinces(){\r\n\tvar province = '';\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":\"000000000000\"},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(province==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#province\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t"
+            },
+            {
+              "term": "ajax",
+              "offset": 1844,
+              "snippet": "d(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 加载市\r\nfunction getCitys(){\r\n\tvar province = $(\"#province\").val();\r\n\tif(province==\"\" || province==null){\r\n\t\tprovince = \"\";\r\n    }\r\n\tvar city = '';\r\n\t$(\"#city\").empty();\r\n    $(\"#city\").prepend('<option value=\"\" selected=\"selected\">==请选择城市==</option>');\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":province},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(city==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#city\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#city\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:funct"
+            },
+            {
+              "term": "url:",
+              "offset": 917,
+              "snippet": "Jump = parseInt('3000', 10) || 0;\r\n    if (maxJump > 0 && pageNo > maxJump) {\r\n        alert(\"暂不支持跳转到第 \" + pageNo + \" 页（已超过最大允许 \" + maxJump + \" 页），请通过筛选条件缩小查询范围后再访问。\");\r\n        var inPageNo = document.getElementById(\"inPageNo\");\r\n        if (inPageNo) { inPageNo.value = \"\"; inPageNo.focus(); }\r\n        return false;\r\n    }\r\n    return true;\r\n};\r\n$(document).ready(function(){\r\n\t$(\"div.list_lh\").myScroll({\r\n\t\tspeed:4000, //数值越大，速度越慢\r\n\t\trowHeight:24 //li的高度\r\n\t});\r\n\t\r\n\t// 加载省\r\n\tgetProvinces();\r\n\t// 加载市\r\n\tgetCitys();\r\n\t\r\n});\r\n\r\n\r\n// 加载省\r\nfunction getProvinces(){\r\n\tvar province = '';\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":\"000000000000\"},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(province==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#province\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\te"
+            },
+            {
+              "term": "url:",
+              "offset": 1854,
+              "snippet": " selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 加载市\r\nfunction getCitys(){\r\n\tvar province = $(\"#province\").val();\r\n\tif(province==\"\" || province==null){\r\n\t\tprovince = \"\";\r\n    }\r\n\tvar city = '';\r\n\t$(\"#city\").empty();\r\n    $(\"#city\").prepend('<option value=\"\" selected=\"selected\">==请选择城市==</option>');\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":province},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(city==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#city\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#city\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t"
+            },
+            {
+              "term": "province",
+              "offset": 800,
+              "snippet": "ump_page 配置读取，默认 3000）。\r\n// 必须在本页 include page_with_guard.jsp 之前定义。\r\n  function pageJumpGuard (pageNo) {\r\n    var maxJump = parseInt('3000', 10) || 0;\r\n    if (maxJump > 0 && pageNo > maxJump) {\r\n        alert(\"暂不支持跳转到第 \" + pageNo + \" 页（已超过最大允许 \" + maxJump + \" 页），请通过筛选条件缩小查询范围后再访问。\");\r\n        var inPageNo = document.getElementById(\"inPageNo\");\r\n        if (inPageNo) { inPageNo.value = \"\"; inPageNo.focus(); }\r\n        return false;\r\n    }\r\n    return true;\r\n};\r\n$(document).ready(function(){\r\n\t$(\"div.list_lh\").myScroll({\r\n\t\tspeed:4000, //数值越大，速度越慢\r\n\t\trowHeight:24 //li的高度\r\n\t});\r\n\t\r\n\t// 加载省\r\n\tgetProvinces();\r\n\t// 加载市\r\n\tgetCitys();\r\n\t\r\n});\r\n\r\n\r\n// 加载省\r\nfunction getProvinces(){\r\n\tvar province = '';\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":\"000000000000\"},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(province==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#province\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").appe"
+            },
+            {
+              "term": "province",
+              "offset": 869,
+              "snippet": "  function pageJumpGuard (pageNo) {\r\n    var maxJump = parseInt('3000', 10) || 0;\r\n    if (maxJump > 0 && pageNo > maxJump) {\r\n        alert(\"暂不支持跳转到第 \" + pageNo + \" 页（已超过最大允许 \" + maxJump + \" 页），请通过筛选条件缩小查询范围后再访问。\");\r\n        var inPageNo = document.getElementById(\"inPageNo\");\r\n        if (inPageNo) { inPageNo.value = \"\"; inPageNo.focus(); }\r\n        return false;\r\n    }\r\n    return true;\r\n};\r\n$(document).ready(function(){\r\n\t$(\"div.list_lh\").myScroll({\r\n\t\tspeed:4000, //数值越大，速度越慢\r\n\t\trowHeight:24 //li的高度\r\n\t});\r\n\t\r\n\t// 加载省\r\n\tgetProvinces();\r\n\t// 加载市\r\n\tgetCitys();\r\n\t\r\n});\r\n\r\n\r\n// 加载省\r\nfunction getProvinces(){\r\n\tvar province = '';\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":\"000000000000\"},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(province==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#province\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</opti"
+            },
+            {
+              "term": "province",
+              "offset": 888,
+              "snippet": "Guard (pageNo) {\r\n    var maxJump = parseInt('3000', 10) || 0;\r\n    if (maxJump > 0 && pageNo > maxJump) {\r\n        alert(\"暂不支持跳转到第 \" + pageNo + \" 页（已超过最大允许 \" + maxJump + \" 页），请通过筛选条件缩小查询范围后再访问。\");\r\n        var inPageNo = document.getElementById(\"inPageNo\");\r\n        if (inPageNo) { inPageNo.value = \"\"; inPageNo.focus(); }\r\n        return false;\r\n    }\r\n    return true;\r\n};\r\n$(document).ready(function(){\r\n\t$(\"div.list_lh\").myScroll({\r\n\t\tspeed:4000, //数值越大，速度越慢\r\n\t\trowHeight:24 //li的高度\r\n\t});\r\n\t\r\n\t// 加载省\r\n\tgetProvinces();\r\n\t// 加载市\r\n\tgetCitys();\r\n\t\r\n});\r\n\r\n\r\n// 加载省\r\nfunction getProvinces(){\r\n\tvar province = '';\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":\"000000000000\"},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(province==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#province\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        "
+            },
+            {
+              "term": "province",
+              "offset": 1180,
+              "snippet": ".value = \"\"; inPageNo.focus(); }\r\n        return false;\r\n    }\r\n    return true;\r\n};\r\n$(document).ready(function(){\r\n\t$(\"div.list_lh\").myScroll({\r\n\t\tspeed:4000, //数值越大，速度越慢\r\n\t\trowHeight:24 //li的高度\r\n\t});\r\n\t\r\n\t// 加载省\r\n\tgetProvinces();\r\n\t// 加载市\r\n\tgetCitys();\r\n\t\r\n});\r\n\r\n\r\n// 加载省\r\nfunction getProvinces(){\r\n\tvar province = '';\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":\"000000000000\"},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(province==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#province\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 加载市\r\nfunction getCitys(){\r\n\tvar province = $(\"#province\").val();\r\n\tif(province==\"\" || province==null){\r\n\t\tprovince = \"\";\r\n    }\r\n\tvar city = '';\r\n\t$(\"#city\").empty();\r\n    $(\"#city\").prepend("
+            },
+            {
+              "term": "province",
+              "offset": 1228,
+              "snippet": " false;\r\n    }\r\n    return true;\r\n};\r\n$(document).ready(function(){\r\n\t$(\"div.list_lh\").myScroll({\r\n\t\tspeed:4000, //数值越大，速度越慢\r\n\t\trowHeight:24 //li的高度\r\n\t});\r\n\t\r\n\t// 加载省\r\n\tgetProvinces();\r\n\t// 加载市\r\n\tgetCitys();\r\n\t\r\n});\r\n\r\n\r\n// 加载省\r\nfunction getProvinces(){\r\n\tvar province = '';\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":\"000000000000\"},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(province==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#province\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 加载市\r\nfunction getCitys(){\r\n\tvar province = $(\"#province\").val();\r\n\tif(province==\"\" || province==null){\r\n\t\tprovince = \"\";\r\n    }\r\n\tvar city = '';\r\n\t$(\"#city\").empty();\r\n    $(\"#city\").prepend('<option value=\"\" selected=\"selected\">==请选择城市==<"
+            },
+            {
+              "term": "province",
+              "offset": 1385,
+              "snippet": "\r\n\t// 加载省\r\n\tgetProvinces();\r\n\t// 加载市\r\n\tgetCitys();\r\n\t\r\n});\r\n\r\n\r\n// 加载省\r\nfunction getProvinces(){\r\n\tvar province = '';\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":\"000000000000\"},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(province==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#province\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 加载市\r\nfunction getCitys(){\r\n\tvar province = $(\"#province\").val();\r\n\tif(province==\"\" || province==null){\r\n\t\tprovince = \"\";\r\n    }\r\n\tvar city = '';\r\n\t$(\"#city\").empty();\r\n    $(\"#city\").prepend('<option value=\"\" selected=\"selected\">==请选择城市==</option>');\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\""
+            },
+            {
+              "term": "province",
+              "offset": 1621,
+              "snippet": ",\t\t\t\t\r\n\t\tdata:{\"parentCode\":\"000000000000\"},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(province==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#province\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 加载市\r\nfunction getCitys(){\r\n\tvar province = $(\"#province\").val();\r\n\tif(province==\"\" || province==null){\r\n\t\tprovince = \"\";\r\n    }\r\n\tvar city = '';\r\n\t$(\"#city\").empty();\r\n    $(\"#city\").prepend('<option value=\"\" selected=\"selected\">==请选择城市==</option>');\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":province},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(city==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#city\").append(\"<option selected='selected' value='\"+res[i].regionc"
+            },
+            {
+              "term": "province",
+              "offset": 1636,
+              "snippet": "\"parentCode\":\"000000000000\"},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(province==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#province\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 加载市\r\nfunction getCitys(){\r\n\tvar province = $(\"#province\").val();\r\n\tif(province==\"\" || province==null){\r\n\t\tprovince = \"\";\r\n    }\r\n\tvar city = '';\r\n\t$(\"#city\").empty();\r\n    $(\"#city\").prepend('<option value=\"\" selected=\"selected\">==请选择城市==</option>');\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":province},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(city==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#city\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i]"
+            },
+            {
+              "term": "province",
+              "offset": 1659,
+              "snippet": "000\"},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(province==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#province\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 加载市\r\nfunction getCitys(){\r\n\tvar province = $(\"#province\").val();\r\n\tif(province==\"\" || province==null){\r\n\t\tprovince = \"\";\r\n    }\r\n\tvar city = '';\r\n\t$(\"#city\").empty();\r\n    $(\"#city\").prepend('<option value=\"\" selected=\"selected\">==请选择城市==</option>');\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":province},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(city==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#city\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\""
+            },
+            {
+              "term": "province",
+              "offset": 1675,
+              "snippet": "s: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(province==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#province\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 加载市\r\nfunction getCitys(){\r\n\tvar province = $(\"#province\").val();\r\n\tif(province==\"\" || province==null){\r\n\t\tprovince = \"\";\r\n    }\r\n\tvar city = '';\r\n\t$(\"#city\").empty();\r\n    $(\"#city\").prepend('<option value=\"\" selected=\"selected\">==请选择城市==</option>');\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":province},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(city==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#city\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t"
+            },
+            {
+              "term": "province",
+              "offset": 1695,
+              "snippet": "\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(province==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#province\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 加载市\r\nfunction getCitys(){\r\n\tvar province = $(\"#province\").val();\r\n\tif(province==\"\" || province==null){\r\n\t\tprovince = \"\";\r\n    }\r\n\tvar city = '';\r\n\t$(\"#city\").empty();\r\n    $(\"#city\").prepend('<option value=\"\" selected=\"selected\">==请选择城市==</option>');\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":province},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(city==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#city\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}else{\r\n\t\t\t         "
+            },
+            {
+              "term": "province",
+              "offset": 1986,
+              "snippet": "rovince\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 加载市\r\nfunction getCitys(){\r\n\tvar province = $(\"#province\").val();\r\n\tif(province==\"\" || province==null){\r\n\t\tprovince = \"\";\r\n    }\r\n\tvar city = '';\r\n\t$(\"#city\").empty();\r\n    $(\"#city\").prepend('<option value=\"\" selected=\"selected\">==请选择城市==</option>');\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":province},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(city==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#city\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#city\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 点击查询\r\nfunction query(){\r\n\t$('#pageNo').val(1);\r\n\t$('#mainForm').submit();\r\n}\r\n\r\n"
+            },
+            {
+              "term": "city",
+              "offset": 827,
+              "snippet": " 必须在本页 include page_with_guard.jsp 之前定义。\r\n  function pageJumpGuard (pageNo) {\r\n    var maxJump = parseInt('3000', 10) || 0;\r\n    if (maxJump > 0 && pageNo > maxJump) {\r\n        alert(\"暂不支持跳转到第 \" + pageNo + \" 页（已超过最大允许 \" + maxJump + \" 页），请通过筛选条件缩小查询范围后再访问。\");\r\n        var inPageNo = document.getElementById(\"inPageNo\");\r\n        if (inPageNo) { inPageNo.value = \"\"; inPageNo.focus(); }\r\n        return false;\r\n    }\r\n    return true;\r\n};\r\n$(document).ready(function(){\r\n\t$(\"div.list_lh\").myScroll({\r\n\t\tspeed:4000, //数值越大，速度越慢\r\n\t\trowHeight:24 //li的高度\r\n\t});\r\n\t\r\n\t// 加载省\r\n\tgetProvinces();\r\n\t// 加载市\r\n\tgetCitys();\r\n\t\r\n});\r\n\r\n\r\n// 加载省\r\nfunction getProvinces(){\r\n\tvar province = '';\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":\"000000000000\"},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(province==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#province\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i]"
+            },
+            {
+              "term": "city",
+              "offset": 1606,
+              "snippet": "dataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":\"000000000000\"},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(province==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#province\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 加载市\r\nfunction getCitys(){\r\n\tvar province = $(\"#province\").val();\r\n\tif(province==\"\" || province==null){\r\n\t\tprovince = \"\";\r\n    }\r\n\tvar city = '';\r\n\t$(\"#city\").empty();\r\n    $(\"#city\").prepend('<option value=\"\" selected=\"selected\">==请选择城市==</option>');\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":province},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(city==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#city\").append(\"<option selected='selected' value='\""
+            },
+            {
+              "term": "city",
+              "offset": 1723,
+              "snippet": "       \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(province==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#province\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 加载市\r\nfunction getCitys(){\r\n\tvar province = $(\"#province\").val();\r\n\tif(province==\"\" || province==null){\r\n\t\tprovince = \"\";\r\n    }\r\n\tvar city = '';\r\n\t$(\"#city\").empty();\r\n    $(\"#city\").prepend('<option value=\"\" selected=\"selected\">==请选择城市==</option>');\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":province},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(city==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#city\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#city\").append(\"<o"
+            },
+            {
+              "term": "city",
+              "offset": 1740,
+              "snippet": "i=0;i<res.length;i++){\r\n\t\t\t         \tif(province==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#province\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 加载市\r\nfunction getCitys(){\r\n\tvar province = $(\"#province\").val();\r\n\tif(province==\"\" || province==null){\r\n\t\tprovince = \"\";\r\n    }\r\n\tvar city = '';\r\n\t$(\"#city\").empty();\r\n    $(\"#city\").prepend('<option value=\"\" selected=\"selected\">==请选择城市==</option>');\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":province},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(city==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#city\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#city\").append(\"<option value='\"+re"
+            },
+            {
+              "term": "city",
+              "offset": 1765,
+              "snippet": "\t\t         \tif(province==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#province\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");  \r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#province\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 加载市\r\nfunction getCitys(){\r\n\tvar province = $(\"#province\").val();\r\n\tif(province==\"\" || province==null){\r\n\t\tprovince = \"\";\r\n    }\r\n\tvar city = '';\r\n\t$(\"#city\").empty();\r\n    $(\"#city\").prepend('<option value=\"\" selected=\"selected\">==请选择城市==</option>');\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":province},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(city==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#city\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#city\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res["
+            },
+            {
+              "term": "city",
+              "offset": 2111,
+              "snippet": ",\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 加载市\r\nfunction getCitys(){\r\n\tvar province = $(\"#province\").val();\r\n\tif(province==\"\" || province==null){\r\n\t\tprovince = \"\";\r\n    }\r\n\tvar city = '';\r\n\t$(\"#city\").empty();\r\n    $(\"#city\").prepend('<option value=\"\" selected=\"selected\">==请选择城市==</option>');\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":province},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(city==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#city\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#city\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 点击查询\r\nfunction query(){\r\n\t$('#pageNo').val(1);\r\n\t$('#mainForm').submit();\r\n}\r\n\r\n\r\n// 弹出选择行业类别\r\nfunction getHy(hytype) {\r\n\tvar hyids=$(\"#treadcode\").val();\r\n\t$.dialog.openhanzi('/perxxgkinfo/common/tree/xzx"
+            },
+            {
+              "term": "city",
+              "offset": 2155,
+              "snippet": "试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 加载市\r\nfunction getCitys(){\r\n\tvar province = $(\"#province\").val();\r\n\tif(province==\"\" || province==null){\r\n\t\tprovince = \"\";\r\n    }\r\n\tvar city = '';\r\n\t$(\"#city\").empty();\r\n    $(\"#city\").prepend('<option value=\"\" selected=\"selected\">==请选择城市==</option>');\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":province},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(city==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#city\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#city\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 点击查询\r\nfunction query(){\r\n\t$('#pageNo').val(1);\r\n\t$('#mainForm').submit();\r\n}\r\n\r\n\r\n// 弹出选择行业类别\r\nfunction getHy(hytype) {\r\n\tvar hyids=$(\"#treadcode\").val();\r\n\t$.dialog.openhanzi('/perxxgkinfo/common/tree/xzxk-common-trade!selectHylist.action?hyids='+h"
+            },
+            {
+              "term": "city",
+              "offset": 2306,
+              "snippet": "\"\";\r\n    }\r\n\tvar city = '';\r\n\t$(\"#city\").empty();\r\n    $(\"#city\").prepend('<option value=\"\" selected=\"selected\">==请选择城市==</option>');\r\n\t$.ajax({\r\n\t\turl:\"/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action\",\r\n\t\ttype:\"post\",\r\n\t\tasync: true,\r\n\t\tdataType:\"json\",\t\t\t\t\r\n\t\tdata:{\"parentCode\":province},\r\n\t\tsuccess: function(msg){\r\n\t\t\t\t\tvar res=msg.regions;\r\n\t        \t\tfor(var i=0;i<res.length;i++){\r\n\t\t\t         \tif(city==res[i].regioncode){\r\n\t\t\t        \t\t$(\"#city\").append(\"<option selected='selected' value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#city\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 点击查询\r\nfunction query(){\r\n\t$('#pageNo').val(1);\r\n\t$('#mainForm').submit();\r\n}\r\n\r\n\r\n// 弹出选择行业类别\r\nfunction getHy(hytype) {\r\n\tvar hyids=$(\"#treadcode\").val();\r\n\t$.dialog.openhanzi('/perxxgkinfo/common/tree/xzxk-common-trade!selectHylist.action?hyids='+hyids+'&hytype='+hytype,{\r\n\t\tlock: true,\r\n\t\tbackground: '#333', // 背景色\r\n\t\topacity: 0.30,\t// 透明度\r\n\t\ttitle:'选择行业类别',\r\n\t\tlock:'ture',\r\n\t\twidth:'580px',\r\n\t\t"
+            },
+            {
+              "term": "city",
+              "offset": 2831,
+              "snippet": "es[i].regionname+\"</option>\");\r\n\t\t\t        \t}else{\r\n\t\t\t                $(\"#city\").append(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 点击查询\r\nfunction query(){\r\n\t$('#pageNo').val(1);\r\n\t$('#mainForm').submit();\r\n}\r\n\r\n\r\n// 弹出选择行业类别\r\nfunction getHy(hytype) {\r\n\tvar hyids=$(\"#treadcode\").val();\r\n\t$.dialog.openhanzi('/perxxgkinfo/common/tree/xzxk-common-trade!selectHylist.action?hyids='+hyids+'&hytype='+hytype,{\r\n\t\tlock: true,\r\n\t\tbackground: '#333', // 背景色\r\n\t\topacity: 0.30,\t// 透明度\r\n\t\ttitle:'选择行业类别',\r\n\t\tlock:'ture',\r\n\t\twidth:'580px',\r\n\t\theight:'450px',\r\n\t\tfixed: true\r\n\t}); \r\n}\r\n\t\r\n\r\n// 行业类别选择回显（hynamehyid  hyname+hyid  火力发电4411）\r\nfunction returnTreeValue(hyid,hynamehyid,singlehyname,hytype){\r\n\tif(hytype=='one'){\t\r\n\t\t//防止undefinded\r\n\t\tif(typeof(hyid) == undefined){\r\n\t\t\thyid=\"\";\r\n\t\t}\r\n\t    var hyidarry = hyid.split(\",\");\r\n\t    $(\"#treadcode\").val(hyid[0]);\r\n\t    //防止undefinded\r\n\t    if(typeof(singlehyname) == undefined){\r\n\t      singlehyname=\"\";\r\n\t    }\r\n\t    var hyname = singlehyname.split(\",\");\r\n\t    $(\"#treadname\").val(hyname[0]);\r\n\t}else if(hytype=='"
+            }
+          ]
+        },
+        {
+          "length": 1688,
+          "snippets": []
+        }
+      ],
+      "links": [
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!licenseInformation.action",
+          "text": "许可信息公开"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/permitExt/outside/LicenseRedirect",
+          "text": "网上申报"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/permitExt/defaults/default-index!getInformation.action",
+          "text": "首页 / 许可信息公开 省/直辖市： ==请选择省份== 地市： ==请选择城市== 管理类别： ==请选择管理类别== 重点管理 简化管理 单位名称： 许可证编号： 行业类别： 发证日期： 省/直辖市 地市 许可证编号 单位名称 行业类别 有效期限 发证日期 管理类别 查看 四川省 成都市 91510131MA688NYG9U001U 四川益涵新材料科技有限公司 塑料薄膜制造 2022-12-30至2027-12-29 2022-12-30 简化管理"
+        }
+      ],
+      "html_query_snippets": [
+        {
+          "term": "licenseInformation",
+          "offset": 9809,
+          "snippet": " id=\"top-nav\">\r\n\t\t\t<li style=\"width:13%\"><a href=\"https://permit.mee.gov.cn/perxxgkinfo/syssb/xxgk/xxgk!sqqlist.action\">申请前信息公开</a></li>\r\n\t\t\t<li class=\"cur\"><a href=\"https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!licenseInformation.action\">许可信息公开</a></li>\r\n\t\t\t<li><a href=\"https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!xxgkXqzgList.action\">限期整改</a></li>\r\n\t\t\t<li><a href=\"https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!"
+        },
+        {
+          "term": "licenseInformation",
+          "offset": 11252,
+          "snippet": "nformation.action\">首页</a></span>/<span class=\"font-green\">许可信息公开</span>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"bord-b\"></div>\r\n\t\t\r\n\t\t<!-- 查询条件开始 -->\r\n\t\t<form id=\"mainForm\" method=\"post\" action=\"/perxxgkinfo/syssb/xkgg/xkgg!licenseInformation.action\">\r\n            <input type=\"hidden\" name=\"page.pageNo\" id=\"pageNo\" value=\"1\" />\r\n            <input type=\"hidden\" name=\"page.orderBy\" id=\"orderBy\" value=\"\" /> \r\n            <input type=\"hidden\" "
+        },
+        {
+          "term": "getInformation",
+          "offset": 11028,
+          "snippet": "\t<div class=\"content\" style=\"padding: 0;width: 100%;\">\r\n\t\t<div class=\"content-title clear_float\">\r\n\t\t\t<div class=\"fl\" style=\"color:#595758\">\r\n\t\t\t\t<span><a href=\"https://permit.mee.gov.cn/permitExt/defaults/default-index!getInformation.action\">首页</a></span>/<span class=\"font-green\">许可信息公开</span>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"bord-b\"></div>\r\n\t\t\r\n\t\t<!-- 查询条件开始 -->\r\n\t\t<form id=\"mainForm\" method=\"post\" action=\"/perxxgkinfo/syssb/xkgg/x"
+        },
+        {
+          "term": "pageNo",
+          "offset": 2893,
+          "snippet": "outside/css/style6.css\" />\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/outside/default/css/indexold.css\" />\r\n<script type=\"text/javascript\">\r\n// 许可信息公开跳页拦截：通用 hook，供 page_with_guard.jsp 调用。\r\n// 业务逻辑：ES deep pagination 会随 pageNo 增大急剧下降，超过 licenseMaxJumpPage 直接拦截并提示用户缩小范围。\r\n// 用 Action 字段 licenseMaxJumpPage 作为阈值（从 custom.xml 的 license_max_jump_page 配置读取，默认 3000）。\r\n// 必须在本页 include page_with_guard.jsp 之前定义。\r\n  function pageJumpGuard (pageNo"
+        },
+        {
+          "term": "pageNo",
+          "offset": 3107,
+          "snippet": "on 会随 pageNo 增大急剧下降，超过 licenseMaxJumpPage 直接拦截并提示用户缩小范围。\r\n// 用 Action 字段 licenseMaxJumpPage 作为阈值（从 custom.xml 的 license_max_jump_page 配置读取，默认 3000）。\r\n// 必须在本页 include page_with_guard.jsp 之前定义。\r\n  function pageJumpGuard (pageNo) {\r\n    var maxJump = parseInt('3000', 10) || 0;\r\n    if (maxJump > 0 && pageNo > maxJump) {\r\n        alert(\"暂不支持跳转到第 \" + pageNo + \" 页（已超过最大允许 \" + maxJump + \" 页），请通过筛选条件缩小查询范围后再访问。\");\r\n        var inPageNo = docum"
+        },
+        {
+          "term": "pageNo",
+          "offset": 3187,
+          "snippet": "MaxJumpPage 作为阈值（从 custom.xml 的 license_max_jump_page 配置读取，默认 3000）。\r\n// 必须在本页 include page_with_guard.jsp 之前定义。\r\n  function pageJumpGuard (pageNo) {\r\n    var maxJump = parseInt('3000', 10) || 0;\r\n    if (maxJump > 0 && pageNo > maxJump) {\r\n        alert(\"暂不支持跳转到第 \" + pageNo + \" 页（已超过最大允许 \" + maxJump + \" 页），请通过筛选条件缩小查询范围后再访问。\");\r\n        var inPageNo = document.getElementById(\"inPageNo\");\r\n        if (inPageNo) { inPageNo.value = \"\"; in"
+        },
+        {
+          "term": "pageNo",
+          "offset": 3236,
+          "snippet": "page 配置读取，默认 3000）。\r\n// 必须在本页 include page_with_guard.jsp 之前定义。\r\n  function pageJumpGuard (pageNo) {\r\n    var maxJump = parseInt('3000', 10) || 0;\r\n    if (maxJump > 0 && pageNo > maxJump) {\r\n        alert(\"暂不支持跳转到第 \" + pageNo + \" 页（已超过最大允许 \" + maxJump + \" 页），请通过筛选条件缩小查询范围后再访问。\");\r\n        var inPageNo = document.getElementById(\"inPageNo\");\r\n        if (inPageNo) { inPageNo.value = \"\"; inPageNo.focus(); }\r\n        return false;\r\n    }\r\n"
+        },
+        {
+          "term": "pageNo",
+          "offset": 3313,
+          "snippet": "ageJumpGuard (pageNo) {\r\n    var maxJump = parseInt('3000', 10) || 0;\r\n    if (maxJump > 0 && pageNo > maxJump) {\r\n        alert(\"暂不支持跳转到第 \" + pageNo + \" 页（已超过最大允许 \" + maxJump + \" 页），请通过筛选条件缩小查询范围后再访问。\");\r\n        var inPageNo = document.getElementById(\"inPageNo\");\r\n        if (inPageNo) { inPageNo.value = \"\"; inPageNo.focus(); }\r\n        return false;\r\n    }\r\n    return true;\r\n};\r\n$(document).ready(function(){\r\n\t$(\"div.list_lh\").myScro"
+        },
+        {
+          "term": "pageNo",
+          "offset": 3349,
+          "snippet": "Jump = parseInt('3000', 10) || 0;\r\n    if (maxJump > 0 && pageNo > maxJump) {\r\n        alert(\"暂不支持跳转到第 \" + pageNo + \" 页（已超过最大允许 \" + maxJump + \" 页），请通过筛选条件缩小查询范围后再访问。\");\r\n        var inPageNo = document.getElementById(\"inPageNo\");\r\n        if (inPageNo) { inPageNo.value = \"\"; inPageNo.focus(); }\r\n        return false;\r\n    }\r\n    return true;\r\n};\r\n$(document).ready(function(){\r\n\t$(\"div.list_lh\").myScroll({\r\n\t\tspeed:4000, //数值越大，速度越慢\r\n\t\tr"
+        },
+        {
+          "term": "pageNo",
+          "offset": 3374,
+          "snippet": "0) || 0;\r\n    if (maxJump > 0 && pageNo > maxJump) {\r\n        alert(\"暂不支持跳转到第 \" + pageNo + \" 页（已超过最大允许 \" + maxJump + \" 页），请通过筛选条件缩小查询范围后再访问。\");\r\n        var inPageNo = document.getElementById(\"inPageNo\");\r\n        if (inPageNo) { inPageNo.value = \"\"; inPageNo.focus(); }\r\n        return false;\r\n    }\r\n    return true;\r\n};\r\n$(document).ready(function(){\r\n\t$(\"div.list_lh\").myScroll({\r\n\t\tspeed:4000, //数值越大，速度越慢\r\n\t\trowHeight:24 //li的高度\r\n\t});"
+        },
+        {
+          "term": "pageNo",
+          "offset": 3386,
+          "snippet": "  if (maxJump > 0 && pageNo > maxJump) {\r\n        alert(\"暂不支持跳转到第 \" + pageNo + \" 页（已超过最大允许 \" + maxJump + \" 页），请通过筛选条件缩小查询范围后再访问。\");\r\n        var inPageNo = document.getElementById(\"inPageNo\");\r\n        if (inPageNo) { inPageNo.value = \"\"; inPageNo.focus(); }\r\n        return false;\r\n    }\r\n    return true;\r\n};\r\n$(document).ready(function(){\r\n\t$(\"div.list_lh\").myScroll({\r\n\t\tspeed:4000, //数值越大，速度越慢\r\n\t\trowHeight:24 //li的高度\r\n\t});\r\n\t\r\n\t// 加载省"
+        },
+        {
+          "term": "pageNo",
+          "offset": 3407,
+          "snippet": "pageNo > maxJump) {\r\n        alert(\"暂不支持跳转到第 \" + pageNo + \" 页（已超过最大允许 \" + maxJump + \" 页），请通过筛选条件缩小查询范围后再访问。\");\r\n        var inPageNo = document.getElementById(\"inPageNo\");\r\n        if (inPageNo) { inPageNo.value = \"\"; inPageNo.focus(); }\r\n        return false;\r\n    }\r\n    return true;\r\n};\r\n$(document).ready(function(){\r\n\t$(\"div.list_lh\").myScroll({\r\n\t\tspeed:4000, //数值越大，速度越慢\r\n\t\trowHeight:24 //li的高度\r\n\t});\r\n\t\r\n\t// 加载省\r\n\tgetProvinces();\r\n\t"
+        },
+        {
+          "term": "pageNo",
+          "offset": 5348,
+          "snippet": "end(\"<option value='\"+res[i].regioncode+\"'>\"+res[i].regionname+\"</option>\");\r\n\t\t\t        \t}\r\n\t       \t\t\t}\r\n\t\t\t\t},\r\n\t\terror:function(){\r\n\t\t\t\talert(\"网络繁忙，请稍后重试！\");\r\n\t\t\t\t}\t\t\t\r\n\t\t});\r\n}\r\n\r\n\r\n// 点击查询\r\nfunction query(){\r\n\t$('#pageNo').val(1);\r\n\t$('#mainForm').submit();\r\n}\r\n\r\n\r\n// 弹出选择行业类别\r\nfunction getHy(hytype) {\r\n\tvar hyids=$(\"#treadcode\").val();\r\n\t$.dialog.openhanzi('/perxxgkinfo/common/tree/xzxk-common-trade!selectHylist.action?hyids='+hy"
+        },
+        {
+          "term": "pageNo",
+          "offset": 11325,
+          "snippet": "\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div class=\"bord-b\"></div>\r\n\t\t\r\n\t\t<!-- 查询条件开始 -->\r\n\t\t<form id=\"mainForm\" method=\"post\" action=\"/perxxgkinfo/syssb/xkgg/xkgg!licenseInformation.action\">\r\n            <input type=\"hidden\" name=\"page.pageNo\" id=\"pageNo\" value=\"1\" />\r\n            <input type=\"hidden\" name=\"page.orderBy\" id=\"orderBy\" value=\"\" /> \r\n            <input type=\"hidden\" name=\"page.order\" id=\"order\" value=\"\" />\r\n            <input type=\"hidden"
+        },
+        {
+          "term": "pageNo",
+          "offset": 11337,
+          "snippet": "\t</div>\r\n\t\t<div class=\"bord-b\"></div>\r\n\t\t\r\n\t\t<!-- 查询条件开始 -->\r\n\t\t<form id=\"mainForm\" method=\"post\" action=\"/perxxgkinfo/syssb/xkgg/xkgg!licenseInformation.action\">\r\n            <input type=\"hidden\" name=\"page.pageNo\" id=\"pageNo\" value=\"1\" />\r\n            <input type=\"hidden\" name=\"page.orderBy\" id=\"orderBy\" value=\"\" /> \r\n            <input type=\"hidden\" name=\"page.order\" id=\"order\" value=\"\" />\r\n            <input type=\"hidden\" name=\"temp"
+        },
+        {
+          "term": "pageNo",
+          "offset": 22095,
+          "snippet": "Num(obj){\n\t \t\tvar totalPages = 38293;\n\t\t  var validNum = (obj>=1&&obj<=totalPages);\n\t\t  if(!validNum){\n\t\t  \t\talert('当前页号无效!')\n\t  \t\tdocument.getElementById(\"num\").value=\"1\";\n\t  \t\treturn false;\n\t  };\n \t}\n    function checkPageNo()\n    {\n        if(parseInt($(\"#pageNo\").val())>0)\n            $(\"#pageNo\").val(\"1\");\n\n    }\n    function ANP_keydown(e,btnId){\n    \tvar kcode;\n    \tif(window.event){\n    \t\tkcode=e.keyCode;\n    \t}else if(e.which){"
+        },
+        {
+          "term": "pageNo",
+          "offset": 22134,
+          "snippet": "\t  var validNum = (obj>=1&&obj<=totalPages);\n\t\t  if(!validNum){\n\t\t  \t\talert('当前页号无效!')\n\t  \t\tdocument.getElementById(\"num\").value=\"1\";\n\t  \t\treturn false;\n\t  };\n \t}\n    function checkPageNo()\n    {\n        if(parseInt($(\"#pageNo\").val())>0)\n            $(\"#pageNo\").val(\"1\");\n\n    }\n    function ANP_keydown(e,btnId){\n    \tvar kcode;\n    \tif(window.event){\n    \t\tkcode=e.keyCode;\n    \t}else if(e.which){\n    \t\tkcode=e.which;\n    \t}\n    \tvar v"
+        },
+        {
+          "term": "pageNo",
+          "offset": 22169,
+          "snippet": "alPages);\n\t\t  if(!validNum){\n\t\t  \t\talert('当前页号无效!')\n\t  \t\tdocument.getElementById(\"num\").value=\"1\";\n\t  \t\treturn false;\n\t  };\n \t}\n    function checkPageNo()\n    {\n        if(parseInt($(\"#pageNo\").val())>0)\n            $(\"#pageNo\").val(\"1\");\n\n    }\n    function ANP_keydown(e,btnId){\n    \tvar kcode;\n    \tif(window.event){\n    \t\tkcode=e.keyCode;\n    \t}else if(e.which){\n    \t\tkcode=e.which;\n    \t}\n    \tvar validKey=(kcode==8||kcode==46||kcode"
+        },
+        {
+          "term": "pageNo",
+          "offset": 22697,
+          "snippet": "   \t\tif(kcode==13) document.getElementById(btnId).click();\n    \t\tif(e.preventDefault) e.preventDefault();\n    \t\telse{event.returnValue=false};\n    \t}\n    }\n    function gojumpPage(){\n    \tvar pagesum = 38293;\n    \tvar inPageNo = $(\"#inPageNo\").val()*1;\n    \tif(isNaN(inPageNo)){\n    \t\t$(\"pageNo\").val('1');\n    \t\treturn false;\n    \t}\n    \t// 通用上限拦截：超限直接弹窗 + 阻止后续提交\n    \tif (typeof  pageJumpGuard === 'function' && !pageJumpGuard(inPageNo)) "
+        },
+        {
+          "term": "pageNo",
+          "offset": 22712,
+          "snippet": "13) document.getElementById(btnId).click();\n    \t\tif(e.preventDefault) e.preventDefault();\n    \t\telse{event.returnValue=false};\n    \t}\n    }\n    function gojumpPage(){\n    \tvar pagesum = 38293;\n    \tvar inPageNo = $(\"#inPageNo\").val()*1;\n    \tif(isNaN(inPageNo)){\n    \t\t$(\"pageNo\").val('1');\n    \t\treturn false;\n    \t}\n    \t// 通用上限拦截：超限直接弹窗 + 阻止后续提交\n    \tif (typeof  pageJumpGuard === 'function' && !pageJumpGuard(inPageNo)) {\n    \t\treturn "
+        },
+        {
+          "term": "pageNo",
+          "offset": 22746,
+          "snippet": ".click();\n    \t\tif(e.preventDefault) e.preventDefault();\n    \t\telse{event.returnValue=false};\n    \t}\n    }\n    function gojumpPage(){\n    \tvar pagesum = 38293;\n    \tvar inPageNo = $(\"#inPageNo\").val()*1;\n    \tif(isNaN(inPageNo)){\n    \t\t$(\"pageNo\").val('1');\n    \t\treturn false;\n    \t}\n    \t// 通用上限拦截：超限直接弹窗 + 阻止后续提交\n    \tif (typeof  pageJumpGuard === 'function' && !pageJumpGuard(inPageNo)) {\n    \t\treturn false;\n    \t}\n    \tif(inPageNo>pag"
+        },
+        {
+          "term": "pageNo",
+          "offset": 22765,
+          "snippet": "e.preventDefault) e.preventDefault();\n    \t\telse{event.returnValue=false};\n    \t}\n    }\n    function gojumpPage(){\n    \tvar pagesum = 38293;\n    \tvar inPageNo = $(\"#inPageNo\").val()*1;\n    \tif(isNaN(inPageNo)){\n    \t\t$(\"pageNo\").val('1');\n    \t\treturn false;\n    \t}\n    \t// 通用上限拦截：超限直接弹窗 + 阻止后续提交\n    \tif (typeof  pageJumpGuard === 'function' && !pageJumpGuard(inPageNo)) {\n    \t\treturn false;\n    \t}\n    \tif(inPageNo>pagesum){\n    \t\tjumpPa"
+        },
+        {
+          "term": "pageNo",
+          "offset": 22908,
+          "snippet": "  \tvar inPageNo = $(\"#inPageNo\").val()*1;\n    \tif(isNaN(inPageNo)){\n    \t\t$(\"pageNo\").val('1');\n    \t\treturn false;\n    \t}\n    \t// 通用上限拦截：超限直接弹窗 + 阻止后续提交\n    \tif (typeof  pageJumpGuard === 'function' && !pageJumpGuard(inPageNo)) {\n    \t\treturn false;\n    \t}\n    \tif(inPageNo>pagesum){\n    \t\tjumpPage2(pagesum);\n    \t}else if(inPageNo<1){\n    \t\tjumpPage2(1);\n    \t}else{\n    \t\tjumpPage2(inPageNo);\n    \t}\n    \treturn false;\n    }\n    functio"
+        },
+        {
+          "term": "pageNo",
+          "offset": 22956,
+          "snippet": "f(isNaN(inPageNo)){\n    \t\t$(\"pageNo\").val('1');\n    \t\treturn false;\n    \t}\n    \t// 通用上限拦截：超限直接弹窗 + 阻止后续提交\n    \tif (typeof  pageJumpGuard === 'function' && !pageJumpGuard(inPageNo)) {\n    \t\treturn false;\n    \t}\n    \tif(inPageNo>pagesum){\n    \t\tjumpPage2(pagesum);\n    \t}else if(inPageNo<1){\n    \t\tjumpPage2(1);\n    \t}else{\n    \t\tjumpPage2(inPageNo);\n    \t}\n    \treturn false;\n    }\n    function jumpPage2(pageNo){\n    \t// 通用上限拦截：超限直接返回，不写入 p"
+        },
+        {
+          "term": "pageNo",
+          "offset": 23015,
+          "snippet": "n false;\n    \t}\n    \t// 通用上限拦截：超限直接弹窗 + 阻止后续提交\n    \tif (typeof  pageJumpGuard === 'function' && !pageJumpGuard(inPageNo)) {\n    \t\treturn false;\n    \t}\n    \tif(inPageNo>pagesum){\n    \t\tjumpPage2(pagesum);\n    \t}else if(inPageNo<1){\n    \t\tjumpPage2(1);\n    \t}else{\n    \t\tjumpPage2(inPageNo);\n    \t}\n    \treturn false;\n    }\n    function jumpPage2(pageNo){\n    \t// 通用上限拦截：超限直接返回，不写入 pageNo、不提交表单\n    \tif (typeof window.pageJumpGuard === 'funct"
+        },
+        {
+          "term": "pageNo",
+          "offset": 23076,
+          "snippet": "f  pageJumpGuard === 'function' && !pageJumpGuard(inPageNo)) {\n    \t\treturn false;\n    \t}\n    \tif(inPageNo>pagesum){\n    \t\tjumpPage2(pagesum);\n    \t}else if(inPageNo<1){\n    \t\tjumpPage2(1);\n    \t}else{\n    \t\tjumpPage2(inPageNo);\n    \t}\n    \treturn false;\n    }\n    function jumpPage2(pageNo){\n    \t// 通用上限拦截：超限直接返回，不写入 pageNo、不提交表单\n    \tif (typeof window.pageJumpGuard === 'function' && !window.pageJumpGuard(pageNo)) {\n    \t\treturn false;\n"
+        },
+        {
+          "term": "pageNo",
+          "offset": 23140,
+          "snippet": "   \t\treturn false;\n    \t}\n    \tif(inPageNo>pagesum){\n    \t\tjumpPage2(pagesum);\n    \t}else if(inPageNo<1){\n    \t\tjumpPage2(1);\n    \t}else{\n    \t\tjumpPage2(inPageNo);\n    \t}\n    \treturn false;\n    }\n    function jumpPage2(pageNo){\n    \t// 通用上限拦截：超限直接返回，不写入 pageNo、不提交表单\n    \tif (typeof window.pageJumpGuard === 'function' && !window.pageJumpGuard(pageNo)) {\n    \t\treturn false;\n    \t}\n    \t$(\"#pageNo\").val(pageNo);\n    \tif($(\"#keys\").val()=="
+        },
+        {
+          "term": "pageNo",
+          "offset": 23175,
+          "snippet": "nPageNo>pagesum){\n    \t\tjumpPage2(pagesum);\n    \t}else if(inPageNo<1){\n    \t\tjumpPage2(1);\n    \t}else{\n    \t\tjumpPage2(inPageNo);\n    \t}\n    \treturn false;\n    }\n    function jumpPage2(pageNo){\n    \t// 通用上限拦截：超限直接返回，不写入 pageNo、不提交表单\n    \tif (typeof window.pageJumpGuard === 'function' && !window.pageJumpGuard(pageNo)) {\n    \t\treturn false;\n    \t}\n    \t$(\"#pageNo\").val(pageNo);\n    \tif($(\"#keys\").val()=='请输入文件号、标题...'){\n    \t\t$(\"#keys\").v"
+        },
+        {
+          "term": "pageNo",
+          "offset": 23265,
+          "snippet": "\n    \t}else{\n    \t\tjumpPage2(inPageNo);\n    \t}\n    \treturn false;\n    }\n    function jumpPage2(pageNo){\n    \t// 通用上限拦截：超限直接返回，不写入 pageNo、不提交表单\n    \tif (typeof window.pageJumpGuard === 'function' && !window.pageJumpGuard(pageNo)) {\n    \t\treturn false;\n    \t}\n    \t$(\"#pageNo\").val(pageNo);\n    \tif($(\"#keys\").val()=='请输入文件号、标题...'){\n    \t\t$(\"#keys\").val(\"\");\n    \t}\n    \t$(\"#mainForm\").submit();\n    }\n\t</script>\n<!--翻页样式-->\n\n        <div cl"
+        },
+        {
+          "term": "pageNo",
+          "offset": 23312,
+          "snippet": "    \treturn false;\n    }\n    function jumpPage2(pageNo){\n    \t// 通用上限拦截：超限直接返回，不写入 pageNo、不提交表单\n    \tif (typeof window.pageJumpGuard === 'function' && !window.pageJumpGuard(pageNo)) {\n    \t\treturn false;\n    \t}\n    \t$(\"#pageNo\").val(pageNo);\n    \tif($(\"#keys\").val()=='请输入文件号、标题...'){\n    \t\t$(\"#keys\").val(\"\");\n    \t}\n    \t$(\"#mainForm\").submit();\n    }\n\t</script>\n<!--翻页样式-->\n\n        <div class=\"fr margin-t-33 margin-b-20\" style=\"height:"
+        },
+        {
+          "term": "pageNo",
+          "offset": 23325,
+          "snippet": "alse;\n    }\n    function jumpPage2(pageNo){\n    \t// 通用上限拦截：超限直接返回，不写入 pageNo、不提交表单\n    \tif (typeof window.pageJumpGuard === 'function' && !window.pageJumpGuard(pageNo)) {\n    \t\treturn false;\n    \t}\n    \t$(\"#pageNo\").val(pageNo);\n    \tif($(\"#keys\").val()=='请输入文件号、标题...'){\n    \t\t$(\"#keys\").val(\"\");\n    \t}\n    \t$(\"#mainForm\").submit();\n    }\n\t</script>\n<!--翻页样式-->\n\n        <div class=\"fr margin-t-33 margin-b-20\" style=\"height: 26px;text-al"
+        },
+        {
+          "term": "pageNo",
+          "offset": 24485,
+          "snippet": "\t\t\t\n\t\t\t\t &nbsp;<a href=\"###\" onclick=\"javascript:jumpPage2(2)\" >下一页</a>&nbsp;\n\t\t\t     &nbsp;<a href=\"###\" onclick=\"javascript:jumpPage2(38293)\">尾页</a>&nbsp;\n\t\t\t\n\t\t\t\n\t\t\t&nbsp;&nbsp;转到第<input type=\"text\" value=\"1\" name=\"inPageNo\" id=\"inPageNo\"  style=\"width:30px;\" />页\n\t\t\t<input type=\"submit\" name=\"pageNo_\" value=\"跳转\" id=\"pageNo_\" style=\"width:40px; height:25px;\" class=\"login-style\" onclick=\"javascript:gojumpPage()\"/>\n\t\t</div>\n\t\t\n\t\t\n\r\n\t\t</"
+        },
+        {
+          "term": "pageNo",
+          "offset": 24499,
+          "snippet": ";<a href=\"###\" onclick=\"javascript:jumpPage2(2)\" >下一页</a>&nbsp;\n\t\t\t     &nbsp;<a href=\"###\" onclick=\"javascript:jumpPage2(38293)\">尾页</a>&nbsp;\n\t\t\t\n\t\t\t\n\t\t\t&nbsp;&nbsp;转到第<input type=\"text\" value=\"1\" name=\"inPageNo\" id=\"inPageNo\"  style=\"width:30px;\" />页\n\t\t\t<input type=\"submit\" name=\"pageNo_\" value=\"跳转\" id=\"pageNo_\" style=\"width:40px; height:25px;\" class=\"login-style\" onclick=\"javascript:gojumpPage()\"/>\n\t\t</div>\n\t\t\n\t\t\n\r\n\t\t</div>\r\n\t</div>\r"
+        },
+        {
+          "term": "pageNo",
+          "offset": 24562,
+          "snippet": "\n\t\t\t     &nbsp;<a href=\"###\" onclick=\"javascript:jumpPage2(38293)\">尾页</a>&nbsp;\n\t\t\t\n\t\t\t\n\t\t\t&nbsp;&nbsp;转到第<input type=\"text\" value=\"1\" name=\"inPageNo\" id=\"inPageNo\"  style=\"width:30px;\" />页\n\t\t\t<input type=\"submit\" name=\"pageNo_\" value=\"跳转\" id=\"pageNo_\" style=\"width:40px; height:25px;\" class=\"login-style\" onclick=\"javascript:gojumpPage()\"/>\n\t\t</div>\n\t\t\n\t\t\n\r\n\t\t</div>\r\n\t</div>\r\n\t\r\n\t<!-- 如需将页面做成iframe嵌套，请从这里结束剪切 -->\r\n\t<div style=\"height: 80"
+        },
+        {
+          "term": "pageNo",
+          "offset": 24586,
+          "snippet": "###\" onclick=\"javascript:jumpPage2(38293)\">尾页</a>&nbsp;\n\t\t\t\n\t\t\t\n\t\t\t&nbsp;&nbsp;转到第<input type=\"text\" value=\"1\" name=\"inPageNo\" id=\"inPageNo\"  style=\"width:30px;\" />页\n\t\t\t<input type=\"submit\" name=\"pageNo_\" value=\"跳转\" id=\"pageNo_\" style=\"width:40px; height:25px;\" class=\"login-style\" onclick=\"javascript:gojumpPage()\"/>\n\t\t</div>\n\t\t\n\t\t\n\r\n\t\t</div>\r\n\t</div>\r\n\t\r\n\t<!-- 如需将页面做成iframe嵌套，请从这里结束剪切 -->\r\n\t<div style=\"height: 80px\"></div>\r\n\t<!-- <div c"
+        }
+      ]
+    },
+    {
+      "url": "https://permit.mee.gov.cn/perxxgkinfo/defaults/default-index!getInformation.action",
+      "final_url": "https://permit.mee.gov.cn/perxxgkinfo/defaults/default-index!getInformation.action",
+      "status": 200,
+      "content_type": "text/html;charset=UTF-8",
+      "bytes": 150951,
+      "title": [
+        "全国排污许可证管理信息平台-公开端"
+      ],
+      "forms": [],
+      "inputs": [],
+      "selects": [],
+      "script_srcs": [
+        "/perxxgkinfo/thscommon/javascript/baiduStatistics.js",
+        "/perxxgkinfo/thscommon/javascript/jquery.min.js",
+        "/perxxgkinfo/thscommon/javascript/json2.js",
+        "/perxxgkinfo/thscommon/javascript/jquery.artDialog.js",
+        "/perxxgkinfo/thscommon/javascript/My97DatePicker/WdatePicker.js",
+        "/perxxgkinfo/thscommon/javascript/jquery.media.js",
+        "/perxxgkinfo/thscommon/javascript/upload.js",
+        "/perxxgkinfo/thscommon/javascript/exportWord.js",
+        "/perxxgkinfo/util/xzxk/swfupload/swfupload.js",
+        "/perxxgkinfo/util/xzxk/swfupload/handlers.js",
+        "/perxxgkinfo/util/xzxk/swfupload/fileprogress.js",
+        "/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/languages/jquery.validationEngine-zh_CN.js",
+        "/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/jquery.validationEngine.js",
+        "/perxxgkinfo/js/urlhanzi.js",
+        "/perxxgkinfo/outside/js/jquery.js",
+        "/perxxgkinfo/outside/js/main.js?ran=1794126756613",
+        "/perxxgkinfo/outside/js/scroll.js?ran=1794126756613",
+        "/perxxgkinfo/outside/js/particles.min.js",
+        "/perxxgkinfo/outside/js/app.js"
+      ],
+      "inline_script_snippets": [
+        {
+          "length": 862,
+          "snippets": []
+        },
+        {
+          "length": 2545,
+          "snippets": []
+        },
+        {
+          "length": 755,
+          "snippets": []
+        }
+      ],
+      "links": [
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!licenseInformation.action",
+          "text": "许可信息公开"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/permitExt/outside/LicenseRedirect",
+          "text": "网上申报"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!licenseInformation.action",
+          "text": "更多"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!getNewsDetail.action?pkid=a4bb5667-385b-42a4-9f46-4d2d92b3ca86&type=ZYTZ",
+          "text": "关于调整2024年排污许可证年度执行报告报送时间的公告 2025-01-02"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!getNewsDetail.action?pkid=4e9b17bb-1f5d-4833-a4ea-817f23437f82&type=ZYTZ",
+          "text": "全国排污许可证管理信息平台更新通知 2024-04-26"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!getNewsDetail.action?pkid=7152da31-9782-4188-b9dd-adbbb71442d5&type=ZYTZ",
+          "text": "关于调整2023年度排污许可证执行报告报送时间的通知 2024-01-08"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!getNewsDetail.action?pkid=d83fbbbf-9a22-4ec0-8c4b-41c7337fd0af&type=ZYTZ",
+          "text": "全国排污许可证管理信息平台优化工业噪声管理模块相关功能 2023-09-29"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!getNewsDetail.action?pkid=5efc92a3-2abc-40bd-97b6-de9c008e3ee7&type=ZYTZ",
+          "text": "全国排污许可证管理信息平台优化固体废物管理模块相关功能 2022-03-25"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!getNewsDetail.action?pkid=a28ad712-e4dc-4cac-9530-c988a984f2c8&type=ZYTZ",
+          "text": "执行报告优化通知 2022-01-10"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!getNewsDetail.action?pkid=f41f3192-3bfe-43b3-81e5-31a6a82ad807&type=ZYTZ",
+          "text": "全国排污许可证管理信息平台简化排污许可证变更审批流程(2021年7月30日) 2021-07-30"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!getNewsDetail.action?pkid=1cb074b5-6725-40ac-b951-73a94f9f469f&type=ZYTZ",
+          "text": "全国排污许可证管理信息平台更新通知（2021年4月23日） 2021-04-23"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!getNewsDetail.action?pkid=d2b6420d-8cbb-4c00-acc8-8af42f52e93f&type=ZYTZ",
+          "text": "全国排污许可证管理信息平台更新通知（2021年3月19日） 2021-03-19"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!getNewsDetail.action?pkid=b0f7918b-d3f8-4560-b255-fceb5ff3a8a0&type=ZYTZ",
+          "text": "全国排污许可证管理信息平台更新通知（2021年1月12日） 2021-01-12"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!getNewsDetail.action?pkid=e615e70b-79f5-41fc-956f-6d15279c6d27&type=ZYTZ",
+          "text": "全国排污许可证管理信息平台更新通知（2020年9月3日） 2020-09-03"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!getNewsDetail.action?pkid=f24bdda0-8cd9-4d82-892a-3eb9c75c6b58&type=ZYTZ",
+          "text": "全国排污许可证管理信息平台更新通知（2020年8月21日） 2020-08-20"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!getNewsDetail.action?pkid=a32fbf20-dcd7-4c5b-8379-916d791cc8e4&type=ZYTZ",
+          "text": "全国排污许可证管理信息平台更新通知(2020年7月1日) 2020-06-29"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!getNewsDetail.action?pkid=e93c0179-c17b-4ff7-979c-35ca841e0e44&type=ZYTZ",
+          "text": "平台问题咨询等通知 2020-05-29"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!getNewsDetail.action?pkid=06094231-45fe-41b8-9a52-3487c33a073b&type=ZYTZ",
+          "text": "货运港口、水处理通用工序等9行业排污许可证可正式申报 2020-05-29"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=86ee831b-08b9-48dc-8673-cccaf39574cd&type=Law",
+          "text": "排污许可管理办法"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=e3bd81d4-b8e2-4658-9c02-adadf750c907&type=Law",
+          "text": "排污许可管理条例（中华人民共和国国务院令……"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=17a5acc5-a148-4f08-a37a-444b14492ece&type=Law",
+          "text": "排污许可管理办法（试行）"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=6943fef8-0aee-4997-98cc-33aaf6e27ba4&type=Law",
+          "text": "排污许可证管理暂行规定"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=10ff6ea4-b9b7-402c-9596-89c5f3c1c249&type=Law",
+          "text": "国务院办公厅关于印发控制污染物排放许可制……"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=f45dfebd-4c0f-439e-8e35-be195c90beaa&type=SSHYPFBZ",
+          "text": "锅炉大气污染物排放标准 GB13271-……"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=b1f2a6ab-69d5-4e31-8b0d-ab0a97316051&type=SSHYPFBZ",
+          "text": "关于执行大气污染物特别排放限值的公告"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=89c9a94e-0293-472c-a1d0-89b5e3322771&type=SSHYPFBZ",
+          "text": "火电厂大气污染物排放标准 GB13223……"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=3af76a84-5b5c-4b6f-9f32-7da3dd62cd83&type=SSHYPFBZ",
+          "text": "制浆造纸工业水污染物排放标准 GB354……"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=3c78d7b4-bff1-49ae-8599-1ab21d9858da&type=HYKXJSZN",
+          "text": "制浆造纸工业污染防治可行技术指南"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=db5d5d9e-5fa1-4e11-931b-682600ac749c&type=HYKXJSZN",
+          "text": "造纸行业木材制浆工艺污染防治可行技术指南……"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=2d85327c-c6cc-4aa9-b5fb-cdab2de5b1d2&type=HYKXJSZN",
+          "text": "造纸行业废纸制浆及造纸工艺污染防治可行技……"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=560dabb5-85ff-4652-81f0-895b09c53d7e&type=HYKXJSZN",
+          "text": "造纸行业非木材制浆工艺污染防治可行技术指……"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=0f3a76db-6430-4e75-8154-e3ab4845cff8&type=HYKXJSZN",
+          "text": "钢铁行业焦化工艺污染防治最佳可行技术指南……"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=a4ffae63-191f-4716-adc0-ade07f72adca&type=XKJSGF",
+          "text": "排污许可证质量核查技术规范"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=9b8dd4b9-4019-4e8d-8528-0b28a62b8b63&type=XKJSGF",
+          "text": "排污单位污染物排放口二维码标识技术规范"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=91eb0296-24c7-483b-bbf0-7a533c9f99fb&type=XKJSGF",
+          "text": "排污许可证申请与核发技术规范 工业固体废……"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=b6d1a751-13c6-4cde-9f86-5dd130944d22&type=XKJSGF",
+          "text": "排污许可证申请与核发技术规范 稀有稀土金……"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=9857fa9c-46e0-4326-b535-d36ccbd62356&type=XKJSGF",
+          "text": "排污许可证申请与核发技术规范 工业炉窑"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=81014dc2-071b-4e29-a9a7-8a55eccdb4ae&type=HYZXJCZN",
+          "text": "排污单位自行监测技术指南 印刷工业"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=38a6c005-529b-42fd-b310-062e57643fe6&type=HYZXJCZN",
+          "text": "排污单位自行监测技术指南 电子工业"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=d0b45140-0b35-4817-a055-5c9deeddd0fd&type=HYZXJCZN",
+          "text": "排污单位自行监测技术指南 砖瓦工业"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=2c605435-304d-44dc-9eb5-fd082f781bcf&type=HYZXJCZN",
+          "text": "排污单位自行监测技术指南 陶瓷工业"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=b4cbce0a-7441-43a7-b37a-611f68f71de4&type=HYZXJCZN",
+          "text": "排污单位自行监测技术指南 储油库、加油站"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=81014dc2-071b-4e29-a9a7-8a55eccdb4ae&type=XKJGYQ",
+          "text": "排污单位自行监测技术指南 印刷工业"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=38a6c005-529b-42fd-b310-062e57643fe6&type=XKJGYQ",
+          "text": "排污单位自行监测技术指南 电子工业"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=d0b45140-0b35-4817-a055-5c9deeddd0fd&type=XKJGYQ",
+          "text": "排污单位自行监测技术指南 砖瓦工业"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=2c605435-304d-44dc-9eb5-fd082f781bcf&type=XKJGYQ",
+          "text": "排污单位自行监测技术指南 陶瓷工业"
+        },
+        {
+          "href": "https://permit.mee.gov.cn/perxxgkinfo/outside/news_detail.jsp?pkid=b4cbce0a-7441-43a7-b37a-611f68f71de4&type=XKJGYQ",
+          "text": "排污单位自行监测技术指南 储油库、加油站 申报指南 本平台可以查询排污单位许可后信息公开内容，包括排污单位排口位置、数量、排放方式、排放去向、排放污染物种类、排放浓度限值、排放量和排放污染物执行标准等信息。同时，排污单位可登录本平台网上申报排污许可相关行政审批事项。 1 排污单位登录本平台，点击导航栏“网上申报”按钮，进入国家排污许可申请子系统； 2 排污单位首次使用系统，需自行注册账户，并用此账户登录、办理排污许可所有申报审批事项； 3 首次申报进入“业务办理-许可证申请”模块，点击“我要申报”按钮，开始网上申报；可以查看已有业务的申报状态； 4 请按照《技术规范》要求填写申请表格，并上传相关材料附件；页面提示供参考； 5 申报过程中可在“业务办理-信息公开”模块进行申请前信息公开； 6 填报完成后，点击“提交”按钮，完成本次申报； 7 提交成功后，可以查看审批状态和结果； 8 原则上一次申报，一源一数，一数多用，减少重复申报。 联系方式： 为规范排污许可答疑工作，现停止使用原平台系统技术支持电话、名录和技术规范技术支持电话答疑渠道， 开通邮箱答疑渠道，平台系统技术支持邮箱：pwxkpt@acee.org.cn， 名录和技术规范技术支持邮箱：pwxk@acee.org.cn 技术规范交流（QQ群）： 管理部门：167487301、445642952 火电工业：210890523、362539120 钢铁工业：423554111、665866519 水泥工业：632416722、544104053、325878291 造纸工业：274640434 玻璃工业-平板玻璃： 615560668、616708158 石化工业：669595334 制药工业-原料药： 641913633 电镀工业：198150383、369703834 化肥工业-氮肥： 392128628 制糖工业：398155591 纺织印染工业： 620069178 农药工业：345589457 有色金属工业： 672979912 制革工业：206584665 炼焦化学工业： 636041548、669598449 淀粉工业：195020875 屠宰及肉类加工工业： 209733304 锅炉工业：826110227、160604715 陶瓷砖瓦工业： 859180380、913839878 汽车工业：776709969 水处理行业： 809903604 畜禽养殖：868028965 乳制品行业： 784374585 家具行业：690231343 酒、饮料行业： 204304322 电池行业：697993581 调味品行业： 754901392 电子行业：881943332 人造板行业： 704282835、946086848 无机化学工业：786936787 废物治理工业： 892490442 聚氯乙烯工业：755638665 方便食品、添加剂工业： 81523718 废弃资源加工工业：673954044 危废焚烧工业： 560811151 生活垃圾焚烧：948048707 毛皮加工工业： 985405184 印刷工业：111409951 制药行业： 824017167 金属铸造：1031732303、961560987 涂料油墨： 1078751615 铁合金电解锰：1046542715 储油库加油站： 846104709 石墨非金属：973060368 煤炭加工-合成气和液体燃料生产： 1079513306 化学纤维制造业：1080056410 专用化学产品制造工业： 1045384551 医疗机构：929988165 日用化学产品制造工业： 731969456 环境卫生管理业：1071141192 码头： 1079815018 羽毛绒加工工业：1080893294 农副食品加工（水产加工和饲料加工、植物油加工）： 1081072201 稀土工业：754337412 橡胶工业： 729545761 塑料工业：863518750 海陆空行业： 827920073 制鞋工业：297579029 水处理通用工序： 1040958918 工业炉窑：1072279880、1084625906 附件资料："
+        }
+      ],
+      "html_query_snippets": [
+        {
+          "term": "licenseInformation",
+          "offset": 10271,
+          "snippet": "style=\"width:11%\"><a href=\"https://permit.mee.gov.cn/perxxgkinfo/syssb/xxgk/xxgk!sqqlist.action\">申请前信息公开</a></li>\r\n\t\t\t<li id=\"tab2\" onMouseOver=\"myclick(2)\"><a href=\"https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!licenseInformation.action\">许可信息公开</a></li>\r\n\t\t\t<li id=\"tab10\" onMouseOver=\"myclick(10)\"><a href=\"https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!xxgkXqzgList.action\">限期整改</a></li>\r\n\t\t\t<li id=\"tab9\" onMouseOver=\"myc"
+        },
+        {
+          "term": "licenseInformation",
+          "offset": 11860,
+          "snippet": "mores-link\">\r\n\t\t\t<a class=\"morea\" style=\"display:block\" href=\"https://permit.mee.gov.cn/perxxgkinfo/syssb/xxgk/xxgk!sqqlist.action\">更多</a>\r\n\t\t\t<a class=\"morea\" href=\"https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!licenseInformation.action\">更多</a>\r\n\t\t\t<a class=\"morea\" href=\"https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!xkgg_zxggList.action\">更多</a>\r\n\t\t\t<a class=\"morea\" href=\"https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/"
+        }
+      ]
+    }
+  ],
+  "javascript": [
+    {
+      "url": "https://permit.mee.gov.cn/perxxgkinfo/thscommon/javascript/jquery.min.js",
+      "final_url": "https://permit.mee.gov.cn/perxxgkinfo/thscommon/javascript/jquery.min.js",
+      "status": 200,
+      "content_type": "application/javascript;charset=UTF-8",
+      "bytes": 94783,
+      "keyword_snippets": [
+        {
+          "term": "ajax",
+          "offset": 2035,
+          "snippet": "(f.isArray(b))f.each(b,function(b,e){c||bD.test(a)?d(a,e):b_(a+\"[\"+(typeof e==\"object\"?b:\"\")+\"]\",e,c,d)});else if(!c&&f.type(b)===\"object\")for(var e in b)b_(a+\"[\"+e+\"]\",b[e],c,d);else d(a,b)}function b$(a,c){var d,e,g=f.ajaxSettings.flatOptions||{};for(d in c)c[d]!==b&&((g[d]?a:e||(e={}))[d]=c[d]);e&&f.extend(!0,a,e)}function bZ(a,c,d,e,f,g){f=f||c.dataTypes[0],g=g||{},g[f]=!0;var h=a[f],i=0,j=h?h.length:0,k=a===bS,l;for(;i<j&&(k||!l);i"
+        },
+        {
+          "term": "ajax",
+          "offset": 67647,
+          "snippet": "==1?g=h=h.firstChild:g=h.firstChild;if(g){c=c&&f.nodeName(g,\"tr\");for(var l=0,m=this.length,n=m-1;l<m;l++)d.call(c?bi(this[l],g):this[l],e.cacheable||m>1&&l<n?f.clone(h,!0,!0):h)}k.length&&f.each(k,function(a,b){b.src?f.ajax({type:\"GET\",global:!1,url:b.src,async:!1,dataType:\"script\"}):f.globalEval((b.text||b.textContent||b.innerHTML||\"\").replace(bf,\"/*$0*/\")),b.parentNode&&b.parentNode.removeChild(b)})}return this}}),f.buildFragment=fun"
+        },
+        {
+          "term": "ajax",
+          "offset": 75397,
+          "snippet": "string\"&&bR)return bR.apply(this,arguments);if(!this.length)return this;var e=a.indexOf(\" \");if(e>=0){var g=a.slice(e,a.length);a=a.slice(0,e)}var h=\"GET\";c&&(f.isFunction(c)?(d=c,c=b):typeof c==\"object\"&&(c=f.param(c,f.ajaxSettings.traditional),h=\"POST\"));var i=this;f.ajax({url:a,type:h,dataType:\"html\",data:c,complete:function(a,b,c){c=a.responseText,a.isResolved()&&(a.done(function(a){c=a}),i.html(g?f(\"<div>\").append(c.replace(bM,\"\"))"
+        },
+        {
+          "term": "ajax",
+          "offset": 75447,
+          "snippet": "is.length)return this;var e=a.indexOf(\" \");if(e>=0){var g=a.slice(e,a.length);a=a.slice(0,e)}var h=\"GET\";c&&(f.isFunction(c)?(d=c,c=b):typeof c==\"object\"&&(c=f.param(c,f.ajaxSettings.traditional),h=\"POST\"));var i=this;f.ajax({url:a,type:h,dataType:\"html\",data:c,complete:function(a,b,c){c=a.responseText,a.isResolved()&&(a.done(function(a){c=a}),i.html(g?f(\"<div>\").append(c.replace(bM,\"\")).find(g):c)),d&&i.each(d,[c,b,a])}});return this},"
+        },
+        {
+          "term": "ajax",
+          "offset": 76150,
+          "snippet": "est(this.type))}).map(function(a,b){var c=f(this).val();return c==null?null:f.isArray(c)?f.map(c,function(a,c){return{name:b.name,value:a.replace(bE,\"\\r\\n\")}}):{name:b.name,value:c.replace(bE,\"\\r\\n\")}}).get()}}),f.each(\"ajaxStart ajaxStop ajaxComplete ajaxError ajaxSuccess ajaxSend\".split(\" \"),function(a,b){f.fn[b]=function(a){return this.on(b,a)}}),f.each([\"get\",\"post\"],function(a,c){f[c]=function(a,d,e,g){f.isFunction(d)&&(g=g||e,e=d,"
+        },
+        {
+          "term": "ajax",
+          "offset": 76160,
+          "snippet": "ype))}).map(function(a,b){var c=f(this).val();return c==null?null:f.isArray(c)?f.map(c,function(a,c){return{name:b.name,value:a.replace(bE,\"\\r\\n\")}}):{name:b.name,value:c.replace(bE,\"\\r\\n\")}}).get()}}),f.each(\"ajaxStart ajaxStop ajaxComplete ajaxError ajaxSuccess ajaxSend\".split(\" \"),function(a,b){f.fn[b]=function(a){return this.on(b,a)}}),f.each([\"get\",\"post\"],function(a,c){f[c]=function(a,d,e,g){f.isFunction(d)&&(g=g||e,e=d,d=b);retur"
+        },
+        {
+          "term": "ajax",
+          "offset": 76169,
+          "snippet": "ap(function(a,b){var c=f(this).val();return c==null?null:f.isArray(c)?f.map(c,function(a,c){return{name:b.name,value:a.replace(bE,\"\\r\\n\")}}):{name:b.name,value:c.replace(bE,\"\\r\\n\")}}).get()}}),f.each(\"ajaxStart ajaxStop ajaxComplete ajaxError ajaxSuccess ajaxSend\".split(\" \"),function(a,b){f.fn[b]=function(a){return this.on(b,a)}}),f.each([\"get\",\"post\"],function(a,c){f[c]=function(a,d,e,g){f.isFunction(d)&&(g=g||e,e=d,d=b);return f.ajax("
+        },
+        {
+          "term": "ajax",
+          "offset": 76182,
+          "snippet": ",b){var c=f(this).val();return c==null?null:f.isArray(c)?f.map(c,function(a,c){return{name:b.name,value:a.replace(bE,\"\\r\\n\")}}):{name:b.name,value:c.replace(bE,\"\\r\\n\")}}).get()}}),f.each(\"ajaxStart ajaxStop ajaxComplete ajaxError ajaxSuccess ajaxSend\".split(\" \"),function(a,b){f.fn[b]=function(a){return this.on(b,a)}}),f.each([\"get\",\"post\"],function(a,c){f[c]=function(a,d,e,g){f.isFunction(d)&&(g=g||e,e=d,d=b);return f.ajax({type:c,url:a"
+        },
+        {
+          "term": "ajax",
+          "offset": 76192,
+          "snippet": "f(this).val();return c==null?null:f.isArray(c)?f.map(c,function(a,c){return{name:b.name,value:a.replace(bE,\"\\r\\n\")}}):{name:b.name,value:c.replace(bE,\"\\r\\n\")}}).get()}}),f.each(\"ajaxStart ajaxStop ajaxComplete ajaxError ajaxSuccess ajaxSend\".split(\" \"),function(a,b){f.fn[b]=function(a){return this.on(b,a)}}),f.each([\"get\",\"post\"],function(a,c){f[c]=function(a,d,e,g){f.isFunction(d)&&(g=g||e,e=d,d=b);return f.ajax({type:c,url:a,data:d,su"
+        },
+        {
+          "term": "ajax",
+          "offset": 76204,
+          "snippet": ");return c==null?null:f.isArray(c)?f.map(c,function(a,c){return{name:b.name,value:a.replace(bE,\"\\r\\n\")}}):{name:b.name,value:c.replace(bE,\"\\r\\n\")}}).get()}}),f.each(\"ajaxStart ajaxStop ajaxComplete ajaxError ajaxSuccess ajaxSend\".split(\" \"),function(a,b){f.fn[b]=function(a){return this.on(b,a)}}),f.each([\"get\",\"post\"],function(a,c){f[c]=function(a,d,e,g){f.isFunction(d)&&(g=g||e,e=d,d=b);return f.ajax({type:c,url:a,data:d,success:e,data"
+        },
+        {
+          "term": "ajax",
+          "offset": 76384,
+          "snippet": "Stop ajaxComplete ajaxError ajaxSuccess ajaxSend\".split(\" \"),function(a,b){f.fn[b]=function(a){return this.on(b,a)}}),f.each([\"get\",\"post\"],function(a,c){f[c]=function(a,d,e,g){f.isFunction(d)&&(g=g||e,e=d,d=b);return f.ajax({type:c,url:a,data:d,success:e,dataType:g})}}),f.extend({getScript:function(a,c){return f.get(a,b,c,\"script\")},getJSON:function(a,b,c){return f.get(a,b,c,\"json\")},ajaxSetup:function(a,b){b?b$(a,f.ajaxSettings):(b=a,"
+        },
+        {
+          "term": "ajax",
+          "offset": 76552,
+          "snippet": "a,d,e,g){f.isFunction(d)&&(g=g||e,e=d,d=b);return f.ajax({type:c,url:a,data:d,success:e,dataType:g})}}),f.extend({getScript:function(a,c){return f.get(a,b,c,\"script\")},getJSON:function(a,b,c){return f.get(a,b,c,\"json\")},ajaxSetup:function(a,b){b?b$(a,f.ajaxSettings):(b=a,a=f.ajaxSettings),b$(a,b);return a},ajaxSettings:{url:bU,isLocal:bI.test(bV[1]),global:!0,type:\"GET\",contentType:\"application/x-www-form-urlencoded; charset=UTF-8\",proc"
+        },
+        {
+          "term": "ajax",
+          "offset": 76585,
+          "snippet": ",e=d,d=b);return f.ajax({type:c,url:a,data:d,success:e,dataType:g})}}),f.extend({getScript:function(a,c){return f.get(a,b,c,\"script\")},getJSON:function(a,b,c){return f.get(a,b,c,\"json\")},ajaxSetup:function(a,b){b?b$(a,f.ajaxSettings):(b=a,a=f.ajaxSettings),b$(a,b);return a},ajaxSettings:{url:bU,isLocal:bI.test(bV[1]),global:!0,type:\"GET\",contentType:\"application/x-www-form-urlencoded; charset=UTF-8\",processData:!0,async:!0,accepts:{xml:"
+        },
+        {
+          "term": "ajax",
+          "offset": 76608,
+          "snippet": "({type:c,url:a,data:d,success:e,dataType:g})}}),f.extend({getScript:function(a,c){return f.get(a,b,c,\"script\")},getJSON:function(a,b,c){return f.get(a,b,c,\"json\")},ajaxSetup:function(a,b){b?b$(a,f.ajaxSettings):(b=a,a=f.ajaxSettings),b$(a,b);return a},ajaxSettings:{url:bU,isLocal:bI.test(bV[1]),global:!0,type:\"GET\",contentType:\"application/x-www-form-urlencoded; charset=UTF-8\",processData:!0,async:!0,accepts:{xml:\"application/xml, text/"
+        },
+        {
+          "term": "ajax",
+          "offset": 76640,
+          "snippet": "dataType:g})}}),f.extend({getScript:function(a,c){return f.get(a,b,c,\"script\")},getJSON:function(a,b,c){return f.get(a,b,c,\"json\")},ajaxSetup:function(a,b){b?b$(a,f.ajaxSettings):(b=a,a=f.ajaxSettings),b$(a,b);return a},ajaxSettings:{url:bU,isLocal:bI.test(bV[1]),global:!0,type:\"GET\",contentType:\"application/x-www-form-urlencoded; charset=UTF-8\",processData:!0,async:!0,accepts:{xml:\"application/xml, text/xml\",html:\"text/html\",text:\"text"
+        },
+        {
+          "term": "ajax",
+          "offset": 77142,
+          "snippet": "nts:{xml:/xml/,html:/html/,json:/json/},responseFields:{xml:\"responseXML\",text:\"responseText\"},converters:{\"* text\":a.String,\"text html\":!0,\"text json\":f.parseJSON,\"text xml\":f.parseXML},flatOptions:{context:!0,url:!0}},ajaxPrefilter:bY(bS),ajaxTransport:bY(bT),ajax:function(a,c){function w(a,c,l,m){if(s!==2){s=2,q&&clearTimeout(q),p=b,n=m||\"\",v.readyState=a>0?4:0;var o,r,u,w=c,x=l?ca(d,v,l):b,y,z;if(a>=200&&a<300||a===304){if(d.ifModif"
+        },
+        {
+          "term": "ajax",
+          "offset": 77163,
+          "snippet": "html/,json:/json/},responseFields:{xml:\"responseXML\",text:\"responseText\"},converters:{\"* text\":a.String,\"text html\":!0,\"text json\":f.parseJSON,\"text xml\":f.parseXML},flatOptions:{context:!0,url:!0}},ajaxPrefilter:bY(bS),ajaxTransport:bY(bT),ajax:function(a,c){function w(a,c,l,m){if(s!==2){s=2,q&&clearTimeout(q),p=b,n=m||\"\",v.readyState=a>0?4:0;var o,r,u,w=c,x=l?ca(d,v,l):b,y,z;if(a>=200&&a<300||a===304){if(d.ifModified){if(y=v.getRespon"
+        },
+        {
+          "term": "ajax",
+          "offset": 77184,
+          "snippet": "sponseFields:{xml:\"responseXML\",text:\"responseText\"},converters:{\"* text\":a.String,\"text html\":!0,\"text json\":f.parseJSON,\"text xml\":f.parseXML},flatOptions:{context:!0,url:!0}},ajaxPrefilter:bY(bS),ajaxTransport:bY(bT),ajax:function(a,c){function w(a,c,l,m){if(s!==2){s=2,q&&clearTimeout(q),p=b,n=m||\"\",v.readyState=a>0?4:0;var o,r,u,w=c,x=l?ca(d,v,l):b,y,z;if(a>=200&&a<300||a===304){if(d.ifModified){if(y=v.getResponseHeader(\"Last-Modifi"
+        },
+        {
+          "term": "ajax",
+          "offset": 77730,
+          "snippet": " try{r=cb(d,x),w=\"success\",o=!0}catch(A){w=\"parsererror\",u=A}}else{u=w;if(!w||a)w=\"error\",a<0&&(a=0)}v.status=a,v.statusText=\"\"+(c||w),o?h.resolveWith(e,[r,w,v]):h.rejectWith(e,[v,w,u]),v.statusCode(j),j=b,t&&g.trigger(\"ajax\"+(o?\"Success\":\"Error\"),[v,d,o?r:u]),i.fireWith(e,[v,w]),t&&(g.trigger(\"ajaxComplete\",[v,d]),--f.active||f.event.trigger(\"ajaxStop\"))}}typeof a==\"object\"&&(c=a,a=b),c=c||{};var d=f.ajaxSetup({},c),e=d.context||d,g=e!"
+        },
+        {
+          "term": "ajax",
+          "offset": 77806,
+          "snippet": "||a)w=\"error\",a<0&&(a=0)}v.status=a,v.statusText=\"\"+(c||w),o?h.resolveWith(e,[r,w,v]):h.rejectWith(e,[v,w,u]),v.statusCode(j),j=b,t&&g.trigger(\"ajax\"+(o?\"Success\":\"Error\"),[v,d,o?r:u]),i.fireWith(e,[v,w]),t&&(g.trigger(\"ajaxComplete\",[v,d]),--f.active||f.event.trigger(\"ajaxStop\"))}}typeof a==\"object\"&&(c=a,a=b),c=c||{};var d=f.ajaxSetup({},c),e=d.context||d,g=e!==d&&(e.nodeType||e instanceof f)?f(e):f.event,h=f.Deferred(),i=f.Callbacks("
+        },
+        {
+          "term": "ajax",
+          "offset": 77856,
+          "snippet": "\"+(c||w),o?h.resolveWith(e,[r,w,v]):h.rejectWith(e,[v,w,u]),v.statusCode(j),j=b,t&&g.trigger(\"ajax\"+(o?\"Success\":\"Error\"),[v,d,o?r:u]),i.fireWith(e,[v,w]),t&&(g.trigger(\"ajaxComplete\",[v,d]),--f.active||f.event.trigger(\"ajaxStop\"))}}typeof a==\"object\"&&(c=a,a=b),c=c||{};var d=f.ajaxSetup({},c),e=d.context||d,g=e!==d&&(e.nodeType||e instanceof f)?f(e):f.event,h=f.Deferred(),i=f.Callbacks(\"once memory\"),j=d.statusCode||{},k,l={},m={},n,o,"
+        },
+        {
+          "term": "ajax",
+          "offset": 77915,
+          "snippet": ",v.statusCode(j),j=b,t&&g.trigger(\"ajax\"+(o?\"Success\":\"Error\"),[v,d,o?r:u]),i.fireWith(e,[v,w]),t&&(g.trigger(\"ajaxComplete\",[v,d]),--f.active||f.event.trigger(\"ajaxStop\"))}}typeof a==\"object\"&&(c=a,a=b),c=c||{};var d=f.ajaxSetup({},c),e=d.context||d,g=e!==d&&(e.nodeType||e instanceof f)?f(e):f.event,h=f.Deferred(),i=f.Callbacks(\"once memory\"),j=d.statusCode||{},k,l={},m={},n,o,p,q,r,s=0,t,u,v={readyState:0,setRequestHeader:function(a,b"
+        },
+        {
+          "term": "ajax",
+          "offset": 79216,
+          "snippet": "ata&&d.processData&&typeof d.data!=\"string\"&&(d.data=f.param(d.data,d.traditional)),bZ(bS,d,c,v);if(s===2)return!1;t=d.global,d.type=d.type.toUpperCase(),d.hasContent=!bJ.test(d.type),t&&f.active++===0&&f.event.trigger(\"ajaxStart\");if(!d.hasContent){d.data&&(d.url+=(bL.test(d.url)?\"&\":\"?\")+d.data,delete d.data),k=d.url;if(d.cache===!1){var x=f.now(),y=d.url.replace(bP,\"$1_=\"+x);d.url=y+(y===d.url?(bL.test(d.url)?\"&\":\"?\")+\"_=\"+x:\"\")}}(d."
+        },
+        {
+          "term": "ajax",
+          "offset": 80115,
+          "snippet": "r(u,d.headers[u]);if(d.beforeSend&&(d.beforeSend.call(e,v,d)===!1||s===2)){v.abort();return!1}for(u in{success:1,error:1,complete:1})v[u](d[u]);p=bZ(bT,d,c,v);if(!p)w(-1,\"No Transport\");else{v.readyState=1,t&&g.trigger(\"ajaxSend\",[v,d]),d.async&&d.timeout>0&&(q=setTimeout(function(){v.abort(\"timeout\")},d.timeout));try{s=1,p.send(l,w)}catch(z){if(s<2)w(-1,z);else throw z}}return v},param:function(a,c){var d=[],e=function(a,b){b=f.isFunct"
+        },
+        {
+          "term": "ajax",
+          "offset": 80421,
+          "snippet": "timeout));try{s=1,p.send(l,w)}catch(z){if(s<2)w(-1,z);else throw z}}return v},param:function(a,c){var d=[],e=function(a,b){b=f.isFunction(b)?b():b,d[d.length]=encodeURIComponent(a)+\"=\"+encodeURIComponent(b)};c===b&&(c=f.ajaxSettings.traditional);if(f.isArray(a)||a.jquery&&!f.isPlainObject(a))f.each(a,function(){e(this.name,this.value)});else for(var g in a)b_(g,a[g],c,e);return d.join(\"&\").replace(bC,\"+\")}}),f.extend({active:0,lastModif"
+        },
+        {
+          "term": "ajax",
+          "offset": 80698,
+          "snippet": "sPlainObject(a))f.each(a,function(){e(this.name,this.value)});else for(var g in a)b_(g,a[g],c,e);return d.join(\"&\").replace(bC,\"+\")}}),f.extend({active:0,lastModified:{},etag:{}});var cc=f.now(),cd=/(\\=)\\?(&|$)|\\?\\?/i;f.ajaxSetup({jsonp:\"callback\",jsonpCallback:function(){return f.expando+\"_\"+cc++}}),f.ajaxPrefilter(\"json jsonp\",function(b,c,d){var e=typeof b.data==\"string\"&&/^application\\/x\\-www\\-form\\-urlencoded/.test(b.contentType);i"
+        },
+        {
+          "term": "ajax",
+          "offset": 80782,
+          "snippet": "(g,a[g],c,e);return d.join(\"&\").replace(bC,\"+\")}}),f.extend({active:0,lastModified:{},etag:{}});var cc=f.now(),cd=/(\\=)\\?(&|$)|\\?\\?/i;f.ajaxSetup({jsonp:\"callback\",jsonpCallback:function(){return f.expando+\"_\"+cc++}}),f.ajaxPrefilter(\"json jsonp\",function(b,c,d){var e=typeof b.data==\"string\"&&/^application\\/x\\-www\\-form\\-urlencoded/.test(b.contentType);if(b.dataTypes[0]===\"jsonp\"||b.jsonp!==!1&&(cd.test(b.url)||e&&cd.test(b.data))){var "
+        },
+        {
+          "term": "ajax",
+          "offset": 81475,
+          "snippet": ",b.data=k,a[h]=function(a){g=[a]},d.always(function(){a[h]=i,g&&f.isFunction(i)&&a[h](g[0])}),b.converters[\"script json\"]=function(){g||f.error(h+\" was not called\");return g[0]},b.dataTypes[0]=\"json\";return\"script\"}}),f.ajaxSetup({accepts:{script:\"text/javascript, application/javascript, application/ecmascript, application/x-ecmascript\"},contents:{script:/javascript|ecmascript/},converters:{\"text script\":function(a){f.globalEval(a);retu"
+        },
+        {
+          "term": "ajax",
+          "offset": 81706,
+          "snippet": "accepts:{script:\"text/javascript, application/javascript, application/ecmascript, application/x-ecmascript\"},contents:{script:/javascript|ecmascript/},converters:{\"text script\":function(a){f.globalEval(a);return a}}}),f.ajaxPrefilter(\"script\",function(a){a.cache===b&&(a.cache=!1),a.crossDomain&&(a.type=\"GET\",a.global=!1)}),f.ajaxTransport(\"script\",function(a){if(a.crossDomain){var d,e=c.head||c.getElementsByTagName(\"head\")[0]||c.documen"
+        },
+        {
+          "term": "ajax",
+          "offset": 81813,
+          "snippet": "},contents:{script:/javascript|ecmascript/},converters:{\"text script\":function(a){f.globalEval(a);return a}}}),f.ajaxPrefilter(\"script\",function(a){a.cache===b&&(a.cache=!1),a.crossDomain&&(a.type=\"GET\",a.global=!1)}),f.ajaxTransport(\"script\",function(a){if(a.crossDomain){var d,e=c.head||c.getElementsByTagName(\"head\")[0]||c.documentElement;return{send:function(f,g){d=c.createElement(\"script\"),d.async=\"async\",a.scriptCharset&&(d.charset="
+        },
+        {
+          "term": "ajax",
+          "offset": 82404,
+          "snippet": "atechange=null,e&&d.parentNode&&e.removeChild(d),d=b,c||g(200,\"success\")},e.insertBefore(d,e.firstChild)},abort:function(){d&&d.onload(0,1)}}}});var ce=a.ActiveXObject?function(){for(var a in cg)cg[a](0,1)}:!1,cf=0,cg;f.ajaxSettings.xhr=a.ActiveXObject?function(){return!this.isLocal&&ch()||ci()}:ch,function(a){f.extend(f.support,{ajax:!!a,cors:!!a&&\"withCredentials\"in a})}(f.ajaxSettings.xhr()),f.support.ajax&&f.ajaxTransport(function(c"
+        },
+        {
+          "term": "ajax",
+          "offset": 82516,
+          "snippet": "function(){d&&d.onload(0,1)}}}});var ce=a.ActiveXObject?function(){for(var a in cg)cg[a](0,1)}:!1,cf=0,cg;f.ajaxSettings.xhr=a.ActiveXObject?function(){return!this.isLocal&&ch()||ci()}:ch,function(a){f.extend(f.support,{ajax:!!a,cors:!!a&&\"withCredentials\"in a})}(f.ajaxSettings.xhr()),f.support.ajax&&f.ajaxTransport(function(c){if(!c.crossDomain||f.support.cors){var d;return{send:function(e,g){var h=c.xhr(),i,j;c.username?h.open(c.type,"
+        },
+        {
+          "term": "ajax",
+          "offset": 82562,
+          "snippet": "veXObject?function(){for(var a in cg)cg[a](0,1)}:!1,cf=0,cg;f.ajaxSettings.xhr=a.ActiveXObject?function(){return!this.isLocal&&ch()||ci()}:ch,function(a){f.extend(f.support,{ajax:!!a,cors:!!a&&\"withCredentials\"in a})}(f.ajaxSettings.xhr()),f.support.ajax&&f.ajaxTransport(function(c){if(!c.crossDomain||f.support.cors){var d;return{send:function(e,g){var h=c.xhr(),i,j;c.username?h.open(c.type,c.url,c.async,c.username,c.password):h.open(c."
+        },
+        {
+          "term": "ajax",
+          "offset": 82592,
+          "snippet": " in cg)cg[a](0,1)}:!1,cf=0,cg;f.ajaxSettings.xhr=a.ActiveXObject?function(){return!this.isLocal&&ch()||ci()}:ch,function(a){f.extend(f.support,{ajax:!!a,cors:!!a&&\"withCredentials\"in a})}(f.ajaxSettings.xhr()),f.support.ajax&&f.ajaxTransport(function(c){if(!c.crossDomain||f.support.cors){var d;return{send:function(e,g){var h=c.xhr(),i,j;c.username?h.open(c.type,c.url,c.async,c.username,c.password):h.open(c.type,c.url,c.async);if(c.xhrFi"
+        },
+        {
+          "term": "ajax",
+          "offset": 82600,
+          "snippet": "g[a](0,1)}:!1,cf=0,cg;f.ajaxSettings.xhr=a.ActiveXObject?function(){return!this.isLocal&&ch()||ci()}:ch,function(a){f.extend(f.support,{ajax:!!a,cors:!!a&&\"withCredentials\"in a})}(f.ajaxSettings.xhr()),f.support.ajax&&f.ajaxTransport(function(c){if(!c.crossDomain||f.support.cors){var d;return{send:function(e,g){var h=c.xhr(),i,j;c.username?h.open(c.type,c.url,c.async,c.username,c.password):h.open(c.type,c.url,c.async);if(c.xhrFields)for"
+        },
+        {
+          "term": "search",
+          "offset": 74677,
+          "snippet": ";d<4;d++)f[a+bx[d]+b]=e[d]||e[d-2]||e[0];return f}}});var bC=/%20/g,bD=/\\[\\]$/,bE=/\\r?\\n/g,bF=/#.*$/,bG=/^(.*?):[ \\t]*([^\\r\\n]*)\\r?$/mg,bH=/^(?:color|date|datetime|datetime-local|email|hidden|month|number|password|range|search|tel|text|time|url|week)$/i,bI=/^(?:about|app|app\\-storage|.+\\-extension|file|res|widget):$/,bJ=/^(?:GET|HEAD)$/,bK=/^\\/\\//,bL=/\\?/,bM=/<script\\b[^<]*(?:(?!<\\/script>)<[^<]*)*<\\/script>/gi,bN=/^(?:select|textarea)/"
+        }
+      ]
+    },
+    {
+      "url": "https://permit.mee.gov.cn/perxxgkinfo/thscommon/javascript/jquery.artDialog.js",
+      "final_url": "https://permit.mee.gov.cn/perxxgkinfo/thscommon/javascript/jquery.artDialog.js",
+      "status": 200,
+      "content_type": "application/javascript;charset=UTF-8",
+      "bytes": 16086,
+      "keyword_snippets": [
+        {
+          "term": "ajax",
+          "offset": 14176,
+          "snippet": "&(I[J]=O[J]);v X(I)},D.p.Bw=D.m(I+K),D.BT=D.m(I+H)||C,D.p.origin=D.BT,D.s=6(){c X=D.m(I+K);v X&&X.s(),!V},G!=C&&E(7).BN(\"mousedown\",6(){c X=D.p.Bw;X&&X.w()}),D.BC=6(C,D,B){B=B||!V;c G=D||{},H={w:W(),j:6(A){c W=i,X=W.0;E.ajax({url:C,success:6(X){W.2(X),G.j&&G.j.l(W,A)},cache:B})}};1 D.2;BO(c F BS G)H[F]===A&&(H[F]=G[F]);v X(H)},D.Br=6(B,A){v X({Z:\"Alert\",w:W(),BL:\"warning\",t:!U,BA:!U,2:B,Y:!U,s:A})},D.confirm=6(C,A,B){v X({Z:\"Confirm\",w:"
+        }
+      ]
+    },
+    {
+      "url": "https://permit.mee.gov.cn/perxxgkinfo/thscommon/javascript/My97DatePicker/WdatePicker.js",
+      "final_url": "https://permit.mee.gov.cn/perxxgkinfo/thscommon/javascript/My97DatePicker/WdatePicker.js",
+      "status": 200,
+      "content_type": "application/javascript;charset=UTF-8",
+      "bytes": 10236,
+      "keyword_snippets": [
+        {
+          "term": "method:",
+          "offset": 743,
+          "snippet": "rset:\"gb2312\"},\r\n {name:\"YcloudRed\",charset:\"gb2312\"}],\r\n$wdate:true,\r\n$crossFrame:false,\r\n$preLoad:false,\r\n$dpPath:\"\",\r\ndoubleCalendar:false,\r\nenableKeyboard:true,\r\nenableInputMask:true,\r\nautoUpdateOnChanged:null,\r\nweekMethod:\"ISO8601\",\r\nposition:{},\r\nlang:\"auto\",\r\nskin:\"default\",\r\ndateFmt:\"yyyy-MM-dd\",\r\nrealDateFmt:\"yyyy-MM-dd\",\r\nrealTimeFmt:\"HH:mm:ss\",\r\nrealFullFmt:\"%Date %Time\",\r\nminDate:\"1900-01-01 00:00:00\",\r\nmaxDate:\"2099-12-31 2"
+        }
+      ]
+    },
+    {
+      "url": "https://permit.mee.gov.cn/perxxgkinfo/thscommon/javascript/exportWord.js",
+      "final_url": "https://permit.mee.gov.cn/perxxgkinfo/thscommon/javascript/exportWord.js",
+      "status": 200,
+      "content_type": "application/javascript;charset=UTF-8",
+      "bytes": 1959,
+      "keyword_snippets": [
+        {
+          "term": "ajax",
+          "offset": 359,
+          "snippet": "m xmlName\r\n * @param nodeid\r\n */\r\nfunction expWordModel(xmlName,nodeid){\r\n//\tvar cardid = this.selectcardid;\r\n\tvar data = \"{gllb:\\\"0000000000\\\",sltime:\\\"222222\\\"}\";\r\n\t$(\"#div_wordModel\").html(\"\");\r\n\t//导出之前先查看是否有多个模版\r\n\t$.ajax({\r\n\t\ttype:'post',\r\n\t\turl:\"/xzxkbj/xtgl/word/word-model!getPkidByNodeidAndCardid.action\",\r\n\t\tdata:{\"nodeid\":nodeid},\r\n\t\tasync:false,\r\n\t\tsuccess:function(msg){\r\n\t\t\tout = JSON.parse(msg);\r\n\t\t\tvar html = \"\";\r\n\t\t\tvar len"
+        }
+      ]
+    },
+    {
+      "url": "https://permit.mee.gov.cn/perxxgkinfo/util/xzxk/swfupload/fileprogress.js",
+      "final_url": "https://permit.mee.gov.cn/perxxgkinfo/util/xzxk/swfupload/fileprogress.js",
+      "status": 200,
+      "content_type": "application/javascript;charset=UTF-8",
+      "bytes": 10088,
+      "keyword_snippets": [
+        {
+          "term": "ajax",
+          "offset": 5936,
+          "snippet": "ta){\r\n\t//alert(serverData+\"\\n\"+saveData);\r\n\t//下载\r\n\tthis.fileProgressElement.childNodes[1].childNodes[0].href = serverData;\r\n\tvar _now = this;\r\n\t//删除\r\n\t_now.fileProgressElement.childNodes[0].onclick = function () {\r\n\t\t\t$.ajax({\r\n\t\t\t\ttype : 'post',\r\n\t\t\t\turl : \"DeleteFileServlet\",\r\n\t\t\t\tdata : 'filePath='+serverData,\r\n\t\t\t\tsuccess : function(data) { \r\n\t\t\t\t\t//遍历，删除隐藏域的值\r\n\t\t\t\t\tvar _oldData = $(\"#\"+saveData+\"\").val();\r\n\t\t\t\t\t//alert(_oldData);\r\n"
+        }
+      ]
+    },
+    {
+      "url": "https://permit.mee.gov.cn/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/languages/jquery.validationEngine-zh_CN.js",
+      "final_url": "https://permit.mee.gov.cn/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/languages/jquery.validationEngine-zh_CN.js",
+      "status": 200,
+      "content_type": "application/javascript;charset=UTF-8",
+      "bytes": 19731,
+      "keyword_snippets": [
+        {
+          "term": "ajax",
+          "offset": 13732,
+          "snippet": "[0-9a-zA-Z]+$/,\r\n                    \"alertText\": \"* 不接受特殊字符\"\r\n                },\r\n                // --- CUSTOM RULES -- Those are specific to the demos, they can be removed or changed to your likings\r\n                \"ajaxUserCall\": {\r\n                    \"url\": \"ajaxValidateFieldUser\",\r\n                    // you may want to pass extra data on the ajax call\r\n                    \"extraData\": \"name=eric\",\r\n                    \"alertTex"
+        },
+        {
+          "term": "ajax",
+          "offset": 13778,
+          "snippet": "t\": \"* 不接受特殊字符\"\r\n                },\r\n                // --- CUSTOM RULES -- Those are specific to the demos, they can be removed or changed to your likings\r\n                \"ajaxUserCall\": {\r\n                    \"url\": \"ajaxValidateFieldUser\",\r\n                    // you may want to pass extra data on the ajax call\r\n                    \"extraData\": \"name=eric\",\r\n                    \"alertText\": \"* 此名称已被其他人使用\",\r\n                    \"aler"
+        },
+        {
+          "term": "ajax",
+          "offset": 13865,
+          "snippet": "pecific to the demos, they can be removed or changed to your likings\r\n                \"ajaxUserCall\": {\r\n                    \"url\": \"ajaxValidateFieldUser\",\r\n                    // you may want to pass extra data on the ajax call\r\n                    \"extraData\": \"name=eric\",\r\n                    \"alertText\": \"* 此名称已被其他人使用\",\r\n                    \"alertTextLoad\": \"* 正在确认名称是否有其他人使用，请稍等。\"\r\n                },\r\n\t\t\t\t\"ajaxUserCallPhp\": {\r\n    "
+        },
+        {
+          "term": "ajax",
+          "offset": 14060,
+          "snippet": "o pass extra data on the ajax call\r\n                    \"extraData\": \"name=eric\",\r\n                    \"alertText\": \"* 此名称已被其他人使用\",\r\n                    \"alertTextLoad\": \"* 正在确认名称是否有其他人使用，请稍等。\"\r\n                },\r\n\t\t\t\t\"ajaxUserCallPhp\": {\r\n                    \"url\": \"phpajax/ajaxValidateFieldUser.php\",\r\n                    // you may want to pass extra data on the ajax call\r\n                    \"extraData\": \"name=eric\",\r\n              "
+        },
+        {
+          "term": "ajax",
+          "offset": 14112,
+          "snippet": "    \"extraData\": \"name=eric\",\r\n                    \"alertText\": \"* 此名称已被其他人使用\",\r\n                    \"alertTextLoad\": \"* 正在确认名称是否有其他人使用，请稍等。\"\r\n                },\r\n\t\t\t\t\"ajaxUserCallPhp\": {\r\n                    \"url\": \"phpajax/ajaxValidateFieldUser.php\",\r\n                    // you may want to pass extra data on the ajax call\r\n                    \"extraData\": \"name=eric\",\r\n                    // if you provide an \"alertTextOk\", it will sh"
+        },
+        {
+          "term": "ajax",
+          "offset": 14117,
+          "snippet": "extraData\": \"name=eric\",\r\n                    \"alertText\": \"* 此名称已被其他人使用\",\r\n                    \"alertTextLoad\": \"* 正在确认名称是否有其他人使用，请稍等。\"\r\n                },\r\n\t\t\t\t\"ajaxUserCallPhp\": {\r\n                    \"url\": \"phpajax/ajaxValidateFieldUser.php\",\r\n                    // you may want to pass extra data on the ajax call\r\n                    \"extraData\": \"name=eric\",\r\n                    // if you provide an \"alertTextOk\", it will show as"
+        },
+        {
+          "term": "ajax",
+          "offset": 14208,
+          "snippet": "     \"alertTextLoad\": \"* 正在确认名称是否有其他人使用，请稍等。\"\r\n                },\r\n\t\t\t\t\"ajaxUserCallPhp\": {\r\n                    \"url\": \"phpajax/ajaxValidateFieldUser.php\",\r\n                    // you may want to pass extra data on the ajax call\r\n                    \"extraData\": \"name=eric\",\r\n                    // if you provide an \"alertTextOk\", it will show as a green prompt when the field validates\r\n                    \"alertTextOk\": \"* 此帐号名称可以使用\","
+        },
+        {
+          "term": "ajax",
+          "offset": 14581,
+          "snippet": " field validates\r\n                    \"alertTextOk\": \"* 此帐号名称可以使用\",\r\n                    \"alertText\": \"* 此名称已被其他人使用\",\r\n                    \"alertTextLoad\": \"* 正在确认帐号名称是否有其他人使用，请稍等。\"\r\n                },\r\n                \"ajaxNameCall\": {\r\n                    // remote json service location\r\n                    \"url\": \"ajaxValidateFieldName\",\r\n                    // error\r\n                    \"alertText\": \"* 此名称可以使用\",\r\n                   "
+        },
+        {
+          "term": "ajax",
+          "offset": 14680,
+          "snippet": "\": \"* 此名称已被其他人使用\",\r\n                    \"alertTextLoad\": \"* 正在确认帐号名称是否有其他人使用，请稍等。\"\r\n                },\r\n                \"ajaxNameCall\": {\r\n                    // remote json service location\r\n                    \"url\": \"ajaxValidateFieldName\",\r\n                    // error\r\n                    \"alertText\": \"* 此名称可以使用\",\r\n                    // if you provide an \"alertTextOk\", it will show as a green prompt when the field validates\r\n     "
+        },
+        {
+          "term": "ajax",
+          "offset": 15076,
+          "snippet": "green prompt when the field validates\r\n                    \"alertTextOk\": \"* 此名称已被其他人使用\",\r\n                    // speaks by itself\r\n                    \"alertTextLoad\": \"* 正在确认名称是否有其他人使用，请稍等。\"\r\n                },\r\n\t\t\t\t \"ajaxNameCallPhp\": {\r\n\t                    // remote json service location\r\n\t                    \"url\": \"phpajax/ajaxValidateFieldName.php\",\r\n\t                    // error\r\n\t                    \"alertText\": \"* 此名称已被其他人使用\""
+        },
+        {
+          "term": "ajax",
+          "offset": 15183,
+          "snippet": "    // speaks by itself\r\n                    \"alertTextLoad\": \"* 正在确认名称是否有其他人使用，请稍等。\"\r\n                },\r\n\t\t\t\t \"ajaxNameCallPhp\": {\r\n\t                    // remote json service location\r\n\t                    \"url\": \"phpajax/ajaxValidateFieldName.php\",\r\n\t                    // error\r\n\t                    \"alertText\": \"* 此名称已被其他人使用\",\r\n\t                    // speaks by itself\r\n\t                    \"alertTextLoad\": \"* 正在确认名称是否有其他人使用，请稍等。\"\r"
+        },
+        {
+          "term": "ajax",
+          "offset": 15188,
+          "snippet": "/ speaks by itself\r\n                    \"alertTextLoad\": \"* 正在确认名称是否有其他人使用，请稍等。\"\r\n                },\r\n\t\t\t\t \"ajaxNameCallPhp\": {\r\n\t                    // remote json service location\r\n\t                    \"url\": \"phpajax/ajaxValidateFieldName.php\",\r\n\t                    // error\r\n\t                    \"alertText\": \"* 此名称已被其他人使用\",\r\n\t                    // speaks by itself\r\n\t                    \"alertTextLoad\": \"* 正在确认名称是否有其他人使用，请稍等。\"\r\n\t   "
+        },
+        {
+          "term": "ajax",
+          "offset": 17142,
+          "snippet": "         \"xkznum\": {\r\n                    \"regex\": /^[0-9a-zA-Z]{22}$|^[0-9a-zA-Z]{0}$/,\r\n                    \"alertText\": \"* 无效的排污许可证编码\"\r\n                },\r\n                // 污水厂进水信息：校验企业库中是否存在许可证编码\r\n                \"ajaxXkznum\": {\r\n                    // remote json service location\r\n                    \"url\": \"../sewage/sewage!checkXkznum.action\",\r\n                    // error\r\n                    \"alertText\": \"* 排污许可证编号不存在\",\r\n    "
+        }
+      ]
+    },
+    {
+      "url": "https://permit.mee.gov.cn/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/jquery.validationEngine.js",
+      "final_url": "https://permit.mee.gov.cn/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/jquery.validationEngine.js",
+      "status": 200,
+      "content_type": "application/javascript;charset=UTF-8",
+      "bytes": 73104,
+      "keyword_snippets": [
+        {
+          "term": "ajax",
+          "offset": 3686,
+          "snippet": "ptions.autoPositionUpdate)\r\n\t\t\t\t$(window).off(\"resize\", methods.updatePromptsPosition);\r\n\r\n\t\t\treturn this;\r\n\t\t},\r\n\t\t/**\r\n\t\t* Validates either a form or a list of fields, shows prompts accordingly.\r\n\t\t* Note: There is no ajax form validation with this method, only field ajax validation are evaluated\r\n\t\t*\r\n\t\t* @return true if the form validates, false if it fails\r\n\t\t*/\r\n\t\tvalidate: function() {\r\n\t\t\tvar element = $(this);\r\n\t\t\tvar valid = n"
+        },
+        {
+          "term": "ajax",
+          "offset": 3736,
+          "snippet": "ize\", methods.updatePromptsPosition);\r\n\r\n\t\t\treturn this;\r\n\t\t},\r\n\t\t/**\r\n\t\t* Validates either a form or a list of fields, shows prompts accordingly.\r\n\t\t* Note: There is no ajax form validation with this method, only field ajax validation are evaluated\r\n\t\t*\r\n\t\t* @return true if the form validates, false if it fails\r\n\t\t*/\r\n\t\tvalidate: function() {\r\n\t\t\tvar element = $(this);\r\n\t\t\tvar valid = null;\r\n\r\n\t\t\tif (element.is(\"form\") || element.hasCl"
+        },
+        {
+          "term": "ajax",
+          "offset": 9851,
+          "snippet": "asClass(\"validate-skip\") || submitButton.attr(\"data-validation-engine-skip\") == \"true\")\r\n\t\t\t\t\t\t\treturn true;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\r\n\t\t\toptions.eventTrigger = \"submit\";\r\n\r\n\t\t\t// validate each field \r\n\t\t\t// (- skip field ajax validation, not necessary IF we will perform an ajax form validation)\r\n\t\t\tvar r=methods._validateFields(form);\r\n\r\n\t\t\tif (r && options.ajaxFormValidation) {\r\n\t\t\t\tmethods._validateFormWithAjax(form, options);\r\n\t\t\t\t// "
+        },
+        {
+          "term": "ajax",
+          "offset": 9904,
+          "snippet": "alidation-engine-skip\") == \"true\")\r\n\t\t\t\t\t\t\treturn true;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\r\n\t\t\toptions.eventTrigger = \"submit\";\r\n\r\n\t\t\t// validate each field \r\n\t\t\t// (- skip field ajax validation, not necessary IF we will perform an ajax form validation)\r\n\t\t\tvar r=methods._validateFields(form);\r\n\r\n\t\t\tif (r && options.ajaxFormValidation) {\r\n\t\t\t\tmethods._validateFormWithAjax(form, options);\r\n\t\t\t\t// cancel form auto-submission - process with async call"
+        },
+        {
+          "term": "ajax",
+          "offset": 9990,
+          "snippet": "ions.eventTrigger = \"submit\";\r\n\r\n\t\t\t// validate each field \r\n\t\t\t// (- skip field ajax validation, not necessary IF we will perform an ajax form validation)\r\n\t\t\tvar r=methods._validateFields(form);\r\n\r\n\t\t\tif (r && options.ajaxFormValidation) {\r\n\t\t\t\tmethods._validateFormWithAjax(form, options);\r\n\t\t\t\t// cancel form auto-submission - process with async call onAjaxFormComplete\r\n\t\t\t\treturn false;\r\n\t\t\t}\r\n\r\n\t\t\tif(options.onValidationComplete) {\r"
+        },
+        {
+          "term": "ajax",
+          "offset": 10042,
+          "snippet": " field \r\n\t\t\t// (- skip field ajax validation, not necessary IF we will perform an ajax form validation)\r\n\t\t\tvar r=methods._validateFields(form);\r\n\r\n\t\t\tif (r && options.ajaxFormValidation) {\r\n\t\t\t\tmethods._validateFormWithAjax(form, options);\r\n\t\t\t\t// cancel form auto-submission - process with async call onAjaxFormComplete\r\n\t\t\t\treturn false;\r\n\t\t\t}\r\n\r\n\t\t\tif(options.onValidationComplete) {\r\n\t\t\t\t// !! ensures that an undefined return is inter"
+        },
+        {
+          "term": "ajax",
+          "offset": 10127,
+          "snippet": "x form validation)\r\n\t\t\tvar r=methods._validateFields(form);\r\n\r\n\t\t\tif (r && options.ajaxFormValidation) {\r\n\t\t\t\tmethods._validateFormWithAjax(form, options);\r\n\t\t\t\t// cancel form auto-submission - process with async call onAjaxFormComplete\r\n\t\t\t\treturn false;\r\n\t\t\t}\r\n\r\n\t\t\tif(options.onValidationComplete) {\r\n\t\t\t\t// !! ensures that an undefined return is interpreted as return false but allows a onValidationComplete() to possibly return true an"
+        },
+        {
+          "term": "ajax",
+          "offset": 10489,
+          "snippet": "as return false but allows a onValidationComplete() to possibly return true and have form continue processing\r\n\t\t\t\treturn !!options.onValidationComplete(form, r);\r\n\t\t\t}\r\n\t\t\treturn r;\r\n\t\t},\r\n\t\t/**\r\n\t\t* Return true if the ajax field validations passed so far\r\n\t\t* @param {Object} options\r\n\t\t* @return true, is all ajax validation passed so far (remember ajax is async)\r\n\t\t*/\r\n\t\t_checkAjaxStatus: function(options) {\r\n\t\t\tvar status = true;\r\n\t\t"
+        },
+        {
+          "term": "ajax",
+          "offset": 10581,
+          "snippet": "ntinue processing\r\n\t\t\t\treturn !!options.onValidationComplete(form, r);\r\n\t\t\t}\r\n\t\t\treturn r;\r\n\t\t},\r\n\t\t/**\r\n\t\t* Return true if the ajax field validations passed so far\r\n\t\t* @param {Object} options\r\n\t\t* @return true, is all ajax validation passed so far (remember ajax is async)\r\n\t\t*/\r\n\t\t_checkAjaxStatus: function(options) {\r\n\t\t\tvar status = true;\r\n\t\t\t$.each(options.ajaxValidCache, function(key, value) {\r\n\t\t\t\tif (!value) {\r\n\t\t\t\t\tstatus = fal"
+        },
+        {
+          "term": "ajax",
+          "offset": 10621,
+          "snippet": "onValidationComplete(form, r);\r\n\t\t\t}\r\n\t\t\treturn r;\r\n\t\t},\r\n\t\t/**\r\n\t\t* Return true if the ajax field validations passed so far\r\n\t\t* @param {Object} options\r\n\t\t* @return true, is all ajax validation passed so far (remember ajax is async)\r\n\t\t*/\r\n\t\t_checkAjaxStatus: function(options) {\r\n\t\t\tvar status = true;\r\n\t\t\t$.each(options.ajaxValidCache, function(key, value) {\r\n\t\t\t\tif (!value) {\r\n\t\t\t\t\tstatus = false;\r\n\t\t\t\t\t// break the each\r\n\t\t\t\t\treturn"
+        },
+        {
+          "term": "ajax",
+          "offset": 10651,
+          "snippet": "\r\n\t\t\t}\r\n\t\t\treturn r;\r\n\t\t},\r\n\t\t/**\r\n\t\t* Return true if the ajax field validations passed so far\r\n\t\t* @param {Object} options\r\n\t\t* @return true, is all ajax validation passed so far (remember ajax is async)\r\n\t\t*/\r\n\t\t_checkAjaxStatus: function(options) {\r\n\t\t\tvar status = true;\r\n\t\t\t$.each(options.ajaxValidCache, function(key, value) {\r\n\t\t\t\tif (!value) {\r\n\t\t\t\t\tstatus = false;\r\n\t\t\t\t\t// break the each\r\n\t\t\t\t\treturn false;\r\n\t\t\t\t}\r\n\t\t\t});\r\n\t\t\tret"
+        },
+        {
+          "term": "ajax",
+          "offset": 10725,
+          "snippet": "ations passed so far\r\n\t\t* @param {Object} options\r\n\t\t* @return true, is all ajax validation passed so far (remember ajax is async)\r\n\t\t*/\r\n\t\t_checkAjaxStatus: function(options) {\r\n\t\t\tvar status = true;\r\n\t\t\t$.each(options.ajaxValidCache, function(key, value) {\r\n\t\t\t\tif (!value) {\r\n\t\t\t\t\tstatus = false;\r\n\t\t\t\t\t// break the each\r\n\t\t\t\t\treturn false;\r\n\t\t\t\t}\r\n\t\t\t});\r\n\t\t\treturn status;\r\n\t\t},\r\n\t\t\r\n\t\t/**\r\n\t\t* Return true if the ajax field is validat"
+        },
+        {
+          "term": "ajax",
+          "offset": 10924,
+          "snippet": ";\r\n\t\t\t$.each(options.ajaxValidCache, function(key, value) {\r\n\t\t\t\tif (!value) {\r\n\t\t\t\t\tstatus = false;\r\n\t\t\t\t\t// break the each\r\n\t\t\t\t\treturn false;\r\n\t\t\t\t}\r\n\t\t\t});\r\n\t\t\treturn status;\r\n\t\t},\r\n\t\t\r\n\t\t/**\r\n\t\t* Return true if the ajax field is validated\r\n\t\t* @param {String} fieldid\r\n\t\t* @param {Object} options\r\n\t\t* @return true, if validation passed, false if false or doesn't exist\r\n\t\t*/\r\n\t\t_checkAjaxFieldStatus: function(fieldid, options) {\r\n\t\t\t"
+        },
+        {
+          "term": "ajax",
+          "offset": 11094,
+          "snippet": " status;\r\n\t\t},\r\n\t\t\r\n\t\t/**\r\n\t\t* Return true if the ajax field is validated\r\n\t\t* @param {String} fieldid\r\n\t\t* @param {Object} options\r\n\t\t* @return true, if validation passed, false if false or doesn't exist\r\n\t\t*/\r\n\t\t_checkAjaxFieldStatus: function(fieldid, options) {\r\n\t\t\treturn options.ajaxValidCache[fieldid] == true;\r\n\t\t},\r\n\t\t/**\r\n\t\t* Validates form fields, shows prompts accordingly\r\n\t\t*\r\n\t\t* @param {jqObject}\r\n\t\t*            form\r\n\t\t* @"
+        },
+        {
+          "term": "ajax",
+          "offset": 11159,
+          "snippet": "alidated\r\n\t\t* @param {String} fieldid\r\n\t\t* @param {Object} options\r\n\t\t* @return true, if validation passed, false if false or doesn't exist\r\n\t\t*/\r\n\t\t_checkAjaxFieldStatus: function(fieldid, options) {\r\n\t\t\treturn options.ajaxValidCache[fieldid] == true;\r\n\t\t},\r\n\t\t/**\r\n\t\t* Validates form fields, shows prompts accordingly\r\n\t\t*\r\n\t\t* @param {jqObject}\r\n\t\t*            form\r\n\t\t* @param {skipAjaxFieldValidation}\r\n\t\t*            boolean - when se"
+        },
+        {
+          "term": "ajax",
+          "offset": 11325,
+          "snippet": "atus: function(fieldid, options) {\r\n\t\t\treturn options.ajaxValidCache[fieldid] == true;\r\n\t\t},\r\n\t\t/**\r\n\t\t* Validates form fields, shows prompts accordingly\r\n\t\t*\r\n\t\t* @param {jqObject}\r\n\t\t*            form\r\n\t\t* @param {skipAjaxFieldValidation}\r\n\t\t*            boolean - when set to true, ajax field validation is skipped, typically used when the submit button is clicked\r\n\t\t*\r\n\t\t* @return true if form is valid, false if not, undefined if ajax"
+        },
+        {
+          "term": "ajax",
+          "offset": 11390,
+          "snippet": "che[fieldid] == true;\r\n\t\t},\r\n\t\t/**\r\n\t\t* Validates form fields, shows prompts accordingly\r\n\t\t*\r\n\t\t* @param {jqObject}\r\n\t\t*            form\r\n\t\t* @param {skipAjaxFieldValidation}\r\n\t\t*            boolean - when set to true, ajax field validation is skipped, typically used when the submit button is clicked\r\n\t\t*\r\n\t\t* @return true if form is valid, false if not, undefined if ajax form validation is done\r\n\t\t*/\r\n\t\t_validateFields: function(form)"
+        },
+        {
+          "term": "ajax",
+          "offset": 11541,
+          "snippet": "skipAjaxFieldValidation}\r\n\t\t*            boolean - when set to true, ajax field validation is skipped, typically used when the submit button is clicked\r\n\t\t*\r\n\t\t* @return true if form is valid, false if not, undefined if ajax form validation is done\r\n\t\t*/\r\n\t\t_validateFields: function(form) {\r\n\t\t\tvar options = form.data('jqv');\r\n\r\n\t\t\t// this variable is set to true if an error is found\r\n\t\t\tvar errorFound = false;\r\n\r\n\t\t\t// Trigger hook, st"
+        },
+        {
+          "term": "ajax",
+          "offset": 11854,
+          "snippet": "m.data('jqv');\r\n\r\n\t\t\t// this variable is set to true if an error is found\r\n\t\t\tvar errorFound = false;\r\n\r\n\t\t\t// Trigger hook, start validation\r\n\t\t\tform.trigger(\"jqv.form.validating\");\r\n\t\t\t// first, evaluate status of non ajax fields\r\n\t\t\tvar first_err=null;\r\n\t\t\tform.find('['+options.validateAttribute+'*=validate]').not(\":disabled\").each( function() {\r\n\t\t\t\tvar field = $(this);\r\n\t\t\t\tvar names = [];\r\n\t\t\t\tif ($.inArray(field.attr('name'), nam"
+        },
+        {
+          "term": "ajax",
+          "offset": 13065,
+          "snippet": ";\r\n\r\n\t\t\t\t\t//if option set, stop checking validation rules after one error is found\r\n\t\t\t\t\tif(options.showOneMessage == true && errorFound){\r\n\t\t\t\t\t\treturn false;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t});\r\n\r\n\t\t\t// second, check to see if all ajax calls completed ok\r\n\t\t\t// errorFound |= !methods._checkAjaxStatus(options);\r\n\r\n\t\t\t// third, check status and scroll the container accordingly\r\n\t\t\tform.trigger(\"jqv.form.result\", [errorFound]);\r\n\r\n\t\t\tif (errorFound) "
+        },
+        {
+          "term": "ajax",
+          "offset": 13125,
+          "snippet": "ter one error is found\r\n\t\t\t\t\tif(options.showOneMessage == true && errorFound){\r\n\t\t\t\t\t\treturn false;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t});\r\n\r\n\t\t\t// second, check to see if all ajax calls completed ok\r\n\t\t\t// errorFound |= !methods._checkAjaxStatus(options);\r\n\r\n\t\t\t// third, check status and scroll the container accordingly\r\n\t\t\tform.trigger(\"jqv.form.result\", [errorFound]);\r\n\r\n\t\t\tif (errorFound) {\r\n\t\t\t\tif (options.scroll) {\r\n\t\t\t\t\tvar destination=first_err"
+        },
+        {
+          "term": "ajax",
+          "offset": 15287,
+          "snippet": "html, body\").animate({scrollLeft: fixleft},1100)\r\n\t\t\t\t\t}\r\n\r\n\t\t\t\t} else if(options.focusFirstField)\r\n\t\t\t\t\tfirst_err.focus();\r\n\t\t\t\treturn false;\r\n\t\t\t}\r\n\t\t\treturn true;\r\n\t\t},\r\n\t\t/**\r\n\t\t* This method is called to perform an ajax form validation.\r\n\t\t* During this process all the (field, value) pairs are sent to the server which returns a list of invalid fields or true\r\n\t\t*\r\n\t\t* @param {jqObject} form\r\n\t\t* @param {Map} options\r\n\t\t*/\r\n\t\t_valid"
+        },
+        {
+          "term": "ajax",
+          "offset": 15518,
+          "snippet": "alidation.\r\n\t\t* During this process all the (field, value) pairs are sent to the server which returns a list of invalid fields or true\r\n\t\t*\r\n\t\t* @param {jqObject} form\r\n\t\t* @param {Map} options\r\n\t\t*/\r\n\t\t_validateFormWithAjax: function(form, options) {\r\n\r\n\t\t\tvar data = form.serialize();\r\n\t\t\t\t\t\t\t\t\tvar type = (options.ajaxFormValidationMethod) ? options.ajaxFormValidationMethod : \"GET\";\r\n\t\t\tvar url = (options.ajaxFormValidationURL) ? optio"
+        },
+        {
+          "term": "ajax",
+          "offset": 15615,
+          "snippet": "urns a list of invalid fields or true\r\n\t\t*\r\n\t\t* @param {jqObject} form\r\n\t\t* @param {Map} options\r\n\t\t*/\r\n\t\t_validateFormWithAjax: function(form, options) {\r\n\r\n\t\t\tvar data = form.serialize();\r\n\t\t\t\t\t\t\t\t\tvar type = (options.ajaxFormValidationMethod) ? options.ajaxFormValidationMethod : \"GET\";\r\n\t\t\tvar url = (options.ajaxFormValidationURL) ? options.ajaxFormValidationURL : form.attr(\"action\");\r\n\t\t\t\t\t\t\t\t\tvar dataType = (options.dataType) ? opt"
+        },
+        {
+          "term": "ajax",
+          "offset": 15651,
+          "snippet": "e\r\n\t\t*\r\n\t\t* @param {jqObject} form\r\n\t\t* @param {Map} options\r\n\t\t*/\r\n\t\t_validateFormWithAjax: function(form, options) {\r\n\r\n\t\t\tvar data = form.serialize();\r\n\t\t\t\t\t\t\t\t\tvar type = (options.ajaxFormValidationMethod) ? options.ajaxFormValidationMethod : \"GET\";\r\n\t\t\tvar url = (options.ajaxFormValidationURL) ? options.ajaxFormValidationURL : form.attr(\"action\");\r\n\t\t\t\t\t\t\t\t\tvar dataType = (options.dataType) ? options.dataType : \"json\";\r\n\t\t\t$.ajax({"
+        },
+        {
+          "term": "ajax",
+          "offset": 15708,
+          "snippet": "ons\r\n\t\t*/\r\n\t\t_validateFormWithAjax: function(form, options) {\r\n\r\n\t\t\tvar data = form.serialize();\r\n\t\t\t\t\t\t\t\t\tvar type = (options.ajaxFormValidationMethod) ? options.ajaxFormValidationMethod : \"GET\";\r\n\t\t\tvar url = (options.ajaxFormValidationURL) ? options.ajaxFormValidationURL : form.attr(\"action\");\r\n\t\t\t\t\t\t\t\t\tvar dataType = (options.dataType) ? options.dataType : \"json\";\r\n\t\t\t$.ajax({\r\n\t\t\t\ttype: type,\r\n\t\t\t\turl: url,\r\n\t\t\t\tcache: false,\r\n\t\t\t\t"
+        },
+        {
+          "term": "ajax",
+          "offset": 15741,
+          "snippet": "x: function(form, options) {\r\n\r\n\t\t\tvar data = form.serialize();\r\n\t\t\t\t\t\t\t\t\tvar type = (options.ajaxFormValidationMethod) ? options.ajaxFormValidationMethod : \"GET\";\r\n\t\t\tvar url = (options.ajaxFormValidationURL) ? options.ajaxFormValidationURL : form.attr(\"action\");\r\n\t\t\t\t\t\t\t\t\tvar dataType = (options.dataType) ? options.dataType : \"json\";\r\n\t\t\t$.ajax({\r\n\t\t\t\ttype: type,\r\n\t\t\t\turl: url,\r\n\t\t\t\tcache: false,\r\n\t\t\t\tdataType: dataType,\r\n\t\t\t\tdata: da"
+        },
+        {
+          "term": "ajax",
+          "offset": 15865,
+          "snippet": "tions.ajaxFormValidationMethod : \"GET\";\r\n\t\t\tvar url = (options.ajaxFormValidationURL) ? options.ajaxFormValidationURL : form.attr(\"action\");\r\n\t\t\t\t\t\t\t\t\tvar dataType = (options.dataType) ? options.dataType : \"json\";\r\n\t\t\t$.ajax({\r\n\t\t\t\ttype: type,\r\n\t\t\t\turl: url,\r\n\t\t\t\tcache: false,\r\n\t\t\t\tdataType: dataType,\r\n\t\t\t\tdata: data,\r\n\t\t\t\tform: form,\r\n\t\t\t\tmethods: methods,\r\n\t\t\t\toptions: options,\r\n\t\t\t\tbeforeSend: function() {\r\n\t\t\t\t\treturn options.onBefo"
+        },
+        {
+          "term": "ajax",
+          "offset": 16087,
+          "snippet": "ax({\r\n\t\t\t\ttype: type,\r\n\t\t\t\turl: url,\r\n\t\t\t\tcache: false,\r\n\t\t\t\tdataType: dataType,\r\n\t\t\t\tdata: data,\r\n\t\t\t\tform: form,\r\n\t\t\t\tmethods: methods,\r\n\t\t\t\toptions: options,\r\n\t\t\t\tbeforeSend: function() {\r\n\t\t\t\t\treturn options.onBeforeAjaxFormValidation(form, options);\r\n\t\t\t\t},\r\n\t\t\t\terror: function(data, transport) {\r\n\t\t\t\t\tif (options.onFailure) {\r\n\t\t\t\t\t\toptions.onFailure(data, transport);\r\n\t\t\t\t\t} else {\r\n\t\t\t\t\t\tmethods._ajaxError(data, transport);\r\n\t\t\t"
+        },
+        {
+          "term": "ajax",
+          "offset": 16275,
+          "snippet": " {\r\n\t\t\t\t\treturn options.onBeforeAjaxFormValidation(form, options);\r\n\t\t\t\t},\r\n\t\t\t\terror: function(data, transport) {\r\n\t\t\t\t\tif (options.onFailure) {\r\n\t\t\t\t\t\toptions.onFailure(data, transport);\r\n\t\t\t\t\t} else {\r\n\t\t\t\t\t\tmethods._ajaxError(data, transport);\r\n\t\t\t\t\t}\r\n\t\t\t\t},\r\n\t\t\t\tsuccess: function(json) {\r\n\t\t\t\t\tif ((dataType == \"json\") && (json !== true)) {\r\n\t\t\t\t\t\t// getting to this case doesn't necessary means that the form is invalid\r\n\t\t\t\t\t\t// th"
+        },
+        {
+          "term": "ajax",
+          "offset": 17930,
+          "snippet": "les[msg].alertText;\r\n\t\t\t\t\t\t\t\t\t\tif (txt)\r\n\t\t\t\t\t\t\t\t\t\t\tmsg = txt;\r\n\t\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t\t\tif(options.showPrompts) methods._showPrompt(errorField, msg, \"\", false, options, true);\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\toptions.onAjaxFormComplete(!errorInForm, form, json, options);\r\n\t\t\t\t\t} else\r\n\t\t\t\t\t\toptions.onAjaxFormComplete(true, form, json, options);\r\n\r\n\t\t\t\t}\r\n\t\t\t});\r\n\r\n\t\t},\r\n\t\t/**\r\n\t\t* Validates field, shows prompts accordingly\r\n\t\t*\r\n\t\t* @p"
+        },
+        {
+          "term": "ajax",
+          "offset": 18013,
+          "snippet": "\t\tif(options.showPrompts) methods._showPrompt(errorField, msg, \"\", false, options, true);\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\toptions.onAjaxFormComplete(!errorInForm, form, json, options);\r\n\t\t\t\t\t} else\r\n\t\t\t\t\t\toptions.onAjaxFormComplete(true, form, json, options);\r\n\r\n\t\t\t\t}\r\n\t\t\t});\r\n\r\n\t\t},\r\n\t\t/**\r\n\t\t* Validates field, shows prompts accordingly\r\n\t\t*\r\n\t\t* @param {jqObject}\r\n\t\t*            field\r\n\t\t* @param {Array[String]}\r\n\t\t*            f"
+        },
+        {
+          "term": "ajax",
+          "offset": 18474,
+          "snippet": "es\r\n\t\t* @param {Map}\r\n\t\t*            user options\r\n\t\t* @return false if field is valid (It is inversed for *fields*, it return false on validate and true on errors.)\r\n\t\t*/\r\n\t\t_validateField: function(field, options, skipAjaxValidation) {\r\n\t\t\tif (!field.attr(\"id\")) {\r\n\t\t\t\tfield.attr(\"id\", \"form-validation-field-\" + $.validationEngine.fieldIdCounter);\r\n\t\t\t\t++$.validationEngine.fieldIdCounter;\r\n\t\t\t}\r\n\r\n           if (!options.validateNonVi"
+        },
+        {
+          "term": "ajax",
+          "offset": 19063,
+          "snippet": "(options.validateAttribute);\r\n\t\t\tvar getRules = /validate\\[(.*)\\]/.exec(rulesParsing);\r\n\r\n\t\t\tif (!getRules)\r\n\t\t\t\treturn false;\r\n\t\t\tvar str = getRules[1];\r\n\t\t\tvar rules = str.split(/\\[|,|\\]/);\r\n\r\n\t\t\t// true if we ran the ajax validation, tells the logic to stop messing with prompts\r\n\t\t\tvar isAjaxValidator = false;\r\n\t\t\tvar fieldName = field.attr(\"name\");\r\n\t\t\tvar promptText = \"\";\r\n\t\t\tvar promptType = \"\";\r\n\t\t\tvar required = false;\r\n\t\t\tvar l"
+        },
+        {
+          "term": "ajax",
+          "offset": 19135,
+          "snippet": "rulesParsing);\r\n\r\n\t\t\tif (!getRules)\r\n\t\t\t\treturn false;\r\n\t\t\tvar str = getRules[1];\r\n\t\t\tvar rules = str.split(/\\[|,|\\]/);\r\n\r\n\t\t\t// true if we ran the ajax validation, tells the logic to stop messing with prompts\r\n\t\t\tvar isAjaxValidator = false;\r\n\t\t\tvar fieldName = field.attr(\"name\");\r\n\t\t\tvar promptText = \"\";\r\n\t\t\tvar promptType = \"\";\r\n\t\t\tvar required = false;\r\n\t\t\tvar limitErrors = false;\r\n\t\t\toptions.isError = false;\r\n\t\t\toptions.showArrow ="
+        },
+        {
+          "term": "ajax",
+          "offset": 21154,
+          "snippet": "ssGroup = \"[\"+options.validateAttribute+\"*=\" +rules[i + 1] +\"]\";\r\n\t\t\t\t\t\tvar firstOfGroup = form.find(classGroup).eq(0);\r\n\t\t\t\t\t\tif(firstOfGroup[0] != field[0]){\r\n\r\n\t\t\t\t\t\t\tmethods._validateField(firstOfGroup, options, skipAjaxValidation); \r\n\t\t\t\t\t\t\toptions.showArrow = true;\r\n\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\terrorMsg = methods._getErrorMessage(form, field, rules[i], rules, i, options, methods._groupRequired);\r\n\t\t\t\t\t\tif(errorMsg)  required = true;\r\n\t\t\t\t\t\top"
+        },
+        {
+          "term": "ajax",
+          "offset": 21425,
+          "snippet": "\r\n\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\terrorMsg = methods._getErrorMessage(form, field, rules[i], rules, i, options, methods._groupRequired);\r\n\t\t\t\t\t\tif(errorMsg)  required = true;\r\n\t\t\t\t\t\toptions.showArrow = false;\r\n\t\t\t\t\t\tbreak;\r\n\t\t\t\t\tcase \"ajax\":\r\n\t\t\t\t\t\t// AJAX defaults to returning it's loading message\r\n\t\t\t\t\t\terrorMsg = methods._ajax(field, rules, i, options);\r\n\t\t\t\t\t\tif (errorMsg) {\r\n\t\t\t\t\t\t\tpromptType = \"load\";\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tbreak;\r\n\t\t\t\t\tcase \"minSize\":"
+        },
+        {
+          "term": "ajax",
+          "offset": 21442,
+          "snippet": "\t\terrorMsg = methods._getErrorMessage(form, field, rules[i], rules, i, options, methods._groupRequired);\r\n\t\t\t\t\t\tif(errorMsg)  required = true;\r\n\t\t\t\t\t\toptions.showArrow = false;\r\n\t\t\t\t\t\tbreak;\r\n\t\t\t\t\tcase \"ajax\":\r\n\t\t\t\t\t\t// AJAX defaults to returning it's loading message\r\n\t\t\t\t\t\terrorMsg = methods._ajax(field, rules, i, options);\r\n\t\t\t\t\t\tif (errorMsg) {\r\n\t\t\t\t\t\t\tpromptType = \"load\";\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tbreak;\r\n\t\t\t\t\tcase \"minSize\":\r\n\t\t\t\t\t\terrorMsg "
+        },
+        {
+          "term": "ajax",
+          "offset": 21517,
+          "snippet": "ons, methods._groupRequired);\r\n\t\t\t\t\t\tif(errorMsg)  required = true;\r\n\t\t\t\t\t\toptions.showArrow = false;\r\n\t\t\t\t\t\tbreak;\r\n\t\t\t\t\tcase \"ajax\":\r\n\t\t\t\t\t\t// AJAX defaults to returning it's loading message\r\n\t\t\t\t\t\terrorMsg = methods._ajax(field, rules, i, options);\r\n\t\t\t\t\t\tif (errorMsg) {\r\n\t\t\t\t\t\t\tpromptType = \"load\";\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tbreak;\r\n\t\t\t\t\tcase \"minSize\":\r\n\t\t\t\t\t\terrorMsg = methods._getErrorMessage(form, field, rules[i], rules, i, options, method"
+        },
+        {
+          "term": "ajax",
+          "offset": 27276,
+          "snippet": "efix + methods._jqSelector(field.attr('id')) + options.useSuffix);\r\n\t\t\t}\r\n\r\n\t\t\tif (options.isError && options.showPrompts){\r\n\t\t\t\tmethods._showPrompt(field, promptText, promptType, false, options);\r\n\t\t\t}else{\r\n\t\t\t\tif (!isAjaxValidator) methods._closePrompt(field);\r\n\t\t\t}\r\n\r\n\t\t\tif (!isAjaxValidator) {\r\n\t\t\t\tfield.trigger(\"jqv.field.result\", [field, options.isError, promptText]);\r\n\t\t\t}\r\n\r\n\t\t\t/* Record error */\r\n\t\t\tvar errindex = $.inArray(fi"
+        },
+        {
+          "term": "ajax",
+          "offset": 27339,
+          "snippet": "x);\r\n\t\t\t}\r\n\r\n\t\t\tif (options.isError && options.showPrompts){\r\n\t\t\t\tmethods._showPrompt(field, promptText, promptType, false, options);\r\n\t\t\t}else{\r\n\t\t\t\tif (!isAjaxValidator) methods._closePrompt(field);\r\n\t\t\t}\r\n\r\n\t\t\tif (!isAjaxValidator) {\r\n\t\t\t\tfield.trigger(\"jqv.field.result\", [field, options.isError, promptText]);\r\n\t\t\t}\r\n\r\n\t\t\t/* Record error */\r\n\t\t\tvar errindex = $.inArray(field[0], options.InvalidFields);\r\n\t\t\tif (errindex == -1) {\r\n\t\t\t\t"
+        },
+        {
+          "term": "ajax",
+          "offset": 32947,
+          "snippet": "ptions.custom_error_messages[rule]['message'];\r\n\t\t\t }\r\n\t\t\t return custom_message;\r\n\t\t },\r\n\t\t _validityProp: {\r\n\t\t\t \"required\": \"value-missing\",\r\n\t\t\t \"custom\": \"custom-error\",\r\n\t\t\t \"groupRequired\": \"value-missing\",\r\n\t\t\t \"ajax\": \"custom-error\",\r\n\t\t\t \"minSize\": \"range-underflow\",\r\n\t\t\t \"maxSize\": \"range-overflow\",\r\n\t\t\t \"min\": \"range-underflow\",\r\n\t\t\t \"max\": \"range-overflow\",\r\n\t\t\t \"past\": \"type-mismatch\",\r\n\t\t\t \"future\": \"type-mismatch\",\r\n\t\t\t "
+        },
+        {
+          "term": "ajax",
+          "offset": 48397,
+          "snippet": "while (--i >= 0)\r\n\r\n\t\t\t\tfor (i = 0; i < luhn.length; i++) {\r\n\t\t\t\t\tsum += parseInt(luhn.charAt(i));\r\n\t\t\t\t}\r\n\t\t\t\tvalid = sum % 10 == 0;\r\n\t\t\t}\r\n\t\t\tif (!valid) return options.allrules.creditCard.alertText;\r\n\t\t},\r\n\t\t/**\r\n\t\t* Ajax field validation\r\n\t\t*\r\n\t\t* @param {jqObject} field\r\n\t\t* @param {Array[String]} rules\r\n\t\t* @param {int} i rules index\r\n\t\t* @param {Map}\r\n\t\t*            user options\r\n\t\t* @return nothing! the ajax validator handles th"
+        },
+        {
+          "term": "ajax",
+          "offset": 48592,
+          "snippet": "tText;\r\n\t\t},\r\n\t\t/**\r\n\t\t* Ajax field validation\r\n\t\t*\r\n\t\t* @param {jqObject} field\r\n\t\t* @param {Array[String]} rules\r\n\t\t* @param {int} i rules index\r\n\t\t* @param {Map}\r\n\t\t*            user options\r\n\t\t* @return nothing! the ajax validator handles the prompts itself\r\n\t\t*/\r\n\t\t _ajax: function(field, rules, i, options) {\r\n\r\n\t\t\t var errorSelector = rules[i + 1];\r\n\t\t\t var rule = options.allrules[errorSelector];\r\n\t\t\t var extraData = rule.extraDat"
+        },
+        {
+          "term": "ajax",
+          "offset": 48645,
+          "snippet": "\t\t* @param {jqObject} field\r\n\t\t* @param {Array[String]} rules\r\n\t\t* @param {int} i rules index\r\n\t\t* @param {Map}\r\n\t\t*            user options\r\n\t\t* @return nothing! the ajax validator handles the prompts itself\r\n\t\t*/\r\n\t\t _ajax: function(field, rules, i, options) {\r\n\r\n\t\t\t var errorSelector = rules[i + 1];\r\n\t\t\t var rule = options.allrules[errorSelector];\r\n\t\t\t var extraData = rule.extraData;\r\n\t\t\t var extraDataDynamic = rule.extraDataDynamic;"
+        },
+        {
+          "term": "ajax",
+          "offset": 49914,
+          "snippet": "data[id.replace('#', '')] = inputValue;\r\n\t\t\t\t\t }\r\n\t\t\t\t }\r\n\t\t\t }\r\n\t\t\t \r\n\t\t\t // If a field change event triggered this we want to clear the cache for this ID\r\n\t\t\t if (options.eventTrigger == \"field\") {\r\n\t\t\t\tdelete(options.ajaxValidCache[field.attr(\"id\")]);\r\n\t\t\t }\r\n\r\n\t\t\t // If there is an error or if the the field is already validated, do not re-execute AJAX\r\n\t\t\t if (!options.isError && !methods._checkAjaxFieldStatus(field.attr(\"id\"), opti"
+        },
+        {
+          "term": "ajax",
+          "offset": 50047,
+          "snippet": " the cache for this ID\r\n\t\t\t if (options.eventTrigger == \"field\") {\r\n\t\t\t\tdelete(options.ajaxValidCache[field.attr(\"id\")]);\r\n\t\t\t }\r\n\r\n\t\t\t // If there is an error or if the the field is already validated, do not re-execute AJAX\r\n\t\t\t if (!options.isError && !methods._checkAjaxFieldStatus(field.attr(\"id\"), options)) {\r\n\t\t\t\t $.ajax({\r\n\t\t\t\t\t type: options.ajaxFormValidationMethod,\r\n\t\t\t\t\t url: rule.url,\r\n\t\t\t\t\t cache: false,\r\n\t\t\t\t\t dataType: \"js"
+        },
+        {
+          "term": "ajax",
+          "offset": 50096,
+          "snippet": "ger == \"field\") {\r\n\t\t\t\tdelete(options.ajaxValidCache[field.attr(\"id\")]);\r\n\t\t\t }\r\n\r\n\t\t\t // If there is an error or if the the field is already validated, do not re-execute AJAX\r\n\t\t\t if (!options.isError && !methods._checkAjaxFieldStatus(field.attr(\"id\"), options)) {\r\n\t\t\t\t $.ajax({\r\n\t\t\t\t\t type: options.ajaxFormValidationMethod,\r\n\t\t\t\t\t url: rule.url,\r\n\t\t\t\t\t cache: false,\r\n\t\t\t\t\t dataType: \"json\",\r\n\t\t\t\t\t data: data,\r\n\t\t\t\t\t field: field,\r\n\t\t\t"
+        },
+        {
+          "term": "ajax",
+          "offset": 50150,
+          "snippet": "ield.attr(\"id\")]);\r\n\t\t\t }\r\n\r\n\t\t\t // If there is an error or if the the field is already validated, do not re-execute AJAX\r\n\t\t\t if (!options.isError && !methods._checkAjaxFieldStatus(field.attr(\"id\"), options)) {\r\n\t\t\t\t $.ajax({\r\n\t\t\t\t\t type: options.ajaxFormValidationMethod,\r\n\t\t\t\t\t url: rule.url,\r\n\t\t\t\t\t cache: false,\r\n\t\t\t\t\t dataType: \"json\",\r\n\t\t\t\t\t data: data,\r\n\t\t\t\t\t field: field,\r\n\t\t\t\t\t rule: rule,\r\n\t\t\t\t\t methods: methods,\r\n\t\t\t\t\t options"
+        },
+        {
+          "term": "ajax",
+          "offset": 50178,
+          "snippet": "\n\t\t\t // If there is an error or if the the field is already validated, do not re-execute AJAX\r\n\t\t\t if (!options.isError && !methods._checkAjaxFieldStatus(field.attr(\"id\"), options)) {\r\n\t\t\t\t $.ajax({\r\n\t\t\t\t\t type: options.ajaxFormValidationMethod,\r\n\t\t\t\t\t url: rule.url,\r\n\t\t\t\t\t cache: false,\r\n\t\t\t\t\t dataType: \"json\",\r\n\t\t\t\t\t data: data,\r\n\t\t\t\t\t field: field,\r\n\t\t\t\t\t rule: rule,\r\n\t\t\t\t\t methods: methods,\r\n\t\t\t\t\t options: options,\r\n\t\t\t\t\t beforeSend"
+        }
+      ]
+    },
+    {
+      "url": "https://permit.mee.gov.cn/perxxgkinfo/outside/choosedate/WdatePicker.js",
+      "final_url": "https://permit.mee.gov.cn/perxxgkinfo/outside/choosedate/WdatePicker.js",
+      "status": 200,
+      "content_type": "application/javascript;charset=UTF-8",
+      "bytes": 10235,
+      "keyword_snippets": [
+        {
+          "term": "method:",
+          "offset": 742,
+          "snippet": "arset:\"gb2312\"},\r\n {name:\"YcloudRed\",charset:\"gb2312\"}],\r\n$wdate:true,\r\n$crossFrame:true,\r\n$preLoad:false,\r\n$dpPath:\"\",\r\ndoubleCalendar:false,\r\nenableKeyboard:true,\r\nenableInputMask:true,\r\nautoUpdateOnChanged:null,\r\nweekMethod:\"ISO8601\",\r\nposition:{},\r\nlang:\"auto\",\r\nskin:\"default\",\r\ndateFmt:\"yyyy-MM-dd\",\r\nrealDateFmt:\"yyyy-MM-dd\",\r\nrealTimeFmt:\"HH:mm:ss\",\r\nrealFullFmt:\"%Date %Time\",\r\nminDate:\"1900-01-01 00:00:00\",\r\nmaxDate:\"2099-12-31 2"
+        }
+      ]
+    },
+    {
+      "url": "https://permit.mee.gov.cn/perxxgkinfo/outside/js/main.js",
+      "final_url": "https://permit.mee.gov.cn/perxxgkinfo/outside/js/main.js",
+      "status": 200,
+      "content_type": "application/javascript;charset=UTF-8",
+      "bytes": 1298,
+      "keyword_snippets": [
+        {
+          "term": "search",
+          "offset": 996,
+          "snippet": "sie: /msie/.test( userAgent ) && !/opera/.test( userAgent ), \r\n\tmozilla: /mozilla/.test( userAgent ) && !/(compatible|webkit)/.test( userAgent ) \r\n\t}; \r\n\tif($.browser.msie&&($.browser.version == \"8.0\")){ \r\n\t\t$(\".content-search select,.content-search input\").offset({top:400});\r\n\t} \r\n\t$(window).resize(function() {\r\n\t\talignCenter();\r\n\t});\r\n});\r\nfunction alignCenter(){\r\n\tvar w1=$(\"#disclosure-title\").width()/2;\r\n\tvar\tw2=$(\"#disclosure-title"
+        },
+        {
+          "term": "search",
+          "offset": 1019,
+          "snippet": "gent ) && !/opera/.test( userAgent ), \r\n\tmozilla: /mozilla/.test( userAgent ) && !/(compatible|webkit)/.test( userAgent ) \r\n\t}; \r\n\tif($.browser.msie&&($.browser.version == \"8.0\")){ \r\n\t\t$(\".content-search select,.content-search input\").offset({top:400});\r\n\t} \r\n\t$(window).resize(function() {\r\n\t\talignCenter();\r\n\t});\r\n});\r\nfunction alignCenter(){\r\n\tvar w1=$(\"#disclosure-title\").width()/2;\r\n\tvar\tw2=$(\"#disclosure-title\").parent().width()/2;\r"
+        }
+      ]
+    },
+    {
+      "url": "https://permit.mee.gov.cn/perxxgkinfo/syssb/outside/choosedate/WdatePicker.js",
+      "error": "<HTTPError 404: 'Not Found'>"
+    },
+    {
+      "url": "https://permit.mee.gov.cn/perxxgkinfo/syssb/outside/js/jquery.js",
+      "error": "<HTTPError 404: 'Not Found'>"
+    },
+    {
+      "url": "https://permit.mee.gov.cn/perxxgkinfo/syssb/outside/js/main.js",
+      "error": "<HTTPError 404: 'Not Found'>"
+    },
+    {
+      "url": "https://zfwzgl.www.gov.cn/exposure/jiucuo.js",
+      "error": "URLError(SSLError(1, '[SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1018)'))"
+    },
+    {
+      "url": "https://permit.mee.gov.cn/perxxgkinfo/outside/js/jquery.js",
+      "final_url": "https://permit.mee.gov.cn/perxxgkinfo/outside/js/jquery.js",
+      "status": 200,
+      "content_type": "application/javascript;charset=UTF-8",
+      "bytes": 268108,
+      "keyword_snippets": [
+        {
+          "term": "ajax",
+          "offset": 171374,
+          "snippet": "< hasScripts; i++ ) {\n\t\t\t\t\t\tnode = scripts[ i ];\n\t\t\t\t\t\tif ( rscriptType.test( node.type || \"\" ) &&\n\t\t\t\t\t\t\t!jQuery._data( node, \"globalEval\" ) && jQuery.contains( doc, node ) ) {\n\n\t\t\t\t\t\t\tif ( node.src ) {\n\t\t\t\t\t\t\t\t// Hope ajax is available...\n\t\t\t\t\t\t\t\tjQuery.ajax({\n\t\t\t\t\t\t\t\t\turl: node.src,\n\t\t\t\t\t\t\t\t\ttype: \"GET\",\n\t\t\t\t\t\t\t\t\tdataType: \"script\",\n\t\t\t\t\t\t\t\t\tasync: false,\n\t\t\t\t\t\t\t\t\tglobal: false,\n\t\t\t\t\t\t\t\t\t\"throws\": true\n\t\t\t\t\t\t\t\t});\n\t\t\t\t\t\t\t} else {\n\t\t\t"
+        },
+        {
+          "term": "ajax",
+          "offset": 171410,
+          "snippet": "cripts[ i ];\n\t\t\t\t\t\tif ( rscriptType.test( node.type || \"\" ) &&\n\t\t\t\t\t\t\t!jQuery._data( node, \"globalEval\" ) && jQuery.contains( doc, node ) ) {\n\n\t\t\t\t\t\t\tif ( node.src ) {\n\t\t\t\t\t\t\t\t// Hope ajax is available...\n\t\t\t\t\t\t\t\tjQuery.ajax({\n\t\t\t\t\t\t\t\t\turl: node.src,\n\t\t\t\t\t\t\t\t\ttype: \"GET\",\n\t\t\t\t\t\t\t\t\tdataType: \"script\",\n\t\t\t\t\t\t\t\t\tasync: false,\n\t\t\t\t\t\t\t\t\tglobal: false,\n\t\t\t\t\t\t\t\t\t\"throws\": true\n\t\t\t\t\t\t\t\t});\n\t\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t\tjQuery.globalEval( ( node.text "
+        },
+        {
+          "term": "ajax",
+          "offset": 205699,
+          "snippet": " \"\" : value );\n\t\t\ts[ s.length ] = encodeURIComponent( key ) + \"=\" + encodeURIComponent( value );\n\t\t};\n\n\t// Set traditional to true for jQuery <= 1.3.2 behavior.\n\tif ( traditional === undefined ) {\n\t\ttraditional = jQuery.ajaxSettings && jQuery.ajaxSettings.traditional;\n\t}\n\n\t// If an array was passed in, assume that it is an array of form elements.\n\tif ( jQuery.isArray( a ) || ( a.jquery && !jQuery.isPlainObject( a ) ) ) {\n\t\t// Serialize "
+        },
+        {
+          "term": "ajax",
+          "offset": 205722,
+          "snippet": "length ] = encodeURIComponent( key ) + \"=\" + encodeURIComponent( value );\n\t\t};\n\n\t// Set traditional to true for jQuery <= 1.3.2 behavior.\n\tif ( traditional === undefined ) {\n\t\ttraditional = jQuery.ajaxSettings && jQuery.ajaxSettings.traditional;\n\t}\n\n\t// If an array was passed in, assume that it is an array of form elements.\n\tif ( jQuery.isArray( a ) || ( a.jquery && !jQuery.isPlainObject( a ) ) ) {\n\t\t// Serialize the form elements\n\t\tjQu"
+        },
+        {
+          "term": "ajax",
+          "offset": 207624,
+          "snippet": "h > 0 ?\n\t\t\tthis.on( name, null, data, fn ) :\n\t\t\tthis.trigger( name );\n\t};\n});\n\njQuery.fn.hover = function( fnOver, fnOut ) {\n\treturn this.mouseenter( fnOver ).mouseleave( fnOut || fnOver );\n};\nvar\n\t// Document location\n\tajaxLocParts,\n\tajaxLocation,\n\tajax_nonce = jQuery.now(),\n\n\tajax_rquery = /\\?/,\n\trhash = /#.*$/,\n\trts = /([?&])_=[^&]*/,\n\trheaders = /^(.*?):[ \\t]*([^\\r\\n]*)\\r?$/mg, // IE leaves an \\r character at EOL\n\t// #7653, #8125, #"
+        },
+        {
+          "term": "ajax",
+          "offset": 207639,
+          "snippet": ".on( name, null, data, fn ) :\n\t\t\tthis.trigger( name );\n\t};\n});\n\njQuery.fn.hover = function( fnOver, fnOut ) {\n\treturn this.mouseenter( fnOver ).mouseleave( fnOut || fnOver );\n};\nvar\n\t// Document location\n\tajaxLocParts,\n\tajaxLocation,\n\tajax_nonce = jQuery.now(),\n\n\tajax_rquery = /\\?/,\n\trhash = /#.*$/,\n\trts = /([?&])_=[^&]*/,\n\trheaders = /^(.*?):[ \\t]*([^\\r\\n]*)\\r?$/mg, // IE leaves an \\r character at EOL\n\t// #7653, #8125, #8152: local pro"
+        },
+        {
+          "term": "ajax",
+          "offset": 207654,
+          "snippet": ", data, fn ) :\n\t\t\tthis.trigger( name );\n\t};\n});\n\njQuery.fn.hover = function( fnOver, fnOut ) {\n\treturn this.mouseenter( fnOver ).mouseleave( fnOut || fnOver );\n};\nvar\n\t// Document location\n\tajaxLocParts,\n\tajaxLocation,\n\tajax_nonce = jQuery.now(),\n\n\tajax_rquery = /\\?/,\n\trhash = /#.*$/,\n\trts = /([?&])_=[^&]*/,\n\trheaders = /^(.*?):[ \\t]*([^\\r\\n]*)\\r?$/mg, // IE leaves an \\r character at EOL\n\t// #7653, #8125, #8152: local protocol detection"
+        },
+        {
+          "term": "ajax",
+          "offset": 207683,
+          "snippet": "r( name );\n\t};\n});\n\njQuery.fn.hover = function( fnOver, fnOut ) {\n\treturn this.mouseenter( fnOver ).mouseleave( fnOut || fnOver );\n};\nvar\n\t// Document location\n\tajaxLocParts,\n\tajaxLocation,\n\tajax_nonce = jQuery.now(),\n\n\tajax_rquery = /\\?/,\n\trhash = /#.*$/,\n\trts = /([?&])_=[^&]*/,\n\trheaders = /^(.*?):[ \\t]*([^\\r\\n]*)\\r?$/mg, // IE leaves an \\r character at EOL\n\t// #7653, #8125, #8152: local protocol detection\n\trlocalProtocol = /^(?:about"
+        },
+        {
+          "term": "ajax",
+          "offset": 208202,
+          "snippet": "$/,\n\trprotocol = /^\\/\\//,\n\trurl = /^([\\w.+-]+:)(?:\\/\\/([^\\/?#:]*)(?::(\\d+)|)|)/,\n\n\t// Keep a copy of the old load method\n\t_load = jQuery.fn.load,\n\n\t/* Prefilters\n\t * 1) They are useful to introduce custom dataTypes (see ajax/jsonp.js for an example)\n\t * 2) These are called:\n\t *    - BEFORE asking for a transport\n\t *    - AFTER param serialization (s.data is a string if s.processData is true)\n\t * 3) key is the dataType\n\t * 4) the catchal"
+        },
+        {
+          "term": "ajax",
+          "offset": 209004,
+          "snippet": "og char sequence (#10098); must appease lint and evade compression\n\tallTypes = \"*/\".concat(\"*\");\n\n// #8138, IE may throw an exception when accessing\n// a field from window.location if document.domain has been set\ntry {\n\tajaxLocation = location.href;\n} catch( e ) {\n\t// Use the href attribute of an A element\n\t// since IE will modify it given document.location\n\tajaxLocation = document.createElement( \"a\" );\n\tajaxLocation.href = \"\";\n\tajaxLoc"
+        },
+        {
+          "term": "ajax",
+          "offset": 209145,
+          "snippet": "cessing\n// a field from window.location if document.domain has been set\ntry {\n\tajaxLocation = location.href;\n} catch( e ) {\n\t// Use the href attribute of an A element\n\t// since IE will modify it given document.location\n\tajaxLocation = document.createElement( \"a\" );\n\tajaxLocation.href = \"\";\n\tajaxLocation = ajaxLocation.href;\n}\n\n// Segment location into parts\najaxLocParts = rurl.exec( ajaxLocation.toLowerCase() ) || [];\n\n// Base \"construc"
+        },
+        {
+          "term": "ajax",
+          "offset": 209192,
+          "snippet": "ment.domain has been set\ntry {\n\tajaxLocation = location.href;\n} catch( e ) {\n\t// Use the href attribute of an A element\n\t// since IE will modify it given document.location\n\tajaxLocation = document.createElement( \"a\" );\n\tajaxLocation.href = \"\";\n\tajaxLocation = ajaxLocation.href;\n}\n\n// Segment location into parts\najaxLocParts = rurl.exec( ajaxLocation.toLowerCase() ) || [];\n\n// Base \"constructor\" for jQuery.ajaxPrefilter and jQuery.ajaxTr"
+        },
+        {
+          "term": "ajax",
+          "offset": 209217,
+          "snippet": "try {\n\tajaxLocation = location.href;\n} catch( e ) {\n\t// Use the href attribute of an A element\n\t// since IE will modify it given document.location\n\tajaxLocation = document.createElement( \"a\" );\n\tajaxLocation.href = \"\";\n\tajaxLocation = ajaxLocation.href;\n}\n\n// Segment location into parts\najaxLocParts = rurl.exec( ajaxLocation.toLowerCase() ) || [];\n\n// Base \"constructor\" for jQuery.ajaxPrefilter and jQuery.ajaxTransport\nfunction addToPre"
+        },
+        {
+          "term": "ajax",
+          "offset": 209232,
+          "snippet": "tion = location.href;\n} catch( e ) {\n\t// Use the href attribute of an A element\n\t// since IE will modify it given document.location\n\tajaxLocation = document.createElement( \"a\" );\n\tajaxLocation.href = \"\";\n\tajaxLocation = ajaxLocation.href;\n}\n\n// Segment location into parts\najaxLocParts = rurl.exec( ajaxLocation.toLowerCase() ) || [];\n\n// Base \"constructor\" for jQuery.ajaxPrefilter and jQuery.ajaxTransport\nfunction addToPrefiltersOrTransp"
+        },
+        {
+          "term": "ajax",
+          "offset": 209285,
+          "snippet": " attribute of an A element\n\t// since IE will modify it given document.location\n\tajaxLocation = document.createElement( \"a\" );\n\tajaxLocation.href = \"\";\n\tajaxLocation = ajaxLocation.href;\n}\n\n// Segment location into parts\najaxLocParts = rurl.exec( ajaxLocation.toLowerCase() ) || [];\n\n// Base \"constructor\" for jQuery.ajaxPrefilter and jQuery.ajaxTransport\nfunction addToPrefiltersOrTransports( structure ) {\n\n\t// dataTypeExpression is option"
+        },
+        {
+          "term": "ajax",
+          "offset": 209311,
+          "snippet": "\n\t// since IE will modify it given document.location\n\tajaxLocation = document.createElement( \"a\" );\n\tajaxLocation.href = \"\";\n\tajaxLocation = ajaxLocation.href;\n}\n\n// Segment location into parts\najaxLocParts = rurl.exec( ajaxLocation.toLowerCase() ) || [];\n\n// Base \"constructor\" for jQuery.ajaxPrefilter and jQuery.ajaxTransport\nfunction addToPrefiltersOrTransports( structure ) {\n\n\t// dataTypeExpression is optional and defaults to \"*\"\n\tre"
+        },
+        {
+          "term": "ajax",
+          "offset": 209381,
+          "snippet": "ocument.createElement( \"a\" );\n\tajaxLocation.href = \"\";\n\tajaxLocation = ajaxLocation.href;\n}\n\n// Segment location into parts\najaxLocParts = rurl.exec( ajaxLocation.toLowerCase() ) || [];\n\n// Base \"constructor\" for jQuery.ajaxPrefilter and jQuery.ajaxTransport\nfunction addToPrefiltersOrTransports( structure ) {\n\n\t// dataTypeExpression is optional and defaults to \"*\"\n\treturn function( dataTypeExpression, func ) {\n\n\t\tif ( typeof dataTypeExp"
+        },
+        {
+          "term": "ajax",
+          "offset": 209406,
+          "snippet": "\" );\n\tajaxLocation.href = \"\";\n\tajaxLocation = ajaxLocation.href;\n}\n\n// Segment location into parts\najaxLocParts = rurl.exec( ajaxLocation.toLowerCase() ) || [];\n\n// Base \"constructor\" for jQuery.ajaxPrefilter and jQuery.ajaxTransport\nfunction addToPrefiltersOrTransports( structure ) {\n\n\t// dataTypeExpression is optional and defaults to \"*\"\n\treturn function( dataTypeExpression, func ) {\n\n\t\tif ( typeof dataTypeExpression !== \"string\" ) {\n"
+        },
+        {
+          "term": "ajax",
+          "offset": 211147,
+          "snippet": "se if ( seekingTransport ) {\n\t\t\t\treturn !( selected = dataTypeOrTransport );\n\t\t\t}\n\t\t});\n\t\treturn selected;\n\t}\n\n\treturn inspect( options.dataTypes[ 0 ] ) || !inspected[ \"*\" ] && inspect( \"*\" );\n}\n\n// A special extend for ajax options\n// that takes \"flat\" options (not to be deep extended)\n// Fixes #9887\nfunction ajaxExtend( target, src ) {\n\tvar deep, key,\n\t\tflatOptions = jQuery.ajaxSettings.flatOptions || {};\n\n\tfor ( key in src ) {\n\t\tif ("
+        },
+        {
+          "term": "ajax",
+          "offset": 211239,
+          "snippet": "turn selected;\n\t}\n\n\treturn inspect( options.dataTypes[ 0 ] ) || !inspected[ \"*\" ] && inspect( \"*\" );\n}\n\n// A special extend for ajax options\n// that takes \"flat\" options (not to be deep extended)\n// Fixes #9887\nfunction ajaxExtend( target, src ) {\n\tvar deep, key,\n\t\tflatOptions = jQuery.ajaxSettings.flatOptions || {};\n\n\tfor ( key in src ) {\n\t\tif ( src[ key ] !== undefined ) {\n\t\t\t( flatOptions[ key ] ? target : ( deep || (deep = {}) ) )[ "
+        },
+        {
+          "term": "ajax",
+          "offset": 211306,
+          "snippet": "spected[ \"*\" ] && inspect( \"*\" );\n}\n\n// A special extend for ajax options\n// that takes \"flat\" options (not to be deep extended)\n// Fixes #9887\nfunction ajaxExtend( target, src ) {\n\tvar deep, key,\n\t\tflatOptions = jQuery.ajaxSettings.flatOptions || {};\n\n\tfor ( key in src ) {\n\t\tif ( src[ key ] !== undefined ) {\n\t\t\t( flatOptions[ key ] ? target : ( deep || (deep = {}) ) )[ key ] = src[ key ];\n\t\t}\n\t}\n\tif ( deep ) {\n\t\tjQuery.extend( true, ta"
+        },
+        {
+          "term": "ajax",
+          "offset": 212214,
+          "snippet": "\tparams = undefined;\n\n\t// Otherwise, build a param string\n\t} else if ( params && typeof params === \"object\" ) {\n\t\ttype = \"POST\";\n\t}\n\n\t// If we have elements to modify, make the request\n\tif ( self.length > 0 ) {\n\t\tjQuery.ajax({\n\t\t\turl: url,\n\n\t\t\t// if \"type\" variable is undefined, then \"GET\" method will be used\n\t\t\ttype: type,\n\t\t\tdataType: \"html\",\n\t\t\tdata: params\n\t\t}).done(function( responseText ) {\n\n\t\t\t// Save response for use in complete"
+        },
+        {
+          "term": "ajax",
+          "offset": 212987,
+          "snippet": "Text );\n\n\t\t}).complete( callback && function( jqXHR, status ) {\n\t\t\tself.each( callback, response || [ jqXHR.responseText, status, jqXHR ] );\n\t\t});\n\t}\n\n\treturn this;\n};\n\n// Attach a bunch of functions for handling common AJAX events\njQuery.each( [ \"ajaxStart\", \"ajaxStop\", \"ajaxComplete\", \"ajaxError\", \"ajaxSuccess\", \"ajaxSend\" ], function( i, type ){\n\tjQuery.fn[ type ] = function( fn ){\n\t\treturn this.on( type, fn );\n\t};\n});\n\njQuery.each( "
+        },
+        {
+          "term": "ajax",
+          "offset": 213015,
+          "snippet": "back && function( jqXHR, status ) {\n\t\t\tself.each( callback, response || [ jqXHR.responseText, status, jqXHR ] );\n\t\t});\n\t}\n\n\treturn this;\n};\n\n// Attach a bunch of functions for handling common AJAX events\njQuery.each( [ \"ajaxStart\", \"ajaxStop\", \"ajaxComplete\", \"ajaxError\", \"ajaxSuccess\", \"ajaxSend\" ], function( i, type ){\n\tjQuery.fn[ type ] = function( fn ){\n\t\treturn this.on( type, fn );\n\t};\n});\n\njQuery.each( [ \"get\", \"post\" ], function("
+        },
+        {
+          "term": "ajax",
+          "offset": 213028,
+          "snippet": "ion( jqXHR, status ) {\n\t\t\tself.each( callback, response || [ jqXHR.responseText, status, jqXHR ] );\n\t\t});\n\t}\n\n\treturn this;\n};\n\n// Attach a bunch of functions for handling common AJAX events\njQuery.each( [ \"ajaxStart\", \"ajaxStop\", \"ajaxComplete\", \"ajaxError\", \"ajaxSuccess\", \"ajaxSend\" ], function( i, type ){\n\tjQuery.fn[ type ] = function( fn ){\n\t\treturn this.on( type, fn );\n\t};\n});\n\njQuery.each( [ \"get\", \"post\" ], function( i, method ) "
+        },
+        {
+          "term": "ajax",
+          "offset": 213040,
+          "snippet": "status ) {\n\t\t\tself.each( callback, response || [ jqXHR.responseText, status, jqXHR ] );\n\t\t});\n\t}\n\n\treturn this;\n};\n\n// Attach a bunch of functions for handling common AJAX events\njQuery.each( [ \"ajaxStart\", \"ajaxStop\", \"ajaxComplete\", \"ajaxError\", \"ajaxSuccess\", \"ajaxSend\" ], function( i, type ){\n\tjQuery.fn[ type ] = function( fn ){\n\t\treturn this.on( type, fn );\n\t};\n});\n\njQuery.each( [ \"get\", \"post\" ], function( i, method ) {\n\tjQuery[ m"
+        },
+        {
+          "term": "ajax",
+          "offset": 213056,
+          "snippet": "lf.each( callback, response || [ jqXHR.responseText, status, jqXHR ] );\n\t\t});\n\t}\n\n\treturn this;\n};\n\n// Attach a bunch of functions for handling common AJAX events\njQuery.each( [ \"ajaxStart\", \"ajaxStop\", \"ajaxComplete\", \"ajaxError\", \"ajaxSuccess\", \"ajaxSend\" ], function( i, type ){\n\tjQuery.fn[ type ] = function( fn ){\n\t\treturn this.on( type, fn );\n\t};\n});\n\njQuery.each( [ \"get\", \"post\" ], function( i, method ) {\n\tjQuery[ method ] = functi"
+        },
+        {
+          "term": "ajax",
+          "offset": 213069,
+          "snippet": "back, response || [ jqXHR.responseText, status, jqXHR ] );\n\t\t});\n\t}\n\n\treturn this;\n};\n\n// Attach a bunch of functions for handling common AJAX events\njQuery.each( [ \"ajaxStart\", \"ajaxStop\", \"ajaxComplete\", \"ajaxError\", \"ajaxSuccess\", \"ajaxSend\" ], function( i, type ){\n\tjQuery.fn[ type ] = function( fn ){\n\t\treturn this.on( type, fn );\n\t};\n});\n\njQuery.each( [ \"get\", \"post\" ], function( i, method ) {\n\tjQuery[ method ] = function( url, data"
+        },
+        {
+          "term": "ajax",
+          "offset": 213084,
+          "snippet": "|| [ jqXHR.responseText, status, jqXHR ] );\n\t\t});\n\t}\n\n\treturn this;\n};\n\n// Attach a bunch of functions for handling common AJAX events\njQuery.each( [ \"ajaxStart\", \"ajaxStop\", \"ajaxComplete\", \"ajaxError\", \"ajaxSuccess\", \"ajaxSend\" ], function( i, type ){\n\tjQuery.fn[ type ] = function( fn ){\n\t\treturn this.on( type, fn );\n\t};\n});\n\njQuery.each( [ \"get\", \"post\" ], function( i, method ) {\n\tjQuery[ method ] = function( url, data, callback, typ"
+        },
+        {
+          "term": "ajax",
+          "offset": 213487,
+          "snippet": " = function( url, data, callback, type ) {\n\t\t// shift arguments if data argument was omitted\n\t\tif ( jQuery.isFunction( data ) ) {\n\t\t\ttype = type || callback;\n\t\t\tcallback = data;\n\t\t\tdata = undefined;\n\t\t}\n\n\t\treturn jQuery.ajax({\n\t\t\turl: url,\n\t\t\ttype: method,\n\t\t\tdataType: type,\n\t\t\tdata: data,\n\t\t\tsuccess: callback\n\t\t});\n\t};\n});\n\njQuery.extend({\n\n\t// Counter for holding the number of active queries\n\tactive: 0,\n\n\t// Last-Modified header cache"
+        },
+        {
+          "term": "ajax",
+          "offset": 213757,
+          "snippet": "type,\n\t\t\tdata: data,\n\t\t\tsuccess: callback\n\t\t});\n\t};\n});\n\njQuery.extend({\n\n\t// Counter for holding the number of active queries\n\tactive: 0,\n\n\t// Last-Modified header cache for next request\n\tlastModified: {},\n\tetag: {},\n\n\tajaxSettings: {\n\t\turl: ajaxLocation,\n\t\ttype: \"GET\",\n\t\tisLocal: rlocalProtocol.test( ajaxLocParts[ 1 ] ),\n\t\tglobal: true,\n\t\tprocessData: true,\n\t\tasync: true,\n\t\tcontentType: \"application/x-www-form-urlencoded; charset=UTF-"
+        },
+        {
+          "term": "ajax",
+          "offset": 213780,
+          "snippet": "\tsuccess: callback\n\t\t});\n\t};\n});\n\njQuery.extend({\n\n\t// Counter for holding the number of active queries\n\tactive: 0,\n\n\t// Last-Modified header cache for next request\n\tlastModified: {},\n\tetag: {},\n\n\tajaxSettings: {\n\t\turl: ajaxLocation,\n\t\ttype: \"GET\",\n\t\tisLocal: rlocalProtocol.test( ajaxLocParts[ 1 ] ),\n\t\tglobal: true,\n\t\tprocessData: true,\n\t\tasync: true,\n\t\tcontentType: \"application/x-www-form-urlencoded; charset=UTF-8\",\n\t\t/*\n\t\ttimeout: 0,\n"
+        },
+        {
+          "term": "ajax",
+          "offset": 213841,
+          "snippet": "r for holding the number of active queries\n\tactive: 0,\n\n\t// Last-Modified header cache for next request\n\tlastModified: {},\n\tetag: {},\n\n\tajaxSettings: {\n\t\turl: ajaxLocation,\n\t\ttype: \"GET\",\n\t\tisLocal: rlocalProtocol.test( ajaxLocParts[ 1 ] ),\n\t\tglobal: true,\n\t\tprocessData: true,\n\t\tasync: true,\n\t\tcontentType: \"application/x-www-form-urlencoded; charset=UTF-8\",\n\t\t/*\n\t\ttimeout: 0,\n\t\tdata: null,\n\t\tdataType: null,\n\t\tusername: null,\n\t\tpassword:"
+        },
+        {
+          "term": "ajax",
+          "offset": 215008,
+          "snippet": " text as xml\n\t\t\t\"text xml\": jQuery.parseXML\n\t\t},\n\n\t\t// For options that shouldn't be deep extended:\n\t\t// you can add your own custom options here if\n\t\t// and when you create one that shouldn't be\n\t\t// deep extended (see ajaxExtend)\n\t\tflatOptions: {\n\t\t\turl: true,\n\t\t\tcontext: true\n\t\t}\n\t},\n\n\t// Creates a full fledged settings object into target\n\t// with both ajaxSettings and settings fields.\n\t// If target is omitted, writes into ajaxSettin"
+        },
+        {
+          "term": "ajax",
+          "offset": 215146,
+          "snippet": "ns here if\n\t\t// and when you create one that shouldn't be\n\t\t// deep extended (see ajaxExtend)\n\t\tflatOptions: {\n\t\t\turl: true,\n\t\t\tcontext: true\n\t\t}\n\t},\n\n\t// Creates a full fledged settings object into target\n\t// with both ajaxSettings and settings fields.\n\t// If target is omitted, writes into ajaxSettings.\n\tajaxSetup: function( target, settings ) {\n\t\treturn settings ?\n\n\t\t\t// Building a settings object\n\t\t\tajaxExtend( ajaxExtend( target, jQ"
+        },
+        {
+          "term": "ajax",
+          "offset": 215218,
+          "snippet": "nded (see ajaxExtend)\n\t\tflatOptions: {\n\t\t\turl: true,\n\t\t\tcontext: true\n\t\t}\n\t},\n\n\t// Creates a full fledged settings object into target\n\t// with both ajaxSettings and settings fields.\n\t// If target is omitted, writes into ajaxSettings.\n\tajaxSetup: function( target, settings ) {\n\t\treturn settings ?\n\n\t\t\t// Building a settings object\n\t\t\tajaxExtend( ajaxExtend( target, jQuery.ajaxSettings ), settings ) :\n\n\t\t\t// Extending ajaxSettings\n\t\t\tajaxE"
+        },
+        {
+          "term": "ajax",
+          "offset": 215233,
+          "snippet": "xtend)\n\t\tflatOptions: {\n\t\t\turl: true,\n\t\t\tcontext: true\n\t\t}\n\t},\n\n\t// Creates a full fledged settings object into target\n\t// with both ajaxSettings and settings fields.\n\t// If target is omitted, writes into ajaxSettings.\n\tajaxSetup: function( target, settings ) {\n\t\treturn settings ?\n\n\t\t\t// Building a settings object\n\t\t\tajaxExtend( ajaxExtend( target, jQuery.ajaxSettings ), settings ) :\n\n\t\t\t// Extending ajaxSettings\n\t\t\tajaxExtend( jQuery.a"
+        },
+        {
+          "term": "ajax",
+          "offset": 215332,
+          "snippet": " object into target\n\t// with both ajaxSettings and settings fields.\n\t// If target is omitted, writes into ajaxSettings.\n\tajaxSetup: function( target, settings ) {\n\t\treturn settings ?\n\n\t\t\t// Building a settings object\n\t\t\tajaxExtend( ajaxExtend( target, jQuery.ajaxSettings ), settings ) :\n\n\t\t\t// Extending ajaxSettings\n\t\t\tajaxExtend( jQuery.ajaxSettings, target );\n\t},\n\n\tajaxPrefilter: addToPrefiltersOrTransports( prefilters ),\n\tajaxTranspo"
+        },
+        {
+          "term": "ajax",
+          "offset": 215344,
+          "snippet": " target\n\t// with both ajaxSettings and settings fields.\n\t// If target is omitted, writes into ajaxSettings.\n\tajaxSetup: function( target, settings ) {\n\t\treturn settings ?\n\n\t\t\t// Building a settings object\n\t\t\tajaxExtend( ajaxExtend( target, jQuery.ajaxSettings ), settings ) :\n\n\t\t\t// Extending ajaxSettings\n\t\t\tajaxExtend( jQuery.ajaxSettings, target );\n\t},\n\n\tajaxPrefilter: addToPrefiltersOrTransports( prefilters ),\n\tajaxTransport: addToPre"
+        },
+        {
+          "term": "ajax",
+          "offset": 215371,
+          "snippet": "ettings and settings fields.\n\t// If target is omitted, writes into ajaxSettings.\n\tajaxSetup: function( target, settings ) {\n\t\treturn settings ?\n\n\t\t\t// Building a settings object\n\t\t\tajaxExtend( ajaxExtend( target, jQuery.ajaxSettings ), settings ) :\n\n\t\t\t// Extending ajaxSettings\n\t\t\tajaxExtend( jQuery.ajaxSettings, target );\n\t},\n\n\tajaxPrefilter: addToPrefiltersOrTransports( prefilters ),\n\tajaxTransport: addToPrefiltersOrTransports( transp"
+        },
+        {
+          "term": "ajax",
+          "offset": 215417,
+          "snippet": "omitted, writes into ajaxSettings.\n\tajaxSetup: function( target, settings ) {\n\t\treturn settings ?\n\n\t\t\t// Building a settings object\n\t\t\tajaxExtend( ajaxExtend( target, jQuery.ajaxSettings ), settings ) :\n\n\t\t\t// Extending ajaxSettings\n\t\t\tajaxExtend( jQuery.ajaxSettings, target );\n\t},\n\n\tajaxPrefilter: addToPrefiltersOrTransports( prefilters ),\n\tajaxTransport: addToPrefiltersOrTransports( transports ),\n\n\t// Main method\n\tajax: function( url,"
+        },
+        {
+          "term": "ajax",
+          "offset": 215433,
+          "snippet": "into ajaxSettings.\n\tajaxSetup: function( target, settings ) {\n\t\treturn settings ?\n\n\t\t\t// Building a settings object\n\t\t\tajaxExtend( ajaxExtend( target, jQuery.ajaxSettings ), settings ) :\n\n\t\t\t// Extending ajaxSettings\n\t\t\tajaxExtend( jQuery.ajaxSettings, target );\n\t},\n\n\tajaxPrefilter: addToPrefiltersOrTransports( prefilters ),\n\tajaxTransport: addToPrefiltersOrTransports( transports ),\n\n\t// Main method\n\tajax: function( url, options ) {\n\n\t\t"
+        },
+        {
+          "term": "ajax",
+          "offset": 215452,
+          "snippet": "\tajaxSetup: function( target, settings ) {\n\t\treturn settings ?\n\n\t\t\t// Building a settings object\n\t\t\tajaxExtend( ajaxExtend( target, jQuery.ajaxSettings ), settings ) :\n\n\t\t\t// Extending ajaxSettings\n\t\t\tajaxExtend( jQuery.ajaxSettings, target );\n\t},\n\n\tajaxPrefilter: addToPrefiltersOrTransports( prefilters ),\n\tajaxTransport: addToPrefiltersOrTransports( transports ),\n\n\t// Main method\n\tajax: function( url, options ) {\n\n\t\t// If url is an obj"
+        },
+        {
+          "term": "ajax",
+          "offset": 215482,
+          "snippet": "settings ) {\n\t\treturn settings ?\n\n\t\t\t// Building a settings object\n\t\t\tajaxExtend( ajaxExtend( target, jQuery.ajaxSettings ), settings ) :\n\n\t\t\t// Extending ajaxSettings\n\t\t\tajaxExtend( jQuery.ajaxSettings, target );\n\t},\n\n\tajaxPrefilter: addToPrefiltersOrTransports( prefilters ),\n\tajaxTransport: addToPrefiltersOrTransports( transports ),\n\n\t// Main method\n\tajax: function( url, options ) {\n\n\t\t// If url is an object, simulate pre-1.5 signatur"
+        },
+        {
+          "term": "ajax",
+          "offset": 215541,
+          "snippet": " object\n\t\t\tajaxExtend( ajaxExtend( target, jQuery.ajaxSettings ), settings ) :\n\n\t\t\t// Extending ajaxSettings\n\t\t\tajaxExtend( jQuery.ajaxSettings, target );\n\t},\n\n\tajaxPrefilter: addToPrefiltersOrTransports( prefilters ),\n\tajaxTransport: addToPrefiltersOrTransports( transports ),\n\n\t// Main method\n\tajax: function( url, options ) {\n\n\t\t// If url is an object, simulate pre-1.5 signature\n\t\tif ( typeof url === \"object\" ) {\n\t\t\toptions = url;\n\t\t\tu"
+        },
+        {
+          "term": "ajax",
+          "offset": 215617,
+          "snippet": " :\n\n\t\t\t// Extending ajaxSettings\n\t\t\tajaxExtend( jQuery.ajaxSettings, target );\n\t},\n\n\tajaxPrefilter: addToPrefiltersOrTransports( prefilters ),\n\tajaxTransport: addToPrefiltersOrTransports( transports ),\n\n\t// Main method\n\tajax: function( url, options ) {\n\n\t\t// If url is an object, simulate pre-1.5 signature\n\t\tif ( typeof url === \"object\" ) {\n\t\t\toptions = url;\n\t\t\turl = undefined;\n\t\t}\n\n\t\t// Force options to be an object\n\t\toptions = options "
+        },
+        {
+          "term": "ajax",
+          "offset": 216242,
+          "snippet": "g,\n\t\t\t// timeout handle\n\t\t\ttimeoutTimer,\n\n\t\t\t// To know if global events are to be dispatched\n\t\t\tfireGlobals,\n\n\t\t\ttransport,\n\t\t\t// Response headers\n\t\t\tresponseHeaders,\n\t\t\t// Create the final options object\n\t\t\ts = jQuery.ajaxSetup( {}, options ),\n\t\t\t// Callbacks context\n\t\t\tcallbackContext = s.context || s,\n\t\t\t// Context for global events is callbackContext if it is a DOM node or jQuery collection\n\t\t\tglobalEventContext = s.context && ( ca"
+        },
+        {
+          "term": "ajax",
+          "offset": 219103,
+          "snippet": "not provided (#5866: IE7 issue with protocol-less urls)\n\t\t// Handle falsy url in the settings object (#10093: consistency with old signature)\n\t\t// We also use the url parameter if available\n\t\ts.url = ( ( url || s.url || ajaxLocation ) + \"\" ).replace( rhash, \"\" ).replace( rprotocol, ajaxLocParts[ 1 ] + \"//\" );\n\n\t\t// Alias method option to type as per ticket #12004\n\t\ts.type = options.method || options.type || s.method || s.type;\n\n\t\t// Ext"
+        },
+        {
+          "term": "ajax",
+          "offset": 219166,
+          "snippet": "ndle falsy url in the settings object (#10093: consistency with old signature)\n\t\t// We also use the url parameter if available\n\t\ts.url = ( ( url || s.url || ajaxLocation ) + \"\" ).replace( rhash, \"\" ).replace( rprotocol, ajaxLocParts[ 1 ] + \"//\" );\n\n\t\t// Alias method option to type as per ticket #12004\n\t\ts.type = options.method || options.type || s.method || s.type;\n\n\t\t// Extract dataTypes list\n\t\ts.dataTypes = jQuery.trim( s.dataType || "
+        },
+        {
+          "term": "ajax",
+          "offset": 219654,
+          "snippet": "\"\"];\n\n\t\t// A cross-domain request is in order when we have a protocol:host:port mismatch\n\t\tif ( s.crossDomain == null ) {\n\t\t\tparts = rurl.exec( s.url.toLowerCase() );\n\t\t\ts.crossDomain = !!( parts &&\n\t\t\t\t( parts[ 1 ] !== ajaxLocParts[ 1 ] || parts[ 2 ] !== ajaxLocParts[ 2 ] ||\n\t\t\t\t\t( parts[ 3 ] || ( parts[ 1 ] === \"http:\" ? 80 : 443 ) ) !=\n\t\t\t\t\t\t( ajaxLocParts[ 3 ] || ( ajaxLocParts[ 1 ] === \"http:\" ? 80 : 443 ) ) )\n\t\t\t);\n\t\t}\n\n\t\t// Conve"
+        }
+      ]
+    },
+    {
+      "url": "https://permit.mee.gov.cn/perxxgkinfo/outside/js/main.js?ran=1794126756613",
+      "final_url": "https://permit.mee.gov.cn/perxxgkinfo/outside/js/main.js?ran=1794126756613",
+      "status": 200,
+      "content_type": "application/javascript;charset=UTF-8",
+      "bytes": 1298,
+      "keyword_snippets": [
+        {
+          "term": "search",
+          "offset": 996,
+          "snippet": "sie: /msie/.test( userAgent ) && !/opera/.test( userAgent ), \r\n\tmozilla: /mozilla/.test( userAgent ) && !/(compatible|webkit)/.test( userAgent ) \r\n\t}; \r\n\tif($.browser.msie&&($.browser.version == \"8.0\")){ \r\n\t\t$(\".content-search select,.content-search input\").offset({top:400});\r\n\t} \r\n\t$(window).resize(function() {\r\n\t\talignCenter();\r\n\t});\r\n});\r\nfunction alignCenter(){\r\n\tvar w1=$(\"#disclosure-title\").width()/2;\r\n\tvar\tw2=$(\"#disclosure-title"
+        },
+        {
+          "term": "search",
+          "offset": 1019,
+          "snippet": "gent ) && !/opera/.test( userAgent ), \r\n\tmozilla: /mozilla/.test( userAgent ) && !/(compatible|webkit)/.test( userAgent ) \r\n\t}; \r\n\tif($.browser.msie&&($.browser.version == \"8.0\")){ \r\n\t\t$(\".content-search select,.content-search input\").offset({top:400});\r\n\t} \r\n\t$(window).resize(function() {\r\n\t\talignCenter();\r\n\t});\r\n});\r\nfunction alignCenter(){\r\n\tvar w1=$(\"#disclosure-title\").width()/2;\r\n\tvar\tw2=$(\"#disclosure-title\").parent().width()/2;\r"
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "page": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!licenseInformation.action",
+      "form_attrs": {
+        "id": "mainForm",
+        "method": "post",
+        "action": "/perxxgkinfo/syssb/xkgg/xkgg!licenseInformation.action"
+      },
+      "field_names": [
+        "page.pageNo",
+        "page.orderBy",
+        "page.order",
+        "tempReportKey",
+        "registerentername",
+        "xkznum",
+        "treadname",
+        "treadcode",
+        "publishtime",
+        "province",
+        "city",
+        "management"
+      ]
+    }
+  ]
+}
