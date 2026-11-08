@@ -1,0 +1,41 @@
+name: Retirement R4 public pollution permit portal discovery
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/RUN_REQUEST.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  inspect-public-permit-portal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout current R4 project
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Inspect official public read-only search interface
+        run: |
+          python -u research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/inspect_permit_portal.py
+      - name: Upload discovery result
+        uses: actions/upload-artifact@v4
+        with:
+          name: retirement-r4-permit-portal-discovery-${{ github.run_id }}
+          path: research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/permit_portal_inspection.json
+          retention-days: 30
+      - name: Persist discovery result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output
+          dest="research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/permit_portal_inspection_${{ github.run_id }}.json"
+          cp research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/permit_portal_inspection.json "$dest"
+          git add "$dest"
+          git commit -m "Record public pollution permit portal discovery"
+          git push origin HEAD:main
