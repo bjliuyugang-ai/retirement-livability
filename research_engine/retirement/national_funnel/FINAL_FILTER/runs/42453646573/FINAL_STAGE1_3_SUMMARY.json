@@ -1,0 +1,29 @@
+{
+  "schema": "RETIREMENT_NATIONAL_FUNNEL_R1_R2_R3_MERGED_V1",
+  "status": "COMPLETED_WITH_PENDING",
+  "created_at_utc": "2026-11-08T06:10:29.112818+00:00",
+  "r1_run_id": "42448264772",
+  "merge_run_id": "42453646573",
+  "r1_input_count": 2847,
+  "r1_excluded_count": 759,
+  "r1_remaining_count": 2088,
+  "r2_winter": {
+    "excluded_count": 1764,
+    "carry_forward_count": 324,
+    "pending_count": 11
+  },
+  "r3_summer_after_r2": {
+    "excluded_count": 88,
+    "final_carry_forward_count": 236,
+    "pending_count": 11
+  },
+  "final_count_after_three_climate_batches": 236,
+  "climate_data_source": "CHM_Tmax v2, 0.1-degree daily Tmax, 1991-2020",
+  "screening_policy": "R2 and R3 statuses are conservative county-area first-pass screens. Pending units carry forward; no missing metric is treated as a failure.",
+  "files": {
+    "r2_excluded": "R2_AFTER_R1_WINTER_EXCLUDED.csv",
+    "r2_carry": "R2_AFTER_R1_WINTER_CARRY_FORWARD.csv",
+    "r3_excluded": "R3_AFTER_R1_R2_SUMMER_EXCLUDED.csv",
+    "final_carry": "FINAL_CARRY_FORWARD_AFTER_R1_R2_R3.csv"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "schema": "RETIREMENT_FINAL_FILTER_LATEST_POINTER_V1",
+  "merge_run_id": "42453646573",
+  "r1_run_id": "42448264772",
+  "run_directory": "research_engine/retirement/national_funnel/FINAL_FILTER/runs/42453646573",
+  "final_count": 236,
+  "summary_file": "FINAL_STAGE1_3_SUMMARY.json"
+}
