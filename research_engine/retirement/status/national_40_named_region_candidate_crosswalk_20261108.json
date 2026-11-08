@@ -1,0 +1,411 @@
+{
+  "schema": "RET_PHASE1_NAMED_REGION_POOL_29_PLUS_14_CROSSWALK_V1",
+  "created_at_utc": "2026-11-08T01:25:52.491947+00:00",
+  "input_counts": {
+    "core_sample_records": 29,
+    "expansion_records": 14,
+    "input_records": 43,
+    "deduplicated_named_region_units": 40,
+    "duplicate_region_records": 3
+  },
+  "R1_evidence_register": {
+    "screened_candidate_points": 214,
+    "climate_hardline_signal_candidates": 176,
+    "altitude_point_warnings": 27,
+    "climate_or_altitude_point_warning_union": 182,
+    "sunshine_measured": 51,
+    "sunshine_missing": 163
+  },
+  "region_crosswalk_counts": {
+    "units_with_any_exact_R1_code_match": 18,
+    "units_with_no_exact_R1_code_match": 22,
+    "units_with_matched_climate_hardline_signal": 10,
+    "units_with_altitude_point_warning": 3,
+    "units_already_marked_exit_in_V2": 12
+  },
+  "region_decision_counts": {
+    "海拔点位超2000m；按实际住宅点分片，超线部分退出": 3,
+    "已匹配点位未见当前硬线信号；保留进入下一轮": 1,
+    "无精确R1点位匹配；保持待核，不进入D档": 18,
+    "新增气候硬线信号；住宅点位核实后退出具体片区": 4,
+    "温度点位未见已测触线；日照缺失，保持待核": 2,
+    "已有样点硬线退出保留；原始来源复核，不因粗粒度站点无触线而恢复": 12
+  },
+  "region_results": [
+    {
+      "province": "云南",
+      "region_unit": "昆明主城区",
+      "original_status": "优先保留｜样点四项通过",
+      "matched_codes": "530102;530112",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "530102",
+      "decision": "海拔点位超2000m；按实际住宅点分片，超线部分退出"
+    },
+    {
+      "province": "云南",
+      "region_unit": "大理古城／洱海湖滨盆地",
+      "original_status": "条件保留｜统一基期/分片后确认",
+      "matched_codes": "532901",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "532901",
+      "decision": "海拔点位超2000m；按实际住宅点分片，超线部分退出"
+    },
+    {
+      "province": "云南",
+      "region_unit": "蒙自坝区／城区",
+      "original_status": "优先保留｜样点四项通过",
+      "matched_codes": "532503",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "532503",
+      "decision": "海拔点位超2000m；按实际住宅点分片，超线部分退出"
+    },
+    {
+      "province": "四川",
+      "region_unit": "西昌城区",
+      "original_status": "优先保留｜样点四项通过",
+      "matched_codes": "513401",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "已匹配点位未见当前硬线信号；保留进入下一轮"
+    },
+    {
+      "province": "海南",
+      "region_unit": "五指山市通什城区",
+      "original_status": "优先保留｜样点四项通过",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "无精确R1点位匹配；保持待核，不进入D档"
+    },
+    {
+      "province": "广西",
+      "region_unit": "北海市区",
+      "original_status": "条件保留｜统一基期/分片后确认",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "无精确R1点位匹配；保持待核，不进入D档"
+    },
+    {
+      "province": "广西",
+      "region_unit": "百色城区",
+      "original_status": "条件保留｜统一基期/分片后确认",
+      "matched_codes": "451002",
+      "climate_signal_codes": "451002",
+      "altitude_warning_codes": "",
+      "decision": "新增气候硬线信号；住宅点位核实后退出具体片区"
+    },
+    {
+      "province": "云南",
+      "region_unit": "楚雄市鹿城镇",
+      "original_status": "条件保留｜统一基期/分片后确认",
+      "matched_codes": "532301",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "温度点位未见已测触线；日照缺失，保持待核"
+    },
+    {
+      "province": "云南",
+      "region_unit": "普洱市思茅区",
+      "original_status": "条件保留｜统一基期/分片后确认",
+      "matched_codes": "530802",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "温度点位未见已测触线；日照缺失，保持待核"
+    },
+    {
+      "province": "云南",
+      "region_unit": "弥勒城区",
+      "original_status": "条件保留｜统一基期/分片后确认",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "无精确R1点位匹配；保持待核，不进入D档"
+    },
+    {
+      "province": "云南",
+      "region_unit": "芒市城区",
+      "original_status": "条件保留｜统一基期/分片后确认",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "无精确R1点位匹配；保持待核，不进入D档"
+    },
+    {
+      "province": "广西",
+      "region_unit": "靖西市新靖镇／城区",
+      "original_status": "待核｜单项补证",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "无精确R1点位匹配；保持待核，不进入D档"
+    },
+    {
+      "province": "云南",
+      "region_unit": "保山市隆阳区城区",
+      "original_status": "待核｜单项补证",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "无精确R1点位匹配；保持待核，不进入D档"
+    },
+    {
+      "province": "云南",
+      "region_unit": "玉溪·新平桂山街道／县城",
+      "original_status": "待核｜单项补证",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "无精确R1点位匹配；保持待核，不进入D档"
+    },
+    {
+      "province": "云南",
+      "region_unit": "玉溪·红塔区中心城区",
+      "original_status": "待核｜单项补证",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "无精确R1点位匹配；保持待核，不进入D档"
+    },
+    {
+      "province": "云南",
+      "region_unit": "红河州·建水坝区",
+      "original_status": "待核｜单项补证",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "无精确R1点位匹配；保持待核，不进入D档"
+    },
+    {
+      "province": "四川",
+      "region_unit": "攀枝花·米易县城",
+      "original_status": "待核｜单项补证",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "无精确R1点位匹配；保持待核，不进入D档"
+    },
+    {
+      "province": "海南",
+      "region_unit": "三亚市区",
+      "original_status": "硬线触发｜退出该样点候选池",
+      "matched_codes": "460203",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "已有样点硬线退出保留；原始来源复核，不因粗粒度站点无触线而恢复"
+    },
+    {
+      "province": "海南",
+      "region_unit": "琼海市嘉积镇／城区",
+      "original_status": "硬线触发｜退出该样点候选池",
+      "matched_codes": "469002",
+      "climate_signal_codes": "469002",
+      "altitude_warning_codes": "",
+      "decision": "已有样点硬线退出保留；原始来源复核，不因粗粒度站点无触线而恢复"
+    },
+    {
+      "province": "海南",
+      "region_unit": "万宁市城区",
+      "original_status": "硬线触发｜退出该样点候选池",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "已有样点硬线退出保留；原始来源复核，不因粗粒度站点无触线而恢复"
+    },
+    {
+      "province": "海南",
+      "region_unit": "海口市区",
+      "original_status": "硬线触发｜退出该样点候选池",
+      "matched_codes": "460108",
+      "climate_signal_codes": "460108",
+      "altitude_warning_codes": "",
+      "decision": "已有样点硬线退出保留；原始来源复核，不因粗粒度站点无触线而恢复"
+    },
+    {
+      "province": "四川",
+      "region_unit": "攀枝花主城区／低海拔河谷",
+      "original_status": "硬线触发｜退出该样点候选池",
+      "matched_codes": "510402",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "已有样点硬线退出保留；原始来源复核，不因粗粒度站点无触线而恢复"
+    },
+    {
+      "province": "云南",
+      "region_unit": "西双版纳·景洪城区",
+      "original_status": "硬线触发｜退出该样点候选池",
+      "matched_codes": "532801",
+      "climate_signal_codes": "532801",
+      "altitude_warning_codes": "",
+      "decision": "已有样点硬线退出保留；原始来源复核，不因粗粒度站点无触线而恢复"
+    },
+    {
+      "province": "福建",
+      "region_unit": "霞浦县城近海片区",
+      "original_status": "硬线触发｜退出该样点候选池;硬线触发｜待原始数据复核",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "已有样点硬线退出保留；原始来源复核，不因粗粒度站点无触线而恢复"
+    },
+    {
+      "province": "陕西",
+      "region_unit": "勉县县城",
+      "original_status": "硬线触发｜退出该样点候选池;硬线触发｜待统一基期复核",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "已有样点硬线退出保留；原始来源复核，不因粗粒度站点无触线而恢复"
+    },
+    {
+      "province": "湖北",
+      "region_unit": "利川城区",
+      "original_status": "硬线触发｜退出该样点候选池;硬线触发｜待原始数据复核",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "已有样点硬线退出保留；原始来源复核，不因粗粒度站点无触线而恢复"
+    },
+    {
+      "province": "北京",
+      "region_unit": "北京市区",
+      "original_status": "硬线触发｜退出该样点候选池",
+      "matched_codes": "110108",
+      "climate_signal_codes": "110108",
+      "altitude_warning_codes": "",
+      "decision": "已有样点硬线退出保留；原始来源复核，不因粗粒度站点无触线而恢复"
+    },
+    {
+      "province": "黑龙江",
+      "region_unit": "哈尔滨市区",
+      "original_status": "硬线触发｜退出该样点候选池",
+      "matched_codes": "230110",
+      "climate_signal_codes": "230110",
+      "altitude_warning_codes": "",
+      "decision": "已有样点硬线退出保留；原始来源复核，不因粗粒度站点无触线而恢复"
+    },
+    {
+      "province": "吉林",
+      "region_unit": "长春市区",
+      "original_status": "硬线触发｜退出该样点候选池",
+      "matched_codes": "220106",
+      "climate_signal_codes": "220106",
+      "altitude_warning_codes": "",
+      "decision": "已有样点硬线退出保留；原始来源复核，不因粗粒度站点无触线而恢复"
+    },
+    {
+      "province": "贵州",
+      "region_unit": "贞丰县城",
+      "original_status": "待核，暂留",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "无精确R1点位匹配；保持待核，不进入D档"
+    },
+    {
+      "province": "广西",
+      "region_unit": "南丹县城",
+      "original_status": "冬季优先核验",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "无精确R1点位匹配；保持待核，不进入D档"
+    },
+    {
+      "province": "广西",
+      "region_unit": "资源县城",
+      "original_status": "冬季优先核验",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "无精确R1点位匹配；保持待核，不进入D档"
+    },
+    {
+      "province": "广东",
+      "region_unit": "乳源县城",
+      "original_status": "待核，暂留",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "无精确R1点位匹配；保持待核，不进入D档"
+    },
+    {
+      "province": "福建",
+      "region_unit": "建瓯县级市城区",
+      "original_status": "待核，暂留",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "无精确R1点位匹配；保持待核，不进入D档"
+    },
+    {
+      "province": "江西",
+      "region_unit": "龙南县城",
+      "original_status": "待核，暂留",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "无精确R1点位匹配；保持待核，不进入D档"
+    },
+    {
+      "province": "湖南",
+      "region_unit": "桂东县城",
+      "original_status": "冬季优先核验",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "无精确R1点位匹配；保持待核，不进入D档"
+    },
+    {
+      "province": "甘肃",
+      "region_unit": "武都城区及台地",
+      "original_status": "待核，暂留",
+      "matched_codes": "621202",
+      "climate_signal_codes": "621202",
+      "altitude_warning_codes": "",
+      "decision": "新增气候硬线信号；住宅点位核实后退出具体片区"
+    },
+    {
+      "province": "新疆",
+      "region_unit": "伊宁市城区",
+      "original_status": "冬季高风险待核",
+      "matched_codes": "654002",
+      "climate_signal_codes": "654002",
+      "altitude_warning_codes": "",
+      "decision": "新增气候硬线信号；住宅点位核实后退出具体片区"
+    },
+    {
+      "province": "山东",
+      "region_unit": "荣成城区",
+      "original_status": "冬季强风险待核",
+      "matched_codes": "371082",
+      "climate_signal_codes": "371082",
+      "altitude_warning_codes": "",
+      "decision": "新增气候硬线信号；住宅点位核实后退出具体片区"
+    },
+    {
+      "province": "西藏",
+      "region_unit": "墨脱县城",
+      "original_status": "待核，暂留",
+      "matched_codes": "",
+      "climate_signal_codes": "",
+      "altitude_warning_codes": "",
+      "decision": "无精确R1点位匹配；保持待核，不进入D档"
+    }
+  ],
+  "governance": {
+    "formal_residential_exclusions": 0,
+    "formal_county_screenings": 0,
+    "D_grade_not_used_as_hardline_bucket": true,
+    "missing_parameters_remain_pending": true,
+    "stage2_stage3_lists_not_reduced": true,
+    "all_2847_carry_forward": true
+  },
+  "limitations": [
+    "214 are evidence-bearing county/point candidates, not all 2847 counties.",
+    "Only exact code matches are joined; a district/station point does not certify an entire city, basin or residential micro-area.",
+    "Existing V2 sample hardline exits are preserved even when a coarse 3-4 month mean does not independently reproduce the hottest/coldest-month signal.",
+    "A point over 2000m is not a residential altitude exclusion until the actual dwelling area is verified.",
+    "No-match areas remain pending; no single area is allowed to block the batch."
+  ]
+}

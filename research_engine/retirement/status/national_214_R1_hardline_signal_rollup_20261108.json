@@ -8,7 +8,8 @@
     "screened_long73": "dccfd66666bde5a4cf09c2cb74b5cf8d91ac082e1f7f8a1d9bd13974a864a192",
     "short_R1_127": "0184e7cea5a66e32856d405a20af0611023f5ad51e5ba6129d24860f126af0f6",
     "short_R2_sunshine_126": "3efaa8e29df7b933b33e23f08f45bd6d46f2bdce229fa47adf413bac85090abd",
-    "altitude_205": "8ab7301b8803a608ec9aec99b5729d237b5cc5a899e11ea652d9dbdfa96d63c0"
+    "altitude_205": "8ab7301b8803a608ec9aec99b5729d237b5cc5a899e11ea652d9dbdfa96d63c0",
+    "corrected_214_csv": "1c8670988368ccf0fcca3b4281cdb85df400677b82ec0c3ebf16e56cd82fd1e8"
   },
   "cohort": {
     "long_R1R2_screened": 73,
@@ -31,9 +32,10 @@
     "no_climate_hardline_signal": 38,
     "annual_sunshine_measured": 51,
     "annual_sunshine_missing": 163,
-    "altitude_point_over2000m_warning": 16,
-    "climate_or_altitude_point_warning_union": 179,
-    "formal_region_exclusions": 0
+    "altitude_point_over2000m_warning": 27,
+    "climate_or_altitude_point_warning_union": 182,
+    "formal_region_exclusions": 0,
+    "altitude_point_only_not_climate_signal": 6
   },
   "hardline_signal_candidates": [
     {
@@ -1682,5 +1684,14 @@
     "Sunshine is available only where directly observed; rainfall is never substituted for sunshine.",
     "Station/ERA5/DEM points are not verified residential micro-areas; no irreversible region exclusion is made.",
     "All 2847 provisional county rows remain in the evidence register until a specific residential evaluation unit is confirmed."
-  ]
+  ],
+  "altitude_join_correction": {
+    "corrected": true,
+    "source_73_field": "altitude_point_over_2000m_signal",
+    "source_127_field": "altitude_point_over2000m_warning",
+    "altitude_point_warnings_73": 11,
+    "altitude_point_warnings_127": 16,
+    "altitude_point_warnings_14_long_R1_only": 0,
+    "note": "Residential altitude is still not verified; this is a point warning only."
+  }
 }
