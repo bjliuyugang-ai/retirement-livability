@@ -39,7 +39,10 @@
     "formal_valid_county_screenings": 0,
     "confirmed_county_exclusions": 0,
     "all_2847_carry_forward": true,
-    "status": "WRITEBACK_PENDING"
+    "status": "POSTCHECK_PASS",
+    "evidence_git_blob_sha": "24513115957827a051c774a586e0d125b58a3fe9",
+    "R1_csv_git_blob_sha": "f6172c0b103f6731a4b11786d081fed1e75ba97e",
+    "R2_csv_git_blob_sha": "5d74822bde3afddc8fd325c4f009e52b4866b710"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-SHORT-HISTORY-R1_R2-SCREEN-019",
   "closed_result_refs": [
@@ -101,12 +104,11 @@
   "consecutive_no_delta": 0,
   "writeback_verification": {
     "status": "POSTCHECK_PASS",
-    "verified_commit": "12d74552db8e8dfede01d71ba0c2d121fbb558b4",
-    "verified_at": "2026-11-08T01:10:00Z",
-    "audit_log_commit": "f8c5564738ab473397a1808cb8961078cb513094"
+    "verified_commit": "d6a39d71c337e247f3e19a29f5b005da3faf4ad4",
+    "verified_at": "2026-11-08T01:14:27.930262+00:00"
   },
-  "updated_at": "2026-11-08T01:14:26.183741+00:00",
-  "state_revision": 76,
+  "updated_at": "2026-11-08T01:14:27.930295+00:00",
+  "state_revision": 77,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
