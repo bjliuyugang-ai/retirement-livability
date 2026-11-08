@@ -1,0 +1,39 @@
+{
+  "schema": "RET_PHASE1_7_HARDLINE_SOURCE_REVIEW_OUTCOME_V1",
+  "reviewed_at_utc": "2026-11-08",
+  "completed_scope": "一次主来源/替代来源检查；不以找到工具或页面代替原始数据完成",
+  "items_reviewed": 7,
+  "statuses": {
+    "original_preexclusions_pending": 3,
+    "new_or_sample_temperature_signals_pending": 4,
+    "confirmed_formal_residential_exclusions": 0
+  },
+  "strongest_current_signal": "伊宁市站点冬季均值0.776℃，但360个月中312条为climat来源；需官方逐月值和住宅代表性核验。",
+  "most_direct_official_source": "勉县2001—2020年日照1396h，陕西省生态环境厅公开环评资料；统计期不统一。",
+  "other_key_findings": [
+    "霞浦1991—2020二次汇编显示年日照1690.4h、7月32.3℃、8月32.0℃；官方站点硬线原始数据尚未取得。",
+    "利川1991—2020二次汇编显示1月5.8℃、12月8.0℃；官方站点原始数据尚未取得。",
+    "百色站59211的Jun-Sep季节均值33.017℃，但数据混有climat来源，必须先看逐月最大月份；百色城区不等于百色·靖西。",
+    "武都275月、荣成277月属于短历史层级，不能冒充完整30年常年值。"
+  ],
+  "formal_decisions": {
+    "霞浦": "PREEXCLUSION_PENDING",
+    "勉县": "PREEXCLUSION_PENDING_COMMON_PERIOD",
+    "利川": "PREEXCLUSION_PENDING_OFFICIAL_STATION",
+    "百色城区": "SAMPLE_SIGNAL_PENDING_MONTHLY_REVIEW",
+    "武都": "INTERIM_SIGNAL_PENDING_30Y",
+    "伊宁": "STRONG_SIGNAL_PENDING_SOURCE_AND_RESIDENTIAL_REPRESENTATIVENESS",
+    "荣成": "INTERIM_SIGNAL_PENDING_30Y"
+  },
+  "governance": {
+    "formal_residential_exclusions": 0,
+    "formal_roster_units": 34,
+    "representative_sample_units": 29,
+    "sample_level_signal_count": 12,
+    "sample_level_signals_not_formal_exit_count": true,
+    "invalid_40_region_artifacts_quarantined": true,
+    "no_more_single_region_source_chasing": true
+  },
+  "next_action": "RET-PHASE1-34-UNIT-EVIDENCE-CLASSIFICATION-026",
+  "next_action_decision": "以正式34单元名册为唯一候选池；将29样点证据逐项映射到相同居住片区，只有同片区才继承信号；其余样点只作气候带参考。先完成34单元的保留/待核/预排除流转表，再推进剩余环境健康与居住质量指标。"
+}
