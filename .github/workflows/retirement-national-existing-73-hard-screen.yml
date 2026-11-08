@@ -50,7 +50,7 @@ jobs:
         run: |
           python - <<'PY'
           import json,csv,hashlib,datetime,pathlib,os
-          state_path=pathlib.Path("tasks/6aead9a989808191ad42f80fd4e32bf1/RUN_STATE.json")
+          state_path=pathlib.Path("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json")
           log_path=pathlib.Path("tasks/6aead9a989808191ad42f80fd4e32bf1/RUN_LOG.jsonl")
           summary_path=pathlib.Path("research_engine/retirement/status/national_73_existing_evidence_hard_screen_20261108.json")
           csv_path=pathlib.Path("research_engine/retirement/status/national_73_existing_evidence_hard_screen_20261108.csv")
