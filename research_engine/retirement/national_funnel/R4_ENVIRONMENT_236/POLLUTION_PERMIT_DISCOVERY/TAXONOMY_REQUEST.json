@@ -1,4 +1,5 @@
 {
-  "date": "2026-11-08",
-  "scope": "Inspect official public permit industry selector and extract exact industry category codes for high-risk industrial sectors; read-only."
+  "run_date": "2026-11-08",
+  "iteration": 2,
+  "scope": "Test public read-only industry category node interface including copper smelting and hazardous waste, validate filters for 236-candidate national bulk work."
 }
