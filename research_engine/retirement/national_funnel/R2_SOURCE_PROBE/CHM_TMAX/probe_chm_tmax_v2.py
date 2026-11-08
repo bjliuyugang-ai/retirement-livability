@@ -97,18 +97,32 @@ def main():
             if lon is not None:
                 sample["lon_min"] = float(np.nanmin(lon[:]))
                 sample["lon_max"] = float(np.nanmax(lon[:]))
-            if tmax is not None:
-                arr = np.asarray(tmax[0:3, 0:20, 0:20])
-                finite = arr[np.isfinite(arr)]
-                sample["tmax_first_3days_20x20_min"] = float(finite.min()) if finite.size else None
-                sample["tmax_first_3days_20x20_max"] = float(finite.max()) if finite.size else None
-                sample["tmax_first_3days_20x20_mean"] = float(finite.mean()) if finite.size else None
+            if tmax is not None and lat is not None and lon is not None:
+                sample_points = {"Beijing": (39.9, 116.4), "Shanghai": (31.2, 121.4), "Guangzhou": (23.1, 113.3)}
+                sample["city_grid_samples"] = {}
+                lat_values = np.asarray(lat[:])
+                lon_values = np.asarray(lon[:])
+                for city, (target_lat, target_lon) in sample_points.items():
+                    iy = int(np.abs(lat_values - target_lat).argmin())
+                    ix = int(np.abs(lon_values - target_lon).argmin())
+                    arr = np.ma.asarray(tmax[0:3, max(0, iy-1):iy+2, max(0, ix-1):ix+2])
+                    finite = arr.compressed()
+                    sample["city_grid_samples"][city] = {
+                        "nearest_lat": float(lat_values[iy]),
+                        "nearest_lon": float(lon_values[ix]),
+                        "first_3_days_valid_cell_count": int(finite.size),
+                        "first_3_days_min_c": float(finite.min()) if finite.size else None,
+                        "first_3_days_max_c": float(finite.max()) if finite.size else None,
+                        "first_3_days_mean_c": float(finite.mean()) if finite.size else None
+                    }
+                sample["lat_order"] = "ascending" if lat_values[0] < lat_values[-1] else "descending"
+                sample["lon_order"] = "ascending" if lon_values[0] < lon_values[-1] else "descending"
         result = {
             "schema": "RETIREMENT_CHM_TMAX_V2_SOURCE_PROBE_V1",
             "status": "PASS",
             "record_id": RECORD_ID,
             "record_title": record.get("metadata", {}).get("title"),
-            "record_version": record.get("metadata", {}).get("version"),
+            "record_version": "v2 (Zenodo record 22097524)",
             "target_file": TARGET_FILE,
             "target_file_size": item.get("size"),
             "target_file_checksum": item.get("checksum"),

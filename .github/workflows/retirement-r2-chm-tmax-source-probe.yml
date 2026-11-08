@@ -31,7 +31,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: retirement-r2-chm-tmax-source-probe-\${{ github.run_id }}
+          name: retirement-r2-chm-tmax-source-probe
           path: research_engine/retirement/national_funnel/R2_SOURCE_PROBE/CHM_TMAX/output/
           retention-days: 30
           if-no-files-found: warn
