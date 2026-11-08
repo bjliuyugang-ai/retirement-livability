@@ -1,9 +1,9 @@
 {
   "date": "2026-11-08",
-  "revision": 2,
+  "revision": 3,
   "compare_run_ids": [
     42466352739,
     42467472886
   ],
-  "goal": "Reproduce 0-coordinate defect with exact national scanner runtime and compare public session detail response to parser output."
+  "goal": "Reproduce production permit detail coordinates extraction failure after installing shapely; record raw response characteristics and debug."
 }
