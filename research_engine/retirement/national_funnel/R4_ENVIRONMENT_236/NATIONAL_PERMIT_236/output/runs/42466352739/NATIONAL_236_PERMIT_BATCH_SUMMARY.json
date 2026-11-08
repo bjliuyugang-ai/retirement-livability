@@ -1,0 +1,542 @@
+{
+  "schema": "RETIREMENT_R4_236_OFFICIAL_PERMIT_NATIONAL_BATCH_V1",
+  "created_at_utc": "2026-11-08T09:14:53.239229+00:00",
+  "completed_at_utc": "2026-11-08T09:25:49.408258+00:00",
+  "candidate_count": 236,
+  "provinces": 13,
+  "municipal_code_groups": 61,
+  "city_groups_with_queries": 60,
+  "city_groups_pending_mapping": 1,
+  "city_groups_other_pending": 0,
+  "industry_filter_codes": [
+    "C26",
+    "C32",
+    "N7724",
+    "C25",
+    "C30",
+    "C31",
+    "D44",
+    "C22"
+  ],
+  "industry_queries_completed": 2,
+  "industry_queries_partial_or_pending": 478,
+  "industry_page_cap_per_city_category": 3,
+  "detail_sample_cap_per_city": 10,
+  "city_level_distinct_licences_returned": 74,
+  "detail_page_requests": 40,
+  "detail_pages_success": 40,
+  "facility_sample_with_candidate_polygon_match": 0,
+  "candidate_units_with_sampled_facilities": 0,
+  "candidate_units_with_provisional_geometry": 227,
+  "candidate_units_pending_geometry": 9,
+  "formal_R4_exclusions": 0,
+  "formal_grade_changes": 0,
+  "candidate_units_remaining": 236,
+  "run_notes": [
+    "All 236 county candidates remain in R4 regardless of previous 47/11 pending split.",
+    "Permit category retrieval is city-level; absence in sample does not establish lack of local industrial sources.",
+    "Truncated categories are explicit pending, not complete.",
+    "Permit coordinates are facility points; neither permit holding nor a pollutant list proves residential exposure, actual discharge magnitude or violation.",
+    "Only direct location-matched facilities are attributed to candidate counties; no city-level records are mislabeled county-specific.",
+    "No automated hard exclusions or grading is permitted from this batch."
+  ],
+  "sources": {
+    "official_public_portal": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!licenseInformation.action",
+    "public_region_api": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action",
+    "candidate_file": "research_engine/retirement/national_funnel/FINAL_FILTER/runs/42453646573/FINAL_CARRY_FORWARD_AFTER_R1_R2_R3.csv",
+    "candidate_boundary": "https://raw.githubusercontent.com/zzhonglei/GeoCode-Release/main/contributions/china-admin-boundaries/skill/data/china_county.geojson",
+    "candidate_boundary_sha256": "22db6c54b9cb0118ecdcc8a117bf2da4fc24a2229cdba7e6e55dbb5dd56e8246"
+  },
+  "city_status": [
+    {
+      "city_group": "2102",
+      "city_name": "大连市",
+      "candidate_units": 1,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 21,
+      "errors": []
+    },
+    {
+      "city_group": "3302",
+      "city_name": "宁波市",
+      "candidate_units": 2,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 20,
+      "errors": []
+    },
+    {
+      "city_group": "3303",
+      "city_name": "温州市",
+      "candidate_units": 1,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 20,
+      "errors": []
+    },
+    {
+      "city_group": "3309",
+      "city_name": "舟山市",
+      "candidate_units": 1,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 13,
+      "errors": []
+    },
+    {
+      "city_group": "3310",
+      "city_name": "台州市",
+      "candidate_units": 4,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "3501",
+      "city_name": "福州市",
+      "candidate_units": 4,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "3502",
+      "city_name": "厦门市",
+      "candidate_units": 2,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "3503",
+      "city_name": "莆田市",
+      "candidate_units": 3,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "3505",
+      "city_name": "泉州市",
+      "candidate_units": 6,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "3506",
+      "city_name": "漳州市",
+      "candidate_units": 6,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "3508",
+      "city_name": "龙岩市",
+      "candidate_units": 5,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "3602",
+      "city_name": "景德镇市",
+      "candidate_units": 1,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "3607",
+      "city_name": "赣州市",
+      "candidate_units": 1,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4401",
+      "city_name": "广州市",
+      "candidate_units": 1,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4403",
+      "city_name": "深圳市",
+      "candidate_units": 1,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4404",
+      "city_name": "珠海市",
+      "candidate_units": 1,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4405",
+      "city_name": "汕头市",
+      "candidate_units": 3,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4407",
+      "city_name": "江门市",
+      "candidate_units": 3,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4409",
+      "city_name": "茂名市",
+      "candidate_units": 3,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4413",
+      "city_name": "惠州市",
+      "candidate_units": 2,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4414",
+      "city_name": "梅州市",
+      "candidate_units": 5,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4415",
+      "city_name": "汕尾市",
+      "candidate_units": 2,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4416",
+      "city_name": "河源市",
+      "candidate_units": 3,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4417",
+      "city_name": "阳江市",
+      "candidate_units": 2,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4451",
+      "city_name": "潮州市",
+      "candidate_units": 2,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4452",
+      "city_name": "揭阳市",
+      "candidate_units": 2,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4505",
+      "city_name": "北海市",
+      "candidate_units": 1,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4506",
+      "city_name": "防城港市",
+      "candidate_units": 2,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4507",
+      "city_name": "钦州市",
+      "candidate_units": 1,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4509",
+      "city_name": "玉林市",
+      "candidate_units": 3,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4510",
+      "city_name": "百色市",
+      "candidate_units": 1,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4602",
+      "city_name": "三亚市",
+      "candidate_units": 1,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4603",
+      "city_name": "三沙市",
+      "candidate_units": 2,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "4690",
+      "city_name": "五指山市",
+      "candidate_units": 7,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5001",
+      "city_name": "市辖区",
+      "candidate_units": 1,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5104",
+      "city_name": "攀枝花市",
+      "candidate_units": 5,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5133",
+      "city_name": "甘孜藏族自治州",
+      "candidate_units": 1,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5134",
+      "city_name": "凉山彝族自治州",
+      "candidate_units": 13,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5202",
+      "city_name": "六盘水市",
+      "candidate_units": 1,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5205",
+      "city_name": "毕节市",
+      "candidate_units": 1,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5301",
+      "city_name": "昆明市",
+      "candidate_units": 14,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5303",
+      "city_name": "曲靖市",
+      "candidate_units": 9,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5304",
+      "city_name": "玉溪市",
+      "candidate_units": 9,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5305",
+      "city_name": "保山市",
+      "candidate_units": 5,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5306",
+      "city_name": "昭通市",
+      "candidate_units": 4,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5307",
+      "city_name": "丽江市",
+      "candidate_units": 5,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5308",
+      "city_name": "普洱市",
+      "candidate_units": 10,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5309",
+      "city_name": "临沧市",
+      "candidate_units": 8,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5323",
+      "city_name": "楚雄彝族自治州",
+      "candidate_units": 10,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5325",
+      "city_name": "红河哈尼族彝族自治州",
+      "candidate_units": 13,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5326",
+      "city_name": "文山壮族苗族自治州",
+      "candidate_units": 7,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5328",
+      "city_name": "西双版纳傣族自治州",
+      "candidate_units": 3,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5329",
+      "city_name": "大理白族自治州",
+      "candidate_units": 12,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5331",
+      "city_name": "德宏傣族景颇族自治州",
+      "candidate_units": 5,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5333",
+      "city_name": "怒江傈僳族自治州",
+      "candidate_units": 3,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5334",
+      "city_name": "迪庆藏族自治州",
+      "candidate_units": 3,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5404",
+      "city_name": "林芝市",
+      "candidate_units": 3,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "5405",
+      "city_name": "",
+      "candidate_units": 2,
+      "status": "PENDING_CITY_MAPPING",
+      "record_sample": 0,
+      "errors": [
+        "CITY_CODE_NOT_RESOLVED_NO_BROAD_PROVINCE_SUBSTITUTION"
+      ]
+    },
+    {
+      "city_group": "6531",
+      "city_name": "喀什地区",
+      "candidate_units": 1,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "6532",
+      "city_name": "和田地区",
+      "candidate_units": 2,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    },
+    {
+      "city_group": "6590",
+      "city_name": "石河子市",
+      "candidate_units": 1,
+      "status": "QUERIED_WITH_PARTIAL_OR_COMPLETE_CATEGORY_RESULTS",
+      "record_sample": 0,
+      "errors": []
+    }
+  ]
+}
