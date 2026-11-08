@@ -21,7 +21,7 @@
     "execution_status": "EXECUTED_WITH_VERIFIED_40_REGION_DISPOSITION",
     "engineering_status": "PASS",
     "research_delta_status": "DELTA_VERIFIED_40_NAMED_REGION_KEEP_PENDING_PREEXIT_DISPOSITION",
-    "research_closure_status": "OPEN",
+    "research_closure_status": "REVOKED_WRONG_ROSTER_SCOPE",
     "evidence_path": "research_engine/retirement/status/national_40_region_disposition_20261108.json",
     "evidence_sha256": "4a135fab20ec10d9ca7e46e2410e833bd29b8eed64a857a04743c78ef4337149",
     "region_csv_path": "research_engine/retirement/status/national_40_region_disposition_20261108.csv",
@@ -37,7 +37,10 @@
     "all_2847_carry_forward": true,
     "status": "POSTCHECK_PASS",
     "evidence_git_blob_sha": "db054eaa8f9b43ea16fe8340b49cbc7421d5dbcf",
-    "region_csv_git_blob_sha": "5f36db3ab2dbfc2583537cb66ac58c4c32a0d35b"
+    "region_csv_git_blob_sha": "5f36db3ab2dbfc2583537cb66ac58c4c32a0d35b",
+    "research_validity": "QUARANTINED_SCOPE_ERROR",
+    "valid_research_delta": "NONE_FROM_40_REGION_DISPOSITION",
+    "note": "GitHub workflow technically completed, but 40-region crosswalk/disposition mixed separate roster universes and is quarantined; do not use its 12 exits or 40-region counts."
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-40-REGION-DISPOSITION-022",
   "closed_result_refs": [
@@ -81,16 +84,15 @@
     "RES-NATIONAL-40-REGION-DISPOSITION-20261108-42434491753"
   ],
   "active_action": {
-    "action_id": "RET-CASCADE-NATIONAL-7-EXIT-SOURCE-VERIFICATION-023",
-    "question_id": "Q_VERIFY_4_NEW_HARDLINE_SIGNALS_AND_3_EXISTING_PREEXITS",
-    "decision": "下一轮只核实7个最有价值的硬线退出信号：新信号百色、武都、伊宁、荣成，以及原有预排除霞浦、勉县、利川。其余待核区域不阻塞，暂时搁置；优先保留/条件保留片区继续进入后续环境和居住质量轮次。",
-    "method": "对百色一次核验451002站1991-2020逐月平均日最高温冲突；对武都、伊宁、荣成一次确认站点坐标与实际城区住宅区的代表性；对霞浦、勉县、利川一次获取官方原始站值或统一统计期数据。一次原始源+一次替代源；仍不能确认则标记待核，不反复追索。任何确认触线的具体住宅片区直接退出，不放D。",
-    "expected_evidence": "7个区域逐项原始值、站点坐标、住宅片区距离/代表性、硬线确认状态、退出/待核结论；未确认者明确原因。",
-    "pass_criteria": "7项均完成一次主源与替代源验证或明确标记待核；确认硬线者退出第一阶段候选池；不减少第二、三阶段名单。",
-    "fallback": "一次主源+一次替代源仍无证据时转PENDING并停止单点追索，继续其他候选区域。",
+    "action_id": "RET-PHASE1-7-HARDLINE-SOURCE-VERIFICATION-025",
+    "question_id": "Q_VERIFY_3_V2_PREEXCLUSIONS_AND_4_NEW_TEMPERATURE_SIGNALS",
+    "decision": "恢复V2正式34个评价单元名册；29个全国代表性气候样点仅作为独立筛查证据。下一轮一次性核验7个高价值项目：霞浦、勉县、利川3个V2预排除；百色城区、武都、伊宁、荣成4个新温度信号。其余候选不等待这7项，按34单元名册并行继续推进。",
+    "method": "每项只做一次主来源+一次替代来源；温度统一使用最冷月/最热月平均日最高温，日照统一基期；明确站点坐标与住宅片区代表性。百色城区不得外推至百色·靖西；武都/荣成短历史均值不得冒充30年常年值；伊宁完整360月信号优先；霞浦/勉县/利川复核原始官方站值或统一基期。仍无可比数据即标PENDING，停止单点追索。",
+    "expected_evidence": "7项逐一给出指标、统计期、站点/住宅点代表性、主源/替代源结果、最终状态；同时保留34正式评价单元名册和29样点独立状态。",
+    "pass_criteria": "7项全部完成一次核验或明确PENDING；确认触线仅退出对应具体样点；不把样点信号扩大到城市/省份；不减少第二、三阶段名单。",
+    "fallback": "单项主源+替代源仍缺失则PENDING并转下一项；不得因某一数据源阻塞全批。",
     "status": "READY",
-    "timebox_end": "2026-11-08T15:26:00Z",
-    "last_run_id": "42434491753"
+    "last_run_id": "SCOPE-CORRECTION-20261108"
   },
   "phase": "NATIONWIDE_1991_2020_CLIMATE_DATA_SCALING_AFTER_COMPLETE_R0_R5_MISSING_AUDIT",
   "milestone_deadline": {
@@ -101,12 +103,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_commit": "85ee0cd95bf23cde92c85376019e1a701365b65c",
-    "verified_at": "2026-11-08T01:30:02.405392+00:00"
+    "status": "WRITEBACK_PENDING",
+    "initiated_at": "2026-11-08T01:42:20.882Z",
+    "reason": "scope correction and corrected roster persisted"
   },
-  "updated_at": "2026-11-08T01:30:02.405405+00:00",
-  "state_revision": 83,
+  "updated_at": "2026-11-08T01:42:20.882Z",
+  "state_revision": 84,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -555,5 +557,44 @@
     "stage2_stage3_lists_unchanged": true,
     "evidence_path": "research_engine/retirement/status/national_40_region_disposition_20261108.json",
     "region_csv": "research_engine/retirement/status/national_40_region_disposition_20261108.csv"
+  },
+  "quarantined_research_results": [
+    {
+      "result_id": "RES-NATIONAL-40-REGION-DISPOSITION-20261108-42434491753",
+      "status": "QUARANTINED_NOT_VALID_FOR_CANDIDATE_ROSTER_OR_EXIT_COUNTS",
+      "reason": "把29个全国代表性气候样点与14个扩样候选混合管理，且将12个样点级硬线信号误写为正式退出；与V2正式底盘20个既有+14个新增=34个评价单元不一致。",
+      "replacement_artifacts": [
+        "research_engine/retirement/status/phase1_official_34_evaluation_units_v2_20261107.csv",
+        "research_engine/retirement/status/phase1_29_representative_sample_screen_v2_20261107.csv",
+        "research_engine/retirement/status/phase1_7_hardline_verification_queue_20261108.csv",
+        "research_engine/retirement/status/phase1_roster_scope_correction_20261108.json"
+      ],
+      "historical_record_preserved": true
+    }
+  ],
+  "phase1_roster_scope_correction": {
+    "status": "CORRECTED_AND_PERSISTED",
+    "authoritative_master": "退休宜居城市_第一阶段全国首轮区域收敛_V2_20261107.xlsx",
+    "formal_core_units": 20,
+    "formal_new_expansion_units": 14,
+    "formal_evaluation_units": 34,
+    "representative_climate_sample_units": 29,
+    "representative_sample_counts": {
+      "strong_pass": 4,
+      "conditional_keep": 7,
+      "pending": 6,
+      "sample_level_hardline_signal": 12
+    },
+    "preexclusions_pending_verification": [
+      "霞浦县城近海片区",
+      "勉县县城",
+      "利川城区"
+    ],
+    "formal_residential_exclusions": 0,
+    "superseded_result_id": "RES-NATIONAL-40-REGION-DISPOSITION-20261108-42434491753",
+    "roster_csv": "research_engine/retirement/status/phase1_official_34_evaluation_units_v2_20261107.csv",
+    "sample_csv": "research_engine/retirement/status/phase1_29_representative_sample_screen_v2_20261107.csv",
+    "verification_queue_csv": "research_engine/retirement/status/phase1_7_hardline_verification_queue_20261108.csv",
+    "audit_json": "research_engine/retirement/status/phase1_roster_scope_correction_20261108.json"
   }
 }
