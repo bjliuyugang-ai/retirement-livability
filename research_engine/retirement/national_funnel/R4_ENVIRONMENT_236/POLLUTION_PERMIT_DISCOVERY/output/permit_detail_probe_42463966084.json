@@ -1,0 +1,631 @@
+{
+  "schema": "MEE_PERMIT_DETAIL_SAMPLE_V1",
+  "created_at_utc": "2026-11-08T08:41:17.979882+00:00",
+  "credentials_used": false,
+  "write_actions": false,
+  "query_city": "云南省/昆明市",
+  "queried_city_pages": 199,
+  "selected_count": 5,
+  "details": [
+    {
+      "province": "云南省",
+      "city": "昆明市",
+      "license_no": "91530100MA7MELTJ3P001V",
+      "company": "云南昶电新能源科技有限公司",
+      "industry": "危险废物治理",
+      "validity": "2026-11-05至2031-11-04",
+      "issue_date": "2026-11-05",
+      "management": "重点管理",
+      "detail_url": "https://permit.mee.gov.cn/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContent&dataid=2eda21bad6094e8c87d6deb73f3ab53f",
+      "http_status": 200,
+      "final_url": "https://permit.mee.gov.cn/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContent&dataid=2eda21bad6094e8c87d6deb73f3ab53f",
+      "content_type": "text/html;charset=UTF-8",
+      "html_bytes": 17420,
+      "text_chars": 4174,
+      "title": [
+        "许可信息公开内容"
+      ],
+      "field_snippets": [
+        {
+          "term": "地址",
+          "offset": 3765,
+          "snippet": "oad = function () { setIframeHeight(document.getElementById('external-frame')); }; function openLjfs(url,typeid){ // 自带加密 var enc = window.btoa(''); // 拼接标记参数 url = url + '&sign='+enc; window.open(url); } .Noprint{display:none;} .Noborder{border-width:0;} .PageNext{page-break-after: always;} body{font-family:\"Microsoft YaHei\";} 云南昶电新能源科技有限公司 生产经营场所地址：云南省昆明市安宁太平新城街道桥钢路5号华楚国际汽配城A19-23号 行业类别：危险废物治理 所在地区：云南省-昆明市-安宁市 发证机关：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530100MA7MELTJ3P001V 申领 1 2023-11-30 2023-11-30 至 2028-11-29 91530100MA7MELTJ3P001V 重新申请 2 2026-11-05 2026-11-05 至 2031-11-04 主要污染物类别： 大气主要污染物种类： 硫酸雾 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： 化学需氧量,氨氮（NH3-N）,总磷"
+        },
+        {
+          "term": "污染物",
+          "offset": 4015,
+          "snippet": "h:0;} .PageNext{page-break-after: always;} body{font-family:\"Microsoft YaHei\";} 云南昶电新能源科技有限公司 生产经营场所地址：云南省昆明市安宁太平新城街道桥钢路5号华楚国际汽配城A19-23号 行业类别：危险废物治理 所在地区：云南省-昆明市-安宁市 发证机关：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530100MA7MELTJ3P001V 申领 1 2023-11-30 2023-11-30 至 2028-11-29 91530100MA7MELTJ3P001V 重新申请 2 2026-11-05 2026-11-05 至 2031-11-04 主要污染物类别： 大气主要污染物种类： 硫酸雾 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： 化学需氧量,氨氮（NH3-N）,总磷（以P计）,五日生化需氧量,pH值,悬浮物 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4026,
+          "snippet": "Next{page-break-after: always;} body{font-family:\"Microsoft YaHei\";} 云南昶电新能源科技有限公司 生产经营场所地址：云南省昆明市安宁太平新城街道桥钢路5号华楚国际汽配城A19-23号 行业类别：危险废物治理 所在地区：云南省-昆明市-安宁市 发证机关：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530100MA7MELTJ3P001V 申领 1 2023-11-30 2023-11-30 至 2028-11-29 91530100MA7MELTJ3P001V 重新申请 2 2026-11-05 2026-11-05 至 2031-11-04 主要污染物类别： 大气主要污染物种类： 硫酸雾 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： 化学需氧量,氨氮（NH3-N）,总磷（以P计）,五日生化需氧量,pH值,悬浮物 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4039,
+          "snippet": "ak-after: always;} body{font-family:\"Microsoft YaHei\";} 云南昶电新能源科技有限公司 生产经营场所地址：云南省昆明市安宁太平新城街道桥钢路5号华楚国际汽配城A19-23号 行业类别：危险废物治理 所在地区：云南省-昆明市-安宁市 发证机关：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530100MA7MELTJ3P001V 申领 1 2023-11-30 2023-11-30 至 2028-11-29 91530100MA7MELTJ3P001V 重新申请 2 2026-11-05 2026-11-05 至 2031-11-04 主要污染物类别： 大气主要污染物种类： 硫酸雾 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： 化学需氧量,氨氮（NH3-N）,总磷（以P计）,五日生化需氧量,pH值,悬浮物 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4050,
+          "snippet": "lways;} body{font-family:\"Microsoft YaHei\";} 云南昶电新能源科技有限公司 生产经营场所地址：云南省昆明市安宁太平新城街道桥钢路5号华楚国际汽配城A19-23号 行业类别：危险废物治理 所在地区：云南省-昆明市-安宁市 发证机关：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530100MA7MELTJ3P001V 申领 1 2023-11-30 2023-11-30 至 2028-11-29 91530100MA7MELTJ3P001V 重新申请 2 2026-11-05 2026-11-05 至 2031-11-04 主要污染物类别： 大气主要污染物种类： 硫酸雾 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： 化学需氧量,氨氮（NH3-N）,总磷（以P计）,五日生化需氧量,pH值,悬浮物 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4063,
+          "snippet": "font-family:\"Microsoft YaHei\";} 云南昶电新能源科技有限公司 生产经营场所地址：云南省昆明市安宁太平新城街道桥钢路5号华楚国际汽配城A19-23号 行业类别：危险废物治理 所在地区：云南省-昆明市-安宁市 发证机关：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530100MA7MELTJ3P001V 申领 1 2023-11-30 2023-11-30 至 2028-11-29 91530100MA7MELTJ3P001V 重新申请 2 2026-11-05 2026-11-05 至 2031-11-04 主要污染物类别： 大气主要污染物种类： 硫酸雾 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： 化学需氧量,氨氮（NH3-N）,总磷（以P计）,五日生化需氧量,pH值,悬浮物 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4090,
+          "snippet": "i\";} 云南昶电新能源科技有限公司 生产经营场所地址：云南省昆明市安宁太平新城街道桥钢路5号华楚国际汽配城A19-23号 行业类别：危险废物治理 所在地区：云南省-昆明市-安宁市 发证机关：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530100MA7MELTJ3P001V 申领 1 2023-11-30 2023-11-30 至 2028-11-29 91530100MA7MELTJ3P001V 重新申请 2 2026-11-05 2026-11-05 至 2031-11-04 主要污染物类别： 大气主要污染物种类： 硫酸雾 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： 化学需氧量,氨氮（NH3-N）,总磷（以P计）,五日生化需氧量,pH值,悬浮物 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4139,
+          "snippet": "国际汽配城A19-23号 行业类别：危险废物治理 所在地区：云南省-昆明市-安宁市 发证机关：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530100MA7MELTJ3P001V 申领 1 2023-11-30 2023-11-30 至 2028-11-29 91530100MA7MELTJ3P001V 重新申请 2 2026-11-05 2026-11-05 至 2031-11-04 主要污染物类别： 大气主要污染物种类： 硫酸雾 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： 化学需氧量,氨氮（NH3-N）,总磷（以P计）,五日生化需氧量,pH值,悬浮物 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4150,
+          "snippet": "号 行业类别：危险废物治理 所在地区：云南省-昆明市-安宁市 发证机关：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530100MA7MELTJ3P001V 申领 1 2023-11-30 2023-11-30 至 2028-11-29 91530100MA7MELTJ3P001V 重新申请 2 2026-11-05 2026-11-05 至 2031-11-04 主要污染物类别： 大气主要污染物种类： 硫酸雾 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： 化学需氧量,氨氮（NH3-N）,总磷（以P计）,五日生化需氧量,pH值,悬浮物 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "废水",
+          "offset": 1427,
+          "snippet": "UtkjayE9wafR5h3chvoCKL3ZG2o0pfbs9HIkS2K2bI86S4j8y9pgWKHQWPgCvAAg==' ; listJosn = Decrypt(word); var spdataMap_zywrwlbid=\"fq,fs\"; var zywrwlb = \"\"; if(spdataMap_zywrwlbid.length>0){ var arr = spdataMap_zywrwlbid.split(\",\"); for (var k = 0; k < arr.length; k++) { if(\"fq\"==arr[k]){ arr[k]=\",\"+\"废气\"; zywrwlb+=arr[k]; }else if(\"fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; }else if(\" fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; } } } if(zywrwlb!=\"\"){ zywrwlb=zywrwlb.substring(1); } $(\"#zywrwlbid\").html(zywrwlb); var spdataMap_airemissionid=\"PFXS_1,PFXS_2\"; var airemission = \"\" ; if(spdataMap_airemissionid.length>0){ var arr1 = spdataMap_airemissionid.split(\",\"); for (var k = 0; k < arr1.lengt"
+        },
+        {
+          "term": "废水",
+          "offset": 1486,
+          "snippet": "CvAAg==' ; listJosn = Decrypt(word); var spdataMap_zywrwlbid=\"fq,fs\"; var zywrwlb = \"\"; if(spdataMap_zywrwlbid.length>0){ var arr = spdataMap_zywrwlbid.split(\",\"); for (var k = 0; k < arr.length; k++) { if(\"fq\"==arr[k]){ arr[k]=\",\"+\"废气\"; zywrwlb+=arr[k]; }else if(\"fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; }else if(\" fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; } } } if(zywrwlb!=\"\"){ zywrwlb=zywrwlb.substring(1); } $(\"#zywrwlbid\").html(zywrwlb); var spdataMap_airemissionid=\"PFXS_1,PFXS_2\"; var airemission = \"\" ; if(spdataMap_airemissionid.length>0){ var arr1 = spdataMap_airemissionid.split(\",\"); for (var k = 0; k < arr1.length; k++) { if(\"PFXS_1\"==arr1[k]){ arr1[k]=\",\"+\"有组织\"; airemis"
+        },
+        {
+          "term": "废水",
+          "offset": 4086,
+          "snippet": "YaHei\";} 云南昶电新能源科技有限公司 生产经营场所地址：云南省昆明市安宁太平新城街道桥钢路5号华楚国际汽配城A19-23号 行业类别：危险废物治理 所在地区：云南省-昆明市-安宁市 发证机关：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530100MA7MELTJ3P001V 申领 1 2023-11-30 2023-11-30 至 2028-11-29 91530100MA7MELTJ3P001V 重新申请 2 2026-11-05 2026-11-05 至 2031-11-04 主要污染物类别： 大气主要污染物种类： 硫酸雾 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： 化学需氧量,氨氮（NH3-N）,总磷（以P计）,五日生化需氧量,pH值,悬浮物 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "废水",
+          "offset": 4137,
+          "snippet": "华楚国际汽配城A19-23号 行业类别：危险废物治理 所在地区：云南省-昆明市-安宁市 发证机关：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530100MA7MELTJ3P001V 申领 1 2023-11-30 2023-11-30 至 2028-11-29 91530100MA7MELTJ3P001V 重新申请 2 2026-11-05 2026-11-05 至 2031-11-04 主要污染物类别： 大气主要污染物种类： 硫酸雾 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： 化学需氧量,氨氮（NH3-N）,总磷（以P计）,五日生化需氧量,pH值,悬浮物 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "废水",
+          "offset": 4148,
+          "snippet": "23号 行业类别：危险废物治理 所在地区：云南省-昆明市-安宁市 发证机关：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530100MA7MELTJ3P001V 申领 1 2023-11-30 2023-11-30 至 2028-11-29 91530100MA7MELTJ3P001V 重新申请 2 2026-11-05 2026-11-05 至 2031-11-04 主要污染物类别： 大气主要污染物种类： 硫酸雾 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： 化学需氧量,氨氮（NH3-N）,总磷（以P计）,五日生化需氧量,pH值,悬浮物 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "废气",
+          "offset": 1369,
+          "snippet": "kqSDpx1nhpm5/ja4jgqXDppL9SPMXbHVOcWWRfrZzG04UswGhQhhw7DDoaUtkjayE9wafR5h3chvoCKL3ZG2o0pfbs9HIkS2K2bI86S4j8y9pgWKHQWPgCvAAg==' ; listJosn = Decrypt(word); var spdataMap_zywrwlbid=\"fq,fs\"; var zywrwlb = \"\"; if(spdataMap_zywrwlbid.length>0){ var arr = spdataMap_zywrwlbid.split(\",\"); for (var k = 0; k < arr.length; k++) { if(\"fq\"==arr[k]){ arr[k]=\",\"+\"废气\"; zywrwlb+=arr[k]; }else if(\"fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; }else if(\" fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; } } } if(zywrwlb!=\"\"){ zywrwlb=zywrwlb.substring(1); } $(\"#zywrwlbid\").html(zywrwlb); var spdataMap_airemissionid=\"PFXS_1,PFXS_2\"; var airemission = \"\" ; if(spdataMap_airemissionid.length>0){ var arr1 = spdataMa"
+        }
+      ],
+      "links": [
+        "/perxxgkinfo/syssb/xkgg/xkgg!downloadFile.action?method=download&fileType=fbfile&datafileid=938504c8ac0f4cbd9f6637b598a54d38&dataid=2eda21bad6094e8c87d6deb73f3ab53f",
+        "/perxxgkinfo/syssb/wysb/hpsp/hpsp-company-sewage!showImage.action?dataid=2eda21bad6094e8c87d6deb73f3ab53f",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approveAtmosphere_xkzgk&dataid=2eda21bad6094e8c87d6deb73f3ab53f&isVersion=&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approveWater_xkzgk&dataid=2eda21bad6094e8c87d6deb73f3ab53f&isVersion=&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=waterFqwrw_xzkgk&dataid=2eda21bad6094e8c87d6deb73f3ab53f&isVersion=&operate=readonly&isAdmin=basetrue",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approvespreport_xkzgk&dataid=2eda21bad6094e8c87d6deb73f3ab53f&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approvespinfoopen_xkzgk&dataid=2eda21bad6094e8c87d6deb73f3ab53f&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=accountxk_xkzgk&dataid=2eda21bad6094e8c87d6deb73f3ab53f&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approveothercon_xkzgk&dataid=2eda21bad6094e8c87d6deb73f3ab53f&operate=readonly"
+      ],
+      "saved_html": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/details_91530100MA7MELTJ3P001V.html"
+    },
+    {
+      "province": "云南省",
+      "city": "昆明市",
+      "license_no": "91530100775519713B005U",
+      "company": "昆明城市污水处理运营有限责任公司（昆明市第六水质净化厂）",
+      "industry": "污水处理及其再生利用",
+      "validity": "2025-08-22至2030-08-21",
+      "issue_date": "2025-08-22",
+      "management": "重点管理",
+      "detail_url": "https://permit.mee.gov.cn/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContent&dataid=39149e960a5141908b8e42700485096e",
+      "http_status": 200,
+      "final_url": "https://permit.mee.gov.cn/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContent&dataid=39149e960a5141908b8e42700485096e",
+      "content_type": "text/html;charset=UTF-8",
+      "html_bytes": 20795,
+      "text_chars": 4915,
+      "title": [
+        "许可信息公开内容"
+      ],
+      "field_snippets": [
+        {
+          "term": "地址",
+          "offset": 4049,
+          "snippet": "() { setIframeHeight(document.getElementById('external-frame')); }; function openLjfs(url,typeid){ // 自带加密 var enc = window.btoa(''); // 拼接标记参数 url = url + '&sign='+enc; window.open(url); } .Noprint{display:none;} .Noborder{border-width:0;} .PageNext{page-break-after: always;} body{font-family:\"Microsoft YaHei\";} 昆明城市污水处理运营有限责任公司（昆明市第六水质净化厂） 生产经营场所地址：昆明市官渡区官渡古镇云秀路3168号 行业类别：污水处理及其再生利用 所在地区：云南省-昆明市-官渡区 发证机关：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530100775519713B005U 申领 1 2018-12-21 2018-12-24 至 2021-12-23 91530100775519713B005U 变更 2 2019-09-04 2018-12-24 至 2021-12-23 91530100775519713B005U 变更 3 2021-09-27 2018-12-24 至 2021-12-23 91530100775519713B005U 延续 4 2021-11-18 2021-12-24 至 "
+        },
+        {
+          "term": "污染物",
+          "offset": 4603,
+          "snippet": "-09-04 2018-12-24 至 2021-12-23 91530100775519713B005U 变更 3 2021-09-27 2018-12-24 至 2021-12-23 91530100775519713B005U 延续 4 2021-11-18 2021-12-24 至 2026-12-23 91530100775519713B005U 重新申请 5 2025-08-22 2025-08-22 至 2030-08-21 91530100775519713B005U 变更 6 2026-07-02 2025-08-22 至 2030-08-21 91530100775519713B005U 调整 7 2026-11-02 2025-08-22 至 2030-08-21 主要污染物类别： 大气主要污染物种类： 氨（氨气）,臭气浓度,硫化氢,甲烷 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002 废水主要污染物种类： 总汞,总镉,总铬,总砷,总铅,化学需氧量,总氮（以N计）,氨氮（NH3-N）,总磷（以P计）,pH值,色度,悬浮物,五日生化需氧量,阴离子表面活性剂,六价铬,石油类,动植物油,烷基汞,流量,水温,粪大肠菌群数/（MPN/L） 废水污染物排放规律： 废水污染物排放执行标准： 城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002,/ 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4614,
+          "snippet": "-12-24 至 2021-12-23 91530100775519713B005U 变更 3 2021-09-27 2018-12-24 至 2021-12-23 91530100775519713B005U 延续 4 2021-11-18 2021-12-24 至 2026-12-23 91530100775519713B005U 重新申请 5 2025-08-22 2025-08-22 至 2030-08-21 91530100775519713B005U 变更 6 2026-07-02 2025-08-22 至 2030-08-21 91530100775519713B005U 调整 7 2026-11-02 2025-08-22 至 2030-08-21 主要污染物类别： 大气主要污染物种类： 氨（氨气）,臭气浓度,硫化氢,甲烷 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002 废水主要污染物种类： 总汞,总镉,总铬,总砷,总铅,化学需氧量,总氮（以N计）,氨氮（NH3-N）,总磷（以P计）,pH值,色度,悬浮物,五日生化需氧量,阴离子表面活性剂,六价铬,石油类,动植物油,烷基汞,流量,水温,粪大肠菌群数/（MPN/L） 废水污染物排放规律： 废水污染物排放执行标准： 城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002,/ 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4641,
+          "snippet": "0775519713B005U 变更 3 2021-09-27 2018-12-24 至 2021-12-23 91530100775519713B005U 延续 4 2021-11-18 2021-12-24 至 2026-12-23 91530100775519713B005U 重新申请 5 2025-08-22 2025-08-22 至 2030-08-21 91530100775519713B005U 变更 6 2026-07-02 2025-08-22 至 2030-08-21 91530100775519713B005U 调整 7 2026-11-02 2025-08-22 至 2030-08-21 主要污染物类别： 大气主要污染物种类： 氨（氨气）,臭气浓度,硫化氢,甲烷 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002 废水主要污染物种类： 总汞,总镉,总铬,总砷,总铅,化学需氧量,总氮（以N计）,氨氮（NH3-N）,总磷（以P计）,pH值,色度,悬浮物,五日生化需氧量,阴离子表面活性剂,六价铬,石油类,动植物油,烷基汞,流量,水温,粪大肠菌群数/（MPN/L） 废水污染物排放规律： 废水污染物排放执行标准： 城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002,/ 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4652,
+          "snippet": "005U 变更 3 2021-09-27 2018-12-24 至 2021-12-23 91530100775519713B005U 延续 4 2021-11-18 2021-12-24 至 2026-12-23 91530100775519713B005U 重新申请 5 2025-08-22 2025-08-22 至 2030-08-21 91530100775519713B005U 变更 6 2026-07-02 2025-08-22 至 2030-08-21 91530100775519713B005U 调整 7 2026-11-02 2025-08-22 至 2030-08-21 主要污染物类别： 大气主要污染物种类： 氨（氨气）,臭气浓度,硫化氢,甲烷 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002 废水主要污染物种类： 总汞,总镉,总铬,总砷,总铅,化学需氧量,总氮（以N计）,氨氮（NH3-N）,总磷（以P计）,pH值,色度,悬浮物,五日生化需氧量,阴离子表面活性剂,六价铬,石油类,动植物油,烷基汞,流量,水温,粪大肠菌群数/（MPN/L） 废水污染物排放规律： 废水污染物排放执行标准： 城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002,/ 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4665,
+          "snippet": "1-09-27 2018-12-24 至 2021-12-23 91530100775519713B005U 延续 4 2021-11-18 2021-12-24 至 2026-12-23 91530100775519713B005U 重新申请 5 2025-08-22 2025-08-22 至 2030-08-21 91530100775519713B005U 变更 6 2026-07-02 2025-08-22 至 2030-08-21 91530100775519713B005U 调整 7 2026-11-02 2025-08-22 至 2030-08-21 主要污染物类别： 大气主要污染物种类： 氨（氨气）,臭气浓度,硫化氢,甲烷 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002 废水主要污染物种类： 总汞,总镉,总铬,总砷,总铅,化学需氧量,总氮（以N计）,氨氮（NH3-N）,总磷（以P计）,pH值,色度,悬浮物,五日生化需氧量,阴离子表面活性剂,六价铬,石油类,动植物油,烷基汞,流量,水温,粪大肠菌群数/（MPN/L） 废水污染物排放规律： 废水污染物排放执行标准： 城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002,/ 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4691,
+          "snippet": "12-23 91530100775519713B005U 延续 4 2021-11-18 2021-12-24 至 2026-12-23 91530100775519713B005U 重新申请 5 2025-08-22 2025-08-22 至 2030-08-21 91530100775519713B005U 变更 6 2026-07-02 2025-08-22 至 2030-08-21 91530100775519713B005U 调整 7 2026-11-02 2025-08-22 至 2030-08-21 主要污染物类别： 大气主要污染物种类： 氨（氨气）,臭气浓度,硫化氢,甲烷 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002 废水主要污染物种类： 总汞,总镉,总铬,总砷,总铅,化学需氧量,总氮（以N计）,氨氮（NH3-N）,总磷（以P计）,pH值,色度,悬浮物,五日生化需氧量,阴离子表面活性剂,六价铬,石油类,动植物油,烷基汞,流量,水温,粪大肠菌群数/（MPN/L） 废水污染物排放规律： 废水污染物排放执行标准： 城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002,/ 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4722,
+          "snippet": " 4 2021-11-18 2021-12-24 至 2026-12-23 91530100775519713B005U 重新申请 5 2025-08-22 2025-08-22 至 2030-08-21 91530100775519713B005U 变更 6 2026-07-02 2025-08-22 至 2030-08-21 91530100775519713B005U 调整 7 2026-11-02 2025-08-22 至 2030-08-21 主要污染物类别： 大气主要污染物种类： 氨（氨气）,臭气浓度,硫化氢,甲烷 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002 废水主要污染物种类： 总汞,总镉,总铬,总砷,总铅,化学需氧量,总氮（以N计）,氨氮（NH3-N）,总磷（以P计）,pH值,色度,悬浮物,五日生化需氧量,阴离子表面活性剂,六价铬,石油类,动植物油,烷基汞,流量,水温,粪大肠菌群数/（MPN/L） 废水污染物排放规律： 废水污染物排放执行标准： 城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002,/ 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4844,
+          "snippet": "05U 变更 6 2026-07-02 2025-08-22 至 2030-08-21 91530100775519713B005U 调整 7 2026-11-02 2025-08-22 至 2030-08-21 主要污染物类别： 大气主要污染物种类： 氨（氨气）,臭气浓度,硫化氢,甲烷 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002 废水主要污染物种类： 总汞,总镉,总铬,总砷,总铅,化学需氧量,总氮（以N计）,氨氮（NH3-N）,总磷（以P计）,pH值,色度,悬浮物,五日生化需氧量,阴离子表面活性剂,六价铬,石油类,动植物油,烷基汞,流量,水温,粪大肠菌群数/（MPN/L） 废水污染物排放规律： 废水污染物排放执行标准： 城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002,/ 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4855,
+          "snippet": "26-07-02 2025-08-22 至 2030-08-21 91530100775519713B005U 调整 7 2026-11-02 2025-08-22 至 2030-08-21 主要污染物类别： 大气主要污染物种类： 氨（氨气）,臭气浓度,硫化氢,甲烷 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002 废水主要污染物种类： 总汞,总镉,总铬,总砷,总铅,化学需氧量,总氮（以N计）,氨氮（NH3-N）,总磷（以P计）,pH值,色度,悬浮物,五日生化需氧量,阴离子表面活性剂,六价铬,石油类,动植物油,烷基汞,流量,水温,粪大肠菌群数/（MPN/L） 废水污染物排放规律： 废水污染物排放执行标准： 城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002,/ 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4873,
+          "snippet": "2 至 2030-08-21 91530100775519713B005U 调整 7 2026-11-02 2025-08-22 至 2030-08-21 主要污染物类别： 大气主要污染物种类： 氨（氨气）,臭气浓度,硫化氢,甲烷 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002 废水主要污染物种类： 总汞,总镉,总铬,总砷,总铅,化学需氧量,总氮（以N计）,氨氮（NH3-N）,总磷（以P计）,pH值,色度,悬浮物,五日生化需氧量,阴离子表面活性剂,六价铬,石油类,动植物油,烷基汞,流量,水温,粪大肠菌群数/（MPN/L） 废水污染物排放规律： 废水污染物排放执行标准： 城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002,/ 排污权使用和交易信息： /"
+        },
+        {
+          "term": "废水",
+          "offset": 1659,
+          "snippet": "rXQayA5GcTi9QNYb+Ruw7SBkHKhN3vnFmOyGbIukFTutxvwWC60xRfAsQKj2AGivOL' ; listJosn = Decrypt(word); var spdataMap_zywrwlbid=\"fq,fs\"; var zywrwlb = \"\"; if(spdataMap_zywrwlbid.length>0){ var arr = spdataMap_zywrwlbid.split(\",\"); for (var k = 0; k < arr.length; k++) { if(\"fq\"==arr[k]){ arr[k]=\",\"+\"废气\"; zywrwlb+=arr[k]; }else if(\"fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; }else if(\" fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; } } } if(zywrwlb!=\"\"){ zywrwlb=zywrwlb.substring(1); } $(\"#zywrwlbid\").html(zywrwlb); var spdataMap_airemissionid=\"PFXS_1,PFXS_2\"; var airemission = \"\" ; if(spdataMap_airemissionid.length>0){ var arr1 = spdataMap_airemissionid.split(\",\"); for (var k = 0; k < arr1.lengt"
+        },
+        {
+          "term": "废水",
+          "offset": 1718,
+          "snippet": "2AGivOL' ; listJosn = Decrypt(word); var spdataMap_zywrwlbid=\"fq,fs\"; var zywrwlb = \"\"; if(spdataMap_zywrwlbid.length>0){ var arr = spdataMap_zywrwlbid.split(\",\"); for (var k = 0; k < arr.length; k++) { if(\"fq\"==arr[k]){ arr[k]=\",\"+\"废气\"; zywrwlb+=arr[k]; }else if(\"fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; }else if(\" fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; } } } if(zywrwlb!=\"\"){ zywrwlb=zywrwlb.substring(1); } $(\"#zywrwlbid\").html(zywrwlb); var spdataMap_airemissionid=\"PFXS_1,PFXS_2\"; var airemission = \"\" ; if(spdataMap_airemissionid.length>0){ var arr1 = spdataMap_airemissionid.split(\",\"); for (var k = 0; k < arr1.length; k++) { if(\"PFXS_1\"==arr1[k]){ arr1[k]=\",\"+\"有组织\"; airemis"
+        },
+        {
+          "term": "废水",
+          "offset": 4718,
+          "snippet": "U 延续 4 2021-11-18 2021-12-24 至 2026-12-23 91530100775519713B005U 重新申请 5 2025-08-22 2025-08-22 至 2030-08-21 91530100775519713B005U 变更 6 2026-07-02 2025-08-22 至 2030-08-21 91530100775519713B005U 调整 7 2026-11-02 2025-08-22 至 2030-08-21 主要污染物类别： 大气主要污染物种类： 氨（氨气）,臭气浓度,硫化氢,甲烷 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002 废水主要污染物种类： 总汞,总镉,总铬,总砷,总铅,化学需氧量,总氮（以N计）,氨氮（NH3-N）,总磷（以P计）,pH值,色度,悬浮物,五日生化需氧量,阴离子表面活性剂,六价铬,石油类,动植物油,烷基汞,流量,水温,粪大肠菌群数/（MPN/L） 废水污染物排放规律： 废水污染物排放执行标准： 城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002,/ 排污权使用和交易信息： /"
+        },
+        {
+          "term": "废水",
+          "offset": 4842,
+          "snippet": "B005U 变更 6 2026-07-02 2025-08-22 至 2030-08-21 91530100775519713B005U 调整 7 2026-11-02 2025-08-22 至 2030-08-21 主要污染物类别： 大气主要污染物种类： 氨（氨气）,臭气浓度,硫化氢,甲烷 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002 废水主要污染物种类： 总汞,总镉,总铬,总砷,总铅,化学需氧量,总氮（以N计）,氨氮（NH3-N）,总磷（以P计）,pH值,色度,悬浮物,五日生化需氧量,阴离子表面活性剂,六价铬,石油类,动植物油,烷基汞,流量,水温,粪大肠菌群数/（MPN/L） 废水污染物排放规律： 废水污染物排放执行标准： 城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002,/ 排污权使用和交易信息： /"
+        },
+        {
+          "term": "废水",
+          "offset": 4853,
+          "snippet": "2026-07-02 2025-08-22 至 2030-08-21 91530100775519713B005U 调整 7 2026-11-02 2025-08-22 至 2030-08-21 主要污染物类别： 大气主要污染物种类： 氨（氨气）,臭气浓度,硫化氢,甲烷 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002 废水主要污染物种类： 总汞,总镉,总铬,总砷,总铅,化学需氧量,总氮（以N计）,氨氮（NH3-N）,总磷（以P计）,pH值,色度,悬浮物,五日生化需氧量,阴离子表面活性剂,六价铬,石油类,动植物油,烷基汞,流量,水温,粪大肠菌群数/（MPN/L） 废水污染物排放规律： 废水污染物排放执行标准： 城镇污水处理厂污染物排放标准（含修改单）GB 18918-2002,/ 排污权使用和交易信息： /"
+        },
+        {
+          "term": "废气",
+          "offset": 1601,
+          "snippet": "5DolHJOkXkTnYwl9HHsnraiC7DnMRnXk4YSujblq+ck57KebtPKYHkSmxZrXQayA5GcTi9QNYb+Ruw7SBkHKhN3vnFmOyGbIukFTutxvwWC60xRfAsQKj2AGivOL' ; listJosn = Decrypt(word); var spdataMap_zywrwlbid=\"fq,fs\"; var zywrwlb = \"\"; if(spdataMap_zywrwlbid.length>0){ var arr = spdataMap_zywrwlbid.split(\",\"); for (var k = 0; k < arr.length; k++) { if(\"fq\"==arr[k]){ arr[k]=\",\"+\"废气\"; zywrwlb+=arr[k]; }else if(\"fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; }else if(\" fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; } } } if(zywrwlb!=\"\"){ zywrwlb=zywrwlb.substring(1); } $(\"#zywrwlbid\").html(zywrwlb); var spdataMap_airemissionid=\"PFXS_1,PFXS_2\"; var airemission = \"\" ; if(spdataMap_airemissionid.length>0){ var arr1 = spdataMa"
+        }
+      ],
+      "links": [
+        "/perxxgkinfo/syssb/xkgg/xkgg!downloadFile.action?method=download&fileType=fbfile&datafileid=ab9bc33cfc74402fb489887363e52f78&dataid=39149e960a5141908b8e42700485096e",
+        "/perxxgkinfo/syssb/wysb/hpsp/hpsp-company-sewage!showImage.action?dataid=39149e960a5141908b8e42700485096e",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approveAtmosphere_xkzgk&dataid=39149e960a5141908b8e42700485096e&isVersion=&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approveWater_xkzgk&dataid=39149e960a5141908b8e42700485096e&isVersion=&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=waterFqwrw_xzkgk&dataid=39149e960a5141908b8e42700485096e&isVersion=&operate=readonly&isAdmin=basetrue",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approvespreport_xkzgk&dataid=39149e960a5141908b8e42700485096e&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approvespinfoopen_xkzgk&dataid=39149e960a5141908b8e42700485096e&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=accountxk_xkzgk&dataid=39149e960a5141908b8e42700485096e&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approveothercon_xkzgk&dataid=39149e960a5141908b8e42700485096e&operate=readonly"
+      ],
+      "saved_html": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/details_91530100775519713B005U.html"
+    },
+    {
+      "province": "云南省",
+      "city": "昆明市",
+      "license_no": "91530100MA6PEXQG3A001V",
+      "company": "贵研化学材料（云南）有限公司",
+      "industry": "化学试剂和助剂制造",
+      "validity": "2024-09-11至2029-09-10",
+      "issue_date": "2024-09-11",
+      "management": "重点管理",
+      "detail_url": "https://permit.mee.gov.cn/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContent&dataid=8e892f05241246c29dbdeb4f32e1f0a2",
+      "http_status": 200,
+      "final_url": "https://permit.mee.gov.cn/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContent&dataid=8e892f05241246c29dbdeb4f32e1f0a2",
+      "content_type": "text/html;charset=UTF-8",
+      "html_bytes": 21537,
+      "text_chars": 6050,
+      "title": [
+        "许可信息公开内容"
+      ],
+      "field_snippets": [
+        {
+          "term": "地址",
+          "offset": 5203,
+          "snippet": "ad = function () { setIframeHeight(document.getElementById('external-frame')); }; function openLjfs(url,typeid){ // 自带加密 var enc = window.btoa(''); // 拼接标记参数 url = url + '&sign='+enc; window.open(url); } .Noprint{display:none;} .Noborder{border-width:0;} .PageNext{page-break-after: always;} body{font-family:\"Microsoft YaHei\";} 贵研化学材料（云南）有限公司 生产经营场所地址：云南省昆明高新区马金铺街道办事处文兴街1777号贵金属新材料产业园 行业类别：化学试剂和助剂制造 所在地区：云南省-昆明市-昆明高新技术产业开发区 发证机关：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530100MA6PEXQG3A001V 申领 1 2021-12-27 2021-12-27 至 2026-12-26 91530100MA6PEXQG3A001V 变更 2 2023-04-23 2021-12-27 至 2026-12-26 91530100MA6PEXQG3A001V 重新申请 3 2024-09-11 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 变更 4 "
+        },
+        {
+          "term": "污染物",
+          "offset": 5718,
+          "snippet": "2-27 2021-12-27 至 2026-12-26 91530100MA6PEXQG3A001V 变更 2 2023-04-23 2021-12-27 至 2026-12-26 91530100MA6PEXQG3A001V 重新申请 3 2024-09-11 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 变更 4 2025-06-23 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 重新申请 5 2026-08-24 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 调整 6 2026-11-02 2024-09-11 至 2029-09-10 主要污染物类别： 大气主要污染物种类： 氯化氢,非甲烷总烃,氯（氯气）,氨（氨气）,氮氧化物,硫酸雾,臭气浓度,颗粒物,林格曼黑度,二氧化硫 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996,恶臭污染物排放标准GB 14554-93,锅炉大气污染物排放标准GB 13271-2014 废水主要污染物种类： 氨氮（NH3-N）,pH值,化学需氧量,总氮（以N计）,总磷（以P计）,悬浮物,五日生化需氧量,阴离子表面活性剂,氯化物（以Cl-计）,流量,动植物油,急性毒性,总有机碳,色度 废水污染物排放规律： 废水污染物排放执行标准： 化学合成类制药工业水污染物排放标准GB 21904-2008 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 5729,
+          "snippet": "2-27 至 2026-12-26 91530100MA6PEXQG3A001V 变更 2 2023-04-23 2021-12-27 至 2026-12-26 91530100MA6PEXQG3A001V 重新申请 3 2024-09-11 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 变更 4 2025-06-23 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 重新申请 5 2026-08-24 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 调整 6 2026-11-02 2024-09-11 至 2029-09-10 主要污染物类别： 大气主要污染物种类： 氯化氢,非甲烷总烃,氯（氯气）,氨（氨气）,氮氧化物,硫酸雾,臭气浓度,颗粒物,林格曼黑度,二氧化硫 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996,恶臭污染物排放标准GB 14554-93,锅炉大气污染物排放标准GB 13271-2014 废水主要污染物种类： 氨氮（NH3-N）,pH值,化学需氧量,总氮（以N计）,总磷（以P计）,悬浮物,五日生化需氧量,阴离子表面活性剂,氯化物（以Cl-计）,流量,动植物油,急性毒性,总有机碳,色度 废水污染物排放规律： 废水污染物排放执行标准： 化学合成类制药工业水污染物排放标准GB 21904-2008 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 5789,
+          "snippet": "1-12-27 至 2026-12-26 91530100MA6PEXQG3A001V 重新申请 3 2024-09-11 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 变更 4 2025-06-23 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 重新申请 5 2026-08-24 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 调整 6 2026-11-02 2024-09-11 至 2029-09-10 主要污染物类别： 大气主要污染物种类： 氯化氢,非甲烷总烃,氯（氯气）,氨（氨气）,氮氧化物,硫酸雾,臭气浓度,颗粒物,林格曼黑度,二氧化硫 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996,恶臭污染物排放标准GB 14554-93,锅炉大气污染物排放标准GB 13271-2014 废水主要污染物种类： 氨氮（NH3-N）,pH值,化学需氧量,总氮（以N计）,总磷（以P计）,悬浮物,五日生化需氧量,阴离子表面活性剂,氯化物（以Cl-计）,流量,动植物油,急性毒性,总有机碳,色度 废水污染物排放规律： 废水污染物排放执行标准： 化学合成类制药工业水污染物排放标准GB 21904-2008 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 5800,
+          "snippet": "026-12-26 91530100MA6PEXQG3A001V 重新申请 3 2024-09-11 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 变更 4 2025-06-23 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 重新申请 5 2026-08-24 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 调整 6 2026-11-02 2024-09-11 至 2029-09-10 主要污染物类别： 大气主要污染物种类： 氯化氢,非甲烷总烃,氯（氯气）,氨（氨气）,氮氧化物,硫酸雾,臭气浓度,颗粒物,林格曼黑度,二氧化硫 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996,恶臭污染物排放标准GB 14554-93,锅炉大气污染物排放标准GB 13271-2014 废水主要污染物种类： 氨氮（NH3-N）,pH值,化学需氧量,总氮（以N计）,总磷（以P计）,悬浮物,五日生化需氧量,阴离子表面活性剂,氯化物（以Cl-计）,流量,动植物油,急性毒性,总有机碳,色度 废水污染物排放规律： 废水污染物排放执行标准： 化学合成类制药工业水污染物排放标准GB 21904-2008 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 5813,
+          "snippet": "30100MA6PEXQG3A001V 重新申请 3 2024-09-11 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 变更 4 2025-06-23 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 重新申请 5 2026-08-24 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 调整 6 2026-11-02 2024-09-11 至 2029-09-10 主要污染物类别： 大气主要污染物种类： 氯化氢,非甲烷总烃,氯（氯气）,氨（氨气）,氮氧化物,硫酸雾,臭气浓度,颗粒物,林格曼黑度,二氧化硫 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996,恶臭污染物排放标准GB 14554-93,锅炉大气污染物排放标准GB 13271-2014 废水主要污染物种类： 氨氮（NH3-N）,pH值,化学需氧量,总氮（以N计）,总磷（以P计）,悬浮物,五日生化需氧量,阴离子表面活性剂,氯化物（以Cl-计）,流量,动植物油,急性毒性,总有机碳,色度 废水污染物排放规律： 废水污染物排放执行标准： 化学合成类制药工业水污染物排放标准GB 21904-2008 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 5838,
+          "snippet": "3 2024-09-11 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 变更 4 2025-06-23 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 重新申请 5 2026-08-24 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 调整 6 2026-11-02 2024-09-11 至 2029-09-10 主要污染物类别： 大气主要污染物种类： 氯化氢,非甲烷总烃,氯（氯气）,氨（氨气）,氮氧化物,硫酸雾,臭气浓度,颗粒物,林格曼黑度,二氧化硫 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996,恶臭污染物排放标准GB 14554-93,锅炉大气污染物排放标准GB 13271-2014 废水主要污染物种类： 氨氮（NH3-N）,pH值,化学需氧量,总氮（以N计）,总磷（以P计）,悬浮物,五日生化需氧量,阴离子表面活性剂,氯化物（以Cl-计）,流量,动植物油,急性毒性,总有机碳,色度 废水污染物排放规律： 废水污染物排放执行标准： 化学合成类制药工业水污染物排放标准GB 21904-2008 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 5861,
+          "snippet": " 至 2029-09-10 91530100MA6PEXQG3A001V 变更 4 2025-06-23 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 重新申请 5 2026-08-24 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 调整 6 2026-11-02 2024-09-11 至 2029-09-10 主要污染物类别： 大气主要污染物种类： 氯化氢,非甲烷总烃,氯（氯气）,氨（氨气）,氮氧化物,硫酸雾,臭气浓度,颗粒物,林格曼黑度,二氧化硫 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996,恶臭污染物排放标准GB 14554-93,锅炉大气污染物排放标准GB 13271-2014 废水主要污染物种类： 氨氮（NH3-N）,pH值,化学需氧量,总氮（以N计）,总磷（以P计）,悬浮物,五日生化需氧量,阴离子表面活性剂,氯化物（以Cl-计）,流量,动植物油,急性毒性,总有机碳,色度 废水污染物排放规律： 废水污染物排放执行标准： 化学合成类制药工业水污染物排放标准GB 21904-2008 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 5886,
+          "snippet": "PEXQG3A001V 变更 4 2025-06-23 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 重新申请 5 2026-08-24 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 调整 6 2026-11-02 2024-09-11 至 2029-09-10 主要污染物类别： 大气主要污染物种类： 氯化氢,非甲烷总烃,氯（氯气）,氨（氨气）,氮氧化物,硫酸雾,臭气浓度,颗粒物,林格曼黑度,二氧化硫 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996,恶臭污染物排放标准GB 14554-93,锅炉大气污染物排放标准GB 13271-2014 废水主要污染物种类： 氨氮（NH3-N）,pH值,化学需氧量,总氮（以N计）,总磷（以P计）,悬浮物,五日生化需氧量,阴离子表面活性剂,氯化物（以Cl-计）,流量,动植物油,急性毒性,总有机碳,色度 废水污染物排放规律： 废水污染物排放执行标准： 化学合成类制药工业水污染物排放标准GB 21904-2008 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 5984,
+          "snippet": "09-11 至 2029-09-10 91530100MA6PEXQG3A001V 调整 6 2026-11-02 2024-09-11 至 2029-09-10 主要污染物类别： 大气主要污染物种类： 氯化氢,非甲烷总烃,氯（氯气）,氨（氨气）,氮氧化物,硫酸雾,臭气浓度,颗粒物,林格曼黑度,二氧化硫 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996,恶臭污染物排放标准GB 14554-93,锅炉大气污染物排放标准GB 13271-2014 废水主要污染物种类： 氨氮（NH3-N）,pH值,化学需氧量,总氮（以N计）,总磷（以P计）,悬浮物,五日生化需氧量,阴离子表面活性剂,氯化物（以Cl-计）,流量,动植物油,急性毒性,总有机碳,色度 废水污染物排放规律： 废水污染物排放执行标准： 化学合成类制药工业水污染物排放标准GB 21904-2008 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 5995,
+          "snippet": "9-09-10 91530100MA6PEXQG3A001V 调整 6 2026-11-02 2024-09-11 至 2029-09-10 主要污染物类别： 大气主要污染物种类： 氯化氢,非甲烷总烃,氯（氯气）,氨（氨气）,氮氧化物,硫酸雾,臭气浓度,颗粒物,林格曼黑度,二氧化硫 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996,恶臭污染物排放标准GB 14554-93,锅炉大气污染物排放标准GB 13271-2014 废水主要污染物种类： 氨氮（NH3-N）,pH值,化学需氧量,总氮（以N计）,总磷（以P计）,悬浮物,五日生化需氧量,阴离子表面活性剂,氯化物（以Cl-计）,流量,动植物油,急性毒性,总有机碳,色度 废水污染物排放规律： 废水污染物排放执行标准： 化学合成类制药工业水污染物排放标准GB 21904-2008 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 6016,
+          "snippet": "XQG3A001V 调整 6 2026-11-02 2024-09-11 至 2029-09-10 主要污染物类别： 大气主要污染物种类： 氯化氢,非甲烷总烃,氯（氯气）,氨（氨气）,氮氧化物,硫酸雾,臭气浓度,颗粒物,林格曼黑度,二氧化硫 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996,恶臭污染物排放标准GB 14554-93,锅炉大气污染物排放标准GB 13271-2014 废水主要污染物种类： 氨氮（NH3-N）,pH值,化学需氧量,总氮（以N计）,总磷（以P计）,悬浮物,五日生化需氧量,阴离子表面活性剂,氯化物（以Cl-计）,流量,动植物油,急性毒性,总有机碳,色度 废水污染物排放规律： 废水污染物排放执行标准： 化学合成类制药工业水污染物排放标准GB 21904-2008 排污权使用和交易信息： /"
+        },
+        {
+          "term": "废水",
+          "offset": 2835,
+          "snippet": "PWlhGFyEAYzJp++ymvK060ItHqccsCS+19jCrOh/IM/V6EbTlVtLINGGV+Nu5KYQ==' ; listJosn = Decrypt(word); var spdataMap_zywrwlbid=\"fq,fs\"; var zywrwlb = \"\"; if(spdataMap_zywrwlbid.length>0){ var arr = spdataMap_zywrwlbid.split(\",\"); for (var k = 0; k < arr.length; k++) { if(\"fq\"==arr[k]){ arr[k]=\",\"+\"废气\"; zywrwlb+=arr[k]; }else if(\"fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; }else if(\" fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; } } } if(zywrwlb!=\"\"){ zywrwlb=zywrwlb.substring(1); } $(\"#zywrwlbid\").html(zywrwlb); var spdataMap_airemissionid=\"PFXS_1,PFXS_2\"; var airemission = \"\" ; if(spdataMap_airemissionid.length>0){ var arr1 = spdataMap_airemissionid.split(\",\"); for (var k = 0; k < arr1.lengt"
+        },
+        {
+          "term": "废水",
+          "offset": 2894,
+          "snippet": "u5KYQ==' ; listJosn = Decrypt(word); var spdataMap_zywrwlbid=\"fq,fs\"; var zywrwlb = \"\"; if(spdataMap_zywrwlbid.length>0){ var arr = spdataMap_zywrwlbid.split(\",\"); for (var k = 0; k < arr.length; k++) { if(\"fq\"==arr[k]){ arr[k]=\",\"+\"废气\"; zywrwlb+=arr[k]; }else if(\"fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; }else if(\" fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; } } } if(zywrwlb!=\"\"){ zywrwlb=zywrwlb.substring(1); } $(\"#zywrwlbid\").html(zywrwlb); var spdataMap_airemissionid=\"PFXS_1,PFXS_2\"; var airemission = \"\" ; if(spdataMap_airemissionid.length>0){ var arr1 = spdataMap_airemissionid.split(\",\"); for (var k = 0; k < arr1.length; k++) { if(\"PFXS_1\"==arr1[k]){ arr1[k]=\",\"+\"有组织\"; airemis"
+        },
+        {
+          "term": "废水",
+          "offset": 5882,
+          "snippet": "0MA6PEXQG3A001V 变更 4 2025-06-23 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 重新申请 5 2026-08-24 2024-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 调整 6 2026-11-02 2024-09-11 至 2029-09-10 主要污染物类别： 大气主要污染物种类： 氯化氢,非甲烷总烃,氯（氯气）,氨（氨气）,氮氧化物,硫酸雾,臭气浓度,颗粒物,林格曼黑度,二氧化硫 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996,恶臭污染物排放标准GB 14554-93,锅炉大气污染物排放标准GB 13271-2014 废水主要污染物种类： 氨氮（NH3-N）,pH值,化学需氧量,总氮（以N计）,总磷（以P计）,悬浮物,五日生化需氧量,阴离子表面活性剂,氯化物（以Cl-计）,流量,动植物油,急性毒性,总有机碳,色度 废水污染物排放规律： 废水污染物排放执行标准： 化学合成类制药工业水污染物排放标准GB 21904-2008 排污权使用和交易信息： /"
+        },
+        {
+          "term": "废水",
+          "offset": 5982,
+          "snippet": "4-09-11 至 2029-09-10 91530100MA6PEXQG3A001V 调整 6 2026-11-02 2024-09-11 至 2029-09-10 主要污染物类别： 大气主要污染物种类： 氯化氢,非甲烷总烃,氯（氯气）,氨（氨气）,氮氧化物,硫酸雾,臭气浓度,颗粒物,林格曼黑度,二氧化硫 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996,恶臭污染物排放标准GB 14554-93,锅炉大气污染物排放标准GB 13271-2014 废水主要污染物种类： 氨氮（NH3-N）,pH值,化学需氧量,总氮（以N计）,总磷（以P计）,悬浮物,五日生化需氧量,阴离子表面活性剂,氯化物（以Cl-计）,流量,动植物油,急性毒性,总有机碳,色度 废水污染物排放规律： 废水污染物排放执行标准： 化学合成类制药工业水污染物排放标准GB 21904-2008 排污权使用和交易信息： /"
+        },
+        {
+          "term": "废水",
+          "offset": 5993,
+          "snippet": "029-09-10 91530100MA6PEXQG3A001V 调整 6 2026-11-02 2024-09-11 至 2029-09-10 主要污染物类别： 大气主要污染物种类： 氯化氢,非甲烷总烃,氯（氯气）,氨（氨气）,氮氧化物,硫酸雾,臭气浓度,颗粒物,林格曼黑度,二氧化硫 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB 16297-1996,恶臭污染物排放标准GB 14554-93,锅炉大气污染物排放标准GB 13271-2014 废水主要污染物种类： 氨氮（NH3-N）,pH值,化学需氧量,总氮（以N计）,总磷（以P计）,悬浮物,五日生化需氧量,阴离子表面活性剂,氯化物（以Cl-计）,流量,动植物油,急性毒性,总有机碳,色度 废水污染物排放规律： 废水污染物排放执行标准： 化学合成类制药工业水污染物排放标准GB 21904-2008 排污权使用和交易信息： /"
+        },
+        {
+          "term": "废气",
+          "offset": 2777,
+          "snippet": "Mzy3dffX5VXHgN/xRYqOhU/81dTwdTVJA7eC3gJ7uSfbPWI8zvOW1I6z2OPWlhGFyEAYzJp++ymvK060ItHqccsCS+19jCrOh/IM/V6EbTlVtLINGGV+Nu5KYQ==' ; listJosn = Decrypt(word); var spdataMap_zywrwlbid=\"fq,fs\"; var zywrwlb = \"\"; if(spdataMap_zywrwlbid.length>0){ var arr = spdataMap_zywrwlbid.split(\",\"); for (var k = 0; k < arr.length; k++) { if(\"fq\"==arr[k]){ arr[k]=\",\"+\"废气\"; zywrwlb+=arr[k]; }else if(\"fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; }else if(\" fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; } } } if(zywrwlb!=\"\"){ zywrwlb=zywrwlb.substring(1); } $(\"#zywrwlbid\").html(zywrwlb); var spdataMap_airemissionid=\"PFXS_1,PFXS_2\"; var airemission = \"\" ; if(spdataMap_airemissionid.length>0){ var arr1 = spdataMa"
+        }
+      ],
+      "links": [
+        "/perxxgkinfo/syssb/xkgg/xkgg!downloadFile.action?method=download&fileType=fbfile&datafileid=6d9fcc8875964feda0182c50104fa303&dataid=8e892f05241246c29dbdeb4f32e1f0a2",
+        "/perxxgkinfo/syssb/wysb/hpsp/hpsp-company-sewage!showImage.action?dataid=8e892f05241246c29dbdeb4f32e1f0a2",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approveAtmosphere_xkzgk&dataid=8e892f05241246c29dbdeb4f32e1f0a2&isVersion=&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approveWater_xkzgk&dataid=8e892f05241246c29dbdeb4f32e1f0a2&isVersion=&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=waterFqwrw_xzkgk&dataid=8e892f05241246c29dbdeb4f32e1f0a2&isVersion=&operate=readonly&isAdmin=basetrue",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approvespreport_xkzgk&dataid=8e892f05241246c29dbdeb4f32e1f0a2&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approvespinfoopen_xkzgk&dataid=8e892f05241246c29dbdeb4f32e1f0a2&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=accountxk_xkzgk&dataid=8e892f05241246c29dbdeb4f32e1f0a2&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approveothercon_xkzgk&dataid=8e892f05241246c29dbdeb4f32e1f0a2&operate=readonly"
+      ],
+      "saved_html": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/details_91530100MA6PEXQG3A001V.html"
+    },
+    {
+      "province": "云南省",
+      "city": "昆明市",
+      "license_no": "91530100MA6KKEQ68F004P",
+      "company": "云南铜业股份有限公司西南铜业分公司（安宁）",
+      "industry": "铜冶炼",
+      "validity": "2026-11-02至2031-11-01",
+      "issue_date": "2026-11-02",
+      "management": "重点管理",
+      "detail_url": "https://permit.mee.gov.cn/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContent&dataid=ffd28bc05b0443a9940dda57241ffc4e",
+      "http_status": 200,
+      "final_url": "https://permit.mee.gov.cn/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContent&dataid=ffd28bc05b0443a9940dda57241ffc4e",
+      "content_type": "text/html;charset=UTF-8",
+      "html_bytes": 28267,
+      "text_chars": 13727,
+      "title": [
+        "许可信息公开内容"
+      ],
+      "field_snippets": [
+        {
+          "term": "地址",
+          "offset": 12864,
+          "snippet": "nction () { setIframeHeight(document.getElementById('external-frame')); }; function openLjfs(url,typeid){ // 自带加密 var enc = window.btoa(''); // 拼接标记参数 url = url + '&sign='+enc; window.open(url); } .Noprint{display:none;} .Noborder{border-width:0;} .PageNext{page-break-after: always;} body{font-family:\"Microsoft YaHei\";} 云南铜业股份有限公司西南铜业分公司（安宁） 生产经营场所地址：云南安宁产业园区（安宁片区）青龙街道办事处 行业类别：铜冶炼 所在地区：云南省-昆明市-安宁市 发证机关：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530100MA6KKEQ68F004P 申领 1 2024-03-22 2024-03-22 至 2029-03-21 91530100MA6KKEQ68F004P 审批部门变更 2 2024-04-11 2024-03-22 至 2029-03-21 91530100MA6KKEQ68F004P 重新申请 3 2024-11-29 2024-11-29 至 2029-11-28 91530100MA6KKEQ68F004P 重新申请 4 2026-11-02 2026-11-0"
+        },
+        {
+          "term": "污染物",
+          "offset": 13231,
+          "snippet": "青龙街道办事处 行业类别：铜冶炼 所在地区：云南省-昆明市-安宁市 发证机关：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530100MA6KKEQ68F004P 申领 1 2024-03-22 2024-03-22 至 2029-03-21 91530100MA6KKEQ68F004P 审批部门变更 2 2024-04-11 2024-03-22 至 2029-03-21 91530100MA6KKEQ68F004P 重新申请 3 2024-11-29 2024-11-29 至 2029-11-28 91530100MA6KKEQ68F004P 重新申请 4 2026-11-02 2026-11-02 至 2031-11-01 主要污染物类别： 大气主要污染物种类： 硫酸雾,颗粒物,氯（氯气）,氟化物,镉及其化合物,二氧化硫,汞及其化合物,砷及其化合物,氮氧化物,铅及其化合物,烟气黑度,硫化氢,非甲烷总烃,氯化氢 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,大气污染物综合排放标准GB 16297-1996,锅炉大气污染物排放标准GB 13271-2014,《铅、锌工业污染物排放标准》修改单GB 25466-2010,铜、镍、钴工业污染物排放标准GB 25467-2010,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）及修改单,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）修改单,铅、锌工业污染物排放标准GB 25466-2010,大气污染物综"
+        },
+        {
+          "term": "污染物",
+          "offset": 13242,
+          "snippet": "别：铜冶炼 所在地区：云南省-昆明市-安宁市 发证机关：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530100MA6KKEQ68F004P 申领 1 2024-03-22 2024-03-22 至 2029-03-21 91530100MA6KKEQ68F004P 审批部门变更 2 2024-04-11 2024-03-22 至 2029-03-21 91530100MA6KKEQ68F004P 重新申请 3 2024-11-29 2024-11-29 至 2029-11-28 91530100MA6KKEQ68F004P 重新申请 4 2026-11-02 2026-11-02 至 2031-11-01 主要污染物类别： 大气主要污染物种类： 硫酸雾,颗粒物,氯（氯气）,氟化物,镉及其化合物,二氧化硫,汞及其化合物,砷及其化合物,氮氧化物,铅及其化合物,烟气黑度,硫化氢,非甲烷总烃,氯化氢 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,大气污染物综合排放标准GB 16297-1996,锅炉大气污染物排放标准GB 13271-2014,《铅、锌工业污染物排放标准》修改单GB 25466-2010,铜、镍、钴工业污染物排放标准GB 25467-2010,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）及修改单,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）修改单,铅、锌工业污染物排放标准GB 25466-2010,大气污染物综合排放标准GB 162"
+        },
+        {
+          "term": "污染物",
+          "offset": 13326,
+          "snippet": "0MA6KKEQ68F004P 申领 1 2024-03-22 2024-03-22 至 2029-03-21 91530100MA6KKEQ68F004P 审批部门变更 2 2024-04-11 2024-03-22 至 2029-03-21 91530100MA6KKEQ68F004P 重新申请 3 2024-11-29 2024-11-29 至 2029-11-28 91530100MA6KKEQ68F004P 重新申请 4 2026-11-02 2026-11-02 至 2031-11-01 主要污染物类别： 大气主要污染物种类： 硫酸雾,颗粒物,氯（氯气）,氟化物,镉及其化合物,二氧化硫,汞及其化合物,砷及其化合物,氮氧化物,铅及其化合物,烟气黑度,硫化氢,非甲烷总烃,氯化氢 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,大气污染物综合排放标准GB 16297-1996,锅炉大气污染物排放标准GB 13271-2014,《铅、锌工业污染物排放标准》修改单GB 25466-2010,铜、镍、钴工业污染物排放标准GB 25467-2010,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）及修改单,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）修改单,铅、锌工业污染物排放标准GB 25466-2010,大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： pH值,氯离子,氨氮（NH3-N）,总磷（以P计）,石油类,化学需氧量,总氮（以N计）,悬浮物,五日生化需氧量,动植物油,总铅,总"
+        },
+        {
+          "term": "污染物",
+          "offset": 13337,
+          "snippet": "004P 申领 1 2024-03-22 2024-03-22 至 2029-03-21 91530100MA6KKEQ68F004P 审批部门变更 2 2024-04-11 2024-03-22 至 2029-03-21 91530100MA6KKEQ68F004P 重新申请 3 2024-11-29 2024-11-29 至 2029-11-28 91530100MA6KKEQ68F004P 重新申请 4 2026-11-02 2026-11-02 至 2031-11-01 主要污染物类别： 大气主要污染物种类： 硫酸雾,颗粒物,氯（氯气）,氟化物,镉及其化合物,二氧化硫,汞及其化合物,砷及其化合物,氮氧化物,铅及其化合物,烟气黑度,硫化氢,非甲烷总烃,氯化氢 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,大气污染物综合排放标准GB 16297-1996,锅炉大气污染物排放标准GB 13271-2014,《铅、锌工业污染物排放标准》修改单GB 25466-2010,铜、镍、钴工业污染物排放标准GB 25467-2010,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）及修改单,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）修改单,铅、锌工业污染物排放标准GB 25466-2010,大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： pH值,氯离子,氨氮（NH3-N）,总磷（以P计）,石油类,化学需氧量,总氮（以N计）,悬浮物,五日生化需氧量,动植物油,总铅,总砷,总镉,总汞,总镍,"
+        },
+        {
+          "term": "污染物",
+          "offset": 13350,
+          "snippet": "4-03-22 2024-03-22 至 2029-03-21 91530100MA6KKEQ68F004P 审批部门变更 2 2024-04-11 2024-03-22 至 2029-03-21 91530100MA6KKEQ68F004P 重新申请 3 2024-11-29 2024-11-29 至 2029-11-28 91530100MA6KKEQ68F004P 重新申请 4 2026-11-02 2026-11-02 至 2031-11-01 主要污染物类别： 大气主要污染物种类： 硫酸雾,颗粒物,氯（氯气）,氟化物,镉及其化合物,二氧化硫,汞及其化合物,砷及其化合物,氮氧化物,铅及其化合物,烟气黑度,硫化氢,非甲烷总烃,氯化氢 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,大气污染物综合排放标准GB 16297-1996,锅炉大气污染物排放标准GB 13271-2014,《铅、锌工业污染物排放标准》修改单GB 25466-2010,铜、镍、钴工业污染物排放标准GB 25467-2010,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）及修改单,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）修改单,铅、锌工业污染物排放标准GB 25466-2010,大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： pH值,氯离子,氨氮（NH3-N）,总磷（以P计）,石油类,化学需氧量,总氮（以N计）,悬浮物,五日生化需氧量,动植物油,总铅,总砷,总镉,总汞,总镍,总钴 废水污染物排放规律："
+        },
+        {
+          "term": "污染物",
+          "offset": 13371,
+          "snippet": "2029-03-21 91530100MA6KKEQ68F004P 审批部门变更 2 2024-04-11 2024-03-22 至 2029-03-21 91530100MA6KKEQ68F004P 重新申请 3 2024-11-29 2024-11-29 至 2029-11-28 91530100MA6KKEQ68F004P 重新申请 4 2026-11-02 2026-11-02 至 2031-11-01 主要污染物类别： 大气主要污染物种类： 硫酸雾,颗粒物,氯（氯气）,氟化物,镉及其化合物,二氧化硫,汞及其化合物,砷及其化合物,氮氧化物,铅及其化合物,烟气黑度,硫化氢,非甲烷总烃,氯化氢 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,大气污染物综合排放标准GB 16297-1996,锅炉大气污染物排放标准GB 13271-2014,《铅、锌工业污染物排放标准》修改单GB 25466-2010,铜、镍、钴工业污染物排放标准GB 25467-2010,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）及修改单,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）修改单,铅、锌工业污染物排放标准GB 25466-2010,大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： pH值,氯离子,氨氮（NH3-N）,总磷（以P计）,石油类,化学需氧量,总氮（以N计）,悬浮物,五日生化需氧量,动植物油,总铅,总砷,总镉,总汞,总镍,总钴 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交"
+        },
+        {
+          "term": "污染物",
+          "offset": 13398,
+          "snippet": "8F004P 审批部门变更 2 2024-04-11 2024-03-22 至 2029-03-21 91530100MA6KKEQ68F004P 重新申请 3 2024-11-29 2024-11-29 至 2029-11-28 91530100MA6KKEQ68F004P 重新申请 4 2026-11-02 2026-11-02 至 2031-11-01 主要污染物类别： 大气主要污染物种类： 硫酸雾,颗粒物,氯（氯气）,氟化物,镉及其化合物,二氧化硫,汞及其化合物,砷及其化合物,氮氧化物,铅及其化合物,烟气黑度,硫化氢,非甲烷总烃,氯化氢 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,大气污染物综合排放标准GB 16297-1996,锅炉大气污染物排放标准GB 13271-2014,《铅、锌工业污染物排放标准》修改单GB 25466-2010,铜、镍、钴工业污染物排放标准GB 25467-2010,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）及修改单,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）修改单,铅、锌工业污染物排放标准GB 25466-2010,大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： pH值,氯离子,氨氮（NH3-N）,总磷（以P计）,石油类,化学需氧量,总氮（以N计）,悬浮物,五日生化需氧量,动植物油,总铅,总砷,总镉,总汞,总镍,总钴 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 13425,
+          "snippet": "2024-03-22 至 2029-03-21 91530100MA6KKEQ68F004P 重新申请 3 2024-11-29 2024-11-29 至 2029-11-28 91530100MA6KKEQ68F004P 重新申请 4 2026-11-02 2026-11-02 至 2031-11-01 主要污染物类别： 大气主要污染物种类： 硫酸雾,颗粒物,氯（氯气）,氟化物,镉及其化合物,二氧化硫,汞及其化合物,砷及其化合物,氮氧化物,铅及其化合物,烟气黑度,硫化氢,非甲烷总烃,氯化氢 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,大气污染物综合排放标准GB 16297-1996,锅炉大气污染物排放标准GB 13271-2014,《铅、锌工业污染物排放标准》修改单GB 25466-2010,铜、镍、钴工业污染物排放标准GB 25467-2010,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）及修改单,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）修改单,铅、锌工业污染物排放标准GB 25466-2010,大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： pH值,氯离子,氨氮（NH3-N）,总磷（以P计）,石油类,化学需氧量,总氮（以N计）,悬浮物,五日生化需氧量,动植物油,总铅,总砷,总镉,总汞,总镍,总钴 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 13457,
+          "snippet": "MA6KKEQ68F004P 重新申请 3 2024-11-29 2024-11-29 至 2029-11-28 91530100MA6KKEQ68F004P 重新申请 4 2026-11-02 2026-11-02 至 2031-11-01 主要污染物类别： 大气主要污染物种类： 硫酸雾,颗粒物,氯（氯气）,氟化物,镉及其化合物,二氧化硫,汞及其化合物,砷及其化合物,氮氧化物,铅及其化合物,烟气黑度,硫化氢,非甲烷总烃,氯化氢 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,大气污染物综合排放标准GB 16297-1996,锅炉大气污染物排放标准GB 13271-2014,《铅、锌工业污染物排放标准》修改单GB 25466-2010,铜、镍、钴工业污染物排放标准GB 25467-2010,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）及修改单,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）修改单,铅、锌工业污染物排放标准GB 25466-2010,大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： pH值,氯离子,氨氮（NH3-N）,总磷（以P计）,石油类,化学需氧量,总氮（以N计）,悬浮物,五日生化需氧量,动植物油,总铅,总砷,总镉,总汞,总镍,总钴 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 13486,
+          "snippet": "-29 2024-11-29 至 2029-11-28 91530100MA6KKEQ68F004P 重新申请 4 2026-11-02 2026-11-02 至 2031-11-01 主要污染物类别： 大气主要污染物种类： 硫酸雾,颗粒物,氯（氯气）,氟化物,镉及其化合物,二氧化硫,汞及其化合物,砷及其化合物,氮氧化物,铅及其化合物,烟气黑度,硫化氢,非甲烷总烃,氯化氢 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,大气污染物综合排放标准GB 16297-1996,锅炉大气污染物排放标准GB 13271-2014,《铅、锌工业污染物排放标准》修改单GB 25466-2010,铜、镍、钴工业污染物排放标准GB 25467-2010,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）及修改单,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）修改单,铅、锌工业污染物排放标准GB 25466-2010,大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： pH值,氯离子,氨氮（NH3-N）,总磷（以P计）,石油类,化学需氧量,总氮（以N计）,悬浮物,五日生化需氧量,动植物油,总铅,总砷,总镉,总汞,总镍,总钴 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 13522,
+          "snippet": "MA6KKEQ68F004P 重新申请 4 2026-11-02 2026-11-02 至 2031-11-01 主要污染物类别： 大气主要污染物种类： 硫酸雾,颗粒物,氯（氯气）,氟化物,镉及其化合物,二氧化硫,汞及其化合物,砷及其化合物,氮氧化物,铅及其化合物,烟气黑度,硫化氢,非甲烷总烃,氯化氢 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,大气污染物综合排放标准GB 16297-1996,锅炉大气污染物排放标准GB 13271-2014,《铅、锌工业污染物排放标准》修改单GB 25466-2010,铜、镍、钴工业污染物排放标准GB 25467-2010,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）及修改单,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）修改单,铅、锌工业污染物排放标准GB 25466-2010,大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： pH值,氯离子,氨氮（NH3-N）,总磷（以P计）,石油类,化学需氧量,总氮（以N计）,悬浮物,五日生化需氧量,动植物油,总铅,总砷,总镉,总汞,总镍,总钴 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 13554,
+          "snippet": " 2026-11-02 至 2031-11-01 主要污染物类别： 大气主要污染物种类： 硫酸雾,颗粒物,氯（氯气）,氟化物,镉及其化合物,二氧化硫,汞及其化合物,砷及其化合物,氮氧化物,铅及其化合物,烟气黑度,硫化氢,非甲烷总烃,氯化氢 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,大气污染物综合排放标准GB 16297-1996,锅炉大气污染物排放标准GB 13271-2014,《铅、锌工业污染物排放标准》修改单GB 25466-2010,铜、镍、钴工业污染物排放标准GB 25467-2010,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）及修改单,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）修改单,铅、锌工业污染物排放标准GB 25466-2010,大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： pH值,氯离子,氨氮（NH3-N）,总磷（以P计）,石油类,化学需氧量,总氮（以N计）,悬浮物,五日生化需氧量,动植物油,总铅,总砷,总镉,总汞,总镍,总钴 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 13577,
+          "snippet": "1 主要污染物类别： 大气主要污染物种类： 硫酸雾,颗粒物,氯（氯气）,氟化物,镉及其化合物,二氧化硫,汞及其化合物,砷及其化合物,氮氧化物,铅及其化合物,烟气黑度,硫化氢,非甲烷总烃,氯化氢 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,大气污染物综合排放标准GB 16297-1996,锅炉大气污染物排放标准GB 13271-2014,《铅、锌工业污染物排放标准》修改单GB 25466-2010,铜、镍、钴工业污染物排放标准GB 25467-2010,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）及修改单,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）修改单,铅、锌工业污染物排放标准GB 25466-2010,大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： pH值,氯离子,氨氮（NH3-N）,总磷（以P计）,石油类,化学需氧量,总氮（以N计）,悬浮物,五日生化需氧量,动植物油,总铅,总砷,总镉,总汞,总镍,总钴 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 13604,
+          "snippet": "粒物,氯（氯气）,氟化物,镉及其化合物,二氧化硫,汞及其化合物,砷及其化合物,氮氧化物,铅及其化合物,烟气黑度,硫化氢,非甲烷总烃,氯化氢 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,大气污染物综合排放标准GB 16297-1996,锅炉大气污染物排放标准GB 13271-2014,《铅、锌工业污染物排放标准》修改单GB 25466-2010,铜、镍、钴工业污染物排放标准GB 25467-2010,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）及修改单,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）修改单,铅、锌工业污染物排放标准GB 25466-2010,大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： pH值,氯离子,氨氮（NH3-N）,总磷（以P计）,石油类,化学需氧量,总氮（以N计）,悬浮物,五日生化需氧量,动植物油,总铅,总砷,总镉,总汞,总镍,总钴 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 13692,
+          "snippet": "执行标准： 恶臭污染物排放标准GB 14554-93,大气污染物综合排放标准GB 16297-1996,锅炉大气污染物排放标准GB 13271-2014,《铅、锌工业污染物排放标准》修改单GB 25466-2010,铜、镍、钴工业污染物排放标准GB 25467-2010,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）及修改单,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）修改单,铅、锌工业污染物排放标准GB 25466-2010,大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： pH值,氯离子,氨氮（NH3-N）,总磷（以P计）,石油类,化学需氧量,总氮（以N计）,悬浮物,五日生化需氧量,动植物油,总铅,总砷,总镉,总汞,总镍,总钴 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 13703,
+          "snippet": "排放标准GB 14554-93,大气污染物综合排放标准GB 16297-1996,锅炉大气污染物排放标准GB 13271-2014,《铅、锌工业污染物排放标准》修改单GB 25466-2010,铜、镍、钴工业污染物排放标准GB 25467-2010,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）及修改单,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）修改单,铅、锌工业污染物排放标准GB 25466-2010,大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： pH值,氯离子,氨氮（NH3-N）,总磷（以P计）,石油类,化学需氧量,总氮（以N计）,悬浮物,五日生化需氧量,动植物油,总铅,总砷,总镉,总汞,总镍,总钴 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "废水",
+          "offset": 10491,
+          "snippet": "QWz8DlkeYpWI49NAJG0oQNMyk58XjW8hE/h6YEJYxTZWAQqANaDTFmBxItqI2myPkP' ; listJosn = Decrypt(word); var spdataMap_zywrwlbid=\"fq,fs\"; var zywrwlb = \"\"; if(spdataMap_zywrwlbid.length>0){ var arr = spdataMap_zywrwlbid.split(\",\"); for (var k = 0; k < arr.length; k++) { if(\"fq\"==arr[k]){ arr[k]=\",\"+\"废气\"; zywrwlb+=arr[k]; }else if(\"fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; }else if(\" fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; } } } if(zywrwlb!=\"\"){ zywrwlb=zywrwlb.substring(1); } $(\"#zywrwlbid\").html(zywrwlb); var spdataMap_airemissionid=\"PFXS_1,PFXS_2\"; var airemission = \"\" ; if(spdataMap_airemissionid.length>0){ var arr1 = spdataMap_airemissionid.split(\",\"); for (var k = 0; k < arr1.lengt"
+        },
+        {
+          "term": "废水",
+          "offset": 10550,
+          "snippet": "I2myPkP' ; listJosn = Decrypt(word); var spdataMap_zywrwlbid=\"fq,fs\"; var zywrwlb = \"\"; if(spdataMap_zywrwlbid.length>0){ var arr = spdataMap_zywrwlbid.split(\",\"); for (var k = 0; k < arr.length; k++) { if(\"fq\"==arr[k]){ arr[k]=\",\"+\"废气\"; zywrwlb+=arr[k]; }else if(\"fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; }else if(\" fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; } } } if(zywrwlb!=\"\"){ zywrwlb=zywrwlb.substring(1); } $(\"#zywrwlbid\").html(zywrwlb); var spdataMap_airemissionid=\"PFXS_1,PFXS_2\"; var airemission = \"\" ; if(spdataMap_airemissionid.length>0){ var arr1 = spdataMap_airemissionid.split(\",\"); for (var k = 0; k < arr1.length; k++) { if(\"PFXS_1\"==arr1[k]){ arr1[k]=\",\"+\"有组织\"; airemis"
+        },
+        {
+          "term": "废水",
+          "offset": 13600,
+          "snippet": "酸雾,颗粒物,氯（氯气）,氟化物,镉及其化合物,二氧化硫,汞及其化合物,砷及其化合物,氮氧化物,铅及其化合物,烟气黑度,硫化氢,非甲烷总烃,氯化氢 大气污染物排放规律： 大气污染物排放执行标准： 恶臭污染物排放标准GB 14554-93,大气污染物综合排放标准GB 16297-1996,锅炉大气污染物排放标准GB 13271-2014,《铅、锌工业污染物排放标准》修改单GB 25466-2010,铜、镍、钴工业污染物排放标准GB 25467-2010,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）及修改单,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）修改单,铅、锌工业污染物排放标准GB 25466-2010,大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： pH值,氯离子,氨氮（NH3-N）,总磷（以P计）,石油类,化学需氧量,总氮（以N计）,悬浮物,五日生化需氧量,动植物油,总铅,总砷,总镉,总汞,总镍,总钴 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "废水",
+          "offset": 13690,
+          "snippet": "排放执行标准： 恶臭污染物排放标准GB 14554-93,大气污染物综合排放标准GB 16297-1996,锅炉大气污染物排放标准GB 13271-2014,《铅、锌工业污染物排放标准》修改单GB 25466-2010,铜、镍、钴工业污染物排放标准GB 25467-2010,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）及修改单,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）修改单,铅、锌工业污染物排放标准GB 25466-2010,大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： pH值,氯离子,氨氮（NH3-N）,总磷（以P计）,石油类,化学需氧量,总氮（以N计）,悬浮物,五日生化需氧量,动植物油,总铅,总砷,总镉,总汞,总镍,总钴 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "废水",
+          "offset": 13701,
+          "snippet": "染物排放标准GB 14554-93,大气污染物综合排放标准GB 16297-1996,锅炉大气污染物排放标准GB 13271-2014,《铅、锌工业污染物排放标准》修改单GB 25466-2010,铜、镍、钴工业污染物排放标准GB 25467-2010,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）及修改单,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）修改单,铅、锌工业污染物排放标准GB 25466-2010,大气污染物综合排放标准GB 16297-1996 废水主要污染物种类： pH值,氯离子,氨氮（NH3-N）,总磷（以P计）,石油类,化学需氧量,总氮（以N计）,悬浮物,五日生化需氧量,动植物油,总铅,总砷,总镉,总汞,总镍,总钴 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "废气",
+          "offset": 10433,
+          "snippet": "hSscyRp4ZLpQ7kPTFtvWKetUyK/QZUYvXPUCng7SzSdTgnVTnLsL6c4J4KQWz8DlkeYpWI49NAJG0oQNMyk58XjW8hE/h6YEJYxTZWAQqANaDTFmBxItqI2myPkP' ; listJosn = Decrypt(word); var spdataMap_zywrwlbid=\"fq,fs\"; var zywrwlb = \"\"; if(spdataMap_zywrwlbid.length>0){ var arr = spdataMap_zywrwlbid.split(\",\"); for (var k = 0; k < arr.length; k++) { if(\"fq\"==arr[k]){ arr[k]=\",\"+\"废气\"; zywrwlb+=arr[k]; }else if(\"fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; }else if(\" fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; } } } if(zywrwlb!=\"\"){ zywrwlb=zywrwlb.substring(1); } $(\"#zywrwlbid\").html(zywrwlb); var spdataMap_airemissionid=\"PFXS_1,PFXS_2\"; var airemission = \"\" ; if(spdataMap_airemissionid.length>0){ var arr1 = spdataMa"
+        }
+      ],
+      "links": [
+        "/perxxgkinfo/syssb/xkgg/xkgg!downloadFile.action?method=download&fileType=fbfile&datafileid=cc8538f79d404765ba5f93abeeb14e6d&dataid=ffd28bc05b0443a9940dda57241ffc4e",
+        "/perxxgkinfo/syssb/wysb/hpsp/hpsp-company-sewage!showImage.action?dataid=ffd28bc05b0443a9940dda57241ffc4e",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approveAtmosphere_xkzgk&dataid=ffd28bc05b0443a9940dda57241ffc4e&isVersion=&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approveWater_xkzgk&dataid=ffd28bc05b0443a9940dda57241ffc4e&isVersion=&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=waterFqwrw_xzkgk&dataid=ffd28bc05b0443a9940dda57241ffc4e&isVersion=&operate=readonly&isAdmin=basetrue",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approvespreport_xkzgk&dataid=ffd28bc05b0443a9940dda57241ffc4e&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approvespinfoopen_xkzgk&dataid=ffd28bc05b0443a9940dda57241ffc4e&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=accountxk_xkzgk&dataid=ffd28bc05b0443a9940dda57241ffc4e&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approveothercon_xkzgk&dataid=ffd28bc05b0443a9940dda57241ffc4e&operate=readonly"
+      ],
+      "saved_html": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/details_91530100MA6KKEQ68F004P.html"
+    },
+    {
+      "province": "云南省",
+      "city": "昆明市",
+      "license_no": "91530122678743721A001Q",
+      "company": "云南锦达磷化工有限公司",
+      "industry": "磷肥制造",
+      "validity": "2025-11-13至2030-11-12",
+      "issue_date": "2025-11-13",
+      "management": "重点管理",
+      "detail_url": "https://permit.mee.gov.cn/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContent&dataid=197ce1e00fb14a6190832bda1ad693a6",
+      "http_status": 200,
+      "final_url": "https://permit.mee.gov.cn/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContent&dataid=197ce1e00fb14a6190832bda1ad693a6",
+      "content_type": "text/html;charset=UTF-8",
+      "html_bytes": 19172,
+      "text_chars": 4849,
+      "title": [
+        "许可信息公开内容"
+      ],
+      "field_snippets": [
+        {
+          "term": "地址",
+          "offset": 4230,
+          "snippet": "nload = function () { setIframeHeight(document.getElementById('external-frame')); }; function openLjfs(url,typeid){ // 自带加密 var enc = window.btoa(''); // 拼接标记参数 url = url + '&sign='+enc; window.open(url); } .Noprint{display:none;} .Noborder{border-width:0;} .PageNext{page-break-after: always;} body{font-family:\"Microsoft YaHei\";} 云南锦达磷化工有限公司 生产经营场所地址：云南省昆明市晋宁工业园区二街基地 行业类别：磷肥制造 所在地区：云南省-昆明市-晋宁区 发证机关：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530122678743721A001Q 申领 1 2019-10-12 2019-10-12 至 2022-10-11 91530122678743721A001Q 延续 2 2022-11-15 2022-10-12 至 2027-10-11 91530122678743721A001Q 重新申请 3 2025-11-13 2025-11-13 至 2030-11-12 91530122678743721A001Q 调整 4 2026-10-30 2025-11-13 至 2030-1"
+        },
+        {
+          "term": "污染物",
+          "offset": 4587,
+          "snippet": "明市晋宁工业园区二街基地 行业类别：磷肥制造 所在地区：云南省-昆明市-晋宁区 发证机关：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530122678743721A001Q 申领 1 2019-10-12 2019-10-12 至 2022-10-11 91530122678743721A001Q 延续 2 2022-11-15 2022-10-12 至 2027-10-11 91530122678743721A001Q 重新申请 3 2025-11-13 2025-11-13 至 2030-11-12 91530122678743721A001Q 调整 4 2026-10-30 2025-11-13 至 2030-11-12 主要污染物类别： 大气主要污染物种类： 颗粒物,氮氧化物,氟化物,二氧化硫,氨（氨气） 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB16297-1996,大气污染物综合排放标准GB 16297-1996,工业炉窑大气污染物排放标准GB 9078-1996,恶臭污染物排放标准GB 14554-93,/ 废水主要污染物种类： 化学需氧量,悬浮物,氨氮（NH3-N）,总氮（以N计）,总磷（以P计）,氟化物（以F-计）,pH值 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4598,
+          "snippet": "地 行业类别：磷肥制造 所在地区：云南省-昆明市-晋宁区 发证机关：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530122678743721A001Q 申领 1 2019-10-12 2019-10-12 至 2022-10-11 91530122678743721A001Q 延续 2 2022-11-15 2022-10-12 至 2027-10-11 91530122678743721A001Q 重新申请 3 2025-11-13 2025-11-13 至 2030-11-12 91530122678743721A001Q 调整 4 2026-10-30 2025-11-13 至 2030-11-12 主要污染物类别： 大气主要污染物种类： 颗粒物,氮氧化物,氟化物,二氧化硫,氨（氨气） 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB16297-1996,大气污染物综合排放标准GB 16297-1996,工业炉窑大气污染物排放标准GB 9078-1996,恶臭污染物排放标准GB 14554-93,/ 废水主要污染物种类： 化学需氧量,悬浮物,氨氮（NH3-N）,总氮（以N计）,总磷（以P计）,氟化物（以F-计）,pH值 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4631,
+          "snippet": "：昆明市生态环境局 排污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530122678743721A001Q 申领 1 2019-10-12 2019-10-12 至 2022-10-11 91530122678743721A001Q 延续 2 2022-11-15 2022-10-12 至 2027-10-11 91530122678743721A001Q 重新申请 3 2025-11-13 2025-11-13 至 2030-11-12 91530122678743721A001Q 调整 4 2026-10-30 2025-11-13 至 2030-11-12 主要污染物类别： 大气主要污染物种类： 颗粒物,氮氧化物,氟化物,二氧化硫,氨（氨气） 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB16297-1996,大气污染物综合排放标准GB 16297-1996,工业炉窑大气污染物排放标准GB 9078-1996,恶臭污染物排放标准GB 14554-93,/ 废水主要污染物种类： 化学需氧量,悬浮物,氨氮（NH3-N）,总氮（以N计）,总磷（以P计）,氟化物（以F-计）,pH值 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4642,
+          "snippet": "污许可证正本 排污许可证副本 许可证编号 业务类型 版本 办结日期 有效期限 91530122678743721A001Q 申领 1 2019-10-12 2019-10-12 至 2022-10-11 91530122678743721A001Q 延续 2 2022-11-15 2022-10-12 至 2027-10-11 91530122678743721A001Q 重新申请 3 2025-11-13 2025-11-13 至 2030-11-12 91530122678743721A001Q 调整 4 2026-10-30 2025-11-13 至 2030-11-12 主要污染物类别： 大气主要污染物种类： 颗粒物,氮氧化物,氟化物,二氧化硫,氨（氨气） 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB16297-1996,大气污染物综合排放标准GB 16297-1996,工业炉窑大气污染物排放标准GB 9078-1996,恶臭污染物排放标准GB 14554-93,/ 废水主要污染物种类： 化学需氧量,悬浮物,氨氮（NH3-N）,总氮（以N计）,总磷（以P计）,氟化物（以F-计）,pH值 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4655,
+          "snippet": "本 许可证编号 业务类型 版本 办结日期 有效期限 91530122678743721A001Q 申领 1 2019-10-12 2019-10-12 至 2022-10-11 91530122678743721A001Q 延续 2 2022-11-15 2022-10-12 至 2027-10-11 91530122678743721A001Q 重新申请 3 2025-11-13 2025-11-13 至 2030-11-12 91530122678743721A001Q 调整 4 2026-10-30 2025-11-13 至 2030-11-12 主要污染物类别： 大气主要污染物种类： 颗粒物,氮氧化物,氟化物,二氧化硫,氨（氨气） 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB16297-1996,大气污染物综合排放标准GB 16297-1996,工业炉窑大气污染物排放标准GB 9078-1996,恶臭污染物排放标准GB 14554-93,/ 废水主要污染物种类： 化学需氧量,悬浮物,氨氮（NH3-N）,总氮（以N计）,总磷（以P计）,氟化物（以F-计）,pH值 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4679,
+          "snippet": "限 91530122678743721A001Q 申领 1 2019-10-12 2019-10-12 至 2022-10-11 91530122678743721A001Q 延续 2 2022-11-15 2022-10-12 至 2027-10-11 91530122678743721A001Q 重新申请 3 2025-11-13 2025-11-13 至 2030-11-12 91530122678743721A001Q 调整 4 2026-10-30 2025-11-13 至 2030-11-12 主要污染物类别： 大气主要污染物种类： 颗粒物,氮氧化物,氟化物,二氧化硫,氨（氨气） 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB16297-1996,大气污染物综合排放标准GB 16297-1996,工业炉窑大气污染物排放标准GB 9078-1996,恶臭污染物排放标准GB 14554-93,/ 废水主要污染物种类： 化学需氧量,悬浮物,氨氮（NH3-N）,总氮（以N计）,总磷（以P计）,氟化物（以F-计）,pH值 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4708,
+          "snippet": " 2019-10-12 2019-10-12 至 2022-10-11 91530122678743721A001Q 延续 2 2022-11-15 2022-10-12 至 2027-10-11 91530122678743721A001Q 重新申请 3 2025-11-13 2025-11-13 至 2030-11-12 91530122678743721A001Q 调整 4 2026-10-30 2025-11-13 至 2030-11-12 主要污染物类别： 大气主要污染物种类： 颗粒物,氮氧化物,氟化物,二氧化硫,氨（氨气） 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB16297-1996,大气污染物综合排放标准GB 16297-1996,工业炉窑大气污染物排放标准GB 9078-1996,恶臭污染物排放标准GB 14554-93,/ 废水主要污染物种类： 化学需氧量,悬浮物,氨氮（NH3-N）,总氮（以N计）,总磷（以P计）,氟化物（以F-计）,pH值 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4730,
+          "snippet": " 至 2022-10-11 91530122678743721A001Q 延续 2 2022-11-15 2022-10-12 至 2027-10-11 91530122678743721A001Q 重新申请 3 2025-11-13 2025-11-13 至 2030-11-12 91530122678743721A001Q 调整 4 2026-10-30 2025-11-13 至 2030-11-12 主要污染物类别： 大气主要污染物种类： 颗粒物,氮氧化物,氟化物,二氧化硫,氨（氨气） 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB16297-1996,大气污染物综合排放标准GB 16297-1996,工业炉窑大气污染物排放标准GB 9078-1996,恶臭污染物排放标准GB 14554-93,/ 废水主要污染物种类： 化学需氧量,悬浮物,氨氮（NH3-N）,总氮（以N计）,总磷（以P计）,氟化物（以F-计）,pH值 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4755,
+          "snippet": "743721A001Q 延续 2 2022-11-15 2022-10-12 至 2027-10-11 91530122678743721A001Q 重新申请 3 2025-11-13 2025-11-13 至 2030-11-12 91530122678743721A001Q 调整 4 2026-10-30 2025-11-13 至 2030-11-12 主要污染物类别： 大气主要污染物种类： 颗粒物,氮氧化物,氟化物,二氧化硫,氨（氨气） 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB16297-1996,大气污染物综合排放标准GB 16297-1996,工业炉窑大气污染物排放标准GB 9078-1996,恶臭污染物排放标准GB 14554-93,/ 废水主要污染物种类： 化学需氧量,悬浮物,氨氮（NH3-N）,总氮（以N计）,总磷（以P计）,氟化物（以F-计）,pH值 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4814,
+          "snippet": "2678743721A001Q 重新申请 3 2025-11-13 2025-11-13 至 2030-11-12 91530122678743721A001Q 调整 4 2026-10-30 2025-11-13 至 2030-11-12 主要污染物类别： 大气主要污染物种类： 颗粒物,氮氧化物,氟化物,二氧化硫,氨（氨气） 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB16297-1996,大气污染物综合排放标准GB 16297-1996,工业炉窑大气污染物排放标准GB 9078-1996,恶臭污染物排放标准GB 14554-93,/ 废水主要污染物种类： 化学需氧量,悬浮物,氨氮（NH3-N）,总氮（以N计）,总磷（以P计）,氟化物（以F-计）,pH值 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "污染物",
+          "offset": 4825,
+          "snippet": "001Q 重新申请 3 2025-11-13 2025-11-13 至 2030-11-12 91530122678743721A001Q 调整 4 2026-10-30 2025-11-13 至 2030-11-12 主要污染物类别： 大气主要污染物种类： 颗粒物,氮氧化物,氟化物,二氧化硫,氨（氨气） 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB16297-1996,大气污染物综合排放标准GB 16297-1996,工业炉窑大气污染物排放标准GB 9078-1996,恶臭污染物排放标准GB 14554-93,/ 废水主要污染物种类： 化学需氧量,悬浮物,氨氮（NH3-N）,总氮（以N计）,总磷（以P计）,氟化物（以F-计）,pH值 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "废水",
+          "offset": 1895,
+          "snippet": "S4Z9gEfFKgnLmQyfRzlvKXmC0Im4qI3wYL6otqYp38aZU1QtDN1srnhx+c8VUSdSk=' ; listJosn = Decrypt(word); var spdataMap_zywrwlbid=\"fq,fs\"; var zywrwlb = \"\"; if(spdataMap_zywrwlbid.length>0){ var arr = spdataMap_zywrwlbid.split(\",\"); for (var k = 0; k < arr.length; k++) { if(\"fq\"==arr[k]){ arr[k]=\",\"+\"废气\"; zywrwlb+=arr[k]; }else if(\"fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; }else if(\" fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; } } } if(zywrwlb!=\"\"){ zywrwlb=zywrwlb.substring(1); } $(\"#zywrwlbid\").html(zywrwlb); var spdataMap_airemissionid=\"PFXS_1,PFXS_2\"; var airemission = \"\" ; if(spdataMap_airemissionid.length>0){ var arr1 = spdataMap_airemissionid.split(\",\"); for (var k = 0; k < arr1.lengt"
+        },
+        {
+          "term": "废水",
+          "offset": 1954,
+          "snippet": "VUSdSk=' ; listJosn = Decrypt(word); var spdataMap_zywrwlbid=\"fq,fs\"; var zywrwlb = \"\"; if(spdataMap_zywrwlbid.length>0){ var arr = spdataMap_zywrwlbid.split(\",\"); for (var k = 0; k < arr.length; k++) { if(\"fq\"==arr[k]){ arr[k]=\",\"+\"废气\"; zywrwlb+=arr[k]; }else if(\"fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; }else if(\" fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; } } } if(zywrwlb!=\"\"){ zywrwlb=zywrwlb.substring(1); } $(\"#zywrwlbid\").html(zywrwlb); var spdataMap_airemissionid=\"PFXS_1,PFXS_2\"; var airemission = \"\" ; if(spdataMap_airemissionid.length>0){ var arr1 = spdataMap_airemissionid.split(\",\"); for (var k = 0; k < arr1.length; k++) { if(\"PFXS_1\"==arr1[k]){ arr1[k]=\",\"+\"有组织\"; airemis"
+        },
+        {
+          "term": "废水",
+          "offset": 4751,
+          "snippet": "2678743721A001Q 延续 2 2022-11-15 2022-10-12 至 2027-10-11 91530122678743721A001Q 重新申请 3 2025-11-13 2025-11-13 至 2030-11-12 91530122678743721A001Q 调整 4 2026-10-30 2025-11-13 至 2030-11-12 主要污染物类别： 大气主要污染物种类： 颗粒物,氮氧化物,氟化物,二氧化硫,氨（氨气） 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB16297-1996,大气污染物综合排放标准GB 16297-1996,工业炉窑大气污染物排放标准GB 9078-1996,恶臭污染物排放标准GB 14554-93,/ 废水主要污染物种类： 化学需氧量,悬浮物,氨氮（NH3-N）,总氮（以N计）,总磷（以P计）,氟化物（以F-计）,pH值 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "废水",
+          "offset": 4812,
+          "snippet": "122678743721A001Q 重新申请 3 2025-11-13 2025-11-13 至 2030-11-12 91530122678743721A001Q 调整 4 2026-10-30 2025-11-13 至 2030-11-12 主要污染物类别： 大气主要污染物种类： 颗粒物,氮氧化物,氟化物,二氧化硫,氨（氨气） 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB16297-1996,大气污染物综合排放标准GB 16297-1996,工业炉窑大气污染物排放标准GB 9078-1996,恶臭污染物排放标准GB 14554-93,/ 废水主要污染物种类： 化学需氧量,悬浮物,氨氮（NH3-N）,总氮（以N计）,总磷（以P计）,氟化物（以F-计）,pH值 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "废水",
+          "offset": 4823,
+          "snippet": "1A001Q 重新申请 3 2025-11-13 2025-11-13 至 2030-11-12 91530122678743721A001Q 调整 4 2026-10-30 2025-11-13 至 2030-11-12 主要污染物类别： 大气主要污染物种类： 颗粒物,氮氧化物,氟化物,二氧化硫,氨（氨气） 大气污染物排放规律： 大气污染物排放执行标准： 大气污染物综合排放标准GB16297-1996,大气污染物综合排放标准GB 16297-1996,工业炉窑大气污染物排放标准GB 9078-1996,恶臭污染物排放标准GB 14554-93,/ 废水主要污染物种类： 化学需氧量,悬浮物,氨氮（NH3-N）,总氮（以N计）,总磷（以P计）,氟化物（以F-计）,pH值 废水污染物排放规律： 废水污染物排放执行标准： 排污权使用和交易信息： /"
+        },
+        {
+          "term": "废气",
+          "offset": 1837,
+          "snippet": "hD9zp8ZEouiaB2JzBGCsO7ZyuqpFFLzVAvq/EismDZzOnN0FQd0lwPUGMUS4Z9gEfFKgnLmQyfRzlvKXmC0Im4qI3wYL6otqYp38aZU1QtDN1srnhx+c8VUSdSk=' ; listJosn = Decrypt(word); var spdataMap_zywrwlbid=\"fq,fs\"; var zywrwlb = \"\"; if(spdataMap_zywrwlbid.length>0){ var arr = spdataMap_zywrwlbid.split(\",\"); for (var k = 0; k < arr.length; k++) { if(\"fq\"==arr[k]){ arr[k]=\",\"+\"废气\"; zywrwlb+=arr[k]; }else if(\"fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; }else if(\" fs\"==arr[k]){ arr[k]=\",\"+\"废水\"; zywrwlb+=arr[k]; } } } if(zywrwlb!=\"\"){ zywrwlb=zywrwlb.substring(1); } $(\"#zywrwlbid\").html(zywrwlb); var spdataMap_airemissionid=\"PFXS_1,PFXS_2\"; var airemission = \"\" ; if(spdataMap_airemissionid.length>0){ var arr1 = spdataMa"
+        }
+      ],
+      "links": [
+        "/perxxgkinfo/syssb/xkgg/xkgg!downloadFile.action?method=download&fileType=fbfile&datafileid=40beae880e0c41dc91e054d6fcfd023f&dataid=197ce1e00fb14a6190832bda1ad693a6",
+        "/perxxgkinfo/syssb/wysb/hpsp/hpsp-company-sewage!showImage.action?dataid=197ce1e00fb14a6190832bda1ad693a6",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approveAtmosphere_xkzgk&dataid=197ce1e00fb14a6190832bda1ad693a6&isVersion=&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approveWater_xkzgk&dataid=197ce1e00fb14a6190832bda1ad693a6&isVersion=&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=waterFqwrw_xzkgk&dataid=197ce1e00fb14a6190832bda1ad693a6&isVersion=&operate=readonly&isAdmin=basetrue",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approvespreport_xkzgk&dataid=197ce1e00fb14a6190832bda1ad693a6&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approvespinfoopen_xkzgk&dataid=197ce1e00fb14a6190832bda1ad693a6&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=accountxk_xkzgk&dataid=197ce1e00fb14a6190832bda1ad693a6&operate=readonly",
+        "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approveothercon_xkzgk&dataid=197ce1e00fb14a6190832bda1ad693a6&operate=readonly"
+      ],
+      "saved_html": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/details_91530122678743721A001Q.html"
+    }
+  ]
+}

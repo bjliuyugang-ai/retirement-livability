@@ -1,0 +1,507 @@
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Pragma" content="no-cache" /> 
+<meta http-equiv="Cache-Control" content="no-cache" /> 
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
+ 
+ 
+ 
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/perxxgkinfo/thscommon/style/artDialog/aero.css" />
+
+<script type="text/javascript" src="/perxxgkinfo/thscommon/javascript/jquery.min.js"></script>
+<script type="text/javascript" src="/perxxgkinfo/thscommon/javascript/baiduStatistics.js"></script>
+
+<script type="text/javascript" src="/perxxgkinfo/thscommon/javascript/json2.js"></script>
+<script type="text/javascript" src="/perxxgkinfo/thscommon/javascript/jquery.artDialog.js"></script>
+<script type="text/javascript" src="/perxxgkinfo/thscommon/javascript/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="/perxxgkinfo/thscommon/javascript/jquery.media.js"></script>
+<script type="text/javascript" src="/perxxgkinfo/thscommon/javascript/upload.js"></script>
+<script type="text/javascript" src="/perxxgkinfo/thscommon/javascript/exportWord.js"></script>
+<script type="text/javascript" src="/perxxgkinfo/util/xzxk/swfupload/swfupload.js"></script>
+<script type="text/javascript" src="/perxxgkinfo/util/xzxk/swfupload/handlers.js"></script>
+<script type="text/javascript" src="/perxxgkinfo/util/xzxk/swfupload/fileprogress.js"></script>
+<script type="text/javascript" src="/perxxgkinfo/js/content.js"></script>
+<!--validate start  -->
+<link rel="stylesheet" href="/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/validationEngine.jquery.css" type="text/css" />
+<link rel="stylesheet" href="/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/template.css" type="text/css" />
+ <script src="/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/languages/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8"></script>
+<script src="/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+<!--validate end  -->
+
+
+<!-- base64  -->
+<script type="text/javascript" src="/perxxgkinfo/thscommon/javascript/jquery.base64.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/perxxgkinfo/util/xzxk/css/xzxk_button.css" />
+<link rel="stylesheet" type="text/css" href="/perxxgkinfo/util/xzxk/css/xzxk_style.css" />
+<link rel="stylesheet" type="text/css" href="/perxxgkinfo/util/xzxk/swfupload/default.css" />
+<link rel=stylesheet type=text/css href="/perxxgkinfo/thscommon/style/page-base.css"/>
+
+<script type="text/javascript" src="/perxxgkinfo/js/urlhanzi.js"></script>
+
+<!-- èªå®ä¹éç¨æ ·å¼ -->
+<link rel="stylesheet" type="text/css" href="/perxxgkinfo/util/css/common/custom.css" />
+<!-- æºè½å®¡æ ¸js -->
+<script type="text/javascript" src="/perxxgkinfo/report/common/layer/layer.js"></script>
+<script type="text/javascript" src="/perxxgkinfo/js/intelligent_checking.js"></script>
+<script>
+    var ctx = "/perxxgkinfo";
+</script>
+
+<title>许可信息公开内容</title>
+<link rel="shortcut icon" type="image/x-icon" href="/perxxgkinfo/gis/img/favicon.ico"/>
+<link rel="stylesheet" href="/perxxgkinfo/gis/css/default.css"/>
+<link rel="stylesheet" href="/perxxgkinfo/gis/css/app.css"/>
+<script src="/perxxgkinfo/gis/css/aes.js"></script>
+<script src="/perxxgkinfo/gis/css/mode-ecb-min.js"></script>
+<script type="text/javascript">
+var listJosn  = "" ;
+var pwd = 'b006704ffe1e932c' ;
+var ctx='/perxxgkinfo'
+/**
+function Decrypt(word){
+	pwd = CryptoJS.enc.Utf8.parse(pwd); 
+	var decrypt = CryptoJS.AES.decrypt(word, pwd, {mode:CryptoJS.mode.ECB,padding: CryptoJS.pad.Pkcs7});  
+    return CryptoJS.enc.Utf8.stringify(decrypt).toString();  
+	//return CryptoJS.AES.decrypt(word,pwd).toString(CryptoJS.enc.Utf-8);
+}
+*/
+function Decrypt(word){  
+    var key = CryptoJS.enc.Utf8.parse(pwd);   
+    var decrypt = CryptoJS.AES.decrypt(word, key, {mode:CryptoJS.mode.ECB,padding: CryptoJS.pad.Pkcs7});  
+    return CryptoJS.enc.Utf8.stringify(decrypt).toString();  
+}  
+$(document).ready(function() {
+	var word = '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' ;
+
+	listJosn = Decrypt(word);
+	
+	var spdataMap_zywrwlbid="fq,fs";
+	var zywrwlb = "";
+	if(spdataMap_zywrwlbid.length>0){
+		var arr = spdataMap_zywrwlbid.split(",");
+		for (var k = 0; k < arr.length; k++) {
+			if("fq"==arr[k]){
+				arr[k]=","+"废气";
+				zywrwlb+=arr[k];
+			}else if("fs"==arr[k]){
+				arr[k]=","+"废水";
+				zywrwlb+=arr[k];
+			}else if(" fs"==arr[k]){
+				arr[k]=","+"废水";
+				zywrwlb+=arr[k];
+			}
+		}
+	}
+    if(zywrwlb!=""){
+    	zywrwlb=zywrwlb.substring(1);
+    }
+    $("#zywrwlbid").html(zywrwlb);
+    
+    var spdataMap_airemissionid="PFXS_1,PFXS_2";
+	var airemission = "" ;
+	if(spdataMap_airemissionid.length>0){
+		var arr1 = spdataMap_airemissionid.split(",");
+		for (var k = 0; k < arr1.length; k++) {
+			if("PFXS_1"==arr1[k]){
+				arr1[k]=","+"有组织";
+				airemission+=arr1[k];
+			}else if("PFXS_2"==arr1[k]){
+				arr1[k]=","+"无组织";
+				airemission+=arr1[k];
+			}else if(" PFXS_2"==arr1[k]){
+				arr1[k]=","+"无组织";
+				airemission+=arr1[k];
+			}
+		}
+	}
+    if(airemission!=""){
+    	airemission=airemission.substring(1);
+    }
+    $("#airemissionid").html(airemission);
+    
+    var spdataMap_wateremissionname="间断排放，排放期间流量不稳定且无规律，但不属于冲击型排放";
+	var wateremissionname = "";
+	if(spdataMap_wateremissionname.length>0){
+		var arr1 = spdataMap_wateremissionname.split("@");
+		for (var k = 0; k < arr1.length; k++) {
+			wateremissionname+="; "+arr1[k];
+		}
+	}
+    if(wateremissionname!=""){
+    	wateremissionname=wateremissionname.substring(1);
+    }
+    $("#wateremissionname").html(wateremissionname);
+    
+});
+
+//点击查看的方法
+function showItemCard(dataid,state,cardtype){ 
+	$("#dataid").val(dataid);//项目唯一id
+	$("#operate").val("readonly");//request：页面必填 editable：可编辑   readonly：只读
+	$("#state").val("查看");//当前节点
+	$("#cardtype").val(cardtype);//项目卡对应的xml名称
+	document.all.jumpform.action="/perxxgkinfo/common/itemcard/item-card!itemcardmain.action";
+	document.all.jumpform.submit();
+}
+
+
+// 监督执法信息-详情查看
+function showSupervision(pkid){
+    $.dialog.openhanzi('/perxxgkinfo/syssb/wysb/hpsp/hpsp-company-sewage!showSupervision.action?pkid='+pkid,{
+        lock: true,
+        background: '#333', // 背景色
+        opacity: 0.30,  // 透明度
+        title:'监督执法信息',
+        lock:'ture',
+        width:'1250px',
+        height:'500px',
+        fixed: true,
+        close:function(){
+            
+        }
+    }); 
+ }
+function setIframeHeight(iframe) {
+	if (iframe) {
+	var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+	if (iframeWin.document.body) {
+	iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+	}
+	}
+	};
+
+	window.onload = function () {
+	setIframeHeight(document.getElementById('external-frame'));
+	};
+	
+	
+function openLjfs(url,typeid){
+	// 自带加密
+	var enc = window.btoa(''); 
+	// 拼接标记参数
+	url = url + '&sign='+enc;
+	window.open(url);
+}
+
+</script>
+<style media=print>
+.Noprint{display:none;}
+.Noborder{border-width:0;}
+.PageNext{page-break-after: always;}
+body{font-family:"Microsoft YaHei";}
+</style>
+</head>
+
+<body style="font-family:Microsoft YaHei;overflow-x:hidden;"  >
+<div style="width: 100%;">
+	<table style="width:99%;">
+		<colgroup>
+	    	<col width="77%" ></col>
+	    	<col width="14%" ></col>
+	    	<col width="9%" ></col>
+	    </colgroup>
+		<tr>
+			<td>
+				<p style="font-size:36px;">云南铜业股份有限公司西南铜业分公司（安宁）</p>
+				<input type="hidden" id="longitude" value="102.33406"/>
+				<input type="hidden" id="latitude" value="24.97295"/>
+				<input type="hidden" id="opelngd" value="102"/>
+				<input type="hidden" id="opelngf" value="20"/>
+				<input type="hidden" id="opelngm" value="2.62"/>
+				<input type="hidden" id="opelatd" value="24"/>
+				<input type="hidden" id="opelatf" value="58"/>
+				<input type="hidden" id="opelatm" value="22.62"/>
+				<input type="hidden" id="isout" value="true"/>
+				
+			</td>
+			<td>&nbsp;</td>
+			
+			<td rowspan="3" >
+				<img style="float: right;" height="110px;" width="110px;" alt="" id="erweima" 
+				src="/perxxgkinfo/syssb/xkgg/xkgg!downloadFile.action?method=download&fileType=ewmfile&datafileid=9f7c51c2779c491eafb66514bb5c5fa9&dataid=ffd28bc05b0443a9940dda57241ffc4e" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+	            <p style="font-weight: bold;color: green;font-size: 14px;">
+				          生产经营场所地址：云南安宁产业园区（安宁片区）青龙街道办事处&nbsp;&nbsp;&nbsp;&nbsp;
+				          行业类别：铜冶炼&nbsp;&nbsp;&nbsp;&nbsp;
+				          所在地区：云南省-昆明市-安宁市&nbsp;&nbsp;&nbsp;
+				          发证机关：昆明市生态环境局
+	                
+				</p>
+			</td>
+			<td align="left" style="padding-bottom: 9px;">
+                   
+				
+				
+				
+                       
+				    <a style="color: green;font-weight: bold;font-size: 14px;text-decoration: underline;" 
+				       href="/perxxgkinfo/syssb/xkgg/xkgg!downloadFile.action?method=download&fileType=fbfile&datafileid=cc8538f79d404765ba5f93abeeb14e6d&dataid=ffd28bc05b0443a9940dda57241ffc4e">排污许可证正本</a>
+				    <br/>
+				    
+                    
+                    
+                    
+                        <a style="color: green;font-weight: bold;font-size: 14px;text-decoration: underline;" target="view_window" 
+                           href="/perxxgkinfo/syssb/wysb/hpsp/hpsp-company-sewage!showImage.action?dataid=ffd28bc05b0443a9940dda57241ffc4e">排污许可证副本</a>
+                    
+				
+			</td>
+		</tr>
+	</table>
+</div>
+
+<br />
+<div style="width: 100%;">
+	<div style="width:96%;float: left;">
+				<table style="line-height: 32px;table-layout: fixed;" class="tab0" >
+					<!-- <colgroup>
+				    	<col width="28%" ></col>
+				    	<col width="15%" ></col>
+				    	<col width="8%" ></col>
+				    	<col width="16%" ></col>
+				    	<col width="30%" ></col>
+				    </colgroup> -->
+					<tr style="width: 100%;table-layout: fixed;" align="center">
+						<th style="width: 35%;" >许可证编号</th>
+						<th style="width: 10%;" >业务类型</th>
+						<th style="width: 10%;" >版本</th>
+						<th style="width: 15%;" >办结日期</th>
+						<th style="width: 30%;" >有效期限</th>
+					</tr>
+					
+						
+							
+								<tr align="center">
+									<td style="word-break: break-all;">91530100MA6KKEQ68F004P</td>
+									<td >
+										
+											申领
+										
+										
+										
+										
+										
+										
+                                        
+                                        
+										
+									</td>
+									<td>
+										
+											1
+										
+										
+									</td>
+									<td>
+										
+											2024-03-22
+										
+									</td>
+									<td>2024-03-22&nbsp;至&nbsp;2029-03-21</td>
+								</tr>
+							
+						
+							
+								<tr align="center">
+									<td style="word-break: break-all;">91530100MA6KKEQ68F004P</td>
+									<td >
+										
+										
+										
+										
+										
+										
+                                        
+                                        
+                                                                                                              审批部门变更
+                                        
+										
+									</td>
+									<td>
+										
+											2
+										
+										
+									</td>
+									<td>
+										
+											2024-04-11
+										
+									</td>
+									<td>2024-03-22&nbsp;至&nbsp;2029-03-21</td>
+								</tr>
+							
+						
+							
+								<tr align="center">
+									<td style="word-break: break-all;">91530100MA6KKEQ68F004P</td>
+									<td >
+										
+										
+										
+										
+										
+										
+                                        
+                                                                                                              重新申请
+                                        
+                                        
+										
+									</td>
+									<td>
+										
+											3
+										
+										
+									</td>
+									<td>
+										
+											2024-11-29
+										
+									</td>
+									<td>2024-11-29&nbsp;至&nbsp;2029-11-28</td>
+								</tr>
+							
+						
+							
+								<tr align="center">
+									<td style="word-break: break-all;">91530100MA6KKEQ68F004P</td>
+									<td >
+										
+										
+										
+										
+										
+										
+                                        
+                                                                                                              重新申请
+                                        
+                                        
+										
+									</td>
+									<td>
+										
+											4
+										
+										
+									</td>
+									<td>
+										
+											2026-11-02
+										
+									</td>
+									<td>2026-11-02&nbsp;至&nbsp;2031-11-01</td>
+								</tr>
+							
+						
+					
+				</table>
+				<br/>
+				<hr width="99%" color='green' size=1 />
+				<table style="height: 100px;">
+					
+						
+						
+							<tr align="center">
+								<td><a  href="/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approveAtmosphere_xkzgk&dataid=ffd28bc05b0443a9940dda57241ffc4e&isVersion=&operate=readonly" target="_blank" ><img style="display:block;width:100%;" src='/perxxgkinfo/outside/img/btn_0301.png' /></a></td>
+								<td><a  href="/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approveWater_xkzgk&dataid=ffd28bc05b0443a9940dda57241ffc4e&isVersion=&operate=readonly" target="_blank" ><img style="display:block;width:100%;" src='/perxxgkinfo/outside/img/btn_0501.png' /></a></td>
+								<td><a  href="/perxxgkinfo/xkgkAction!xkgk.action?xkgk=waterFqwrw_xzkgk&dataid=ffd28bc05b0443a9940dda57241ffc4e&isVersion=&operate=readonly&isAdmin=basetrue" target="_blank" ><img style="display:block;width:100%;" src='/perxxgkinfo/outside/img/btn_0701.png' /></a></td>
+								<td><a  href="/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approvespreport_xkzgk&dataid=ffd28bc05b0443a9940dda57241ffc4e&operate=readonly" target="_blank" ><img style="display:block;width:100%;" src='/perxxgkinfo/outside/img/btn_0901.png' /></a></td>
+								<td><a  href="/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approvespinfoopen_xkzgk&dataid=ffd28bc05b0443a9940dda57241ffc4e&operate=readonly" target="_blank" ><img style="display:block;width:100%;" src='/perxxgkinfo/outside/img/btn_1601.png' /></a></td>
+								<td><a  href="/perxxgkinfo/xkgkAction!xkgk.action?xkgk=accountxk_xkzgk&dataid=ffd28bc05b0443a9940dda57241ffc4e&operate=readonly" target="_blank" ><img style="display:block;width:100%;" src='/perxxgkinfo/outside/img/btn_1501.png' /></a></td>
+							</tr>
+							<tr align="center">
+								<td><a  href="/perxxgkinfo/xkgkAction!xkgk.action?xkgk=approveothercon_xkzgk&dataid=ffd28bc05b0443a9940dda57241ffc4e&operate=readonly" target="_blank" ><img style="display:block;width:100%;" src='/perxxgkinfo/outside/img/btn_1701.png' /></a></td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+							</tr>
+						
+					
+					
+				</table>
+				<br />
+				<table id="apply_table"  class="edit-grid" style="width:100%;border: 1px;"  >
+			    	<colgroup>
+				    	<col width="30%" ></col>
+				    	<col width="70%" ></col>
+				    </colgroup>	
+					<tr>
+						<th style="border-left:#CCCCCC 1px solid;">主要污染物类别：</th>
+						<td style="padding-left: 10px;word-break: break-all;" align="left"><span id="zywrwlbid" ></span></td>
+					</tr>
+					<tr>
+						<th style="border-left:#CCCCCC 1px solid;">大气主要污染物种类：</th>
+						<td style="padding-left: 10px;word-break: break-all;" align="left">硫酸雾,颗粒物,氯（氯气）,氟化物,镉及其化合物,二氧化硫,汞及其化合物,砷及其化合物,氮氧化物,铅及其化合物,烟气黑度,硫化氢,非甲烷总烃,氯化氢</td>
+					</tr>
+					<tr>
+						<th style="border-left:#CCCCCC 1px solid;">大气污染物排放规律：</th>
+						<td style="padding-left: 10px;word-break: break-all;" align="left"><span id="airemissionid" ></span></td>
+					</tr>
+					<tr>
+						<th style="border-left:#CCCCCC 1px solid;">大气污染物排放执行标准：</th>
+						<td style="padding-left: 10px;word-break: break-all;" align="left">恶臭污染物排放标准GB 14554-93,大气污染物综合排放标准GB 16297-1996,锅炉大气污染物排放标准GB 13271-2014,《铅、锌工业污染物排放标准》修改单GB 25466-2010,铜、镍、钴工业污染物排放标准GB 25467-2010,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）及修改单,《铜、镍、钴工业污染物排放标准》（GB 25467-2010）修改单,铅、锌工业污染物排放标准GB 25466-2010,大气污染物综合排放标准GB 16297-1996　</td>
+					</tr>
+					<tr>
+						<th style="border-left:#CCCCCC 1px solid;">废水主要污染物种类：</th>
+						<td style="padding-left: 10px;word-break: break-all;" align="left">pH值,氯离子,氨氮（NH3-N）,总磷（以P计）,石油类,化学需氧量,总氮（以N计）,悬浮物,五日生化需氧量,动植物油,总铅,总砷,总镉,总汞,总镍,总钴</td>
+					</tr>
+					<tr>
+						<th style="border-left:#CCCCCC 1px solid;">废水污染物排放规律：</th>
+						<td style="padding-left: 10px;word-break: break-all;" align="left"><span id="wateremissionname" ></span></td>
+					</tr>
+					<tr>
+						<th style="border-left:#CCCCCC 1px solid;">废水污染物排放执行标准：</th>
+						<td style="padding-left: 10px;word-break: break-all;" align="left"></td>
+					</tr>
+					<tr>
+						<th style="border-left:#CCCCCC 1px solid;">排污权使用和交易信息：</th>
+						<td style="padding-left: 10px;word-break: break-all;" align="left">/</td>
+					</tr>
+				</table>
+			</div>
+			
+</div>
+<br />
+<div style="width: 100%;float: none;">
+<br />
+	<!-- <hr width="98%" color='green' size=1 /> -->
+<br />
+	<iframe src="/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContentzxbg&dataid=ffd28bc05b0443a9940dda57241ffc4e" frameborder="0" scrolling = "no"  style="width:99%;border: 0px" onload="setIframeHeight(this)"></iframe>
+	<br/><br/><br/>
+	<iframe src="https://wryjc.mee.gov.cn/gkpt/detail/?id=lXn%2BUB5Wn%2FVKt2gOOSiJP3BVonPCK0MLzkhAOzi9ErlVqGMsgLB9BZHpREiH3GuN" frameborder="0" scrolling="yes"  style="width:99%;border: 0px;height: 660px;"></iframe>
+	<br/><br/><br/>
+	
+	
+	
+</div>
+<form action="" target="_blank" method="post" id="jumpform" name="jumpform">
+	<input name="dataid" id="dataid" type="hidden" value="" /> 
+	<input name="nid" id="nid" type="hidden" value="" /> 
+	<input name="actionType" id="actionType" type="hidden" value="" /> 
+	<input name="operate" id="operate" type="hidden" value="" /> 
+	<input name="state" id="state" type="hidden" value="" /> 
+	<input name="cardtype" id="cardtype" type="hidden" value="" /> 
+	<input name="cursel" id="cursel" type="hidden" value="" />
+	<input name="csrfRandom" type="hidden" value="" />
+</form>
+</body>
+</html>
