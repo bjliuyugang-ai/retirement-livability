@@ -26,6 +26,7 @@ def num(v):
 def main():
  overlay=rd(OVERLAY);long73=rd(LONG73);screen73=rd(SCREEN73);short127=rd(SHORT127)
  shortsun=rd(SHORTSUN);alt205=rd(ALT205)
+ sunby={x["candidate_code"]:x for x in shortsun}
  longcodes={x["candidate_code"] for x in long73}
  observed=[x for x in overlay if x.get("R1_status") not in ("","NOT_SCREENED")]
  remain=[x for x in observed if x["candidate_code"] not in longcodes]
@@ -83,7 +84,8 @@ def main():
    "winter_lt10_signal":bool(x.get("winter_lt10_signal")=="True"),
    "summer_mean_daily_tmax_c":num(x.get("summer_jun_sep_mean_daily_tmax_c")),
    "summer_ge32_signal":bool(x.get("summer_ge32_signal")=="True"),
-   "annual_sunshine_hours":None,"sunshine_lt1800_signal":False,
+   "annual_sunshine_hours":num(sunby.get(x["candidate_code"],{}).get("sunshine_annual_hours_interim")),
+   "sunshine_lt1800_signal":bool(sunby.get(x["candidate_code"],{}).get("sunshine_lt1800_signal")=="True"),
    "altitude_point_over2000m_warning":bool(x.get("altitude_point_over2000m_warning")=="True"),
    "source_scope":"Meteostat interim station observations; 180+ months with monthly coverage gate",
    "formal_region_exclusion":False})
