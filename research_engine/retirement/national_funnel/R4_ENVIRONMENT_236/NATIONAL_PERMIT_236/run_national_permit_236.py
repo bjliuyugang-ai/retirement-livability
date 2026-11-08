@@ -28,14 +28,9 @@ UA="Mozilla/5.0 (compatible; R4National236PublicEnvironmentalEvidence/1.0)"
 # The codes are confirmed industry classifications on the MEE portal.
 # They are deliberately chosen high-relevance *screening* groups, not all industries.
 CATEGORIES=[
-  ("C26","化学原料和化学制品制造业","CHEMICAL"),
-  ("C32","有色金属冶炼和压延加工业","NONFERROUS"),
+  ("C3211","铜冶炼","COPPER_SMELTING"),
   ("N7724","危险废物治理","HAZARDOUS_WASTE"),
-  ("C25","石油、煤炭及其他燃料加工业","FUELS_COKE"),
-  ("C30","非金属矿物制品业","NONMETALLIC"),
-  ("C31","黑色金属冶炼和压延加工业","FERROUS"),
-  ("D44","电力、热力生产和供应业","POWER_HEAT"),
-  ("C22","造纸和纸制品业","PAPER")
+  ("C2614","有机化学原料制造","ORGANIC_CHEMICALS")
 ]
 MAX_PAGES_PER_CATEGORY=int(os.environ.get("MAX_PAGES_PER_CATEGORY","3"))
 MAX_DETAIL_PER_CITY=int(os.environ.get("MAX_DETAIL_PER_CITY","10"))
@@ -218,6 +213,7 @@ def geoms():
 def detail_one(x):
  req=make_client()
  try:
+  req(PAGE)  # bootstrap public portal session; otherwise public detail view can omit coordinates
   body=req(x["detail_url"],timeout=45)
   lon=re.search(r'id="longitude"\s+value="([^"]+)"',body)
   lat=re.search(r'id="latitude"\s+value="([^"]+)"',body)
@@ -269,7 +265,9 @@ def main():
  selected=[]
  for city in all_city:
   candidates_in_city=city.get("permit_rows",[])
-  priority=lambda x:(0 if ("重点管理" in x.get("management","")) else 1,
+  candidate_set=set(grouped[city["city_group"]][i]["code"] for i in range(len(grouped[city["city_group"]])))
+  priority=lambda x:(0 if x.get("permit_no","").startswith("91") and x["permit_no"][2:8] in candidate_set else 1,
+    0 if ("重点管理" in x.get("management","")) else 1,
     0 if any(t in x.get("industry","")+x.get("company","") for t in
       ("危险废物","有色金属","铜冶炼","铅","锌","化工","化学","煤焦","冶炼","水泥")) else 1,
     x.get("permit_no",""))
