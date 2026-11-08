@@ -1,0 +1,191 @@
+name: Retirement national remaining 14 long R1 candidates and 214 rollup
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-national-14-long-r1-rollup.yml'
+      - 'research_engine/retirement/national_14_long_r1_only_hard_screen.py'
+  workflow_dispatch:
+jobs:
+  remaining-long-r1-rollup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: V1.6 S0-S2 precheck and claim action
+        id: precheck
+        run: |
+          python - <<'PY'
+          import json,os
+          p="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          s=json.load(open(p,encoding="utf-8"))
+          assert s["schema_version"]=="1.6"
+          assert s["state_revision"]==77,s["state_revision"]
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-14-LONG-R1-ONLY-AND-REGION-CROSSWALK-020"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          print("V16_PRECHECK_PASS",s["state_revision"],os.environ["GITHUB_RUN_ID"])
+          PY
+      - name: Screen remaining 14 long R1-only candidates and consolidate all 214 R1
+        id: screen
+        run: python -u research_engine/retirement/national_14_long_r1_only_hard_screen.py
+      - name: V1.6 S3-S5 classify, record evidence and next action
+        if: always() && steps.precheck.outcome == 'success' && steps.screen.outcome == 'success'
+        run: |
+          python - <<'PY'
+          import json,hashlib,datetime,pathlib,os
+          S=pathlib.Path("research_engine/retirement/status")
+          ep=S/"national_214_R1_hardline_signal_rollup_20261108.json"
+          p14=S/"national_14_long_R1_only_hard_screen_20261108.csv"
+          p214=S/"national_214_R1_all_evidence_hard_screen_20261108.csv"
+          sp=pathlib.Path("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json")
+          lp=pathlib.Path("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl")
+          d=json.loads(ep.read_text(encoding="utf-8"));s=json.loads(sp.read_text(encoding="utf-8"))
+          run_id=os.environ["GITHUB_RUN_ID"];now=datetime.datetime.now(datetime.timezone.utc).isoformat()
+          def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+          result_id="RES-NATIONAL-14-LONG-R1-ONLY-AND-214-ROLLUP-20261108-"+run_id
+          assert d["cohort"]["all_R1_candidates_screened"]==214
+          assert d["cohort"]["unique_codes"]==214
+          assert d["remaining_14_counts"]["temperature_union_signal"]==11
+          s["last_completed_action_id"]="RET-CASCADE-NATIONAL-14-LONG-R1-ONLY-AND-214-ROLLUP-020"
+          s["closed_result_refs"]=list(s.get("closed_result_refs",[]))+[result_id]
+          s["last_verified_run"]={
+            "run_id":"GHA-"+run_id,"action_id":"RET-CASCADE-NATIONAL-14-LONG-R1-ONLY-AND-214-ROLLUP-020",
+            "result_id":result_id,"execution_status":"EXECUTED_WITH_VERIFIED_214_CANDIDATE_ROLLUP",
+            "engineering_status":"PASS","research_delta_status":"DELTA_VERIFIED_ALL_214_R1_TEMPERATURE_CANDIDATES_SCREENED",
+            "research_closure_status":"OPEN","evidence_path":str(ep),"evidence_sha256":sha(ep),
+            "remaining_14_csv_path":str(p14),"remaining_14_csv_sha256":sha(p14),
+            "all_214_csv_path":str(p214),"all_214_csv_sha256":sha(p214),
+            "all_R1_candidates_screened":214,
+            "winter_lt10":d["all_214_counts"]["winter_lt10"],"summer_ge32":d["all_214_counts"]["summer_ge32"],
+            "sunshine_lt1800":d["all_214_counts"]["sunshine_lt1800"],
+            "climate_union_signal_candidates":d["all_214_counts"]["union_any_climate_hardline_signal"],
+            "sunshine_measured":d["all_214_counts"]["annual_sunshine_measured"],
+            "altitude_point_warnings":d["all_214_counts"]["altitude_point_over2000m_warning"],
+            "formal_valid_county_screenings":0,"confirmed_county_exclusions":0,"all_2847_carry_forward":True,
+            "status":"WRITEBACK_PENDING"}
+          s["phase1_all214_R1_hardline_screen"]={
+            "result_id":result_id,"R1_candidates_screened":214,
+            "winter_lt10":d["all_214_counts"]["winter_lt10"],"summer_ge32":d["all_214_counts"]["summer_ge32"],
+            "sunshine_lt1800":d["all_214_counts"]["sunshine_lt1800"],
+            "climate_union_signal_candidates":d["all_214_counts"]["union_any_climate_hardline_signal"],
+            "no_climate_hardline_signal":d["all_214_counts"]["no_climate_hardline_signal"],
+            "sunshine_measured":d["all_214_counts"]["annual_sunshine_measured"],
+            "sunshine_missing":d["all_214_counts"]["annual_sunshine_missing"],
+            "altitude_point_warnings":d["all_214_counts"]["altitude_point_over2000m_warning"],
+            "climate_or_altitude_point_warning_union":d["all_214_counts"]["climate_or_altitude_point_warning_union"],
+            "formal_exclusions":0,"all_2847_carry_forward":True,
+            "evidence_path":str(ep),"all214_csv":str(p214),"remaining14_csv":str(p14)}
+          s["national_R1R2_cascade"]["all_R1_candidates_screened"]=214
+          s["national_R1R2_cascade"]["all_R1_climate_hardline_signal_candidates"]=d["all_214_counts"]["union_any_climate_hardline_signal"]
+          s["national_R1R2_cascade"]["all_R1_formal_exclusions"]=0
+          s["active_action"]={
+            "action_id":"RET-CASCADE-NATIONAL-34-REGION-POOL-CROSSWALK-021",
+            "question_id":"Q_MAP_HARDLINE_SIGNALS_TO_34_NAMED_RESIDENTIAL_EVALUATION_UNITS",
+            "decision":"停止把2847县级底表当作需要逐行研究的候选表。使用现有29个首轮代表性居住片区和14个扩样片区，按具体居住地/区县代码与214个R1筛查点、199个R2部分证据做精确交叉映射。只有精确匹配才更新片区状态；不匹配或多区跨界的标记待定位，不凭城市名猜测。",
+            "method":"逐一提取首轮29个代表性居住片区及14个扩样片区，按省份+县区代码/站点坐标精确映射已筛R1/R2结果；对每个居住片区输出硬线触发、条件保留、待核、样点通过四类流转，不设置D替代硬线退出。重复区域去重，保留原始29+14来源。特别处理昆明/大理/蒙自/攀枝花/海南中部与沿海的住宅微气候分区，不用单个县级站点外推整个地级市。",
+            "expected_evidence":"29+14候选的去重评价单元数、精确匹配数、部分匹配数、未匹配数；每个候选的已有冬季/夏季/日照/海拔硬线证据、冲突和缺项；可直接退出的具体样点清单、保留与待核清单。",
+            "pass_criteria":"形成只包含具体候选居住片区的收敛清单；硬线触发片区退出第一阶段候选池，不放D；缺失片区待定；第二、三阶段名单不缩减。",
+            "fallback":"一轮代码/名称匹配和一次别名/街道核验后仍不确定则标记待定位，转下一个区域；不在单个地区耗时。",
+            "status":"READY","timebox_end":"2026-11-08T15:26:00Z","last_run_id":run_id}
+          s["consecutive_no_delta"]=0;s["updated_at"]=now;s["state_revision"]=int(s["state_revision"])+1
+          sp.write_text(json.dumps(s,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          log={"kind":"S0-S5","run_id":"GHA-"+run_id,"action_id":"RET-CASCADE-NATIONAL-14-LONG-R1-ONLY-AND-214-ROLLUP-020",
+            "at":now,"source_state_revision":77,"precheck":"PASS","result_id":result_id,
+            "remaining_long_R1_only":14,"remaining14_temperature_union_signal":d["remaining_14_counts"]["temperature_union_signal"],
+            "all_R1_candidates_screened":214,"winter_lt10":d["all_214_counts"]["winter_lt10"],
+            "summer_ge32":d["all_214_counts"]["summer_ge32"],"sunshine_lt1800":d["all_214_counts"]["sunshine_lt1800"],
+            "climate_union_signal_candidates":d["all_214_counts"]["union_any_climate_hardline_signal"],
+            "sunshine_measured":d["all_214_counts"]["annual_sunshine_measured"],
+            "altitude_point_warnings":d["all_214_counts"]["altitude_point_over2000m_warning"],
+            "formal_valid_county_screenings":0,"confirmed_exclusions":0,"all_2847_carry_forward":True,
+            "engineering_status":"PASS","research_delta_status":"DELTA_VERIFIED_ALL_214_R1_TEMPERATURE_CANDIDATES_SCREENED",
+            "research_closure_status":"OPEN","evidence_path":str(ep),"evidence_sha256":sha(ep),
+            "remaining14_csv":str(p14),"remaining14_sha256":sha(p14),"all214_csv":str(p214),"all214_sha256":sha(p214),
+            "next_action_id":"RET-CASCADE-NATIONAL-34-REGION-POOL-CROSSWALK-021","writeback":"PENDING_REMOTE_CHECK"}
+          with lp.open("a",encoding="utf-8") as f:f.write(json.dumps(log,ensure_ascii=False)+"\n")
+          current=pathlib.Path("research_assets/retirement/CURRENT_STATE.md")
+          note=(f"\n\n- {result_id}: 将此前未纳入73长R1/R2批次的14个长期R1-only候选全部筛查，并与73个长期R1/R2、127个短历史R1合并为214个去重点位温度证据候选。14个新增中11个至少触发一项温度硬线，3个未见温度触发但日照缺项。214个候选汇总冬季<10℃{d['all_214_counts']['winter_lt10']}个、夏季≥32℃{d['all_214_counts']['summer_ge32']}个、日照<1800h{d['all_214_counts']['sunshine_lt1800']}个，至少一项气候硬线信号{d['all_214_counts']['union_any_climate_hardline_signal']}个；日照有直接观测{d['all_214_counts']['annual_sunshine_measured']}个，其余待核；站点/DEM点位海拔>2000m警示{d['all_214_counts']['altitude_point_over2000m_warning']}个。正式住宅片区淘汰0、正式县级筛选0、2847底盘继续保留。214点位汇总：{p214}；14个补筛：{p14}；审计：{ep}。下一步不再扩展全县参数表，转入29个首轮居住片区+14个扩样片区精确交叉映射，形成区域去留清单。")
+          current.write_text(current.read_text(encoding="utf-8")+note,encoding="utf-8")
+          print("STATE_WRITEBACK_PREPARED",s["state_revision"],result_id)
+          PY
+      - name: Persist evidence and state to main
+        if: always() && steps.precheck.outcome == 'success' && steps.screen.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/national_14_long_R1_only_hard_screen_20261108.csv research_engine/retirement/status/national_214_R1_all_evidence_hard_screen_20261108.csv research_engine/retirement/status/national_214_R1_hardline_signal_rollup_20261108.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/RUN_LOG.jsonl research_assets/retirement/CURRENT_STATE.md
+          git commit -m "Screen remaining 14 long R1 candidates and consolidate 214"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 3
+          done
+      - name: V1.6 S6 remote readback and postcheck
+        if: always() && steps.precheck.outcome == 'success' && steps.screen.outcome == 'success'
+        run: |
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess,datetime,pathlib,os
+          run_id=os.environ["GITHUB_RUN_ID"]
+          sp="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          lp="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl"
+          ep="research_engine/retirement/status/national_214_R1_hardline_signal_rollup_20261108.json"
+          p14="research_engine/retirement/status/national_14_long_R1_only_hard_screen_20261108.csv"
+          p214="research_engine/retirement/status/national_214_R1_all_evidence_hard_screen_20261108.csv"
+          def show(p):return subprocess.check_output(["git","show","origin/main:"+p]).decode("utf-8")
+          s=json.loads(show(sp));logs=show(lp);d=json.loads(show(ep))
+          assert s["last_verified_run"]["run_id"]=="GHA-"+run_id
+          assert "GHA-"+run_id in logs
+          assert d["cohort"]["all_R1_candidates_screened"]==214
+          for p in [ep,p14,p214]:subprocess.check_output(["git","cat-file","-e","origin/main:"+p])
+          commit=subprocess.check_output(["git","rev-parse","HEAD"]).decode().strip()
+          s["last_verified_run"]["status"]="POSTCHECK_PASS"
+          s["last_verified_run"]["evidence_git_blob_sha"]=subprocess.check_output(["git","rev-parse","origin/main:"+ep]).decode().strip()
+          s["last_verified_run"]["all214_csv_git_blob_sha"]=subprocess.check_output(["git","rev-parse","origin/main:"+p214]).decode().strip()
+          s["writeback_verification"]={"status":"POSTCHECK_PASS","verified_commit":commit,
+            "verified_at":datetime.datetime.now(datetime.timezone.utc).isoformat()}
+          s["state_revision"]=int(s["state_revision"])+1
+          s["updated_at"]=datetime.datetime.now(datetime.timezone.utc).isoformat()
+          pathlib.Path(sp).write_text(json.dumps(s,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          with pathlib.Path(lp).open("a",encoding="utf-8") as f:
+            f.write(json.dumps({"kind":"S6_POSTCHECK","run_id":"GHA-"+run_id,
+              "action_id":"RET-CASCADE-NATIONAL-14-LONG-R1-ONLY-AND-214-ROLLUP-020",
+              "at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"status":"POSTCHECK_PASS",
+              "verified_commit":commit,"evidence_git_blob_sha":s["last_verified_run"]["evidence_git_blob_sha"],
+              "all214_csv_git_blob_sha":s["last_verified_run"]["all214_csv_git_blob_sha"],
+              "state_revision":s["state_revision"],"formal_valid_county_screenings":0,
+              "confirmed_exclusions":0,"next_action":s["active_action"]["action_id"]},
+              ensure_ascii=False)+"\n")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
+          git commit -m "Verify 214-candidate Phase-1 hard-screen writeback"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 3
+          done
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess,os
+          s=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]).decode())
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["last_verified_run"]["run_id"]=="GHA-"+os.environ["GITHUB_RUN_ID"]
+          assert s["last_verified_run"]["status"]=="POSTCHECK_PASS"
+          print("REMOTE_S6_POSTCHECK_PASS",s["state_revision"],s["last_verified_run"]["run_id"])
+          PY
