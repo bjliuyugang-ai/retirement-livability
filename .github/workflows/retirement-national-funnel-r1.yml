@@ -1,0 +1,94 @@
+name: Retirement national funnel R1 - population-weighted sunshine and inhabited elevation
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-national-funnel-r1.yml'
+      - 'research_engine/retirement/national_funnel/R1/run_national_r1.py'
+  workflow_dispatch:
+
+jobs:
+  national-r1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    concurrency:
+      group: retirement-national-funnel-r1
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout current national roster and geometry evidence
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Reuse public raster inputs across R1 retries
+        uses: actions/cache@v4
+        with:
+          path: research_engine/retirement/national_funnel/R1/cache
+          key: retirement-national-funnel-r1-inputs-v1-${{ runner.os }}
+
+      - name: Install raster processing dependencies
+        run: |
+          python -m pip install --disable-pip-version-check numpy rasterio shapely
+
+      - name: Run nationwide R1 - altitude and sunshine
+        id: r1
+        continue-on-error: true
+        run: |
+          python -u research_engine/retirement/national_funnel/R1/run_national_r1.py
+
+      - name: Upload R1 tables and source audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retirement-national-funnel-r1-${{ github.run_id }}
+          path: research_engine/retirement/national_funnel/R1/output/
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Commit R1 results and state to repository
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A research_engine/retirement/national_funnel/R1/output
+          if ! git diff --cached --quiet; then
+            git commit -m "Record nationwide retirement R1 funnel results"
+            for i in 1 2 3; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then
+                break
+              fi
+              if [ "$i" = 3 ]; then
+                exit 1
+              fi
+              sleep 3
+            done
+          fi
+
+      - name: Validate R1 completion and print shrinkage counts
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, pathlib, sys
+          p = pathlib.Path("research_engine/retirement/national_funnel/R1/output/R1_SUMMARY.json")
+          if not p.exists():
+              print("R1_SUMMARY_MISSING")
+              sys.exit(1)
+          d = json.loads(p.read_text(encoding="utf-8"))
+          for k in ("status", "input_count", "geometry_exact_matches",
+                    "sunshine_clear_fail_count", "altitude_confirmed_fail_count",
+                    "confirmed_exclusion_count", "remaining_for_R2_count",
+                    "pending_continue_count"):
+              print(k.upper(), d.get(k))
+          if d.get("status") not in ("COMPLETED_WITH_PENDING", "COMPLETED"):
+              sys.exit(1)
+          PY
