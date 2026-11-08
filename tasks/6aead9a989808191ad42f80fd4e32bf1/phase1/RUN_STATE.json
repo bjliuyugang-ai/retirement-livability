@@ -38,7 +38,9 @@
     "formal_valid_county_screenings": 0,
     "confirmed_county_exclusions": 0,
     "all_2847_carry_forward": true,
-    "status": "WRITEBACK_PENDING"
+    "status": "POSTCHECK_PASS",
+    "evidence_git_blob_sha": "be4a91fded31fbd0fe2e4e40bfe22286e49b6d0c",
+    "all214_csv_git_blob_sha": "eecc6317e0e47dce86e908317eba1409df0cf9ea"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-14-LONG-R1-ONLY-AND-214-ROLLUP-020",
   "closed_result_refs": [
@@ -101,11 +103,11 @@
   "consecutive_no_delta": 0,
   "writeback_verification": {
     "status": "POSTCHECK_PASS",
-    "verified_commit": "d6a39d71c337e247f3e19a29f5b005da3faf4ad4",
-    "verified_at": "2026-11-08T01:14:27.930262+00:00"
+    "verified_commit": "9407bcba76a3fcfdffdacfaa5ea59885a80746ad",
+    "verified_at": "2026-11-08T01:20:59.532287+00:00"
   },
-  "updated_at": "2026-11-08T01:20:57.480043+00:00",
-  "state_revision": 78,
+  "updated_at": "2026-11-08T01:20:59.532318+00:00",
+  "state_revision": 79,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
