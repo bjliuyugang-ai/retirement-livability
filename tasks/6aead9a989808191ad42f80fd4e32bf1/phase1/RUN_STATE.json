@@ -35,7 +35,9 @@
     "formal_residential_exclusions": 0,
     "formal_valid_county_screenings": 0,
     "all_2847_carry_forward": true,
-    "status": "WRITEBACK_PENDING"
+    "status": "POSTCHECK_PASS",
+    "evidence_git_blob_sha": "db054eaa8f9b43ea16fe8340b49cbc7421d5dbcf",
+    "region_csv_git_blob_sha": "5f36db3ab2dbfc2583537cb66ac58c4c32a0d35b"
   },
   "last_completed_action_id": "RET-CASCADE-NATIONAL-40-REGION-DISPOSITION-022",
   "closed_result_refs": [
@@ -100,11 +102,11 @@
   "consecutive_no_delta": 0,
   "writeback_verification": {
     "status": "POSTCHECK_PASS",
-    "verified_commit": "761d11aeed0fd46fa907723866910ae2498d25ec",
-    "verified_at": "2026-11-08T01:25:54.973618+00:00"
+    "verified_commit": "85ee0cd95bf23cde92c85376019e1a701365b65c",
+    "verified_at": "2026-11-08T01:30:02.405392+00:00"
   },
-  "updated_at": "2026-11-08T01:30:00.349130+00:00",
-  "state_revision": 82,
+  "updated_at": "2026-11-08T01:30:02.405405+00:00",
+  "state_revision": 83,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
