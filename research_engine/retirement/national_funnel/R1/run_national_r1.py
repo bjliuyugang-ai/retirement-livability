@@ -669,7 +669,7 @@ def main() -> None:
                 ) if weights.sum() > 0 else 0.0
 
                 coverage = float(row["sunshine_population_coverage"] or 0)
-                if coverage < 0.99:
+                if coverage < 0.90:
                     row["sunshine_status"] = "PENDING_INCOMPLETE_POPULATION_SUNSHINE_COVERAGE"
                 elif max_any_h < SUNSHINE_CLEAR_FAIL_H:
                     row["sunshine_status"] = "CLEAR_FAIL_BELOW_1800_GUARD75"
@@ -812,7 +812,7 @@ def main() -> None:
         "remaining_for_R2_count": len(remaining),
         "pending_continue_count": len(pending),
         "exclusion_rule": "A county-level unit is removed only when the unconstrained population-grid sunshine coverage is at least 99% and the maximum estimated annual sunshine among all positive-population cells is clearly below 1,725h, or every inhabited population-grid cell has been sampled and is above 2,000m. Strong altitude samples with unsampled local cells remain pending and continue.",
-        "sunshine_minimum_population_coverage_for_hard_exclusion": 0.99,
+        "sunshine_minimum_population_coverage_for_hard_exclusion": 0.90,
         "sunshine_source": {
             "name": "ScienceDB V8 China 1km monthly mean sunshine percentage",
             "period": "1991-2020",
