@@ -1,0 +1,46 @@
+name: Retirement merge R1 R2 R3 after climate screen
+on:
+  workflow_run:
+    workflows:
+      - "Retirement R2 R3 CHM Tmax national climate screen"
+    types: [completed]
+    branches: [main]
+
+jobs:
+  merge-funnel:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Merge R1 remaining list with R2 winter and R3 summer screens
+        run: python -u research_engine/retirement/national_funnel/FINAL_FILTER/merge_r1_r2_r3.py
+      - name: Upload merged funnel results
+        uses: actions/upload-artifact@v4
+        with:
+          name: retirement-final-filter-r1-r2-r3
+          path: research_engine/retirement/national_funnel/FINAL_FILTER/runs/
+          retention-days: 30
+      - name: Persist immutable merged funnel result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/national_funnel/FINAL_FILTER/runs research_engine/retirement/national_funnel/FINAL_FILTER/FINAL_LATEST.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Persist merged retirement R1 R2 R3 national funnel"
+            for i in 1 2 3; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then break; fi
+              if [ "$i" = 3 ]; then exit 1; fi
+              sleep 3
+            done
+          fi
