@@ -1,0 +1,23 @@
+{
+  "run_date": "2026-11-08",
+  "run_type": "NATIONAL_R4_INDUSTRIAL_PERMIT_BATCH_236",
+  "scope": {
+    "candidate_count": 236,
+    "province_count": 13,
+    "city_groups": 61,
+    "include_previous_pending": 58
+  },
+  "industry_codes": [
+    "C26",
+    "C32",
+    "N7724",
+    "C25",
+    "C30",
+    "C31",
+    "D44",
+    "C22"
+  ],
+  "max_pages_per_city_category": 3,
+  "max_detail_per_city": 10,
+  "rule": "Never exclude for missing records, incomplete pagination, company presence or permit pollutants alone; stop on site errors and persist pending state; all 236 remain in R4."
+}
