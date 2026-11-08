@@ -1,0 +1,40 @@
+name: Retirement R4 permit industry taxonomy probe
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/TAXONOMY_REQUEST.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  inspect-public-industry-taxonomy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Inspect public industry selector
+        run: python -u research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/probe_industry_taxonomy.py
+      - name: Upload selector evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: retirement-r4-permit-taxonomy-${{ github.run_id }}
+          path: |
+            research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/industry_taxonomy_probe.json
+            research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/industry_taxonomy_page.html
+          retention-days: 30
+      - name: Persist selector evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          out=research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output
+          cp "$out/industry_taxonomy_probe.json" "$out/industry_taxonomy_probe_${{ github.run_id }}.json"
+          cp "$out/industry_taxonomy_page.html" "$out/industry_taxonomy_page_${{ github.run_id }}.html"
+          git add "$out/industry_taxonomy_probe_${{ github.run_id }}.json" "$out/industry_taxonomy_page_${{ github.run_id }}.html"
+          git commit -m "Record public permit industry taxonomy probe"
+          git push origin HEAD:main
