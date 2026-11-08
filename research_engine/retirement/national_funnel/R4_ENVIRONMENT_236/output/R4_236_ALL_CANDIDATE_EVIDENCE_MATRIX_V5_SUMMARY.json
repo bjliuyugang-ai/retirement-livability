@@ -1,0 +1,36 @@
+{
+  "schema": "RETIREMENT_R4_NATIONAL_236_UNIFIED_EVIDENCE_V5",
+  "date": "2026-11-08",
+  "candidate_count": 236,
+  "soil_Fujian_2026_06_active_site_rows": 20,
+  "soil_Guangdong_2026_09_distinct_site_rows": 73,
+  "soil_candidate_count_with_matched_official_sites": 7,
+  "soil_total_matched_active_site_rows": 13,
+  "official_soil_source_candidate_coverage": 56,
+  "other_province_soil_source_pending_candidate_count": 180,
+  "modelled_river_flood_computed": 227,
+  "modelled_flood_10percent_plus_candidates": 32,
+  "first_industrial_national_run_id": 42466352739,
+  "repaired_industrial_run_id": 42467472886,
+  "second_industrial_records_returned_city_level": 152,
+  "second_industrial_detail_pages_fetched": 70,
+  "second_industrial_facility_coordinates_valid": 0,
+  "industrial_data_quality": "DO_NOT_USE_FOR_COUNTY_NO_RISK_FINDINGS; coordinate extraction runtime diagnosis running",
+  "review_priority_counts": {
+    "P1": 11,
+    "P2": 27,
+    "P3": 9,
+    "routine": 189
+  },
+  "review_priority_queue_rows": 47,
+  "formal_hard_exclusions": 0,
+  "candidates_remaining": 236,
+  "guardrails": [
+    "The site-specific active restricted parcel list may impose legal residential restrictions within the parcel, not automatically across its county.",
+    "Textual county matches are provisional pending geocoded parcel footprint and actual residential site cross-check.",
+    "Only Guangdong and Fujian provincial active-site sources integrated to date; no record in current source does not prove absence.",
+    "Flood grid count is modelled county-area only, not long-term residents affected.",
+    "Industrial second-run permit counts are city-only and detail coordinates extraction failed; absence cannot be inferred.",
+    "All 58 earlier pending cases stay in fourth-round input; no formal exclusion solely from gaps or context sources."
+  ]
+}
