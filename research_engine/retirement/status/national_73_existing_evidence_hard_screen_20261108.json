@@ -1,0 +1,422 @@
+{
+  "schema": "RET_PHASE1_EXISTING_73_CANDIDATE_HARDLINE_SIGNAL_SCREEN_V1",
+  "created_at_utc": "2026-11-08T01:08:28.621550+00:00",
+  "action_id": "RET-CASCADE-NATIONAL-73-EXISTING-EVIDENCE-HARD-SCREEN-018",
+  "input_climate_count": 73,
+  "input_altitude_point_count": 205,
+  "thresholds": {
+    "winter_cold_season_mean_daily_max_lt_c": 10.0,
+    "summer_warm_season_mean_daily_max_ge_c": 32.0,
+    "annual_sunshine_lt_hours": 1800.0,
+    "residential_altitude_gt_m": 2000.0
+  },
+  "metric_logic": "Winter Dec-Feb mean of monthly mean daily maximum below 10C proves at least one winter month is below the line; summer Jun-Sep mean at or above 32C proves at least one summer month reaches the line. These are conservative one-sided triggers; non-trigger is not a pass for the coldest/hottest month.",
+  "source_sha256": {
+    "climate_73": "0069321d0ad5c29fd4ac40a78b705c1a345b5d71c2317731cb7d47a699c609f4",
+    "altitude_205": "94521e5208cf29867a61e1fdf6a7ddbba3d8b7cd70c13e04e860c9585b0b84c8"
+  },
+  "climate_hardline_counts": {
+    "winter_below_10c": 46,
+    "summer_at_or_above_32c": 10,
+    "sunshine_below_1800h": 6,
+    "union_any_climate_hardline_signal": 56
+  },
+  "altitude_point_counts": {
+    "all_205_points_over_2000m": 27,
+    "within_73_cohort_over_2000m": 11,
+    "within_73_cohort_altitude_only_no_climate_trigger": 3
+  },
+  "cohort_outcomes": {
+    "climate_all_three_parameters_measured": 42,
+    "no_climate_hardline_signal_among_complete": 12,
+    "no_known_climate_trigger_but_sunshine_missing": 5,
+    "union_climate_or_altitude_point_warning": 59,
+    "formal_region_exclusions": 0
+  },
+  "preliminary_climate_trigger_candidates": [
+    {
+      "code": "110108",
+      "name": "海淀区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "140105",
+      "name": "小店区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "150102",
+      "name": "新城区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "150402",
+      "name": "红山区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "150526",
+      "name": "扎鲁特旗",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "150702",
+      "name": "海拉尔区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "150824",
+      "name": "乌拉特中旗",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "152501",
+      "name": "二连浩特市",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "152502",
+      "name": "锡林浩特市",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "152921",
+      "name": "阿拉善左旗",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "210112",
+      "name": "浑南区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "220106",
+      "name": "绿园区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "222401",
+      "name": "延吉市",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "230128",
+      "name": "通河县",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "230208",
+      "name": "梅里斯达斡尔族区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "310113",
+      "name": "宝山区",
+      "triggers": "WINTER_LT_10C;SUNSHINE_LT_1800H"
+    },
+    {
+      "code": "320104",
+      "name": "秦淮区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "320302",
+      "name": "鼓楼区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "350102",
+      "name": "鼓楼区",
+      "triggers": "SUMMER_GE_32C"
+    },
+    {
+      "code": "350503",
+      "name": "丰泽区",
+      "triggers": "SUMMER_GE_32C"
+    },
+    {
+      "code": "360702",
+      "name": "章贡区",
+      "triggers": "SUMMER_GE_32C;SUNSHINE_LT_1800H"
+    },
+    {
+      "code": "370105",
+      "name": "天桥区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "370202",
+      "name": "市南区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "410103",
+      "name": "二七区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "420502",
+      "name": "西陵区",
+      "triggers": "SUNSHINE_LT_1800H"
+    },
+    {
+      "code": "431228",
+      "name": "芷江侗族自治县",
+      "triggers": "SUNSHINE_LT_1800H"
+    },
+    {
+      "code": "440106",
+      "name": "天河区",
+      "triggers": "SUMMER_GE_32C;SUNSHINE_LT_1800H"
+    },
+    {
+      "code": "450103",
+      "name": "青秀区",
+      "triggers": "SUMMER_GE_32C;SUNSHINE_LT_1800H"
+    },
+    {
+      "code": "451002",
+      "name": "右江区",
+      "triggers": "SUMMER_GE_32C"
+    },
+    {
+      "code": "460108",
+      "name": "美兰区",
+      "triggers": "SUMMER_GE_32C"
+    },
+    {
+      "code": "520103",
+      "name": "云岩区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "520115",
+      "name": "观山湖区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "532801",
+      "name": "景洪市",
+      "triggers": "SUMMER_GE_32C"
+    },
+    {
+      "code": "533422",
+      "name": "德钦县",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "540102",
+      "name": "城关区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "540302",
+      "name": "卡若区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "610602",
+      "name": "宝塔区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "610702",
+      "name": "汉台区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "620621",
+      "name": "民勤县",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "620902",
+      "name": "肃州区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "620982",
+      "name": "敦煌市",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "630104",
+      "name": "城西区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "632624",
+      "name": "达日县",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "632701",
+      "name": "玉树市",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "632801",
+      "name": "格尔木市",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "632822",
+      "name": "都兰县",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "640106",
+      "name": "金凤区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "650102",
+      "name": "天山区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "650203",
+      "name": "克拉玛依区",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "650502",
+      "name": "伊州区",
+      "triggers": "WINTER_LT_10C;SUMMER_GE_32C"
+    },
+    {
+      "code": "652824",
+      "name": "若羌县",
+      "triggers": "WINTER_LT_10C;SUMMER_GE_32C"
+    },
+    {
+      "code": "652902",
+      "name": "库车市",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "653101",
+      "name": "喀什市",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "653201",
+      "name": "和田市",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "654002",
+      "name": "伊宁市",
+      "triggers": "WINTER_LT_10C"
+    },
+    {
+      "code": "654301",
+      "name": "阿勒泰市",
+      "triggers": "WINTER_LT_10C"
+    }
+  ],
+  "altitude_only_review_candidates": [
+    {
+      "code": "530102",
+      "name": "五华区",
+      "station_altitudes_m": "[]",
+      "dem_altitudes_m": "[1902.0, 2073.0, 2144.0]"
+    },
+    {
+      "code": "532503",
+      "name": "蒙自市",
+      "station_altitudes_m": "[1302.0]",
+      "dem_altitudes_m": "[1311.0, 2087.0, 376.0]"
+    },
+    {
+      "code": "532901",
+      "name": "大理市",
+      "station_altitudes_m": "[]",
+      "dem_altitudes_m": "[1972.0, 2299.0, 3307.0]"
+    }
+  ],
+  "complete_climate_no_trigger_candidates": [
+    {
+      "code": "350203",
+      "name": "思明区"
+    },
+    {
+      "code": "360104",
+      "name": "青云谱区"
+    },
+    {
+      "code": "440511",
+      "name": "金平区"
+    },
+    {
+      "code": "450304",
+      "name": "象山区"
+    },
+    {
+      "code": "460203",
+      "name": "吉阳区"
+    },
+    {
+      "code": "510402",
+      "name": "东区"
+    },
+    {
+      "code": "513401",
+      "name": "西昌市"
+    },
+    {
+      "code": "530102",
+      "name": "五华区"
+    },
+    {
+      "code": "530112",
+      "name": "西山区"
+    },
+    {
+      "code": "530581",
+      "name": "腾冲市"
+    },
+    {
+      "code": "532503",
+      "name": "蒙自市"
+    },
+    {
+      "code": "532901",
+      "name": "大理市"
+    }
+  ],
+  "missing_sunshine_no_other_climate_trigger": [
+    {
+      "code": "330802",
+      "name": "柯城区"
+    },
+    {
+      "code": "420112",
+      "name": "东西湖区"
+    },
+    {
+      "code": "430104",
+      "name": "岳麓区"
+    },
+    {
+      "code": "500107",
+      "name": "九龙坡区"
+    },
+    {
+      "code": "530802",
+      "name": "思茅区"
+    }
+  ],
+  "all_2847_national_candidates_carry_forward": true,
+  "formal_valid_county_screenings": 0,
+  "confirmed_county_exclusions": 0,
+  "interpretation": "This batch is an actual hard-line signal application to the 73 strongest longer-source R1/R2 candidates, not a complete national or residential-site certification. The 56 climate-hit cohort members should leave the relevant sample shortlist once the same signal is confirmed at the intended residential micro-area; they are not put in D. Three additional altitude-only cases require residential elevation separation. Missing values remain PENDING, never D or fail.",
+  "limitations": [
+    "The cohort is 73 higher-evidence county candidates, not the full national candidate pool.",
+    "Winter and summer are multi-month averages of mean daily maximum; they only provide one-sided conservative triggers for coldest/hottest-month lines.",
+    "Station/grid/DEM points are not verified residential micro-areas; high altitude at one point cannot eliminate an entire county or basin.",
+    "Annual sunshine is unavailable for some candidates; missing is PENDING.",
+    "Daily >=35C day count, actual residential altitude, pollution, water and disaster risk remain separate checks.",
+    "No formal county grade or irreversible region exclusion is made in this run."
+  ]
+}
