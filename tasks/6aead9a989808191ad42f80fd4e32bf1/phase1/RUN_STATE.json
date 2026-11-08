@@ -103,12 +103,26 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "WRITEBACK_PENDING",
-    "initiated_at": "2026-11-08T01:42:20.882Z",
-    "reason": "scope correction and corrected roster persisted"
+    "status": "POSTCHECK_PASS",
+    "verified_at": "2026-11-08T01:42:45.833Z",
+    "verified_state_revision_before_postcheck": 84,
+    "verified_remote_artifacts": [
+      "research_engine/retirement/status/phase1_official_34_evaluation_units_v2_20261107.csv",
+      "research_engine/retirement/status/phase1_29_representative_sample_screen_v2_20261107.csv",
+      "research_engine/retirement/status/phase1_7_hardline_verification_queue_20261108.csv",
+      "research_engine/retirement/status/phase1_roster_scope_correction_20261108.json"
+    ],
+    "checks": {
+      "formal_roster_rows": 34,
+      "representative_sample_rows": 29,
+      "verification_queue_rows": 7,
+      "formal_residential_exclusions": 0,
+      "invalid_40_region_result_quarantined": true,
+      "state_log_and_current_state_readback": true
+    }
   },
-  "updated_at": "2026-11-08T01:42:20.882Z",
-  "state_revision": 84,
+  "updated_at": "2026-11-08T01:42:45.833Z",
+  "state_revision": 85,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -595,6 +609,7 @@
     "roster_csv": "research_engine/retirement/status/phase1_official_34_evaluation_units_v2_20261107.csv",
     "sample_csv": "research_engine/retirement/status/phase1_29_representative_sample_screen_v2_20261107.csv",
     "verification_queue_csv": "research_engine/retirement/status/phase1_7_hardline_verification_queue_20261108.csv",
-    "audit_json": "research_engine/retirement/status/phase1_roster_scope_correction_20261108.json"
+    "audit_json": "research_engine/retirement/status/phase1_roster_scope_correction_20261108.json",
+    "remote_readback": "POSTCHECK_PASS"
   }
 }
