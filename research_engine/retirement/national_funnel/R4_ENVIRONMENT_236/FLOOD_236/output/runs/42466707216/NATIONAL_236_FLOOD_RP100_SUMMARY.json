@@ -1,0 +1,160 @@
+{
+  "schema": "R4_NATIONAL_236_WORLDBANK_100YR_RIVER_FLOOD_FIRST_PASS_V1",
+  "created_at_utc": "2026-11-08T09:19:59.322674+00:00",
+  "candidate_count": 236,
+  "source_url": "https://datacatalogfiles.worldbank.org/ddh-published/0067118/DR0096180/fl_hazard_100_yrp.tif",
+  "source_metadata": "https://datacatalog.worldbank.org/search/dataset/0067118/flood-hazard-100-year-return-period",
+  "source_file": {
+    "status": "REUSED",
+    "bytes": 51732914
+  },
+  "raster_metadata": {
+    "driver": "GTiff",
+    "shape": [
+      12880,
+      35615
+    ],
+    "dtype": "float32",
+    "crs": "EPSG:4326",
+    "nodata": 0.0,
+    "bounds": [
+      -141.09900045782885,
+      -56.085762831133565,
+      180.0001732476414,
+      60.09233546603441
+    ],
+    "pixel_size": [
+      0.009015840901459224,
+      0.009020038687668321
+    ],
+    "band_description": null,
+    "tags": {
+      "TIFFTAG_XRESOLUTION": "1",
+      "TIFFTAG_YRESOLUTION": "1",
+      "TIFFTAG_RESOLUTIONUNIT": "1 (unitless)",
+      "AREA_OR_POINT": "Area"
+    },
+    "sample_value_counts": [
+      [
+        -99999.0,
+        151858
+      ],
+      [
+        6.812290191650391,
+        5
+      ],
+      [
+        5.44103479385376,
+        4
+      ],
+      [
+        10.373970031738281,
+        4
+      ],
+      [
+        38.1287956237793,
+        4
+      ],
+      [
+        52.18305206298828,
+        4
+      ],
+      [
+        87.58808135986328,
+        4
+      ],
+      [
+        12.319089889526367,
+        3
+      ],
+      [
+        18.29037857055664,
+        3
+      ],
+      [
+        42.1190299987793,
+        3
+      ],
+      [
+        60.66279602050781,
+        3
+      ],
+      [
+        62.22504425048828,
+        3
+      ],
+      [
+        66.1137924194336,
+        3
+      ],
+      [
+        69.94821166992188,
+        3
+      ],
+      [
+        124.48770141601562,
+        3
+      ],
+      [
+        134.30059814453125,
+        3
+      ],
+      [
+        153.1865997314453,
+        3
+      ],
+      [
+        219.51278686523438,
+        3
+      ],
+      [
+        328.756591796875,
+        3
+      ],
+      [
+        337.84991455078125,
+        3
+      ],
+      [
+        416.97265625,
+        3
+      ],
+      [
+        620.4406127929688,
+        3
+      ],
+      [
+        6.7144951820373535,
+        2
+      ],
+      [
+        7.0,
+        2
+      ],
+      [
+        8.561241149902344,
+        2
+      ]
+    ],
+    "positive_value_flood_footprint_semantics_provisionally_valid": true,
+    "pixel_magnitudes_are_NOT_interpreted_as_depth_without_units_audit": true
+  },
+  "population_source": "PENDING_WORLDPOP_CACHE",
+  "source_limitations": [
+    "World Bank GAR Atlas static 1km riverine flood extent uses positive nonzero flood-footprint cells; pixel magnitudes are not interpreted as water depth units in this screening.",
+    "Model may overestimate small return periods and does not consider flood defenses.",
+    "Does not include local pluvial/flash flood, urban drainage, coast/sea level, or high-resolution levee performance.",
+    "County-wide grid ratio is not a residential address exposure estimate; WorldPop population map is an estimated spatial proxy.",
+    "A high grid fraction indicates verification priority only, and low fraction cannot establish a safe actual home site."
+  ],
+  "status_counts": {
+    "MODEL_SCREENED_AREA_ONLY_POPULATION_PENDING": 227,
+    "PENDING_GEOMETRY": 9
+  },
+  "ranking_top_modelled_population_share": [],
+  "failures": [],
+  "formal_exclusions": 0,
+  "grade_changes": 0,
+  "candidate_count_remaining": 236,
+  "prior_58_pending_also_included": true
+}
