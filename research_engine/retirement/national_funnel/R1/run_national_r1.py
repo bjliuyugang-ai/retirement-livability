@@ -30,6 +30,7 @@ import zipfile
 
 import numpy as np
 import rasterio
+import rasterio.windows
 from rasterio.enums import Resampling
 from rasterio.features import geometry_mask, geometry_window
 from rasterio.transform import xy
@@ -150,7 +151,9 @@ def load_roster() -> list[dict]:
 def load_geometry() -> tuple[dict, dict]:
     CACHE.mkdir(parents=True, exist_ok=True)
     path = CACHE / "china_county.geojson"
-    if not path.exists() or sha_file(path) != GEOMETRY_SHA256:
+    if path.exists() and sha_file(path) != GEOMETRY_SHA256:
+        path.unlink()
+    if not path.exists():
         meta = download(GEOMETRY_URL, path)
     else:
         meta = {"status": "REUSED", "bytes": path.stat().st_size, "sha256": sha_file(path)}
