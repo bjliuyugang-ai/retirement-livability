@@ -90,10 +90,13 @@ def main():
       "pixel_size":[src.res[0],src.res[1]],
       "band_description":src.descriptions[0],"tags":src.tags(),"sample_value_counts":sampled}
     values=set(int(v) for v in vals if np.isfinite(v) and v!=-99999)
-    # Binary 0 dry / 1 flood expected. If not, avoid making a spurious risk map.
-    semantics_ok=values.issubset({0,1}) and 1 in values
-    metadata["binary_extent_semantics_provisionally_valid"]=semantics_ok
-    if not semantics_ok:failures.append("FLOOD_PIXEL_VALUES_NOT_VALIDATED_BINARY:"+repr(sorted(values)[:30]))
+    # GAR flood data contain positive numeric estimated inundation depths/levels, not binary 0/1.
+    # File nodata=0 and the catalog describes a 100-year riverine inundation footprint.
+    # Use only >0 vs 0 footprint presence; do NOT infer depth units or legal flood zoning.
+    semantics_ok=src.nodata == 0 and bool(values) and all(v>=0 for v in values) and any(v>0 for v in values)
+    metadata["positive_value_flood_footprint_semantics_provisionally_valid"]=semantics_ok
+    metadata["pixel_magnitudes_are_NOT_interpreted_as_depth_without_units_audit"]=True
+    if not semantics_ok:failures.append("FLOOD_POSITIVE_PIXEL_SEMANTICS_UNVERIFIED:"+repr(sorted(values)[:30]))
     popsrc=rasterio.open(POP_PATH) if POP_PATH.exists() else None
     for c in rows:
      code=c["code"];g=areas.get(code)
@@ -160,7 +163,7 @@ def main():
   "created_at_utc":utc(),"candidate_count":236,
   "source_url":SOURCE_URL,"source_metadata":SOURCE_META,"source_file":info,
   "raster_metadata":metadata,"population_source":str(POP_PATH) if POP_PATH.exists() else "PENDING_WORLDPOP_CACHE",
-  "source_limitations":["World Bank GAR Atlas static 1km riverine flood extent; model may overestimate small return periods and does not consider flood defenses.",
+  "source_limitations":["World Bank GAR Atlas static 1km riverine flood extent uses positive nonzero flood-footprint cells; pixel magnitudes are not interpreted as water depth units in this screening.", "Model may overestimate small return periods and does not consider flood defenses.",
     "Does not include local pluvial/flash flood, urban drainage, coast/sea level, or high-resolution levee performance.",
     "County-wide grid ratio is not a residential address exposure estimate; WorldPop population map is an estimated spatial proxy.",
     "A high grid fraction indicates verification priority only, and low fraction cannot establish a safe actual home site."],
