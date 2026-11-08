@@ -1,7 +1,7 @@
 {
   "schema": "RETIREMENT_NATIONAL_FUNNEL_RECALCULATION_STATUS_V1",
   "status": "RECALCULATION_IN_PROGRESS",
-  "active_run_id": "42446830115",
+  "active_run_id": "42448264772",
   "previous_preliminary_run_id": "42445226808",
   "previous_preliminary_exclusion_count": 762,
   "previous_preliminary_remaining_count": 2085,
@@ -20,9 +20,9 @@
     "altitude_exception": "any observed inhabited sample <=2000m retains the unit",
     "altitude_strong_fail": "all 10 samples >2000m with unsampled inhabited cells remains pending"
   },
-  "updated_at_utc": "2026-11-08T04:50:00Z",
+  "updated_at_utc": "2026-11-08T04:53:00Z",
   "current_run_role": "UNCONSTRAINED_POPULATION_SENSITIVITY_ONLY",
-  "formal_result_status": "NOT_FINAL_PENDING_SETTLEMENT_MASK_CROSSWALK",
+  "formal_result_status": "NOT_FINAL_PENDING_SETTLEMENT_MASK_CROSSWALK_AND_CURRENT_90_PERCENT_R1_RUN",
   "population_methodology_caveat": [
     "WorldPop R2024B unconstrained is not a direct upgrade to R2025A constrained; the two are different releases/models and their population totals are not directly comparable.",
     "WorldPop unconstrained can allocate nonzero population to all land cells, including areas that may not be residential.",
@@ -41,5 +41,16 @@
       "LOW"
     ],
     "use": "LOW confidence may be used for provisional comparison but not as sole basis for hard exclusion."
+  },
+  "previous_sensitivity_run_id": "42446830115",
+  "previous_sensitivity_result": {
+    "status": "COMPUTATION_OUTPUT_WRITTEN_BEFORE_WORKFLOW_CANCELLATION",
+    "input_count": 2847,
+    "confirmed_exclusions": 746,
+    "remaining_for_R2": 2101,
+    "pending_continue": 464,
+    "coverage_threshold": 0.99,
+    "use": "SENSITIVITY_ONLY_NOT_FORMAL",
+    "note": "The run produced full result tables before its workflow was cancelled during the subsequent job transition; its 99% coverage rule is superseded by the current 90% fit-for-purpose rule."
   }
 }
