@@ -1,4 +1,4 @@
 {
-  "date": "2026-11-08T09:00Z",
-  "scope": "Rebuild structured permit facility/outlet evidence after correcting exact address and industry parsing; same five official permit pages."
+  "date": "2026-11-08T09:05Z",
+  "scope": "Rebuild five permit records with corrected whitespace regex and exact company address/industry/admin fields; spatial match unchanged."
 }
