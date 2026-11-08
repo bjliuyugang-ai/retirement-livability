@@ -1,0 +1,101 @@
+name: Retirement R1 persist immutable run artifact
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-r1-persist-run-artifact.yml'
+  workflow_dispatch:
+
+jobs:
+  persist-r1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      actions: read
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Download completed R1 run artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: retirement-national-funnel-r1-42448264772
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          run-id: 42448264772
+          path: r1_artifact
+      - name: Normalize and persist immutable R1 run
+        run: |
+          python - <<'PY'
+          import json, pathlib, shutil
+          src = pathlib.Path("r1_artifact")
+          dest = pathlib.Path("research_engine/retirement/national_funnel/R1/runs/42448264772")
+          dest.mkdir(parents=True, exist_ok=True)
+          for p in src.iterdir():
+              if p.is_file():
+                  shutil.copy2(p, dest / p.name)
+
+          summary_path = dest / "R1_SUMMARY.json"
+          summary = json.loads(summary_path.read_text(encoding="utf-8-sig"))
+          summary["exclusion_rule"] = (
+              "First-pass county removal: population-weighted valid sunshine coverage >=90% "
+              "and estimated annual sunshine maximum across valid positive-population cells <1725h; "
+              "altitude exclusion only when all inhabited grid cells are confirmed >2000m. "
+              "Strong altitude samples with unsampled local cells remain pending."
+          )
+          summary["result_role"] = "PROVISIONAL_FIRST_PASS_READY_FOR_R2"
+          summary["data_quality_policy"] = {
+              "standard": "FIT_FOR_PURPOSE_BASIC_VALIDITY",
+              "sunshine_population_coverage_minimum_for_hard_exclusion": 0.90,
+              "missing_data": "Use available valid data; below 90% coverage is pending and does not block other units.",
+              "quality_tiers": ["HIGH", "MEDIUM", "LOW"],
+              "use": "Low-confidence data may support provisional comparison but is not the sole basis for hard exclusion."
+          }
+          summary["population_method_caveat"] = (
+              "WorldPop R2024B unconstrained 1km is a practical inhabited-cell proxy, not a building/address register. "
+              "Use this as a national first-pass screen; refine settlement locations only for shortlisted areas."
+          )
+          summary_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+          status_path = dest / "R1_RECALCULATION_STATUS.json"
+          status = json.loads(status_path.read_text(encoding="utf-8-sig"))
+          status["status"] = "COMPLETED"
+          status["active_run_id"] = "42448264772"
+          status["current_run_role"] = "FIRST_PASS_PROVISIONAL"
+          status["formal_result_status"] = "PROVISIONAL_FIRST_PASS_READY_FOR_R2"
+          status["run_output_directory"] = "research_engine/retirement/national_funnel/R1/runs/42448264772"
+          status["updated_at_utc"] = summary["completed_at_utc"]
+          status_path.write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+          pointer = {
+              "schema": "RETIREMENT_R1_LATEST_RUN_POINTER_V1",
+              "latest_run_id": "42448264772",
+              "status": "COMPLETED_WITH_PENDING",
+              "input_count": summary["input_count"],
+              "excluded_count": summary["confirmed_exclusion_count"],
+              "remaining_count": summary["remaining_for_R2_count"],
+              "pending_count": summary["pending_continue_count"],
+              "run_directory": "research_engine/retirement/national_funnel/R1/runs/42448264772",
+              "next_round_input": "research_engine/retirement/national_funnel/R1/runs/42448264772/R1_REMAINING.csv"
+          }
+          out = pathlib.Path("research_engine/retirement/national_funnel/R1/output/R1_LATEST.json")
+          out.parent.mkdir(parents=True, exist_ok=True)
+          out.write_text(json.dumps(pointer, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          print(json.dumps(pointer, ensure_ascii=False))
+          PY
+      - name: Commit immutable run outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/national_funnel/R1/runs/42448264772 research_engine/retirement/national_funnel/R1/output/R1_LATEST.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Persist immutable retirement R1 run 42448264772"
+            for i in 1 2 3; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then break; fi
+              if [ "$i" = 3 ]; then exit 1; fi
+              sleep 3
+            done
+          fi
