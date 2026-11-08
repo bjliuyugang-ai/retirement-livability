@@ -1,7 +1,7 @@
 {
   "run_date": "2026-11-08",
+  "revision": 2,
   "scope": 236,
-  "subbatch": "FUJIAN_26_OFFICIAL_ACTIVE_PARCEL_REGISTRY_2026_06",
-  "source": "https://sthjt.fujian.gov.cn/zwgk/ywxx/wrfz/202607/t20260723_7191457.htm",
-  "rule": "Site-specific restricted land ≠ entire county exclusion; no missing-as-pass/fail."
+  "source": "Fujian 2026-06 active soil restricted parcels",
+  "reason": "First run extracted 20 official active plots but a mistaken 3-character short-name constraint suppressed all candidate text matches. Use exact full county name first; no inferred exposure."
 }
