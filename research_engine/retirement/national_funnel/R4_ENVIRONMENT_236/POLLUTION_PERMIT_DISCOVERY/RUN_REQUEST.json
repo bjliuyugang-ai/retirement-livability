@@ -1,6 +1,6 @@
 {
-  "run_date": "2026-11-08",
-  "requested_scope": "Read-only discovery of MEE official pollution-permit portal query fields and JavaScript request endpoints.",
+  "run_date": "2026-11-08T08:35Z",
+  "requested_scope": "Capture official public search form inline JavaScript and identify province/city lookup and query POST fields; read-only.",
   "target": "Public licensed-unit records, industry category, production address, discharge outlet location, discharge destination, pollutant type, permitted concentration and amount.",
   "credentials": false,
   "write_actions": false,
