@@ -1,0 +1,6 @@
+{
+  "run_date": "2026-11-08",
+  "goal": "Recover 70 national permit detail geographic coordinates using proven sequential session pattern; match to all 236 county candidates without claiming complete industrial census.",
+  "source_run_id": 42467472886,
+  "validation": "Production exact audit 42468299988 proved same public detail URLs expose valid coordinates when fetched sequentially."
+}
