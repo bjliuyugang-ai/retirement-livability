@@ -1,0 +1,18 @@
+{
+  "archive_schema": "RETIREMENT_R1_SENSITIVITY_ARCHIVE_V1",
+  "run_id": "42446830115",
+  "run_role": "UNCONSTRAINED_POPULATION_SENSITIVITY_ONLY",
+  "status": "COMPLETED_WITH_PENDING",
+  "input_count": 2847,
+  "excluded_count": 746,
+  "remaining_count": 2101,
+  "pending_count": 464,
+  "sunshine_coverage_threshold": 0.99,
+  "caution": [
+    "This run is not the formal R1 result.",
+    "WorldPop R2024B unconstrained is a different release/model from R2025A constrained; do not treat all positive cells as confirmed residential sites or compare population totals directly.",
+    "The summary metadata label 'Global2' is inaccurate; the source should be described as R2024B unconstrained and not directly compared numerically with R2025A Global2 constrained.",
+    "The CSV output did not include the sunshine_max_pop_any_h diagnostic column even though the script used it for the sunshine status decision."
+  ],
+  "intended_use": "Sensitivity comparison and rural-settlement exception audit only; not the R2 input."
+}

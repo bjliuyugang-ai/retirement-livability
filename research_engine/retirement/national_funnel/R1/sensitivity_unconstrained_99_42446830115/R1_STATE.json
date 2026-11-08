@@ -1,0 +1,12 @@
+{
+  "schema": "RETIREMENT_NATIONAL_FUNNEL_STATE_V1",
+  "current_round": "R1",
+  "current_round_status": "COMPLETED_WITH_PENDING",
+  "input_count": 2847,
+  "remaining_count": 2101,
+  "excluded_count": 746,
+  "pending_continue_count": 464,
+  "next_round_input": "R1_REMAINING.csv",
+  "updated_at_utc": "2026-11-08T04:48:24.205025+00:00",
+  "run_id": "42446830115"
+}

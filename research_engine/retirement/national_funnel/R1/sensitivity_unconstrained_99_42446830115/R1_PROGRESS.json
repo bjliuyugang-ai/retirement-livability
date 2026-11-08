@@ -1,0 +1,9 @@
+{
+  "run_id": "42446830115",
+  "phase": "COMPLETED",
+  "processed_counties": 2847,
+  "confirmed_exclusions": 746,
+  "remaining_for_R2": 2101,
+  "pending_continue": 464,
+  "updated_at_utc": "2026-11-08T04:48:24.205238+00:00"
+}
