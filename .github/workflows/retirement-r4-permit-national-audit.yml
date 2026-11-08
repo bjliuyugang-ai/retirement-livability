@@ -19,11 +19,15 @@ jobs:
         with:
           python-version: '3.11'
       - name: Diagnose precise search and detail coordinate extraction
-        run: python -u research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/audit_industry_and_details.py
+        run: |
+          python -u research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/audit_industry_and_details.py
+          python -u research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/audit_detail_exact_runtime.py
       - uses: actions/upload-artifact@v4
         with:
           name: retirement-r4-national-permit-audit-${{ github.run_id }}
-          path: research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/output/AUDIT_INDUSTRIAL_SCAN_42466352739.json
+          path: |
+            research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/output/AUDIT_INDUSTRIAL_SCAN_42466352739.json
+            research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/output/AUDIT_EXACT_RUNTIME_DETAIL.json
           retention-days: 30
       - name: Persist national source diagnosis
         run: |
@@ -32,6 +36,7 @@ jobs:
           out=research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/output
           mkdir -p "$out/audits/${{ github.run_id }}"
           cp "$out/AUDIT_INDUSTRIAL_SCAN_42466352739.json" "$out/audits/${{ github.run_id }}/"
+          cp "$out/AUDIT_EXACT_RUNTIME_DETAIL.json" "$out/audits/${{ github.run_id }}/"
           git add "$out/audits/${{ github.run_id }}"
           git commit -m "Record permit source diagnostic from national 236 batch"
           git fetch origin main
