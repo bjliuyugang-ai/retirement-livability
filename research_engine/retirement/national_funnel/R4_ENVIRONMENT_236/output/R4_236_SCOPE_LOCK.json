@@ -1,0 +1,21 @@
+{
+  "schema": "RETIREMENT_R4_236_SCOPE_LOCK_V1",
+  "locked_at_utc": "2026-11-08T07:15:39.983351+00:00",
+  "source_final_merge_run_id": "42453646573",
+  "input_count": 236,
+  "membership_csv": "research_engine/retirement/national_funnel/FINAL_FILTER/runs/42453646573/FINAL_CARRY_FORWARD_AFTER_R1_R2_R3.csv",
+  "membership_sha256": "09f15d21a93c503ce5b7ad7dba7a0cb0c1e029d5e8947e9be400c6c530ed492a",
+  "split": {
+    "input_count": 236,
+    "R1_clear_carry_forward": 178,
+    "R1_only_pending": 47,
+    "R2_R3_climate_data_pending": 11,
+    "R1_total_pending": 58
+  },
+  "fourth_round_scope": "ALL_236_ONLY",
+  "parallel_work_rule": "47 R1-only pending and 11 R2/R3 climate-data pending continue into R4 in parallel with their own evidence supplementation; do not block R4 on these supplements. If a candidate is later reliably excluded by R4, stop unnecessary earlier supplementation. If it passes R4, resume/complete earlier supplementation. Missingness never equals failure.",
+  "no_exclusion_from_air_batch": true,
+  "formal_exclusions": 0,
+  "formal_grade_changes": 0,
+  "R4_status": "AIR_QUALITY_SUBROUND_COMPLETED; WATER_INDUSTRIAL_SOIL_GEOHAZARD_SUBROUNDS_REMAIN_OPEN"
+}
