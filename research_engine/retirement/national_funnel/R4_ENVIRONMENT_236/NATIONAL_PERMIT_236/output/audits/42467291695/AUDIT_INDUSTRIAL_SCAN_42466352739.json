@@ -1,0 +1,283 @@
+{
+  "schema": "MEE_236_INDUSTRIAL_SCAN_FORENSIC_V1",
+  "created_at_utc": "2026-11-08T09:28:04.764718+00:00",
+  "pages": [
+    {
+      "permit_no": "91210211MA10TMWJ6U001V",
+      "company": "大连程顺理士再生资源技术发展有限公司",
+      "bytes": 16707,
+      "title": [
+        "许可信息公开内容"
+      ],
+      "longitude_token_offset": 8348,
+      "latitude_token_offset": 8409,
+      "company_offset": 8295,
+      "permit_no_offset": 11092,
+      "coords_input_tags": [
+        "<input type=\"hidden\" id=\"longitude\" value=\"121.80463\"/>",
+        "<input type=\"hidden\" id=\"latitude\" value=\"39.49752\"/>"
+      ],
+      "contains_production_address": true,
+      "prefix_html": "\r\n\r\n\r\n\r\n\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n\r\n<meta http-equiv=\"Pragma\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Cache-Control\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Expires\" content=\"0\" />\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=EmulateIE8\"/>\r\n \r\n \r\n \r\n\r\n\r\n\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/thscommon/style/artDialog/aero.css\" />\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/baiduStatistics.js\"></script>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/json2.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.artDialog.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/My97DatePicker/WdatePicker.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.media.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/upload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/exportWord.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/swfupload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/handlers.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/fileprogress.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/content.js\"></script>\r\n<!--validate start  -->\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/validationEngine.jquery.css\" type=\"text/css\" />\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/template.css\" type=\"text/css\" />\r\n <script src=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/languages/jquery.validationEngine-zh_CN.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\r\n<script src=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/jquery.validationEngine.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\r\n<!--validate end  -->\r\n\r\n\r\n<!-- base64  -->\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.base64.js\"></script>\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/swfupload/default.css\" />\r\n<link rel=stylesheet type=text/css href=\"/perxxgkinfo/thscommon/style/page-base.css\"/>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/urlhanzi.js\"></script>\r\n\r\n<!-- èªå®ä¹éç¨æ ·å¼ -->\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/css/common/custom.css\" />\r\n<!-- æºè½å®¡æ ¸js -->\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/report/common/layer/layer.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/intelligent_checking.js\"></script>\r\n<script>\r\n    var ctx = \"/perxxgkinfo\";\r\n</script>\r\n\r\n<title>许可信息公开内容</title>\r\n<link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/perxxgkinfo/gis/img/favicon.ico\"/>\r\n<link rel=\"stylesheet\" href=\"",
+      "longitude_snippet": "x:hidden;\"  >\r\n<div style=\"width: 100%;\">\r\n\t<table style=\"width:99%;\">\r\n\t\t<colgroup>\r\n\t    \t<col width=\"77%\" ></col>\r\n\t    \t<col width=\"14%\" ></col>\r\n\t    \t<col width=\"9%\" ></col>\r\n\t    </colgroup>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t\t<p style=\"font-size:36px;\">大连程顺理士再生资源技术发展有限公司</p>\r\n\t\t\t\t<input type=\"hidden\" id=\"longitude\" value=\"121.80463\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"latitude\" value=\"39.49752\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngd\" value=\"121\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngf\" value=\"48\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngm\" value=\"16.67\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatd\" value=\"39\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatf\" value=\"29\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatm\" value=\"51.07\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"isout\" value=\"true\"/>\r\n\t\t\t\t\r\n\t\t\t</td>\r\n\t\t\t<td>&nbsp;</td>\r\n\t\t\t\r\n\t\t\t<td rowspan=\"3\" >\r\n\t\t\t\t<img style=\"float: right;\" height=\"110px;\" width=\"110px;\" alt=\"\" id=\"erweima\" \r\n\t\t\t\tsrc=\"/perxxgkinfo/syssb/xkgg/xkgg!downloadFile.action?method=download&fileType=ewmfile&datafileid=daad4c2cbd774399b7be819683a15648&dataid=cd8f3729ab004d54abea490f6596eab1\" />\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t            <p style=\"font-weight: bold;color: green;font-size: 14px;\">\r\n\t"
+    },
+    {
+      "permit_no": "91210211MAD00RK1XC001V",
+      "company": "大连市懋源环保科技有限公司",
+      "bytes": 19054,
+      "title": [
+        "许可信息公开内容"
+      ],
+      "longitude_token_offset": 8343,
+      "latitude_token_offset": 8404,
+      "company_offset": 8295,
+      "permit_no_offset": 13414,
+      "coords_input_tags": [
+        "<input type=\"hidden\" id=\"longitude\" value=\"121.66600\"/>",
+        "<input type=\"hidden\" id=\"latitude\" value=\"39.06416\"/>"
+      ],
+      "contains_production_address": true,
+      "prefix_html": "\r\n\r\n\r\n\r\n\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n\r\n<meta http-equiv=\"Pragma\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Cache-Control\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Expires\" content=\"0\" />\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=EmulateIE8\"/>\r\n \r\n \r\n \r\n\r\n\r\n\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/thscommon/style/artDialog/aero.css\" />\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/baiduStatistics.js\"></script>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/json2.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.artDialog.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/My97DatePicker/WdatePicker.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.media.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/upload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/exportWord.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/swfupload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/handlers.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/fileprogress.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/content.js\"></script>\r\n<!--validate start  -->\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/validationEngine.jquery.css\" type=\"text/css\" />\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/template.css\" type=\"text/css\" />\r\n <script src=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/languages/jquery.validationEngine-zh_CN.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\r\n<script src=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/jquery.validationEngine.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\r\n<!--validate end  -->\r\n\r\n\r\n<!-- base64  -->\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.base64.js\"></script>\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/swfupload/default.css\" />\r\n<link rel=stylesheet type=text/css href=\"/perxxgkinfo/thscommon/style/page-base.css\"/>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/urlhanzi.js\"></script>\r\n\r\n<!-- èªå®ä¹éç¨æ ·å¼ -->\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/css/common/custom.css\" />\r\n<!-- æºè½å®¡æ ¸js -->\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/report/common/layer/layer.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/intelligent_checking.js\"></script>\r\n<script>\r\n    var ctx = \"/perxxgkinfo\";\r\n</script>\r\n\r\n<title>许可信息公开内容</title>\r\n<link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/perxxgkinfo/gis/img/favicon.ico\"/>\r\n<link rel=\"stylesheet\" href=\"",
+      "longitude_snippet": "flow-x:hidden;\"  >\r\n<div style=\"width: 100%;\">\r\n\t<table style=\"width:99%;\">\r\n\t\t<colgroup>\r\n\t    \t<col width=\"77%\" ></col>\r\n\t    \t<col width=\"14%\" ></col>\r\n\t    \t<col width=\"9%\" ></col>\r\n\t    </colgroup>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t\t<p style=\"font-size:36px;\">大连市懋源环保科技有限公司</p>\r\n\t\t\t\t<input type=\"hidden\" id=\"longitude\" value=\"121.66600\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"latitude\" value=\"39.06416\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngd\" value=\"121\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngf\" value=\"39\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngm\" value=\"57.60\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatd\" value=\"39\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatf\" value=\"3\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatm\" value=\"50.98\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"isout\" value=\"true\"/>\r\n\t\t\t\t\r\n\t\t\t</td>\r\n\t\t\t<td>&nbsp;</td>\r\n\t\t\t\r\n\t\t\t<td rowspan=\"3\" >\r\n\t\t\t\t<img style=\"float: right;\" height=\"110px;\" width=\"110px;\" alt=\"\" id=\"erweima\" \r\n\t\t\t\tsrc=\"/perxxgkinfo/syssb/xkgg/xkgg!downloadFile.action?method=download&fileType=ewmfile&datafileid=d0d345ce8a7a408c8b25215070273f03&dataid=cdd8b4ec212348419054608e3a0eabcb\" />\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t            <p style=\"font-weight: bold;color: green;font-size: 14px;\">\r\n\t\t"
+    },
+    {
+      "permit_no": "91210211MA104JX88D001V",
+      "company": "大连中瀛废油回收有限公司",
+      "bytes": 18143,
+      "title": [
+        "许可信息公开内容"
+      ],
+      "longitude_token_offset": 8344,
+      "latitude_token_offset": 8405,
+      "company_offset": 8297,
+      "permit_no_offset": 11101,
+      "coords_input_tags": [
+        "<input type=\"hidden\" id=\"longitude\" value=\"121.66845\"/>",
+        "<input type=\"hidden\" id=\"latitude\" value=\"39.03634\"/>"
+      ],
+      "contains_production_address": true,
+      "prefix_html": "\r\n\r\n\r\n\r\n\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n\r\n<meta http-equiv=\"Pragma\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Cache-Control\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Expires\" content=\"0\" />\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=EmulateIE8\"/>\r\n \r\n \r\n \r\n\r\n\r\n\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/thscommon/style/artDialog/aero.css\" />\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/baiduStatistics.js\"></script>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/json2.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.artDialog.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/My97DatePicker/WdatePicker.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.media.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/upload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/exportWord.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/swfupload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/handlers.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/fileprogress.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/content.js\"></script>\r\n<!--validate start  -->\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/validationEngine.jquery.css\" type=\"text/css\" />\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/template.css\" type=\"text/css\" />\r\n <script src=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/languages/jquery.validationEngine-zh_CN.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\r\n<script src=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/jquery.validationEngine.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\r\n<!--validate end  -->\r\n\r\n\r\n<!-- base64  -->\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.base64.js\"></script>\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/swfupload/default.css\" />\r\n<link rel=stylesheet type=text/css href=\"/perxxgkinfo/thscommon/style/page-base.css\"/>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/urlhanzi.js\"></script>\r\n\r\n<!-- èªå®ä¹éç¨æ ·å¼ -->\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/css/common/custom.css\" />\r\n<!-- æºè½å®¡æ ¸js -->\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/report/common/layer/layer.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/intelligent_checking.js\"></script>\r\n<script>\r\n    var ctx = \"/perxxgkinfo\";\r\n</script>\r\n\r\n<title>许可信息公开内容</title>\r\n<link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/perxxgkinfo/gis/img/favicon.ico\"/>\r\n<link rel=\"stylesheet\" href=\"",
+      "longitude_snippet": "rflow-x:hidden;\"  >\r\n<div style=\"width: 100%;\">\r\n\t<table style=\"width:99%;\">\r\n\t\t<colgroup>\r\n\t    \t<col width=\"77%\" ></col>\r\n\t    \t<col width=\"14%\" ></col>\r\n\t    \t<col width=\"9%\" ></col>\r\n\t    </colgroup>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t\t<p style=\"font-size:36px;\">大连中瀛废油回收有限公司</p>\r\n\t\t\t\t<input type=\"hidden\" id=\"longitude\" value=\"121.66845\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"latitude\" value=\"39.03634\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngd\" value=\"121\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngf\" value=\"40\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngm\" value=\"6.42\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatd\" value=\"39\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatf\" value=\"2\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatm\" value=\"10.82\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"isout\" value=\"true\"/>\r\n\t\t\t\t\r\n\t\t\t</td>\r\n\t\t\t<td>&nbsp;</td>\r\n\t\t\t\r\n\t\t\t<td rowspan=\"3\" >\r\n\t\t\t\t<img style=\"float: right;\" height=\"110px;\" width=\"110px;\" alt=\"\" id=\"erweima\" \r\n\t\t\t\tsrc=\"/perxxgkinfo/syssb/xkgg/xkgg!downloadFile.action?method=download&fileType=ewmfile&datafileid=9c7b16b20ffe42de8e6e302fab7dc780&dataid=90b6531d00a943059036372f80ae501f\" />\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t            <p style=\"font-weight: bold;color: green;font-size: 14px;\">\r\n\t\t\t"
+    },
+    {
+      "permit_no": "91210211MA0UG5PD06001V",
+      "company": "大连金来源金属物资有限公司",
+      "bytes": 20741,
+      "title": [
+        "许可信息公开内容"
+      ],
+      "longitude_token_offset": 8373,
+      "latitude_token_offset": 8434,
+      "company_offset": 8325,
+      "permit_no_offset": 11119,
+      "coords_input_tags": [
+        "<input type=\"hidden\" id=\"longitude\" value=\"121.58904\"/>",
+        "<input type=\"hidden\" id=\"latitude\" value=\"39.03144\"/>"
+      ],
+      "contains_production_address": true,
+      "prefix_html": "\r\n\r\n\r\n\r\n\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n\r\n<meta http-equiv=\"Pragma\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Cache-Control\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Expires\" content=\"0\" />\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=EmulateIE8\"/>\r\n \r\n \r\n \r\n\r\n\r\n\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/thscommon/style/artDialog/aero.css\" />\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/baiduStatistics.js\"></script>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/json2.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.artDialog.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/My97DatePicker/WdatePicker.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.media.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/upload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/exportWord.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/swfupload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/handlers.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/fileprogress.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/content.js\"></script>\r\n<!--validate start  -->\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/validationEngine.jquery.css\" type=\"text/css\" />\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/template.css\" type=\"text/css\" />\r\n <script src=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/languages/jquery.validationEngine-zh_CN.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\r\n<script src=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/jquery.validationEngine.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\r\n<!--validate end  -->\r\n\r\n\r\n<!-- base64  -->\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.base64.js\"></script>\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/swfupload/default.css\" />\r\n<link rel=stylesheet type=text/css href=\"/perxxgkinfo/thscommon/style/page-base.css\"/>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/urlhanzi.js\"></script>\r\n\r\n<!-- èªå®ä¹éç¨æ ·å¼ -->\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/css/common/custom.css\" />\r\n<!-- æºè½å®¡æ ¸js -->\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/report/common/layer/layer.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/intelligent_checking.js\"></script>\r\n<script>\r\n    var ctx = \"/perxxgkinfo\";\r\n</script>\r\n\r\n<title>许可信息公开内容</title>\r\n<link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/perxxgkinfo/gis/img/favicon.ico\"/>\r\n<link rel=\"stylesheet\" href=\"",
+      "longitude_snippet": "flow-x:hidden;\"  >\r\n<div style=\"width: 100%;\">\r\n\t<table style=\"width:99%;\">\r\n\t\t<colgroup>\r\n\t    \t<col width=\"77%\" ></col>\r\n\t    \t<col width=\"14%\" ></col>\r\n\t    \t<col width=\"9%\" ></col>\r\n\t    </colgroup>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t\t<p style=\"font-size:36px;\">大连金来源金属物资有限公司</p>\r\n\t\t\t\t<input type=\"hidden\" id=\"longitude\" value=\"121.58904\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"latitude\" value=\"39.03144\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngd\" value=\"121\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngf\" value=\"35\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngm\" value=\"20.54\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatd\" value=\"39\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatf\" value=\"1\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatm\" value=\"53.18\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"isout\" value=\"true\"/>\r\n\t\t\t\t\r\n\t\t\t</td>\r\n\t\t\t<td>&nbsp;</td>\r\n\t\t\t\r\n\t\t\t<td rowspan=\"3\" >\r\n\t\t\t\t<img style=\"float: right;\" height=\"110px;\" width=\"110px;\" alt=\"\" id=\"erweima\" \r\n\t\t\t\tsrc=\"/perxxgkinfo/syssb/xkgg/xkgg!downloadFile.action?method=download&fileType=ewmfile&datafileid=733d0da9570a402a91bda45dc2639d66&dataid=1fd4eace68ff4057857c10fdb29e1ea8\" />\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t            <p style=\"font-weight: bold;color: green;font-size: 14px;\">\r\n\t\t"
+    },
+    {
+      "permit_no": "91210211MAK4PPWM5W001V",
+      "company": "辽宁瑞回再生资源有限公司",
+      "bytes": 17296,
+      "title": [
+        "许可信息公开内容"
+      ],
+      "longitude_token_offset": 8342,
+      "latitude_token_offset": 8403,
+      "company_offset": 8295,
+      "permit_no_offset": 11105,
+      "coords_input_tags": [
+        "<input type=\"hidden\" id=\"longitude\" value=\"121.52663\"/>",
+        "<input type=\"hidden\" id=\"latitude\" value=\"38.99958\"/>"
+      ],
+      "contains_production_address": true,
+      "prefix_html": "\r\n\r\n\r\n\r\n\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n\r\n<meta http-equiv=\"Pragma\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Cache-Control\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Expires\" content=\"0\" />\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=EmulateIE8\"/>\r\n \r\n \r\n \r\n\r\n\r\n\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/thscommon/style/artDialog/aero.css\" />\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/baiduStatistics.js\"></script>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/json2.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.artDialog.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/My97DatePicker/WdatePicker.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.media.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/upload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/exportWord.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/swfupload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/handlers.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/fileprogress.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/content.js\"></script>\r\n<!--validate start  -->\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/validationEngine.jquery.css\" type=\"text/css\" />\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/template.css\" type=\"text/css\" />\r\n <script src=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/languages/jquery.validationEngine-zh_CN.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\r\n<script src=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/jquery.validationEngine.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\r\n<!--validate end  -->\r\n\r\n\r\n<!-- base64  -->\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.base64.js\"></script>\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/swfupload/default.css\" />\r\n<link rel=stylesheet type=text/css href=\"/perxxgkinfo/thscommon/style/page-base.css\"/>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/urlhanzi.js\"></script>\r\n\r\n<!-- èªå®ä¹éç¨æ ·å¼ -->\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/css/common/custom.css\" />\r\n<!-- æºè½å®¡æ ¸js -->\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/report/common/layer/layer.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/intelligent_checking.js\"></script>\r\n<script>\r\n    var ctx = \"/perxxgkinfo\";\r\n</script>\r\n\r\n<title>许可信息公开内容</title>\r\n<link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/perxxgkinfo/gis/img/favicon.ico\"/>\r\n<link rel=\"stylesheet\" href=\"",
+      "longitude_snippet": "rflow-x:hidden;\"  >\r\n<div style=\"width: 100%;\">\r\n\t<table style=\"width:99%;\">\r\n\t\t<colgroup>\r\n\t    \t<col width=\"77%\" ></col>\r\n\t    \t<col width=\"14%\" ></col>\r\n\t    \t<col width=\"9%\" ></col>\r\n\t    </colgroup>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t\t<p style=\"font-size:36px;\">辽宁瑞回再生资源有限公司</p>\r\n\t\t\t\t<input type=\"hidden\" id=\"longitude\" value=\"121.52663\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"latitude\" value=\"38.99958\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngd\" value=\"121\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngf\" value=\"31\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngm\" value=\"35.87\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatd\" value=\"38\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatf\" value=\"59\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatm\" value=\"58.49\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"isout\" value=\"true\"/>\r\n\t\t\t\t\r\n\t\t\t</td>\r\n\t\t\t<td>&nbsp;</td>\r\n\t\t\t\r\n\t\t\t<td rowspan=\"3\" >\r\n\t\t\t\t<img style=\"float: right;\" height=\"110px;\" width=\"110px;\" alt=\"\" id=\"erweima\" \r\n\t\t\t\tsrc=\"/perxxgkinfo/syssb/xkgg/xkgg!downloadFile.action?method=download&fileType=ewmfile&datafileid=e08295a5a0a6434894eef78ef118aaeb&dataid=fc7bce545c874e8fa48fd376e3d486d2\" />\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t            <p style=\"font-weight: bold;color: green;font-size: 14px;\">\r\n\t"
+    },
+    {
+      "permit_no": "9121021231159685XG001R",
+      "company": "大连万泰铝业有限公司",
+      "bytes": 19596,
+      "title": [
+        "许可信息公开内容"
+      ],
+      "longitude_token_offset": 9097,
+      "latitude_token_offset": 9158,
+      "company_offset": 9052,
+      "permit_no_offset": 11843,
+      "coords_input_tags": [
+        "<input type=\"hidden\" id=\"longitude\" value=\"121.27583\"/>",
+        "<input type=\"hidden\" id=\"latitude\" value=\"38.93806\"/>"
+      ],
+      "contains_production_address": true,
+      "prefix_html": "\r\n\r\n\r\n\r\n\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n\r\n<meta http-equiv=\"Pragma\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Cache-Control\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Expires\" content=\"0\" />\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=EmulateIE8\"/>\r\n \r\n \r\n \r\n\r\n\r\n\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/thscommon/style/artDialog/aero.css\" />\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/baiduStatistics.js\"></script>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/json2.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.artDialog.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/My97DatePicker/WdatePicker.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.media.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/upload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/exportWord.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/swfupload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/handlers.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/fileprogress.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/content.js\"></script>\r\n<!--validate start  -->\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/validationEngine.jquery.css\" type=\"text/css\" />\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/template.css\" type=\"text/css\" />\r\n <script src=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/languages/jquery.validationEngine-zh_CN.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\r\n<script src=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/jquery.validationEngine.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\r\n<!--validate end  -->\r\n\r\n\r\n<!-- base64  -->\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.base64.js\"></script>\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/swfupload/default.css\" />\r\n<link rel=stylesheet type=text/css href=\"/perxxgkinfo/thscommon/style/page-base.css\"/>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/urlhanzi.js\"></script>\r\n\r\n<!-- èªå®ä¹éç¨æ ·å¼ -->\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/css/common/custom.css\" />\r\n<!-- æºè½å®¡æ ¸js -->\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/report/common/layer/layer.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/intelligent_checking.js\"></script>\r\n<script>\r\n    var ctx = \"/perxxgkinfo\";\r\n</script>\r\n\r\n<title>许可信息公开内容</title>\r\n<link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/perxxgkinfo/gis/img/favicon.ico\"/>\r\n<link rel=\"stylesheet\" href=\"",
+      "longitude_snippet": "verflow-x:hidden;\"  >\r\n<div style=\"width: 100%;\">\r\n\t<table style=\"width:99%;\">\r\n\t\t<colgroup>\r\n\t    \t<col width=\"77%\" ></col>\r\n\t    \t<col width=\"14%\" ></col>\r\n\t    \t<col width=\"9%\" ></col>\r\n\t    </colgroup>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t\t<p style=\"font-size:36px;\">大连万泰铝业有限公司</p>\r\n\t\t\t\t<input type=\"hidden\" id=\"longitude\" value=\"121.27583\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"latitude\" value=\"38.93806\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngd\" value=\"121\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngf\" value=\"16\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngm\" value=\"32.99\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatd\" value=\"38\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatf\" value=\"56\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatm\" value=\"17.02\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"isout\" value=\"true\"/>\r\n\t\t\t\t\r\n\t\t\t</td>\r\n\t\t\t<td>&nbsp;</td>\r\n\t\t\t\r\n\t\t\t<td rowspan=\"3\" >\r\n\t\t\t\t<img style=\"float: right;\" height=\"110px;\" width=\"110px;\" alt=\"\" id=\"erweima\" \r\n\t\t\t\tsrc=\"/perxxgkinfo/syssb/xkgg/xkgg!downloadFile.action?method=download&fileType=ewmfile&datafileid=f208c5513de8462aa1aaa301a7f89fff&dataid=30c7169437284db9bd8204130381064b\" />\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t            <p style=\"font-weight: bold;color: green;font-size: 14px;\">\r\n\t"
+    },
+    {
+      "permit_no": "91210213744371963J003V",
+      "company": "大连建华污泥处理有限公司（东邦船机厂区）",
+      "bytes": 18603,
+      "title": [
+        "许可信息公开内容"
+      ],
+      "longitude_token_offset": 8351,
+      "latitude_token_offset": 8412,
+      "company_offset": 8296,
+      "permit_no_offset": 11094,
+      "coords_input_tags": [
+        "<input type=\"hidden\" id=\"longitude\" value=\"121.84369\"/>",
+        "<input type=\"hidden\" id=\"latitude\" value=\"38.96609\"/>"
+      ],
+      "contains_production_address": true,
+      "prefix_html": "\r\n\r\n\r\n\r\n\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n\r\n<meta http-equiv=\"Pragma\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Cache-Control\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Expires\" content=\"0\" />\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=EmulateIE8\"/>\r\n \r\n \r\n \r\n\r\n\r\n\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/thscommon/style/artDialog/aero.css\" />\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/baiduStatistics.js\"></script>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/json2.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.artDialog.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/My97DatePicker/WdatePicker.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.media.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/upload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/exportWord.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/swfupload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/handlers.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/fileprogress.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/content.js\"></script>\r\n<!--validate start  -->\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/validationEngine.jquery.css\" type=\"text/css\" />\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/template.css\" type=\"text/css\" />\r\n <script src=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/languages/jquery.validationEngine-zh_CN.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\r\n<script src=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/jquery.validationEngine.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\r\n<!--validate end  -->\r\n\r\n\r\n<!-- base64  -->\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.base64.js\"></script>\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/swfupload/default.css\" />\r\n<link rel=stylesheet type=text/css href=\"/perxxgkinfo/thscommon/style/page-base.css\"/>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/urlhanzi.js\"></script>\r\n\r\n<!-- èªå®ä¹éç¨æ ·å¼ -->\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/css/common/custom.css\" />\r\n<!-- æºè½å®¡æ ¸js -->\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/report/common/layer/layer.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/intelligent_checking.js\"></script>\r\n<script>\r\n    var ctx = \"/perxxgkinfo\";\r\n</script>\r\n\r\n<title>许可信息公开内容</title>\r\n<link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/perxxgkinfo/gis/img/favicon.ico\"/>\r\n<link rel=\"stylesheet\" href=\"",
+      "longitude_snippet": "hidden;\"  >\r\n<div style=\"width: 100%;\">\r\n\t<table style=\"width:99%;\">\r\n\t\t<colgroup>\r\n\t    \t<col width=\"77%\" ></col>\r\n\t    \t<col width=\"14%\" ></col>\r\n\t    \t<col width=\"9%\" ></col>\r\n\t    </colgroup>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t\t<p style=\"font-size:36px;\">大连建华污泥处理有限公司（东邦船机厂区）</p>\r\n\t\t\t\t<input type=\"hidden\" id=\"longitude\" value=\"121.84369\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"latitude\" value=\"38.96609\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngd\" value=\"121\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngf\" value=\"50\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngm\" value=\"37.28\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatd\" value=\"38\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatf\" value=\"57\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatm\" value=\"57.92\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"isout\" value=\"true\"/>\r\n\t\t\t\t\r\n\t\t\t</td>\r\n\t\t\t<td>&nbsp;</td>\r\n\t\t\t\r\n\t\t\t<td rowspan=\"3\" >\r\n\t\t\t\t<img style=\"float: right;\" height=\"110px;\" width=\"110px;\" alt=\"\" id=\"erweima\" \r\n\t\t\t\tsrc=\"/perxxgkinfo/syssb/xkgg/xkgg!downloadFile.action?method=download&fileType=ewmfile&datafileid=b76f3ad7869e446aa4acc3e41c16385a&dataid=dfa32fa70d1a493995caa5c781d29471\" />\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t            <p style=\"font-weight: bold;color: green;font-size: 14px;\">\r\n\t"
+    },
+    {
+      "permit_no": "91210213MA0U2JH72J001V",
+      "company": "大连程翔废旧物资回收有限公司",
+      "bytes": 17929,
+      "title": [
+        "许可信息公开内容"
+      ],
+      "longitude_token_offset": 8344,
+      "latitude_token_offset": 8405,
+      "company_offset": 8295,
+      "permit_no_offset": 11095,
+      "coords_input_tags": [
+        "<input type=\"hidden\" id=\"longitude\" value=\"121.74453\"/>",
+        "<input type=\"hidden\" id=\"latitude\" value=\"39.12884\"/>"
+      ],
+      "contains_production_address": true,
+      "prefix_html": "\r\n\r\n\r\n\r\n\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n\r\n<meta http-equiv=\"Pragma\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Cache-Control\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Expires\" content=\"0\" />\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=EmulateIE8\"/>\r\n \r\n \r\n \r\n\r\n\r\n\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/thscommon/style/artDialog/aero.css\" />\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/baiduStatistics.js\"></script>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/json2.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.artDialog.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/My97DatePicker/WdatePicker.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.media.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/upload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/exportWord.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/swfupload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/handlers.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/fileprogress.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/content.js\"></script>\r\n<!--validate start  -->\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/validationEngine.jquery.css\" type=\"text/css\" />\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/template.css\" type=\"text/css\" />\r\n <script src=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/languages/jquery.validationEngine-zh_CN.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\r\n<script src=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/js/jquery.validationEngine.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\r\n<!--validate end  -->\r\n\r\n\r\n<!-- base64  -->\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.base64.js\"></script>\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" />\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/xzxk/swfupload/default.css\" />\r\n<link rel=stylesheet type=text/css href=\"/perxxgkinfo/thscommon/style/page-base.css\"/>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/urlhanzi.js\"></script>\r\n\r\n<!-- èªå®ä¹éç¨æ ·å¼ -->\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/util/css/common/custom.css\" />\r\n<!-- æºè½å®¡æ ¸js -->\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/report/common/layer/layer.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/intelligent_checking.js\"></script>\r\n<script>\r\n    var ctx = \"/perxxgkinfo\";\r\n</script>\r\n\r\n<title>许可信息公开内容</title>\r\n<link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"/perxxgkinfo/gis/img/favicon.ico\"/>\r\n<link rel=\"stylesheet\" href=\"",
+      "longitude_snippet": "low-x:hidden;\"  >\r\n<div style=\"width: 100%;\">\r\n\t<table style=\"width:99%;\">\r\n\t\t<colgroup>\r\n\t    \t<col width=\"77%\" ></col>\r\n\t    \t<col width=\"14%\" ></col>\r\n\t    \t<col width=\"9%\" ></col>\r\n\t    </colgroup>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t\t<p style=\"font-size:36px;\">大连程翔废旧物资回收有限公司</p>\r\n\t\t\t\t<input type=\"hidden\" id=\"longitude\" value=\"121.74453\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"latitude\" value=\"39.12884\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngd\" value=\"121\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngf\" value=\"44\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelngm\" value=\"40.31\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatd\" value=\"39\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatf\" value=\"7\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"opelatm\" value=\"43.82\"/>\r\n\t\t\t\t<input type=\"hidden\" id=\"isout\" value=\"true\"/>\r\n\t\t\t\t\r\n\t\t\t</td>\r\n\t\t\t<td>&nbsp;</td>\r\n\t\t\t\r\n\t\t\t<td rowspan=\"3\" >\r\n\t\t\t\t<img style=\"float: right;\" height=\"110px;\" width=\"110px;\" alt=\"\" id=\"erweima\" \r\n\t\t\t\tsrc=\"/perxxgkinfo/syssb/xkgg/xkgg!downloadFile.action?method=download&fileType=ewmfile&datafileid=c51f8fc9192442178e06337664848ec6&dataid=582cc5e78bcb4830a2934d39e718c4cf\" />\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t            <p style=\"font-weight: bold;color: green;font-size: 14px;\">\r\n\t\t"
+    }
+  ],
+  "targeted_queries": [
+    {
+      "city": "昆明市",
+      "industry_code": "C3211",
+      "industry_label": "铜冶炼",
+      "pages": "1",
+      "record_links": 6,
+      "sample_names": [
+        "云南铜业股份有限公司西南铜业分公司（安宁）",
+        "昆明金湖冶金有限公司",
+        "云南铜业股份有限公司西南铜业分公司（老厂）",
+        "昆明青洁环保科技有限公司",
+        "昆明金水铜冶炼有限公司"
+      ]
+    },
+    {
+      "city": "昆明市",
+      "industry_code": "N7724",
+      "industry_label": "危险废物治理",
+      "pages": "5",
+      "record_links": 10,
+      "sample_names": [
+        "云南昶电新能源科技有限公司",
+        "云南云嘉益环保科技有限公司",
+        "昆明万事红再生资源有限公司",
+        "宜良红狮环保科技有限公司",
+        "昆明市东川银光铝材有限公司"
+      ]
+    },
+    {
+      "city": "昆明市",
+      "industry_code": "C2614",
+      "industry_label": "有机化学原料制造",
+      "pages": "1",
+      "record_links": 9,
+      "sample_names": [
+        "昆明晋宁利而安化工实业有限公司",
+        "云南远帆新材料有限公司",
+        "安宁凯达气体有限公司",
+        "昆明景晟生物科技有限公司",
+        "昆明耕实气体有限公司"
+      ]
+    },
+    {
+      "city": "宁波市",
+      "industry_code": "C3211",
+      "industry_label": "铜冶炼",
+      "pages": "1",
+      "record_links": 2,
+      "sample_names": [
+        "宁波金田有色金属材料有限公司",
+        "宁波世茂铜业股份有限公司"
+      ]
+    },
+    {
+      "city": "宁波市",
+      "industry_code": "N7724",
+      "industry_label": "危险废物治理",
+      "pages": "6",
+      "record_links": 10,
+      "sample_names": [
+        "宁波大地化工环保有限公司",
+        "宁波市北仑环保固废处置有限公司",
+        "宁波渤川废液处置有限公司",
+        "宁波金土地再生资源有限公司",
+        "宁波庚德行环境技术有限公司"
+      ]
+    },
+    {
+      "city": "宁波市",
+      "industry_code": "C2614",
+      "industry_label": "有机化学原料制造",
+      "pages": "4",
+      "record_links": 10,
+      "sample_names": [
+        "宁波金发新材料有限公司",
+        "宁波特粒科技有限公司",
+        "南亚塑胶工业（宁波）有限公司双酚A厂",
+        "南亚塑胶工业（宁波）有限公司增塑剂厂",
+        "台化兴业（宁波）有限公司苯酚厂"
+      ]
+    },
+    {
+      "city": "泉州市",
+      "industry_code": "C3211",
+      "industry_label": "铜冶炼",
+      "pages": "1",
+      "record_links": 5,
+      "sample_names": [
+        "福建南安中泰铜业有限公司",
+        "南安三盛科技有限公司",
+        "南安市途锦金属科技有限公司",
+        "南安宇鑫金属有限公司",
+        "泉州鑫田铜业有限公司"
+      ]
+    },
+    {
+      "city": "泉州市",
+      "industry_code": "N7724",
+      "industry_label": "危险废物治理",
+      "pages": "3",
+      "record_links": 10,
+      "sample_names": [
+        "瀚蓝（晋江）固废处理有限公司（晋江市英林镇综合固废填埋场）",
+        "福建兴业东江环保科技有限公司",
+        "泉州市正顺环保科技有限公司",
+        "福建亿利环境技术有限公司",
+        "瀚蓝（晋江）固废处理有限公司（晋江市金井镇综合固废填埋场）"
+      ]
+    },
+    {
+      "city": "泉州市",
+      "industry_code": "C2614",
+      "industry_label": "有机化学原料制造",
+      "pages": "2",
+      "record_links": 10,
+      "sample_names": [
+        "福建省天骄化学材料有限公司",
+        "福建百宏化学有限公司",
+        "泉州盛宝利化工有限公司",
+        "福建瑞远生物科技有限公司",
+        "泉州宇极新材料科技有限公司"
+      ]
+    }
+  ]
+}
