@@ -1,0 +1,8 @@
+{
+  "run_date": "2026-11-08",
+  "scope": 236,
+  "subbatch": "GUANGDONG_30_ACTIVE_RESTRICTED_LAND_PARCELS",
+  "source_url": "https://www-app.gdeei.cn/gdeepub/data/construction-land?clName=&page=1&state=1",
+  "pages": 8,
+  "county_exclusion_policy": "none without residential-site unavoidable exposure"
+}
