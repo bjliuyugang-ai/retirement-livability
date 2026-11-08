@@ -123,7 +123,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add research_engine/retirement/status/national_14_long_R1_only_hard_screen_20261108.csv research_engine/retirement/status/national_214_R1_all_evidence_hard_screen_20261108.csv research_engine/retirement/status/national_214_R1_hardline_signal_rollup_20261108.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/RUN_LOG.jsonl research_assets/retirement/CURRENT_STATE.md
+          git add research_engine/retirement/status/national_14_long_R1_only_hard_screen_20261108.csv research_engine/retirement/status/national_214_R1_all_evidence_hard_screen_20261108.csv research_engine/retirement/status/national_214_R1_hardline_signal_rollup_20261108.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl research_assets/retirement/CURRENT_STATE.md
           git commit -m "Screen remaining 14 long R1 candidates and consolidate 214"
           for i in 1 2 3; do
             git fetch origin main
