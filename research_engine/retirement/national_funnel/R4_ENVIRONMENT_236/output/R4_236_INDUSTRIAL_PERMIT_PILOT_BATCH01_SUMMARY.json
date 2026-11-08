@@ -1,0 +1,94 @@
+{
+  "schema": "RETIREMENT_R4_236_INDUSTRIAL_PERMIT_PILOT_INTEGRATION_V1",
+  "generated_date": "2026-11-08",
+  "candidate_count": 236,
+  "official_portal_query": "Yunnan Province / Kunming City",
+  "query_result_pages": 199,
+  "sampled_permit_records": 5,
+  "facility_points": 5,
+  "candidate_polygons_matched": 5,
+  "matched_candidate_units": [
+    {
+      "code": "530111",
+      "name": "官渡区",
+      "companies": [
+        "昆明城市污水处理运营有限责任公司（昆明市第六水质净化厂）"
+      ],
+      "industries": [
+        "污水处理及其再生利用    \n\t\t\t\t          所在地区：云南省-昆明市-官渡区   \n\t\t\t\t          发证机关：昆明市生态环境局"
+      ],
+      "outlet_markers": 3,
+      "marker_types": {
+        "xmwz": 1,
+        "dq_ybpfk": 1,
+        "fs_ybpfk": 1
+      }
+    },
+    {
+      "code": "530181",
+      "name": "安宁市",
+      "companies": [
+        "云南铜业股份有限公司西南铜业分公司（安宁）",
+        "云南昶电新能源科技有限公司"
+      ],
+      "industries": [
+        "铜冶炼    \n\t\t\t\t          所在地区：云南省-昆明市-安宁市   \n\t\t\t\t          发证机关：昆明市生态环境局",
+        "危险废物治理    \n\t\t\t\t          所在地区：云南省-昆明市-安宁市   \n\t\t\t\t          发证机关：昆明市生态环境局"
+      ],
+      "outlet_markers": 43,
+      "marker_types": {
+        "xmwz": 2,
+        "dq_zypfk": 5,
+        "dq_ybpfk": 36
+      }
+    },
+    {
+      "code": "530114",
+      "name": "呈贡区",
+      "companies": [
+        "贵研化学材料（云南）有限公司"
+      ],
+      "industries": [
+        "化学试剂和助剂制造    \n\t\t\t\t          所在地区：云南省-昆明市-昆明高新技术产业开发区   \n\t\t\t\t          发证机关：昆明市生态环境局"
+      ],
+      "outlet_markers": 8,
+      "marker_types": {
+        "xmwz": 1,
+        "dq_ybpfk": 6,
+        "fs_ybpfk": 1
+      }
+    },
+    {
+      "code": "530115",
+      "name": "晋宁区",
+      "companies": [
+        "云南锦达磷化工有限公司"
+      ],
+      "industries": [
+        "磷肥制造    \n\t\t\t\t          所在地区：云南省-昆明市-晋宁区   \n\t\t\t\t          发证机关：昆明市生态环境局"
+      ],
+      "outlet_markers": 4,
+      "marker_types": {
+        "xmwz": 1,
+        "dq_zypfk": 3
+      }
+    }
+  ],
+  "total_marker_points": 58,
+  "emission_marker_points": 53,
+  "marker_code_counts": {
+    "xmwz": 5,
+    "dq_ybpfk": 43,
+    "fs_ybpfk": 2,
+    "dq_zypfk": 8
+  },
+  "no_sample_candidate_count": 232,
+  "formal_exclusions": 0,
+  "formal_grade_changes": 0,
+  "source_files": [
+    "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/output/R4_236_ALL_CANDIDATE_EVIDENCE_MATRIX.csv",
+    "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/permit_geospatial_evidence_batch01_42464519895.json",
+    "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/permit_outlet_points_batch01_42464519895.csv"
+  ],
+  "interpretation": "Five public permit records were deliberately selected from the first page of a Kunming city query as a pilot. All five facility points fall inside four of the 236 candidate county polygons. This is not a full inventory, not a finding of actual exposure, and not evidence of violations."
+}
