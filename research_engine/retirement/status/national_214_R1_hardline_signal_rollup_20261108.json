@@ -1,0 +1,1686 @@
+{
+  "schema": "RET_PHASE1_ALL_214_R1_CANDIDATES_HARDLINE_SIGNAL_ROLLUP_V1",
+  "created_at_utc": "2026-11-08T01:20:57.422457+00:00",
+  "action_id": "RET-CASCADE-NATIONAL-14-LONG-R1-ONLY-AND-214-ROLLUP-020",
+  "source_sha256": {
+    "national_R1_overlay_2847": "3b3230d768c10fc0a0f20d1732e1c649bf56683a5b0ce46600aee8538adda9ec",
+    "long_R1R2_73": "0069321d0ad5c29fd4ac40a78b705c1a345b5d71c2317731cb7d47a699c609f4",
+    "screened_long73": "dccfd66666bde5a4cf09c2cb74b5cf8d91ac082e1f7f8a1d9bd13974a864a192",
+    "short_R1_127": "0184e7cea5a66e32856d405a20af0611023f5ad51e5ba6129d24860f126af0f6",
+    "short_R2_sunshine_126": "3efaa8e29df7b933b33e23f08f45bd6d46f2bdce229fa47adf413bac85090abd",
+    "altitude_205": "8ab7301b8803a608ec9aec99b5729d237b5cc5a899e11ea652d9dbdfa96d63c0"
+  },
+  "cohort": {
+    "long_R1R2_screened": 73,
+    "short_R1_screened": 127,
+    "remaining_long_R1_only": 14,
+    "all_R1_candidates_screened": 214,
+    "unique_codes": 214
+  },
+  "remaining_14_counts": {
+    "winter_lt10": 10,
+    "summer_ge32": 1,
+    "temperature_union_signal": 11,
+    "no_temperature_trigger": 3
+  },
+  "all_214_counts": {
+    "winter_lt10": 153,
+    "summer_ge32": 26,
+    "sunshine_lt1800": 6,
+    "union_any_climate_hardline_signal": 176,
+    "no_climate_hardline_signal": 38,
+    "annual_sunshine_measured": 51,
+    "annual_sunshine_missing": 163,
+    "altitude_point_over2000m_warning": 16,
+    "climate_or_altitude_point_warning_union": 179,
+    "formal_region_exclusions": 0
+  },
+  "hardline_signal_candidates": [
+    {
+      "code": "110108",
+      "name": "海淀区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "140105",
+      "name": "小店区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "150102",
+      "name": "新城区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "150402",
+      "name": "红山区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "150526",
+      "name": "扎鲁特旗",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "150702",
+      "name": "海拉尔区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "150824",
+      "name": "乌拉特中旗",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "152501",
+      "name": "二连浩特市",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "152502",
+      "name": "锡林浩特市",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "152921",
+      "name": "阿拉善左旗",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "210112",
+      "name": "浑南区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "220106",
+      "name": "绿园区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "222401",
+      "name": "延吉市",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "230128",
+      "name": "通河县",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "230208",
+      "name": "梅里斯达斡尔族区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "310113",
+      "name": "宝山区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": true
+    },
+    {
+      "code": "320104",
+      "name": "秦淮区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "320302",
+      "name": "鼓楼区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "350102",
+      "name": "鼓楼区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": false,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "350503",
+      "name": "丰泽区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": false,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "360702",
+      "name": "章贡区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": false,
+      "summer": true,
+      "sunshine": true
+    },
+    {
+      "code": "370105",
+      "name": "天桥区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "370202",
+      "name": "市南区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "410103",
+      "name": "二七区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "420502",
+      "name": "西陵区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": false,
+      "summer": false,
+      "sunshine": true
+    },
+    {
+      "code": "431228",
+      "name": "芷江侗族自治县",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": false,
+      "summer": false,
+      "sunshine": true
+    },
+    {
+      "code": "440106",
+      "name": "天河区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": false,
+      "summer": true,
+      "sunshine": true
+    },
+    {
+      "code": "450103",
+      "name": "青秀区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": false,
+      "summer": true,
+      "sunshine": true
+    },
+    {
+      "code": "451002",
+      "name": "右江区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": false,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "460108",
+      "name": "美兰区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": false,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "520103",
+      "name": "云岩区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "520115",
+      "name": "观山湖区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "532801",
+      "name": "景洪市",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": false,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "533422",
+      "name": "德钦县",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "540102",
+      "name": "城关区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "540302",
+      "name": "卡若区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "610602",
+      "name": "宝塔区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "610702",
+      "name": "汉台区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "620621",
+      "name": "民勤县",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "620902",
+      "name": "肃州区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "620982",
+      "name": "敦煌市",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "630104",
+      "name": "城西区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "632624",
+      "name": "达日县",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "632701",
+      "name": "玉树市",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "632801",
+      "name": "格尔木市",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "632822",
+      "name": "都兰县",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "640106",
+      "name": "金凤区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "650102",
+      "name": "天山区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "650203",
+      "name": "克拉玛依区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "650502",
+      "name": "伊州区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "652824",
+      "name": "若羌县",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "652902",
+      "name": "库车市",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "653101",
+      "name": "喀什市",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "653201",
+      "name": "和田市",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "654002",
+      "name": "伊宁市",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "654301",
+      "name": "阿勒泰市",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "232721",
+      "name": "呼玛县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "231183",
+      "name": "嫩江市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "231124",
+      "name": "孙吴县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "230229",
+      "name": "克山县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "152202",
+      "name": "阿尔山市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "231283",
+      "name": "海伦市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "230882",
+      "name": "富锦市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "231281",
+      "name": "安达市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "152525",
+      "name": "东乌珠穆沁旗",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "220721",
+      "name": "前郭尔罗斯蒙古族自治县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "230110",
+      "name": "香坊区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "230183",
+      "name": "尚志市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "230302",
+      "name": "鸡冠区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "654322",
+      "name": "富蕴县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "654226",
+      "name": "和布克赛尔蒙古自治县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "652722",
+      "name": "精河县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "652325",
+      "name": "奇台县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "650402",
+      "name": "高昌区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "652801",
+      "name": "库尔勒市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "653130",
+      "name": "巴楚县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "652825",
+      "name": "且末县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "652823",
+      "name": "尉犁县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "653125",
+      "name": "莎车县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "152923",
+      "name": "额济纳旗",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "620923",
+      "name": "肃北蒙古族自治县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "620981",
+      "name": "玉门市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "632803",
+      "name": "茫崖市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "632224",
+      "name": "刚察县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "620623",
+      "name": "天祝藏族自治县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "620102",
+      "name": "城关区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "632525",
+      "name": "贵南县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "620123",
+      "name": "榆中县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "152522",
+      "name": "阿巴嘎旗",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "150825",
+      "name": "乌拉特后旗",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "152524",
+      "name": "苏尼特右旗",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "150223",
+      "name": "达尔罕茂明安联合旗",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "150922",
+      "name": "化德县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "140213",
+      "name": "平城区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "150624",
+      "name": "鄂托克旗",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "610803",
+      "name": "横山区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "140981",
+      "name": "原平市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "130104",
+      "name": "桥西区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "640323",
+      "name": "盐池县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "140781",
+      "name": "介休市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "410503",
+      "name": "北关区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "620802",
+      "name": "崆峒区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "140802",
+      "name": "盐湖区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "152526",
+      "name": "西乌珠穆沁旗",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "150422",
+      "name": "巴林左旗",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "231005",
+      "name": "西安区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "231081",
+      "name": "绥芬河市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "150424",
+      "name": "林西县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "150502",
+      "name": "科尔沁区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "220302",
+      "name": "铁西区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "152531",
+      "name": "多伦县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "210922",
+      "name": "彰武县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "210702",
+      "name": "古塔区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "210504",
+      "name": "明山区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "130730",
+      "name": "怀来县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "130802",
+      "name": "双桥区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "210803",
+      "name": "西市区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "210603",
+      "name": "振兴区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "120104",
+      "name": "南开区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "130225",
+      "name": "乐亭县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "130981",
+      "name": "泊头市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "371621",
+      "name": "惠民县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "371082",
+      "name": "荣成市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "370702",
+      "name": "潍城区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "371703",
+      "name": "定陶区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "370881",
+      "name": "曲阜市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "542523",
+      "name": "噶尔县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "540625",
+      "name": "申扎县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "632726",
+      "name": "曲麻莱县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "632626",
+      "name": "玛多县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "513232",
+      "name": "若尔盖县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "623001",
+      "name": "合作市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "621202",
+      "name": "武都区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "540626",
+      "name": "索县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "513328",
+      "name": "甘孜县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "513224",
+      "name": "松潘县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "513334",
+      "name": "理塘县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "610112",
+      "name": "未央区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "411224",
+      "name": "卢氏县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "610117",
+      "name": "高陵区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "420682",
+      "name": "老河口市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "411702",
+      "name": "驿城区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "411502",
+      "name": "浉河区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "422801",
+      "name": "恩施市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "500242",
+      "name": "酉阳土家族苗族自治县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "520502",
+      "name": "七星关区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "520303",
+      "name": "汇川区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "360802",
+      "name": "吉州区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": false,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "320707",
+      "name": "赣榆区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "341602",
+      "name": "谯城区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "340302",
+      "name": "龙子湖区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "320981",
+      "name": "东台市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "341525",
+      "name": "霍山县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "340811",
+      "name": "宜秀区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "360203",
+      "name": "珠山区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": false,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "350702",
+      "name": "延平区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": false,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "350481",
+      "name": "永安市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": false,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "451202",
+      "name": "金城江区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": false,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "440203",
+      "name": "武江区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": false,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "450881",
+      "name": "桂平市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": false,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "450403",
+      "name": "万秀区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": false,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "441602",
+      "name": "源城区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": false,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "451423",
+      "name": "龙州县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": false,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "450702",
+      "name": "钦南区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": false,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "469002",
+      "name": "琼海市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "winter": false,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "130709",
+      "name": "崇礼区",
+      "tier": "LONGER_R1_ONLY_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "130881",
+      "name": "平泉市",
+      "tier": "LONGER_R1_ONLY_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "150781",
+      "name": "满洲里市",
+      "tier": "LONGER_R1_ONLY_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "150782",
+      "name": "牙克石市",
+      "tier": "LONGER_R1_ONLY_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "211104",
+      "name": "大洼区",
+      "tier": "LONGER_R1_ONLY_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "211382",
+      "name": "凌源市",
+      "tier": "LONGER_R1_ONLY_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "222426",
+      "name": "安图县",
+      "tier": "LONGER_R1_ONLY_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "330112",
+      "name": "临安区",
+      "tier": "LONGER_R1_ONLY_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "340104",
+      "name": "蜀山区",
+      "tier": "LONGER_R1_ONLY_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    },
+    {
+      "code": "360281",
+      "name": "乐平市",
+      "tier": "LONGER_R1_ONLY_STATION_OR_ERA5_PARTIAL",
+      "winter": false,
+      "summer": true,
+      "sunshine": false
+    },
+    {
+      "code": "650421",
+      "name": "鄯善县",
+      "tier": "LONGER_R1_ONLY_STATION_OR_ERA5_PARTIAL",
+      "winter": true,
+      "summer": false,
+      "sunshine": false
+    }
+  ],
+  "no_climate_signal_candidates": [
+    {
+      "code": "330802",
+      "name": "柯城区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "sunshine_measured": false
+    },
+    {
+      "code": "350203",
+      "name": "思明区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "sunshine_measured": true
+    },
+    {
+      "code": "360104",
+      "name": "青云谱区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "sunshine_measured": true
+    },
+    {
+      "code": "420112",
+      "name": "东西湖区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "sunshine_measured": false
+    },
+    {
+      "code": "430104",
+      "name": "岳麓区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "sunshine_measured": false
+    },
+    {
+      "code": "440511",
+      "name": "金平区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "sunshine_measured": true
+    },
+    {
+      "code": "450304",
+      "name": "象山区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "sunshine_measured": true
+    },
+    {
+      "code": "460203",
+      "name": "吉阳区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "sunshine_measured": true
+    },
+    {
+      "code": "500107",
+      "name": "九龙坡区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "sunshine_measured": false
+    },
+    {
+      "code": "510402",
+      "name": "东区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "sunshine_measured": true
+    },
+    {
+      "code": "513401",
+      "name": "西昌市",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "sunshine_measured": true
+    },
+    {
+      "code": "530102",
+      "name": "五华区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "sunshine_measured": true
+    },
+    {
+      "code": "530112",
+      "name": "西山区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "sunshine_measured": true
+    },
+    {
+      "code": "530581",
+      "name": "腾冲市",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "sunshine_measured": true
+    },
+    {
+      "code": "530802",
+      "name": "思茅区",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "sunshine_measured": false
+    },
+    {
+      "code": "532503",
+      "name": "蒙自市",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "sunshine_measured": true
+    },
+    {
+      "code": "532901",
+      "name": "大理市",
+      "tier": "LONGER_SOURCE_1991_2020_STATION_OR_ERA5_PARTIAL",
+      "sunshine_measured": true
+    },
+    {
+      "code": "513201",
+      "name": "马尔康市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "sunshine_measured": false
+    },
+    {
+      "code": "513324",
+      "name": "九龙县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "sunshine_measured": false
+    },
+    {
+      "code": "511502",
+      "name": "翠屏区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "sunshine_measured": false
+    },
+    {
+      "code": "530722",
+      "name": "永胜县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "sunshine_measured": false
+    },
+    {
+      "code": "513402",
+      "name": "会理市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "sunshine_measured": false
+    },
+    {
+      "code": "532301",
+      "name": "楚雄市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "sunshine_measured": false
+    },
+    {
+      "code": "530902",
+      "name": "临翔区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "sunshine_measured": false
+    },
+    {
+      "code": "530828",
+      "name": "澜沧拉祜族自治县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "sunshine_measured": false
+    },
+    {
+      "code": "511781",
+      "name": "万源市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "sunshine_measured": false
+    },
+    {
+      "code": "511302",
+      "name": "顺庆区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "sunshine_measured": false
+    },
+    {
+      "code": "430702",
+      "name": "武陵区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "sunshine_measured": false
+    },
+    {
+      "code": "431102",
+      "name": "零陵区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "sunshine_measured": false
+    },
+    {
+      "code": "522302",
+      "name": "兴仁市",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "sunshine_measured": false
+    },
+    {
+      "code": "310104",
+      "name": "徐汇区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "sunshine_measured": false
+    },
+    {
+      "code": "330902",
+      "name": "定海区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "sunshine_measured": false
+    },
+    {
+      "code": "361021",
+      "name": "南城县",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "sunshine_measured": false
+    },
+    {
+      "code": "441502",
+      "name": "城区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "sunshine_measured": false
+    },
+    {
+      "code": "441702",
+      "name": "江城区",
+      "tier": "INTERIM_180_MONTHS_NOT_FULL_30_YEAR",
+      "sunshine_measured": false
+    },
+    {
+      "code": "330102",
+      "name": "上城区",
+      "tier": "LONGER_R1_ONLY_STATION_OR_ERA5_PARTIAL",
+      "sunshine_measured": false
+    },
+    {
+      "code": "450303",
+      "name": "叠彩区",
+      "tier": "LONGER_R1_ONLY_STATION_OR_ERA5_PARTIAL",
+      "sunshine_measured": false
+    },
+    {
+      "code": "510105",
+      "name": "青羊区",
+      "tier": "LONGER_R1_ONLY_STATION_OR_ERA5_PARTIAL",
+      "sunshine_measured": false
+    }
+  ],
+  "limitations": [
+    "214 are the subset of national candidate counties with existing R1 point evidence, not all 2847 counties and not a residential-region list.",
+    "Long and interim histories remain tiered; the interim tier is not a full 30-year normal.",
+    "Winter/summer fields are multi-month means of monthly mean daily maximum; crossing is a one-sided signal, non-crossing is not proof of pass.",
+    "Sunshine is available only where directly observed; rainfall is never substituted for sunshine.",
+    "Station/ERA5/DEM points are not verified residential micro-areas; no irreversible region exclusion is made.",
+    "All 2847 provisional county rows remain in the evidence register until a specific residential evaluation unit is confirmed."
+  ]
+}
