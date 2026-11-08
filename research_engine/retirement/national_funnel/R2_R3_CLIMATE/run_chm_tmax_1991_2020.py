@@ -33,7 +33,9 @@ OUT = BASE / "output"
 ROSTER = ROOT / "evidence" / "provisional_counties_2026_06.csv"
 GEOMETRY_URL = "https://raw.githubusercontent.com/zzhonglei/GeoCode-Release/main/contributions/china-admin-boundaries/skill/data/china_county.geojson"
 GEOMETRY_SHA256 = "22db6c54b9cb0118ecdcc8a117bf2da4fc24a2229cdba7e6e55dbb5dd56e8246"
-ZENODO_RECORD = "https://zenodo.org/records/22097524"
+ZENODO_RECORD_ID = "22097524"
+ZENODO_RECORD = f"https://zenodo.org/records/{ZENODO_RECORD_ID}"
+ZENODO_API = f"https://zenodo.org/api/records/{ZENODO_RECORD_ID}"
 ZENODO_DOI = "10.5281/zenodo.22097524"
 YEARS = range(1991, 2021)
 HOT_THRESHOLD_C = 35.0
@@ -44,11 +46,13 @@ MIN_VALID_DAYS_PER_YEAR = 330
 MIN_VALID_MONTH_YEARS = 20
 UA = "Mozilla/5.0 RetirementLivability-ClimateScreen/1.0"
 
-FILES = [
-    {"name":"CHM_Tmax_1990_1999.zip","md5":"c466c294cd5f0b6bec7d08fe222ed68f","bytes":773381227},
-    {"name":"CHM_Tmax_2000_2009.zip","md5":"8817ae160d725045be69fd1a1dee3aca","bytes":774490068},
-    {"name":"CHM_Tmax_2010_2019.zip","md5":"dacbd3144865376ed089e15f9e787fca","bytes":774600000},
-    {"name":"CHM_Tmax_2020_2022.zip","md5":"082c8e5d9e6199fdd931bb4f839f37d9","bytes":232500000},
+# File names are fixed to the required 1991-2020 period, but exact sizes and
+# checksums are read from Zenodo's live record metadata at runtime.
+FILE_NAMES = [
+    "CHM_Tmax_1990_1999.zip",
+    "CHM_Tmax_2000_2009.zip",
+    "CHM_Tmax_2010_2019.zip",
+    "CHM_Tmax_2020_2022.zip",
 ]
 
 def now():
@@ -61,44 +65,118 @@ def sha256_file(path):
             h.update(b)
     return h.hexdigest()
 
+def md5_file(path):
+    h=hashlib.md5()
+    with path.open("rb") as f:
+        for b in iter(lambda:f.read(8*1024*1024),b""):
+            h.update(b)
+    return h.hexdigest()
+
+def load_zenodo_file_manifest():
+    req=urllib.request.Request(
+        ZENODO_API,
+        headers={"User-Agent":UA,"Accept":"application/json"},
+    )
+    with urllib.request.urlopen(req,timeout=90) as r:
+        record=json.loads(r.read().decode("utf-8"))
+    found={x.get("key"):x for x in record.get("files",[]) if isinstance(x,dict)}
+    manifest={}
+    for name in FILE_NAMES:
+        item=found.get(name)
+        if not item:
+            raise RuntimeError(f"ZENODO_FILE_METADATA_MISSING {name}")
+        checksum=str(item.get("checksum") or "")
+        if ":" in checksum:
+            algorithm,digest=checksum.split(":",1)
+        else:
+            algorithm,digest="md5",checksum
+        if algorithm.lower()!="md5" or not digest:
+            raise RuntimeError(f"ZENODO_CHECKSUM_UNSUPPORTED {name} {checksum}")
+        manifest[name]={"name":name,"bytes":int(item["size"]),"md5":digest.lower()}
+    return manifest
+
 def download_file(url, path, expected_bytes, expected_md5):
     path.parent.mkdir(parents=True,exist_ok=True)
     part=path.with_suffix(path.suffix+".part")
+
+    # Reuse a previously completed, checksum-valid archive.
+    if path.exists():
+        if path.stat().st_size==expected_bytes and md5_file(path)==expected_md5.lower():
+            return {"status":"REUSED","bytes":expected_bytes,"md5":expected_md5}
+        path.unlink(missing_ok=True)
+
+    # A prior run may have stopped after the final byte but before rename.
+    if part.exists():
+        part_size=part.stat().st_size
+        if part_size==expected_bytes:
+            digest=md5_file(part)
+            if digest==expected_md5.lower():
+                part.replace(path)
+                return {"status":"RESUMED_COMPLETE","bytes":part_size,"md5":digest}
+            part.unlink(missing_ok=True)
+        elif part_size>expected_bytes:
+            part.unlink(missing_ok=True)
+
     last=None
-    for attempt in range(1,4):
+    for attempt in range(1,5):
         offset=part.stat().st_size if part.exists() else 0
         headers={"User-Agent":UA,"Accept":"*/*"}
         if offset:
             headers["Range"]=f"bytes={offset}-"
         try:
             req=urllib.request.Request(url,headers=headers)
-            with urllib.request.urlopen(req,timeout=300) as r:
+            with urllib.request.urlopen(req,timeout=600) as r:
                 status=r.status
                 mode="ab" if offset and status==206 else "wb"
                 if mode=="wb":
                     offset=0
                 with part.open(mode) as f:
+                    downloaded=offset
                     while True:
-                        block=r.read(4*1024*1024)
-                        if not block:break
+                        block=r.read(8*1024*1024)
+                        if not block:
+                            break
                         f.write(block)
+                        downloaded+=len(block)
+                        if downloaded and downloaded%(128*1024*1024)<len(block):
+                            print(
+                                f"CHM_DOWNLOAD_PROGRESS {path.name} "
+                                f"{downloaded}/{expected_bytes} attempt={attempt}",
+                                flush=True,
+                            )
             size=part.stat().st_size
             if size!=expected_bytes:
                 raise RuntimeError(f"SIZE_MISMATCH expected={expected_bytes} actual={size}")
-            h=hashlib.md5()
-            with part.open("rb") as f:
-                for b in iter(lambda:f.read(8*1024*1024),b""):
-                    h.update(b)
-            digest=h.hexdigest()
+            digest=md5_file(part)
             if digest.lower()!=expected_md5.lower():
                 raise RuntimeError(f"MD5_MISMATCH expected={expected_md5} actual={digest}")
             part.replace(path)
-            return {"status":"DOWNLOADED","bytes":size,"md5":digest,"http_status":status,"attempt":attempt}
+            return {
+                "status":"DOWNLOADED","bytes":size,"md5":digest,
+                "http_status":status,"attempt":attempt,
+            }
+        except urllib.error.HTTPError as e:
+            last=f"HTTPError: {e.code} {e.reason}"
+            if e.code==416:
+                # A 416 can mean the partial file is already complete, or that
+                # the server rejected a stale/invalid offset. Verify before reuse.
+                if part.exists() and part.stat().st_size==expected_bytes:
+                    digest=md5_file(part)
+                    if digest.lower()==expected_md5.lower():
+                        part.replace(path)
+                        return {
+                            "status":"RESUMED_COMPLETE_AFTER_416",
+                            "bytes":expected_bytes,"md5":digest,"attempt":attempt,
+                        }
+                part.unlink(missing_ok=True)
         except Exception as e:
             last=f"{type(e).__name__}: {e}"
-            if attempt==3:break
+            if part.exists() and part.stat().st_size>expected_bytes:
+                part.unlink(missing_ok=True)
+        print(f"CHM_DOWNLOAD_RETRY {path.name} attempt={attempt} error={last}",flush=True)
+        if attempt<4:
             time.sleep(attempt*5)
-    raise RuntimeError("DOWNLOAD_FAILED "+last)
+    raise RuntimeError("DOWNLOAD_FAILED "+str(last))
 
 def load_roster():
     with ROSTER.open(encoding="utf-8-sig",newline="") as f:
@@ -152,8 +230,14 @@ def process_all_files():
     grid_lon=None
     file_evidence=[]
     processed_years=[]
-    for file_meta in FILES:
-        archive_name=file_meta["name"]
+    file_manifest=load_zenodo_file_manifest()
+    print(
+        "CHM_ZENODO_MANIFEST "
+        +json.dumps(file_manifest,ensure_ascii=False,sort_keys=True),
+        flush=True,
+    )
+    for archive_name in FILE_NAMES:
+        file_meta=file_manifest[archive_name]
         archive=cache_dir/archive_name
         url=f"https://zenodo.org/records/22097524/files/{archive_name}?download=1"
         print(f"CHM_DOWNLOAD_START {archive_name}",flush=True)
@@ -210,7 +294,8 @@ def process_all_files():
                 processed_years.append(y)
                 print(f"CHM_YEAR_DONE {y} valid_grid_cells={int(good.sum())}",flush=True)
         file_evidence.append({"file":archive_name,"download":dl,"netcdf":zip_meta,"years_processed":years_here})
-        archive.unlink(missing_ok=True)
+        # Keep the verified compressed source archive in the cache directory.
+        # The workflow cache can then reuse it if a later decade or zonal step fails.
         nc_path.unlink(missing_ok=True)
     if sorted(set(processed_years))!=list(YEARS):
         raise RuntimeError(f"YEAR_COVERAGE_INCOMPLETE {sorted(set(processed_years))}")
@@ -380,6 +465,7 @@ def main():
         "input_count":len(roster),
         "source":{"name":"CHM_Tmax v2","record":ZENODO_RECORD,"doi":ZENODO_DOI,"period":"1991-2020","resolution":"0.1 degree","variable":"daily Tmax","units":"degree C","method":"station-based angular-distance weighting with altitude considered"},
         "source_files":grid["files"],
+        "source_manifest_method":"Exact byte sizes and MD5 checksums fetched from Zenodo record API at runtime; no rounded file sizes are hardcoded.",
         "processed_years":grid["processed_years"],
         "grid":{"lat_count":len(grid["lat"]),"lon_count":len(grid["lon"]),"lat_min":float(np.min(grid["lat"])),"lat_max":float(np.max(grid["lat"])),"lon_min":float(np.min(grid["lon"])),"lon_max":float(np.max(grid["lon"]))},
         "geometry":geo_meta,

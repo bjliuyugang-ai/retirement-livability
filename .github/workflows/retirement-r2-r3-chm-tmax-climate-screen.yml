@@ -23,6 +23,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Restore verified CHM Tmax source archive cache
+        uses: actions/cache@v4
+        with:
+          path: work_chm_tmax_1991_2020/cache/CHM_Tmax_*.zip
+          key: retirement-chm-tmax-v2-${{ github.run_id }}
+          restore-keys: |
+            retirement-chm-tmax-v2-
       - name: Install raster and NetCDF processing libraries
         run: python -m pip install --disable-pip-version-check numpy netCDF4 rasterio shapely
       - name: Compute 1991-2020 winter and summer climate metrics for all candidate counties
