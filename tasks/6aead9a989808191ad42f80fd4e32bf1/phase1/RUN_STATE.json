@@ -84,15 +84,15 @@
     "RES-NATIONAL-40-REGION-DISPOSITION-20261108-42434491753"
   ],
   "active_action": {
-    "action_id": "RET-PHASE1-7-HARDLINE-SOURCE-VERIFICATION-025",
-    "question_id": "Q_VERIFY_3_V2_PREEXCLUSIONS_AND_4_NEW_TEMPERATURE_SIGNALS",
-    "decision": "恢复V2正式34个评价单元名册；29个全国代表性气候样点仅作为独立筛查证据。下一轮一次性核验7个高价值项目：霞浦、勉县、利川3个V2预排除；百色城区、武都、伊宁、荣成4个新温度信号。其余候选不等待这7项，按34单元名册并行继续推进。",
-    "method": "每项只做一次主来源+一次替代来源；温度统一使用最冷月/最热月平均日最高温，日照统一基期；明确站点坐标与住宅片区代表性。百色城区不得外推至百色·靖西；武都/荣成短历史均值不得冒充30年常年值；伊宁完整360月信号优先；霞浦/勉县/利川复核原始官方站值或统一基期。仍无可比数据即标PENDING，停止单点追索。",
-    "expected_evidence": "7项逐一给出指标、统计期、站点/住宅点代表性、主源/替代源结果、最终状态；同时保留34正式评价单元名册和29样点独立状态。",
-    "pass_criteria": "7项全部完成一次核验或明确PENDING；确认触线仅退出对应具体样点；不把样点信号扩大到城市/省份；不减少第二、三阶段名单。",
-    "fallback": "单项主源+替代源仍缺失则PENDING并转下一项；不得因某一数据源阻塞全批。",
+    "action_id": "RET-PHASE1-34-UNIT-EVIDENCE-CLASSIFICATION-026",
+    "question_id": "Q_CLASSIFY_FORMAL_34_EVALUATION_UNITS_WITH_EXACT_SAMPLE_EVIDENCE",
+    "decision": "以正式34单元名册为唯一第一阶段候选池；29个全国代表性样点独立保留为证据集。只把同一居住片区的样点证据映射到对应34单元；行政区相邻、同市或同省不构成自动匹配。形成34单元逐项状态表，缺项待核，3个预排除保持预排除，样点信号不计正式退出。",
+    "method": "从20既有单元+14扩样单元逐项读取旧等级、具体居住片区、现有硬线证据；与29样点逐项做精确/同片区匹配，标注直接匹配、仅同市参考、无匹配。对34单元输出优先保留、条件保留、待核、预排除四类。7项一次核验结果按证据质量入表。",
+    "expected_evidence": "34行正式评价单元表；29行样点独立证据表；每个正式单元的匹配关系、硬线信号、缺项、状态和下一步；正式退出数量单列。",
+    "pass_criteria": "34个单元全部有状态且无错误外推；29样点证据不再混入候选池；所有缺项待核；输出可直接进入下一轮环境健康和居住质量筛查的清单。",
+    "fallback": "一个单元缺数据不阻塞整批，保持待核并处理下一单元；不再围绕单一数据源反复搜索。",
     "status": "READY",
-    "last_run_id": "SCOPE-CORRECTION-20261108"
+    "last_run_id": "SCOPE-CORRECTION-AND-7-REVIEW-20261108"
   },
   "phase": "NATIONWIDE_1991_2020_CLIMATE_DATA_SCALING_AFTER_COMPLETE_R0_R5_MISSING_AUDIT",
   "milestone_deadline": {
@@ -103,26 +103,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_at": "2026-11-08T01:42:45.833Z",
-    "verified_state_revision_before_postcheck": 84,
-    "verified_remote_artifacts": [
-      "research_engine/retirement/status/phase1_official_34_evaluation_units_v2_20261107.csv",
-      "research_engine/retirement/status/phase1_29_representative_sample_screen_v2_20261107.csv",
-      "research_engine/retirement/status/phase1_7_hardline_verification_queue_20261108.csv",
-      "research_engine/retirement/status/phase1_roster_scope_correction_20261108.json"
-    ],
-    "checks": {
-      "formal_roster_rows": 34,
-      "representative_sample_rows": 29,
-      "verification_queue_rows": 7,
-      "formal_residential_exclusions": 0,
-      "invalid_40_region_result_quarantined": true,
-      "state_log_and_current_state_readback": true
-    }
+    "status": "WRITEBACK_PENDING",
+    "initiated_at": "2026-11-08T01:47:17.049Z",
+    "reason": "seven-item one-pass review and next 34-unit classification"
   },
-  "updated_at": "2026-11-08T01:42:45.833Z",
-  "state_revision": 85,
+  "updated_at": "2026-11-08T01:47:17.049Z",
+  "state_revision": 86,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -611,5 +597,16 @@
     "verification_queue_csv": "research_engine/retirement/status/phase1_7_hardline_verification_queue_20261108.csv",
     "audit_json": "research_engine/retirement/status/phase1_roster_scope_correction_20261108.json",
     "remote_readback": "POSTCHECK_PASS"
+  },
+  "phase1_7_hardline_source_review": {
+    "status": "ONE_PASS_REVIEW_COMPLETE_ALL_UNRESOLVED_ITEMS_EXPLICITLY_PENDING",
+    "items_reviewed": 7,
+    "original_preexclusions_pending": 3,
+    "new_or_sample_signals_pending": 4,
+    "formal_residential_exclusions": 0,
+    "csv": "research_engine/retirement/status/phase1_7_hardline_source_review_outcome_20261108.csv",
+    "audit": "research_engine/retirement/status/phase1_7_hardline_source_review_outcome_20261108.json",
+    "strongest_signal": "伊宁站冬季均值0.776℃，但360个月中312条为climat来源；尚需官方逐月值与住宅代表性核验。",
+    "direct_official_evidence": "勉县2001—2020年日照1396h，官方环评资料；需统一到1991—2020基期。"
   }
 }
