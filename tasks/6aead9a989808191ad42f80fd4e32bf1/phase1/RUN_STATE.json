@@ -103,12 +103,31 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "WRITEBACK_PENDING",
-    "initiated_at": "2026-11-08T01:52:03.301Z",
-    "reason": "34-unit classification persisted and next environmental/quality pass activated"
+    "status": "POSTCHECK_PASS",
+    "verified_at": "2026-11-08T01:52:27.148Z",
+    "checks": {
+      "formal_roster_rows": 34,
+      "all_rows_11_columns": true,
+      "audit_formal_units": 34,
+      "normalized_counts": {
+        "priority_keep": 2,
+        "conditional_keep": 3,
+        "preexclusion_pending": 3,
+        "hardline_signal_pending": 4,
+        "general_pending": 22,
+        "formal_exclusions": 0
+      },
+      "formal_exclusions": 0,
+      "log_present": true,
+      "prior_40_quarantined": true
+    },
+    "verified_artifacts": [
+      "research_engine/retirement/status/phase1_34_unit_evidence_classification_20261108.csv",
+      "research_engine/retirement/status/phase1_34_unit_evidence_classification_20261108.json"
+    ]
   },
-  "updated_at": "2026-11-08T01:52:03.301Z",
-  "state_revision": 88,
+  "updated_at": "2026-11-08T01:52:27.148Z",
+  "state_revision": 89,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -639,6 +658,7 @@
     ],
     "formal_exclusions": 0,
     "roster_csv": "research_engine/retirement/status/phase1_34_unit_evidence_classification_20261108.csv",
-    "audit_json": "research_engine/retirement/status/phase1_34_unit_evidence_classification_20261108.json"
+    "audit_json": "research_engine/retirement/status/phase1_34_unit_evidence_classification_20261108.json",
+    "remote_readback": "POSTCHECK_PASS"
   }
 }
