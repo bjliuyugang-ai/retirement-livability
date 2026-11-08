@@ -23,11 +23,15 @@ jobs:
       - name: Inspect official public read-only search interface
         run: |
           python -u research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/inspect_permit_portal.py
+          python -u research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/probe_permit_search.py
       - name: Upload discovery result
         uses: actions/upload-artifact@v4
         with:
           name: retirement-r4-permit-portal-discovery-${{ github.run_id }}
-          path: research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/permit_portal_inspection.json
+          path: |
+            research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/permit_portal_inspection.json
+            research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/permit_search_probe.json
+            research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/kunming_query_page1.html
           retention-days: 30
       - name: Persist discovery result
         run: |
@@ -36,6 +40,8 @@ jobs:
           mkdir -p research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output
           dest="research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/permit_portal_inspection_${{ github.run_id }}.json"
           cp research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/permit_portal_inspection.json "$dest"
-          git add "$dest"
+          cp research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/permit_search_probe.json "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/permit_search_probe_${{ github.run_id }}.json"
+          cp research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/kunming_query_page1.html "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/kunming_query_page1_${{ github.run_id }}.html"
+          git add "$dest" research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/permit_search_probe_${{ github.run_id }}.json research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/kunming_query_page1_${{ github.run_id }}.html
           git commit -m "Record public pollution permit portal discovery"
           git push origin HEAD:main
