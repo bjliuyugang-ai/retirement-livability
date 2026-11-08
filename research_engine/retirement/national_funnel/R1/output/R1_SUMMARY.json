@@ -1,23 +1,23 @@
 {
   "schema": "RETIREMENT_NATIONAL_FUNNEL_R1_V1",
-  "run_id": "42446830115",
+  "run_id": "42448264772",
   "status": "COMPLETED_WITH_PENDING",
-  "started_at_utc": "2026-11-08T04:26:59.803270+00:00",
-  "completed_at_utc": "2026-11-08T04:48:24.201394+00:00",
+  "started_at_utc": "2026-11-08T04:48:44.150199+00:00",
+  "completed_at_utc": "2026-11-08T05:16:30.628664+00:00",
   "input_count": 2847,
   "geometry_exact_matches": 2838,
   "geometry_pending": 9,
-  "sunshine_clear_fail_count": 746,
-  "sunshine_boundary_pending_count": 119,
-  "sunshine_other_pending_count": 209,
+  "sunshine_clear_fail_count": 759,
+  "sunshine_boundary_pending_count": 135,
+  "sunshine_other_pending_count": 61,
   "altitude_confirmed_fail_count": 0,
   "altitude_strong_fail_pending_count": 141,
   "altitude_low_altitude_exception_count": 2697,
-  "confirmed_exclusion_count": 746,
-  "remaining_for_R2_count": 2101,
-  "pending_continue_count": 464,
-  "exclusion_rule": "A county-level unit is removed only when the unconstrained population-grid sunshine coverage is at least 99% and the maximum estimated annual sunshine among all positive-population cells is clearly below 1,725h, or every inhabited population-grid cell has been sampled and is above 2,000m. Strong altitude samples with unsampled local cells remain pending and continue.",
-  "sunshine_minimum_population_coverage_for_hard_exclusion": 0.99,
+  "confirmed_exclusion_count": 759,
+  "remaining_for_R2_count": 2088,
+  "pending_continue_count": 337,
+  "exclusion_rule": "First-pass county removal: population-weighted valid sunshine coverage >=90% and estimated annual sunshine maximum across valid positive-population cells <1725h; altitude exclusion only when all inhabited grid cells are confirmed >2000m. Strong altitude samples with unsampled local cells remain pending.",
+  "sunshine_minimum_population_coverage_for_hard_exclusion": 0.9,
   "sunshine_source": {
     "name": "ScienceDB V8 China 1km monthly mean sunshine percentage",
     "period": "1991-2020",
@@ -206,5 +206,18 @@
     "Sunshine hours are derived from monthly mean sunshine percentage and astronomical day length, not directly summed from daily sunshine observations; the 75-hour guard band prevents borderline hard exclusions.",
     "Altitude samples are selected from populated 1km grid cells; counties with more than 10 inhabited cells and all 10 samples above 2,000m remain pending for local low-altitude exception checks.",
     "A county is an indexing unit, not a claim that its entire territory is one residential area. Separate valleys, basins, and populated settlements must remain independently evaluable."
-  ]
+  ],
+  "result_role": "PROVISIONAL_FIRST_PASS_READY_FOR_R2",
+  "data_quality_policy": {
+    "standard": "FIT_FOR_PURPOSE_BASIC_VALIDITY",
+    "sunshine_population_coverage_minimum_for_hard_exclusion": 0.9,
+    "missing_data": "Use available valid data; below 90% coverage is pending and does not block other units.",
+    "quality_tiers": [
+      "HIGH",
+      "MEDIUM",
+      "LOW"
+    ],
+    "use": "Low-confidence data may support provisional comparison but is not the sole basis for hard exclusion."
+  },
+  "population_method_caveat": "WorldPop R2024B unconstrained 1km is a practical inhabited-cell proxy, not a building/address register. Use this as a national first-pass screen; refine settlement locations only for shortlisted areas."
 }
