@@ -1,0 +1,123 @@
+{
+  "schema": "RETIREMENT_CHM_TMAX_V2_SOURCE_PROBE_V1",
+  "status": "PASS",
+  "record_id": "22097524",
+  "record_title": "CHM_Tmax: A New High-Resolution Maximum Temperature Dataset for Mainland China",
+  "record_version": null,
+  "target_file": "CHM_Tmax_1990_1999.zip",
+  "target_file_size": 773381227,
+  "target_file_checksum": "md5:c466c294cd5f0b6bec7d08fe222ed68f",
+  "download_url": "https://zenodo.org/records/22097524/files/CHM_Tmax_1990_1999.zip?download=1",
+  "download": {
+    "bytes": 773381227,
+    "md5": "c466c294cd5f0b6bec7d08fe222ed68f",
+    "headers": {
+      "server": "nginx",
+      "date": "Sun, 08 Nov 2026 05:08:51 GMT",
+      "content-type": "application/octet-stream",
+      "content-length": "773381227",
+      "content-disposition": "attachment; filename=CHM_Tmax_1990_1999.zip",
+      "set-cookie": "session=74bb5ffdb94b9d61_6af003e3.tt2YfGrgHsMLAgUwpen-LFUYTEo; Expires=Fri, 13 Nov 2026 05:08:51 GMT; Secure; HttpOnly; Path=/; SameSite=Lax",
+      "oc-checksum": "MD5:c466c294cd5f0b6bec7d08fe222ed68f",
+      "accept-ranges": "bytes",
+      "content-security-policy": "default-src 'self' fonts.googleapis.com *.gstatic.com data: 'unsafe-inline' 'unsafe-eval' blob: zenodo-broker.web.cern.ch zenodo-broker-qa.web.cern.ch maxcdn.bootstrapcdn.com cdnjs.cloudflare.com ajax.googleapis.com webanalytics.web.cern.ch",
+      "x-content-type-options": "nosniff",
+      "x-download-options": "noopen",
+      "x-permitted-cross-domain-policies": "none",
+      "x-frame-options": "sameorigin",
+      "x-xss-protection": "1; mode=block",
+      "x-ratelimit-limit": "133",
+      "x-ratelimit-remaining": "132",
+      "x-ratelimit-reset": "1794114592",
+      "retry-after": "60",
+      "strict-transport-security": "max-age=31556926; includeSubDomains",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "x-source": "files-primary",
+      "connection": "close"
+    }
+  },
+  "zip_members": [
+    {
+      "name": "CHM_Tmax_1990_1999.nc",
+      "bytes": 3365947681,
+      "compressed_bytes": 773380951
+    }
+  ],
+  "netcdf_member": "CHM_Tmax_1990_1999.nc",
+  "netcdf_size_bytes": 3365947681,
+  "dimensions": {
+    "time": 3652,
+    "lon": 640,
+    "lat": 360
+  },
+  "variables": {
+    "time": {
+      "dimensions": [
+        "time"
+      ],
+      "shape": [
+        3652
+      ],
+      "dtype": "float64",
+      "units": "days since 1961-01-01",
+      "scale_factor": null,
+      "add_offset": null,
+      "long_name": "time"
+    },
+    "lon": {
+      "dimensions": [
+        "lon"
+      ],
+      "shape": [
+        640
+      ],
+      "dtype": "float64",
+      "units": "degrees_east",
+      "scale_factor": null,
+      "add_offset": null,
+      "long_name": "lon"
+    },
+    "lat": {
+      "dimensions": [
+        "lat"
+      ],
+      "shape": [
+        360
+      ],
+      "dtype": "float64",
+      "units": "degrees_north",
+      "scale_factor": null,
+      "add_offset": null,
+      "long_name": "lat"
+    },
+    "Tmax": {
+      "dimensions": [
+        "time",
+        "lat",
+        "lon"
+      ],
+      "shape": [
+        3652,
+        360,
+        640
+      ],
+      "dtype": "float32",
+      "units": "°C",
+      "scale_factor": null,
+      "add_offset": null,
+      "long_name": "Max Temperature "
+    }
+  },
+  "sample": {
+    "lat_min": 18.05,
+    "lat_max": 53.95,
+    "lon_min": 72.05,
+    "lon_max": 135.95,
+    "tmax_first_3days_20x20_min": null,
+    "tmax_first_3days_20x20_max": null,
+    "tmax_first_3days_20x20_mean": null
+  },
+  "started_at_utc": "2026-11-08T05:08:50.151134+00:00",
+  "completed_at_utc": "2026-11-08T05:10:26.533517+00:00",
+  "next_step": "Download only the 1990-1999, 2000-2009, 2010-2019 and 2020-2022 Tmax files; compute 1991-2020 county zonal summaries. No need to download other variables."
+}
