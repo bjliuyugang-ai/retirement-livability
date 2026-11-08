@@ -1,0 +1,51 @@
+{
+  "schema": "RET_PHASE1_ROSTER_SCOPE_CORRECTION_V1",
+  "created_at_utc": "2026-11-08",
+  "authoritative_master": "退休宜居城市_第一阶段全国首轮区域收敛_V2_20261107.xlsx",
+  "authoritative_scope": {
+    "existing_core_units": 20,
+    "new_deduplicated_expansion_units": 14,
+    "formal_phase1_evaluation_units": 34,
+    "national_representative_sample_units": 29,
+    "sample_screen_is_separate_from_formal_roster": true,
+    "sample_status_counts": {
+      "strong_pass": 4,
+      "conditional_keep": 7,
+      "pending": 6,
+      "sample_level_hardline_signal": 12
+    },
+    "expansion_preexclusions_pending_verification": [
+      "霞浦县城近海片区",
+      "勉县县城",
+      "利川城区"
+    ]
+  },
+  "correction": {
+    "invalidated_artifacts": [
+      "national_40_named_region_candidate_crosswalk_20261108.csv",
+      "national_40_named_region_candidate_crosswalk_20261108.json",
+      "national_40_region_disposition_20261108.csv",
+      "national_40_region_disposition_20261108.json"
+    ],
+    "reason": "把29个全国代表性气候样点与14个扩样候选混合去重，误作为正式居住候选池；并把12个样点级硬线信号误写成12个正式退出。",
+    "treatment": "原文件保留审计，不得用于候选池、正式退出数、A/B/C分级或阶段2名单；由34单元正式名册和29样点证据表分别管理。",
+    "previous_claim_12_formal_exits": "RETRACTED",
+    "formal_residential_exclusions_from_this_work": "0",
+    "three_preexclusions_are_not_final_exclusions": true
+  },
+  "valid_work_preserved": {
+    "screened_R1_evidence_points": 214,
+    "climate_hardline_signal_candidates": 176,
+    "altitude_point_warnings": 27,
+    "note": "214点位批量筛查及其证据保留；点位触线不能直接替代实际住宅片区核验。"
+  },
+  "next_action": "RET-PHASE1-7-HARDLINE-SOURCE-VERIFICATION-025",
+  "next_action_scope": "只核验7个有最高决策价值的硬线/冲突项目；每项一次主源+一次替代源，仍缺失即PENDING，停止单点追索。",
+  "governance": [
+    "缺失参数保持待核，不记为失败或D档",
+    "12个样点触发只作样点信号，不作为正式退出数量",
+    "不将百色城区样点外推至百色·靖西",
+    "不将29样点与34正式候选合并",
+    "第二、三阶段名单不缩减"
+  ]
+}
