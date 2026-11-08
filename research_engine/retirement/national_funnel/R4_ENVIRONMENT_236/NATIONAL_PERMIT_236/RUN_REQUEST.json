@@ -8,16 +8,29 @@
     "include_previous_pending": 58
   },
   "industry_codes": [
-    "C26",
-    "C32",
+    "C3211",
     "N7724",
-    "C25",
-    "C30",
-    "C31",
-    "D44",
-    "C22"
+    "C2614"
   ],
   "max_pages_per_city_category": 3,
   "max_detail_per_city": 10,
-  "rule": "Never exclude for missing records, incomplete pagination, company presence or permit pollutants alone; stop on site errors and persist pending state; all 236 remain in R4."
+  "rule": "Never exclude for missing records, incomplete pagination, company presence or permit pollutants alone; stop on site errors and persist pending state; all 236 remain in R4.",
+  "revision": 2,
+  "execution_goal": "Repair root causes found in prior national batch: use official verified precise industry codes C3211/N7724/C2614 and bootstrap public session before fetching permit details. Prefer candidate-code business-registration matches for detail sampling; permit code prefix is NOT a facility location substitute.",
+  "industry_names": [
+    "铜冶炼",
+    "危险废物治理",
+    "有机化学原料制造"
+  ],
+  "previous_run_id": 42466352739,
+  "previous_run_findings": {
+    "municipal_groups_queried": 60,
+    "total_groups": 61,
+    "permit_records": 74,
+    "detail_rows": 40,
+    "facility_coords_extracted": 0,
+    "city_industry_query_complete": 2,
+    "total_attempted": 480
+  },
+  "guardrails": "All 236 remain; sparse/sampled records not treated as absence, no facility location inferred from registration code; original batch preserved for audit."
 }
