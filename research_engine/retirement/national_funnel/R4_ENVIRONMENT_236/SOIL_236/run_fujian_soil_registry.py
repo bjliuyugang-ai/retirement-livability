@@ -78,7 +78,7 @@ def main():
   name=c["name"]
   name_short=re.sub(r"(区|县|市)$","",name)
   full=r["site_name"]+" "+r["address"]
-  if (len(name_short)>=3 and name in full) or (len(name_short)>=3 and name_short in full):
+  if name in full or (len(name_short)>=3 and name_short in full):
    # Avoid common substring trap: e.g. "安宁" within unrelated names.
    return True
   return False
