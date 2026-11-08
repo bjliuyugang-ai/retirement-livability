@@ -3,7 +3,6 @@ on:
   push:
     branches: [main]
     paths:
-      - '.github/workflows/retirement-national-r4-environment-236.yml'
       - 'research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/run_r4_environment_236.py'
       - 'research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/R4_236_SCOPE_LOCK.json'
   workflow_dispatch:
@@ -34,11 +33,11 @@ jobs:
           path: research_engine/retirement/national_funnel/R1/cache
           key: retirement-national-funnel-r1-inputs-v2-Linux
 
-      - name: Cache annual CHAP PM2.5 and O3 1km files
+      - name: Cache all R4 source inputs including CHAP, geometry and population grid
         uses: actions/cache@v4
         with:
-          path: research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/cache/chap
-          key: retirement-r4-236-chap-annual-v1-${{ runner.os }}
+          path: research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/cache
+          key: retirement-r4-236-inputs-v1-${{ runner.os }}
 
       - name: Install geospatial and NetCDF dependencies
         run: |
