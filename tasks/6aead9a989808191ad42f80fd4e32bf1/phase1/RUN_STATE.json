@@ -15,32 +15,29 @@
     "git_blob_sha": "7fee4dab2531010d3a90563bd4b31d4f574c97d6"
   },
   "last_verified_run": {
-    "run_id": "GHA-42434214142",
-    "action_id": "RET-CASCADE-NATIONAL-34-REGION-POOL-CROSSWALK-021",
-    "result_id": "RES-NATIONAL-40-NAMED-REGION-CROSSWALK-20261108-42434214142",
-    "execution_status": "EXECUTED_WITH_VERIFIED_NAMED_REGION_CROSSWALK",
+    "run_id": "GHA-42434491753",
+    "action_id": "RET-CASCADE-NATIONAL-40-REGION-DISPOSITION-022",
+    "result_id": "RES-NATIONAL-40-REGION-DISPOSITION-20261108-42434491753",
+    "execution_status": "EXECUTED_WITH_VERIFIED_40_REGION_DISPOSITION",
     "engineering_status": "PASS",
-    "research_delta_status": "DELTA_VERIFIED_40_NAMED_REGION_CROSSWALK_TO_214_R1_POINTS",
+    "research_delta_status": "DELTA_VERIFIED_40_NAMED_REGION_KEEP_PENDING_PREEXIT_DISPOSITION",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/national_40_named_region_candidate_crosswalk_20261108.json",
-    "evidence_sha256": "23cc68d1ce9de40298cf63f95c210e4a54fda2809ab28a4f86c6dc70b61132ff",
-    "region_csv_path": "research_engine/retirement/status/national_40_named_region_candidate_crosswalk_20261108.csv",
-    "region_csv_sha256": "2011ca1cdc705f4af5d1367e70732a63aa2c0e753df21f97a33ed29111b92e53",
+    "evidence_path": "research_engine/retirement/status/national_40_region_disposition_20261108.json",
+    "evidence_sha256": "4a135fab20ec10d9ca7e46e2410e833bd29b8eed64a857a04743c78ef4337149",
+    "region_csv_path": "research_engine/retirement/status/national_40_region_disposition_20261108.csv",
+    "region_csv_sha256": "3e510e344216bc1c53b04303dcc51a541e5c366fbf6a278addd757dc2b06cca6",
     "named_region_units": 40,
-    "exact_code_match_units": 18,
-    "no_exact_match_units": 22,
-    "matched_climate_signal_units": 10,
-    "altitude_point_warning_units": 3,
-    "all_214_climate_signal_candidates": 176,
-    "all_214_altitude_point_warnings": 27,
+    "existing_sample_hardline_exit_units": 12,
+    "new_hardline_preexit_units": 3,
+    "temperature_conflict_units": 1,
+    "altitude_split_units": 1,
+    "priority_keep_units": 4,
     "formal_residential_exclusions": 0,
     "formal_valid_county_screenings": 0,
     "all_2847_carry_forward": true,
-    "status": "POSTCHECK_PASS",
-    "evidence_git_blob_sha": "71f4eb7f67d128d7a02633ad9b83e5186ccb8910",
-    "region_csv_git_blob_sha": "9b1418b5bc9a6157e5fe219db67001e32e593a45"
+    "status": "WRITEBACK_PENDING"
   },
-  "last_completed_action_id": "RET-CASCADE-NATIONAL-34-REGION-POOL-CROSSWALK-021",
+  "last_completed_action_id": "RET-CASCADE-NATIONAL-40-REGION-DISPOSITION-022",
   "closed_result_refs": [
     "RES-CLIMATE-12POINT-20261106",
     "RES-SPATIAL-ENGINEERING-42244926780",
@@ -78,19 +75,20 @@
     "RES-NATIONAL-73-EXISTING-EVIDENCE-HARD-SCREEN-20261108-42432941043",
     "RES-NATIONAL-SHORT-HISTORY-127R1-126R2-HARD-SCREEN-20261108-42433374537",
     "RES-NATIONAL-14-LONG-R1-ONLY-AND-214-ROLLUP-20261108-42433856408",
-    "RES-NATIONAL-40-NAMED-REGION-CROSSWALK-20261108-42434214142"
+    "RES-NATIONAL-40-NAMED-REGION-CROSSWALK-20261108-42434214142",
+    "RES-NATIONAL-40-REGION-DISPOSITION-20261108-42434491753"
   ],
   "active_action": {
-    "action_id": "RET-CASCADE-NATIONAL-40-REGION-DISPOSITION-022",
-    "question_id": "Q_FINALIZE_PHASE1_40_NAMED_REGION_KEEP_PENDING_EXIT",
-    "decision": "基于40个去重后的具体居住片区交叉映射结果，直接形成第一阶段保留/待核/硬线退出清单。对原始29个样点中的已触线样点保留退出状态；214点位新增信号只在能精确对应住宅片区时升级退出，城市多区/盆地只按具体住宅分片。不得把D档当作硬线缓冲区；缺失参数待定；第二、三阶段名单不缩减。",
-    "method": "逐项审阅40行交叉表，按既有样点证据、精确县区码、站点/ERA5口径冲突、日照缺失和实际住宅海拔形成四类处置；对硬线退出只保留最小具体片区，不扩展为全省/全市淘汰。输出第一阶段首轮候选池更新稿与明确的下一轮最少补证清单。",
-    "expected_evidence": "40个区域逐项最终处置；硬线退出数、优先保留数、条件保留数、待核数；冲突点与最少补证动作；不再返回2847全县参数表。",
-    "pass_criteria": "形成可直接使用的第一阶段候选池更新结果；退出/待核/保留边界明确；每个待核项只有一次补证或明确搁置动作。",
-    "fallback": "单一区域一轮匹配仍缺数据则保持待核，立即处理下一地区；不得阻塞整批。",
+    "action_id": "RET-CASCADE-NATIONAL-7-EXIT-SOURCE-VERIFICATION-023",
+    "question_id": "Q_VERIFY_4_NEW_HARDLINE_SIGNALS_AND_3_EXISTING_PREEXITS",
+    "decision": "下一轮只核实7个最有价值的硬线退出信号：新信号百色、武都、伊宁、荣成，以及原有预排除霞浦、勉县、利川。其余待核区域不阻塞，暂时搁置；优先保留/条件保留片区继续进入后续环境和居住质量轮次。",
+    "method": "对百色一次核验451002站1991-2020逐月平均日最高温冲突；对武都、伊宁、荣成一次确认站点坐标与实际城区住宅区的代表性；对霞浦、勉县、利川一次获取官方原始站值或统一统计期数据。一次原始源+一次替代源；仍不能确认则标记待核，不反复追索。任何确认触线的具体住宅片区直接退出，不放D。",
+    "expected_evidence": "7个区域逐项原始值、站点坐标、住宅片区距离/代表性、硬线确认状态、退出/待核结论；未确认者明确原因。",
+    "pass_criteria": "7项均完成一次主源与替代源验证或明确标记待核；确认硬线者退出第一阶段候选池；不减少第二、三阶段名单。",
+    "fallback": "一次主源+一次替代源仍无证据时转PENDING并停止单点追索，继续其他候选区域。",
     "status": "READY",
     "timebox_end": "2026-11-08T15:26:00Z",
-    "last_run_id": "42434214142"
+    "last_run_id": "42434491753"
   },
   "phase": "NATIONWIDE_1991_2020_CLIMATE_DATA_SCALING_AFTER_COMPLETE_R0_R5_MISSING_AUDIT",
   "milestone_deadline": {
@@ -105,8 +103,8 @@
     "verified_commit": "761d11aeed0fd46fa907723866910ae2498d25ec",
     "verified_at": "2026-11-08T01:25:54.973618+00:00"
   },
-  "updated_at": "2026-11-08T01:25:54.973637+00:00",
-  "state_revision": 81,
+  "updated_at": "2026-11-08T01:30:00.349130+00:00",
+  "state_revision": 82,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -533,5 +531,27 @@
     "stage2_stage3_lists_not_reduced": true,
     "evidence_path": "research_engine/retirement/status/national_40_named_region_candidate_crosswalk_20261108.json",
     "region_csv": "research_engine/retirement/status/national_40_named_region_candidate_crosswalk_20261108.csv"
+  },
+  "phase1_40_region_disposition": {
+    "result_id": "RES-NATIONAL-40-REGION-DISPOSITION-20261108-42434491753",
+    "named_region_units": 40,
+    "existing_sample_hardline_exit_units": 12,
+    "new_hardline_preexit_units": 3,
+    "temperature_conflict_units": 1,
+    "altitude_split_units": 1,
+    "priority_keep_units": 4,
+    "disposition_counts": {
+      "优先保留": 4,
+      "条件保留｜按2000m住宅海拔分片": 1,
+      "条件保留": 13,
+      "硬线冲突待一次复核（不进入D档）": 1,
+      "待核": 6,
+      "退出第一阶段该样点候选池": 12,
+      "新增硬线预排除（住宅点确认后退出）": 3
+    },
+    "formal_residential_exclusions": 0,
+    "stage2_stage3_lists_unchanged": true,
+    "evidence_path": "research_engine/retirement/status/national_40_region_disposition_20261108.json",
+    "region_csv": "research_engine/retirement/status/national_40_region_disposition_20261108.csv"
   }
 }

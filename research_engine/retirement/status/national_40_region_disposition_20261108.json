@@ -1,0 +1,42 @@
+{
+  "schema": "RET_PHASE1_40_NAMED_REGION_FINAL_DISPOSITION_DRAFT_V1",
+  "created_at_utc": "2026-11-08T01:30:00.304344+00:00",
+  "source_crosswalk_result": "RET_PHASE1_NAMED_REGION_POOL_29_PLUS_14_CROSSWALK_V1",
+  "input_region_units": 40,
+  "disposition_counts": {
+    "优先保留": 4,
+    "条件保留｜按2000m住宅海拔分片": 1,
+    "条件保留": 13,
+    "硬线冲突待一次复核（不进入D档）": 1,
+    "待核": 6,
+    "退出第一阶段该样点候选池": 12,
+    "新增硬线预排除（住宅点确认后退出）": 3
+  },
+  "existing_sample_hardline_exit_units": 12,
+  "new_hardline_preexit_units": 3,
+  "temperature_conflict_units": 1,
+  "altitude_split_units": 1,
+  "priority_keep_units": 4,
+  "formal_residential_exclusions": 0,
+  "next_batch_focus": [
+    "百色城区：核验33.017℃四月均值与现有31.0℃单月值冲突",
+    "武都城区及台地：冬季9.864℃，确认站点与住宅点代表性",
+    "伊宁市城区：冬季0.776℃，强硬线预排除",
+    "荣成城区：冬季3.694℃，强硬线预排除",
+    "霞浦、勉县、利川：完成一次原始来源/统计期复核；未复核前保留预排除，不恢复候选"
+  ],
+  "governance": {
+    "hardline_failures_not_D": true,
+    "missing_parameters_pending": true,
+    "phase2_phase3_lists_unchanged": true,
+    "all_2847_carry_forward": true
+  },
+  "limitations": [
+    "This is a named residential-area disposition draft, not yet a final formal residential exclusion.",
+    "The 214 evidence points are county/station/ERA5 points; they must be tied to the named dwelling micro-area.",
+    "The 4 new hard-line signals are kept separate from the 12 existing V2 exits until one site-representativeness check.",
+    "Kunming and Mengzi residential samples are below 2000m; their high DEM points are not residential altitude failures.",
+    "Dali's named residential altitude range crosses 2000m and must be split.",
+    "Missing values remain PENDING, never D or failed."
+  ]
+}
