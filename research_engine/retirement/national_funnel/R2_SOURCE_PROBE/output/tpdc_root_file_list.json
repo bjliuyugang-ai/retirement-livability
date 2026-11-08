@@ -1,0 +1,91 @@
+{
+  "code": "200",
+  "flag": true,
+  "message": "操作成功",
+  "data": [
+    {
+      "id": "3311b1c7-3df2-407c-9fde-94e017ce9243",
+      "name": "5Northwest",
+      "ext": "",
+      "size": 216293903724,
+      "type": "dir",
+      "download": 0,
+      "path": "0ae99103-cb2e-4557-a203-2d97cf04e980/5Northwest",
+      "description": null,
+      "tsCreated": "2024-09-10 13:42:22",
+      "tsUpdated": "2024-09-10 13:42:22",
+      "metadataId": "0ae99103-cb2e-4557-a203-2d97cf04e980",
+      "parentId": "af7e5690-c244-4033-8e56-83f53ee98321"
+    },
+    {
+      "id": "21fb539f-fbaa-4c57-b9cc-14027a29d8e7",
+      "name": "4Northeast",
+      "ext": "",
+      "size": 291732971547,
+      "type": "dir",
+      "download": 0,
+      "path": "0ae99103-cb2e-4557-a203-2d97cf04e980/4Northeast",
+      "description": null,
+      "tsCreated": "2024-09-10 13:42:22",
+      "tsUpdated": "2024-09-10 13:42:22",
+      "metadataId": "0ae99103-cb2e-4557-a203-2d97cf04e980",
+      "parentId": "af7e5690-c244-4033-8e56-83f53ee98321"
+    },
+    {
+      "id": "f67f0d4f-8a57-4b48-a6eb-75b822d77187",
+      "name": "Regionpologon",
+      "ext": "",
+      "size": 586940,
+      "type": "dir",
+      "download": 0,
+      "path": "0ae99103-cb2e-4557-a203-2d97cf04e980/Regionpologon",
+      "description": null,
+      "tsCreated": "2024-09-10 13:42:22",
+      "tsUpdated": "2024-09-10 13:42:22",
+      "metadataId": "0ae99103-cb2e-4557-a203-2d97cf04e980",
+      "parentId": "af7e5690-c244-4033-8e56-83f53ee98321"
+    },
+    {
+      "id": "60db54ea-3591-47b1-845f-c666aa34b3bb",
+      "name": "3Southern",
+      "ext": "",
+      "size": 355602580659,
+      "type": "dir",
+      "download": 0,
+      "path": "0ae99103-cb2e-4557-a203-2d97cf04e980/3Southern",
+      "description": null,
+      "tsCreated": "2024-09-10 13:42:22",
+      "tsUpdated": "2024-09-10 13:42:22",
+      "metadataId": "0ae99103-cb2e-4557-a203-2d97cf04e980",
+      "parentId": "af7e5690-c244-4033-8e56-83f53ee98321"
+    },
+    {
+      "id": "12cc9afb-ef14-4077-bb28-73b73e587567",
+      "name": "1Central",
+      "ext": "",
+      "size": 647816169877,
+      "type": "dir",
+      "download": 0,
+      "path": "0ae99103-cb2e-4557-a203-2d97cf04e980/1Central",
+      "description": null,
+      "tsCreated": "2024-09-10 13:42:22",
+      "tsUpdated": "2024-09-10 13:42:22",
+      "metadataId": "0ae99103-cb2e-4557-a203-2d97cf04e980",
+      "parentId": "af7e5690-c244-4033-8e56-83f53ee98321"
+    },
+    {
+      "id": "dcb4c122-bad4-41b6-85fc-874298d37e10",
+      "name": "2Southwest",
+      "ext": "",
+      "size": 390956160703,
+      "type": "dir",
+      "download": 0,
+      "path": "0ae99103-cb2e-4557-a203-2d97cf04e980/2Southwest",
+      "description": null,
+      "tsCreated": "2024-09-10 13:42:22",
+      "tsUpdated": "2024-09-10 13:42:22",
+      "metadataId": "0ae99103-cb2e-4557-a203-2d97cf04e980",
+      "parentId": "af7e5690-c244-4033-8e56-83f53ee98321"
+    }
+  ]
+}
