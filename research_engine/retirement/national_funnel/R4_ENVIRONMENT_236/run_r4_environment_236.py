@@ -475,11 +475,12 @@ def main():
             "inhabited_1km_cells":reg["inhabited_cells"] if reg else "",
             "worldpop_2024_relative_weight_sum":reg["population_weight_sum"] if reg else "",
             "PM25_2000_2025_population_weighted_mean":None,
+            "PM25_2023_2025_three_year_mean":None,"PM25_2023_2025_gt30_current_transition":None,"PM25_2023_2025_gt25_2031":None,
             "PM25_2000_2025_cell_p10":None,"PM25_2000_2025_cell_p50":None,"PM25_2000_2025_cell_p90":None,
             "PM25_early_2000_2004_mean":None,"PM25_mid_2011_2020_mean":None,"PM25_recent_2021_2025_mean":None,
-            "PM25_recent_minus_early":None,"PM25_years_count_candidate_mean_gt35":None,
+            "PM25_recent_minus_early":None,"PM25_years_count_candidate_mean_gt30_current_transition":None,"PM25_years_count_candidate_mean_gt25_2031":None,"PM25_years_count_candidate_mean_gt35_legacy":None,
             "PM25_population_share_longterm_cells_gt15":None,"PM25_population_share_longterm_cells_gt25":None,
-            "PM25_population_share_longterm_cells_gt35":None,
+            "PM25_population_share_longterm_cells_gt30_current_transition":None,"PM25_population_share_longterm_cells_gt35_legacy":None,
             "O3_2000_2025_population_weighted_mean":None,
             "O3_2000_2025_cell_p10":None,"O3_2000_2025_cell_p50":None,"O3_2000_2025_cell_p90":None,
             "O3_early_2000_2004_mean":None,"O3_mid_2011_2020_mean":None,"O3_recent_2021_2025_mean":None,
@@ -492,7 +493,7 @@ def main():
             row["PM25_"+str(year)]=annual[code]["PM25"].get(year)
             row["O3_"+str(year)]=annual[code]["O3"].get(year)
         if reg:
-            pm_stats=longterm_region_stats(pm_long,reg,[15,25,35])
+            pm_stats=longterm_region_stats(pm_long,reg,[15,25,30,35])
             o3_stats=longterm_region_stats(o3_long,reg)
             pm_vals=[annual[code]["PM25"].get(y) for y in YEARS]
             o3_vals=[annual[code]["O3"].get(y) for y in YEARS]
@@ -500,18 +501,24 @@ def main():
                 x=[annual[code]["PM25"].get(y) for y in years] if vals=="PM25" else [annual[code]["O3"].get(y) for y in years]
                 x=[v for v in x if v is not None and np.isfinite(v)]
                 return float(np.mean(x)) if x else None
-            pm_early=avg("PM25",range(2000,2005)); pm_mid=avg("PM25",range(2011,2021)); pm_recent=avg("PM25",range(2021,2026))
+            pm_early=avg("PM25",range(2000,2005)); pm_mid=avg("PM25",range(2011,2021)); pm_recent=avg("PM25",range(2021,2026)); pm_3y=avg("PM25",range(2023,2026))
             o3_early=avg("O3",range(2000,2005)); o3_mid=avg("O3",range(2011,2021)); o3_recent=avg("O3",range(2021,2026))
             pm_mean=avg("PM25",YEARS); o3_mean=avg("O3",YEARS)
             row.update({
                 "PM25_2000_2025_population_weighted_mean":pm_mean,
+                "PM25_2023_2025_three_year_mean":pm_3y,
+                "PM25_2023_2025_gt30_current_transition":(pm_3y>30) if pm_3y is not None else None,
+                "PM25_2023_2025_gt25_2031":(pm_3y>25) if pm_3y is not None else None,
                 "PM25_2000_2025_cell_p10":pm_stats.get("p10"),"PM25_2000_2025_cell_p50":pm_stats.get("p50"),"PM25_2000_2025_cell_p90":pm_stats.get("p90"),
                 "PM25_early_2000_2004_mean":pm_early,"PM25_mid_2011_2020_mean":pm_mid,"PM25_recent_2021_2025_mean":pm_recent,
                 "PM25_recent_minus_early":(pm_recent-pm_early) if pm_recent is not None and pm_early is not None else None,
-                "PM25_years_count_candidate_mean_gt35":sum(1 for y in YEARS if annual[code]["PM25"].get(y) is not None and annual[code]["PM25"][y]>35),
+                "PM25_years_count_candidate_mean_gt30_current_transition":sum(1 for y in YEARS if annual[code]["PM25"].get(y) is not None and annual[code]["PM25"][y]>30),
+                "PM25_years_count_candidate_mean_gt25_2031":sum(1 for y in YEARS if annual[code]["PM25"].get(y) is not None and annual[code]["PM25"][y]>25),
+                "PM25_years_count_candidate_mean_gt35_legacy":sum(1 for y in YEARS if annual[code]["PM25"].get(y) is not None and annual[code]["PM25"][y]>35),
                 "PM25_population_share_longterm_cells_gt15":pm_stats.get("population_share_gt_15"),
                 "PM25_population_share_longterm_cells_gt25":pm_stats.get("population_share_gt_25"),
-                "PM25_population_share_longterm_cells_gt35":pm_stats.get("population_share_gt_35"),
+                "PM25_population_share_longterm_cells_gt30_current_transition":pm_stats.get("population_share_gt_30"),
+                "PM25_population_share_longterm_cells_gt35_legacy":pm_stats.get("population_share_gt_35"),
                 "O3_2000_2025_population_weighted_mean":o3_mean,
                 "O3_2000_2025_cell_p10":o3_stats.get("p10"),"O3_2000_2025_cell_p50":o3_stats.get("p50"),"O3_2000_2025_cell_p90":o3_stats.get("p90"),
                 "O3_early_2000_2004_mean":o3_early,"O3_mid_2011_2020_mean":o3_mid,"O3_recent_2021_2025_mean":o3_recent,
@@ -543,6 +550,8 @@ def main():
         "air_grid_computed_count":sum(1 for x in output_rows if x["air_data_status"]=="COMPUTED_POPULATION_WEIGHTED_1KM_PROXY"),
         "air_grid_pending_count":sum(1 for x in output_rows if x["air_data_status"]!="COMPUTED_POPULATION_WEIGHTED_1KM_PROXY"),
         "pm25_2000_2025_mean_of_candidate_means":{"min":float(np.min(pm_computed)),"median":float(np.median(pm_computed)),"max":float(np.max(pm_computed))} if pm_computed else None,
+        "current_standard_GB3095_2026":{"effective_date":"2026-03-01","2026_to_2030_secondary_annual_PM25_limit_ugm3":30,"from_2031_secondary_annual_PM25_limit_ugm3":25,"official_source_url":"https://www.mee.gov.cn/ywdt/zbft/202602/t20260225_1144479.shtml"},
+        "PM25_2023_2025_three_year_proxy_screen":{"computed_count":sum(1 for x in output_rows if x.get("PM25_2023_2025_three_year_mean") is not None),"gt30_current_transition_count":sum(1 for x in output_rows if x.get("PM25_2023_2025_three_year_mean") is not None and x["PM25_2023_2025_three_year_mean"]>30),"gt25_2031_count":sum(1 for x in output_rows if x.get("PM25_2023_2025_three_year_mean") is not None and x["PM25_2023_2025_three_year_mean"]>25)},
         "o3_2000_2025_mean_of_candidate_means":{"min":float(np.min(o3_computed)),"median":float(np.median(o3_computed)),"max":float(np.max(o3_computed))} if o3_computed else None,
         "chap_sources":{
             "PM25_2000_2021":{"record_id":PM_OLD_RECORD,"doi":"10.5281/zenodo.6398971","years":"2000-2021","resolution":"1km annual Y1K V4"},
@@ -566,13 +575,14 @@ def main():
             "spatial_unit":"exact code/name matched provisional county polygons; county is only an indexing unit",
             "grid":"CHAP 1km annual PM2.5 and ground-level O3, population-weighted using WorldPop 2024 1km unconstrained cells",
             "period":"2000-2025 inclusive",
-            "statistics":"annual population-weighted mean; 26-year cell-mean weighted P10/P50/P90; early/mid/recent period means; PM2.5 population share over 15/25/35",
+            "statistics":"annual population-weighted mean; 2023-2025 three-year proxy mean; 26-year cell-mean weighted P10/P50/P90; early/mid/recent period means; PM2.5 population share over 15/25/30/35",
             "scope":"screening signal only; no county-wide residential exposure or legal compliance claim",
             "limits":["WorldPop 2024 is a modelled population surface, not a building/address register.",
                 "County polygon is a provisional third-party boundary; nine candidates lack exact code/name geometry and remain pending.",
                 "A county average can conceal valley/basin/industrial corridor differences; future stage must split actual inhabited residential subareas.",
                 "CHAP are model-derived gridded concentration estimates, not official regulatory monitoring at a dwelling.",
-                "PM2.5 35 ug/m3 is shown only as a reference line for a modeled signal, not an automatic hard-exclusion rule.",
+                "GB 3095—2026 is effective from 2026-03-01: PM2.5 annual secondary reference is 30 ug/m3 during 2026-2030 and 25 ug/m3 from 2031. The 35 ug/m3 line is retained only as historical GB 3095—2012 context.",
+                "The 2023-2025 CHAP three-year mean is a modelled proxy, not the official station-based three-year sliding evaluation under HJ 663—2026.",
                 "O3 annual Y1K metric must be interpreted using its dataset definition; do not substitute it for the regulatory MDA8 90th-percentile metric.",
                 "No missing data are treated as failures; no R4 exclusions or formal grades are authorized by this batch."]
         },
