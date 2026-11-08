@@ -19,5 +19,14 @@
     "altitude_exception": "any observed inhabited sample <=2000m retains the unit",
     "altitude_strong_fail": "all 10 samples >2000m with unsampled inhabited cells remains pending"
   },
-  "updated_at_utc": "2026-11-08T04:40:00Z"
+  "updated_at_utc": "2026-11-08T04:45:00Z",
+  "current_run_role": "UNCONSTRAINED_POPULATION_SENSITIVITY_ONLY",
+  "formal_result_status": "NOT_FINAL_PENDING_SETTLEMENT_MASK_CROSSWALK",
+  "population_methodology_caveat": [
+    "WorldPop R2024B unconstrained is not a direct upgrade to R2025A constrained; the two are different releases/models and their population totals are not directly comparable.",
+    "WorldPop unconstrained can allocate nonzero population to all land cells, including areas that may not be residential.",
+    "The active run is retained as a rural-omission sensitivity test, not as the final residential-cell mask."
+  ],
+  "formal_primary_method": "WorldPop R2025A constrained settlement cells, supplemented by independently supported rural-settlement exceptions",
+  "rural_exception_rule": "An unconstrained-only cell is not accepted as residential solely because its population estimate is positive; it needs independent settlement/building evidence or a strong population threshold and spatial context. Otherwise mark the county/local area pending."
 }
