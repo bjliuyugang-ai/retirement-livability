@@ -1,0 +1,136 @@
+{
+  "schema": "PERMIT_DETAIL_RUNTIME_COMPARE_V1",
+  "utc": "2026-11-08T09:43:07.587156+00:00",
+  "samples": [
+    {
+      "company": "大连程顺理士再生资源技术发展有限公司",
+      "permit_no": "91210211MA10TMWJ6U001V",
+      "exact": {
+        "src_length": 16705,
+        "src_title": [
+          "许可信息公开内容"
+        ],
+        "initial_has_token": true,
+        "latitude_token": true,
+        "longitude_token": true,
+        "has_company": true,
+        "coords_input_tags": [
+          "<input type=\"hidden\" id=\"longitude\" value=\"121.80463\"/>",
+          "<input type=\"hidden\" id=\"latitude\" value=\"39.49752\"/>"
+        ],
+        "xkgk_marker": true,
+        "source_prefix": "\r\n\r\n\r\n\r\n\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n\r\n<meta http-equiv=\"Pragma\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Cache-Control\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Expires\" content=\"0\" />\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=EmulateIE8\"/>\r\n \r\n \r\n \r\n\r\n\r\n\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/thscommon/style/artDialog/aero.css\" />\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/baiduStatistics.js\"></script>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/json2.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.artDialog.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/My97DatePicker/WdatePicker.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.media.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/upload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/exportWord.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/swfupload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/handlers.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/fileprogress.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/content.js\"></script>\r\n<!--validate start  -->\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/validationEngine.jquery.css\" type=\"text/css\" />\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engin"
+      },
+      "detail_one": {
+        "status": "PUBLIC_DETAIL_FETCHED",
+        "lon": 121.80463,
+        "lat": 39.49752,
+        "error": ""
+      }
+    },
+    {
+      "company": "大连金来源金属物资有限公司",
+      "permit_no": "91210211MA0UG5PD06001V",
+      "exact": {
+        "src_length": 20741,
+        "src_title": [
+          "许可信息公开内容"
+        ],
+        "initial_has_token": true,
+        "latitude_token": true,
+        "longitude_token": true,
+        "has_company": true,
+        "coords_input_tags": [
+          "<input type=\"hidden\" id=\"longitude\" value=\"121.58904\"/>",
+          "<input type=\"hidden\" id=\"latitude\" value=\"39.03144\"/>"
+        ],
+        "xkgk_marker": true,
+        "source_prefix": "\r\n\r\n\r\n\r\n\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n\r\n<meta http-equiv=\"Pragma\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Cache-Control\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Expires\" content=\"0\" />\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=EmulateIE8\"/>\r\n \r\n \r\n \r\n\r\n\r\n\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/thscommon/style/artDialog/aero.css\" />\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/baiduStatistics.js\"></script>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/json2.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.artDialog.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/My97DatePicker/WdatePicker.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.media.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/upload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/exportWord.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/swfupload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/handlers.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/fileprogress.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/content.js\"></script>\r\n<!--validate start  -->\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/validationEngine.jquery.css\" type=\"text/css\" />\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engin"
+      },
+      "detail_one": {
+        "status": "PUBLIC_DETAIL_FETCHED",
+        "lon": 121.58904,
+        "lat": 39.03144,
+        "error": ""
+      }
+    },
+    {
+      "company": "大连中瀛废油回收有限公司",
+      "permit_no": "91210211MA104JX88D001V",
+      "exact": {
+        "src_length": 18145,
+        "src_title": [
+          "许可信息公开内容"
+        ],
+        "initial_has_token": true,
+        "latitude_token": true,
+        "longitude_token": true,
+        "has_company": true,
+        "coords_input_tags": [
+          "<input type=\"hidden\" id=\"longitude\" value=\"121.66845\"/>",
+          "<input type=\"hidden\" id=\"latitude\" value=\"39.03634\"/>"
+        ],
+        "xkgk_marker": true,
+        "source_prefix": "\r\n\r\n\r\n\r\n\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n\r\n<meta http-equiv=\"Pragma\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Cache-Control\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Expires\" content=\"0\" />\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=EmulateIE8\"/>\r\n \r\n \r\n \r\n\r\n\r\n\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/thscommon/style/artDialog/aero.css\" />\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/baiduStatistics.js\"></script>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/json2.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.artDialog.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/My97DatePicker/WdatePicker.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.media.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/upload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/exportWord.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/swfupload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/handlers.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/fileprogress.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/content.js\"></script>\r\n<!--validate start  -->\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/validationEngine.jquery.css\" type=\"text/css\" />\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engin"
+      },
+      "detail_one": {
+        "status": "PUBLIC_DETAIL_FETCHED",
+        "lon": 121.66845,
+        "lat": 39.03634,
+        "error": ""
+      }
+    },
+    {
+      "company": "大连市懋源环保科技有限公司",
+      "permit_no": "91210211MAD00RK1XC001V",
+      "exact": {
+        "src_length": 19052,
+        "src_title": [
+          "许可信息公开内容"
+        ],
+        "initial_has_token": true,
+        "latitude_token": true,
+        "longitude_token": true,
+        "has_company": true,
+        "coords_input_tags": [
+          "<input type=\"hidden\" id=\"longitude\" value=\"121.66600\"/>",
+          "<input type=\"hidden\" id=\"latitude\" value=\"39.06416\"/>"
+        ],
+        "xkgk_marker": true,
+        "source_prefix": "\r\n\r\n\r\n\r\n\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n\r\n<meta http-equiv=\"Pragma\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Cache-Control\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Expires\" content=\"0\" />\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=EmulateIE8\"/>\r\n \r\n \r\n \r\n\r\n\r\n\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/thscommon/style/artDialog/aero.css\" />\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/baiduStatistics.js\"></script>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/json2.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.artDialog.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/My97DatePicker/WdatePicker.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.media.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/upload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/exportWord.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/swfupload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/handlers.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/fileprogress.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/content.js\"></script>\r\n<!--validate start  -->\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/validationEngine.jquery.css\" type=\"text/css\" />\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engin"
+      },
+      "detail_one": {
+        "status": "PUBLIC_DETAIL_FETCHED",
+        "lon": 121.666,
+        "lat": 39.06416,
+        "error": ""
+      }
+    },
+    {
+      "company": "光大环保能源（宁海）有限公司（应急填埋）",
+      "permit_no": "913302260714507468002Z",
+      "exact": {
+        "src_length": 19000,
+        "src_title": [
+          "许可信息公开内容"
+        ],
+        "initial_has_token": true,
+        "latitude_token": true,
+        "longitude_token": true,
+        "has_company": true,
+        "coords_input_tags": [
+          "<input type=\"hidden\" id=\"longitude\" value=\"121.48952\"/>",
+          "<input type=\"hidden\" id=\"latitude\" value=\"29.28254\"/>"
+        ],
+        "xkgk_marker": true,
+        "source_prefix": "\r\n\r\n\r\n\r\n\r\n\r\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n\r\n<meta http-equiv=\"Pragma\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Cache-Control\" content=\"no-cache\" /> \r\n<meta http-equiv=\"Expires\" content=\"0\" />\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=EmulateIE8\"/>\r\n \r\n \r\n \r\n\r\n\r\n\r\n\r\n\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"/perxxgkinfo/thscommon/style/artDialog/aero.css\" />\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/baiduStatistics.js\"></script>\r\n\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/json2.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.artDialog.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/My97DatePicker/WdatePicker.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/jquery.media.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/upload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/javascript/exportWord.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/swfupload.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/handlers.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/util/xzxk/swfupload/fileprogress.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/content.js\"></script>\r\n<!--validate start  -->\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engine-master/css/validationEngine.jquery.css\" type=\"text/css\" />\r\n<link rel=\"stylesheet\" href=\"/perxxgkinfo/thscommon/javascript/jQuery-Validation-Engin"
+      },
+      "detail_one": {
+        "status": "PUBLIC_DETAIL_FETCHED",
+        "lon": 121.48952,
+        "lat": 29.28254,
+        "error": ""
+      }
+    }
+  ]
+}
