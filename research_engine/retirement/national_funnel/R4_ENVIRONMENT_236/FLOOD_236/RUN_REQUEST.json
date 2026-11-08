@@ -1,8 +1,6 @@
 {
   "run_date": "2026-11-08",
-  "scope": "ALL_236_NO_PREMATURE_EXCLUSIONS",
-  "source": "World Bank GAR Atlas 1km return period 100 years modeled river flood extent",
-  "population_weight_source": "WorldPop 2024 cached from R1",
-  "status": "TRIGGER_FIRST_COUNTRYWIDE_GIS_OVERLAY",
-  "policy": "No source/geometry missingness is failure; do not exclude or grade solely from county flood model. Preserve all 236."
+  "revision": 2,
+  "scope": "ALL_236",
+  "reason": "First run successfully downloaded 51.7MB GAR flood raster; positive numeric raster cells represent flood footprint rather than binary 0/1. Recompute 236 polygon overlay using >0 hazard presence and retain strict no-exclusion policy."
 }
