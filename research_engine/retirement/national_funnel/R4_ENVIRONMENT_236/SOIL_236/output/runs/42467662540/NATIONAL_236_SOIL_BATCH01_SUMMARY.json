@@ -1,0 +1,29 @@
+{
+  "schema": "RETIREMENT_R4_NATIONAL_236_SOIL_SITE_REGISTRY_BATCH01",
+  "created_at_utc": "2026-11-08T09:33:22.000517+00:00",
+  "candidate_count": 236,
+  "source_province": "福建省",
+  "candidate_count_in_source_province": 26,
+  "source_url": "https://sthjt.fujian.gov.cn/zwgk/ywxx/wrfz/202607/t20260723_7191457.htm",
+  "source_date": "2026-07-21",
+  "registry_date": "2026-06",
+  "page_sha256": "ee31ab8eeef2b4879d62f2776749c6eb28caa1282fe92e586832ae67819f956c",
+  "page_bytes": 131749,
+  "html_tables_found": 2,
+  "registry_tables_with_data": 1,
+  "active_site_rows": 20,
+  "fujian_candidate_units_with_text_matched_sites": 0,
+  "fujian_candidate_units_without_matched_sites": 26,
+  "nonfujian_candidate_pending": 210,
+  "candidate_matched_sites": [],
+  "unmatched_sites": 20,
+  "formal_R4_exclusions": 0,
+  "candidate_count_remaining": 236,
+  "site_level_rule": "Active restricted parcel must not be treated as eligible for residential development until officially removed. This is parcel-specific, not automatic removal of a county or other safely located residential areas.",
+  "source_scope_limit": [
+    "Only Fujian active 2026-06 registry is integrated in this batch. All other provinces pending.",
+    "Text match is preliminary; multiple or absent county string is not evidence of no sites.",
+    "Source has separate removed-site appendix and must not be mixed with active list.",
+    "No address geocoding/site-candidate residential polygon overlay has yet been completed."
+  ]
+}
