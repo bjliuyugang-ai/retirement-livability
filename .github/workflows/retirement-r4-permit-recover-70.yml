@@ -1,0 +1,65 @@
+name: Retirement R4 recover geospatial coordinates for national permit sample
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/RECOVER_REQUEST.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  recover-70-public-facility-coordinates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install geometry
+        run: python -m pip install --disable-pip-version-check shapely
+      - name: Sequentially retrieve 70 official detail pages with audited public sessions
+        run: python -u research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/recover_70_facility_coordinates.py
+      - name: Validate candidate retention
+        run: |
+          python - <<'PY'
+          import csv,json,pathlib
+          p=pathlib.Path("research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/output")
+          with (p/"NATIONAL_236_PERMIT_FACILITY_MATCH_REPAIRED_70.csv").open(encoding="utf-8-sig",newline="") as f: x=list(csv.DictReader(f))
+          d=json.loads((p/"NATIONAL_236_PERMIT_DETAIL_COORDINATES_RECOVERY_SUMMARY.json").read_text(encoding="utf-8"))
+          assert len(x)==236 and len(set(v["code"] for v in x))==236
+          assert d["source_detail_pages"]==70 and d["formal_exclusions"]==0
+          print("RECOVER70_RESULT",d["details_with_coords"],d["candidate_count_with_a_sampled_actual_facility"])
+          PY
+      - name: Upload corrected evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retirement-r4-permit-recovered-70-${{ github.run_id }}
+          path: |
+            research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/output/NATIONAL_236_PERMIT_DETAIL_COORDINATES_RECOVERED_70.csv
+            research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/output/NATIONAL_236_PERMIT_FACILITY_MATCH_REPAIRED_70.csv
+            research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/output/NATIONAL_236_PERMIT_DETAIL_COORDINATES_RECOVERY_SUMMARY.json
+          retention-days: 30
+      - name: Persist immutable correction result
+        if: always()
+        run: |
+          p=research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/output
+          if [ ! -f "$p/NATIONAL_236_PERMIT_DETAIL_COORDINATES_RECOVERY_SUMMARY.json" ]; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p "$p/recovered_runs/${{ github.run_id }}"
+          cp "$p/NATIONAL_236_PERMIT_DETAIL_COORDINATES_RECOVERED_70.csv" "$p/recovered_runs/${{ github.run_id }}/"
+          cp "$p/NATIONAL_236_PERMIT_FACILITY_MATCH_REPAIRED_70.csv" "$p/recovered_runs/${{ github.run_id }}/"
+          cp "$p/NATIONAL_236_PERMIT_DETAIL_COORDINATES_RECOVERY_SUMMARY.json" "$p/recovered_runs/${{ github.run_id }}/"
+          git add "$p/recovered_runs/${{ github.run_id }}"
+          git commit -m "Record audited public permit coordinates recovery for national 236"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 3
+          done
