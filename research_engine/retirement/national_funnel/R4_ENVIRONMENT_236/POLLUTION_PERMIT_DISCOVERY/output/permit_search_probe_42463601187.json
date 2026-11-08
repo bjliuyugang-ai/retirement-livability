@@ -1,0 +1,394 @@
+{
+  "schema": "MEE_PERMIT_READ_ONLY_QUERY_PROBE_V1",
+  "created_at_utc": "2026-11-08T08:37:14.258449+00:00",
+  "credentials_used": false,
+  "write_actions": false,
+  "initial_page": {
+    "status": 200,
+    "url": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!licenseInformation.action",
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 26842,
+    "hidden_fields": {
+      "page.pageNo": "1",
+      "page.orderBy": "",
+      "page.order": "",
+      "tempReportKey": "fce7b711a2b44f08ac498f0de4c98bcd"
+    }
+  },
+  "province_endpoint": {
+    "status": 200,
+    "url": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!getRegions.action",
+    "content_type": "application/json;charset=UTF-8",
+    "count": 32,
+    "sample": [
+      {
+        "regionname": "北京市",
+        "regioncode": "110000000000",
+        "parentcode": "000000000000"
+      },
+      {
+        "regionname": "天津市",
+        "regioncode": "120000000000",
+        "parentcode": "000000000000"
+      },
+      {
+        "regionname": "河北省",
+        "regioncode": "130000000000",
+        "parentcode": "000000000000"
+      },
+      {
+        "regionname": "山西省",
+        "regioncode": "140000000000",
+        "parentcode": "000000000000"
+      },
+      {
+        "regionname": "内蒙古自治区",
+        "regioncode": "150000000000",
+        "parentcode": "000000000000"
+      },
+      {
+        "regionname": "辽宁省",
+        "regioncode": "210000000000",
+        "parentcode": "000000000000"
+      },
+      {
+        "regionname": "吉林省",
+        "regioncode": "220000000000",
+        "parentcode": "000000000000"
+      },
+      {
+        "regionname": "黑龙江省",
+        "regioncode": "230000000000",
+        "parentcode": "000000000000"
+      }
+    ]
+  },
+  "target_province": {
+    "regionname": "云南省",
+    "regioncode": "530000000000",
+    "parentcode": "000000000000"
+  },
+  "cities": {
+    "status": 200,
+    "count": 16,
+    "items": [
+      {
+        "regionname": "昆明市",
+        "regioncode": "530100000000",
+        "parentcode": "530000000000"
+      },
+      {
+        "regionname": "曲靖市",
+        "regioncode": "530300000000",
+        "parentcode": "530000000000"
+      },
+      {
+        "regionname": "玉溪市",
+        "regioncode": "530400000000",
+        "parentcode": "530000000000"
+      },
+      {
+        "regionname": "保山市",
+        "regioncode": "530500000000",
+        "parentcode": "530000000000"
+      },
+      {
+        "regionname": "昭通市",
+        "regioncode": "530600000000",
+        "parentcode": "530000000000"
+      },
+      {
+        "regionname": "丽江市",
+        "regioncode": "530700000000",
+        "parentcode": "530000000000"
+      },
+      {
+        "regionname": "普洱市",
+        "regioncode": "530800000000",
+        "parentcode": "530000000000"
+      },
+      {
+        "regionname": "临沧市",
+        "regioncode": "530900000000",
+        "parentcode": "530000000000"
+      },
+      {
+        "regionname": "楚雄彝族自治州",
+        "regioncode": "532300000000",
+        "parentcode": "530000000000"
+      },
+      {
+        "regionname": "红河哈尼族彝族自治州",
+        "regioncode": "532500000000",
+        "parentcode": "530000000000"
+      },
+      {
+        "regionname": "文山壮族苗族自治州",
+        "regioncode": "532600000000",
+        "parentcode": "530000000000"
+      },
+      {
+        "regionname": "西双版纳傣族自治州",
+        "regioncode": "532800000000",
+        "parentcode": "530000000000"
+      },
+      {
+        "regionname": "大理白族自治州",
+        "regioncode": "532900000000",
+        "parentcode": "530000000000"
+      },
+      {
+        "regionname": "德宏傣族景颇族自治州",
+        "regioncode": "533100000000",
+        "parentcode": "530000000000"
+      },
+      {
+        "regionname": "怒江傈僳族自治州",
+        "regioncode": "533300000000",
+        "parentcode": "530000000000"
+      },
+      {
+        "regionname": "迪庆藏族自治州",
+        "regioncode": "533400000000",
+        "parentcode": "530000000000"
+      }
+    ]
+  },
+  "target_city": {
+    "regionname": "昆明市",
+    "regioncode": "530100000000",
+    "parentcode": "530000000000"
+  },
+  "kunming_query": {
+    "status": 200,
+    "url": "https://permit.mee.gov.cn/perxxgkinfo/syssb/xkgg/xkgg!licenseInformation.action",
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 26993,
+    "page_count_text": [
+      "199"
+    ],
+    "parsed_table_rows": 11,
+    "sample_rows": [
+      {
+        "cells": [
+          "省/直辖市",
+          "地市",
+          "许可证编号",
+          "单位名称",
+          "行业类别",
+          "有效期限",
+          "发证日期",
+          "管理类别",
+          "查看"
+        ],
+        "links": []
+      },
+      {
+        "cells": [
+          "云南省",
+          "昆明市",
+          "91530100MA7MELTJ3P001V",
+          "云南昶电新能源科技有限公司",
+          "危险废物治理",
+          "2026-11-05至2031-11-04",
+          "2026-11-05",
+          "重点管理",
+          ""
+        ],
+        "links": [
+          {
+            "href": "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContent&dataid=2eda21bad6094e8c87d6deb73f3ab53f",
+            "onclick": null,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "cells": [
+          "云南省",
+          "昆明市",
+          "91530100775519713B005U",
+          "昆明城市污水处理运营有限责任公司（昆明市第六水质净化厂）",
+          "污水处理及其再生利用",
+          "2025-08-22至2030-08-21",
+          "2025-08-22",
+          "重点管理",
+          ""
+        ],
+        "links": [
+          {
+            "href": "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContent&dataid=39149e960a5141908b8e42700485096e",
+            "onclick": null,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "cells": [
+          "云南省",
+          "昆明市",
+          "91530100775519713B006Q",
+          "昆明城市污水处理运营有限责任公司（昆明市第一水质净化厂）",
+          "污水处理及其再生利用",
+          "2025-10-09至2030-10-08",
+          "2025-10-09",
+          "重点管理",
+          ""
+        ],
+        "links": [
+          {
+            "href": "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContent&dataid=a03e439020c9438e92c7065619a1f656",
+            "onclick": null,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "cells": [
+          "云南省",
+          "昆明市",
+          "91530100775519713B012Y",
+          "昆明城市污水处理运营有限责任公司（捞鱼河污水处理厂）",
+          "污水处理及其再生利用",
+          "2023-11-30至2028-11-29",
+          "2023-11-30",
+          "重点管理",
+          ""
+        ],
+        "links": [
+          {
+            "href": "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContent&dataid=255a2f57ddb549a695a5ff3093533bef",
+            "onclick": null,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "cells": [
+          "云南省",
+          "昆明市",
+          "91530100MA6PEXQG3A001V",
+          "贵研化学材料（云南）有限公司",
+          "化学试剂和助剂制造",
+          "2024-09-11至2029-09-10",
+          "2024-09-11",
+          "重点管理",
+          ""
+        ],
+        "links": [
+          {
+            "href": "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContent&dataid=8e892f05241246c29dbdeb4f32e1f0a2",
+            "onclick": null,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "cells": [
+          "云南省",
+          "昆明市",
+          "91530100MA6KKEQ68F004P",
+          "云南铜业股份有限公司西南铜业分公司（安宁）",
+          "铜冶炼",
+          "2026-11-02至2031-11-01",
+          "2026-11-02",
+          "重点管理",
+          ""
+        ],
+        "links": [
+          {
+            "href": "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContent&dataid=ffd28bc05b0443a9940dda57241ffc4e",
+            "onclick": null,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "cells": [
+          "云南省",
+          "昆明市",
+          "91530122678743721A001Q",
+          "云南锦达磷化工有限公司",
+          "磷肥制造",
+          "2025-11-13至2030-11-12",
+          "2025-11-13",
+          "重点管理",
+          ""
+        ],
+        "links": [
+          {
+            "href": "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContent&dataid=197ce1e00fb14a6190832bda1ad693a6",
+            "onclick": null,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "cells": [
+          "云南省",
+          "昆明市",
+          "91530181MA6L23MKXN001W",
+          "昆明欣宝模具有限公司",
+          "模具制造",
+          "2025-06-16至2030-06-15",
+          "2025-06-16",
+          "简化管理",
+          ""
+        ],
+        "links": [
+          {
+            "href": "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContent&dataid=57a5bcc27bf44fe3b2811a309ffbc6b9",
+            "onclick": null,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "cells": [
+          "云南省",
+          "昆明市",
+          "91530000916543996F008U",
+          "中国航空油料有限责任公司云南分公司（机场油库）",
+          "油气仓储",
+          "2026-11-03至2031-11-02",
+          "2026-10-28",
+          "简化管理",
+          ""
+        ],
+        "links": [
+          {
+            "href": "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContent&dataid=aa2c3d8485c4498393f801fa69a1b82d",
+            "onclick": null,
+            "text": ""
+          }
+        ]
+      },
+      {
+        "cells": [
+          "云南省",
+          "昆明市",
+          "91530100775519692T001U",
+          "昆明滇池物流有限责任公司",
+          "环境卫生管理",
+          "2022-01-19至2027-01-18",
+          "2022-01-19",
+          "简化管理",
+          ""
+        ],
+        "links": [
+          {
+            "href": "/perxxgkinfo/xkgkAction!xkgk.action?xkgk=getxxgkContent&dataid=32af4da81ce84b98b0b2026980750507",
+            "onclick": null,
+            "text": ""
+          }
+        ]
+      }
+    ],
+    "result_markers": [
+      "共199页\n\n\n\n        \n        \n\t\t\t&nbsp;",
+      "共和国生态环境部",
+      "共和国生态环境部"
+    ],
+    "contains_license_rows": true
+  }
+}
