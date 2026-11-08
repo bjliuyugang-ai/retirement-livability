@@ -1,0 +1,33 @@
+{
+  "schema": "R4_PM25_GB3095_2026_REFERENCE_CORRECTION_V1",
+  "input_count": 236,
+  "computed_count": 227,
+  "geometry_pending_count": 9,
+  "current_standard": {
+    "standard": "GB 3095—2026",
+    "effective_date": "2026-03-01",
+    "2026_to_2030_secondary_annual_PM25_limit_ugm3": 30,
+    "from_2031_secondary_annual_PM25_limit_ugm3": 25,
+    "source": "https://www.mee.gov.cn/ywdt/zbft/202602/t20260225_1144479.shtml"
+  },
+  "screening_results": {
+    "PM25_2023_2025_three_year_mean_gt30_count": 0,
+    "PM25_2023_2025_three_year_mean_gt25_count": 4,
+    "PM25_2023_2025_three_year_mean_max_ugm3": 27.09162139892578,
+    "PM25_2023_2025_three_year_mean_median_ugm3": 20.428433736165363,
+    "PM25_2021_2025_five_year_mean_gt30_count": 0,
+    "PM25_2021_2025_five_year_mean_gt25_count": 3,
+    "PM25_2025_annual_mean_gt30_count": 0,
+    "PM25_2025_annual_mean_gt25_count": 4,
+    "PM25_2021_2025_five_year_mean_max_ugm3": 27.129420471191406,
+    "PM25_2025_annual_mean_max_ugm3": 26.68927764892578,
+    "PM25_2000_2025_long_term_mean_gt35_count_legacy_only": 8
+  },
+  "interpretation": "No computed candidate exceeds the GB 3095—2026 transitional secondary annual reference of 30 µg/m³ on the CHAP 2023-2025 three-year mean or 2025 annual proxy. Four candidates exceed 25 µg/m³ on the 2023-2025 proxy; this is a forward-looking verification priority for the 2031 standard, not a current failure. Modelled grid values are not official monitoring compliance determinations. Nine candidates remain geometry-pending and are not counted.",
+  "caveats": [
+    "The 2023-2025 three-year mean is constructed from annual CHAP modelled values; it is not the official station-based three-year sliding evaluation under HJ 663—2026.",
+    "WorldPop population weighting and provisional county geometry are spatial proxies.",
+    "The former 35 µg/m³ GB 3095—2012 annual secondary limit was superseded on 2026-03-01; it is retained only as historical context.",
+    "No formal exclusion or grade change is made from this correction."
+  ]
+}
