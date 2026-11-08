@@ -100,7 +100,7 @@ def zenodo_record_files(record_id):
         checksum = str(item.get("checksum") or "")
         md5 = checksum.split(":")[-1] if ":" in checksum else None
         links = item.get("links") or {}
-        file_url = links.get("download") or links.get("self")
+        file_url = links.get("content") or links.get("download") or links.get("self")
         if not file_url and key:
             file_url = "https://zenodo.org/records/"+str(record_id)+"/files/"+key+"?download=1"
         if key:
@@ -295,7 +295,8 @@ def read_candidate_set():
     return rows, summary, {"input_count":236,"R1_clear_carry_forward":carry,"R1_only_pending":r1_only,"R2_R3_climate_data_pending":climate_pending,"R1_total_pending":r1_pending}
 
 def load_geometry():
-    p=CACHE/"china_county.geojson"
+    r1p=FUNNEL/"R1"/"cache"/"china_county.geojson"
+    p=r1p if r1p.exists() and sha_file(r1p)==GEOMETRY_SHA256 else CACHE/"china_county.geojson"
     if not p.exists() or sha_file(p)!=GEOMETRY_SHA256:
         download(GEOMETRY_URL,p)
     if sha_file(p)!=GEOMETRY_SHA256:
@@ -312,7 +313,8 @@ def load_geometry():
     return geo
 
 def load_population_raster():
-    p=CACHE/POP_FILE
+    r1p=FUNNEL/"R1"/"cache"/POP_FILE
+    p=r1p if r1p.exists() and r1p.stat().st_size >= 100_000_000 else CACHE/POP_FILE
     if not p.exists() or p.stat().st_size < 100_000_000:
         download(POP_URL,p)
     return p
@@ -520,7 +522,10 @@ def main():
         row.update(context.get(code,{}))
         output_rows.append(row)
 
-    fields=list(output_rows[0].keys())
+    fields=[]
+    for item in output_rows:
+        for key in item.keys():
+            if key not in fields: fields.append(key)
     air_csv=OUT/"R4_AIR_236_1KM_2000_2025.csv"
     with air_csv.open("w",encoding="utf-8-sig",newline="") as f:
         w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(output_rows)
