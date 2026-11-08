@@ -103,12 +103,26 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "WRITEBACK_PENDING",
-    "initiated_at": "2026-11-08T01:47:17.049Z",
-    "reason": "seven-item one-pass review and next 34-unit classification"
+    "status": "POSTCHECK_PASS",
+    "verified_at": "2026-11-08T01:48:09.893Z",
+    "checks": {
+      "queue_rows": 7,
+      "audit_items": 7,
+      "roster_rows": 34,
+      "sample_rows": 29,
+      "formal_exits": 0,
+      "log_present": true,
+      "prior_40_quarantined": true
+    },
+    "verified_artifacts": [
+      "research_engine/retirement/status/phase1_7_hardline_source_review_outcome_20261108.csv",
+      "research_engine/retirement/status/phase1_7_hardline_source_review_outcome_20261108.json",
+      "research_engine/retirement/status/phase1_official_34_evaluation_units_v2_20261107.csv",
+      "research_engine/retirement/status/phase1_29_representative_sample_screen_v2_20261107.csv"
+    ]
   },
-  "updated_at": "2026-11-08T01:47:17.049Z",
-  "state_revision": 86,
+  "updated_at": "2026-11-08T01:48:09.893Z",
+  "state_revision": 87,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -607,6 +621,7 @@
     "csv": "research_engine/retirement/status/phase1_7_hardline_source_review_outcome_20261108.csv",
     "audit": "research_engine/retirement/status/phase1_7_hardline_source_review_outcome_20261108.json",
     "strongest_signal": "伊宁站冬季均值0.776℃，但360个月中312条为climat来源；尚需官方逐月值与住宅代表性核验。",
-    "direct_official_evidence": "勉县2001—2020年日照1396h，官方环评资料；需统一到1991—2020基期。"
+    "direct_official_evidence": "勉县2001—2020年日照1396h，官方环评资料；需统一到1991—2020基期。",
+    "remote_readback": "POSTCHECK_PASS"
   }
 }
