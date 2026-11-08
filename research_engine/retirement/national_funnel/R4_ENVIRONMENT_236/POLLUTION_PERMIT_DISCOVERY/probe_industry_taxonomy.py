@@ -4,6 +4,7 @@ import json,re,http.cookiejar,pathlib
 from datetime import datetime,timezone
 from html.parser import HTMLParser
 from urllib.request import Request,build_opener,HTTPCookieProcessor
+from urllib.parse import urlencode
 BASE="https://permit.mee.gov.cn"
 PAGE=BASE+"/perxxgkinfo/syssb/xkgg/xkgg!licenseInformation.action"
 TREE=BASE+"/perxxgkinfo/common/tree/xzxk-common-trade!selectHylist.action?hyids=&hytype=more"
@@ -21,8 +22,11 @@ class P(HTMLParser):
   if self.links and x:self.links[-1]["text"]+=x
 def main():
  cj=http.cookiejar.CookieJar();op=build_opener(HTTPCookieProcessor(cj))
- def get(url,ref):
-  req=Request(url,headers={"User-Agent":UA,"Accept":"text/html,*/*","Referer":ref})
+ def get(url,ref,data=None):
+  payload=urlencode(data).encode("utf-8") if data is not None else None
+  headers={"User-Agent":UA,"Accept":"text/html,application/json,*/*","Referer":ref}
+  if payload is not None:headers["Content-Type"]="application/x-www-form-urlencoded; charset=UTF-8"
+  req=Request(url,data=payload,headers=headers)
   with op.open(req,timeout=45) as r:return r.status,r.geturl(),r.read().decode("utf-8","replace")
  ps,pu,ph=get(PAGE,PAGE)
  ts,tu,th=get(TREE,PAGE)
@@ -41,7 +45,17 @@ def main():
   "inputs":p.inputs,"scripts":p.scripts,"links":p.links[:80],"keyword_snippets":snippets}
  root=pathlib.Path("research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output")
  root.mkdir(parents=True,exist_ok=True)
+ api=BASE+"/perxxgkinfo/common/tree/xzxk-common-trade!hynodeslist.action"
+ tests=[{"nodecode":"","name":"","hyids":""},{"id":"","nodecode":"","name":"","hyids":""},{"nodecode":"","name":"铜冶炼","hyids":""},{"nodecode":"","name":"危险废物治理","hyids":""}]
+ out["node_api_probes"]=[]
+ for form in tests:
+  try:
+   code,url,body=get(api,TREE,form)
+   try: j=json.loads(body);summary={"kind":type(j).__name__,"len":len(j) if hasattr(j,"__len__") else None,"sample":j[:16] if isinstance(j,list) else j}
+   except Exception:summary={"kind":"non_json","sample":body[:1600]}
+   out["node_api_probes"].append({"form":form,"status":code,"url":url,"content":summary})
+  except Exception as ex:out["node_api_probes"].append({"form":form,"error":repr(ex)})
  (root/"industry_taxonomy_probe.json").write_text(json.dumps(out,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
  (root/"industry_taxonomy_page.html").write_text(th,encoding="utf-8")
- print("INDUSTRY_TREE",json.dumps({"status":ts,"bytes":len(th),"text":txt[:4000],"scripts":p.scripts,"inputs":p.inputs},ensure_ascii=False),flush=True)
+ print("INDUSTRY_TREE",json.dumps({"status":ts,"bytes":len(th),"text":txt[:4000],"scripts":p.scripts,"inputs":p.inputs,"node_api_probes":out["node_api_probes"]},ensure_ascii=False),flush=True)
 if __name__=="__main__":main()
