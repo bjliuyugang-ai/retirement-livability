@@ -1,0 +1,155 @@
+{
+  "schema": "RETIREMENT_R4_NATIONAL_236_GUANGDONG_ACTIVE_SOIL_SITES",
+  "generated_at_utc": "2026-11-08T09:38:48.789120+00:00",
+  "candidate_count": 236,
+  "guangdong_candidates": 30,
+  "active_site_pages_expected": 8,
+  "pages": [
+    {
+      "page": 1,
+      "url": "https://www-app.gdeei.cn/gdeepub/data/construction-land?clName=&page=1&state=1",
+      "http_bytes": 34848,
+      "sha256": "280991d357a05e7205ae3879f186171a84b12c17378072a1ee3e5489c76492fb",
+      "table_count": 3,
+      "data_row_count": 11,
+      "reported_pages": [
+        "8"
+      ]
+    },
+    {
+      "page": 2,
+      "url": "https://www-app.gdeei.cn/gdeepub/data/construction-land?clName=&page=2&state=1",
+      "http_bytes": 35272,
+      "sha256": "cbdc771580e357c875143821643fb2c2cbc8a6b3c03255def10dadbe523fdbd7",
+      "table_count": 3,
+      "data_row_count": 10,
+      "reported_pages": [
+        "8"
+      ]
+    },
+    {
+      "page": 3,
+      "url": "https://www-app.gdeei.cn/gdeepub/data/construction-land?clName=&page=3&state=1",
+      "http_bytes": 35589,
+      "sha256": "f82276253a5b9397854d5fbb324b07cc65761812da5edfaea1e5d09f962fea33",
+      "table_count": 3,
+      "data_row_count": 11,
+      "reported_pages": [
+        "8"
+      ]
+    },
+    {
+      "page": 4,
+      "url": "https://www-app.gdeei.cn/gdeepub/data/construction-land?clName=&page=4&state=1",
+      "http_bytes": 34630,
+      "sha256": "4734815b76b3ec52d7d07ca36c09c74becbd3c2a05fb9657008f2cdc4e0716ce",
+      "table_count": 3,
+      "data_row_count": 10,
+      "reported_pages": [
+        "8"
+      ]
+    },
+    {
+      "page": 5,
+      "url": "https://www-app.gdeei.cn/gdeepub/data/construction-land?clName=&page=5&state=1",
+      "http_bytes": 36189,
+      "sha256": "8132fba629244dbb5154e175ca721a8f48d4a1aa3a0794f2d96750ad1c674a1b",
+      "table_count": 3,
+      "data_row_count": 11,
+      "reported_pages": [
+        "8"
+      ]
+    },
+    {
+      "page": 6,
+      "url": "https://www-app.gdeei.cn/gdeepub/data/construction-land?clName=&page=6&state=1",
+      "http_bytes": 35540,
+      "sha256": "c02c8d1e1c3542fd7d8db237a48b86b0984cd9561bfebd86033c6fe21fbcff1c",
+      "table_count": 3,
+      "data_row_count": 11,
+      "reported_pages": [
+        "8"
+      ]
+    },
+    {
+      "page": 7,
+      "url": "https://www-app.gdeei.cn/gdeepub/data/construction-land?clName=&page=7&state=1",
+      "http_bytes": 34764,
+      "sha256": "b79b651493b032f2f6940b03fecb710d345a54df33235f1d70b9b12f004910bc",
+      "table_count": 3,
+      "data_row_count": 11,
+      "reported_pages": [
+        "8"
+      ]
+    },
+    {
+      "page": 8,
+      "url": "https://www-app.gdeei.cn/gdeepub/data/construction-land?clName=&page=8&state=1",
+      "http_bytes": 28359,
+      "sha256": "df4fd090a451a05b025b644b0d361326da249efb94982aab20d6460159dfa124",
+      "table_count": 3,
+      "data_row_count": 5,
+      "reported_pages": [
+        "8"
+      ]
+    }
+  ],
+  "raw_rows": 80,
+  "unique_active_sites": 73,
+  "matched_candidate_units": 2,
+  "matched_sites": 6,
+  "matched_candidates": [
+    {
+      "code": "440307",
+      "name": "龙岗区",
+      "sites": [
+        {
+          "name": "坪地街道2号地块",
+          "address": "深圳市龙岗区坪地街道六联社区三坑水库东南侧",
+          "stage": "正在编制风险管控/修复方案"
+        },
+        {
+          "name": "坪地街道1号地块",
+          "address": "深圳市龙岗区坪地街道六联社区三坑水库东南侧",
+          "stage": "正在编制风险管控/修复方案"
+        },
+        {
+          "name": "雄鑫五金地块",
+          "address": "深圳市龙岗区宝龙街道同乐社区",
+          "stage": "正在实施风险管控/修复"
+        }
+      ]
+    },
+    {
+      "code": "441322",
+      "name": "博罗县",
+      "sites": [
+        {
+          "name": "惠州市康邦贸易有限公司地块（产权权利人证件号码91441322MA520H0D06）",
+          "address": "博罗县湖镇镇东风村委会孟径地段",
+          "stage": "正在实施风险管控/修复"
+        },
+        {
+          "name": "博罗县石湾裕腾油料加工厂地块",
+          "address": "惠州市博罗县石湾镇中岗村李岗小组 北纬:23.148163°，东经:113.870586°",
+          "stage": "正在编制风险管控/修复方案"
+        },
+        {
+          "name": "博罗县龙溪镇盛泰化工厂地块",
+          "address": "广东省惠州市博罗县龙溪街道小蓬岗村老围村小组",
+          "stage": "正在编制风险管控/修复方案"
+        }
+      ]
+    }
+  ],
+  "other_provinces_pending": 206,
+  "county_exclusions": 0,
+  "candidate_count_remaining": 236,
+  "limits": [
+    "Portals' active state=1 was queried, not the removed-site list.",
+    "Only Guangdong sites; no county with missing records is assumed clean.",
+    "County matching is literal address/name token only, not parcel polygon or residential exposure.",
+    "A listing may constrain specific land use but cannot automatically exclude a city or county.",
+    "2026-09-03 portal update date is as displayed at retrieval; check source and current delistings before site decision."
+  ]
+}
