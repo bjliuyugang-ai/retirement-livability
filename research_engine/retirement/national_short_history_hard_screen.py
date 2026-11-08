@@ -103,6 +103,8 @@ def main():
  temp_union=set(w_hits)|set(s_hits)
  combined=set(temp_union)|set(sunfail)
  alt_only=alt_hits-temp_union-sunfail
+ sun_by_code={x["candidate_code"]:num(x.get("R2_sunshine_rough_annual_hours_during_available_years")) for x in out2}
+ no_temp_and_sun_missing=sum(1 for x in out1 if not x["winter_lt10_signal"] and not x["summer_ge32_signal"] and sun_by_code.get(x["candidate_code"]) is None)
  all_ids=codes|r2codes
  if len(all_ids)!=128: # 127 R1 + 126 R2, with 125 overlap => 128
   raise RuntimeError(f"R1_R2_SHORT_UNION_EXPECTED_128_GOT_{len(all_ids)}")
@@ -129,7 +131,7 @@ def main():
    "altitude_only_no_temperature_or_sunshine_trigger":len(alt_only)},
   "combined_short_cohort":{"temperature_or_sunshine_signal_candidates":len(combined),
    "altitude_point_warning_candidates":len(alt_hits),"altitude_only_cases":len(alt_only),
-   "no_known_climate_trigger_but_sunshine_missing":len([x for x in out1 if x["preliminary_classification"]=="NO_TEMPERATURE_TRIGGER_PENDING_SUNSHINE"]),
+   "no_known_climate_trigger_but_sunshine_missing":no_temp_and_sun_missing,
    "formal_region_exclusions":0},
   "temperature_signal_candidates":[{"code":x["candidate_code"],"name":x["candidate_name"],
    "winter_lt10":x["winter_lt10_signal"],"summer_ge32":x["summer_ge32_signal"]} for x in out1 if x["winter_lt10_signal"] or x["summer_ge32_signal"]],
