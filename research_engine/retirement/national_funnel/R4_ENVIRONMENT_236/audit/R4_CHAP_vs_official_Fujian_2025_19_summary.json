@@ -1,0 +1,18 @@
+{
+  "schema": "R4_CHAP_OFFICIAL_FUJIAN_PM25_CROSSCHECK_V1",
+  "candidate_count": 19,
+  "comparison": "CHAP 2025 1km population-weighted county proxy versus official 2025 county annual PM2.5 figures",
+  "mean_CHAP_minus_official_ugm3": 4.096280951248972,
+  "median_CHAP_minus_official_ugm3": 4.027011871337891,
+  "mean_absolute_difference_ugm3": 4.096280951248972,
+  "min_difference_ugm3": 0.12805557250976562,
+  "max_difference_ugm3": 7.874250411987305,
+  "positive_difference_count": 19,
+  "pearson_correlation": -0.18244883788753963,
+  "interpretation": "CHAP estimates are higher than official county annual values for all 19 matched Fujian candidates (mean difference about 4.1 µg/m³; correlation is weakly negative). This is a material cross-source discrepancy, not proof that either source is wrong because the spatial aggregation and modelling methods differ. Keep CHAP as a screening layer only; do not use it alone for formal exclusion or grading. Cross-check source definitions, spatial footprints and official monitoring data.",
+  "limitations": [
+    "CHAP is a model-derived 1km surface aggregated with WorldPop 2024 weights.",
+    "Official figures are county-level annual values; exact spatial footprints and monitoring aggregation may differ.",
+    "Only 19 of the 236 candidates have this matched official comparison in the current evidence."
+  ]
+}
