@@ -1,4 +1,4 @@
 {
-  "date": "2026-11-08T09:05Z",
-  "scope": "Rebuild five permit records with corrected whitespace regex and exact company address/industry/admin fields; spatial match unchanged."
+  "date": "2026-11-08T09:10Z",
+  "scope": "Rebuild geospatial permit evidence with corrected single-backslash regexes for exact address, industry and administrative area."
 }
