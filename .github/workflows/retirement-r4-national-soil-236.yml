@@ -1,0 +1,64 @@
+name: Retirement R4 national 236 soil-contamination registry batch
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/SOIL_236/RUN_REQUEST.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  official-soil-site-registry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install HTML parser
+        run: python -m pip install --disable-pip-version-check beautifulsoup4
+      - name: Extract Fujian 2026-06 official active restricted parcels and match 236 canonical candidates
+        run: python -u research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/SOIL_236/run_fujian_soil_registry.py
+      - name: Validate 236 candidate rows
+        run: |
+          python - <<'PY'
+          import csv,json,pathlib
+          p=pathlib.Path("research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/SOIL_236/output")
+          with (p/"NATIONAL_236_SOIL_CONTAMINATED_SITE_CANDIDATE_MATRIX.csv").open(encoding="utf-8-sig",newline="") as f: rows=list(csv.DictReader(f))
+          d=json.loads((p/"NATIONAL_236_SOIL_BATCH01_SUMMARY.json").read_text(encoding="utf-8"))
+          assert len(rows)==236 and len({x["code"] for x in rows})==236
+          assert sum(x["province_code"]=="35" for x in rows)==26
+          assert all(x["county_level_hard_exclusion"]=="NO" for x in rows)
+          assert d["active_site_rows"]>=8
+          print("VALIDATED_SOIL_REGISTRY",d["active_site_rows"],d["fujian_candidate_units_with_text_matched_sites"])
+          PY
+      - name: Upload soil evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retirement-r4-national-soil-236-${{ github.run_id }}
+          path: research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/SOIL_236/output/
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Persist soil evidence
+        if: always()
+        run: |
+          p=research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/SOIL_236/output
+          if [ ! -f "$p/NATIONAL_236_SOIL_BATCH01_SUMMARY.json" ]; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p "$p/runs/${{ github.run_id }}"
+          cp "$p/"*.csv "$p/runs/${{ github.run_id }}/"
+          cp "$p/"*.json "$p/runs/${{ github.run_id }}/"
+          git add "$p/runs/${{ github.run_id }}"
+          git commit -m "Record 236-candidate soil hazard official parcel registry batch 01"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 3
+          done
