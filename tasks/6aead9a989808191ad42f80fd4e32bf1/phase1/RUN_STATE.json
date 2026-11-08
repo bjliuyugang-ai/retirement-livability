@@ -15,32 +15,33 @@
     "git_blob_sha": "7fee4dab2531010d3a90563bd4b31d4f574c97d6"
   },
   "last_verified_run": {
-    "run_id": "GHA-42432941043",
-    "action_id": "RET-CASCADE-NATIONAL-73-EXISTING-EVIDENCE-HARD-SCREEN-018",
-    "result_id": "RES-NATIONAL-73-EXISTING-EVIDENCE-HARD-SCREEN-20261108-42432941043",
-    "execution_status": "EXECUTED_WITH_VERIFIED_EXISTING_EVIDENCE_BATCH",
+    "run_id": "GHA-42433374537",
+    "action_id": "RET-CASCADE-NATIONAL-SHORT-HISTORY-R1_R2-SCREEN-019",
+    "result_id": "RES-NATIONAL-SHORT-HISTORY-127R1-126R2-HARD-SCREEN-20261108-42433374537",
+    "execution_status": "EXECUTED_WITH_VERIFIED_SHORT_HISTORY_BATCH",
     "engineering_status": "PASS",
-    "research_delta_status": "DELTA_VERIFIED_73_CANDIDATE_HARDLINE_SIGNAL_APPLICATION",
+    "research_delta_status": "DELTA_VERIFIED_127_R1_126_R2_SHORT_HISTORY_HARDLINE_APPLICATION",
     "research_closure_status": "OPEN",
-    "evidence_path": "research_engine/retirement/status/national_73_existing_evidence_hard_screen_20261108.json",
-    "evidence_sha256": "76ced055dacaf08f78b56410aa0aaaf9287d43d82ee60fbe7cb9f4dd795d7f03",
-    "county_csv_path": "research_engine/retirement/status/national_73_existing_evidence_hard_screen_20261108.csv",
-    "county_csv_sha256": "dccfd66666bde5a4cf09c2cb74b5cf8d91ac082e1f7f8a1d9bd13974a864a192",
-    "altitude_review_path": "research_engine/retirement/status/national_205_altitude_point_hardline_review_20261108.csv",
-    "altitude_review_sha256": "8ab7301b8803a608ec9aec99b5729d237b5cc5a899e11ea652d9dbdfa96d63c0",
-    "candidate_cohort": 73,
-    "climate_hardline_signal_candidates": 56,
-    "altitude_point_warning_candidates_in_73": 11,
-    "complete_climate_no_trigger": 12,
+    "evidence_path": "research_engine/retirement/status/national_short_history_hard_screen_20261108.json",
+    "evidence_sha256": "abf5a46f7cceccdee0339a4fb4246fb8627ab9dc56471234db9f6ccbda2514bb",
+    "R1_csv_path": "research_engine/retirement/status/national_127_short_history_R1_hard_screen_20261108.csv",
+    "R1_csv_sha256": "0184e7cea5a66e32856d405a20af0611023f5ad51e5ba6129d24860f126af0f6",
+    "R2_csv_path": "research_engine/retirement/status/national_126_short_history_R2_sunshine_review_20261108.csv",
+    "R2_csv_sha256": "3efaa8e29df7b933b33e23f08f45bd6d46f2bdce229fa47adf413bac85090abd",
+    "R1_short_candidates": 127,
+    "R2_short_candidates": 126,
+    "winter_lt10": 97,
+    "summer_ge32": 15,
+    "temperature_union_signals": 109,
+    "short_sunshine_measured": 9,
+    "short_sunshine_lt1800": 0,
+    "altitude_point_warnings": 16,
     "formal_valid_county_screenings": 0,
     "confirmed_county_exclusions": 0,
     "all_2847_carry_forward": true,
-    "status": "POSTCHECK_PASS",
-    "evidence_git_blob_sha": "f6a6ee876389a091166342102061e1322852120c",
-    "county_csv_git_blob_sha": "bb82102397abe1382e7c748c3f2f983313135923",
-    "altitude_review_git_blob_sha": "42835b7689713f9ed43713017aa62757368284ba"
+    "status": "WRITEBACK_PENDING"
   },
-  "last_completed_action_id": "RET-CASCADE-NATIONAL-73-EXISTING-EVIDENCE-HARD-SCREEN-018",
+  "last_completed_action_id": "RET-CASCADE-NATIONAL-SHORT-HISTORY-R1_R2-SCREEN-019",
   "closed_result_refs": [
     "RES-CLIMATE-12POINT-20261106",
     "RES-SPATIAL-ENGINEERING-42244926780",
@@ -75,19 +76,20 @@
     "RES-R5-FUJIAN2025DEC-109_SOURCES_56_COUNTY-20261107",
     "RES-R5_4NEW_COUNTY_FINISHED_TAP_OUTLET_61_PARTIAL-20261107",
     "RES-2847_R1R2R3R4R5_UNIFIED_214_199_205_58_61-20261107",
-    "RES-NATIONAL-73-EXISTING-EVIDENCE-HARD-SCREEN-20261108-42432941043"
+    "RES-NATIONAL-73-EXISTING-EVIDENCE-HARD-SCREEN-20261108-42432941043",
+    "RES-NATIONAL-SHORT-HISTORY-127R1-126R2-HARD-SCREEN-20261108-42433374537"
   ],
   "active_action": {
-    "action_id": "RET-CASCADE-NATIONAL-SHORT-HISTORY-R1_R2-SCREEN-019",
-    "question_id": "Q_NATIONAL_SHORT_HISTORY_TEMPERATURE_SUNSHINE_HARDLINE_EXPANSION",
-    "decision": "在已完成73个较长历史气候证据候选的硬线信号筛查后，立即扩展至127个短历史温度候选及126个短历史降雨/日照候选；使用现有真实观测做一轮批量阈值信号筛查，不等待ScienceDB下载，不将短历史误称1991-2020常年值。缺项直接待定，完成一批即继续下一批。",
-    "method": "从已核验的Meteostat 180个月级别站点原始观测及现有全国2847联表提取最冷季/最热季平均日最高温和可用日照；冬季低于10、夏季达到32、年日照低于1800仅作为短历史单向硬线信号；保留逐站统计期、月覆盖、坐标和海拔。与长历史73批次分层，不混算、不以降雨代替日照。高海拔站点只触发住宅海拔复核。",
-    "expected_evidence": "127个R1短历史温度候选、126个R2短历史降雨/日照候选的实际读取数、各参数有效覆盖、硬线信号交集、逐个候选清单、来源哈希、缺项与统计期；输出仅为预筛信号，不冒充住宅正式排除。",
-    "pass_criteria": "实际处理已有短历史记录并产生逐候选阈值结果；所有缺失标记PENDING；不将15年观测称为30年气候常年值；不减少阶段2/3名单。",
-    "fallback": "已有短历史源无法提供指定指标时，仅对该指标标记NO_DATA_PENDING并继续其他指标及其他候选，不在单个县区反复追数；ScienceDB下载失败不阻塞本动作。",
+    "action_id": "RET-CASCADE-NATIONAL-14-LONG-R1-ONLY-AND-REGION-CROSSWALK-020",
+    "question_id": "Q_REMAINING_14_LONG_R1_ONLY_AND_REGION_LEVEL_CANDIDATE_CROSSWALK",
+    "decision": "不再扩大数据源检索。把剩余14个长期温度证据候选补入同一硬线筛查，完成全部214个已有R1温度候选的批次筛查；随后把已触线候选映射回第一阶段实际居住片区清单，按具体居住片区决定退出、待核或保留。不得将县级站点直接等同城市全部住宅区。",
+    "method": "提取87个长期R1候选中未被73个长R1R2批次覆盖的14个候选（13个R2缺失、1个R2短历史）；按原始站点/ERA5来源使用相同10℃/32℃单向硬线，保留1991-2020完整程度。随后将200个已筛R1候选与已有34个首轮评价单元/扩样区域做精确代码、名称和居住片区交叉映射；不匹配的只列待映射，不做地理猜测。",
+    "expected_evidence": "14个长期R1-only候选逐项温度值、来源和硬线信号；214个R1候选汇总去重数；34个区域候选中精确匹配/部分匹配/未匹配数，具体居住片区级触线、待核、保留清单。",
+    "pass_criteria": "214个R1候选完成分层预筛或明确缺项；至少对既有34个评价单元形成可行动的区域去留清单；不把站点/县级点位扩大为全市结论。",
+    "fallback": "某区域代码或居住点不精确匹配时标记待映射，转下一地区；不在单个区域长时间追索。",
     "status": "READY",
     "timebox_end": "2026-11-08T15:26:00Z",
-    "last_run_id": "42432941043"
+    "last_run_id": "42433374537"
   },
   "phase": "NATIONWIDE_1991_2020_CLIMATE_DATA_SCALING_AFTER_COMPLETE_R0_R5_MISSING_AUDIT",
   "milestone_deadline": {
@@ -103,8 +105,8 @@
     "verified_at": "2026-11-08T01:10:00Z",
     "audit_log_commit": "f8c5564738ab473397a1808cb8961078cb513094"
   },
-  "updated_at": "2026-11-08T01:10:00Z",
-  "state_revision": 75,
+  "updated_at": "2026-11-08T01:14:26.183741+00:00",
+  "state_revision": 76,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -401,7 +403,10 @@
     "both_evidence_list_csv": "research_engine/retirement/status/national_R1_R2_double_observed_candidate_list.csv",
     "long_long_hardline_signal_candidates": 56,
     "long_long_hardline_signal_cohort_size": 73,
-    "formal_exclusions_after_residential_validation": 0
+    "formal_exclusions_after_residential_validation": 0,
+    "short_history_hardline_signal_candidates": 109,
+    "short_history_R1_screened": 127,
+    "short_history_R2_sunshine_screened": 126
   },
   "national_R3_altitude": {
     "station_points": 201,
@@ -470,5 +475,25 @@
     "evidence_path": "research_engine/retirement/status/national_73_existing_evidence_hard_screen_20261108.json",
     "csv_path": "research_engine/retirement/status/national_73_existing_evidence_hard_screen_20261108.csv",
     "altitude_path": "research_engine/retirement/status/national_205_altitude_point_hardline_review_20261108.csv"
+  },
+  "phase1_short_history_hard_screen_127_126": {
+    "result_id": "RES-NATIONAL-SHORT-HISTORY-127R1-126R2-HARD-SCREEN-20261108-42433374537",
+    "R1_short_candidates": 127,
+    "R2_short_candidates": 126,
+    "R1_R2_overlap": 125,
+    "R1_R2_union": 128,
+    "winter_lt10": 97,
+    "summer_ge32": 15,
+    "temperature_union_signals": 109,
+    "sunshine_measured": 9,
+    "sunshine_lt1800": 0,
+    "sunshine_missing": 117,
+    "altitude_point_warnings": 16,
+    "altitude_only": 3,
+    "formal_exclusions": 0,
+    "all_2847_carry_forward": true,
+    "evidence_path": "research_engine/retirement/status/national_short_history_hard_screen_20261108.json",
+    "R1_csv": "research_engine/retirement/status/national_127_short_history_R1_hard_screen_20261108.csv",
+    "R2_csv": "research_engine/retirement/status/national_126_short_history_R2_sunshine_review_20261108.csv"
   }
 }

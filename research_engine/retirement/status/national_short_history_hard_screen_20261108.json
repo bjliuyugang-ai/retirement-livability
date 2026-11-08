@@ -1,0 +1,733 @@
+{
+  "schema": "RET_PHASE1_NATIONAL_SHORT_HISTORY_R1_R2_HARDLINE_SIGNAL_SCREEN_V1",
+  "created_at_utc": "2026-11-08T01:14:26.130417+00:00",
+  "action_id": "RET-CASCADE-NATIONAL-SHORT-HISTORY-R1_R2-SCREEN-019",
+  "source_sha256": {
+    "R1_tier_json": "a2e3c5987be8bf441d31f15d474813f6f280b3eff39872ebac416b71a570c3e8",
+    "R1_station_csv": "4aee90e1c17b61c3648d3c2fcb8d585971d50f1f8891895dbea1782bbb9036ae",
+    "R2_interim_json": "58a1566065c7606ffd5b6859188a89cad8ada68124d1e6e8a7692544e82da13c",
+    "R3_altitude_csv": "94521e5208cf29867a61e1fdf6a7ddbba3d8b7cd70c13e04e860c9585b0b84c8",
+    "prior_long_73_screen": "dccfd66666bde5a4cf09c2cb74b5cf8d91ac082e1f7f8a1d9bd13974a864a192"
+  },
+  "cohort_counts": {
+    "new_short_R1_temperature_candidates": 127,
+    "new_short_R2_rain_sun_candidates": 126,
+    "R1_R2_overlap": 125,
+    "short_R1_R2_union": 128
+  },
+  "thresholds": {
+    "winter_season_mean_daily_tmax_lt_c": 10.0,
+    "summer_season_mean_daily_tmax_ge_c": 32.0,
+    "annual_sunshine_lt_hours": 1800.0,
+    "residential_altitude_gt_m": 2000.0
+  },
+  "R1_temperature_counts": {
+    "winter_lt10": 97,
+    "summer_ge32": 15,
+    "union_any_temperature_signal": 109,
+    "no_temperature_trigger": 18,
+    "observed_month_count_min": 180,
+    "observed_month_count_max": 281
+  },
+  "R2_sunshine_counts": {
+    "short_R2_candidates": 126,
+    "sunshine_measured": 9,
+    "sunshine_lt1800": 0,
+    "sunshine_measured_no_trigger": 9,
+    "sunshine_missing": 117
+  },
+  "altitude_counts": {
+    "short_R1_candidates_with_station_or_dem_point_over2000": 16,
+    "altitude_only_no_temperature_or_sunshine_trigger": 3
+  },
+  "combined_short_cohort": {
+    "temperature_or_sunshine_signal_candidates": 109,
+    "altitude_point_warning_candidates": 16,
+    "altitude_only_cases": 3,
+    "no_known_climate_trigger_but_sunshine_missing": 18,
+    "formal_region_exclusions": 0
+  },
+  "temperature_signal_candidates": [
+    {
+      "code": "232721",
+      "name": "呼玛县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "231183",
+      "name": "嫩江市",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "231124",
+      "name": "孙吴县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "230229",
+      "name": "克山县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "152202",
+      "name": "阿尔山市",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "231283",
+      "name": "海伦市",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "230882",
+      "name": "富锦市",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "231281",
+      "name": "安达市",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "152525",
+      "name": "东乌珠穆沁旗",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "220721",
+      "name": "前郭尔罗斯蒙古族自治县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "230110",
+      "name": "香坊区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "230183",
+      "name": "尚志市",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "230302",
+      "name": "鸡冠区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "654322",
+      "name": "富蕴县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "654226",
+      "name": "和布克赛尔蒙古自治县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "652722",
+      "name": "精河县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "652325",
+      "name": "奇台县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "650402",
+      "name": "高昌区",
+      "winter_lt10": true,
+      "summer_ge32": true
+    },
+    {
+      "code": "652801",
+      "name": "库尔勒市",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "653130",
+      "name": "巴楚县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "652825",
+      "name": "且末县",
+      "winter_lt10": true,
+      "summer_ge32": true
+    },
+    {
+      "code": "652823",
+      "name": "尉犁县",
+      "winter_lt10": true,
+      "summer_ge32": true
+    },
+    {
+      "code": "653125",
+      "name": "莎车县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "152923",
+      "name": "额济纳旗",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "620923",
+      "name": "肃北蒙古族自治县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "620981",
+      "name": "玉门市",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "632803",
+      "name": "茫崖市",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "632224",
+      "name": "刚察县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "620623",
+      "name": "天祝藏族自治县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "620102",
+      "name": "城关区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "632525",
+      "name": "贵南县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "620123",
+      "name": "榆中县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "152522",
+      "name": "阿巴嘎旗",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "150825",
+      "name": "乌拉特后旗",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "152524",
+      "name": "苏尼特右旗",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "150223",
+      "name": "达尔罕茂明安联合旗",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "150922",
+      "name": "化德县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "140213",
+      "name": "平城区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "150624",
+      "name": "鄂托克旗",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "610803",
+      "name": "横山区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "140981",
+      "name": "原平市",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "130104",
+      "name": "桥西区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "640323",
+      "name": "盐池县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "140781",
+      "name": "介休市",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "410503",
+      "name": "北关区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "620802",
+      "name": "崆峒区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "140802",
+      "name": "盐湖区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "152526",
+      "name": "西乌珠穆沁旗",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "150422",
+      "name": "巴林左旗",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "231005",
+      "name": "西安区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "231081",
+      "name": "绥芬河市",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "150424",
+      "name": "林西县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "150502",
+      "name": "科尔沁区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "220302",
+      "name": "铁西区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "152531",
+      "name": "多伦县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "210922",
+      "name": "彰武县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "210702",
+      "name": "古塔区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "210504",
+      "name": "明山区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "130730",
+      "name": "怀来县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "130802",
+      "name": "双桥区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "210803",
+      "name": "西市区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "210603",
+      "name": "振兴区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "120104",
+      "name": "南开区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "130225",
+      "name": "乐亭县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "130981",
+      "name": "泊头市",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "371621",
+      "name": "惠民县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "371082",
+      "name": "荣成市",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "370702",
+      "name": "潍城区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "371703",
+      "name": "定陶区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "370881",
+      "name": "曲阜市",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "542523",
+      "name": "噶尔县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "540625",
+      "name": "申扎县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "632726",
+      "name": "曲麻莱县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "632626",
+      "name": "玛多县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "513232",
+      "name": "若尔盖县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "623001",
+      "name": "合作市",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "621202",
+      "name": "武都区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "540626",
+      "name": "索县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "513328",
+      "name": "甘孜县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "513224",
+      "name": "松潘县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "513334",
+      "name": "理塘县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "610112",
+      "name": "未央区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "411224",
+      "name": "卢氏县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "610117",
+      "name": "高陵区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "420682",
+      "name": "老河口市",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "411702",
+      "name": "驿城区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "411502",
+      "name": "浉河区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "422801",
+      "name": "恩施市",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "500242",
+      "name": "酉阳土家族苗族自治县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "520502",
+      "name": "七星关区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "520303",
+      "name": "汇川区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "360802",
+      "name": "吉州区",
+      "winter_lt10": false,
+      "summer_ge32": true
+    },
+    {
+      "code": "320707",
+      "name": "赣榆区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "341602",
+      "name": "谯城区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "340302",
+      "name": "龙子湖区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "320981",
+      "name": "东台市",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "341525",
+      "name": "霍山县",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "340811",
+      "name": "宜秀区",
+      "winter_lt10": true,
+      "summer_ge32": false
+    },
+    {
+      "code": "360203",
+      "name": "珠山区",
+      "winter_lt10": false,
+      "summer_ge32": true
+    },
+    {
+      "code": "350702",
+      "name": "延平区",
+      "winter_lt10": false,
+      "summer_ge32": true
+    },
+    {
+      "code": "350481",
+      "name": "永安市",
+      "winter_lt10": false,
+      "summer_ge32": true
+    },
+    {
+      "code": "451202",
+      "name": "金城江区",
+      "winter_lt10": false,
+      "summer_ge32": true
+    },
+    {
+      "code": "440203",
+      "name": "武江区",
+      "winter_lt10": false,
+      "summer_ge32": true
+    },
+    {
+      "code": "450881",
+      "name": "桂平市",
+      "winter_lt10": false,
+      "summer_ge32": true
+    },
+    {
+      "code": "450403",
+      "name": "万秀区",
+      "winter_lt10": false,
+      "summer_ge32": true
+    },
+    {
+      "code": "441602",
+      "name": "源城区",
+      "winter_lt10": false,
+      "summer_ge32": true
+    },
+    {
+      "code": "451423",
+      "name": "龙州县",
+      "winter_lt10": false,
+      "summer_ge32": true
+    },
+    {
+      "code": "450702",
+      "name": "钦南区",
+      "winter_lt10": false,
+      "summer_ge32": true
+    },
+    {
+      "code": "469002",
+      "name": "琼海市",
+      "winter_lt10": false,
+      "summer_ge32": true
+    }
+  ],
+  "sunshine_signal_candidates": [],
+  "altitude_only_candidates": [
+    {
+      "code": "513201",
+      "name": "马尔康市"
+    },
+    {
+      "code": "513324",
+      "name": "九龙县"
+    },
+    {
+      "code": "530722",
+      "name": "永胜县"
+    }
+  ],
+  "all_2847_national_candidates_carry_forward": true,
+  "formal_valid_county_screenings": 0,
+  "confirmed_county_exclusions": 0,
+  "interpretation": "This is a short-history (at least 180 observed months with at least 10 observations in every calendar month) preliminary signal screen. It is not a full 1991-2020 30-year normal and does not certify residential microclimate. Threshold hits are high-priority exit candidates for the specific evaluation point, subject to one residential-site confirmation; missing sunshine stays PENDING.",
+  "limitations": [
+    "Do not mix this short-history cohort with the 73 longer-source cohort when reporting long-normal coverage.",
+    "Winter and summer are multi-month means of monthly mean daily maximum; a crossing proves at least one month crosses the hard line, while no crossing does not prove the coldest/hottest month passes.",
+    "Only 9 short-history R2 candidates have measured sunshine; the remaining 117 are pending, not failed.",
+    "Station elevation is not dwelling elevation; >2000m is a residential-site check, not a county-wide exclusion.",
+    "Rainfall is not a hard line in this confirmed rule and is not used to infer sunshine.",
+    "No formal county grade or irreversible region exclusion is made in this run."
+  ]
+}
