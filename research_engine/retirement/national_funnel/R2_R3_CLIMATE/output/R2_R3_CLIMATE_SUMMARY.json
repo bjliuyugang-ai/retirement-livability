@@ -1,0 +1,179 @@
+{
+  "schema": "RETIREMENT_CHM_TMAX_R2_R3_SCREEN_V1",
+  "status": "COMPLETED_WITH_PENDING",
+  "started_at_utc": "2026-11-08T06:01:44.991372+00:00",
+  "completed_at_utc": "2026-11-08T06:10:10.461134+00:00",
+  "input_count": 2847,
+  "source": {
+    "name": "CHM_Tmax v2",
+    "record": "https://zenodo.org/records/22097524",
+    "doi": "10.5281/zenodo.22097524",
+    "period": "1991-2020",
+    "resolution": "0.1 degree",
+    "variable": "daily Tmax",
+    "units": "degree C",
+    "method": "station-based angular-distance weighting with altitude considered"
+  },
+  "source_files": [
+    {
+      "file": "CHM_Tmax_1990_1999.zip",
+      "download": {
+        "status": "DOWNLOADED",
+        "bytes": 773381227,
+        "md5": "c466c294cd5f0b6bec7d08fe222ed68f",
+        "http_status": 200,
+        "attempt": 1
+      },
+      "netcdf": {
+        "member": "CHM_Tmax_1990_1999.nc",
+        "uncompressed_bytes": 3365947681
+      },
+      "years_processed": [
+        1991,
+        1992,
+        1993,
+        1994,
+        1995,
+        1996,
+        1997,
+        1998,
+        1999
+      ]
+    },
+    {
+      "file": "CHM_Tmax_2000_2009.zip",
+      "download": {
+        "status": "DOWNLOADED",
+        "bytes": 774490068,
+        "md5": "8817ae160d725045be69fd1a1dee3aca",
+        "http_status": 200,
+        "attempt": 1
+      },
+      "netcdf": {
+        "member": "CHM_Tmax_2000_2009.nc",
+        "uncompressed_bytes": 3366869281
+      },
+      "years_processed": [
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009
+      ]
+    },
+    {
+      "file": "CHM_Tmax_2010_2019.zip",
+      "download": {
+        "status": "DOWNLOADED",
+        "bytes": 774634379,
+        "md5": "dacbd3144865376ed089e15f9e787fca",
+        "http_status": 200,
+        "attempt": 1
+      },
+      "netcdf": {
+        "member": "CHM_Tmax_2010_2019.nc",
+        "uncompressed_bytes": 3365947681
+      },
+      "years_processed": [
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019
+      ]
+    },
+    {
+      "file": "CHM_Tmax_2020_2022.zip",
+      "download": {
+        "status": "DOWNLOADED",
+        "bytes": 232455255,
+        "md5": "082c8e5d9e6199fdd931bb4f839f37d9",
+        "http_status": 200,
+        "attempt": 1
+      },
+      "netcdf": {
+        "member": "CHM_Tmax_2020_2022.nc",
+        "uncompressed_bytes": 1010176236
+      },
+      "years_processed": [
+        2020
+      ]
+    }
+  ],
+  "source_manifest_method": "Exact byte sizes and MD5 checksums fetched from Zenodo record API at runtime; no rounded file sizes are hardcoded.",
+  "processed_years": [
+    1991,
+    1992,
+    1993,
+    1994,
+    1995,
+    1996,
+    1997,
+    1998,
+    1999,
+    2000,
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020
+  ],
+  "grid": {
+    "lat_count": 360,
+    "lon_count": 640,
+    "lat_min": 18.05,
+    "lat_max": 53.95,
+    "lon_min": 72.05,
+    "lon_max": 135.95
+  },
+  "geometry": {
+    "url": "https://raw.githubusercontent.com/zzhonglei/GeoCode-Release/main/contributions/china-admin-boundaries/skill/data/china_county.geojson",
+    "sha256": "22db6c54b9cb0118ecdcc8a117bf2da4fc24a2229cdba7e6e55dbb5dd56e8246",
+    "feature_count": 2891,
+    "coded_count": 2891,
+    "status": "PROVISIONAL_THIRD_PARTY_CODED_GEOMETRY"
+  },
+  "thresholds": {
+    "winter_coldest_month_mean_daily_tmax_below_c": 10.0,
+    "summer_hottest_month_mean_daily_tmax_ge_c": 32.0,
+    "mean_annual_days_daily_tmax_ge35_gt": 30.0
+  },
+  "aggregation_policy": "For counties with >=5 0.1-degree grid cells, winter exclusion requires p90 of cell coldest-month means <10C; summer exclusion requires p10 of cell hottest-month means >=32C or p10 of mean annual >=35C days >30. Counties with <5 cells use median. This conservative area-based screen avoids excluding a county because of a small local pocket; later work can split promising counties into residential subareas.",
+  "winter": {
+    "excluded_count": 2140,
+    "carry_forward_count": 707,
+    "pending_count": 11
+  },
+  "summer_after_winter": {
+    "excluded_count": 204,
+    "carry_forward_count": 503,
+    "pending_count": 11
+  },
+  "r1_merge": "NOT_APPLIED_YET; this climate computation covers all 2,847 roster units so it can be merged with the current R1 output without rerunning the 30-year climate extraction.",
+  "data_quality": "FIT_FOR_PURPOSE; 0.1-degree daily Tmax is sufficient for national first-pass screening, not for final neighborhood/site selection."
+}
