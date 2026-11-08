@@ -1,0 +1,67 @@
+name: Retirement R4 national 236 Guangdong soil restricted sites
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/SOIL_236/GUANGDONG_RUN_REQUEST.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  guangdong-official-active-parcels:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install parser
+        run: python -m pip install --disable-pip-version-check beautifulsoup4
+      - name: Fetch eight official active list pages and join to 236 candidates
+        run: python -u research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/SOIL_236/run_guangdong_soil_registry.py
+      - name: Verify 236-row scope and no county exclusions
+        run: |
+          python - <<'PY'
+          import pathlib,csv,json
+          p=pathlib.Path("research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/SOIL_236/output")
+          with (p/"NATIONAL_236_GUANGDONG_SOIL_SITE_CANDIDATE_MATRIX.csv").open(encoding="utf-8-sig",newline="") as f: rows=list(csv.DictReader(f))
+          d=json.loads((p/"NATIONAL_236_GUANGDONG_SOIL_BATCH_SUMMARY.json").read_text(encoding="utf-8"))
+          assert len(rows)==236 and len({r["code"] for r in rows})==236
+          assert sum(r["province_code"]=="44" for r in rows)==30
+          assert all(r["county_hard_exclusion"]=="NO" for r in rows)
+          assert len(d["pages"])==8 and d["unique_active_sites"]>=35
+          print("VALIDATED_GUANGDONG_SOIL",d["matched_candidate_units"],d["matched_sites"])
+          PY
+      - name: Upload raw active sites and candidate match
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retirement-r4-soil-guangdong-236-${{ github.run_id }}
+          path: |
+            research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/SOIL_236/output/GUANGDONG_2026_09_ACTIVE_SOIL_SITES_SOURCE.csv
+            research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/SOIL_236/output/NATIONAL_236_GUANGDONG_SOIL_SITE_CANDIDATE_MATRIX.csv
+            research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/SOIL_236/output/NATIONAL_236_GUANGDONG_SOIL_BATCH_SUMMARY.json
+          retention-days: 30
+      - name: Persist source-backed Guangdong evidence
+        if: always()
+        run: |
+          p=research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/SOIL_236/output
+          if [ ! -f "$p/NATIONAL_236_GUANGDONG_SOIL_BATCH_SUMMARY.json" ]; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p "$p/runs/${{ github.run_id }}"
+          cp "$p/GUANGDONG_2026_09_ACTIVE_SOIL_SITES_SOURCE.csv" "$p/runs/${{ github.run_id }}/"
+          cp "$p/NATIONAL_236_GUANGDONG_SOIL_SITE_CANDIDATE_MATRIX.csv" "$p/runs/${{ github.run_id }}/"
+          cp "$p/NATIONAL_236_GUANGDONG_SOIL_BATCH_SUMMARY.json" "$p/runs/${{ github.run_id }}/"
+          git add "$p/runs/${{ github.run_id }}"
+          git commit -m "Record Guangdong public soil risk active parcel register matched to 236"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 3
+          done
