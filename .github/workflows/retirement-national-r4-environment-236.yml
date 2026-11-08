@@ -3,8 +3,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/run_r4_environment_236.py'
-      - 'research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/R4_236_SCOPE_LOCK.json'
+      - 'research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/R4_236_RUN_REQUEST.json'
   workflow_dispatch:
 
 jobs:
