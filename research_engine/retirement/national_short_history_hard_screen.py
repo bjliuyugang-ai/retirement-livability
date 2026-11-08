@@ -101,8 +101,9 @@ def main():
  with OUTR2.open("w",encoding="utf-8-sig",newline="") as f:
   wr=csv.DictWriter(f,fieldnames=list(out2[0]));wr.writeheader();wr.writerows(out2)
  temp_union=set(w_hits)|set(s_hits)
- combined=set(temp_union)|set(sunfail)
- alt_only=alt_hits-temp_union-sunfail
+ sunfail_codes={x["code"] for x in sunfail}
+ combined=set(temp_union)|sunfail_codes
+ alt_only=alt_hits-temp_union-sunfail_codes
  sun_by_code={x["candidate_code"]:num(x.get("R2_sunshine_rough_annual_hours_during_available_years")) for x in out2}
  no_temp_and_sun_missing=sum(1 for x in out1 if not x["winter_lt10_signal"] and not x["summer_ge32_signal"] and sun_by_code.get(x["candidate_code"]) is None)
  all_ids=codes|r2codes
