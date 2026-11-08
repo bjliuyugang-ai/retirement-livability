@@ -1,0 +1,294 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ 
+ 
+ 
+
+
+
+
+
+<LINK rel=stylesheet type=text/css href="/perxxgkinfo/thscommon/style/superTables.css">
+<LINK rel=stylesheet type=text/css href="/perxxgkinfo/thscommon/style/layout.css">
+<link rel="stylesheet" type="text/css" href="/perxxgkinfo/thscommon/style/artDialog/aero.css" />
+<link rel="stylesheet" type="text/css" href="/perxxgkinfo/thscommon/style/reset.css" >
+<script type="text/javascript" src="/perxxgkinfo/thscommon/javascript/jquery.min.js"></script>
+<script type="text/javascript" src="/perxxgkinfo/thscommon/javascript/json2.js"></script>
+<script type="text/javascript" src="/perxxgkinfo/thscommon/javascript/jquery.plugIn.set.js"></script>
+<script type="text/javascript" src="/perxxgkinfo/thscommon/javascript/jquery.artDialog.js"></script>
+<SCRIPT type=text/javascript src="/perxxgkinfo/thscommon/javascript/superTables.js"></SCRIPT>
+<SCRIPT type=text/javascript src="/perxxgkinfo/thscommon/javascript/jquery.superTable.js"></SCRIPT>
+<SCRIPT type=text/javascript src="/perxxgkinfo/thscommon/javascript/jquery.artDialog.js"></SCRIPT>
+<SCRIPT type=text/javascript src="/perxxgkinfo/thscommon/javascript/table.js"></SCRIPT>
+<script type="text/javascript" src="/perxxgkinfo/js/urlhanzi.js"></script>
+<script type="text/javascript" src="/perxxgkinfo/thscommon/zTree/js/jquery-1.9.1.min.min.js"></script>
+<script type="text/javascript" src="/perxxgkinfo/thscommon/zTree/js/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript" src="/perxxgkinfo/thscommon/zTree/js/jquery.ztree.excheck-3.5.js"></script>
+<script type="text/javascript" src="/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exedit-3.5.js"></script>
+<script type="text/javascript" src="/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exhide-3.5.js"></script>
+<link href="/perxxgkinfo/thscommon/zTree/css/zTreeStyle/zTreeStyle.css" rel="STYLESHEET" type="text/css">
+<link href="/perxxgkinfo/util/xzxk/css/xzxk_style.css" rel="STYLESHEET" type="text/css">
+<link href="/perxxgkinfo/util/xzxk/css/xzxk_button.css" rel="STYLESHEET" type="text/css">
+<link href="/perxxgkinfo/css/style4.css" rel="STYLESHEET" type="text/css">
+<style type="text/css">
+body{background-image: none;background-color: #EDF2FC;}
+ul#tree{margin:15px 10px;}
+/* input.submit{margin-left:50px;}
+input.submit,input.cancel{margin-top:3px;padding-bottom:5px} */
+</style>
+<title></title>
+<script type="text/javascript">
+var zTree; 
+var searchname="";
+var setting = {  
+         view: {
+               //dblClickExpand: false,
+               expandSpeed: 100, //设置树展开的动画速度
+               showIcon:true,
+               showLine:true
+         },
+         //获取json数据
+        async : {  
+            enable : true, 
+            url : "/perxxgkinfo/common/tree/xzxk-common-trade!hynodeslist.action",// Ajax 获取数据的 URL 地址  
+            autoParam : ["id"],//ajax提交的时候，传的是id值
+            type:"post",
+            treeNodeKey: "id", // 节点的id
+            treeNodeParentKey: "pId"
+//	        asyncDataFilter:filter// 父节点的id
+
+        }, 
+        check:{
+        	enable:true,
+        	chkStyle:"checkbox",
+        	chkboxType: { "Y": "s", "N": "s" },
+        	radioType:"all"
+        },
+        data:{ // 必须使用data  
+ 
+            simpleData : {  
+                enable : true,  
+                idKey : "id", // id编号命名   
+                pIdKey : "pId", // 父id编号命名    
+                rootPId : 0
+            }  
+        },  
+        // 回调函数  
+        //?????treeId
+        callback : {  
+        	//beforeCheck:zTreeBeforeClick,
+            onClick : function(event, treeId, treeNode, clickFlag) {  
+                if(true) {
+                }  
+            },
+            //捕获异步加载出现异常错误的事件回调函数 和 成功的回调函数
+	        onAsyncSuccess : initcheckednodes
+            /* beforeAsync: function(treeId,treeNode){
+            }, */
+        }  
+    };  
+   
+    /* // 过滤函数  
+    function filter(treeId, parentNode, childNodes) {  
+        if (!childNodes)  
+            return null;  
+        for ( var i = 0, l = childNodes.length; i < l; i++) {  
+           childNodes[i].name = childNodes[i].name.replace(/\.n/g, '.');  
+        }  
+        return childNodes;  
+    }  */
+   var zNodes=[]; 
+function zTreeBeforeClick(treeId, treeNode, clickFlag) {
+	
+	return !treeNode.parentcode=="";
+	
+	//return !treeNode.isParent;//当是父节点 返回false 不让选取
+	}; 
+$(function(){
+	
+	setting.async.otherParam={"nodecode":"","name":"","hyids":""}
+	var hytype = 'more';
+	if(hytype=='one'){
+		setting.check.chkStyle="radio";
+	}
+	$.fn.zTree.init($("#tree"),setting,zNodes);
+	zTree = $.fn.zTree.getZTreeObj("tree");
+	initcheckednodes();
+	
+});
+
+//数据回显
+function initcheckednodes(){
+    var hyids;
+    if(window.parent.hytreehyids){
+        hyids = window.parent.hytreehyids;
+    }else{
+        hyids='';
+    }
+	var hyidsarry=hyids.split(",");
+	var treeObj = $.fn.zTree.getZTreeObj("tree");
+	for(var index in hyidsarry){
+		var node = treeObj.getNodeByParam("id",hyidsarry[index]);
+		//node.getParentNode.open=true;
+		treeObj.checkNode(node,true,false,true);
+	}
+	
+}
+
+
+function winclose(){
+	art.dialog.close();
+};
+
+
+function clearhy(){
+	if(confirm("确定要清空吗")){
+		zTree.checkAllNodes(false);
+		window.parent.hytreehyids = "";
+		art.dialog.open.origin.clearAll();
+/* 		$("#clearbtn").hide();
+		var html="<input type=\"button\" id=\"addbtn\" class=\"button submit\" value=\"添加\" style=\"cursor: pointer;\" onclick=\"add()\"/>"
+		+"<input type=\"button\" id=\"cancelbtn\" class=\"button submit\" value=\"返回\" style=\"cursor: pointer;\" onclick=\"cancel()\"/>";
+		$("#clearbtn").before(html); */
+	}
+};
+function cancel(){
+	
+}
+
+/* function add(){
+	var hytype = 'more';
+	var treeobj = $.fn.zTree.getZTreeObj("tree");
+	var checkedNodes = treeobj.getCheckedNodes(true);
+	var hyid="";
+	var qthyname="";
+	if(checkedNodes!=null&&checkedNodes!=""){
+		
+		for(var index in checkedNodes){
+			if(hyid==""){
+				hyid=checkedNodes[index].id;
+			}else{
+				hyid+=","+checkedNodes[index].id;
+			}
+			
+			if(qthyname==""){
+				qthyname=checkedNodes[index].name;
+			}else{
+				qthyname+=","+checkedNodes[index].name;
+			}
+			
+		}
+		art.dialog.open.origin.addHyid(hyid,qthyname,null,hytype);
+	}else{
+		return false;
+	}
+	art.dialog.close();
+} */
+
+function add(){
+	var hytype = 'more';
+	var treeobj = $.fn.zTree.getZTreeObj("tree");
+	var checkedNodes = treeobj.getCheckedNodes(true);
+	var hyid="";
+	var hynamehyids="";
+	var singlehyname="";//单独的行业名称
+	if(checkedNodes!=null&&checkedNodes!=""){
+		
+		for(var index in checkedNodes){
+			if(hyid==""){
+				hyid=checkedNodes[index].id;
+			}else{
+				hyid+=","+checkedNodes[index].id;
+			}
+			
+			if(singlehyname==""){
+				hynamehyids=checkedNodes[index].name;
+				singlehyname=checkedNodes[index].singlehyname;
+			}else{
+				hynamehyids+=","+checkedNodes[index].name;
+				singlehyname+=","+checkedNodes[index].singlehyname;
+			}
+			
+		}
+		//其他行业选择后显示名字中不用带编码，所以将singlehyname传过去
+		art.dialog.open.origin.addHyid(hyid,hynamehyids,singlehyname,hytype);
+	}else{
+		return false;
+	}
+	art.dialog.close();
+}
+
+function save(){
+	var hytype = 'more';
+	var treeobj = $.fn.zTree.getZTreeObj("tree");
+	var checkedNodes = treeobj.getCheckedNodes(true);
+	var hyid="";
+	var hynamehyids="";//带行业编码的名称 如 '火力发电(D4411)' 用于显示用
+	var singlehyname="";//单独的行业名称
+//	if(checkedNodes!=null&&checkedNodes!=""){
+		
+		for(var index in checkedNodes){
+			if(hyid==""){
+				hyid=checkedNodes[index].id;
+			}else{
+				hyid+=","+checkedNodes[index].id;
+			}
+			
+			if(singlehyname==""){
+				hynamehyids=checkedNodes[index].name;
+				singlehyname=checkedNodes[index].singlehyname;
+			}else{
+				hynamehyids+=","+checkedNodes[index].name;
+				singlehyname+=","+checkedNodes[index].singlehyname;
+			}
+			
+		}
+		art.dialog.open.origin.returnTreeValue(hyid,hynamehyids,singlehyname,hytype);
+/* 	}else{
+		return false;
+	} */
+	art.dialog.close();
+};
+
+function search(){
+	var url="/perxxgkinfo/common/tree/xzxk-common-trade!selectHylist.action?hyids=&hytype=more&nodecode=&name="+$("#tradename").val();
+    url=encodeURIHanZi(url);
+	window.location.href=url;
+}
+
+</script>
+	
+</head>
+<body class="dialog">
+<div align="right" class="add-search" >
+<div style="margin-top: 15px;"></div>
+<div style="float:left;">
+<input type="text"   id="tradename" name="name" size="10" value="" valuetype="STRING" class="editbox"/>
+<input type="button" id="cxgjlb" class="button normal"  onclick="search()" value="查询"/>
+	
+
+		
+		
+			<input type="button" id="savebtn" class="button submit" value="确定" style="cursor: pointer;" onclick="save()"/>
+			<input type="button" id="clearbtn" class="button cancel" value="清空" style="cursor: pointer;" onclick="clearhy()"/>
+		
+	
+	
+	<input type="button" class="button close" value="关闭" style="cursor: pointer;" onclick="winclose()"/>
+	<input type="hidden" id="info">
+</div>
+
+<div class="add-search-right">
+
+</div>
+</div>
+<div class="add-text">
+<font >可在文本框中输入行业名称或行业编码进行行业查询，支持行业多选查询</font>
+</div>
+<hr>
+<ul style="margin-top: 58px;" id="tree" class="ztree"></ul>
+</body>
+</html>

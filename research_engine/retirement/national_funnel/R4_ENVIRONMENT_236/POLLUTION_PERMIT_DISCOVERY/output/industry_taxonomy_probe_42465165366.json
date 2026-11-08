@@ -1,0 +1,416 @@
+{
+  "schema": "MEE_PUBLIC_INDUSTRY_TAXONOMY_DISCOVERY_V1",
+  "created_at_utc": "2026-11-08T08:58:37.042824+00:00",
+  "main_page_status": 200,
+  "tree_page_status": 200,
+  "tree_url": "https://permit.mee.gov.cn/perxxgkinfo/common/tree/xzxk-common-trade!selectHylist.action?hyids=&hytype=more",
+  "html_bytes": 9327,
+  "text_preview": "body{background-image: none;background-color: #EDF2FC;} ul#tree{margin:15px 10px;} /* input.submit{margin-left:50px;} input.submit,input.cancel{margin-top:3px;padding-bottom:5px} */ var zTree; var searchname=\"\"; var setting = { view: { //dblClickExpand: false, expandSpeed: 100, //设置树展开的动画速度 showIcon:true, showLine:true }, //获取json数据 async : { enable : true, url : \"/perxxgkinfo/common/tree/xzxk-common-trade!hynodeslist.action\",// Ajax 获取数据的 URL 地址 autoParam : [\"id\"],//ajax提交的时候，传的是id值 type:\"post\", treeNodeKey: \"id\", // 节点的id treeNodeParentKey: \"pId\" // asyncDataFilter:filter// 父节点的id }, check:{ enable:true, chkStyle:\"checkbox\", chkboxType: { \"Y\": \"s\", \"N\": \"s\" }, radioType:\"all\" }, data:{ // 必须使用data simpleData : { enable : true, idKey : \"id\", // id编号命名 pIdKey : \"pId\", // 父id编号命名 rootPId : 0 } }, // 回调函数 //?????treeId callback : { //beforeCheck:zTreeBeforeClick, onClick : function(event, treeId, treeNode, clickFlag) { if(true) { } }, //捕获异步加载出现异常错误的事件回调函数 和 成功的回调函数 onAsyncSuccess : initcheckednodes /* beforeAsync: function(treeId,treeNode){ }, */ } }; /* // 过滤函数 function filter(treeId, parentNode, childNodes) { if (!childNodes) return null; for ( var i = 0, l = childNodes.length; i < l; i++) { childNodes[i].name = childNodes[i].name.replace(/\\.n/g, '.'); } return childNodes; } */ var zNodes=[]; function zTreeBeforeClick(treeId, treeNode, clickFlag) { return !treeNode.parentcode==\"\"; //return !treeNode.isParent;//当是父节点 返回false 不让选取 }; $(function(){ setting.async.otherParam={\"nodecode\":\"\",\"name\":\"\",\"hyids\":\"\"} var hytype = 'more'; if(hytype=='one'){ setting.check.chkStyle=\"radio\"; } $.fn.zTree.init($(\"#tree\"),setting,zNodes); zTree = $.fn.zTree.getZTreeObj(\"tree\"); initcheckednodes(); }); //数据回显 function initcheckednodes(){ var hyids; if(window.parent.hytreehyids){ hyids = window.parent.hytreehyids; }else{ hyids=''; } var hyidsarry=hyids.split(\",\"); var treeObj = $.fn.zTree.getZTreeObj(\"tree\"); for(var index in hyidsarry){ var node = treeObj.getNodeByParam(\"id\",hyidsarry[index]); //node.getParentNode.open=true; treeObj.checkNode(node,true,false,true); } } function winclose(){ art.dialog.close(); }; function clearhy(){ if(confirm(\"确定要清空吗\")){ zTree.checkAllNodes(false); window.parent.hytreehyids = \"\"; art.dialog.open.origin.clearAll(); /* $(\"#clearbtn\").hide(); var html=\"<input type=\\\"button\\\" id=\\\"addbtn\\\" class=\\\"button submit\\\" value=\\\"添加\\\" style=\\\"cursor: pointer;\\\" onclick=\\\"add()\\\"/>\" +\"<input type=\\\"button\\\" id=\\\"cancelbtn\\\" class=\\\"button submit\\\" value=\\\"返回\\\" style=\\\"cursor: pointer;\\\" onclick=\\\"cancel()\\\"/>\"; $(\"#clearbtn\").before(html); */ } }; function cancel(){ } /* function add(){ var hytype = 'more'; var treeobj = $.fn.zTree.getZTreeObj(\"tree\"); var checkedNodes = treeobj.getCheckedNodes(true); var hyid=\"\"; var qthyname=\"\"; if(checkedNodes!=null&&checkedNodes!=\"\"){ for(var index in checkedNodes){ if(hyid==\"\"){ hyid=checkedNodes[index].id; }else{ hyid+=\",\"+checkedNodes[index].id; } if(qthyname==\"\"){ qthyname=checkedNodes[index].name; }else{ qthyname+=\",\"+checkedNodes[index].name; } } art.dialog.open.origin.addHyid(hyid,qthyname,null,hytype); }else{ return false; } art.dialog.close(); } */ function add(){ var hytype = 'more'; var treeobj = $.fn.zTree.getZTreeObj(\"tree\"); var checkedNodes = treeobj.getCheckedNodes(true); var hyid=\"\"; var hynamehyids=\"\"; var singlehyname=\"\";//单独的行业名称 if(checkedNodes!=null&&checkedNodes!=\"\"){ for(var index in checkedNodes){ if(hyid==\"\"){ hyid=checkedNodes[index].id; }else{ hyid+=\",\"+checkedNodes[index].id; } if(singlehyname==\"\"){ hynamehyids=checkedNodes[index].name; singlehyname=checkedNodes[index].singlehyname; }else{ hynamehyids+=\",\"+checkedNodes[index].name; singlehyname+=\",\"+checkedNodes[index].singlehyname; } } //其他行业选择后显示名字中不用带编码，所以将singlehyname传过去 art.dialog.open.origin.addHyid(hyid,hynamehyids,singlehyname,hytype); }else{ return false; } art.dialog.close(); } function save(){ var hytype = 'more'; var treeobj = $.fn.zTree.getZTreeObj(\"tree\"); var checkedNodes = treeobj.getCheckedNodes(true); var hyid=\"\"; var hynamehyids=\"\";//带行业编码的名称 如 '火力发电(D4411)' 用于显示用 var singlehyname=\"\";//单独的行业名称 // if(checkedNodes!=null&&checkedNodes!=\"\"){ for(var index in checkedNodes){ if(hyid==\"\"){ hyid=checkedNodes[index].id; }else{ hyid+=\",\"+checkedNodes[index].id; } if(singlehyname==\"\"){ hynamehyids=checkedNodes[index].name; singlehyname=checkedNodes[index].singlehyname; }else{ hynamehyids+=\",\"+checkedNodes[index].name; singlehyname+=\",\"+checkedNodes[index].singlehyname; } } art.dialog.open.origin.returnTreeValue(hyid,hynamehyids,singlehyname,hytype); /* }else{ return false; } */ art.dialog.close(); }; function search(){ var url=\"/perxxgkinfo/common/tree/xzxk-common-trade!selectHylist.action?hyids=&hytype=more&nodecode=&name=\"+$(\"#tradename\").val(); url=encodeURIHanZi(url); window.location.href=url; } 可在文本框中输入行业名称或行业编码进行行业查询，支持行业多选查询",
+  "inputs": [
+    {
+      "name": "name",
+      "id": "tradename",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "name": null,
+      "id": "cxgjlb",
+      "value": "查询",
+      "type": "button"
+    },
+    {
+      "name": null,
+      "id": "savebtn",
+      "value": "确定",
+      "type": "button"
+    },
+    {
+      "name": null,
+      "id": "clearbtn",
+      "value": "清空",
+      "type": "button"
+    },
+    {
+      "name": null,
+      "id": null,
+      "value": "关闭",
+      "type": "button"
+    },
+    {
+      "name": null,
+      "id": "info",
+      "value": null,
+      "type": "hidden"
+    }
+  ],
+  "scripts": [
+    "/perxxgkinfo/thscommon/javascript/jquery.min.js",
+    "/perxxgkinfo/thscommon/javascript/json2.js",
+    "/perxxgkinfo/thscommon/javascript/jquery.plugIn.set.js",
+    "/perxxgkinfo/thscommon/javascript/jquery.artDialog.js",
+    "/perxxgkinfo/thscommon/javascript/superTables.js",
+    "/perxxgkinfo/thscommon/javascript/jquery.superTable.js",
+    "/perxxgkinfo/thscommon/javascript/jquery.artDialog.js",
+    "/perxxgkinfo/thscommon/javascript/table.js",
+    "/perxxgkinfo/js/urlhanzi.js",
+    "/perxxgkinfo/thscommon/zTree/js/jquery-1.9.1.min.min.js",
+    "/perxxgkinfo/thscommon/zTree/js/jquery.ztree.core-3.5.js",
+    "/perxxgkinfo/thscommon/zTree/js/jquery.ztree.excheck-3.5.js",
+    "/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exedit-3.5.js",
+    "/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exhide-3.5.js"
+  ],
+  "links": [],
+  "keyword_snippets": [
+    {
+      "term": "tree",
+      "offset": 1482,
+      "snippet": "artDialog.js\"></SCRIPT>\r\n<SCRIPT type=text/javascript src=\"/perxxgkinfo/thscommon/javascript/table.js\"></SCRIPT>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/urlhanzi.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery-1.9.1.min.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.core-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.excheck-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exedit-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exhide-3.5.js\"></script>\r\n<link href=\"/perxxgkinfo/thscommon/zTree/css/zTreeStyle/zTreeStyle.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" rel=\"STYLESHEET\" "
+    },
+    {
+      "term": "tree",
+      "offset": 1586,
+      "snippet": "/SCRIPT>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/urlhanzi.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery-1.9.1.min.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.core-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.excheck-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exedit-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exhide-3.5.js\"></script>\r\n<link href=\"/perxxgkinfo/thscommon/zTree/css/zTreeStyle/zTreeStyle.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" rel=\"STYLESHEET\" type=\"text/cs"
+    },
+    {
+      "term": "tree",
+      "offset": 1602,
+      "snippet": "t type=\"text/javascript\" src=\"/perxxgkinfo/js/urlhanzi.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery-1.9.1.min.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.core-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.excheck-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exedit-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exhide-3.5.js\"></script>\r\n<link href=\"/perxxgkinfo/thscommon/zTree/css/zTreeStyle/zTreeStyle.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href="
+    },
+    {
+      "term": "tree",
+      "offset": 1691,
+      "snippet": "javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery-1.9.1.min.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.core-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.excheck-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exedit-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exhide-3.5.js\"></script>\r\n<link href=\"/perxxgkinfo/thscommon/zTree/css/zTreeStyle/zTreeStyle.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/css/style4.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<style type=\"text/css\">\r"
+    },
+    {
+      "term": "tree",
+      "offset": 1707,
+      "snippet": "\"/perxxgkinfo/thscommon/zTree/js/jquery-1.9.1.min.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.core-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.excheck-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exedit-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exhide-3.5.js\"></script>\r\n<link href=\"/perxxgkinfo/thscommon/zTree/css/zTreeStyle/zTreeStyle.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/css/style4.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<style type=\"text/css\">\r\nbody{background"
+    },
+    {
+      "term": "tree",
+      "offset": 1799,
+      "snippet": "script\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.core-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.excheck-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exedit-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exhide-3.5.js\"></script>\r\n<link href=\"/perxxgkinfo/thscommon/zTree/css/zTreeStyle/zTreeStyle.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/css/style4.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<style type=\"text/css\">\r\nbody{background-image: none;background-color: #EDF2FC;}\r\nul#tree{margin:15px 10px;}\r\n/* input.submit{margin"
+    },
+    {
+      "term": "tree",
+      "offset": 1815,
+      "snippet": "rxxgkinfo/thscommon/zTree/js/jquery.ztree.core-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.excheck-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exedit-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exhide-3.5.js\"></script>\r\n<link href=\"/perxxgkinfo/thscommon/zTree/css/zTreeStyle/zTreeStyle.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/css/style4.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<style type=\"text/css\">\r\nbody{background-image: none;background-color: #EDF2FC;}\r\nul#tree{margin:15px 10px;}\r\n/* input.submit{margin-left:50px;}\r\nin"
+    },
+    {
+      "term": "tree",
+      "offset": 1906,
+      "snippet": "ript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.excheck-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exedit-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exhide-3.5.js\"></script>\r\n<link href=\"/perxxgkinfo/thscommon/zTree/css/zTreeStyle/zTreeStyle.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/css/style4.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<style type=\"text/css\">\r\nbody{background-image: none;background-color: #EDF2FC;}\r\nul#tree{margin:15px 10px;}\r\n/* input.submit{margin-left:50px;}\r\ninput.submit,input.cancel{margin-top:3px;padding-bottom:5px} */\r\n</style>\r\n<title></title>\r\n<"
+    },
+    {
+      "term": "tree",
+      "offset": 1922,
+      "snippet": "xgkinfo/thscommon/zTree/js/jquery.ztree.excheck-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exedit-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exhide-3.5.js\"></script>\r\n<link href=\"/perxxgkinfo/thscommon/zTree/css/zTreeStyle/zTreeStyle.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/css/style4.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<style type=\"text/css\">\r\nbody{background-image: none;background-color: #EDF2FC;}\r\nul#tree{margin:15px 10px;}\r\n/* input.submit{margin-left:50px;}\r\ninput.submit,input.cancel{margin-top:3px;padding-bottom:5px} */\r\n</style>\r\n<title></title>\r\n<script type=\"tex"
+    },
+    {
+      "term": "tree",
+      "offset": 1989,
+      "snippet": "<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exedit-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exhide-3.5.js\"></script>\r\n<link href=\"/perxxgkinfo/thscommon/zTree/css/zTreeStyle/zTreeStyle.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/css/style4.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<style type=\"text/css\">\r\nbody{background-image: none;background-color: #EDF2FC;}\r\nul#tree{margin:15px 10px;}\r\n/* input.submit{margin-left:50px;}\r\ninput.submit,input.cancel{margin-top:3px;padding-bottom:5px} */\r\n</style>\r\n<title></title>\r\n<script type=\"text/javascript\">\r\nvar zTree; \r\nvar searchname=\"\";\r\nvar setting = {  \r"
+    },
+    {
+      "term": "tree",
+      "offset": 1999,
+      "snippet": "pe=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exedit-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exhide-3.5.js\"></script>\r\n<link href=\"/perxxgkinfo/thscommon/zTree/css/zTreeStyle/zTreeStyle.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/css/style4.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<style type=\"text/css\">\r\nbody{background-image: none;background-color: #EDF2FC;}\r\nul#tree{margin:15px 10px;}\r\n/* input.submit{margin-left:50px;}\r\ninput.submit,input.cancel{margin-top:3px;padding-bottom:5px} */\r\n</style>\r\n<title></title>\r\n<script type=\"text/javascript\">\r\nvar zTree; \r\nvar searchname=\"\";\r\nvar setting = {  \r\n         "
+    },
+    {
+      "term": "tree",
+      "offset": 2010,
+      "snippet": "vascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exedit-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exhide-3.5.js\"></script>\r\n<link href=\"/perxxgkinfo/thscommon/zTree/css/zTreeStyle/zTreeStyle.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/css/style4.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<style type=\"text/css\">\r\nbody{background-image: none;background-color: #EDF2FC;}\r\nul#tree{margin:15px 10px;}\r\n/* input.submit{margin-left:50px;}\r\ninput.submit,input.cancel{margin-top:3px;padding-bottom:5px} */\r\n</style>\r\n<title></title>\r\n<script type=\"text/javascript\">\r\nvar zTree; \r\nvar searchname=\"\";\r\nvar setting = {  \r\n         view: {\r\n  "
+    },
+    {
+      "term": "tree",
+      "offset": 2402,
+      "snippet": "ink href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/css/style4.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<style type=\"text/css\">\r\nbody{background-image: none;background-color: #EDF2FC;}\r\nul#tree{margin:15px 10px;}\r\n/* input.submit{margin-left:50px;}\r\ninput.submit,input.cancel{margin-top:3px;padding-bottom:5px} */\r\n</style>\r\n<title></title>\r\n<script type=\"text/javascript\">\r\nvar zTree; \r\nvar searchname=\"\";\r\nvar setting = {  \r\n         view: {\r\n               //dblClickExpand: false,\r\n               expandSpeed: 100, //设置树展开的动画速度\r\n               showIcon:true,\r\n               showLine:true\r\n         },\r\n         //获取json数据\r\n        async : {  \r\n            enable : true, \r\n            url : \"/perxxgkinfo/common/tree/xzxk-common-trade!hynodeslist.action\",// Ajax 获取数据的 URL 地址  \r\n            autoParam : [\"id\"],//ajax提交的时候，传的是id值\r\n    "
+    },
+    {
+      "term": "tree",
+      "offset": 2593,
+      "snippet": "ody{background-image: none;background-color: #EDF2FC;}\r\nul#tree{margin:15px 10px;}\r\n/* input.submit{margin-left:50px;}\r\ninput.submit,input.cancel{margin-top:3px;padding-bottom:5px} */\r\n</style>\r\n<title></title>\r\n<script type=\"text/javascript\">\r\nvar zTree; \r\nvar searchname=\"\";\r\nvar setting = {  \r\n         view: {\r\n               //dblClickExpand: false,\r\n               expandSpeed: 100, //设置树展开的动画速度\r\n               showIcon:true,\r\n               showLine:true\r\n         },\r\n         //获取json数据\r\n        async : {  \r\n            enable : true, \r\n            url : \"/perxxgkinfo/common/tree/xzxk-common-trade!hynodeslist.action\",// Ajax 获取数据的 URL 地址  \r\n            autoParam : [\"id\"],//ajax提交的时候，传的是id值\r\n            type:\"post\",\r\n            treeNodeKey: \"id\", // 节点的id\r\n            treeNodeParentKey: \"pId\"\r\n//\t        asyncDataFilter:filter// 父节点的id\r\n\r\n        }, \r\n        check:{\r\n        \tenabl"
+    },
+    {
+      "term": "tree",
+      "offset": 2930,
+      "snippet": "ickExpand: false,\r\n               expandSpeed: 100, //设置树展开的动画速度\r\n               showIcon:true,\r\n               showLine:true\r\n         },\r\n         //获取json数据\r\n        async : {  \r\n            enable : true, \r\n            url : \"/perxxgkinfo/common/tree/xzxk-common-trade!hynodeslist.action\",// Ajax 获取数据的 URL 地址  \r\n            autoParam : [\"id\"],//ajax提交的时候，传的是id值\r\n            type:\"post\",\r\n            treeNodeKey: \"id\", // 节点的id\r\n            treeNodeParentKey: \"pId\"\r\n//\t        asyncDataFilter:filter// 父节点的id\r\n\r\n        }, \r\n        check:{\r\n        \tenable:true,\r\n        \tchkStyle:\"checkbox\",\r\n        \tchkboxType: { \"Y\": \"s\", \"N\": \"s\" },\r\n        \tradioType:\"all\"\r\n        },\r\n        data:{ // 必须使用data  \r\n \r\n            simpleData : {  \r\n                enable : true,  \r\n                idKey : \"id\", // id编号命名   \r\n                pIdKey : \"pId\", // 父id编号命名    \r\n                rootPId "
+    },
+    {
+      "term": "tree",
+      "offset": 3086,
+      "snippet": "n数据\r\n        async : {  \r\n            enable : true, \r\n            url : \"/perxxgkinfo/common/tree/xzxk-common-trade!hynodeslist.action\",// Ajax 获取数据的 URL 地址  \r\n            autoParam : [\"id\"],//ajax提交的时候，传的是id值\r\n            type:\"post\",\r\n            treeNodeKey: \"id\", // 节点的id\r\n            treeNodeParentKey: \"pId\"\r\n//\t        asyncDataFilter:filter// 父节点的id\r\n\r\n        }, \r\n        check:{\r\n        \tenable:true,\r\n        \tchkStyle:\"checkbox\",\r\n        \tchkboxType: { \"Y\": \"s\", \"N\": \"s\" },\r\n        \tradioType:\"all\"\r\n        },\r\n        data:{ // 必须使用data  \r\n \r\n            simpleData : {  \r\n                enable : true,  \r\n                idKey : \"id\", // id编号命名   \r\n                pIdKey : \"pId\", // 父id编号命名    \r\n                rootPId : 0\r\n            }  \r\n        },  \r\n        // 回调函数  \r\n        //?????treeId\r\n        callback : {  \r\n        \t//beforeCheck:zTreeBeforeClick,\r\n            "
+    },
+    {
+      "term": "tree",
+      "offset": 3127,
+      "snippet": "ble : true, \r\n            url : \"/perxxgkinfo/common/tree/xzxk-common-trade!hynodeslist.action\",// Ajax 获取数据的 URL 地址  \r\n            autoParam : [\"id\"],//ajax提交的时候，传的是id值\r\n            type:\"post\",\r\n            treeNodeKey: \"id\", // 节点的id\r\n            treeNodeParentKey: \"pId\"\r\n//\t        asyncDataFilter:filter// 父节点的id\r\n\r\n        }, \r\n        check:{\r\n        \tenable:true,\r\n        \tchkStyle:\"checkbox\",\r\n        \tchkboxType: { \"Y\": \"s\", \"N\": \"s\" },\r\n        \tradioType:\"all\"\r\n        },\r\n        data:{ // 必须使用data  \r\n \r\n            simpleData : {  \r\n                enable : true,  \r\n                idKey : \"id\", // id编号命名   \r\n                pIdKey : \"pId\", // 父id编号命名    \r\n                rootPId : 0\r\n            }  \r\n        },  \r\n        // 回调函数  \r\n        //?????treeId\r\n        callback : {  \r\n        \t//beforeCheck:zTreeBeforeClick,\r\n            onClick : function(event, treeId, treeNod"
+    },
+    {
+      "term": "tree",
+      "offset": 3650,
+      "snippet": "            simpleData : {  \r\n                enable : true,  \r\n                idKey : \"id\", // id编号命名   \r\n                pIdKey : \"pId\", // 父id编号命名    \r\n                rootPId : 0\r\n            }  \r\n        },  \r\n        // 回调函数  \r\n        //?????treeId\r\n        callback : {  \r\n        \t//beforeCheck:zTreeBeforeClick,\r\n            onClick : function(event, treeId, treeNode, clickFlag) {  \r\n                if(true) {\r\n                }  \r\n            },\r\n            //捕获异步加载出现异常错误的事件回调函数 和 成功的回调函数\r\n\t        onAsyncSuccess : initcheckednodes\r\n            /* beforeAsync: function(treeId,treeNode){\r\n            }, */\r\n        }  \r\n    };  \r\n   \r\n    /* // 过滤函数  \r\n    function filter(treeId, parentNode, childNodes) {  \r\n        if (!childNodes)  \r\n            return null;  \r\n        for ( var i = 0, l = childNodes.length; i < l; i++) {  \r\n           childNodes[i].name = childNodes[i].name."
+    },
+    {
+      "term": "tree",
+      "offset": 3706,
+      "snippet": "rue,  \r\n                idKey : \"id\", // id编号命名   \r\n                pIdKey : \"pId\", // 父id编号命名    \r\n                rootPId : 0\r\n            }  \r\n        },  \r\n        // 回调函数  \r\n        //?????treeId\r\n        callback : {  \r\n        \t//beforeCheck:zTreeBeforeClick,\r\n            onClick : function(event, treeId, treeNode, clickFlag) {  \r\n                if(true) {\r\n                }  \r\n            },\r\n            //捕获异步加载出现异常错误的事件回调函数 和 成功的回调函数\r\n\t        onAsyncSuccess : initcheckednodes\r\n            /* beforeAsync: function(treeId,treeNode){\r\n            }, */\r\n        }  \r\n    };  \r\n   \r\n    /* // 过滤函数  \r\n    function filter(treeId, parentNode, childNodes) {  \r\n        if (!childNodes)  \r\n            return null;  \r\n        for ( var i = 0, l = childNodes.length; i < l; i++) {  \r\n           childNodes[i].name = childNodes[i].name.replace(/\\.n/g, '.');  \r\n        }  \r\n        return chi"
+    },
+    {
+      "term": "tree",
+      "offset": 3762,
+      "snippet": "            pIdKey : \"pId\", // 父id编号命名    \r\n                rootPId : 0\r\n            }  \r\n        },  \r\n        // 回调函数  \r\n        //?????treeId\r\n        callback : {  \r\n        \t//beforeCheck:zTreeBeforeClick,\r\n            onClick : function(event, treeId, treeNode, clickFlag) {  \r\n                if(true) {\r\n                }  \r\n            },\r\n            //捕获异步加载出现异常错误的事件回调函数 和 成功的回调函数\r\n\t        onAsyncSuccess : initcheckednodes\r\n            /* beforeAsync: function(treeId,treeNode){\r\n            }, */\r\n        }  \r\n    };  \r\n   \r\n    /* // 过滤函数  \r\n    function filter(treeId, parentNode, childNodes) {  \r\n        if (!childNodes)  \r\n            return null;  \r\n        for ( var i = 0, l = childNodes.length; i < l; i++) {  \r\n           childNodes[i].name = childNodes[i].name.replace(/\\.n/g, '.');  \r\n        }  \r\n        return childNodes;  \r\n    }  */\r\n   var zNodes=[]; \r\nfunction zTre"
+    },
+    {
+      "term": "tree",
+      "offset": 3770,
+      "snippet": "    pIdKey : \"pId\", // 父id编号命名    \r\n                rootPId : 0\r\n            }  \r\n        },  \r\n        // 回调函数  \r\n        //?????treeId\r\n        callback : {  \r\n        \t//beforeCheck:zTreeBeforeClick,\r\n            onClick : function(event, treeId, treeNode, clickFlag) {  \r\n                if(true) {\r\n                }  \r\n            },\r\n            //捕获异步加载出现异常错误的事件回调函数 和 成功的回调函数\r\n\t        onAsyncSuccess : initcheckednodes\r\n            /* beforeAsync: function(treeId,treeNode){\r\n            }, */\r\n        }  \r\n    };  \r\n   \r\n    /* // 过滤函数  \r\n    function filter(treeId, parentNode, childNodes) {  \r\n        if (!childNodes)  \r\n            return null;  \r\n        for ( var i = 0, l = childNodes.length; i < l; i++) {  \r\n           childNodes[i].name = childNodes[i].name.replace(/\\.n/g, '.');  \r\n        }  \r\n        return childNodes;  \r\n    }  */\r\n   var zNodes=[]; \r\nfunction zTreeBeforeC"
+    },
+    {
+      "term": "tree",
+      "offset": 3987,
+      "snippet": "nClick : function(event, treeId, treeNode, clickFlag) {  \r\n                if(true) {\r\n                }  \r\n            },\r\n            //捕获异步加载出现异常错误的事件回调函数 和 成功的回调函数\r\n\t        onAsyncSuccess : initcheckednodes\r\n            /* beforeAsync: function(treeId,treeNode){\r\n            }, */\r\n        }  \r\n    };  \r\n   \r\n    /* // 过滤函数  \r\n    function filter(treeId, parentNode, childNodes) {  \r\n        if (!childNodes)  \r\n            return null;  \r\n        for ( var i = 0, l = childNodes.length; i < l; i++) {  \r\n           childNodes[i].name = childNodes[i].name.replace(/\\.n/g, '.');  \r\n        }  \r\n        return childNodes;  \r\n    }  */\r\n   var zNodes=[]; \r\nfunction zTreeBeforeClick(treeId, treeNode, clickFlag) {\r\n\t\r\n\treturn !treeNode.parentcode==\"\";\r\n\t\r\n\t//return !treeNode.isParent;//当是父节点 返回false 不让选取\r\n\t}; \r\n$(function(){\r\n\t\r\n\tsetting.async.otherParam={\"nodecode\":\"\",\"name\":\"\",\"hyids\":\"\"}\r\n"
+    },
+    {
+      "term": "tree",
+      "offset": 3994,
+      "snippet": ": function(event, treeId, treeNode, clickFlag) {  \r\n                if(true) {\r\n                }  \r\n            },\r\n            //捕获异步加载出现异常错误的事件回调函数 和 成功的回调函数\r\n\t        onAsyncSuccess : initcheckednodes\r\n            /* beforeAsync: function(treeId,treeNode){\r\n            }, */\r\n        }  \r\n    };  \r\n   \r\n    /* // 过滤函数  \r\n    function filter(treeId, parentNode, childNodes) {  \r\n        if (!childNodes)  \r\n            return null;  \r\n        for ( var i = 0, l = childNodes.length; i < l; i++) {  \r\n           childNodes[i].name = childNodes[i].name.replace(/\\.n/g, '.');  \r\n        }  \r\n        return childNodes;  \r\n    }  */\r\n   var zNodes=[]; \r\nfunction zTreeBeforeClick(treeId, treeNode, clickFlag) {\r\n\t\r\n\treturn !treeNode.parentcode==\"\";\r\n\t\r\n\t//return !treeNode.isParent;//当是父节点 返回false 不让选取\r\n\t}; \r\n$(function(){\r\n\t\r\n\tsetting.async.otherParam={\"nodecode\":\"\",\"name\":\"\",\"hyids\":\"\"}\r\n\tvar hy"
+    },
+    {
+      "term": "tree",
+      "offset": 4091,
+      "snippet": "  \r\n            },\r\n            //捕获异步加载出现异常错误的事件回调函数 和 成功的回调函数\r\n\t        onAsyncSuccess : initcheckednodes\r\n            /* beforeAsync: function(treeId,treeNode){\r\n            }, */\r\n        }  \r\n    };  \r\n   \r\n    /* // 过滤函数  \r\n    function filter(treeId, parentNode, childNodes) {  \r\n        if (!childNodes)  \r\n            return null;  \r\n        for ( var i = 0, l = childNodes.length; i < l; i++) {  \r\n           childNodes[i].name = childNodes[i].name.replace(/\\.n/g, '.');  \r\n        }  \r\n        return childNodes;  \r\n    }  */\r\n   var zNodes=[]; \r\nfunction zTreeBeforeClick(treeId, treeNode, clickFlag) {\r\n\t\r\n\treturn !treeNode.parentcode==\"\";\r\n\t\r\n\t//return !treeNode.isParent;//当是父节点 返回false 不让选取\r\n\t}; \r\n$(function(){\r\n\t\r\n\tsetting.async.otherParam={\"nodecode\":\"\",\"name\":\"\",\"hyids\":\"\"}\r\n\tvar hytype = 'more';\r\n\tif(hytype=='one'){\r\n\t\tsetting.check.chkStyle=\"radio\";\r\n\t}\r\n\t$.fn.zTree.init($(\"#"
+    },
+    {
+      "term": "tree",
+      "offset": 4409,
+      "snippet": "         return null;  \r\n        for ( var i = 0, l = childNodes.length; i < l; i++) {  \r\n           childNodes[i].name = childNodes[i].name.replace(/\\.n/g, '.');  \r\n        }  \r\n        return childNodes;  \r\n    }  */\r\n   var zNodes=[]; \r\nfunction zTreeBeforeClick(treeId, treeNode, clickFlag) {\r\n\t\r\n\treturn !treeNode.parentcode==\"\";\r\n\t\r\n\t//return !treeNode.isParent;//当是父节点 返回false 不让选取\r\n\t}; \r\n$(function(){\r\n\t\r\n\tsetting.async.otherParam={\"nodecode\":\"\",\"name\":\"\",\"hyids\":\"\"}\r\n\tvar hytype = 'more';\r\n\tif(hytype=='one'){\r\n\t\tsetting.check.chkStyle=\"radio\";\r\n\t}\r\n\t$.fn.zTree.init($(\"#tree\"),setting,zNodes);\r\n\tzTree = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tinitcheckednodes();\r\n\t\r\n});\r\n\r\n//数据回显\r\nfunction initcheckednodes(){\r\n    var hyids;\r\n    if(window.parent.hytreehyids){\r\n        hyids = window.parent.hytreehyids;\r\n    }else{\r\n        hyids='';\r\n    }\r\n\tvar hyidsarry=hyids.split(\",\");\r\n\tvar treeObj "
+    },
+    {
+      "term": "tree",
+      "offset": 4425,
+      "snippet": "null;  \r\n        for ( var i = 0, l = childNodes.length; i < l; i++) {  \r\n           childNodes[i].name = childNodes[i].name.replace(/\\.n/g, '.');  \r\n        }  \r\n        return childNodes;  \r\n    }  */\r\n   var zNodes=[]; \r\nfunction zTreeBeforeClick(treeId, treeNode, clickFlag) {\r\n\t\r\n\treturn !treeNode.parentcode==\"\";\r\n\t\r\n\t//return !treeNode.isParent;//当是父节点 返回false 不让选取\r\n\t}; \r\n$(function(){\r\n\t\r\n\tsetting.async.otherParam={\"nodecode\":\"\",\"name\":\"\",\"hyids\":\"\"}\r\n\tvar hytype = 'more';\r\n\tif(hytype=='one'){\r\n\t\tsetting.check.chkStyle=\"radio\";\r\n\t}\r\n\t$.fn.zTree.init($(\"#tree\"),setting,zNodes);\r\n\tzTree = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tinitcheckednodes();\r\n\t\r\n});\r\n\r\n//数据回显\r\nfunction initcheckednodes(){\r\n    var hyids;\r\n    if(window.parent.hytreehyids){\r\n        hyids = window.parent.hytreehyids;\r\n    }else{\r\n        hyids='';\r\n    }\r\n\tvar hyidsarry=hyids.split(\",\");\r\n\tvar treeObj = $.fn.zTree.get"
+    },
+    {
+      "term": "tree",
+      "offset": 4433,
+      "snippet": "\n        for ( var i = 0, l = childNodes.length; i < l; i++) {  \r\n           childNodes[i].name = childNodes[i].name.replace(/\\.n/g, '.');  \r\n        }  \r\n        return childNodes;  \r\n    }  */\r\n   var zNodes=[]; \r\nfunction zTreeBeforeClick(treeId, treeNode, clickFlag) {\r\n\t\r\n\treturn !treeNode.parentcode==\"\";\r\n\t\r\n\t//return !treeNode.isParent;//当是父节点 返回false 不让选取\r\n\t}; \r\n$(function(){\r\n\t\r\n\tsetting.async.otherParam={\"nodecode\":\"\",\"name\":\"\",\"hyids\":\"\"}\r\n\tvar hytype = 'more';\r\n\tif(hytype=='one'){\r\n\t\tsetting.check.chkStyle=\"radio\";\r\n\t}\r\n\t$.fn.zTree.init($(\"#tree\"),setting,zNodes);\r\n\tzTree = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tinitcheckednodes();\r\n\t\r\n});\r\n\r\n//数据回显\r\nfunction initcheckednodes(){\r\n    var hyids;\r\n    if(window.parent.hytreehyids){\r\n        hyids = window.parent.hytreehyids;\r\n    }else{\r\n        hyids='';\r\n    }\r\n\tvar hyidsarry=hyids.split(\",\");\r\n\tvar treeObj = $.fn.zTree.getZTreeObj"
+    },
+    {
+      "term": "tree",
+      "offset": 4469,
+      "snippet": "odes.length; i < l; i++) {  \r\n           childNodes[i].name = childNodes[i].name.replace(/\\.n/g, '.');  \r\n        }  \r\n        return childNodes;  \r\n    }  */\r\n   var zNodes=[]; \r\nfunction zTreeBeforeClick(treeId, treeNode, clickFlag) {\r\n\t\r\n\treturn !treeNode.parentcode==\"\";\r\n\t\r\n\t//return !treeNode.isParent;//当是父节点 返回false 不让选取\r\n\t}; \r\n$(function(){\r\n\t\r\n\tsetting.async.otherParam={\"nodecode\":\"\",\"name\":\"\",\"hyids\":\"\"}\r\n\tvar hytype = 'more';\r\n\tif(hytype=='one'){\r\n\t\tsetting.check.chkStyle=\"radio\";\r\n\t}\r\n\t$.fn.zTree.init($(\"#tree\"),setting,zNodes);\r\n\tzTree = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tinitcheckednodes();\r\n\t\r\n});\r\n\r\n//数据回显\r\nfunction initcheckednodes(){\r\n    var hyids;\r\n    if(window.parent.hytreehyids){\r\n        hyids = window.parent.hytreehyids;\r\n    }else{\r\n        hyids='';\r\n    }\r\n\tvar hyidsarry=hyids.split(\",\");\r\n\tvar treeObj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tfor(var index in hyidsar"
+    },
+    {
+      "term": "tree",
+      "offset": 4509,
+      "snippet": " childNodes[i].name = childNodes[i].name.replace(/\\.n/g, '.');  \r\n        }  \r\n        return childNodes;  \r\n    }  */\r\n   var zNodes=[]; \r\nfunction zTreeBeforeClick(treeId, treeNode, clickFlag) {\r\n\t\r\n\treturn !treeNode.parentcode==\"\";\r\n\t\r\n\t//return !treeNode.isParent;//当是父节点 返回false 不让选取\r\n\t}; \r\n$(function(){\r\n\t\r\n\tsetting.async.otherParam={\"nodecode\":\"\",\"name\":\"\",\"hyids\":\"\"}\r\n\tvar hytype = 'more';\r\n\tif(hytype=='one'){\r\n\t\tsetting.check.chkStyle=\"radio\";\r\n\t}\r\n\t$.fn.zTree.init($(\"#tree\"),setting,zNodes);\r\n\tzTree = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tinitcheckednodes();\r\n\t\r\n});\r\n\r\n//数据回显\r\nfunction initcheckednodes(){\r\n    var hyids;\r\n    if(window.parent.hytreehyids){\r\n        hyids = window.parent.hytreehyids;\r\n    }else{\r\n        hyids='';\r\n    }\r\n\tvar hyidsarry=hyids.split(\",\");\r\n\tvar treeObj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tfor(var index in hyidsarry){\r\n\t\tvar node = treeObj.getNodeByPara"
+    },
+    {
+      "term": "tree",
+      "offset": 4727,
+      "snippet": ".parentcode==\"\";\r\n\t\r\n\t//return !treeNode.isParent;//当是父节点 返回false 不让选取\r\n\t}; \r\n$(function(){\r\n\t\r\n\tsetting.async.otherParam={\"nodecode\":\"\",\"name\":\"\",\"hyids\":\"\"}\r\n\tvar hytype = 'more';\r\n\tif(hytype=='one'){\r\n\t\tsetting.check.chkStyle=\"radio\";\r\n\t}\r\n\t$.fn.zTree.init($(\"#tree\"),setting,zNodes);\r\n\tzTree = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tinitcheckednodes();\r\n\t\r\n});\r\n\r\n//数据回显\r\nfunction initcheckednodes(){\r\n    var hyids;\r\n    if(window.parent.hytreehyids){\r\n        hyids = window.parent.hytreehyids;\r\n    }else{\r\n        hyids='';\r\n    }\r\n\tvar hyidsarry=hyids.split(\",\");\r\n\tvar treeObj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tfor(var index in hyidsarry){\r\n\t\tvar node = treeObj.getNodeByParam(\"id\",hyidsarry[index]);\r\n\t\t//node.getParentNode.open=true;\r\n\t\ttreeObj.checkNode(node,true,false,true);\r\n\t}\r\n\t\r\n}\r\n\r\n\r\nfunction winclose(){\r\n\tart.dialog.close();\r\n};\r\n\r\n\r\nfunction clearhy(){\r\n\tif(confirm(\"确定要清空吗\")){\r\n"
+    },
+    {
+      "term": "tree",
+      "offset": 4741,
+      "snippet": "\";\r\n\t\r\n\t//return !treeNode.isParent;//当是父节点 返回false 不让选取\r\n\t}; \r\n$(function(){\r\n\t\r\n\tsetting.async.otherParam={\"nodecode\":\"\",\"name\":\"\",\"hyids\":\"\"}\r\n\tvar hytype = 'more';\r\n\tif(hytype=='one'){\r\n\t\tsetting.check.chkStyle=\"radio\";\r\n\t}\r\n\t$.fn.zTree.init($(\"#tree\"),setting,zNodes);\r\n\tzTree = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tinitcheckednodes();\r\n\t\r\n});\r\n\r\n//数据回显\r\nfunction initcheckednodes(){\r\n    var hyids;\r\n    if(window.parent.hytreehyids){\r\n        hyids = window.parent.hytreehyids;\r\n    }else{\r\n        hyids='';\r\n    }\r\n\tvar hyidsarry=hyids.split(\",\");\r\n\tvar treeObj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tfor(var index in hyidsarry){\r\n\t\tvar node = treeObj.getNodeByParam(\"id\",hyidsarry[index]);\r\n\t\t//node.getParentNode.open=true;\r\n\t\ttreeObj.checkNode(node,true,false,true);\r\n\t}\r\n\t\r\n}\r\n\r\n\r\nfunction winclose(){\r\n\tart.dialog.close();\r\n};\r\n\r\n\r\nfunction clearhy(){\r\n\tif(confirm(\"确定要清空吗\")){\r\n\t\tzTree.checkA"
+    },
+    {
+      "term": "tree",
+      "offset": 4768,
+      "snippet": "isParent;//当是父节点 返回false 不让选取\r\n\t}; \r\n$(function(){\r\n\t\r\n\tsetting.async.otherParam={\"nodecode\":\"\",\"name\":\"\",\"hyids\":\"\"}\r\n\tvar hytype = 'more';\r\n\tif(hytype=='one'){\r\n\t\tsetting.check.chkStyle=\"radio\";\r\n\t}\r\n\t$.fn.zTree.init($(\"#tree\"),setting,zNodes);\r\n\tzTree = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tinitcheckednodes();\r\n\t\r\n});\r\n\r\n//数据回显\r\nfunction initcheckednodes(){\r\n    var hyids;\r\n    if(window.parent.hytreehyids){\r\n        hyids = window.parent.hytreehyids;\r\n    }else{\r\n        hyids='';\r\n    }\r\n\tvar hyidsarry=hyids.split(\",\");\r\n\tvar treeObj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tfor(var index in hyidsarry){\r\n\t\tvar node = treeObj.getNodeByParam(\"id\",hyidsarry[index]);\r\n\t\t//node.getParentNode.open=true;\r\n\t\ttreeObj.checkNode(node,true,false,true);\r\n\t}\r\n\t\r\n}\r\n\r\n\r\nfunction winclose(){\r\n\tart.dialog.close();\r\n};\r\n\r\n\r\nfunction clearhy(){\r\n\tif(confirm(\"确定要清空吗\")){\r\n\t\tzTree.checkAllNodes(false);\r\n\t\twindow.p"
+    },
+    {
+      "term": "tree",
+      "offset": 4781,
+      "snippet": "父节点 返回false 不让选取\r\n\t}; \r\n$(function(){\r\n\t\r\n\tsetting.async.otherParam={\"nodecode\":\"\",\"name\":\"\",\"hyids\":\"\"}\r\n\tvar hytype = 'more';\r\n\tif(hytype=='one'){\r\n\t\tsetting.check.chkStyle=\"radio\";\r\n\t}\r\n\t$.fn.zTree.init($(\"#tree\"),setting,zNodes);\r\n\tzTree = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tinitcheckednodes();\r\n\t\r\n});\r\n\r\n//数据回显\r\nfunction initcheckednodes(){\r\n    var hyids;\r\n    if(window.parent.hytreehyids){\r\n        hyids = window.parent.hytreehyids;\r\n    }else{\r\n        hyids='';\r\n    }\r\n\tvar hyidsarry=hyids.split(\",\");\r\n\tvar treeObj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tfor(var index in hyidsarry){\r\n\t\tvar node = treeObj.getNodeByParam(\"id\",hyidsarry[index]);\r\n\t\t//node.getParentNode.open=true;\r\n\t\ttreeObj.checkNode(node,true,false,true);\r\n\t}\r\n\t\r\n}\r\n\r\n\r\nfunction winclose(){\r\n\tart.dialog.close();\r\n};\r\n\r\n\r\nfunction clearhy(){\r\n\tif(confirm(\"确定要清空吗\")){\r\n\t\tzTree.checkAllNodes(false);\r\n\t\twindow.parent.hytreeh"
+    },
+    {
+      "term": "tree",
+      "offset": 4790,
+      "snippet": "se 不让选取\r\n\t}; \r\n$(function(){\r\n\t\r\n\tsetting.async.otherParam={\"nodecode\":\"\",\"name\":\"\",\"hyids\":\"\"}\r\n\tvar hytype = 'more';\r\n\tif(hytype=='one'){\r\n\t\tsetting.check.chkStyle=\"radio\";\r\n\t}\r\n\t$.fn.zTree.init($(\"#tree\"),setting,zNodes);\r\n\tzTree = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tinitcheckednodes();\r\n\t\r\n});\r\n\r\n//数据回显\r\nfunction initcheckednodes(){\r\n    var hyids;\r\n    if(window.parent.hytreehyids){\r\n        hyids = window.parent.hytreehyids;\r\n    }else{\r\n        hyids='';\r\n    }\r\n\tvar hyidsarry=hyids.split(\",\");\r\n\tvar treeObj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tfor(var index in hyidsarry){\r\n\t\tvar node = treeObj.getNodeByParam(\"id\",hyidsarry[index]);\r\n\t\t//node.getParentNode.open=true;\r\n\t\ttreeObj.checkNode(node,true,false,true);\r\n\t}\r\n\t\r\n}\r\n\r\n\r\nfunction winclose(){\r\n\tart.dialog.close();\r\n};\r\n\r\n\r\nfunction clearhy(){\r\n\tif(confirm(\"确定要清空吗\")){\r\n\t\tzTree.checkAllNodes(false);\r\n\t\twindow.parent.hytreehyids = \"\""
+    },
+    {
+      "term": "tree",
+      "offset": 4799,
+      "snippet": "\t}; \r\n$(function(){\r\n\t\r\n\tsetting.async.otherParam={\"nodecode\":\"\",\"name\":\"\",\"hyids\":\"\"}\r\n\tvar hytype = 'more';\r\n\tif(hytype=='one'){\r\n\t\tsetting.check.chkStyle=\"radio\";\r\n\t}\r\n\t$.fn.zTree.init($(\"#tree\"),setting,zNodes);\r\n\tzTree = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tinitcheckednodes();\r\n\t\r\n});\r\n\r\n//数据回显\r\nfunction initcheckednodes(){\r\n    var hyids;\r\n    if(window.parent.hytreehyids){\r\n        hyids = window.parent.hytreehyids;\r\n    }else{\r\n        hyids='';\r\n    }\r\n\tvar hyidsarry=hyids.split(\",\");\r\n\tvar treeObj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tfor(var index in hyidsarry){\r\n\t\tvar node = treeObj.getNodeByParam(\"id\",hyidsarry[index]);\r\n\t\t//node.getParentNode.open=true;\r\n\t\ttreeObj.checkNode(node,true,false,true);\r\n\t}\r\n\t\r\n}\r\n\r\n\r\nfunction winclose(){\r\n\tart.dialog.close();\r\n};\r\n\r\n\r\nfunction clearhy(){\r\n\tif(confirm(\"确定要清空吗\")){\r\n\t\tzTree.checkAllNodes(false);\r\n\t\twindow.parent.hytreehyids = \"\";\r\n\t\tart."
+    },
+    {
+      "term": "tree",
+      "offset": 4917,
+      "snippet": "ype=='one'){\r\n\t\tsetting.check.chkStyle=\"radio\";\r\n\t}\r\n\t$.fn.zTree.init($(\"#tree\"),setting,zNodes);\r\n\tzTree = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tinitcheckednodes();\r\n\t\r\n});\r\n\r\n//数据回显\r\nfunction initcheckednodes(){\r\n    var hyids;\r\n    if(window.parent.hytreehyids){\r\n        hyids = window.parent.hytreehyids;\r\n    }else{\r\n        hyids='';\r\n    }\r\n\tvar hyidsarry=hyids.split(\",\");\r\n\tvar treeObj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tfor(var index in hyidsarry){\r\n\t\tvar node = treeObj.getNodeByParam(\"id\",hyidsarry[index]);\r\n\t\t//node.getParentNode.open=true;\r\n\t\ttreeObj.checkNode(node,true,false,true);\r\n\t}\r\n\t\r\n}\r\n\r\n\r\nfunction winclose(){\r\n\tart.dialog.close();\r\n};\r\n\r\n\r\nfunction clearhy(){\r\n\tif(confirm(\"确定要清空吗\")){\r\n\t\tzTree.checkAllNodes(false);\r\n\t\twindow.parent.hytreehyids = \"\";\r\n\t\tart.dialog.open.origin.clearAll();\r\n/* \t\t$(\"#clearbtn\").hide();\r\n\t\tvar html=\"<input type=\\\"button\\\" id=\\\"addbtn\\\" class=\\\""
+    },
+    {
+      "term": "tree",
+      "offset": 4962,
+      "snippet": "\";\r\n\t}\r\n\t$.fn.zTree.init($(\"#tree\"),setting,zNodes);\r\n\tzTree = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tinitcheckednodes();\r\n\t\r\n});\r\n\r\n//数据回显\r\nfunction initcheckednodes(){\r\n    var hyids;\r\n    if(window.parent.hytreehyids){\r\n        hyids = window.parent.hytreehyids;\r\n    }else{\r\n        hyids='';\r\n    }\r\n\tvar hyidsarry=hyids.split(\",\");\r\n\tvar treeObj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tfor(var index in hyidsarry){\r\n\t\tvar node = treeObj.getNodeByParam(\"id\",hyidsarry[index]);\r\n\t\t//node.getParentNode.open=true;\r\n\t\ttreeObj.checkNode(node,true,false,true);\r\n\t}\r\n\t\r\n}\r\n\r\n\r\nfunction winclose(){\r\n\tart.dialog.close();\r\n};\r\n\r\n\r\nfunction clearhy(){\r\n\tif(confirm(\"确定要清空吗\")){\r\n\t\tzTree.checkAllNodes(false);\r\n\t\twindow.parent.hytreehyids = \"\";\r\n\t\tart.dialog.open.origin.clearAll();\r\n/* \t\t$(\"#clearbtn\").hide();\r\n\t\tvar html=\"<input type=\\\"button\\\" id=\\\"addbtn\\\" class=\\\"button submit\\\" value=\\\"添加\\\" style=\\\"cursor: "
+    },
+    {
+      "term": "tree",
+      "offset": 5051,
+      "snippet": "ee\");\r\n\tinitcheckednodes();\r\n\t\r\n});\r\n\r\n//数据回显\r\nfunction initcheckednodes(){\r\n    var hyids;\r\n    if(window.parent.hytreehyids){\r\n        hyids = window.parent.hytreehyids;\r\n    }else{\r\n        hyids='';\r\n    }\r\n\tvar hyidsarry=hyids.split(\",\");\r\n\tvar treeObj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tfor(var index in hyidsarry){\r\n\t\tvar node = treeObj.getNodeByParam(\"id\",hyidsarry[index]);\r\n\t\t//node.getParentNode.open=true;\r\n\t\ttreeObj.checkNode(node,true,false,true);\r\n\t}\r\n\t\r\n}\r\n\r\n\r\nfunction winclose(){\r\n\tart.dialog.close();\r\n};\r\n\r\n\r\nfunction clearhy(){\r\n\tif(confirm(\"确定要清空吗\")){\r\n\t\tzTree.checkAllNodes(false);\r\n\t\twindow.parent.hytreehyids = \"\";\r\n\t\tart.dialog.open.origin.clearAll();\r\n/* \t\t$(\"#clearbtn\").hide();\r\n\t\tvar html=\"<input type=\\\"button\\\" id=\\\"addbtn\\\" class=\\\"button submit\\\" value=\\\"添加\\\" style=\\\"cursor: pointer;\\\" onclick=\\\"add()\\\"/>\"\r\n\t\t+\"<input type=\\\"button\\\" id=\\\"cancelbtn\\\" class=\\\"butt"
+    },
+    {
+      "term": "tree",
+      "offset": 5067,
+      "snippet": "kednodes();\r\n\t\r\n});\r\n\r\n//数据回显\r\nfunction initcheckednodes(){\r\n    var hyids;\r\n    if(window.parent.hytreehyids){\r\n        hyids = window.parent.hytreehyids;\r\n    }else{\r\n        hyids='';\r\n    }\r\n\tvar hyidsarry=hyids.split(\",\");\r\n\tvar treeObj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tfor(var index in hyidsarry){\r\n\t\tvar node = treeObj.getNodeByParam(\"id\",hyidsarry[index]);\r\n\t\t//node.getParentNode.open=true;\r\n\t\ttreeObj.checkNode(node,true,false,true);\r\n\t}\r\n\t\r\n}\r\n\r\n\r\nfunction winclose(){\r\n\tart.dialog.close();\r\n};\r\n\r\n\r\nfunction clearhy(){\r\n\tif(confirm(\"确定要清空吗\")){\r\n\t\tzTree.checkAllNodes(false);\r\n\t\twindow.parent.hytreehyids = \"\";\r\n\t\tart.dialog.open.origin.clearAll();\r\n/* \t\t$(\"#clearbtn\").hide();\r\n\t\tvar html=\"<input type=\\\"button\\\" id=\\\"addbtn\\\" class=\\\"button submit\\\" value=\\\"添加\\\" style=\\\"cursor: pointer;\\\" onclick=\\\"add()\\\"/>\"\r\n\t\t+\"<input type=\\\"button\\\" id=\\\"cancelbtn\\\" class=\\\"button submit\\\" valu"
+    },
+    {
+      "term": "tree",
+      "offset": 5076,
+      "snippet": ");\r\n\t\r\n});\r\n\r\n//数据回显\r\nfunction initcheckednodes(){\r\n    var hyids;\r\n    if(window.parent.hytreehyids){\r\n        hyids = window.parent.hytreehyids;\r\n    }else{\r\n        hyids='';\r\n    }\r\n\tvar hyidsarry=hyids.split(\",\");\r\n\tvar treeObj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tfor(var index in hyidsarry){\r\n\t\tvar node = treeObj.getNodeByParam(\"id\",hyidsarry[index]);\r\n\t\t//node.getParentNode.open=true;\r\n\t\ttreeObj.checkNode(node,true,false,true);\r\n\t}\r\n\t\r\n}\r\n\r\n\r\nfunction winclose(){\r\n\tart.dialog.close();\r\n};\r\n\r\n\r\nfunction clearhy(){\r\n\tif(confirm(\"确定要清空吗\")){\r\n\t\tzTree.checkAllNodes(false);\r\n\t\twindow.parent.hytreehyids = \"\";\r\n\t\tart.dialog.open.origin.clearAll();\r\n/* \t\t$(\"#clearbtn\").hide();\r\n\t\tvar html=\"<input type=\\\"button\\\" id=\\\"addbtn\\\" class=\\\"button submit\\\" value=\\\"添加\\\" style=\\\"cursor: pointer;\\\" onclick=\\\"add()\\\"/>\"\r\n\t\t+\"<input type=\\\"button\\\" id=\\\"cancelbtn\\\" class=\\\"button submit\\\" value=\\\"返回\\\" "
+    },
+    {
+      "term": "tree",
+      "offset": 5085,
+      "snippet": ";\r\n\r\n//数据回显\r\nfunction initcheckednodes(){\r\n    var hyids;\r\n    if(window.parent.hytreehyids){\r\n        hyids = window.parent.hytreehyids;\r\n    }else{\r\n        hyids='';\r\n    }\r\n\tvar hyidsarry=hyids.split(\",\");\r\n\tvar treeObj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tfor(var index in hyidsarry){\r\n\t\tvar node = treeObj.getNodeByParam(\"id\",hyidsarry[index]);\r\n\t\t//node.getParentNode.open=true;\r\n\t\ttreeObj.checkNode(node,true,false,true);\r\n\t}\r\n\t\r\n}\r\n\r\n\r\nfunction winclose(){\r\n\tart.dialog.close();\r\n};\r\n\r\n\r\nfunction clearhy(){\r\n\tif(confirm(\"确定要清空吗\")){\r\n\t\tzTree.checkAllNodes(false);\r\n\t\twindow.parent.hytreehyids = \"\";\r\n\t\tart.dialog.open.origin.clearAll();\r\n/* \t\t$(\"#clearbtn\").hide();\r\n\t\tvar html=\"<input type=\\\"button\\\" id=\\\"addbtn\\\" class=\\\"button submit\\\" value=\\\"添加\\\" style=\\\"cursor: pointer;\\\" onclick=\\\"add()\\\"/>\"\r\n\t\t+\"<input type=\\\"button\\\" id=\\\"cancelbtn\\\" class=\\\"button submit\\\" value=\\\"返回\\\" style=\\\"c"
+    },
+    {
+      "term": "tree",
+      "offset": 5138,
+      "snippet": "ids;\r\n    if(window.parent.hytreehyids){\r\n        hyids = window.parent.hytreehyids;\r\n    }else{\r\n        hyids='';\r\n    }\r\n\tvar hyidsarry=hyids.split(\",\");\r\n\tvar treeObj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tfor(var index in hyidsarry){\r\n\t\tvar node = treeObj.getNodeByParam(\"id\",hyidsarry[index]);\r\n\t\t//node.getParentNode.open=true;\r\n\t\ttreeObj.checkNode(node,true,false,true);\r\n\t}\r\n\t\r\n}\r\n\r\n\r\nfunction winclose(){\r\n\tart.dialog.close();\r\n};\r\n\r\n\r\nfunction clearhy(){\r\n\tif(confirm(\"确定要清空吗\")){\r\n\t\tzTree.checkAllNodes(false);\r\n\t\twindow.parent.hytreehyids = \"\";\r\n\t\tart.dialog.open.origin.clearAll();\r\n/* \t\t$(\"#clearbtn\").hide();\r\n\t\tvar html=\"<input type=\\\"button\\\" id=\\\"addbtn\\\" class=\\\"button submit\\\" value=\\\"添加\\\" style=\\\"cursor: pointer;\\\" onclick=\\\"add()\\\"/>\"\r\n\t\t+\"<input type=\\\"button\\\" id=\\\"cancelbtn\\\" class=\\\"button submit\\\" value=\\\"返回\\\" style=\\\"cursor: pointer;\\\" onclick=\\\"cancel()\\\"/>\";\r\n\t\t$(\"#cle"
+    },
+    {
+      "term": "tree",
+      "offset": 5223,
+      "snippet": "\n    }else{\r\n        hyids='';\r\n    }\r\n\tvar hyidsarry=hyids.split(\",\");\r\n\tvar treeObj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tfor(var index in hyidsarry){\r\n\t\tvar node = treeObj.getNodeByParam(\"id\",hyidsarry[index]);\r\n\t\t//node.getParentNode.open=true;\r\n\t\ttreeObj.checkNode(node,true,false,true);\r\n\t}\r\n\t\r\n}\r\n\r\n\r\nfunction winclose(){\r\n\tart.dialog.close();\r\n};\r\n\r\n\r\nfunction clearhy(){\r\n\tif(confirm(\"确定要清空吗\")){\r\n\t\tzTree.checkAllNodes(false);\r\n\t\twindow.parent.hytreehyids = \"\";\r\n\t\tart.dialog.open.origin.clearAll();\r\n/* \t\t$(\"#clearbtn\").hide();\r\n\t\tvar html=\"<input type=\\\"button\\\" id=\\\"addbtn\\\" class=\\\"button submit\\\" value=\\\"添加\\\" style=\\\"cursor: pointer;\\\" onclick=\\\"add()\\\"/>\"\r\n\t\t+\"<input type=\\\"button\\\" id=\\\"cancelbtn\\\" class=\\\"button submit\\\" value=\\\"返回\\\" style=\\\"cursor: pointer;\\\" onclick=\\\"cancel()\\\"/>\";\r\n\t\t$(\"#clearbtn\").before(html); */\r\n\t}\r\n};\r\nfunction cancel(){\r\n\t\r\n}\r\n\r\n/* function add(){\r\n\tva"
+    },
+    {
+      "term": "tree",
+      "offset": 5380,
+      "snippet": " node = treeObj.getNodeByParam(\"id\",hyidsarry[index]);\r\n\t\t//node.getParentNode.open=true;\r\n\t\ttreeObj.checkNode(node,true,false,true);\r\n\t}\r\n\t\r\n}\r\n\r\n\r\nfunction winclose(){\r\n\tart.dialog.close();\r\n};\r\n\r\n\r\nfunction clearhy(){\r\n\tif(confirm(\"确定要清空吗\")){\r\n\t\tzTree.checkAllNodes(false);\r\n\t\twindow.parent.hytreehyids = \"\";\r\n\t\tart.dialog.open.origin.clearAll();\r\n/* \t\t$(\"#clearbtn\").hide();\r\n\t\tvar html=\"<input type=\\\"button\\\" id=\\\"addbtn\\\" class=\\\"button submit\\\" value=\\\"添加\\\" style=\\\"cursor: pointer;\\\" onclick=\\\"add()\\\"/>\"\r\n\t\t+\"<input type=\\\"button\\\" id=\\\"cancelbtn\\\" class=\\\"button submit\\\" value=\\\"返回\\\" style=\\\"cursor: pointer;\\\" onclick=\\\"cancel()\\\"/>\";\r\n\t\t$(\"#clearbtn\").before(html); */\r\n\t}\r\n};\r\nfunction cancel(){\r\n\t\r\n}\r\n\r\n/* function add(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tvar checkedNodes = treeobj.getCheckedNodes(true);\r\n\tvar hyid=\"\";\r\n\tvar qthyname=\"\";\r\n\tif"
+    },
+    {
+      "term": "tree",
+      "offset": 5426,
+      "snippet": "index]);\r\n\t\t//node.getParentNode.open=true;\r\n\t\ttreeObj.checkNode(node,true,false,true);\r\n\t}\r\n\t\r\n}\r\n\r\n\r\nfunction winclose(){\r\n\tart.dialog.close();\r\n};\r\n\r\n\r\nfunction clearhy(){\r\n\tif(confirm(\"确定要清空吗\")){\r\n\t\tzTree.checkAllNodes(false);\r\n\t\twindow.parent.hytreehyids = \"\";\r\n\t\tart.dialog.open.origin.clearAll();\r\n/* \t\t$(\"#clearbtn\").hide();\r\n\t\tvar html=\"<input type=\\\"button\\\" id=\\\"addbtn\\\" class=\\\"button submit\\\" value=\\\"添加\\\" style=\\\"cursor: pointer;\\\" onclick=\\\"add()\\\"/>\"\r\n\t\t+\"<input type=\\\"button\\\" id=\\\"cancelbtn\\\" class=\\\"button submit\\\" value=\\\"返回\\\" style=\\\"cursor: pointer;\\\" onclick=\\\"cancel()\\\"/>\";\r\n\t\t$(\"#clearbtn\").before(html); */\r\n\t}\r\n};\r\nfunction cancel(){\r\n\t\r\n}\r\n\r\n/* function add(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tvar checkedNodes = treeobj.getCheckedNodes(true);\r\n\tvar hyid=\"\";\r\n\tvar qthyname=\"\";\r\n\tif(checkedNodes!=null&&checkedNodes!=\"\"){\r\n\t\t\r\n\t"
+    },
+    {
+      "term": "tree",
+      "offset": 5898,
+      "snippet": "\"<input type=\\\"button\\\" id=\\\"cancelbtn\\\" class=\\\"button submit\\\" value=\\\"返回\\\" style=\\\"cursor: pointer;\\\" onclick=\\\"cancel()\\\"/>\";\r\n\t\t$(\"#clearbtn\").before(html); */\r\n\t}\r\n};\r\nfunction cancel(){\r\n\t\r\n}\r\n\r\n/* function add(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tvar checkedNodes = treeobj.getCheckedNodes(true);\r\n\tvar hyid=\"\";\r\n\tvar qthyname=\"\";\r\n\tif(checkedNodes!=null&&checkedNodes!=\"\"){\r\n\t\t\r\n\t\tfor(var index in checkedNodes){\r\n\t\t\tif(hyid==\"\"){\r\n\t\t\t\thyid=checkedNodes[index].id;\r\n\t\t\t}else{\r\n\t\t\t\thyid+=\",\"+checkedNodes[index].id;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tif(qthyname==\"\"){\r\n\t\t\t\tqthyname=checkedNodes[index].name;\r\n\t\t\t}else{\r\n\t\t\t\tqthyname+=\",\"+checkedNodes[index].name;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\tart.dialog.open.origin.addHyid(hyid,qthyname,null,hytype);\r\n\t}else{\r\n\t\treturn false;\r\n\t}\r\n\tart.dialog.close();\r\n} */\r\n\r\nfunction add(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.get"
+    },
+    {
+      "term": "tree",
+      "offset": 5914,
+      "snippet": "utton\\\" id=\\\"cancelbtn\\\" class=\\\"button submit\\\" value=\\\"返回\\\" style=\\\"cursor: pointer;\\\" onclick=\\\"cancel()\\\"/>\";\r\n\t\t$(\"#clearbtn\").before(html); */\r\n\t}\r\n};\r\nfunction cancel(){\r\n\t\r\n}\r\n\r\n/* function add(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tvar checkedNodes = treeobj.getCheckedNodes(true);\r\n\tvar hyid=\"\";\r\n\tvar qthyname=\"\";\r\n\tif(checkedNodes!=null&&checkedNodes!=\"\"){\r\n\t\t\r\n\t\tfor(var index in checkedNodes){\r\n\t\t\tif(hyid==\"\"){\r\n\t\t\t\thyid=checkedNodes[index].id;\r\n\t\t\t}else{\r\n\t\t\t\thyid+=\",\"+checkedNodes[index].id;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tif(qthyname==\"\"){\r\n\t\t\t\tqthyname=checkedNodes[index].name;\r\n\t\t\t}else{\r\n\t\t\t\tqthyname+=\",\"+checkedNodes[index].name;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\tart.dialog.open.origin.addHyid(hyid,qthyname,null,hytype);\r\n\t}else{\r\n\t\treturn false;\r\n\t}\r\n\tart.dialog.close();\r\n} */\r\n\r\nfunction add(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\")"
+    },
+    {
+      "term": "tree",
+      "offset": 5923,
+      "snippet": "d=\\\"cancelbtn\\\" class=\\\"button submit\\\" value=\\\"返回\\\" style=\\\"cursor: pointer;\\\" onclick=\\\"cancel()\\\"/>\";\r\n\t\t$(\"#clearbtn\").before(html); */\r\n\t}\r\n};\r\nfunction cancel(){\r\n\t\r\n}\r\n\r\n/* function add(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tvar checkedNodes = treeobj.getCheckedNodes(true);\r\n\tvar hyid=\"\";\r\n\tvar qthyname=\"\";\r\n\tif(checkedNodes!=null&&checkedNodes!=\"\"){\r\n\t\t\r\n\t\tfor(var index in checkedNodes){\r\n\t\t\tif(hyid==\"\"){\r\n\t\t\t\thyid=checkedNodes[index].id;\r\n\t\t\t}else{\r\n\t\t\t\thyid+=\",\"+checkedNodes[index].id;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tif(qthyname==\"\"){\r\n\t\t\t\tqthyname=checkedNodes[index].name;\r\n\t\t\t}else{\r\n\t\t\t\tqthyname+=\",\"+checkedNodes[index].name;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\tart.dialog.open.origin.addHyid(hyid,qthyname,null,hytype);\r\n\t}else{\r\n\t\treturn false;\r\n\t}\r\n\tart.dialog.close();\r\n} */\r\n\r\nfunction add(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tvar c"
+    },
+    {
+      "term": "tree",
+      "offset": 5932,
+      "snippet": "lbtn\\\" class=\\\"button submit\\\" value=\\\"返回\\\" style=\\\"cursor: pointer;\\\" onclick=\\\"cancel()\\\"/>\";\r\n\t\t$(\"#clearbtn\").before(html); */\r\n\t}\r\n};\r\nfunction cancel(){\r\n\t\r\n}\r\n\r\n/* function add(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tvar checkedNodes = treeobj.getCheckedNodes(true);\r\n\tvar hyid=\"\";\r\n\tvar qthyname=\"\";\r\n\tif(checkedNodes!=null&&checkedNodes!=\"\"){\r\n\t\t\r\n\t\tfor(var index in checkedNodes){\r\n\t\t\tif(hyid==\"\"){\r\n\t\t\t\thyid=checkedNodes[index].id;\r\n\t\t\t}else{\r\n\t\t\t\thyid+=\",\"+checkedNodes[index].id;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tif(qthyname==\"\"){\r\n\t\t\t\tqthyname=checkedNodes[index].name;\r\n\t\t\t}else{\r\n\t\t\t\tqthyname+=\",\"+checkedNodes[index].name;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\tart.dialog.open.origin.addHyid(hyid,qthyname,null,hytype);\r\n\t}else{\r\n\t\treturn false;\r\n\t}\r\n\tart.dialog.close();\r\n} */\r\n\r\nfunction add(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tvar checkedNod"
+    },
+    {
+      "term": "tree",
+      "offset": 5961,
+      "snippet": "\" value=\\\"返回\\\" style=\\\"cursor: pointer;\\\" onclick=\\\"cancel()\\\"/>\";\r\n\t\t$(\"#clearbtn\").before(html); */\r\n\t}\r\n};\r\nfunction cancel(){\r\n\t\r\n}\r\n\r\n/* function add(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tvar checkedNodes = treeobj.getCheckedNodes(true);\r\n\tvar hyid=\"\";\r\n\tvar qthyname=\"\";\r\n\tif(checkedNodes!=null&&checkedNodes!=\"\"){\r\n\t\t\r\n\t\tfor(var index in checkedNodes){\r\n\t\t\tif(hyid==\"\"){\r\n\t\t\t\thyid=checkedNodes[index].id;\r\n\t\t\t}else{\r\n\t\t\t\thyid+=\",\"+checkedNodes[index].id;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tif(qthyname==\"\"){\r\n\t\t\t\tqthyname=checkedNodes[index].name;\r\n\t\t\t}else{\r\n\t\t\t\tqthyname+=\",\"+checkedNodes[index].name;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\tart.dialog.open.origin.addHyid(hyid,qthyname,null,hytype);\r\n\t}else{\r\n\t\treturn false;\r\n\t}\r\n\tart.dialog.close();\r\n} */\r\n\r\nfunction add(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tvar checkedNodes = treeobj.getCheckedNodes("
+    },
+    {
+      "term": "tree",
+      "offset": 6524,
+      "snippet": "ex].name;\r\n\t\t\t}else{\r\n\t\t\t\tqthyname+=\",\"+checkedNodes[index].name;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\tart.dialog.open.origin.addHyid(hyid,qthyname,null,hytype);\r\n\t}else{\r\n\t\treturn false;\r\n\t}\r\n\tart.dialog.close();\r\n} */\r\n\r\nfunction add(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tvar checkedNodes = treeobj.getCheckedNodes(true);\r\n\tvar hyid=\"\";\r\n\tvar hynamehyids=\"\";\r\n\tvar singlehyname=\"\";//单独的行业名称\r\n\tif(checkedNodes!=null&&checkedNodes!=\"\"){\r\n\t\t\r\n\t\tfor(var index in checkedNodes){\r\n\t\t\tif(hyid==\"\"){\r\n\t\t\t\thyid=checkedNodes[index].id;\r\n\t\t\t}else{\r\n\t\t\t\thyid+=\",\"+checkedNodes[index].id;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tif(singlehyname==\"\"){\r\n\t\t\t\thynamehyids=checkedNodes[index].name;\r\n\t\t\t\tsinglehyname=checkedNodes[index].singlehyname;\r\n\t\t\t}else{\r\n\t\t\t\thynamehyids+=\",\"+checkedNodes[index].name;\r\n\t\t\t\tsinglehyname+=\",\"+checkedNodes[index].singlehyname;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\t//其他行业选择后显示名字中不用带编码，所以将singlehyname"
+    },
+    {
+      "term": "tree",
+      "offset": 6540,
+      "snippet": "lse{\r\n\t\t\t\tqthyname+=\",\"+checkedNodes[index].name;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\tart.dialog.open.origin.addHyid(hyid,qthyname,null,hytype);\r\n\t}else{\r\n\t\treturn false;\r\n\t}\r\n\tart.dialog.close();\r\n} */\r\n\r\nfunction add(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tvar checkedNodes = treeobj.getCheckedNodes(true);\r\n\tvar hyid=\"\";\r\n\tvar hynamehyids=\"\";\r\n\tvar singlehyname=\"\";//单独的行业名称\r\n\tif(checkedNodes!=null&&checkedNodes!=\"\"){\r\n\t\t\r\n\t\tfor(var index in checkedNodes){\r\n\t\t\tif(hyid==\"\"){\r\n\t\t\t\thyid=checkedNodes[index].id;\r\n\t\t\t}else{\r\n\t\t\t\thyid+=\",\"+checkedNodes[index].id;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tif(singlehyname==\"\"){\r\n\t\t\t\thynamehyids=checkedNodes[index].name;\r\n\t\t\t\tsinglehyname=checkedNodes[index].singlehyname;\r\n\t\t\t}else{\r\n\t\t\t\thynamehyids+=\",\"+checkedNodes[index].name;\r\n\t\t\t\tsinglehyname+=\",\"+checkedNodes[index].singlehyname;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\t//其他行业选择后显示名字中不用带编码，所以将singlehyname传过去\r\n\t\tart.dialo"
+    },
+    {
+      "term": "tree",
+      "offset": 6549,
+      "snippet": "\tqthyname+=\",\"+checkedNodes[index].name;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\tart.dialog.open.origin.addHyid(hyid,qthyname,null,hytype);\r\n\t}else{\r\n\t\treturn false;\r\n\t}\r\n\tart.dialog.close();\r\n} */\r\n\r\nfunction add(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tvar checkedNodes = treeobj.getCheckedNodes(true);\r\n\tvar hyid=\"\";\r\n\tvar hynamehyids=\"\";\r\n\tvar singlehyname=\"\";//单独的行业名称\r\n\tif(checkedNodes!=null&&checkedNodes!=\"\"){\r\n\t\t\r\n\t\tfor(var index in checkedNodes){\r\n\t\t\tif(hyid==\"\"){\r\n\t\t\t\thyid=checkedNodes[index].id;\r\n\t\t\t}else{\r\n\t\t\t\thyid+=\",\"+checkedNodes[index].id;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tif(singlehyname==\"\"){\r\n\t\t\t\thynamehyids=checkedNodes[index].name;\r\n\t\t\t\tsinglehyname=checkedNodes[index].singlehyname;\r\n\t\t\t}else{\r\n\t\t\t\thynamehyids+=\",\"+checkedNodes[index].name;\r\n\t\t\t\tsinglehyname+=\",\"+checkedNodes[index].singlehyname;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\t//其他行业选择后显示名字中不用带编码，所以将singlehyname传过去\r\n\t\tart.dialog.open.or"
+    },
+    {
+      "term": "tree",
+      "offset": 6558,
+      "snippet": "+=\",\"+checkedNodes[index].name;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\tart.dialog.open.origin.addHyid(hyid,qthyname,null,hytype);\r\n\t}else{\r\n\t\treturn false;\r\n\t}\r\n\tart.dialog.close();\r\n} */\r\n\r\nfunction add(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tvar checkedNodes = treeobj.getCheckedNodes(true);\r\n\tvar hyid=\"\";\r\n\tvar hynamehyids=\"\";\r\n\tvar singlehyname=\"\";//单独的行业名称\r\n\tif(checkedNodes!=null&&checkedNodes!=\"\"){\r\n\t\t\r\n\t\tfor(var index in checkedNodes){\r\n\t\t\tif(hyid==\"\"){\r\n\t\t\t\thyid=checkedNodes[index].id;\r\n\t\t\t}else{\r\n\t\t\t\thyid+=\",\"+checkedNodes[index].id;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tif(singlehyname==\"\"){\r\n\t\t\t\thynamehyids=checkedNodes[index].name;\r\n\t\t\t\tsinglehyname=checkedNodes[index].singlehyname;\r\n\t\t\t}else{\r\n\t\t\t\thynamehyids+=\",\"+checkedNodes[index].name;\r\n\t\t\t\tsinglehyname+=\",\"+checkedNodes[index].singlehyname;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\t//其他行业选择后显示名字中不用带编码，所以将singlehyname传过去\r\n\t\tart.dialog.open.origin.addH"
+    },
+    {
+      "term": "tree",
+      "offset": 6587,
+      "snippet": "e;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\tart.dialog.open.origin.addHyid(hyid,qthyname,null,hytype);\r\n\t}else{\r\n\t\treturn false;\r\n\t}\r\n\tart.dialog.close();\r\n} */\r\n\r\nfunction add(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tvar checkedNodes = treeobj.getCheckedNodes(true);\r\n\tvar hyid=\"\";\r\n\tvar hynamehyids=\"\";\r\n\tvar singlehyname=\"\";//单独的行业名称\r\n\tif(checkedNodes!=null&&checkedNodes!=\"\"){\r\n\t\t\r\n\t\tfor(var index in checkedNodes){\r\n\t\t\tif(hyid==\"\"){\r\n\t\t\t\thyid=checkedNodes[index].id;\r\n\t\t\t}else{\r\n\t\t\t\thyid+=\",\"+checkedNodes[index].id;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tif(singlehyname==\"\"){\r\n\t\t\t\thynamehyids=checkedNodes[index].name;\r\n\t\t\t\tsinglehyname=checkedNodes[index].singlehyname;\r\n\t\t\t}else{\r\n\t\t\t\thynamehyids+=\",\"+checkedNodes[index].name;\r\n\t\t\t\tsinglehyname+=\",\"+checkedNodes[index].singlehyname;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\t//其他行业选择后显示名字中不用带编码，所以将singlehyname传过去\r\n\t\tart.dialog.open.origin.addHyid(hyid,hynamehyids,singlehy"
+    },
+    {
+      "term": "tree",
+      "offset": 7355,
+      "snippet": ".singlehyname;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\t//其他行业选择后显示名字中不用带编码，所以将singlehyname传过去\r\n\t\tart.dialog.open.origin.addHyid(hyid,hynamehyids,singlehyname,hytype);\r\n\t}else{\r\n\t\treturn false;\r\n\t}\r\n\tart.dialog.close();\r\n}\r\n\r\nfunction save(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tvar checkedNodes = treeobj.getCheckedNodes(true);\r\n\tvar hyid=\"\";\r\n\tvar hynamehyids=\"\";//带行业编码的名称 如 '火力发电(D4411)' 用于显示用\r\n\tvar singlehyname=\"\";//单独的行业名称\r\n//\tif(checkedNodes!=null&&checkedNodes!=\"\"){\r\n\t\t\r\n\t\tfor(var index in checkedNodes){\r\n\t\t\tif(hyid==\"\"){\r\n\t\t\t\thyid=checkedNodes[index].id;\r\n\t\t\t}else{\r\n\t\t\t\thyid+=\",\"+checkedNodes[index].id;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tif(singlehyname==\"\"){\r\n\t\t\t\thynamehyids=checkedNodes[index].name;\r\n\t\t\t\tsinglehyname=checkedNodes[index].singlehyname;\r\n\t\t\t}else{\r\n\t\t\t\thynamehyids+=\",\"+checkedNodes[index].name;\r\n\t\t\t\tsinglehyname+=\",\"+checkedNodes[index].singlehyname;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\ta"
+    },
+    {
+      "term": "tree",
+      "offset": 7371,
+      "snippet": "\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\t//其他行业选择后显示名字中不用带编码，所以将singlehyname传过去\r\n\t\tart.dialog.open.origin.addHyid(hyid,hynamehyids,singlehyname,hytype);\r\n\t}else{\r\n\t\treturn false;\r\n\t}\r\n\tart.dialog.close();\r\n}\r\n\r\nfunction save(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tvar checkedNodes = treeobj.getCheckedNodes(true);\r\n\tvar hyid=\"\";\r\n\tvar hynamehyids=\"\";//带行业编码的名称 如 '火力发电(D4411)' 用于显示用\r\n\tvar singlehyname=\"\";//单独的行业名称\r\n//\tif(checkedNodes!=null&&checkedNodes!=\"\"){\r\n\t\t\r\n\t\tfor(var index in checkedNodes){\r\n\t\t\tif(hyid==\"\"){\r\n\t\t\t\thyid=checkedNodes[index].id;\r\n\t\t\t}else{\r\n\t\t\t\thyid+=\",\"+checkedNodes[index].id;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tif(singlehyname==\"\"){\r\n\t\t\t\thynamehyids=checkedNodes[index].name;\r\n\t\t\t\tsinglehyname=checkedNodes[index].singlehyname;\r\n\t\t\t}else{\r\n\t\t\t\thynamehyids+=\",\"+checkedNodes[index].name;\r\n\t\t\t\tsinglehyname+=\",\"+checkedNodes[index].singlehyname;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\tart.dialog.open.o"
+    },
+    {
+      "term": "tree",
+      "offset": 7380,
+      "snippet": "\r\n\t\t}\r\n\t\t//其他行业选择后显示名字中不用带编码，所以将singlehyname传过去\r\n\t\tart.dialog.open.origin.addHyid(hyid,hynamehyids,singlehyname,hytype);\r\n\t}else{\r\n\t\treturn false;\r\n\t}\r\n\tart.dialog.close();\r\n}\r\n\r\nfunction save(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tvar checkedNodes = treeobj.getCheckedNodes(true);\r\n\tvar hyid=\"\";\r\n\tvar hynamehyids=\"\";//带行业编码的名称 如 '火力发电(D4411)' 用于显示用\r\n\tvar singlehyname=\"\";//单独的行业名称\r\n//\tif(checkedNodes!=null&&checkedNodes!=\"\"){\r\n\t\t\r\n\t\tfor(var index in checkedNodes){\r\n\t\t\tif(hyid==\"\"){\r\n\t\t\t\thyid=checkedNodes[index].id;\r\n\t\t\t}else{\r\n\t\t\t\thyid+=\",\"+checkedNodes[index].id;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tif(singlehyname==\"\"){\r\n\t\t\t\thynamehyids=checkedNodes[index].name;\r\n\t\t\t\tsinglehyname=checkedNodes[index].singlehyname;\r\n\t\t\t}else{\r\n\t\t\t\thynamehyids+=\",\"+checkedNodes[index].name;\r\n\t\t\t\tsinglehyname+=\",\"+checkedNodes[index].singlehyname;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\tart.dialog.open.origin.ret"
+    },
+    {
+      "term": "tree",
+      "offset": 7389,
+      "snippet": "//其他行业选择后显示名字中不用带编码，所以将singlehyname传过去\r\n\t\tart.dialog.open.origin.addHyid(hyid,hynamehyids,singlehyname,hytype);\r\n\t}else{\r\n\t\treturn false;\r\n\t}\r\n\tart.dialog.close();\r\n}\r\n\r\nfunction save(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tvar checkedNodes = treeobj.getCheckedNodes(true);\r\n\tvar hyid=\"\";\r\n\tvar hynamehyids=\"\";//带行业编码的名称 如 '火力发电(D4411)' 用于显示用\r\n\tvar singlehyname=\"\";//单独的行业名称\r\n//\tif(checkedNodes!=null&&checkedNodes!=\"\"){\r\n\t\t\r\n\t\tfor(var index in checkedNodes){\r\n\t\t\tif(hyid==\"\"){\r\n\t\t\t\thyid=checkedNodes[index].id;\r\n\t\t\t}else{\r\n\t\t\t\thyid+=\",\"+checkedNodes[index].id;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tif(singlehyname==\"\"){\r\n\t\t\t\thynamehyids=checkedNodes[index].name;\r\n\t\t\t\tsinglehyname=checkedNodes[index].singlehyname;\r\n\t\t\t}else{\r\n\t\t\t\thynamehyids+=\",\"+checkedNodes[index].name;\r\n\t\t\t\tsinglehyname+=\",\"+checkedNodes[index].singlehyname;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\tart.dialog.open.origin.returnTreeVa"
+    },
+    {
+      "term": "tree",
+      "offset": 7418,
+      "snippet": "hyname传过去\r\n\t\tart.dialog.open.origin.addHyid(hyid,hynamehyids,singlehyname,hytype);\r\n\t}else{\r\n\t\treturn false;\r\n\t}\r\n\tart.dialog.close();\r\n}\r\n\r\nfunction save(){\r\n\tvar hytype = 'more';\r\n\tvar treeobj = $.fn.zTree.getZTreeObj(\"tree\");\r\n\tvar checkedNodes = treeobj.getCheckedNodes(true);\r\n\tvar hyid=\"\";\r\n\tvar hynamehyids=\"\";//带行业编码的名称 如 '火力发电(D4411)' 用于显示用\r\n\tvar singlehyname=\"\";//单独的行业名称\r\n//\tif(checkedNodes!=null&&checkedNodes!=\"\"){\r\n\t\t\r\n\t\tfor(var index in checkedNodes){\r\n\t\t\tif(hyid==\"\"){\r\n\t\t\t\thyid=checkedNodes[index].id;\r\n\t\t\t}else{\r\n\t\t\t\thyid+=\",\"+checkedNodes[index].id;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tif(singlehyname==\"\"){\r\n\t\t\t\thynamehyids=checkedNodes[index].name;\r\n\t\t\t\tsinglehyname=checkedNodes[index].singlehyname;\r\n\t\t\t}else{\r\n\t\t\t\thynamehyids+=\",\"+checkedNodes[index].name;\r\n\t\t\t\tsinglehyname+=\",\"+checkedNodes[index].singlehyname;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\tart.dialog.open.origin.returnTreeValue(hyid,hynamehyids,singlehy"
+    },
+    {
+      "term": "tree",
+      "offset": 8033,
+      "snippet": "mehyids=checkedNodes[index].name;\r\n\t\t\t\tsinglehyname=checkedNodes[index].singlehyname;\r\n\t\t\t}else{\r\n\t\t\t\thynamehyids+=\",\"+checkedNodes[index].name;\r\n\t\t\t\tsinglehyname+=\",\"+checkedNodes[index].singlehyname;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\tart.dialog.open.origin.returnTreeValue(hyid,hynamehyids,singlehyname,hytype);\r\n/* \t}else{\r\n\t\treturn false;\r\n\t} */\r\n\tart.dialog.close();\r\n};\r\n\r\nfunction search(){\r\n\tvar url=\"/perxxgkinfo/common/tree/xzxk-common-trade!selectHylist.action?hyids=&hytype=more&nodecode=&name=\"+$(\"#tradename\").val();\r\n    url=encodeURIHanZi(url);\r\n\twindow.location.href=url;\r\n}\r\n\r\n</script>\r\n\t\r\n</head>\r\n<body class=\"dialog\">\r\n<div align=\"right\" class=\"add-search\" >\r\n<div style=\"margin-top: 15px;\"></div>\r\n<div style=\"float:left;\">\r\n<input type=\"text\"   id=\"tradename\" name=\"name\" size=\"10\" value=\"\" valuetype=\"STRING\" class=\"editbox\"/>\r\n<input type=\"button\" id=\"cxgjlb\" class=\"button normal\"  onclic"
+    },
+    {
+      "term": "tree",
+      "offset": 8197,
+      "snippet": "\",\"+checkedNodes[index].singlehyname;\r\n\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\tart.dialog.open.origin.returnTreeValue(hyid,hynamehyids,singlehyname,hytype);\r\n/* \t}else{\r\n\t\treturn false;\r\n\t} */\r\n\tart.dialog.close();\r\n};\r\n\r\nfunction search(){\r\n\tvar url=\"/perxxgkinfo/common/tree/xzxk-common-trade!selectHylist.action?hyids=&hytype=more&nodecode=&name=\"+$(\"#tradename\").val();\r\n    url=encodeURIHanZi(url);\r\n\twindow.location.href=url;\r\n}\r\n\r\n</script>\r\n\t\r\n</head>\r\n<body class=\"dialog\">\r\n<div align=\"right\" class=\"add-search\" >\r\n<div style=\"margin-top: 15px;\"></div>\r\n<div style=\"float:left;\">\r\n<input type=\"text\"   id=\"tradename\" name=\"name\" size=\"10\" value=\"\" valuetype=\"STRING\" class=\"editbox\"/>\r\n<input type=\"button\" id=\"cxgjlb\" class=\"button normal\"  onclick=\"search()\" value=\"查询\"/>\r\n\t\r\n\r\n\t\t\r\n\t\t\r\n\t\t\t<input type=\"button\" id=\"savebtn\" class=\"button submit\" value=\"确定\" style=\"cursor: pointer;\" onclick=\"save()\"/>\r\n\t\t\t<input"
+    },
+    {
+      "term": "tree",
+      "offset": 9284,
+      "snippet": ": pointer;\" onclick=\"winclose()\"/>\r\n\t<input type=\"hidden\" id=\"info\">\r\n</div>\r\n\r\n<div class=\"add-search-right\">\r\n\r\n</div>\r\n</div>\r\n<div class=\"add-text\">\r\n<font >可在文本框中输入行业名称或行业编码进行行业查询，支持行业多选查询</font>\r\n</div>\r\n<hr>\r\n<ul style=\"margin-top: 58px;\" id=\"tree\" class=\"ztree\"></ul>\r\n</body>\r\n</html>"
+    },
+    {
+      "term": "tree",
+      "offset": 9298,
+      "snippet": "click=\"winclose()\"/>\r\n\t<input type=\"hidden\" id=\"info\">\r\n</div>\r\n\r\n<div class=\"add-search-right\">\r\n\r\n</div>\r\n</div>\r\n<div class=\"add-text\">\r\n<font >可在文本框中输入行业名称或行业编码进行行业查询，支持行业多选查询</font>\r\n</div>\r\n<hr>\r\n<ul style=\"margin-top: 58px;\" id=\"tree\" class=\"ztree\"></ul>\r\n</body>\r\n</html>"
+    },
+    {
+      "term": "ztree",
+      "offset": 1481,
+      "snippet": ".artDialog.js\"></SCRIPT>\r\n<SCRIPT type=text/javascript src=\"/perxxgkinfo/thscommon/javascript/table.js\"></SCRIPT>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/urlhanzi.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery-1.9.1.min.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.core-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.excheck-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exedit-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exhide-3.5.js\"></script>\r\n<link href=\"/perxxgkinfo/thscommon/zTree/css/zTreeStyle/zTreeStyle.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" rel=\"STYLESHEET\""
+    },
+    {
+      "term": "ztree",
+      "offset": 1585,
+      "snippet": "</SCRIPT>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/js/urlhanzi.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery-1.9.1.min.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.core-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.excheck-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exedit-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exhide-3.5.js\"></script>\r\n<link href=\"/perxxgkinfo/thscommon/zTree/css/zTreeStyle/zTreeStyle.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" rel=\"STYLESHEET\" type=\"text/c"
+    },
+    {
+      "term": "ztree",
+      "offset": 1601,
+      "snippet": "pt type=\"text/javascript\" src=\"/perxxgkinfo/js/urlhanzi.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery-1.9.1.min.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.core-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.excheck-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exedit-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exhide-3.5.js\"></script>\r\n<link href=\"/perxxgkinfo/thscommon/zTree/css/zTreeStyle/zTreeStyle.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href"
+    },
+    {
+      "term": "ztree",
+      "offset": 1690,
+      "snippet": "/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery-1.9.1.min.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.core-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.excheck-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exedit-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exhide-3.5.js\"></script>\r\n<link href=\"/perxxgkinfo/thscommon/zTree/css/zTreeStyle/zTreeStyle.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/css/style4.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<style type=\"text/css\">"
+    },
+    {
+      "term": "ztree",
+      "offset": 1706,
+      "snippet": "=\"/perxxgkinfo/thscommon/zTree/js/jquery-1.9.1.min.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.core-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.excheck-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exedit-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exhide-3.5.js\"></script>\r\n<link href=\"/perxxgkinfo/thscommon/zTree/css/zTreeStyle/zTreeStyle.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/css/style4.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<style type=\"text/css\">\r\nbody{backgroun"
+    },
+    {
+      "term": "ztree",
+      "offset": 1798,
+      "snippet": "ascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.core-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.excheck-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exedit-3.5.js\"></script>\r\n<script type=\"text/javascript\" src=\"/perxxgkinfo/thscommon/zTree/js/jquery.ztree.exhide-3.5.js\"></script>\r\n<link href=\"/perxxgkinfo/thscommon/zTree/css/zTreeStyle/zTreeStyle.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_style.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/util/xzxk/css/xzxk_button.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<link href=\"/perxxgkinfo/css/style4.css\" rel=\"STYLESHEET\" type=\"text/css\">\r\n<style type=\"text/css\">\r\nbody{background-image: none;background-color: #EDF2FC;}\r\nul#tree{margin:15px 10px;}\r\n/* input.submit{margi"
+    }
+  ]
+}
