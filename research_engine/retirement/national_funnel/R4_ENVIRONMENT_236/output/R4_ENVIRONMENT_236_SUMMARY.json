@@ -1,5 +1,5 @@
 {
-  "schema": "RETIREMENT_R4_ENVIRONMENT_236_CHAP_AIR_FIRST_PASS_V1",
+  "schema": "RETIREMENT_R4_ENVIRONMENT_236_CHAP_AIR_FIRST_PASS_V1_1_STANDARD_CORRECTED",
   "status": "AIR_QUALITY_1KM_BATCH_COMPLETED_WITH_GEOMETRY_PENDING",
   "created_at_utc": "2026-11-08T07:15:39.267460+00:00",
   "started_at_utc": "2026-11-08T07:00:32.640128+00:00",
@@ -76,14 +76,14 @@
     ],
     "transform": [
       0.01000213623046875,
-      0.0,
+      0,
       73.4521598815918,
-      0.0,
+      0,
       -0.010000228881835938,
       53.67970561981201,
-      0.0,
-      0.0,
-      1.0
+      0,
+      0,
+      1
     ],
     "units": "µg/m3"
   },
@@ -749,17 +749,56 @@
     "statistics": "annual population-weighted mean; 26-year cell-mean weighted P10/P50/P90; early/mid/recent period means; PM2.5 population share over 15/25/35",
     "scope": "screening signal only; no county-wide residential exposure or legal compliance claim",
     "limits": [
-      "WorldPop 2024 is a modelled population surface, not a building/address register.",
-      "County polygon is a provisional third-party boundary; nine candidates lack exact code/name geometry and remain pending.",
-      "A county average can conceal valley/basin/industrial corridor differences; future stage must split actual inhabited residential subareas.",
-      "CHAP are model-derived gridded concentration estimates, not official regulatory monitoring at a dwelling.",
-      "PM2.5 35 ug/m3 is shown only as a reference line for a modeled signal, not an automatic hard-exclusion rule.",
-      "O3 annual Y1K metric must be interpreted using its dataset definition; do not substitute it for the regulatory MDA8 90th-percentile metric.",
-      "No missing data are treated as failures; no R4 exclusions or formal grades are authorized by this batch."
+      "WorldPop 2024是模型化人口栅格，不是建筑/门牌居住登记。",
+      "县域边界为第三方暂用边界；9个候选片区缺少精确代码/名称匹配边界，继续待核。",
+      "县域平均值可能掩盖山谷、盆地、工业走廊等内部差异；后续必须细分实际居住片区。",
+      "CHAP是模型估算的1km污染物浓度栅格，不是居住点官方监测值，也不能直接作法定达标判定。",
+      "GB 3095—2026自2026-03-01实施：PM2.5二级年均限值2026—2030年为30 µg/m³，2031年起为25 µg/m³；旧版35 µg/m³仅作历史比较。",
+      "CHAP 2023—2025三年均值仅是模型化代理值，不等同于HJ 663—2026的官方监测站三年滑动评价。",
+      "臭氧年度Y1K指标须按数据集定义解释，不得替代法规中的日最大8小时浓度第90百分位统计指标。",
+      "数据缺失不作失败处理；本批不执行任何正式淘汰或等级变更。"
     ]
   },
   "formal_exclusions": 0,
   "formal_grade_changes": 0,
   "all_236_remain_in_funnel": true,
-  "output_csv_sha256": "163e7ed007ab70cad5989e9621bd5ee153a09787df7752c79549ef042ad91984"
+  "output_csv_sha256": "163e7ed007ab70cad5989e9621bd5ee153a09787df7752c79549ef042ad91984",
+  "current_standard_GB3095_2026": {
+    "standard": "GB 3095—2026",
+    "effective_date": "2026-03-01",
+    "secondary_PM25_annual_limit_2026_to_2030_ugm3": 30,
+    "secondary_PM25_annual_limit_from_2031_ugm3": 25,
+    "official_explanation_url": "https://www.mee.gov.cn/ywdt/zbft/202602/t20260225_1144479.shtml",
+    "note": "GB 3095—2012的35 µg/m³二级年均限值已于2026-03-01被替代，只保留作历史比较，不再作为当前标准线。"
+  },
+  "PM25_2023_2025_three_year_proxy_screen": {
+    "computed_count": 227,
+    "geometry_pending_count": 9,
+    "three_year_mean_gt30_current_transition_count": 0,
+    "three_year_mean_gt25_from_2031_count": 4,
+    "three_year_mean_median_ugm3": 20.428433736165363,
+    "three_year_mean_max_ugm3": 27.09162139892578,
+    "note": "由CHAP 2023、2024、2025年模型栅格年均值计算的三年代理均值，不是HJ 663—2026规定的基于官方监测站数据的正式三年滑动评价。"
+  },
+  "PM25_2021_2025_five_year_proxy_screen": {
+    "computed_count": 227,
+    "five_year_mean_gt30_current_transition_count": 0,
+    "five_year_mean_gt25_from_2031_count": 3,
+    "five_year_mean_median_ugm3": 20.467372131347656,
+    "five_year_mean_max_ugm3": 27.129420471191406
+  },
+  "PM25_2025_annual_proxy_screen": {
+    "computed_count": 227,
+    "annual_mean_gt30_current_transition_count": 0,
+    "annual_mean_gt25_from_2031_count": 4,
+    "annual_mean_median_ugm3": 20.24521255493164,
+    "annual_mean_max_ugm3": 26.68927764892578
+  },
+  "data_quality_audit": {
+    "Fujian_official_county_crosscheck_count": 19,
+    "CHAP_2025_minus_official_mean_bias_ugm3": 4.096280951248972,
+    "CHAP_2025_minus_official_mean_absolute_difference_ugm3": 4.096280951248972,
+    "CHAP_2025_minus_official_pearson_correlation": -0.18244883788753963,
+    "note": "CHAP模型估算在19个福建匹配县域中均高于官方县级年均值，均值差约4.1 µg/m³；两者空间聚合与建模口径不同，属于需核验的数据差异，不据此判定任一数据源错误。"
+  }
 }
