@@ -120,7 +120,7 @@ def main():
       a=src.read(1,window=w,masked=True)
       tr=window_transform(w,src.transform)
       inside=geometry_mask([geom],out_shape=a.shape,transform=tr,invert=True,all_touched=False)
-      mask=inside & np.isfinite(np.asarray(a.filled(np.nan)))
+      mask=inside & ~np.ma.getmaskarray(a)
       all_count=int(np.count_nonzero(inside))
       hazard=(np.asarray(a.filled(0))>0) & inside
       flooded=int(np.count_nonzero(hazard))
