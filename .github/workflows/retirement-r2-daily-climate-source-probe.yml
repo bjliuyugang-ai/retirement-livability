@@ -1,0 +1,56 @@
+name: Retirement R2 daily 1km climate source access probe
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-r2-daily-climate-source-probe.yml'
+      - 'research_engine/retirement/national_funnel/R2_SOURCE_PROBE/probe_tpdc_daily_dataset.py'
+  workflow_dispatch:
+
+jobs:
+  tpdc-source-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    concurrency:
+      group: retirement-r2-source-probe
+      cancel-in-progress: true
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Prepare probe output
+        run: mkdir -p research_engine/retirement/national_funnel/R2_SOURCE_PROBE/output
+      - name: Probe TPDC metadata, file inventory and one small sample if available
+        id: probe
+        continue-on-error: true
+        run: python -u research_engine/retirement/national_funnel/R2_SOURCE_PROBE/probe_tpdc_daily_dataset.py
+      - name: Upload source-access evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retirement-r2-daily-climate-source-probe-${{ github.run_id }}
+          path: research_engine/retirement/national_funnel/R2_SOURCE_PROBE/output/
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Persist source inventory and probe result
+        if: always()
+        run: |
+          mkdir -p research_engine/retirement/national_funnel/R2_SOURCE_PROBE/output
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A research_engine/retirement/national_funnel/R2_SOURCE_PROBE/output
+          if ! git diff --cached --quiet; then
+            git commit -m "Record TPDC daily climate source access probe"
+            for i in 1 2 3; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then break; fi
+              if [ "$i" = 3 ]; then exit 1; fi
+              sleep 3
+            done
+          fi
