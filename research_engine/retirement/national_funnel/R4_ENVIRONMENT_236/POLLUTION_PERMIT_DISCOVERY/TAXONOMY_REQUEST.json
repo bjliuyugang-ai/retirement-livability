@@ -1,5 +1,5 @@
 {
   "run_date": "2026-11-08",
-  "iteration": 2,
-  "scope": "Test public read-only industry category node interface including copper smelting and hazardous waste, validate filters for 236-candidate national bulk work."
+  "iteration": 3,
+  "scope": "Validate C3211 and N7724 industry-code filters against official Kunming permit search; measure filtered pages before nationwide 236 scope run."
 }
