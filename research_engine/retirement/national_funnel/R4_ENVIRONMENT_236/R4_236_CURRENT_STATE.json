@@ -42,33 +42,76 @@
       "status": "COMPLETED_COUNTY_AREA_SCREEN_POPULATION_EXPOSURE_PENDING"
     },
     {
-      "type": "MASTER_V3",
-      "file": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/output/R4_236_ALL_CANDIDATE_EVIDENCE_MATRIX_V3.csv",
-      "summary": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/output/R4_236_ALL_CANDIDATE_EVIDENCE_MATRIX_V3_SUMMARY.json",
-      "status": "PERSISTED_236"
+      "type": "SOIL_OFFICIAL_FUJIAN_2026_06",
+      "run_id": 42467727903,
+      "status": "20_OFFICIAL_ACTIVE_SITES_5_CANDIDATE_COUNTIES_7_SITES_PROVISIONAL_TEXT_MATCH"
+    },
+    {
+      "type": "SOIL_OFFICIAL_GUANGDONG_2026_09",
+      "run_id": 42468038472,
+      "status": "8_OFFICIAL_ACTIVE_LIST_PAGES_73_DEDUP_RECORDS_2_CANDIDATE_COUNTIES_6_SITES; DUPLICATE_PAGES_REQUIRE_COMPLETENESS_AUDIT"
+    },
+    {
+      "type": "INDUSTRIAL_NATIONAL_236_FIRST_ATTEMPT",
+      "run_id": 42466352739,
+      "status": "TECHNICALLY_COMPLETED_WEAK_EXTRACTION_60_CITY_GROUPS_74_RECORDS_0_VALID_COORDS; NOT_SUBSTANTIVE_COUNTY_SCREEN"
+    },
+    {
+      "type": "INDUSTRIAL_NATIONAL_236_REPAIRED_EXACT_CODE_ATTEMPT",
+      "run_id": 42467472886,
+      "status": "TECHNICALLY_COMPLETED_60_CITY_GROUPS_152_DISTINCT_CITY_LICENSES_70_DETAIL_PAGES_0_VALID_COORDS; NEEDS_SOURCE_RUNTIME_FIX"
+    },
+    {
+      "type": "MASTER_V5",
+      "file": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/output/R4_236_ALL_CANDIDATE_EVIDENCE_MATRIX_V5.csv",
+      "status": "PERSISTED_236_AIR_WATER_FLOOD_FUJIAN_GUANGDONG_SOIL_INDUSTRIAL_DATA_QUALITY"
+    },
+    {
+      "type": "PRIORITY_QUEUE_V5",
+      "file": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/output/R4_236_REVIEW_PRIORITY_QUEUE_V5.csv",
+      "status": "47_CANDIDATES_P1_11_P2_27_P3_9_FOR_RESIDENTIAL_LEVEL_CONFIRMATION"
     }
   ],
   "running_jobs": [
     {
-      "type": "INDUSTRIAL_PERMIT_NATIONWIDE",
-      "run_id": 42466352739,
-      "status_at_last_check": "IN_PROGRESS",
-      "scope": "236 candidates / 13 provinces / 61 municipal code groups / eight industrial industry codes",
-      "output_prefix": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/output/runs/42466352739/",
-      "rule": "Limited pages and company samples must be labeled partial, never treated as a full city or county census."
+      "type": "PERMIT_DETAIL_RUNTIME_SOURCE_DIAGNOSIS",
+      "run_id": null,
+      "status_at_last_check": "SOURCE_DIAGNOSIS_EXECUTION_TRIGGERED; CHECK_GITHUB_ACTIONS",
+      "scope": "One strict production-parser reproduction to determine why 70 pages yield zero coordinates; not validated as fixed."
     }
   ],
   "pending_work": [
-    "Match full nationwide industrial public permits to county polygons and separately to actual inhabited residential subareas; verify truncated industry query coverage before interpreting absence.",
-    "Supplement local water source, plant outlet and tap-water data without confusing province/city summaries with county address supply.",
-    "Overlay 100-year riverine model exposure with inhabited location and officially mapped local flood defenses; 32 candidates with >10% modeled county footprint prioritize verification, not exclusion.",
-    "Obtain county-specific landslide/debris flow, contamination site/soil remediation and historical disaster zoning; do not make conclusions from province-level news.",
-    "Parallel supplement of 47 R1-only and 11 climate-pending units with stop rule if eventually reliably excluded in R4.",
-    "Resolve 9 provisional polygon mismatches for air/flood and other area data.",
-    "Issue final R4 hard-screen ledger only upon strong evidence. Keep previous D grade as non-exclusion."
+    "Repair official permit detail extraction and validate true candidate location coordinates; bootstrap hypothesis not yet confirmed by successful full run.",
+    "Get official currently listed soil parcel records for 180 non-Fujian/Guangdong candidates, especially Yunnan 120, Sichuan 19; match parcel boundaries to residential areas.",
+    "Resolve 9 official county polygons and 1 official city-code map (5405), keeping all pending in funnel.",
+    "Overlay actual inhabited housing areas, water utility coverage, flood defenses, landslide and debris flow local datasets; confirm or exclude at neighborhood/site only.",
+    "Parallel 47 R1-only and 11 climate-pending supplementation remains a prepared queue, not a completed computation. If any R4 candidate is reliably eliminated, stop unnecessary earlier supplement.",
+    "Keep modelled population river-flood exposure pending until suitable population raster is acquired and geospatially validated.",
+    "Audit Guangdong 8-page active soil site portal pagination duplicates; 73 unique site records is not a verified complete province census."
   ],
   "formal_excluded_in_R4": 0,
   "current_candidate_count": 236,
   "no_auto_exclusion_from_area_model": true,
-  "original_funnel_result_preserved": true
+  "original_funnel_result_preserved": true,
+  "current_main_artifact": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/output/R4_236_ALL_CANDIDATE_EVIDENCE_MATRIX_V5.csv",
+  "latest_summary": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/output/R4_236_ALL_CANDIDATE_EVIDENCE_MATRIX_V5_SUMMARY.json",
+  "priority_queue": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/output/R4_236_REVIEW_PRIORITY_QUEUE_V5.csv",
+  "screening_coverage": {
+    "population_weighted_air_1km": 227,
+    "air_pending_geometry": 9,
+    "worldbank_100yr_river_flood_county_grid_1km": 227,
+    "river_flood_area_fraction_ge10_percent": 32,
+    "official_soil_active_site_registry_county_candidates_covered": 56,
+    "soil_source_coverage_status": "FUJIAN_26_AND_GUANGDONG_30_ONLY",
+    "soil_source_other_provinces_pending_candidates": 180,
+    "candidates_with_soil_active_site_exact_name_matches": 7,
+    "matched_active_soil_parcels": 13,
+    "industrial_permit_city_code_groups_queried": 60,
+    "industrial_permit_pending_city_mapping_groups": 1,
+    "industrial_repaired_city_records": 152,
+    "industrial_repaired_detail_pages": 70,
+    "industrial_candidate_facility_coordinates_verified": 0,
+    "previous_58_pending_supplements": "QUEUE_CREATED_NOT_CONFIRMED_EXECUTED"
+  },
+  "important_quality_issue": "Repaired nationwide permit batch returned 0/70 usable facility coordinates; audit in progress, do not mislabel this as verified nationwide candidate industrial risk."
 }
