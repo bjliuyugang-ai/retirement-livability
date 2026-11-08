@@ -25,7 +25,7 @@ def get_json(url):
         return json.loads(r.read().decode("utf-8"))
 
 def download(url, path, expected_size=None):
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/octet-stream"})
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 RetirementLivability-ClimateScreen/1.0", "Accept": "*/*"})
     h = hashlib.md5()
     n = 0
     with urllib.request.urlopen(req, timeout=300) as r:
@@ -52,8 +52,9 @@ def main():
     if not item:
         raise RuntimeError("TARGET_FILE_NOT_FOUND_IN_ZENODO_RECORD")
     links = item.get("links", {})
-    url = links.get("download") or links.get("self") or f"https://zenodo.org/records/{RECORD_ID}/files/{TARGET_FILE}?download=1"
+    url = f"https://zenodo.org/records/{RECORD_ID}/files/{TARGET_FILE}?download=1"
     archive = WORK / TARGET_FILE
+    print(json.dumps({"probe_target_url": url, "file_metadata": item}, ensure_ascii=False), flush=True)
     download_meta = download(url, archive, item.get("size"))
     expected_md5 = str(item.get("checksum", "")).split(":")[-1]
     if expected_md5 and download_meta["md5"].lower() != expected_md5.lower():
