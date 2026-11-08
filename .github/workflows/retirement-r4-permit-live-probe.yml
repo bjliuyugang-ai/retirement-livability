@@ -1,0 +1,42 @@
+name: Retirement R4 permit live read-only search probe
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/PROBE_REQUEST.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  query-public-permit-index:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run one read-only province/city query
+        run: |
+          python -u research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/probe_permit_search.py
+      - name: Upload raw result
+        uses: actions/upload-artifact@v4
+        with:
+          name: retirement-r4-permit-query-probe-${{ github.run_id }}
+          path: |
+            research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/permit_search_probe.json
+            research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/kunming_query_page1.html
+          retention-days: 30
+      - name: Persist raw result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          out=research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output
+          cp "$out/permit_search_probe.json" "$out/permit_search_probe_${{ github.run_id }}.json"
+          if [ -f "$out/kunming_query_page1.html" ]; then cp "$out/kunming_query_page1.html" "$out/kunming_query_page1_${{ github.run_id }}.html"; fi
+          git add "$out/permit_search_probe_${{ github.run_id }}.json"
+          if [ -f "$out/kunming_query_page1_${{ github.run_id }}.html" ]; then git add "$out/kunming_query_page1_${{ github.run_id }}.html"; fi
+          git commit -m "Record read-only permit search probe"
+          git push origin HEAD:main
