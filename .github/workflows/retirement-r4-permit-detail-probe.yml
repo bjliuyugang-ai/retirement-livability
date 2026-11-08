@@ -1,0 +1,37 @@
+name: Retirement R4 permit detail read-only sample
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/DETAIL_REQUEST.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch-public-permit-details:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fetch ten public detail records
+        run: python -u research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/probe_permit_details.py
+      - name: Upload detail sample
+        uses: actions/upload-artifact@v4
+        with:
+          name: retirement-r4-permit-detail-sample-${{ github.run_id }}
+          path: research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/
+          retention-days: 30
+      - name: Persist detail sample
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          out=research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output
+          cp "$out/permit_detail_probe.json" "$out/permit_detail_probe_${{ github.run_id }}.json"
+          git add "$out/permit_detail_probe_${{ github.run_id }}.json" "$out"/details_*.html
+          git commit -m "Record public permit detail sample"
+          git push origin HEAD:main
