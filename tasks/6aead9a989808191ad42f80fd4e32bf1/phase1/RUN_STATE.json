@@ -42,7 +42,7 @@
     "valid_research_delta": "NONE_FROM_40_REGION_DISPOSITION",
     "note": "GitHub workflow technically completed, but 40-region crosswalk/disposition mixed separate roster universes and is quarantined; do not use its 12 exits or 40-region counts."
   },
-  "last_completed_action_id": "RET-CASCADE-NATIONAL-40-REGION-DISPOSITION-022",
+  "last_completed_action_id": "RET-PHASE1-34-UNIT-EVIDENCE-CLASSIFICATION-026",
   "closed_result_refs": [
     "RES-CLIMATE-12POINT-20261106",
     "RES-SPATIAL-ENGINEERING-42244926780",
@@ -84,15 +84,15 @@
     "RES-NATIONAL-40-REGION-DISPOSITION-20261108-42434491753"
   ],
   "active_action": {
-    "action_id": "RET-PHASE1-34-UNIT-EVIDENCE-CLASSIFICATION-026",
-    "question_id": "Q_CLASSIFY_FORMAL_34_EVALUATION_UNITS_WITH_EXACT_SAMPLE_EVIDENCE",
-    "decision": "以正式34单元名册为唯一第一阶段候选池；29个全国代表性样点独立保留为证据集。只把同一居住片区的样点证据映射到对应34单元；行政区相邻、同市或同省不构成自动匹配。形成34单元逐项状态表，缺项待核，3个预排除保持预排除，样点信号不计正式退出。",
-    "method": "从20既有单元+14扩样单元逐项读取旧等级、具体居住片区、现有硬线证据；与29样点逐项做精确/同片区匹配，标注直接匹配、仅同市参考、无匹配。对34单元输出优先保留、条件保留、待核、预排除四类。7项一次核验结果按证据质量入表。",
-    "expected_evidence": "34行正式评价单元表；29行样点独立证据表；每个正式单元的匹配关系、硬线信号、缺项、状态和下一步；正式退出数量单列。",
-    "pass_criteria": "34个单元全部有状态且无错误外推；29样点证据不再混入候选池；所有缺项待核；输出可直接进入下一轮环境健康和居住质量筛查的清单。",
-    "fallback": "一个单元缺数据不阻塞整批，保持待核并处理下一单元；不再围绕单一数据源反复搜索。",
+    "action_id": "RET-PHASE1-ENVIRONMENT-AND-RESIDENTIAL-QUALITY-34-027",
+    "question_id": "Q_MAP_R4_R5_POLLUTION_WATER_DISASTER_AND_RESIDENTIAL_MICROENVIRONMENT_TO_34_UNITS",
+    "decision": "在34个正式评价单元上推进第一阶段剩余环境健康和实际居住质量筛查。优先使用已取得的2025空气、水质、站点/地灾和具体住宅证据；城市级父级背景不得冒充县级或住宅点证据。对没有精确住宅/县区匹配的保留为待核，不重复开展全国气候数据源探索。",
+    "method": "逐项映射现有R4县级PM2.5、城市背景、R5水源/供水端、R3海拔与DEM、污染源/灾害及已完成的具体小区水质样本。对34个单元标注直接县区匹配、同市背景、住宅点证据、缺失；严重不可规避污染/水质/灾害才触发退出，普通城市背景只作风险提示。",
+    "expected_evidence": "34行环境健康与居住质量证据表；每个单元空气、水、污染源、灾害、住宅微环境的直接证据覆盖和缺项；新增硬线触发与待核分开统计。",
+    "pass_criteria": "34个单元均有环境/居住质量状态；不把市级背景当县级证据；缺失待核；可形成第一阶段A-C候选与待核清单，不缩减阶段2/3名单。",
+    "fallback": "某一城市缺精确数据时保持待核并处理下一单元；不因单点缺数或单一数据源阻塞整批。",
     "status": "READY",
-    "last_run_id": "SCOPE-CORRECTION-AND-7-REVIEW-20261108"
+    "last_run_id": "PHASE1-34-UNIT-CLASSIFICATION-20261108"
   },
   "phase": "NATIONWIDE_1991_2020_CLIMATE_DATA_SCALING_AFTER_COMPLETE_R0_R5_MISSING_AUDIT",
   "milestone_deadline": {
@@ -103,26 +103,12 @@
   },
   "consecutive_no_delta": 0,
   "writeback_verification": {
-    "status": "POSTCHECK_PASS",
-    "verified_at": "2026-11-08T01:48:09.893Z",
-    "checks": {
-      "queue_rows": 7,
-      "audit_items": 7,
-      "roster_rows": 34,
-      "sample_rows": 29,
-      "formal_exits": 0,
-      "log_present": true,
-      "prior_40_quarantined": true
-    },
-    "verified_artifacts": [
-      "research_engine/retirement/status/phase1_7_hardline_source_review_outcome_20261108.csv",
-      "research_engine/retirement/status/phase1_7_hardline_source_review_outcome_20261108.json",
-      "research_engine/retirement/status/phase1_official_34_evaluation_units_v2_20261107.csv",
-      "research_engine/retirement/status/phase1_29_representative_sample_screen_v2_20261107.csv"
-    ]
+    "status": "WRITEBACK_PENDING",
+    "initiated_at": "2026-11-08T01:52:03.301Z",
+    "reason": "34-unit classification persisted and next environmental/quality pass activated"
   },
-  "updated_at": "2026-11-08T01:48:09.893Z",
-  "state_revision": 87,
+  "updated_at": "2026-11-08T01:52:03.301Z",
+  "state_revision": 88,
   "open_blockers": [
     {
       "question_id": "Q-OFFICIAL-ADCODE",
@@ -623,5 +609,36 @@
     "strongest_signal": "伊宁站冬季均值0.776℃，但360个月中312条为climat来源；尚需官方逐月值与住宅代表性核验。",
     "direct_official_evidence": "勉县2001—2020年日照1396h，官方环评资料；需统一到1991—2020基期。",
     "remote_readback": "POSTCHECK_PASS"
+  },
+  "phase1_34_unit_evidence_classification": {
+    "status": "PASS_34_UNITS_CLASSIFIED_WITH_STRICT_SAMPLE_MATCHING",
+    "formal_units": 34,
+    "core20": 20,
+    "expansion14": 14,
+    "representative_samples_separate": 29,
+    "disposition_counts": {
+      "priority_keep": 2,
+      "conditional_keep": 3,
+      "preexclusion_pending": 3,
+      "hardline_signal_pending": 4,
+      "general_pending": 22,
+      "formal_exclusions": 0
+    },
+    "priority_keep_units": [
+      "蒙自坝区／城市成熟社区",
+      "五指山市通什城区及成熟居住片区"
+    ],
+    "preexclusions_pending": [
+      "霞浦县城近海片区",
+      "勉县县城",
+      "利川城区"
+    ],
+    "sample_only_keep_units_not_added_to_roster": [
+      "昆明主城区",
+      "西昌城区"
+    ],
+    "formal_exclusions": 0,
+    "roster_csv": "research_engine/retirement/status/phase1_34_unit_evidence_classification_20261108.csv",
+    "audit_json": "research_engine/retirement/status/phase1_34_unit_evidence_classification_20261108.json"
   }
 }
