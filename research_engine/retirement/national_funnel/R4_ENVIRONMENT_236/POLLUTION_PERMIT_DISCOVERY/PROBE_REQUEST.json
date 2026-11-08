@@ -1,0 +1,4 @@
+{
+  "date": "2026-11-08",
+  "scope": "One read-only query for Yunnan Province and Kunming City on the MEE permit portal; verify region codes, form POST, result rows and pagination; no credentials or writes."
+}
