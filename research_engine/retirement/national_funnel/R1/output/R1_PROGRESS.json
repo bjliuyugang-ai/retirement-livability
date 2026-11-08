@@ -1,9 +1,9 @@
 {
-  "run_id": "42445226808",
-  "phase": "COMPLETED",
-  "processed_counties": 2847,
-  "confirmed_exclusions": 762,
-  "remaining_for_R2": 2085,
-  "pending_continue": 2047,
-  "updated_at_utc": "2026-11-08T04:20:44.734403+00:00"
+  "run_id": "42446830115",
+  "phase": "RECALCULATION_IN_PROGRESS",
+  "processed_counties": 0,
+  "total_counties": 2847,
+  "previous_preliminary_run_id": "42445226808",
+  "previous_preliminary_result_invalidated": true,
+  "updated_at_utc": "2026-11-08T04:27:30Z"
 }
