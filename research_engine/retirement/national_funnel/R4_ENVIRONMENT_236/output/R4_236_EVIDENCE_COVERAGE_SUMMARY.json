@@ -1,0 +1,48 @@
+{
+  "schema": "RETIREMENT_R4_ENVIRONMENT_236_EVIDENCE_MATRIX_V1",
+  "generated_at": "2026-11-08",
+  "input_count": 236,
+  "input_membership_source": "research_engine/retirement/national_funnel/FINAL_FILTER/runs/42453646573/FINAL_CARRY_FORWARD_AFTER_R1_R2_R3.csv",
+  "air": {
+    "CHAP_1km_population_weighted_computed": 227,
+    "CHAP_pending_geometry": 9,
+    "official_parent_city_PM25_context": 38,
+    "official_province_PM25_context": 130,
+    "official_province_O3_context": 120,
+    "residential_air_directly_verified": 0
+  },
+  "water": {
+    "Fujian_raw_water_candidates": 18,
+    "Fujian_raw_water_intake_sites": 25,
+    "Fujian_raw_water_all_listed_classIII": 18,
+    "Mengzi_2026_tap_monitoring_candidate_count": 1,
+    "Mengzi_2026_tap_rows": 16,
+    "Mengzi_2026_tap_sites": 8,
+    "crossprovince_finished_water_candidate_count": 0,
+    "household_actual_supply_verified": 0
+  },
+  "industrial_and_hazard": {
+    "targeted_public_environment_context_candidates": 2,
+    "codes": [
+      {
+        "code": "510402",
+        "name": "东区",
+        "status": "PARTIAL_PUBLIC_ENVIRONMENT_EVIDENCE_ONLY"
+      },
+      {
+        "code": "532503",
+        "name": "蒙自市",
+        "status": "PARTIAL_PUBLIC_ENVIRONMENT_EVIDENCE_ONLY"
+      }
+    ],
+    "residential_industrial_exposure_verified": 0,
+    "residential_hazard_overlay_completed": 0
+  },
+  "previous_pending": {
+    "total": 58,
+    "R1_only": 47,
+    "climate_pending": 11
+  },
+  "formal_exclusions": 0,
+  "note": "This matrix consolidates only current source-backed evidence. City/province air data are contextual, raw source water is not finished/tap water, limited tap samples do not establish whole-county or household supply compliance. Missing evidence is PENDING, not PASS or FAIL."
+}
