@@ -1,0 +1,58 @@
+{
+  "schema": "RETIREMENT_R4_236_UNIFIED_EVIDENCE_MASTER_V4",
+  "candidate_count": 236,
+  "source_master_v3": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/output/R4_236_ALL_CANDIDATE_EVIDENCE_MATRIX_V3.csv",
+  "soil_official_batch": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/SOIL_236/output/runs/42467727903/NATIONAL_236_SOIL_CONTAMINATED_SITE_CANDIDATE_MATRIX.csv",
+  "industrial_first_batch": "research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/NATIONAL_PERMIT_236/output/runs/42466352739/NATIONAL_236_PERMIT_INDUSTRIAL_CANDIDATE_MATRIX.csv",
+  "air_1km_computed": 227,
+  "flood_1km_modelled_area_count": 227,
+  "fujian_official_soil_registry_sites": 20,
+  "fujian_candidates_with_listed_soil_site_text_match": 5,
+  "matched_soil_sites_in_candidates": 7,
+  "soil_candidate_codes": [
+    {
+      "code": "350181",
+      "name": "福清市",
+      "sites": "福建璋南电池科技有限公司场地"
+    },
+    {
+      "code": "350322",
+      "name": "仙游县",
+      "sites": "福建省仙游县红星化工原料有限公司遗留地"
+    },
+    {
+      "code": "350505",
+      "name": "泉港区",
+      "sites": "泉州敬泰实业有限公司地块"
+    },
+    {
+      "code": "350802",
+      "name": "新罗区",
+      "sites": "福建省龙岩市南方化学试剂有限公司；原三星水泥厂地块；文创园二期（南环路东侧一号）项目地块"
+    },
+    {
+      "code": "350824",
+      "name": "武平县",
+      "sites": "原福建省武平县宇田汽车零部件工业有限公司地块"
+    }
+  ],
+  "flood_county_fraction_ge10_percent": 32,
+  "flood_county_fraction_ge20_percent": 4,
+  "high_priority_review_unique_candidates": 9,
+  "medium_priority_riverine_review": 28,
+  "industrial_batch1_queried_city_groups": 60,
+  "industrial_batch1_category_queries_confirmed_complete": 2,
+  "industrial_batch1_detail_coordinate_count_valid": 0,
+  "industrial_repaired_run_id": 42467472886,
+  "industry_repaired_status": "RUNNING_AT_TIME_OF_MASTER_V4_CREATION",
+  "previous_pending_count": 58,
+  "currently_retained_candidates": 236,
+  "R4_formal_exclusions": 0,
+  "guardrails": [
+    "Official listed soil contaminated parcels are site-level residential-use restrictions, not an exclusion for a complete county.",
+    "A 10% or 20% county modelled riverine flood share is a location-specific verification signal, not actual residential exposure.",
+    "Industrial national batch1 returned weak/partially audited data. The second targeted industry-code run remains separate; no county can be designated industry-free on this evidence.",
+    "All 58 earlier pending units remain in R4. Missingness is pending and never pass/fail.",
+    "No automatic formal grade or hard exclusion is authorized by this source merge."
+  ]
+}
