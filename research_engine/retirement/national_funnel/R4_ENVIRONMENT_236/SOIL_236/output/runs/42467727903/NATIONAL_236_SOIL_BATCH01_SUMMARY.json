@@ -1,0 +1,95 @@
+{
+  "schema": "RETIREMENT_R4_NATIONAL_236_SOIL_SITE_REGISTRY_BATCH01",
+  "created_at_utc": "2026-11-08T09:34:16.034609+00:00",
+  "candidate_count": 236,
+  "source_province": "福建省",
+  "candidate_count_in_source_province": 26,
+  "source_url": "https://sthjt.fujian.gov.cn/zwgk/ywxx/wrfz/202607/t20260723_7191457.htm",
+  "source_date": "2026-07-21",
+  "registry_date": "2026-06",
+  "page_sha256": "ee31ab8eeef2b4879d62f2776749c6eb28caa1282fe92e586832ae67819f956c",
+  "page_bytes": 131749,
+  "html_tables_found": 2,
+  "registry_tables_with_data": 1,
+  "active_site_rows": 20,
+  "fujian_candidate_units_with_text_matched_sites": 5,
+  "fujian_candidate_units_without_matched_sites": 21,
+  "nonfujian_candidate_pending": 210,
+  "candidate_matched_sites": [
+    {
+      "code": "350181",
+      "name": "福清市",
+      "sites": [
+        {
+          "name": "福建璋南电池科技有限公司场地",
+          "address": "福清市阳下街道屿边村151号",
+          "stage": "完成风险评估"
+        }
+      ]
+    },
+    {
+      "code": "350322",
+      "name": "仙游县",
+      "sites": [
+        {
+          "name": "福建省仙游县红星化工原料有限公司遗留地",
+          "address": "仙游县枫亭镇东宅村赤岭路1号",
+          "stage": "正在开展风险评估"
+        }
+      ]
+    },
+    {
+      "code": "350505",
+      "name": "泉港区",
+      "sites": [
+        {
+          "name": "泉州敬泰实业有限公司地块",
+          "address": "泉州市泉港区南浦镇岭口工业区",
+          "stage": "完成风险评估"
+        }
+      ]
+    },
+    {
+      "code": "350802",
+      "name": "新罗区",
+      "sites": [
+        {
+          "name": "福建省龙岩市南方化学试剂有限公司",
+          "address": "新罗区南城溪南翠屏路13号",
+          "stage": "落实“三防三监控”"
+        },
+        {
+          "name": "原三星水泥厂地块",
+          "address": "新罗区曹溪街道东山村卓鹰卓龙路东北侧",
+          "stage": "落实“三防三监控”"
+        },
+        {
+          "name": "文创园二期（南环路东侧一号）项目地块",
+          "address": "龙岩市新罗区南环中路22号",
+          "stage": "落实“三防三监控”"
+        }
+      ]
+    },
+    {
+      "code": "350824",
+      "name": "武平县",
+      "sites": [
+        {
+          "name": "原福建省武平县宇田汽车零部件工业有限公司地块",
+          "address": "武平县平川街道青云山工业园2号",
+          "stage": "完成风险评估"
+        }
+      ]
+    }
+  ],
+  "unmatched_sites": 13,
+  "formal_R4_exclusions": 0,
+  "candidate_count_remaining": 236,
+  "site_level_rule": "Active restricted parcel must not be treated as eligible for residential development until officially removed. This is parcel-specific, not automatic removal of a county or other safely located residential areas.",
+  "source_scope_limit": [
+    "Only Fujian active 2026-06 registry is integrated in this batch. All other provinces pending.",
+    "Text match is preliminary; multiple or absent county string is not evidence of no sites.",
+    "Source has separate removed-site appendix and must not be mixed with active list.",
+    "No address geocoding/site-candidate residential polygon overlay has yet been completed."
+  ]
+}
