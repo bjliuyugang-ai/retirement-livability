@@ -1,0 +1,44 @@
+name: Retirement R4 permit geospatial evidence batch 01
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/GEO_REQUEST.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  geospatial-match-permit-records:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install geospatial and AES dependencies
+        run: python -m pip install shapely pycryptodome
+      - name: Match facility and outlet points to candidate polygons
+        run: python -u research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/build_permit_geospatial_evidence.py
+      - name: Upload structured evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: retirement-r4-permit-geospatial-batch01-${{ github.run_id }}
+          path: |
+            research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/permit_geospatial_evidence_batch01.json
+            research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/permit_facility_points_batch01.csv
+            research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output/permit_outlet_points_batch01.csv
+          retention-days: 30
+      - name: Persist evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          out=research_engine/retirement/national_funnel/R4_ENVIRONMENT_236/POLLUTION_PERMIT_DISCOVERY/output
+          for f in permit_geospatial_evidence_batch01.json permit_facility_points_batch01.csv permit_outlet_points_batch01.csv; do
+            cp "$out/$f" "$out/${f%.*}_${{ github.run_id }}.${f##*.}"
+            git add "$out/${f%.*}_${{ github.run_id }}.${f##*.}"
+          done
+          git commit -m "Record permit geospatial evidence batch 01"
+          git push origin HEAD:main
