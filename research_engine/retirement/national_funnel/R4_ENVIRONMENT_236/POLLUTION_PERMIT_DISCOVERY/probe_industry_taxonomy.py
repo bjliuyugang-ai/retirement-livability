@@ -55,6 +55,24 @@ def main():
    except Exception:summary={"kind":"non_json","sample":body[:1600]}
    out["node_api_probes"].append({"form":form,"status":code,"url":url,"content":summary})
   except Exception as ex:out["node_api_probes"].append({"form":form,"error":repr(ex)})
+ # Validate industry selection against the known 199-page Kunming unfiltered listing.
+ permit_page=BASE+"/perxxgkinfo/syssb/xkgg/xkgg!licenseInformation.action"
+ try:
+  code,u,initial=get(permit_page,permit_page)
+  token=re.search(r'name="tempReportKey"[^>]*value="([^"]+)"',initial)
+  hidden=token.group(1) if token else ""
+  out["industry_filtered_queries"]=[]
+  for trade_code,trade_name in [("C3211","铜冶炼"),("N7724","危险废物治理"),("N7724-1","危险废物治理-焚烧")]:
+   form={"page.pageNo":"1","page.orderBy":"","page.order":"","tempReportKey":hidden,
+    "registerentername":"","xkznum":"","treadname":trade_name,"treadcode":trade_code,"publishtime":"",
+    "province":"530000000000","city":"530100000000","management":""}
+   try:
+    status,url,body=get(permit_page,permit_page,form)
+    pages=re.findall(r"共\s*([\d,]+)\s*页",body)
+    contains=trade_name in body
+    out["industry_filtered_queries"].append({"code":trade_code,"name":trade_name,"status":status,"pages":pages,"has_trade_name":contains,"body_sample":body[10000:12500]})
+   except Exception as e:out["industry_filtered_queries"].append({"code":trade_code,"error":repr(e)})
+ except Exception as e:out["industry_filter_error"]=repr(e)
  (root/"industry_taxonomy_probe.json").write_text(json.dumps(out,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
  (root/"industry_taxonomy_page.html").write_text(th,encoding="utf-8")
  print("INDUSTRY_TREE",json.dumps({"status":ts,"bytes":len(th),"text":txt[:4000],"scripts":p.scripts,"inputs":p.inputs,"node_api_probes":out["node_api_probes"]},ensure_ascii=False),flush=True)
