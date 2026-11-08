@@ -1,0 +1,220 @@
+name: Retirement national existing 73 candidates hard-line screen
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-national-existing-73-hard-screen.yml'
+      - 'research_engine/retirement/national_existing_73_hard_screen.py'
+  workflow_dispatch:
+jobs:
+  existing-73-hard-screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: retirement-phase1-state-single-writer
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: V1.6 S0-S2 precheck and claim action
+        id: precheck
+        run: |
+          python - <<'PY'
+          import json,hashlib,pathlib,os
+          p=pathlib.Path("tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json")
+          s=json.loads(p.read_text(encoding="utf-8"))
+          assert s["schema_version"]=="1.6"
+          assert s["state_revision"]==73, f"unexpected state revision {s['state_revision']}"
+          assert s["active_action"]["action_id"]=="RET-CASCADE-NATIONAL-R1_R2_30YEAR_GRID_SCALE-017"
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["last_verified_run"]["run_id"]=="GHA-42391693365"
+          for f,n in [
+            ("research_engine/retirement/status/national_73_longer_R1_R2_climate_ideal_preference_triage.csv",73),
+            ("research_engine/retirement/status/national_R3_205_station_dem_point_evidence.csv",205)]:
+            import csv
+            with open(f,encoding="utf-8-sig",newline="") as h: rows=list(csv.DictReader(h))
+            assert len(rows)==n,(f,len(rows),n)
+          print("V16_PRECHECK_PASS",s["state_revision"],"run",os.environ["GITHUB_RUN_ID"])
+          PY
+      - name: Apply confirmed Phase-1 hard lines to existing 73 longer-source candidates
+        id: screen
+        run: python -u research_engine/retirement/national_existing_73_hard_screen.py
+      - name: V1.6 S3-S5 evidence classification and durable state writeback
+        if: always() && steps.precheck.outcome == 'success' && steps.screen.outcome == 'success'
+        run: |
+          python - <<'PY'
+          import json,csv,hashlib,datetime,pathlib,os
+          state_path=pathlib.Path("tasks/6aead9a989808191ad42f80fd4e32bf1/RUN_STATE.json")
+          log_path=pathlib.Path("tasks/6aead9a989808191ad42f80fd4e32bf1/RUN_LOG.jsonl")
+          summary_path=pathlib.Path("research_engine/retirement/status/national_73_existing_evidence_hard_screen_20261108.json")
+          csv_path=pathlib.Path("research_engine/retirement/status/national_73_existing_evidence_hard_screen_20261108.csv")
+          alt_path=pathlib.Path("research_engine/retirement/status/national_205_altitude_point_hardline_review_20261108.csv")
+          s=json.loads(state_path.read_text(encoding="utf-8"))
+          d=json.loads(summary_path.read_text(encoding="utf-8"))
+          run_id=os.environ["GITHUB_RUN_ID"]
+          result_id="RES-NATIONAL-73-EXISTING-EVIDENCE-HARD-SCREEN-20261108-"+run_id
+          assert d["action_id"]=="RET-CASCADE-NATIONAL-73-EXISTING-EVIDENCE-HARD-SCREEN-018"
+          assert d["input_climate_count"]==73 and d["input_altitude_point_count"]==205
+          assert d["cohort_outcomes"]["formal_region_exclusions"]==0
+          def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+          now=datetime.datetime.now(datetime.timezone.utc).isoformat()
+          s["last_completed_action_id"]="RET-CASCADE-NATIONAL-73-EXISTING-EVIDENCE-HARD-SCREEN-018"
+          s["last_verified_run"]={
+            "run_id":"GHA-"+run_id,
+            "action_id":"RET-CASCADE-NATIONAL-73-EXISTING-EVIDENCE-HARD-SCREEN-018",
+            "result_id":result_id,
+            "execution_status":"EXECUTED_WITH_VERIFIED_EXISTING_EVIDENCE_BATCH",
+            "engineering_status":"PASS",
+            "research_delta_status":"DELTA_VERIFIED_73_CANDIDATE_HARDLINE_SIGNAL_APPLICATION",
+            "research_closure_status":"OPEN",
+            "evidence_path":str(summary_path),
+            "evidence_sha256":sha(summary_path),
+            "county_csv_path":str(csv_path),
+            "county_csv_sha256":sha(csv_path),
+            "altitude_review_path":str(alt_path),
+            "altitude_review_sha256":sha(alt_path),
+            "candidate_cohort":73,
+            "climate_hardline_signal_candidates":d["climate_hardline_counts"]["union_any_climate_hardline_signal"],
+            "altitude_point_warning_candidates_in_73":d["altitude_point_counts"]["within_73_cohort_over_2000m"],
+            "complete_climate_no_trigger":d["cohort_outcomes"]["no_trigger_in_three_measured_climate_parameters"] if "no_trigger_in_three_measured_climate_parameters" in d["cohort_outcomes"] else d["cohort_outcomes"]["no_climate_hardline_signal_among_complete"],
+            "formal_valid_county_screenings":0,
+            "confirmed_county_exclusions":0,
+            "all_2847_carry_forward":True,
+            "status":"WRITEBACK_PENDING"
+          }
+          s["closed_result_refs"]=list(s.get("closed_result_refs",[]))+[result_id]
+          s["national_R1R2_cascade"]["long_long_hardline_signal_candidates"]=d["climate_hardline_counts"]["union_any_climate_hardline_signal"]
+          s["national_R1R2_cascade"]["long_long_hardline_signal_cohort_size"]=73
+          s["national_R1R2_cascade"]["formal_exclusions_after_residential_validation"]=0
+          s["phase1_existing_evidence_hard_screen_73"]={
+            "result_id":result_id,"climate_signal_candidates":d["climate_hardline_counts"]["union_any_climate_hardline_signal"],
+            "winter_lt10":d["climate_hardline_counts"]["winter_below_10c"],
+            "summer_ge32":d["climate_hardline_counts"]["summer_at_or_above_32c"],
+            "sun_lt1800":d["climate_hardline_counts"]["sunshine_below_1800h"],
+            "complete_three_parameter_no_signal":d["cohort_outcomes"]["no_climate_hardline_signal_among_complete"],
+            "missing_sunshine_no_other_signal":d["cohort_outcomes"]["no_known_climate_trigger_but_sunshine_missing"],
+            "altitude_point_over2000_in_73":d["altitude_point_counts"]["within_73_cohort_over_2000m"],
+            "all_205_altitude_points_over2000":d["altitude_point_counts"]["all_205_points_over_2000m"],
+            "formal_exclusions":0,"all_2847_carry_forward":True,
+            "evidence_path":str(summary_path),"csv_path":str(csv_path),"altitude_path":str(alt_path)
+          }
+          s["active_action"]={
+            "action_id":"RET-CASCADE-NATIONAL-SHORT-HISTORY-R1_R2-SCREEN-019",
+            "question_id":"Q_NATIONAL_SHORT_HISTORY_TEMPERATURE_SUNSHINE_HARDLINE_EXPANSION",
+            "decision":"在已完成73个较长历史气候证据候选的硬线信号筛查后，立即扩展至127个短历史温度候选及126个短历史降雨/日照候选；使用现有真实观测做一轮批量阈值信号筛查，不等待ScienceDB下载，不将短历史误称1991-2020常年值。缺项直接待定，完成一批即继续下一批。",
+            "method":"从已核验的Meteostat 180个月级别站点原始观测及现有全国2847联表提取最冷季/最热季平均日最高温和可用日照；冬季低于10、夏季达到32、年日照低于1800仅作为短历史单向硬线信号；保留逐站统计期、月覆盖、坐标和海拔。与长历史73批次分层，不混算、不以降雨代替日照。高海拔站点只触发住宅海拔复核。",
+            "expected_evidence":"127个R1短历史温度候选、126个R2短历史降雨/日照候选的实际读取数、各参数有效覆盖、硬线信号交集、逐个候选清单、来源哈希、缺项与统计期；输出仅为预筛信号，不冒充住宅正式排除。",
+            "pass_criteria":"实际处理已有短历史记录并产生逐候选阈值结果；所有缺失标记PENDING；不将15年观测称为30年气候常年值；不减少阶段2/3名单。",
+            "fallback":"已有短历史源无法提供指定指标时，仅对该指标标记NO_DATA_PENDING并继续其他指标及其他候选，不在单个县区反复追数；ScienceDB下载失败不阻塞本动作。",
+            "status":"READY",
+            "timebox_end":"2026-11-08T15:26:00Z",
+            "last_run_id":run_id
+          }
+          s["consecutive_no_delta"]=0
+          s["updated_at"]=now
+          s["state_revision"]=int(s["state_revision"])+1
+          state_path.write_text(json.dumps(s,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          log={
+            "kind":"S0-S5","run_id":"GHA-"+run_id,
+            "action_id":"RET-CASCADE-NATIONAL-73-EXISTING-EVIDENCE-HARD-SCREEN-018",
+            "at":now,"source_state_revision":73,"precheck":"PASS",
+            "cohort_size":73,"winter_lt10":d["climate_hardline_counts"]["winter_below_10c"],
+            "summer_ge32":d["climate_hardline_counts"]["summer_at_or_above_32c"],
+            "sun_lt1800":d["climate_hardline_counts"]["sunshine_below_1800h"],
+            "climate_union_signal_candidates":d["climate_hardline_counts"]["union_any_climate_hardline_signal"],
+            "altitude_point_over2000_in_73":d["altitude_point_counts"]["within_73_cohort_over_2000m"],
+            "combined_signal_or_point_warning":d["cohort_outcomes"]["union_climate_or_altitude_point_warning"],
+            "formal_valid_county_screenings":0,"confirmed_exclusions":0,"all_2847_carry_forward":True,
+            "engineering_status":"PASS","research_delta_status":"DELTA_VERIFIED_73_CANDIDATE_HARDLINE_SIGNAL_APPLICATION",
+            "research_closure_status":"OPEN","result_id":result_id,
+            "evidence_path":str(summary_path),"evidence_sha256":sha(summary_path),
+            "candidate_csv_path":str(csv_path),"candidate_csv_sha256":sha(csv_path),
+            "altitude_csv_path":str(alt_path),"altitude_csv_sha256":sha(alt_path),
+            "next_action_id":"RET-CASCADE-NATIONAL-SHORT-HISTORY-R1_R2-SCREEN-019",
+            "writeback":"PENDING_REMOTE_CHECK"
+          }
+          with log_path.open("a",encoding="utf-8") as f:f.write(json.dumps(log,ensure_ascii=False)+"\n")
+          current=pathlib.Path("research_assets/retirement/CURRENT_STATE.md")
+          note=(f"\n\n- {result_id}: 对已有73个较长历史R1/R2候选按用户确认的第一阶段硬线进行实际批量筛查。冬季低于10℃信号{d['climate_hardline_counts']['winter_below_10c']}个、夏季达到/超过32℃信号{d['climate_hardline_counts']['summer_at_or_above_32c']}个、日照低于1800小时信号{d['climate_hardline_counts']['sunshine_below_1800h']}个，至少一项气候信号{d['climate_hardline_counts']['union_any_climate_hardline_signal']}个；其中42个有三项气候数据，12个未见已测硬线信号，5个无已知温度触发但缺日照。73个中11个有站点/DEM点位超过2000m，3个仅海拔点位触发。冬夏指标为多月平均日最高温，触线只作单向预筛；点位不等于住宅点，故正式居住片区淘汰0、正式县级筛选0、2847底盘全部保留。明细：{csv_path}；205点海拔复核：{alt_path}；审计：{summary_path}。下一动作直接处理127个短历史R1和126个短历史R2候选，继续扩大批量硬线信号筛查。")
+          current.write_text(current.read_text(encoding="utf-8")+note,encoding="utf-8")
+          print("STATE_WRITEBACK_PREPARED",s["state_revision"],result_id)
+          PY
+      - name: Persist evidence and state to main
+        if: always() && steps.precheck.outcome == 'success' && steps.screen.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/national_73_existing_evidence_hard_screen_20261108.csv research_engine/retirement/status/national_205_altitude_point_hardline_review_20261108.csv research_engine/retirement/status/national_73_existing_evidence_hard_screen_20261108.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl research_assets/retirement/CURRENT_STATE.md
+          git commit -m "Apply Phase-1 hard lines to 73 existing climate candidates"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 3
+          done
+      - name: V1.6 S6 remote readback and postcheck
+        if: always() && steps.precheck.outcome == 'success' && steps.screen.outcome == 'success'
+        run: |
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess,datetime,pathlib,os
+          run_id=os.environ["GITHUB_RUN_ID"]
+          sp="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"
+          lp="tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl"
+          ep="research_engine/retirement/status/national_73_existing_evidence_hard_screen_20261108.json"
+          cp="research_engine/retirement/status/national_73_existing_evidence_hard_screen_20261108.csv"
+          ap="research_engine/retirement/status/national_205_altitude_point_hardline_review_20261108.csv"
+          def show(p):return subprocess.check_output(["git","show","origin/main:"+p]).decode("utf-8")
+          s=json.loads(show(sp)); logs=show(lp); d=json.loads(show(ep))
+          assert s["last_verified_run"]["run_id"]=="GHA-"+run_id
+          assert "GHA-"+run_id in logs
+          assert d["input_climate_count"]==73
+          for p in [ep,cp,ap]:
+            subprocess.check_output(["git","cat-file","-e","origin/main:"+p])
+          commit=subprocess.check_output(["git","rev-parse","HEAD"]).decode().strip()
+          s["last_verified_run"]["status"]="POSTCHECK_PASS"
+          s["last_verified_run"]["evidence_git_blob_sha"]=subprocess.check_output(["git","rev-parse","origin/main:"+ep]).decode().strip()
+          s["last_verified_run"]["county_csv_git_blob_sha"]=subprocess.check_output(["git","rev-parse","origin/main:"+cp]).decode().strip()
+          s["writeback_verification"]={"status":"POSTCHECK_PASS","verified_commit":commit,
+            "verified_at":datetime.datetime.now(datetime.timezone.utc).isoformat()}
+          s["state_revision"]=int(s["state_revision"])+1
+          s["updated_at"]=datetime.datetime.now(datetime.timezone.utc).isoformat()
+          pathlib.Path(sp).write_text(json.dumps(s,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          with pathlib.Path(lp).open("a",encoding="utf-8") as f:
+            f.write(json.dumps({"kind":"S6_POSTCHECK","run_id":"GHA-"+run_id,
+              "action_id":"RET-CASCADE-NATIONAL-73-EXISTING-EVIDENCE-HARD-SCREEN-018",
+              "at":datetime.datetime.now(datetime.timezone.utc).isoformat(),
+              "status":"POSTCHECK_PASS","verified_commit":commit,
+              "evidence_git_blob_sha":s["last_verified_run"]["evidence_git_blob_sha"],
+              "county_csv_git_blob_sha":s["last_verified_run"]["county_csv_git_blob_sha"],
+              "state_revision":s["state_revision"],"formal_valid_county_screenings":0,
+              "confirmed_exclusions":0,"next_action":s["active_action"]["action_id"]},
+              ensure_ascii=False)+"\n")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_LOG.jsonl
+          git commit -m "Verify Phase-1 existing-evidence hard-screen writeback"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then break; fi
+            if [ "$i" = 3 ]; then exit 1; fi
+            sleep 3
+          done
+          git fetch origin main
+          python - <<'PY'
+          import json,subprocess,os
+          s=json.loads(subprocess.check_output(["git","show","origin/main:tasks/6aead9a989808191ad42f80fd4e32bf1/phase1/RUN_STATE.json"]).decode())
+          assert s["writeback_verification"]["status"]=="POSTCHECK_PASS"
+          assert s["last_verified_run"]["run_id"]=="GHA-"+os.environ["GITHUB_RUN_ID"]
+          assert s["last_verified_run"]["status"]=="POSTCHECK_PASS"
+          print("REMOTE_S6_POSTCHECK_PASS",s["state_revision"],s["last_verified_run"]["run_id"])
+          PY
