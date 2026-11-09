@@ -7877,5 +7877,215 @@
         "accepted_inside_polygon": 1
       }
     ]
+  },
+  "533323": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "福贡县",
+    "lat": 26.9057682,
+    "lon": 98.8678549,
+    "osm_type": "node",
+    "osm_id": 469622913,
+    "class": null,
+    "type": "city",
+    "importance": 0.48522830326589556,
+    "display_name": "福贡县, 上帕镇, 福贡县, 怒江傈僳族自治州, 云南省, 中国",
+    "address": {
+      "city": "福贡县",
+      "town": "上帕镇",
+      "county": "福贡县",
+      "region": "怒江傈僳族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4852283032658957,
+    "attempts": [
+      {
+        "query": "福贡县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "福贡县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "350123": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "罗源县人民政府",
+    "lat": 26.4936877,
+    "lon": 119.5446074,
+    "osm_type": "node",
+    "osm_id": 5097321387,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.0002288853238995e-05,
+    "display_name": "罗源县人民政府, 后张巷, 罗源县, 福州市, 福建省, 中国",
+    "address": {
+      "amenity": "罗源县人民政府",
+      "road": "后张巷",
+      "city": "罗源县",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000060002288853,
+    "attempts": [
+      {
+        "query": "罗源县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "451030": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "西林县",
+    "lat": 24.4949232,
+    "lon": 105.0931728,
+    "osm_type": "relation",
+    "osm_id": 2773984,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.47599980794109886,
+    "display_name": "西林县, 百色市, 广西壮族自治区, 中国",
+    "address": {
+      "city": "西林县",
+      "state": "广西壮族自治区",
+      "ISO3166-2-lvl4": "CN-GX",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.47599980794109886,
+    "attempts": [
+      {
+        "query": "西林县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "西林县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "330225": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "象山县",
+    "lat": 29.4798365,
+    "lon": 121.864941,
+    "osm_type": "relation",
+    "osm_id": 3199281,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.46449644112233346,
+    "display_name": "象山县, 宁波市, 浙江省, 中国",
+    "address": {
+      "city": "象山县",
+      "state": "浙江省",
+      "ISO3166-2-lvl4": "CN-ZJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.46449644112233346,
+    "attempts": [
+      {
+        "query": "象山县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "象山县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "513434": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "越西县",
+    "lat": 28.6454292,
+    "lon": 102.5042019,
+    "osm_type": "relation",
+    "osm_id": 2786749,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.49843881454233957,
+    "display_name": "越西县, 凉山彝族自治州, 四川省, 616600, 中国",
+    "address": {
+      "city": "越西县",
+      "region": "凉山彝族自治州",
+      "state": "四川省",
+      "ISO3166-2-lvl4": "CN-SC",
+      "postcode": "616600",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.49843881454233957,
+    "attempts": [
+      {
+        "query": "越西县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "越西县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "210224": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "长海县人民政府",
+    "lat": 39.2718314,
+    "lon": 122.5836852,
+    "osm_type": "node",
+    "osm_id": 4615563213,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.119172961008648e-05,
+    "display_name": "长海县人民政府, 长长线, 大长山岛镇, 长海县, 大连市, 辽宁省, 116500, 中国",
+    "address": {
+      "amenity": "长海县人民政府",
+      "road": "长长线",
+      "suburb": "大长山岛镇",
+      "city": "长海县",
+      "region": "大连市",
+      "state": "辽宁省",
+      "ISO3166-2-lvl4": "CN-LN",
+      "postcode": "116500",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.00005119172961,
+    "attempts": [
+      {
+        "query": "长海县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
   }
 }
