@@ -1,0 +1,53 @@
+name: Retirement phase1 236-region Bio1 Bio12 climate completion
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-phase1-236-bio1-bio12.yml'
+      - 'research_engine/retirement/phase1_236_bio1_bio12_zonal.py'
+  workflow_dispatch:
+jobs:
+  extract-bio1-bio12:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install raster processing dependencies
+        run: python -m pip install --disable-pip-version-check requests numpy rasterio shapely
+      - name: Download ScienceDB V8 Bio1/Bio12 and calculate 1991-2020 county zonal statistics
+        id: extract
+        continue-on-error: true
+        run: python -u research_engine/retirement/phase1_236_bio1_bio12_zonal.py
+      - name: Upload auditable source and extraction results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase1-236-bio1-bio12-1km-zonal-${{ github.run_id }}
+          path: |
+            research_engine/retirement/status/phase1_236_bio1_bio12_1km_zonal_1991_2020.csv
+            research_engine/retirement/status/phase1_236_bio1_bio12_1km_zonal_evidence_20261109.json
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Persist results to repository
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/phase1_236_bio1_bio12_1km_zonal_1991_2020.csv research_engine/retirement/status/phase1_236_bio1_bio12_1km_zonal_evidence_20261109.json || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Add 1km 1991-2020 Bio1 Bio12 zonal results for phase1 climate table"
+            for i in 1 2 3; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then break; fi
+              if [ "$i" = 3 ]; then exit 1; fi
+              sleep 2
+            done
+          fi
