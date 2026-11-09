@@ -5215,5 +5215,365 @@
         "accepted_inside_polygon": 2
       }
     ]
+  },
+  "441323": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "惠东县",
+    "lat": 22.9844209,
+    "lon": 114.7164175,
+    "osm_type": "node",
+    "osm_id": 6110847578,
+    "class": null,
+    "type": "city",
+    "importance": 0.4635091279388103,
+    "display_name": "惠东县, 惠州市, 广东省, 516300, 中国",
+    "address": {
+      "city": "惠东县",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "postcode": "516300",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4635091279388104,
+    "attempts": [
+      {
+        "query": "惠东县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "惠东县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "350322": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "仙游县",
+    "lat": 25.3634907,
+    "lon": 118.6868364,
+    "osm_type": "node",
+    "osm_id": 2669562113,
+    "class": null,
+    "type": "city",
+    "importance": 0.4491022588632987,
+    "display_name": "仙游县, 鲤城街道, 仙游县, 莆田市, 福建省, 中国",
+    "address": {
+      "city": "仙游县",
+      "county": "仙游县",
+      "region": "莆田市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4491022588632987,
+    "attempts": [
+      {
+        "query": "仙游县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "仙游县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "350622": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "云霄县",
+    "lat": 23.9603823,
+    "lon": 117.335616,
+    "osm_type": "relation",
+    "osm_id": 3242119,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4628425518622396,
+    "display_name": "云霄县, 漳州市, 福建省, 中国",
+    "address": {
+      "city": "云霄县",
+      "region": "漳州市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4628425518622396,
+    "attempts": [
+      {
+        "query": "云霄县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "云霄县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "350624": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "诏安县",
+    "lat": 23.7143684,
+    "lon": 117.1702032,
+    "osm_type": "node",
+    "osm_id": 369487909,
+    "class": null,
+    "type": "city",
+    "importance": 0.4400317604083171,
+    "display_name": "诏安县, 漳州市, 福建省, 中国",
+    "address": {
+      "city": "诏安县",
+      "county": "诏安县",
+      "region": "漳州市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.440031760408317,
+    "attempts": [
+      {
+        "query": "诏安县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "诏安县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "350302": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "城厢区",
+    "lat": 25.4215461,
+    "lon": 118.9898242,
+    "osm_type": "node",
+    "osm_id": 244085151,
+    "class": null,
+    "type": "city",
+    "importance": 0.4156939097669075,
+    "display_name": "城厢区, 莆田市, 福建省, 351100, 中国",
+    "address": {
+      "city": "城厢区",
+      "district": "城厢区",
+      "region": "莆田市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "postcode": "351100",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4156939097669077,
+    "attempts": [
+      {
+        "query": "城厢区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "城厢区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "530381": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "宣威市人民政府",
+    "lat": 26.2223006,
+    "lon": 104.101856,
+    "osm_type": "node",
+    "osm_id": 4574511624,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.518348973826226e-05,
+    "display_name": "宣威市人民政府, 建设街, 双龙街道, 宣威市, 曲靖市, 云南省, 655400, 中国",
+    "address": {
+      "amenity": "宣威市人民政府",
+      "road": "建设街",
+      "town": "双龙街道",
+      "city": "宣威市",
+      "region": "曲靖市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "postcode": "655400",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000055183489738,
+    "attempts": [
+      {
+        "query": "宣威市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "441422": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "大埔县",
+    "lat": 24.3505527,
+    "lon": 116.6902216,
+    "osm_type": "relation",
+    "osm_id": 3233736,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4740059598124703,
+    "display_name": "大埔县, 梅州市, 广东省, 中国",
+    "address": {
+      "county": "大埔县",
+      "city": "梅州市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4740059598124703,
+    "attempts": [
+      {
+        "query": "大埔县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "大埔县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "440904": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "电白区人民政府",
+    "lat": 21.5165613,
+    "lon": 111.0086439,
+    "osm_type": "node",
+    "osm_id": 11903319422,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.199816891732689e-05,
+    "display_name": "电白区人民政府, 迎宾大道, 人民街社区, 坡仔村, 电白区, 茂名市, 广东省, 中国",
+    "address": {
+      "amenity": "电白区人民政府",
+      "road": "迎宾大道",
+      "quarter": "人民街社区",
+      "hamlet": "坡仔村",
+      "district": "电白区",
+      "city": "茂名市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000619981689174,
+    "attempts": [
+      {
+        "query": "电白区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "440307": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "龙岗区人民政府",
+    "lat": 22.7237657,
+    "lon": 114.2418766,
+    "osm_type": "way",
+    "osm_id": 240800632,
+    "class": null,
+    "type": "townhall",
+    "importance": 7.029907682912974e-05,
+    "display_name": "龙岗区人民政府, 8033, 龙翔大道, 紫薇社区, 龙城街道, 龙岗区, 深圳市, 广东省, 518100, 中国",
+    "address": {
+      "amenity": "龙岗区人民政府",
+      "house_number": "8033",
+      "road": "龙翔大道",
+      "quarter": "紫薇社区",
+      "suburb": "龙城街道",
+      "city": "龙岗区",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "postcode": "518100",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000070299076829,
+    "attempts": [
+      {
+        "query": "龙岗区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "540423": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "墨脱县人民政府",
+    "lat": 29.3284381,
+    "lon": 95.33089,
+    "osm_type": "relation",
+    "osm_id": 11078320,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.523537041271103e-05,
+    "display_name": "墨脱县人民政府, 双拥路, 东布路社区, 下亚东村, 墨脱县, 墨脱镇, 墨脱县, 林芝市, 西藏自治区, 860000, 中国",
+    "address": {
+      "amenity": "墨脱县人民政府",
+      "road": "双拥路",
+      "quarter": "东布路社区",
+      "hamlet": "下亚东村",
+      "city": "墨脱县",
+      "town": "墨脱镇",
+      "county": "墨脱县",
+      "region": "林芝市",
+      "state": "西藏自治区",
+      "ISO3166-2-lvl4": "CN-XZ",
+      "postcode": "860000",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000552353704126,
+    "attempts": [
+      {
+        "query": "墨脱县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
   }
 }
