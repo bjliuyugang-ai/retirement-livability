@@ -5938,5 +5938,359 @@
         "accepted_inside_polygon": 1
       }
     ]
+  },
+  "445222": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "揭西县",
+    "lat": 23.4337991,
+    "lon": 115.8378454,
+    "osm_type": "relation",
+    "osm_id": 3283324,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4669015045583901,
+    "display_name": "揭西县, 揭阳市, 揭西县, 广东省, 中国",
+    "address": {
+      "county": "揭西县",
+      "city": "揭阳市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4669015045583901,
+    "attempts": [
+      {
+        "query": "揭西县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "揭西县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "441721": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "阳西县",
+    "lat": 21.7555785,
+    "lon": 111.6127492,
+    "osm_type": "node",
+    "osm_id": 244084684,
+    "class": null,
+    "type": "city",
+    "importance": 0.45252343322544014,
+    "display_name": "阳西县, 阳江市, 广东省, 中国",
+    "address": {
+      "city": "阳西县",
+      "county": "阳西县",
+      "region": "阳江市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.45252343322544,
+    "attempts": [
+      {
+        "query": "阳西县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "阳西县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "441427": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "蕉岭县",
+    "lat": 24.6613582,
+    "lon": 116.1665092,
+    "osm_type": "relation",
+    "osm_id": 3233738,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4612603049670914,
+    "display_name": "蕉岭县, 梅州市, 广东省, 中国",
+    "address": {
+      "county": "蕉岭县",
+      "city": "梅州市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4612603049670914,
+    "attempts": [
+      {
+        "query": "蕉岭县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "蕉岭县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "350303": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "涵江区",
+    "lat": 25.4609641,
+    "lon": 119.1114965,
+    "osm_type": "node",
+    "osm_id": 244085148,
+    "class": null,
+    "type": "city",
+    "importance": 0.40377650850105207,
+    "display_name": "涵江区, 莆田市, 福建省, 中国",
+    "address": {
+      "city": "涵江区",
+      "district": "涵江区",
+      "region": "莆田市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.403776508501052,
+    "attempts": [
+      {
+        "query": "涵江区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "涵江区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "530602": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "昭阳区人民政府",
+    "lat": 27.3233562,
+    "lon": 103.7044144,
+    "osm_type": "node",
+    "osm_id": 4574561444,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.148851758597723e-05,
+    "display_name": "昭阳区人民政府, 海楼路, 凤凰街道, 昭阳区, 昭通市, 昭阳区, 云南省, 中国",
+    "address": {
+      "amenity": "昭阳区人民政府",
+      "road": "海楼路",
+      "suburb": "凤凰街道",
+      "city": "昭阳区",
+      "district": "昭阳区",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000061488517586,
+    "attempts": [
+      {
+        "query": "昭阳区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530324": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "罗平县人民政府",
+    "lat": 24.8681464,
+    "lon": 104.2948769,
+    "osm_type": "way",
+    "osm_id": 1550096258,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.3088426031845846e-05,
+    "display_name": "罗平县人民政府, 九龙大道, 腊山街道, 罗平县, 曲靖市, 云南省, 中国",
+    "address": {
+      "amenity": "罗平县人民政府",
+      "road": "九龙大道",
+      "town": "腊山街道",
+      "city": "罗平县",
+      "region": "曲靖市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000530884260317,
+    "attempts": [
+      {
+        "query": "罗平县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "350524": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "安溪县",
+    "lat": 25.0582843,
+    "lon": 118.1817065,
+    "osm_type": "node",
+    "osm_id": 4438882009,
+    "class": null,
+    "type": "city",
+    "importance": 0.4671633623008776,
+    "display_name": "安溪县, 凤城镇, 安溪县, 泉州市, 福建省, 中国",
+    "address": {
+      "city": "安溪县",
+      "town": "凤城镇",
+      "county": "安溪县",
+      "region": "泉州市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4671633623008775,
+    "attempts": [
+      {
+        "query": "安溪县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "安溪县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "441424": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "五华县",
+    "lat": 23.9353094,
+    "lon": 115.7710705,
+    "osm_type": "node",
+    "osm_id": 244082215,
+    "class": null,
+    "type": "city",
+    "importance": 0.473009706470561,
+    "display_name": "五华县, 梅州市, 广东省, 中国",
+    "address": {
+      "city": "五华县",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.473009706470561,
+    "attempts": [
+      {
+        "query": "五华县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "五华县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 3,
+        "accepted_inside_polygon": 3
+      }
+    ]
+  },
+  "440514": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "潮南区人民政府",
+    "lat": 23.2417585,
+    "lon": 116.4342527,
+    "osm_type": "way",
+    "osm_id": 1146155197,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.334554055080518e-05,
+    "display_name": "潮南区人民政府, 玉峡南路, 峡山街道, 潮南区, 汕头市, 广东省, 中国",
+    "address": {
+      "amenity": "潮南区人民政府",
+      "road": "玉峡南路",
+      "suburb": "峡山街道",
+      "city": "潮南区",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000633455405508,
+    "attempts": [
+      {
+        "query": "潮南区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "350629": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "华安县",
+    "lat": 25.0074201,
+    "lon": 117.5300437,
+    "osm_type": "node",
+    "osm_id": 3255290568,
+    "class": null,
+    "type": "city",
+    "importance": 0.4336393929250951,
+    "display_name": "华安县, 漳州市, 福建省, 中国",
+    "address": {
+      "city": "华安县",
+      "county": "华安县",
+      "region": "漳州市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.433639392925095,
+    "attempts": [
+      {
+        "query": "华安县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "华安县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
   }
 }
