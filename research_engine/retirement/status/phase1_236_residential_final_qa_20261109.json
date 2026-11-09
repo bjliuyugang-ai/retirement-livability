@@ -1,0 +1,211 @@
+{
+  "schema": "RET_PHASE1_236_RESIDENTIAL_CLIMATE_FINAL_EXTRACTION_QA_V1",
+  "as_of_utc": "2026-11-09T14:41:38Z",
+  "run": {
+    "workflow_run_id": 42626178281,
+    "status": "completed",
+    "conclusion": "success",
+    "mode": "one-shot concentrated batch"
+  },
+  "target_count": 236,
+  "counts": {
+    "extracted": 226,
+    "bio1_values": 226,
+    "bio12_values": 226,
+    "high": 218,
+    "medium": 2,
+    "low": 6,
+    "geometry_pending": 9,
+    "geocode_pending": 1,
+    "administrative_relation_points": 56,
+    "named_reference_rows": 46,
+    "named_reference_exact_resolved": 1,
+    "named_reference_fallback": 45,
+    "non_admin_high_or_medium": 166,
+    "repair_queue_rows": 103
+  },
+  "sources": {
+    "bio1_bio12": "ScienceDB DOI 10.57760/SCIENCEDB.13546; 1km; 1991-2020",
+    "population_weights": "WorldPop 2024 native 1km constrained population raster; DOI 10.5258/SOTON/WP00840",
+    "geocoder": "OpenStreetMap Nominatim",
+    "geometry": "2025 coded county polygons; exact code/name match required"
+  },
+  "method": "5km buffer around geocoded settlement/government proxy; climate cells sampled at WorldPop 1km population-cell centers; population-weighted Bio1/Bio12 mean and P10/P50/P90; exact candidate polygon clip.",
+  "local_vs_county_background_for_non_admin_high_medium": {
+    "temperature_abs_difference_c": {
+      "n": 166,
+      "median": 1.19,
+      "mean": 1.56,
+      "p90": 3.26,
+      "max": 8.75
+    },
+    "precipitation_abs_difference_mm": {
+      "n": 166,
+      "median": 57.5,
+      "mean": 73.31,
+      "p90": 137,
+      "max": 559.4
+    },
+    "interpretation": "Even after excluding administrative boundary relations and low-coverage records, local residential estimates differ from county zonal averages. County averages must not be substituted for residential-area values."
+  },
+  "geocode_limitations": [
+    "56 administrative|relation results are boundary-relation coordinates, not verified residential settlement points; do not use as final.",
+    "45 of 46 specifically named residential references were not resolved as the named reference; they require display-name/alias and location review.",
+    "A HIGH label indicates population-grid coverage only, not location correctness."
+  ],
+  "pending_codes": [
+    {
+      "code": "530622",
+      "name": "巧家县",
+      "status": "GEOCODE_PENDING"
+    },
+    {
+      "code": "500157",
+      "name": "两江新区",
+      "status": "GEOMETRY_PENDING_NO_EXACT_CODE_NAME_POLYGON"
+    },
+    {
+      "code": "460303",
+      "name": "南沙区",
+      "status": "GEOMETRY_PENDING_NO_EXACT_CODE_NAME_POLYGON"
+    },
+    {
+      "code": "653229",
+      "name": "和安县",
+      "status": "GEOMETRY_PENDING_NO_EXACT_CODE_NAME_POLYGON"
+    },
+    {
+      "code": "653228",
+      "name": "和康县",
+      "status": "GEOMETRY_PENDING_NO_EXACT_CODE_NAME_POLYGON"
+    },
+    {
+      "code": "653132",
+      "name": "岑岭县",
+      "status": "GEOMETRY_PENDING_NO_EXACT_CODE_NAME_POLYGON"
+    },
+    {
+      "code": "540481",
+      "name": "米林市",
+      "status": "GEOMETRY_PENDING_NO_EXACT_CODE_NAME_POLYGON"
+    },
+    {
+      "code": "659013",
+      "name": "草湖市",
+      "status": "GEOMETRY_PENDING_NO_EXACT_CODE_NAME_POLYGON"
+    },
+    {
+      "code": "460302",
+      "name": "西沙区",
+      "status": "GEOMETRY_PENDING_NO_EXACT_CODE_NAME_POLYGON"
+    },
+    {
+      "code": "540581",
+      "name": "错那市",
+      "status": "GEOMETRY_PENDING_NO_EXACT_CODE_NAME_POLYGON"
+    }
+  ],
+  "low_coverage_codes": [
+    {
+      "code": "440523",
+      "name": "南澳县",
+      "coverage": 0.5875,
+      "cells": 26,
+      "geo_type": "administrative",
+      "osm_type": "relation"
+    },
+    {
+      "code": "330922",
+      "name": "嵊泗县",
+      "coverage": 0.03,
+      "cells": 4,
+      "geo_type": "townhall",
+      "osm_type": "node"
+    },
+    {
+      "code": "513338",
+      "name": "得荣县",
+      "coverage": 1,
+      "cells": 1,
+      "geo_type": "city",
+      "osm_type": "node"
+    },
+    {
+      "code": "350504",
+      "name": "洛江区",
+      "coverage": 0.5096,
+      "cells": 11,
+      "geo_type": "city",
+      "osm_type": "node"
+    },
+    {
+      "code": "210224",
+      "name": "长海县",
+      "coverage": 0.3272,
+      "cells": 10,
+      "geo_type": "townhall",
+      "osm_type": "node"
+    },
+    {
+      "code": "350211",
+      "name": "集美区",
+      "coverage": 0.6168,
+      "cells": 26,
+      "geo_type": "administrative",
+      "osm_type": "relation"
+    }
+  ],
+  "small_island_results": [
+    {
+      "code": "440523",
+      "name": "南澳县",
+      "local_bio1_c": 22.48,
+      "local_bio12_mm": 1471.6,
+      "population_coverage": 0.5875,
+      "valid_cells": 26,
+      "data_quality": "LOW_OR_INSUFFICIENT_LOCAL_POPULATION_COVERAGE",
+      "geocode_type": "administrative",
+      "osm_type": "relation"
+    },
+    {
+      "code": "330922",
+      "name": "嵊泗县",
+      "local_bio1_c": 16.48,
+      "local_bio12_mm": 1208.2,
+      "population_coverage": 0.03,
+      "valid_cells": 4,
+      "data_quality": "LOW_OR_INSUFFICIENT_LOCAL_POPULATION_COVERAGE",
+      "geocode_type": "townhall",
+      "osm_type": "node"
+    },
+    {
+      "code": "330305",
+      "name": "洞头区",
+      "local_bio1_c": 18.73,
+      "local_bio12_mm": 1610.7,
+      "population_coverage": 0.8342,
+      "valid_cells": 23,
+      "data_quality": "MEDIUM_LOCAL_POPULATION_WEIGHTED",
+      "geocode_type": "townhall",
+      "osm_type": "node"
+    },
+    {
+      "code": "210224",
+      "name": "长海县",
+      "local_bio1_c": 10.46,
+      "local_bio12_mm": 632.9,
+      "population_coverage": 0.3272,
+      "valid_cells": 10,
+      "data_quality": "LOW_OR_INSUFFICIENT_LOCAL_POPULATION_COVERAGE",
+      "geocode_type": "townhall",
+      "osm_type": "node"
+    }
+  ],
+  "governance": {
+    "formal_exclusions": 0,
+    "final_abcd_grades_assigned": false,
+    "official_master_overwrite": false,
+    "missing_values_zero_filled": false
+  },
+  "next_action": "Repair administrative relation points and named-reference fallbacks; use station normals or another reliable local reference for low-coverage island areas; then merge only accepted values into V1.5 without changing existing A-D grades."
+}
