@@ -1,0 +1,29 @@
+name: Export retirement 236-region climate supplement
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-phase1-export-supplement.yml'
+      - 'research_engine/retirement/output/phase1_236_residential_climate_parameter_supplement_20261109.csv'
+      - 'research_engine/retirement/status/phase1_236_residential_geocode_repair_queue_final_20261109.csv'
+      - 'research_engine/retirement/status/phase1_236_residential_final_qa_20261109.json'
+      - 'research_engine/retirement/evidence/phase1_236_small_area_station_normals_1991_2020_20261109.csv'
+  workflow_dispatch:
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upload complete 236-region climate supplement and QA assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: retirement-236-climate-supplement-20261109
+          path: |
+            research_engine/retirement/output/phase1_236_residential_climate_parameter_supplement_20261109.csv
+            research_engine/retirement/status/phase1_236_residential_geocode_repair_queue_final_20261109.csv
+            research_engine/retirement/status/phase1_236_residential_final_qa_20261109.json
+            research_engine/retirement/evidence/phase1_236_small_area_station_normals_1991_2020_20261109.csv
+          if-no-files-found: error
+          retention-days: 30
