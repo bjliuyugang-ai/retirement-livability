@@ -1,5 +1,5 @@
 code,region,exception_reference,reference_type,source_date,source_url,point_use_note
-500157,重庆·两江新区,重庆市两江新区人民政府机关地址：金渝大道66号,官方政府办公地址,2026-01-16,https://www.ljxq.gov.cn/zwgk_218/zfxxgkml/tzgg/202512/t20251205_15215632.html;https://www.ljxq.gov.cn/zwgk_218/zfxxgkml/tzgg/202512/t20251205_15215632.html,行政区代码2025年12月新设；缺少匹配多边形时可用政府机关点作代理，不代表全区住宅
+500157,重庆·两江新区,重庆市两江新区人民政府机关地址：金渝大道66号,官方政府办公地址,2026-01-16,https://mzj.cq.gov.cn/zwgk_218/zfxxgkml/tzgg/202512/t20251205_15215632.html;https://www.ljxq.gov.cn/zwgk_218/zfxxgkml/fdzdgknr/jgzn/lxfs/,行政区代码2025年12月新设；缺少匹配多边形时可用政府机关点作代理，不代表全区住宅
 460302,海南·西沙区,西沙区人民政府驻永兴岛,官方政府驻地,2020-04-18,https://www.xinhuanet.com/politics/2020-04/18/c_1125874454.htm,岛礁及海域型行政区；仅永兴岛点位可作居住环境参考，不代表整个辖区
 460303,海南·南沙区,南沙区人民政府驻永暑礁,官方政府驻地,2020-04-18,https://www.xinhuanet.com/politics/2020-04/18/c_1125874454.htm,礁区行政单元；非普通城市居住区，人口栅格可能不足，不可按缺数淘汰
 653229,新疆·和安县,和安县中心城区红柳镇,官方公共资源交易项目地址,2026-10-19,https://ggzy.ht.gov.cn/jyxx/001001/001001001/20261019/b56d9938-a752-48b1-9655-eab82f414889.html,2026年新设县，红柳镇为中心城区；旧县界数据缺失，先用镇中心点并标记边界未核
