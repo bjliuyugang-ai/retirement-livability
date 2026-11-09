@@ -4829,5 +4829,391 @@
         "accepted_inside_polygon": 1
       }
     ]
+  },
+  "540425": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "察隅县",
+    "lat": 28.6636117,
+    "lon": 97.465733,
+    "osm_type": "relation",
+    "osm_id": 2734504,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.44965087387585717,
+    "display_name": "察隅县, 林芝市, 西藏自治区, 860000, 中国",
+    "address": {
+      "city": "察隅县",
+      "region": "林芝市",
+      "state": "西藏自治区",
+      "ISO3166-2-lvl4": "CN-XZ",
+      "postcode": "860000",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.44965087387585717,
+    "attempts": [
+      {
+        "query": "察隅竹瓦根镇城区",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "察隅县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "察隅县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "513432": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "喜德县",
+    "lat": 28.3089018,
+    "lon": 102.4120049,
+    "osm_type": "relation",
+    "osm_id": 2786747,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4958598535284507,
+    "display_name": "喜德县, 凉山彝族自治州, 四川省, 616700, 中国",
+    "address": {
+      "city": "喜德县",
+      "region": "凉山彝族自治州",
+      "state": "四川省",
+      "ISO3166-2-lvl4": "CN-SC",
+      "postcode": "616700",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4958598535284507,
+    "attempts": [
+      {
+        "query": "喜德光明镇县城",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "喜德县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "喜德县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "532801": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "景洪市",
+    "lat": 22.0147814,
+    "lon": 100.7983916,
+    "osm_type": "relation",
+    "osm_id": 5339226,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.5039993014524784,
+    "display_name": "景洪市, 西双版纳傣族自治州, 云南省, 666100, 中国",
+    "address": {
+      "city": "景洪市",
+      "region": "西双版纳傣族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "postcode": "666100",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.5039993014524784,
+    "attempts": [
+      {
+        "query": "景洪城区",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 2,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "景洪市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "景洪市",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "513433": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "冕宁县",
+    "lat": 28.5514647,
+    "lon": 102.1701295,
+    "osm_type": "relation",
+    "osm_id": 2786743,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.47881559724676087,
+    "display_name": "冕宁县, 凉山彝族自治州, 四川省, 615600, 中国",
+    "address": {
+      "city": "冕宁县",
+      "county": "冕宁县",
+      "region": "凉山彝族自治州",
+      "state": "四川省",
+      "ISO3166-2-lvl4": "CN-SC",
+      "postcode": "615600",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.47881559724676087,
+    "attempts": [
+      {
+        "query": "冕宁高阳街道",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "冕宁县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "冕宁县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "469025": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "白沙黎族自治县人民政府",
+    "lat": 19.2268826,
+    "lon": 109.4470963,
+    "osm_type": "node",
+    "osm_id": 4531946538,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.356908522159178e-05,
+    "display_name": "白沙黎族自治县人民政府, S310, 白沙县, 白沙黎族自治县, 海南省, 中国",
+    "address": {
+      "amenity": "白沙黎族自治县人民政府",
+      "road": "S310",
+      "city": "白沙县",
+      "county": "白沙黎族自治县",
+      "state": "海南省",
+      "ISO3166-2-lvl4": "CN-HI",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000535690852215,
+    "attempts": [
+      {
+        "query": "白沙黎族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "540529": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "隆子县",
+    "lat": 28.4120209,
+    "lon": 92.4623016,
+    "osm_type": "node",
+    "osm_id": 289363440,
+    "class": null,
+    "type": "city",
+    "importance": 0.30093685344584264,
+    "display_name": "隆子县, 隆子镇, 隆子县, 山南市, 西藏自治区, 中国",
+    "address": {
+      "city": "隆子县",
+      "town": "隆子镇",
+      "county": "隆子县",
+      "region": "山南市",
+      "state": "西藏自治区",
+      "ISO3166-2-lvl4": "CN-XZ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.3009368534458425,
+    "attempts": [
+      {
+        "query": "隆子县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "隆子县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "469026": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "昌江黎族自治县",
+    "lat": 19.2983749,
+    "lon": 109.0514948,
+    "osm_type": "node",
+    "osm_id": 4531938559,
+    "class": null,
+    "type": "city",
+    "importance": 0.4798572181567083,
+    "display_name": "昌江县, 昌江黎族自治县, 海南省, 中国",
+    "address": {
+      "city": "昌江县",
+      "county": "昌江黎族自治县",
+      "state": "海南省",
+      "ISO3166-2-lvl4": "CN-HI",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4798572181567082,
+    "attempts": [
+      {
+        "query": "昌江黎族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "昌江黎族自治县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "513430": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "金阳县",
+    "lat": 27.6992197,
+    "lon": 103.2492812,
+    "osm_type": "relation",
+    "osm_id": 2786740,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.495691019884687,
+    "display_name": "金阳县, 凉山彝族自治州, 四川省, 616200, 中国",
+    "address": {
+      "city": "金阳县",
+      "region": "凉山彝族自治州",
+      "state": "四川省",
+      "ISO3166-2-lvl4": "CN-SC",
+      "postcode": "616200",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.495691019884687,
+    "attempts": [
+      {
+        "query": "金阳县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "金阳县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530325": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "富源县人民政府",
+    "lat": 25.6778354,
+    "lon": 104.2526284,
+    "osm_type": "node",
+    "osm_id": 4574503277,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.531624322876352e-05,
+    "display_name": "富源县人民政府, 金龙街, 富源县, 曲靖市, 云南省, 中国",
+    "address": {
+      "amenity": "富源县人民政府",
+      "road": "金龙街",
+      "city": "富源县",
+      "county": "富源县",
+      "region": "曲靖市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000553162432286,
+    "attempts": [
+      {
+        "query": "富源县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "441521": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "海丰县",
+    "lat": 22.969734,
+    "lon": 115.3182077,
+    "osm_type": "node",
+    "osm_id": 5139050921,
+    "class": null,
+    "type": "city",
+    "importance": 0.4696253167523786,
+    "display_name": "海丰县, 汕尾市, 广东省, 中国",
+    "address": {
+      "city": "海丰县",
+      "county": "海丰县",
+      "region": "汕尾市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4696253167523787,
+    "attempts": [
+      {
+        "query": "海丰县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "海丰县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 3,
+        "accepted_inside_polygon": 2
+      }
+    ]
   }
 }
