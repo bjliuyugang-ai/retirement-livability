@@ -6648,5 +6648,297 @@
         "accepted_inside_polygon": 1
       }
     ]
+  },
+  "450681": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "东兴市人民政府",
+    "lat": 21.5510583,
+    "lon": 107.9679834,
+    "osm_type": "way",
+    "osm_id": 1058949503,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.264286259246231e-05,
+    "display_name": "东兴市人民政府, 281, 兴东路, 七星社区, 东兴市, 东兴镇, 东兴市, 防城港市, 广西壮族自治区, 中国",
+    "address": {
+      "amenity": "东兴市人民政府",
+      "house_number": "281",
+      "road": "兴东路",
+      "neighbourhood": "七星社区",
+      "city": "东兴市",
+      "town": "东兴镇",
+      "county": "东兴市",
+      "region": "防城港市",
+      "state": "广西壮族自治区",
+      "ISO3166-2-lvl4": "CN-GX",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000526428625927,
+    "attempts": [
+      {
+        "query": "东兴市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "441625": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "东源县",
+    "lat": 23.7914225,
+    "lon": 114.7415794,
+    "osm_type": "node",
+    "osm_id": 244084435,
+    "class": null,
+    "type": "city",
+    "importance": 0.45589899638849074,
+    "display_name": "东源县, 河源市, 广东省, 517000, 中国",
+    "address": {
+      "city": "东源县",
+      "county": "东源县",
+      "region": "河源市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "postcode": "517000",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4558989963884907,
+    "attempts": [
+      {
+        "query": "东源县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "东源县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "331082": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "临海市",
+    "lat": 28.8616886,
+    "lon": 121.1402223,
+    "osm_type": "relation",
+    "osm_id": 3478414,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.5009824559723264,
+    "display_name": "临海市, 台州市, 浙江省, 317000, 中国",
+    "address": {
+      "city": "临海市",
+      "state": "浙江省",
+      "ISO3166-2-lvl4": "CN-ZJ",
+      "postcode": "317000",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.5009824559723264,
+    "attempts": [
+      {
+        "query": "临海市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "临海市",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "440983": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "信宜市",
+    "lat": 22.3580316,
+    "lon": 110.942291,
+    "osm_type": "relation",
+    "osm_id": 3180604,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.49342063745846637,
+    "display_name": "信宜市, 茂名市, 广东省, 525300, 中国",
+    "address": {
+      "city": "信宜市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "postcode": "525300",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.49342063745846637,
+    "attempts": [
+      {
+        "query": "信宜市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "信宜市",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "532931": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "剑川县",
+    "lat": 26.5400606,
+    "lon": 99.9045932,
+    "osm_type": "node",
+    "osm_id": 469623256,
+    "class": null,
+    "type": "city",
+    "importance": 0.49732711627546045,
+    "display_name": "剑川县, 大理白族自治州, 云南省, 中国",
+    "address": {
+      "city": "剑川县",
+      "county": "剑川县",
+      "region": "大理白族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4973271162754607,
+    "attempts": [
+      {
+        "query": "剑川县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "剑川县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "450981": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "北流市",
+    "lat": 22.7111505,
+    "lon": 110.3494957,
+    "osm_type": "node",
+    "osm_id": 4858076523,
+    "class": null,
+    "type": "city",
+    "importance": 0.4857419571472126,
+    "display_name": "北流市, 玉林市, 广西壮族自治区, 543000, 中国",
+    "address": {
+      "city": "北流市",
+      "county": "北流市",
+      "region": "玉林市",
+      "state": "广西壮族自治区",
+      "ISO3166-2-lvl4": "CN-GX",
+      "postcode": "543000",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4857419571472126,
+    "attempts": [
+      {
+        "query": "北流市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "北流市",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "440523": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "南澳县",
+    "lat": 23.4240181,
+    "lon": 117.0189654,
+    "osm_type": "relation",
+    "osm_id": 3283309,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4616594648784339,
+    "display_name": "南澳县, 汕头市, 广东省, 中国",
+    "address": {
+      "city": "南澳县",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4616594648784339,
+    "attempts": [
+      {
+        "query": "南澳县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "南澳县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "441322": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "博罗县",
+    "lat": 23.1755363,
+    "lon": 114.2848921,
+    "osm_type": "node",
+    "osm_id": 5857314302,
+    "class": null,
+    "type": "city",
+    "importance": 0.49015530018728204,
+    "display_name": "博罗县, 惠州市, 广东省, 516100, 中国",
+    "address": {
+      "city": "博罗县",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "postcode": "516100",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.490155300187282,
+    "attempts": [
+      {
+        "query": "博罗县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "博罗县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
   }
 }
