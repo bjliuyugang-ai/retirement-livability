@@ -1,0 +1,50 @@
+name: Focused residential settlement Bio1 Bio12 extraction for 236 candidates
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-phase1-residential-climate.yml'
+      - 'research_engine/retirement/phase1_236_residential_bio1_bio12.py'
+      - 'research_engine/retirement/evidence/phase1_236_target_codes_20261109.csv'
+  workflow_dispatch:
+jobs:
+  residential-climate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install raster and geospatial dependencies
+        run: python -m pip install --disable-pip-version-check requests numpy rasterio shapely
+      - name: Run one-shot 236 settlement extraction
+        id: extract
+        continue-on-error: true
+        run: python -u research_engine/retirement/phase1_236_residential_bio1_bio12.py
+      - name: Upload auditable outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase1-236-residential-climate-${{ github.run_id }}
+          path: |
+            research_engine/retirement/status/phase1_236_residential_bio1_bio12_1991_2020.csv
+            research_engine/retirement/status/phase1_236_residential_bio1_bio12_evidence_20261109.json
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Persist results
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research_engine/retirement/status/phase1_236_residential_bio1_bio12_1991_2020.csv research_engine/retirement/status/phase1_236_residential_bio1_bio12_evidence_20261109.json research_engine/retirement/output/phase1_residential_cache/nominatim_geocode_cache.json || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Add residential settlement Bio1 Bio12 extraction for 236 retirement candidates"
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+          fi
