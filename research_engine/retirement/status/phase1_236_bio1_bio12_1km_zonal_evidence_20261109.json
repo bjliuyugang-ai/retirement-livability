@@ -1,0 +1,192 @@
+{
+  "schema": "RET_PHASE1_236_BIO1_BIO12_ZONAL_V1",
+  "started_at_utc": "2026-11-09T07:30:06.498994+00:00",
+  "dataset": {
+    "title": "A 1 km monthly dataset of historical and future climate changes over China",
+    "dataset_id": "cece16f1863b4ebd839894f6df26f8ac",
+    "version": "V8",
+    "doi": "10.57760/SCIENCEDB.13546",
+    "period": "1991-2020",
+    "resolution": "0.01 degree approximately 1 km",
+    "variables": {
+      "Bio1": "年平均气温（℃）",
+      "Bio12": "年降水量（毫米）"
+    },
+    "methods": "2185 meteorological stations; ANUSPLIN interpolation with elevation as covariate; historical normals"
+  },
+  "formal_master_modified": false,
+  "formal_34_unit_roster_modified": false,
+  "formal_exclusions": 0,
+  "formal_grades_assigned": 0,
+  "input_count": 2847,
+  "geometry_exact_matches": 2838,
+  "geometry_pending": 9,
+  "output_rows": 2847,
+  "status": "PASS_BIO1_BIO12_1KM_ZONAL_EXTRACT",
+  "files": {
+    "bio_archive": {
+      "file_id": "e4a842317c8dc59e2b177e1496bdf3c4",
+      "file_name": "China_Bio_1km_1991-2020.zip",
+      "path": "research_engine/retirement/output/scidb_download/China_Bio_1km_1991-2020.zip",
+      "http_status": 200,
+      "content_type": "application/octet-stream",
+      "bytes": 699181862,
+      "sha256": "da73a547a146c38f295f190fa71adf4367d884cabebf8f50f2c0341b40769c6c",
+      "attempts": 1,
+      "url": "https://china.scidb.cn/download?fileId=e4a842317c8dc59e2b177e1496bdf3c4&username=retirement-research@users.noreply.github.com&traceId=retirement-research@users.noreply.github.com"
+    },
+    "bio1_geotiff": {
+      "member": "China_Bio1_1km_1991-2020.tif",
+      "bytes": 33488686,
+      "sha256": "f76d6281554324d23b47b035b96e875d0af2ac75d12d632c333da15871c8e8aa"
+    },
+    "bio12_geotiff": {
+      "member": "China_Bio12_1km_1991-2020.tif",
+      "bytes": 34051374,
+      "sha256": "11edb587d180e558cc6c47059b92ea5b21e92b8fa4a9729b52540e9acbade8ac"
+    }
+  },
+  "notes": [
+    "This is an administrative-unit zonal mean, not an exact named-neighbourhood or residential-building measurement.",
+    "The 236-region client workbook is a separate broad comparison asset; the formal 34-unit Master is not modified.",
+    "No missing or geometry-mismatched region is excluded. No final A/B/C/D grade is assigned by this extraction.",
+    "Bio1 is annual mean temperature; Bio12 is annual precipitation. Raster band positions and units must pass metadata/range QA before output is accepted."
+  ],
+  "file_listing": {
+    "item_count": 550,
+    "errors": [],
+    "sample_items": [
+      {
+        "id": "942d389ee02b2900d60faca88c1830e2",
+        "datasetId": "cece16f1863b4ebd839894f6df26f8ac",
+        "version": "V8",
+        "fcstr": "31253.11.sciencedb.13546.017F6FB8",
+        "fileName": "1.cmip6-data.R",
+        "path": "/V8/code/1.cmip6-data.R",
+        "md5": "c1a706d2672165dacc881579e5f665e4",
+        "suffix": "r",
+        "size": 13177,
+        "dir": false,
+        "link": false,
+        "url": "",
+        "from": "http",
+        "accountId": "",
+        "canPreview": true,
+        "canBot": false,
+        "md5ToCompute": false,
+        "mod": 667,
+        "createTime": "2025-07-17T23:17:44+08:00",
+        "modifyTime": "2025-07-17T23:17:44+08:00",
+        "index": 0,
+        "parentFileCount": 3
+      },
+      {
+        "id": "f90d42d11477efb44b8089008cddc0ff",
+        "datasetId": "cece16f1863b4ebd839894f6df26f8ac",
+        "version": "V8",
+        "fcstr": "31253.11.sciencedb.13546.017F6FB9",
+        "fileName": "2.delta.R",
+        "path": "/V8/code/2.delta.R",
+        "md5": "24746696222c311c5c73fba7b7142d97",
+        "suffix": "r",
+        "size": 6761,
+        "dir": false,
+        "link": false,
+        "url": "",
+        "from": "http",
+        "accountId": "",
+        "canPreview": true,
+        "canBot": false,
+        "md5ToCompute": false,
+        "mod": 667,
+        "createTime": "2025-07-17T23:17:44+08:00",
+        "modifyTime": "2025-07-17T23:17:44+08:00",
+        "index": 1,
+        "parentFileCount": 3
+      },
+      {
+        "id": "0267a758f536c672f7d87b559f5cb471",
+        "datasetId": "cece16f1863b4ebd839894f6df26f8ac",
+        "version": "V8",
+        "fcstr": "31253.11.sciencedb.13546.017F6FBB",
+        "fileName": "3.bio1-19.R",
+        "path": "/V8/code/3.bio1-19.R",
+        "md5": "c20c3452595df4d4fb0fa82580e8794a",
+        "suffix": "r",
+        "size": 3781,
+        "dir": false,
+        "link": false,
+        "url": "",
+        "from": "http",
+        "accountId": "",
+        "canPreview": true,
+        "canBot": false,
+        "md5ToCompute": false,
+        "mod": 667,
+        "createTime": "2025-07-17T23:17:44+08:00",
+        "modifyTime": "2025-07-17T23:17:44+08:00",
+        "index": 2,
+        "parentFileCount": 3
+      }
+    ]
+  },
+  "raster_metadata": {
+    "crs": "EPSG:4326",
+    "width": 6165,
+    "height": 3538,
+    "bands": 1,
+    "dtype_bio1": [
+      "float32"
+    ],
+    "dtype_bio12": [
+      "float32"
+    ],
+    "nodata": -3.4028234663852886e+38,
+    "bounds": [
+      73.433,
+      18.167999999999992,
+      135.083,
+      53.548
+    ],
+    "transform": [
+      0.009999999999999998,
+      0.0,
+      73.433,
+      0.0,
+      -0.010000000000000002,
+      53.548,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "scales": [
+      1.0
+    ],
+    "offsets": [
+      0.0
+    ],
+    "dataset_tags": {
+      "AREA_OR_POINT": "Area"
+    },
+    "Bio1_sample": {
+      "raw_min": -20.394166946411133,
+      "raw_median": 6.964166641235352,
+      "raw_max": 25.894166946411133,
+      "scale": 1.0,
+      "scale_rule": "native_C"
+    },
+    "Bio12_sample": {
+      "raw_min": 9.09999942779541,
+      "raw_median": 481.8100280761719,
+      "raw_max": 4079.840087890625,
+      "scale": 1.0,
+      "scale_rule": "native_mm"
+    }
+  },
+  "value_coverage": {
+    "Bio1": 2838,
+    "Bio12": 2838,
+    "geometry_pending_rows": 9
+  },
+  "finished_at_utc": "2026-11-09T08:11:28.965357+00:00"
+}
