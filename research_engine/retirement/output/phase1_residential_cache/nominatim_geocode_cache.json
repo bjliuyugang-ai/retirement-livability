@@ -2265,5 +2265,359 @@
         "accepted_inside_polygon": 2
       }
     ]
+  },
+  "530426": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "峨山彝族自治县人民政府",
+    "lat": 24.1718174,
+    "lon": 102.4043007,
+    "osm_type": "node",
+    "osm_id": 4574556222,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.0002288853238995e-05,
+    "display_name": "峨山彝族自治县人民政府, 桂峰路, 练江社区, 双江街道, 峨山彝族自治县, 玉溪市, 云南省, 中国",
+    "address": {
+      "amenity": "峨山彝族自治县人民政府",
+      "road": "桂峰路",
+      "quarter": "练江社区",
+      "town": "双江街道",
+      "city": "峨山彝族自治县",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000060002288853,
+    "attempts": [
+      {
+        "query": "峨山彝族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530524": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "昌宁县",
+    "lat": 24.8256972,
+    "lon": 99.6104198,
+    "osm_type": "relation",
+    "osm_id": 2725432,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4825565018187125,
+    "display_name": "昌宁县, 保山市, 云南省, 中国",
+    "address": {
+      "city": "昌宁县",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4825565018187125,
+    "attempts": [
+      {
+        "query": "昌宁县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "昌宁县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530124": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "富民县",
+    "lat": 25.2220812,
+    "lon": 102.4976779,
+    "osm_type": "node",
+    "osm_id": 469622936,
+    "class": null,
+    "type": "city",
+    "importance": 0.45987298670095283,
+    "display_name": "富民县, 昆明市, 云南省, 中国",
+    "address": {
+      "city": "富民县",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.459872986700953,
+    "attempts": [
+      {
+        "query": "富民县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "富民县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "532823": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "勐腊县",
+    "lat": 21.461854,
+    "lon": 101.5650328,
+    "osm_type": "node",
+    "osm_id": 469626059,
+    "class": null,
+    "type": "city",
+    "importance": 0.49487450394724797,
+    "display_name": "勐腊县, 西双版纳傣族自治州, 云南省, 666300, 中国",
+    "address": {
+      "city": "勐腊县",
+      "county": "勐腊县",
+      "region": "西双版纳傣族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "postcode": "666300",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4948745039472477,
+    "attempts": [
+      {
+        "query": "勐腊县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "勐腊县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "532528": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "元阳县人民政府",
+    "lat": 23.2225255,
+    "lon": 102.8336513,
+    "osm_type": "node",
+    "osm_id": 4544317095,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.582742046230285e-05,
+    "display_name": "元阳县人民政府, 人民路, 元阳县, 红河哈尼族彝族自治州, 云南省, 中国",
+    "address": {
+      "amenity": "元阳县人民政府",
+      "road": "人民路",
+      "city": "元阳县",
+      "county": "元阳县",
+      "region": "红河哈尼族彝族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000558274204625,
+    "attempts": [
+      {
+        "query": "元阳县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530102": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "五华区",
+    "lat": 25.0464608,
+    "lon": 102.7058062,
+    "osm_type": "node",
+    "osm_id": 3112091020,
+    "class": null,
+    "type": "city",
+    "importance": 0.44657497932943896,
+    "display_name": "五华区, 昆明市, 云南省, 650030, 中国",
+    "address": {
+      "city": "五华区",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "postcode": "650030",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.446574979329439,
+    "attempts": [
+      {
+        "query": "五华区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "五华区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "530523": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "龙陵县",
+    "lat": 24.5961792,
+    "lon": 98.691252,
+    "osm_type": "node",
+    "osm_id": 469623619,
+    "class": null,
+    "type": "city",
+    "importance": 0.49008167394664937,
+    "display_name": "龙陵县, 保山市, 云南省, 中国",
+    "address": {
+      "city": "龙陵县",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4900816739466496,
+    "attempts": [
+      {
+        "query": "龙陵县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "龙陵县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "530828": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "澜沧拉祜族自治县",
+    "lat": 22.5566223,
+    "lon": 99.9275508,
+    "osm_type": "node",
+    "osm_id": 469623539,
+    "class": null,
+    "type": "city",
+    "importance": 0.4916826333919277,
+    "display_name": "澜沧县, 澜沧拉祜族自治县, 普洱市, 云南省, 中国",
+    "address": {
+      "city": "澜沧县",
+      "county": "澜沧拉祜族自治县",
+      "region": "普洱市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4916826333919277,
+    "attempts": [
+      {
+        "query": "澜沧拉祜族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "澜沧拉祜族自治县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "350628": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "平和县",
+    "lat": 24.3659798,
+    "lon": 117.3095011,
+    "osm_type": "node",
+    "osm_id": 244081347,
+    "class": null,
+    "type": "city",
+    "importance": 0.4478508093037898,
+    "display_name": "平和县, 漳州市, 福建省, 中国",
+    "address": {
+      "city": "平和县",
+      "county": "平和县",
+      "region": "漳州市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4478508093037896,
+    "attempts": [
+      {
+        "query": "平和县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "平和县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "530521": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "施甸县",
+    "lat": 24.727939,
+    "lon": 99.1861225,
+    "osm_type": "relation",
+    "osm_id": 2727144,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4814312788337345,
+    "display_name": "施甸县, 保山市, 云南省, 中国",
+    "address": {
+      "city": "施甸县",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4814312788337345,
+    "attempts": [
+      {
+        "query": "施甸县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "施甸县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
   }
 }
