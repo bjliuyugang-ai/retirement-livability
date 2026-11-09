@@ -4425,5 +4425,409 @@
         "accepted_inside_polygon": 1
       }
     ]
+  },
+  "532930": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "洱源县",
+    "lat": 26.1173022,
+    "lon": 99.9621817,
+    "osm_type": "relation",
+    "osm_id": 2727735,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.48526795844975623,
+    "display_name": "洱源县, 大理白族自治州, 云南省, 中国",
+    "address": {
+      "city": "洱源县",
+      "region": "大理白族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.48526795844975623,
+    "attempts": [
+      {
+        "query": "洱源茈碧湖镇县城",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "洱源县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "洱源县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "533401": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "香格里拉市人民政府",
+    "lat": 27.8458803,
+    "lon": 99.7421973,
+    "osm_type": "way",
+    "osm_id": 763318038,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.580453192945781e-05,
+    "display_name": "香格里拉市人民政府, 吉祥路, 香格里拉市, 建塘镇, 香格里拉市, 迪庆藏族自治州, 云南省, 674400, 中国",
+    "address": {
+      "amenity": "香格里拉市人民政府",
+      "road": "吉祥路",
+      "city": "香格里拉市",
+      "town": "建塘镇",
+      "county": "香格里拉市",
+      "region": "迪庆藏族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "postcode": "674400",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000558045319297,
+    "attempts": [
+      {
+        "query": "香格里拉建塘镇城区",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "香格里拉市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530428": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "元江哈尼族彝族傣族自治县人民政府",
+    "lat": 23.5985461,
+    "lon": 101.9967363,
+    "osm_type": "node",
+    "osm_id": 4574558333,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.0002288853238995e-05,
+    "display_name": "元江县人民政府, 文化路, 红河街道, 元江哈尼族彝族傣族自治县, 玉溪市, 云南省, 中国",
+    "address": {
+      "amenity": "元江县人民政府",
+      "road": "文化路",
+      "town": "红河街道",
+      "city": "元江哈尼族彝族傣族自治县",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000060002288853,
+    "attempts": [
+      {
+        "query": "玉溪市元江县城",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "元江哈尼族彝族傣族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "510411": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "仁和区",
+    "lat": 26.5016242,
+    "lon": 101.736866,
+    "osm_type": "node",
+    "osm_id": 7033160471,
+    "class": null,
+    "type": "city",
+    "importance": 0.46942365213068876,
+    "display_name": "仁和区, 攀枝花市, 四川省, 中国",
+    "address": {
+      "city": "仁和区",
+      "state": "四川省",
+      "ISO3166-2-lvl4": "CN-SC",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.469423652130689,
+    "attempts": [
+      {
+        "query": "攀枝花主城区",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "仁和区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "仁和区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "510402": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "东区",
+    "lat": 26.5499759,
+    "lon": 101.7024394,
+    "osm_type": "relation",
+    "osm_id": 2785684,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.46674388586824006,
+    "display_name": "东区, 攀枝花市, 四川省, 中国",
+    "address": {
+      "city": "东区",
+      "state": "四川省",
+      "ISO3166-2-lvl4": "CN-SC",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.46674388586824006,
+    "attempts": [
+      {
+        "query": "攀枝花主城区",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "东区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "东区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "460204": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "天涯区人民政府",
+    "lat": 18.2995076,
+    "lon": 109.4481382,
+    "osm_type": "node",
+    "osm_id": 3672800162,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.0002288853238995e-05,
+    "display_name": "天涯区人民政府, 凤凰路, 凤凰, 三亚湾街道, 天涯区, 三亚市, 海南省, 中国",
+    "address": {
+      "amenity": "天涯区人民政府",
+      "road": "凤凰路",
+      "suburb": "凤凰",
+      "city": "天涯区",
+      "state": "海南省",
+      "ISO3166-2-lvl4": "CN-HI",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000060002288853,
+    "attempts": [
+      {
+        "query": "天涯区南部沿海",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "天涯区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "513422": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "木里藏族自治县",
+    "lat": 27.9291894,
+    "lon": 101.2787073,
+    "osm_type": "relation",
+    "osm_id": 2786744,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4991482216517998,
+    "display_name": "木里藏族自治县, 凉山彝族自治州, 四川省, 中国",
+    "address": {
+      "city": "木里藏族自治县",
+      "region": "凉山彝族自治州",
+      "state": "四川省",
+      "ISO3166-2-lvl4": "CN-SC",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4991482216517998,
+    "attempts": [
+      {
+        "query": "木里瓦厂气象站",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "木里藏族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "木里藏族自治县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "513428": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "普格县",
+    "lat": 27.3799381,
+    "lon": 102.538941,
+    "osm_type": "node",
+    "osm_id": 443551861,
+    "class": null,
+    "type": "city",
+    "importance": 0.49504545297186436,
+    "display_name": "普格县, 凉山彝族自治州, 四川省, 615300, 中国",
+    "address": {
+      "city": "普格县",
+      "county": "普格县",
+      "region": "凉山彝族自治州",
+      "state": "四川省",
+      "ISO3166-2-lvl4": "CN-SC",
+      "postcode": "615300",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.495045452971864,
+    "attempts": [
+      {
+        "query": "普格县城区及南郊",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "普格县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "普格县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "469029": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "保亭黎族苗族自治县人民政府",
+    "lat": 18.6411826,
+    "lon": 109.6989074,
+    "osm_type": "node",
+    "osm_id": 4531879726,
+    "class": null,
+    "type": "townhall",
+    "importance": 4.5001144426596745e-05,
+    "display_name": "保亭黎族苗族自治县人民政府, S305, 保亭县, 保亭黎族苗族自治县, 海南省, 中国",
+    "address": {
+      "amenity": "保亭黎族苗族自治县人民政府",
+      "road": "S305",
+      "city": "保亭县",
+      "county": "保亭黎族苗族自治县",
+      "state": "海南省",
+      "ISO3166-2-lvl4": "CN-HI",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000450011444264,
+    "attempts": [
+      {
+        "query": "保亭保城镇城区",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 2,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "保亭黎族苗族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "469027": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "乐东黎族自治县人民政府",
+    "lat": 18.7518362,
+    "lon": 109.1689995,
+    "osm_type": "node",
+    "osm_id": 4531929311,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.054169527728721e-05,
+    "display_name": "乐东黎族自治县人民政府, 314省道, 抱由镇, 乐东黎族自治县, 海南省, 中国",
+    "address": {
+      "amenity": "乐东黎族自治县人民政府",
+      "road": "314省道",
+      "town": "抱由镇",
+      "city": "乐东黎族自治县",
+      "county": "乐东黎族自治县",
+      "state": "海南省",
+      "ISO3166-2-lvl4": "CN-HI",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000505416952774,
+    "attempts": [
+      {
+        "query": "乐东抱由镇城区",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "乐东黎族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
   }
 }
