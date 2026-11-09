@@ -6940,5 +6940,246 @@
         "accepted_inside_polygon": 2
       }
     ]
+  },
+  "440118": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "增城区人民政府",
+    "lat": 23.2637656,
+    "lon": 113.8057526,
+    "osm_type": "way",
+    "osm_id": 833763772,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.785915922784798e-05,
+    "display_name": "增城区人民政府, 惠民路, 荔湖街道, 增城区, 广州市, 广东省, 中国",
+    "address": {
+      "amenity": "增城区人民政府",
+      "road": "惠民路",
+      "suburb": "荔湖街道",
+      "county": "增城区",
+      "city": "广州市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000067859159228,
+    "attempts": [
+      {
+        "query": "增城区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "330226": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "宁海县人民政府",
+    "lat": 29.2908465,
+    "lon": 121.4253926,
+    "osm_type": "node",
+    "osm_id": 11013293286,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.77302204928209e-05,
+    "display_name": "宁海县人民政府, 北斗南路, 跃龙街道, 宁海县, 宁波市, 浙江省, 中国",
+    "address": {
+      "amenity": "宁海县人民政府",
+      "road": "北斗南路",
+      "suburb": "跃龙街道",
+      "city": "宁海县",
+      "state": "浙江省",
+      "ISO3166-2-lvl4": "CN-ZJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000057730220493,
+    "attempts": [
+      {
+        "query": "宁海县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530724": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "宁蒗彝族自治县",
+    "lat": 27.2819067,
+    "lon": 100.8474839,
+    "osm_type": "relation",
+    "osm_id": 2729826,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4864076364692148,
+    "display_name": "宁蒗彝族自治县, 丽江市, 云南省, 674309, 中国",
+    "address": {
+      "city": "宁蒗彝族自治县",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "postcode": "674309",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4864076364692148,
+    "attempts": [
+      {
+        "query": "宁蒗彝族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "宁蒗彝族自治县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "360734": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "寻乌县人民政府",
+    "lat": 24.9728511,
+    "lon": 115.6335068,
+    "osm_type": "node",
+    "osm_id": 5062075648,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.5020218203967615e-05,
+    "display_name": "寻乌县人民政府, X485, 寻乌县, 赣州市, 江西省, 中国",
+    "address": {
+      "amenity": "寻乌县人民政府",
+      "road": "X485",
+      "city": "寻乌县",
+      "county": "寻乌县",
+      "region": "赣州市",
+      "state": "江西省",
+      "ISO3166-2-lvl4": "CN-JX",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000055020218204,
+    "attempts": [
+      {
+        "query": "寻乌县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 2,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "330922": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "嵊泗县人民政府",
+    "lat": 30.7280371,
+    "lon": 122.4467261,
+    "osm_type": "node",
+    "osm_id": 1722948222,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.0679789425452314e-05,
+    "display_name": "嵊泗县人民政府, G526, 菜圃社区, 菜园镇, 舟山群岛新区, 嵊泗县, 舟山市, 嵊泗县, 浙江省, 202450, 中国",
+    "address": {
+      "amenity": "嵊泗县人民政府",
+      "road": "G526",
+      "neighbourhood": "菜圃社区",
+      "town": "菜园镇",
+      "suburb": "舟山群岛新区",
+      "city": "嵊泗县",
+      "county": "嵊泗县",
+      "state": "浙江省",
+      "ISO3166-2-lvl4": "CN-ZJ",
+      "postcode": "202450",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000606797894256,
+    "attempts": [
+      {
+        "query": "嵊泗县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "350128": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "平潭县人民政府",
+    "lat": 25.5016613,
+    "lon": 119.7862422,
+    "osm_type": "node",
+    "osm_id": 5097537713,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.0002288853238995e-05,
+    "display_name": "平潭县人民政府, 16, 翠园中路, 海坛街道, 海坛片区, 平潭县, 福州市, 福建省, 350400, 中国",
+    "address": {
+      "amenity": "平潭县人民政府",
+      "house_number": "16",
+      "road": "翠园中路",
+      "suburb": "海坛街道",
+      "city": "平潭县",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "postcode": "350400",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000060002288853,
+    "attempts": [
+      {
+        "query": "平潭县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "532627": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "广南县",
+    "lat": 24.0506895,
+    "lon": 105.0628917,
+    "osm_type": "node",
+    "osm_id": 469623089,
+    "class": null,
+    "type": "town",
+    "importance": 0.23992860907835414,
+    "display_name": "莲城镇, 广南县, 文山壮族苗族自治州, 云南省, 中国",
+    "address": {
+      "town": "莲城镇",
+      "city": "广南县",
+      "region": "文山壮族苗族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.2399286090783543,
+    "attempts": [
+      {
+        "query": "广南县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "广南县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
   }
 }
