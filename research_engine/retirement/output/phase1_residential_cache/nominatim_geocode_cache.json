@@ -2619,5 +2619,360 @@
         "accepted_inside_polygon": 1
       }
     ]
+  },
+  "513402": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "会理市",
+    "lat": 26.6600172,
+    "lon": 102.2438732,
+    "osm_type": "relation",
+    "osm_id": 2189949,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.47717658727910667,
+    "display_name": "会理市, 凉山彝族自治州, 四川省, 中国",
+    "address": {
+      "city": "会理市",
+      "region": "凉山彝族自治州",
+      "state": "四川省",
+      "ISO3166-2-lvl4": "CN-SC",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.47717658727910667,
+    "attempts": [
+      {
+        "query": "会理市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "会理市",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530112": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "西山区",
+    "lat": 25.0411094,
+    "lon": 102.6649565,
+    "osm_type": "relation",
+    "osm_id": 2723926,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4457828906463019,
+    "display_name": "西山区, 昆明市, 云南省, 中国",
+    "address": {
+      "city": "西山区",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4457828906463019,
+    "attempts": [
+      {
+        "query": "西山区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "西山区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "532924": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "宾川县",
+    "lat": 25.8337353,
+    "lon": 100.5892345,
+    "osm_type": "node",
+    "osm_id": 469622266,
+    "class": null,
+    "type": "city",
+    "importance": 0.46552270554444963,
+    "display_name": "宾川县, 金牛镇, 宾川县, 大理白族自治州, 云南省, 671600, 中国",
+    "address": {
+      "city": "宾川县",
+      "town": "金牛镇",
+      "county": "宾川县",
+      "region": "大理白族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "postcode": "671600",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4655227055444495,
+    "attempts": [
+      {
+        "query": "宾川县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "宾川县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "530481": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "澄江市人民政府",
+    "lat": 24.6788606,
+    "lon": 102.9028568,
+    "osm_type": "way",
+    "osm_id": 1306997935,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.0002288853238995e-05,
+    "display_name": "澄江市人民政府, 凤翔路, 凤麓街道, 澄江市, 玉溪市, 云南省, 中国",
+    "address": {
+      "amenity": "澄江市人民政府",
+      "road": "凤翔路",
+      "town": "凤麓街道",
+      "county": "澄江市",
+      "city": "玉溪市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000060002288853,
+    "attempts": [
+      {
+        "query": "澄江市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "533123": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "盈江县人民政府",
+    "lat": 24.6945611,
+    "lon": 97.9433308,
+    "osm_type": "node",
+    "osm_id": 12119440893,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.347905699240127e-05,
+    "display_name": "盈江县人民政府, 允燕大道, 盈江县, 德宏傣族景颇族自治州, 云南省, 665000, 中国",
+    "address": {
+      "amenity": "盈江县人民政府",
+      "road": "允燕大道",
+      "city": "盈江县",
+      "county": "盈江县",
+      "region": "德宏傣族景颇族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "postcode": "665000",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000534790569926,
+    "attempts": [
+      {
+        "query": "盈江县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530113": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "东川区",
+    "lat": 26.086128,
+    "lon": 103.1854548,
+    "osm_type": "relation",
+    "osm_id": 2723828,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.48011505523835146,
+    "display_name": "东川区, 昆明市, 东川区, 云南省, 中国",
+    "address": {
+      "city": "东川区",
+      "district": "东川区",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.48011505523835146,
+    "attempts": [
+      {
+        "query": "东川区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "东川区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530103": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "盘龙区",
+    "lat": 25.1188687,
+    "lon": 102.7504397,
+    "osm_type": "node",
+    "osm_id": 3114075051,
+    "class": null,
+    "type": "city",
+    "importance": 0.4418261338629232,
+    "display_name": "盘龙区, 昆明市, 云南省, 中国",
+    "address": {
+      "city": "盘龙区",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4418261338629232,
+    "attempts": [
+      {
+        "query": "盘龙区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "盘龙区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "530827": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "孟连傣族拉祜族佤族自治县",
+    "lat": 22.3287763,
+    "lon": 99.5917207,
+    "osm_type": "node",
+    "osm_id": 469623935,
+    "class": null,
+    "type": "city",
+    "importance": 0.49292875345192705,
+    "display_name": "孟连县, 孟连傣族拉祜族佤族自治县, 普洱市, 云南省, 中国",
+    "address": {
+      "city": "孟连县",
+      "county": "孟连傣族拉祜族佤族自治县",
+      "region": "普洱市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.492928753451927,
+    "attempts": [
+      {
+        "query": "孟连傣族拉祜族佤族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "孟连傣族拉祜族佤族自治县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "530181": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "安宁市",
+    "lat": 24.9248708,
+    "lon": 102.4844287,
+    "osm_type": "node",
+    "osm_id": 244075875,
+    "class": null,
+    "type": "city",
+    "importance": 0.4982114730102922,
+    "display_name": "安宁市, 昆明市, 云南省, 650300, 中国",
+    "address": {
+      "city": "安宁市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "postcode": "650300",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4982114730102922,
+    "attempts": [
+      {
+        "query": "安宁市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "安宁市",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "530403": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "江川区人民政府",
+    "lat": 24.2903738,
+    "lon": 102.7521578,
+    "osm_type": "node",
+    "osm_id": 4574540673,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.0002288853238995e-05,
+    "display_name": "江川区人民政府, XFJ4, 大庄社区, 星云街道, 江川区, 玉溪市, 云南省, 中国",
+    "address": {
+      "amenity": "江川区人民政府",
+      "road": "XFJ4",
+      "quarter": "大庄社区",
+      "suburb": "星云街道",
+      "district": "江川区",
+      "city": "玉溪市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000060002288853,
+    "attempts": [
+      {
+        "query": "江川区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
   }
 }
