@@ -8087,5 +8087,222 @@
         "accepted_inside_polygon": 1
       }
     ]
+  },
+  "450603": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "防城区",
+    "lat": 21.7651318,
+    "lon": 108.3522496,
+    "osm_type": "node",
+    "osm_id": 5111126856,
+    "class": null,
+    "type": "city",
+    "importance": 0.4401108075321503,
+    "display_name": "防城区, 防城港市, 广西壮族自治区, 538021, 中国",
+    "address": {
+      "city": "防城区",
+      "district": "防城区",
+      "region": "防城港市",
+      "state": "广西壮族自治区",
+      "ISO3166-2-lvl4": "CN-GX",
+      "postcode": "538021",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4401108075321503,
+    "attempts": [
+      {
+        "query": "防城区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "防城区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "441781": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "阳春市",
+    "lat": 22.1732425,
+    "lon": 111.7863769,
+    "osm_type": "node",
+    "osm_id": 244082478,
+    "class": null,
+    "type": "city",
+    "importance": 0.49606188104335097,
+    "display_name": "阳春市, 阳江市, 广东省, 中国",
+    "address": {
+      "city": "阳春市",
+      "county": "阳春市",
+      "region": "阳江市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.496061881043351,
+    "attempts": [
+      {
+        "query": "阳春市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "阳春市",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "450922": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "陆川县",
+    "lat": 22.3242406,
+    "lon": 110.2598698,
+    "osm_type": "node",
+    "osm_id": 1692209504,
+    "class": null,
+    "type": "city",
+    "importance": 0.43736819229210405,
+    "display_name": "陆川县, 玉林市, 广西壮族自治区, 543000, 中国",
+    "address": {
+      "city": "陆川县",
+      "county": "陆川县",
+      "region": "玉林市",
+      "state": "广西壮族自治区",
+      "ISO3166-2-lvl4": "CN-GX",
+      "postcode": "543000",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.437368192292104,
+    "attempts": [
+      {
+        "query": "陆川县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "陆川县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "350211": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "集美区",
+    "lat": 24.5780219,
+    "lon": 118.0922581,
+    "osm_type": "relation",
+    "osm_id": 3243084,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4348490150141181,
+    "display_name": "集美区, 厦门市, 福建省, 中国",
+    "address": {
+      "county": "集美区",
+      "city": "厦门市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4348490150141181,
+    "attempts": [
+      {
+        "query": "集美区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "集美区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "532624": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "麻栗坡县人民政府",
+    "lat": 23.1285971,
+    "lon": 104.7004229,
+    "osm_type": "way",
+    "osm_id": 359269253,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.5107194628778784e-05,
+    "display_name": "麻栗坡县人民政府, G246, 城南社区, 郑家冲, 牛滚塘村, 麻栗坡县, 文山壮族苗族自治州, 云南省, 中国",
+    "address": {
+      "amenity": "麻栗坡县人民政府",
+      "road": "G246",
+      "quarter": "城南社区",
+      "hamlet": "郑家冲",
+      "village": "牛滚塘村",
+      "city": "麻栗坡县",
+      "region": "文山壮族苗族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000055107194629,
+    "attempts": [
+      {
+        "query": "麻栗坡县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "441622": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "龙川县人民政府",
+    "lat": 24.1032879,
+    "lon": 115.2551154,
+    "osm_type": "way",
+    "osm_id": 1545546740,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.520790417329698e-05,
+    "display_name": "龙川县人民政府, 先烈路, 龙川县, 河源市, 广东省, 中国",
+    "address": {
+      "amenity": "龙川县人民政府",
+      "road": "先烈路",
+      "city": "龙川县",
+      "county": "龙川县",
+      "region": "河源市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000055207904173,
+    "attempts": [
+      {
+        "query": "龙川县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
   }
 }
