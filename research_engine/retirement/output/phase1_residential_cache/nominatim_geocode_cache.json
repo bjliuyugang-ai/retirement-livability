@@ -1903,5 +1903,367 @@
         "accepted_inside_polygon": 1
       }
     ]
+  },
+  "530129": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "寻甸回族彝族自治县",
+    "lat": 25.5601328,
+    "lon": 103.2563302,
+    "osm_type": "node",
+    "osm_id": 469625089,
+    "class": null,
+    "type": "city",
+    "importance": 0.48741282378646555,
+    "display_name": "寻甸县, 昆明市, 云南省, 655200, 中国",
+    "address": {
+      "city": "寻甸县",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "postcode": "655200",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4874128237864657,
+    "attempts": [
+      {
+        "query": "寻甸回族彝族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "寻甸回族彝族自治县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "530302": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "麒麟区",
+    "lat": 25.4979458,
+    "lon": 103.8030844,
+    "osm_type": "node",
+    "osm_id": 244083848,
+    "class": null,
+    "type": "city",
+    "importance": 0.43578400282943863,
+    "display_name": "麒麟区, 曲靖市, 云南省, 中国",
+    "address": {
+      "city": "麒麟区",
+      "district": "麒麟区",
+      "region": "曲靖市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.435784002829439,
+    "attempts": [
+      {
+        "query": "麒麟区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "麒麟区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "530303": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "沾益区",
+    "lat": 25.6082057,
+    "lon": 103.8219637,
+    "osm_type": "node",
+    "osm_id": 4574281655,
+    "class": null,
+    "type": "city",
+    "importance": 0.4417491314623472,
+    "display_name": "沾益区, 曲靖市, 云南省, 中国",
+    "address": {
+      "city": "沾益区",
+      "district": "沾益区",
+      "region": "曲靖市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4417491314623474,
+    "attempts": [
+      {
+        "query": "沾益区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "沾益区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "532923": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "祥云县",
+    "lat": 25.4868518,
+    "lon": 100.5490691,
+    "osm_type": "relation",
+    "osm_id": 2727741,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.45928615003117845,
+    "display_name": "祥云县, 大理白族自治州, 云南省, 中国",
+    "address": {
+      "city": "祥云县",
+      "region": "大理白族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.45928615003117845,
+    "attempts": [
+      {
+        "query": "祥云县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "祥云县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "532529": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "红河县人民政府",
+    "lat": 23.3715733,
+    "lon": 102.4190676,
+    "osm_type": "node",
+    "osm_id": 4544360613,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.50156404973986e-05,
+    "display_name": "红河县人民政府, 水硝井街, 红河县, 红河哈尼族彝族自治州, 云南省, 中国",
+    "address": {
+      "amenity": "红河县人民政府",
+      "road": "水硝井街",
+      "city": "红河县",
+      "county": "红河县",
+      "region": "红河哈尼族彝族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000550156404975,
+    "attempts": [
+      {
+        "query": "红河县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "532822": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "勐海县",
+    "lat": 21.9598828,
+    "lon": 100.4511886,
+    "osm_type": "relation",
+    "osm_id": 2715427,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.46525419129316453,
+    "display_name": "勐海县, 西双版纳傣族自治州, 云南省, 中国",
+    "address": {
+      "city": "勐海县",
+      "region": "西双版纳傣族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.46525419129316453,
+    "attempts": [
+      {
+        "query": "勐海县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "勐海县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530326": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "会泽县人民政府",
+    "lat": 26.4205705,
+    "lon": 103.2952679,
+    "osm_type": "way",
+    "osm_id": 473543302,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.7109178301625355e-05,
+    "display_name": "会泽县政府, 通宝路, 会泽县, 曲靖市, 云南省, 中国",
+    "address": {
+      "amenity": "会泽县政府",
+      "road": "通宝路",
+      "city": "会泽县",
+      "county": "会泽县",
+      "region": "曲靖市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000571091783015,
+    "attempts": [
+      {
+        "query": "会泽县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "532625": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "马关县",
+    "lat": 23.0156398,
+    "lon": 104.3923205,
+    "osm_type": "node",
+    "osm_id": 5203627748,
+    "class": null,
+    "type": "city",
+    "importance": 0.48859149511247885,
+    "display_name": "马关县, 白马镇, 马关县, 文山壮族苗族自治州, 云南省, 663700, 中国",
+    "address": {
+      "city": "马关县",
+      "county": "马关县",
+      "region": "文山壮族苗族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "postcode": "663700",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.488591495112479,
+    "attempts": [
+      {
+        "query": "马关县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "马关县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 3,
+        "accepted_inside_polygon": 3
+      }
+    ]
+  },
+  "530829": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "西盟佤族自治县",
+    "lat": 22.6470309,
+    "lon": 99.5932044,
+    "osm_type": "node",
+    "osm_id": 469624920,
+    "class": null,
+    "type": "city",
+    "importance": 0.48790969044982746,
+    "display_name": "西盟县, 西盟佤族自治县, 普洱市, 云南省, 中国",
+    "address": {
+      "city": "西盟县",
+      "county": "西盟佤族自治县",
+      "region": "普洱市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4879096904498272,
+    "attempts": [
+      {
+        "query": "西盟佤族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "西盟佤族自治县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "533122": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "梁河县",
+    "lat": 24.8089486,
+    "lon": 98.2951681,
+    "osm_type": "node",
+    "osm_id": 469623573,
+    "class": null,
+    "type": "city",
+    "importance": 0.48542633950432423,
+    "display_name": "梁河县, 遮岛镇, 梁河县, 德宏傣族景颇族自治州, 云南省, 665000, 中国",
+    "address": {
+      "city": "梁河县",
+      "town": "遮岛镇",
+      "county": "梁河县",
+      "region": "德宏傣族景颇族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "postcode": "665000",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.485426339504324,
+    "attempts": [
+      {
+        "query": "梁河县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "梁河县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
   }
 }
