@@ -54,7 +54,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add research_engine/retirement/status/phase1_236_residential_bio1_bio12_1991_2020.csv research_engine/retirement/status/phase1_236_residential_bio1_bio12_evidence_20261109.json research_engine/retirement/output/phase1_residential_cache/nominatim_geocode_cache.json || true
+          git add -f research_engine/retirement/status/phase1_236_residential_bio1_bio12_1991_2020.csv research_engine/retirement/status/phase1_236_residential_bio1_bio12_evidence_20261109.json research_engine/retirement/output/phase1_residential_cache/nominatim_geocode_cache.json || true
           if ! git diff --cached --quiet; then
             git commit -m "Add residential settlement Bio1 Bio12 extraction for 236 retirement candidates"
             git fetch origin main
