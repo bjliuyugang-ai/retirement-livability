@@ -5575,5 +5575,368 @@
         "accepted_inside_polygon": 1
       }
     ]
+  },
+  "520526": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "威宁彝族回族苗族自治县",
+    "lat": 26.8658716,
+    "lon": 104.2839533,
+    "osm_type": "node",
+    "osm_id": 5933782426,
+    "class": null,
+    "type": "city",
+    "importance": 0.4848304251639367,
+    "display_name": "威宁县, 威宁彝族回族苗族自治县, 毕节市, 贵州省, 中国",
+    "address": {
+      "city": "威宁县",
+      "county": "威宁彝族回族苗族自治县",
+      "region": "毕节市",
+      "state": "贵州省",
+      "ISO3166-2-lvl4": "CN-GZ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4848304251639366,
+    "attempts": [
+      {
+        "query": "威宁彝族回族苗族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "威宁彝族回族苗族自治县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "445122": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "饶平县",
+    "lat": 23.6660886,
+    "lon": 116.9995994,
+    "osm_type": "relation",
+    "osm_id": 3244425,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4709212143524359,
+    "display_name": "饶平县, 潮州市, 广东省, 中国",
+    "address": {
+      "county": "饶平县",
+      "city": "潮州市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4709212143524359,
+    "attempts": [
+      {
+        "query": "饶平县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "饶平县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "441402": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "梅江区",
+    "lat": 24.3132062,
+    "lon": 116.1119122,
+    "osm_type": "relation",
+    "osm_id": 3241974,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4480610519695675,
+    "display_name": "梅江区, 梅州市, 广东省, 中国",
+    "address": {
+      "district": "梅江区",
+      "city": "梅州市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4480610519695675,
+    "attempts": [
+      {
+        "query": "梅江区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "梅江区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "350212": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "同安区",
+    "lat": 24.7261173,
+    "lon": 118.146788,
+    "osm_type": "relation",
+    "osm_id": 3243086,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.43777879259724717,
+    "display_name": "同安区, 厦门市, 福建省, 中国",
+    "address": {
+      "county": "同安区",
+      "city": "厦门市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.43777879259724717,
+    "attempts": [
+      {
+        "query": "同安区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "同安区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "440781": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "台山市人民政府",
+    "lat": 22.2548394,
+    "lon": 112.7886568,
+    "osm_type": "way",
+    "osm_id": 860540860,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.239032578007198e-05,
+    "display_name": "台山市人民政府, 23, 环城西路, 东云社区, 台城街道, 台山市, 江门市, 广东省, 529200, 中国",
+    "address": {
+      "amenity": "台山市人民政府",
+      "house_number": "23",
+      "road": "环城西路",
+      "quarter": "东云社区",
+      "town": "台城街道",
+      "county": "台山市",
+      "city": "江门市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "postcode": "529200",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.00006239032578,
+    "attempts": [
+      {
+        "query": "台山市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "441423": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "丰顺县",
+    "lat": 23.7422678,
+    "lon": 116.1783025,
+    "osm_type": "node",
+    "osm_id": 7672951165,
+    "class": null,
+    "type": "city",
+    "importance": 0.4635643709063584,
+    "display_name": "丰顺县, 梅州市, 广东省, 中国",
+    "address": {
+      "city": "丰顺县",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4635643709063584,
+    "attempts": [
+      {
+        "query": "丰顺县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "丰顺县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "532623": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "西畴县",
+    "lat": 23.4389663,
+    "lon": 104.6706587,
+    "osm_type": "node",
+    "osm_id": 244082111,
+    "class": null,
+    "type": "city",
+    "importance": 0.4756334263749301,
+    "display_name": "西畴县, 文山壮族苗族自治州, 云南省, 中国",
+    "address": {
+      "city": "西畴县",
+      "county": "西畴县",
+      "region": "文山壮族苗族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4756334263749302,
+    "attempts": [
+      {
+        "query": "西畴县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "西畴县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "441621": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "紫金县",
+    "lat": 23.6306226,
+    "lon": 115.1845453,
+    "osm_type": "node",
+    "osm_id": 244082539,
+    "class": null,
+    "type": "city",
+    "importance": 0.4596388826656313,
+    "display_name": "紫金县, 河源市, 广东省, 中国",
+    "address": {
+      "city": "紫金县",
+      "county": "紫金县",
+      "region": "河源市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4596388826656312,
+    "attempts": [
+      {
+        "query": "紫金县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "紫金县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "350583": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "南安市",
+    "lat": 24.9633929,
+    "lon": 118.3842852,
+    "osm_type": "relation",
+    "osm_id": 3225833,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4962967948176534,
+    "display_name": "南安市, 泉州市, 福建省, 中国",
+    "address": {
+      "city": "南安市",
+      "region": "泉州市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4962967948176534,
+    "attempts": [
+      {
+        "query": "南安市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "南安市",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530621": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "鲁甸县",
+    "lat": 27.1906108,
+    "lon": 103.5538604,
+    "osm_type": "relation",
+    "osm_id": 2402646,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4833777104991055,
+    "display_name": "鲁甸县, 昭通市, 鲁甸县, 云南省, 中国",
+    "address": {
+      "district": "鲁甸县",
+      "city": "昭通市",
+      "county": "鲁甸县",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4833777104991055,
+    "attempts": [
+      {
+        "query": "鲁甸县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "鲁甸县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 1
+      }
+    ]
   }
 }
