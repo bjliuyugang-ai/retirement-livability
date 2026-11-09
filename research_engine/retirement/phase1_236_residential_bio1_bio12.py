@@ -8,7 +8,7 @@ or exclusions. County-wide means are not used as residential proxies.
 """
 from __future__ import annotations
 import csv,datetime,hashlib,json,math,pathlib,re,sys,time,zipfile
-import requests
+import requests,subprocess
 import numpy as np
 import rasterio
 from rasterio.windows import from_bounds
@@ -107,6 +107,19 @@ def geocode(code,name,poly,cache,reference):
     "display_name":x.get("display_name",""),"address":x.get("address") or {},"score":score,"attempts":attempts}
    cache[code]=out;return out
  out={"status":"GEOCODE_PENDING","attempts":attempts};cache[code]=out;return out
+def persist_checkpoint(rows,cache_path,cache):
+ fields=sorted({k for row in rows for k in row})
+ with OUTCSV.open("w",encoding="utf-8-sig",newline="") as f:
+  w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(rows)
+ cache_path.write_text(json.dumps(cache,ensure_ascii=False,indent=2),encoding="utf-8")
+ # Force-add ignored status/cache outputs so partial work survives a runner interruption.
+ subprocess.run(["git","add","-f",OUTCSV.as_posix(),cache_path.as_posix()],check=True)
+ if subprocess.run(["git","diff","--cached","--quiet"]).returncode!=0:
+  subprocess.run(["git","config","user.name","github-actions[bot]"],check=True)
+  subprocess.run(["git","config","user.email","41898282+github-actions[bot]@users.noreply.github.com"],check=True)
+  subprocess.run(["git","commit","-m",f"Checkpoint residential climate extraction {len(rows)}/236"],check=True)
+  subprocess.run(["git","pull","--rebase","origin","main"],check=True)
+  subprocess.run(["git","push","origin","HEAD:main"],check=True)
 def main():
  started=now()
  codes=[x["code"].zfill(6) for x in readcsv(CODES)]
@@ -210,9 +223,9 @@ def main():
     "population_coverage":round(coverage,4),"data_quality":quality,"period":"1991—2020","climate_source_doi":"10.57760/SCIENCEDB.13546",
     "population_source_doi":"10.5258/SOTON/WP00840","spatial_scope":"以原始指定居住片区或县城代理点为中心5km范围，WorldPop 2024原生1km人口栅格加权Bio1/Bio12；仅统计目标行政区内人口栅格，不等于全县均值"})
    print("EXTRACTED",i,code,name,quality,"cells",len(weights),"coverage",round(coverage,3),flush=True)
-   if i%10==0:cache_path.write_text(json.dumps(cache,ensure_ascii=False,indent=2),encoding="utf-8")
+   if i%10==0: persist_checkpoint(rows,cache_path,cache)
    time.sleep(1.1)
- cache_path.write_text(json.dumps(cache,ensure_ascii=False,indent=2),encoding="utf-8")
+ persist_checkpoint(rows,cache_path,cache)
  # Ensure one and only one output row per requested code.
  if len(rows)!=236 or len({x["code"] for x in rows})!=236:raise RuntimeError("Output 236 row uniqueness failed")
  fields=sorted({k for r in rows for k in r})
