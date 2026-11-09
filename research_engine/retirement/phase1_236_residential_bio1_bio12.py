@@ -75,11 +75,6 @@ def geocode(code,name,poly,cache):
   params={"format":"jsonv2","q":q+", "+prov+", China","countrycodes":"cn","limit":8,"addressdetails":1,"accept-language":"zh-CN"}
   if role!="COUNTY_SEAT_GOVERNMENT":params["featuretype"]="settlement"
   try:
-   rr=get("https://nominatim.openstreetmap.org/search",headers={"User-Agent":"RetirementLivabilityResearch/1.0 retirement-research@users.noreply.github.com","Accept-Language":"zh-CN"},timeout=60)
-   # request with query parameters (separate from the helper URL)
-  except Exception as e:
-   attempts.append({"query":q,"error":repr(e)});time.sleep(1.2);continue
-  try:
    rr=requests.get("https://nominatim.openstreetmap.org/search",params=params,headers={"User-Agent":"RetirementLivabilityResearch/1.0 (retirement-research@users.noreply.github.com)","Accept-Language":"zh-CN"},timeout=60)
    rr.raise_for_status();results=rr.json()
   except Exception as e:
@@ -170,14 +165,15 @@ def main():
    dist=np.sqrt(((ys-lat)*111.2)**2+((xs-lon)*111.2*math.cos(math.radians(lat)))**2)
    mask=(dist<=5.0)&(~np.ma.getmaskarray(a1))&(~np.ma.getmaskarray(a12))
    coords=[(float(xs[r,c]),float(ys[r,c])) for r,c in zip(*np.where(dist<=5.0))]
-   popvals=np.array([v[0] if v and v[0] is not None else 0 for v in pop.sample(coords)],dtype=float).reshape(a1.shape)[dist<=5.0]
+   # Population values align one-to-one with climate-grid centers inside the 5-km radius.
+   popvals=np.array([v[0] if v and v[0] is not None else 0 for v in pop.sample(coords)],dtype=float)
    allpop=float(popvals[popvals>0].sum())
-   climate_pop=popvals[mask[dist<=5.0]]
-   vals1=np.asarray(a1.filled(np.nan),dtype=float)[mask];vals12=np.asarray(a12.filled(np.nan),dtype=float)[mask]
-   valid=mask[dist<=5.0]
-   # Align population vector with all cells within radius, then filter to valid climate.
-   bio_mask=mask[dist<=5.0]
+   in_radius=dist<=5.0
+   local_bio1=np.asarray(a1.filled(np.nan),dtype=float)[in_radius]
+   local_bio12=np.asarray(a12.filled(np.nan),dtype=float)[in_radius]
+   bio_mask=mask[in_radius]
    valid_pop=popvals[bio_mask]
+   vals1=local_bio1[bio_mask];vals12=local_bio12[bio_mask]
    good=(valid_pop>0)&np.isfinite(vals1)&np.isfinite(vals12)
    vals1=vals1[good];vals12=vals12[good];weights=valid_pop[good]
    valid_pop_sum=float(weights.sum())
