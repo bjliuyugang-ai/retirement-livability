@@ -767,5 +767,403 @@
         "accepted_inside_polygon": 1
       }
     ]
+  },
+  "532329": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "武定县",
+    "lat": 25.533131,
+    "lon": 102.4025616,
+    "osm_type": "node",
+    "osm_id": 469624828,
+    "class": null,
+    "type": "city",
+    "importance": 0.4839060267020242,
+    "display_name": "武定县, 狮山镇, 武定县, 楚雄彝族自治州, 云南省, 中国",
+    "address": {
+      "city": "武定县",
+      "town": "狮山镇",
+      "county": "武定县",
+      "region": "楚雄彝族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4839060267020243,
+    "attempts": [
+      {
+        "query": "武定县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "武定县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "532925": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "弥渡县",
+    "lat": 25.3469366,
+    "lon": 100.4897798,
+    "osm_type": "node",
+    "osm_id": 469623965,
+    "class": null,
+    "type": "city",
+    "importance": 0.48378448531085433,
+    "display_name": "弥渡县, 弥城镇, 弥渡县, 大理白族自治州, 云南省, 中国",
+    "address": {
+      "city": "弥渡县",
+      "town": "弥城镇",
+      "county": "弥渡县",
+      "region": "大理白族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.483784485310854,
+    "attempts": [
+      {
+        "query": "弥渡县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "弥渡县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "532322": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "双柏县",
+    "lat": 24.6920331,
+    "lon": 101.6408636,
+    "osm_type": "node",
+    "osm_id": 244081901,
+    "class": null,
+    "type": "city",
+    "importance": 0.48268034150417044,
+    "display_name": "双柏县, 楚雄彝族自治州, 云南省, 中国",
+    "address": {
+      "city": "双柏县",
+      "county": "双柏县",
+      "region": "楚雄彝族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4826803415041705,
+    "attempts": [
+      {
+        "query": "双柏县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "双柏县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "530822": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "墨江哈尼族自治县",
+    "lat": 23.4344636,
+    "lon": 101.6914077,
+    "osm_type": "node",
+    "osm_id": 5904447437,
+    "class": null,
+    "type": "city",
+    "importance": 0.4894896650869414,
+    "display_name": "墨江县, 墨江哈尼族自治县, 普洱市, 云南省, 中国",
+    "address": {
+      "city": "墨江县",
+      "county": "墨江哈尼族自治县",
+      "region": "普洱市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4894896650869414,
+    "attempts": [
+      {
+        "query": "墨江哈尼族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "墨江哈尼族自治县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 3,
+        "accepted_inside_polygon": 3
+      }
+    ]
+  },
+  "530821": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "宁洱哈尼族彝族自治县",
+    "lat": 23.0629928,
+    "lon": 101.0416307,
+    "osm_type": "node",
+    "osm_id": 469624248,
+    "class": null,
+    "type": "city",
+    "importance": 0.48733604706706846,
+    "display_name": "宁洱县, 宁洱哈尼族彝族自治县, 普洱市, 云南省, 中国",
+    "address": {
+      "city": "宁洱县",
+      "county": "宁洱哈尼族彝族自治县",
+      "region": "普洱市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4873360470670685,
+    "attempts": [
+      {
+        "query": "宁洱哈尼族彝族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "宁洱哈尼族彝族自治县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "530802": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "思茅区",
+    "lat": 22.7896269,
+    "lon": 100.9758353,
+    "osm_type": "node",
+    "osm_id": 4527824590,
+    "class": null,
+    "type": "city",
+    "importance": 0.4467179718188769,
+    "display_name": "思茅区, 普洱市, 云南省, 中国",
+    "address": {
+      "city": "思茅区",
+      "district": "思茅区",
+      "region": "普洱市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.446717971818877,
+    "attempts": [
+      {
+        "query": "普洱市思茅区城市成熟社区",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "思茅区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "思茅区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "532503": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "蒙自市",
+    "lat": 23.3695496,
+    "lon": 103.4004281,
+    "osm_type": "node",
+    "osm_id": 4544280254,
+    "class": null,
+    "type": "suburb",
+    "importance": 0.23992860907835414,
+    "display_name": "文澜街道, 蒙自市, 红河哈尼族彝族自治州, 云南省, 中国",
+    "address": {
+      "suburb": "文澜街道",
+      "city": "蒙自市",
+      "region": "红河哈尼族彝族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.2399286090783543,
+    "attempts": [
+      {
+        "query": "蒙自坝区",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "蒙自市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "蒙自市",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "533103": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "芒市人民政府",
+    "lat": 24.4369565,
+    "lon": 98.5880865,
+    "osm_type": "way",
+    "osm_id": 706284677,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.4718089570413024e-05,
+    "display_name": "芒市人民政府, 16号, 斑色路, 广弄巷一巷, 勐焕街道, 芒市, 德宏傣族景颇族自治州, 云南省, 678400, 中国",
+    "address": {
+      "amenity": "芒市人民政府",
+      "house_number": "16号",
+      "road": "斑色路",
+      "hamlet": "广弄巷一巷",
+      "town": "勐焕街道",
+      "city": "芒市",
+      "region": "德宏傣族景颇族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "postcode": "678400",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000547180895705,
+    "attempts": [
+      {
+        "query": "芒市城区",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "芒市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530502": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "隆阳区人民政府",
+    "lat": 25.1240934,
+    "lon": 99.16473,
+    "osm_type": "node",
+    "osm_id": 4574564523,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.0002288853238995e-05,
+    "display_name": "隆阳区人民政府, 杏花路, 永昌街道, 隆阳区, 保山市, 云南省, 中国",
+    "address": {
+      "amenity": "隆阳区人民政府",
+      "road": "杏花路",
+      "suburb": "永昌街道",
+      "city": "隆阳区",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000060002288853,
+    "attempts": [
+      {
+        "query": "保山市隆阳区中心城区",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "隆阳区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "513401": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "西昌市",
+    "lat": 27.898547,
+    "lon": 102.2627456,
+    "osm_type": "node",
+    "osm_id": 6546353839,
+    "class": null,
+    "type": "city",
+    "importance": 0.5266364267170621,
+    "display_name": "西昌市, 北城街道, 西昌市, 凉山彝族自治州, 四川省, 615000, 中国",
+    "address": {
+      "city": "西昌市",
+      "town": "北城街道",
+      "county": "西昌市",
+      "region": "凉山彝族自治州",
+      "state": "四川省",
+      "ISO3166-2-lvl4": "CN-SC",
+      "postcode": "615000",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.526636426717062,
+    "attempts": [
+      {
+        "query": "西昌城区",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 9,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "西昌市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "西昌市",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
   }
 }
