@@ -411,5 +411,361 @@
         "accepted_inside_polygon": 2
       }
     ]
+  },
+  "532928": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "永平县人民政府",
+    "lat": 25.4675945,
+    "lon": 99.5400864,
+    "osm_type": "node",
+    "osm_id": 13294319344,
+    "class": null,
+    "type": "townhall",
+    "importance": 3.652780956736122e-05,
+    "display_name": "永平县人民政府, 龙兴路, 龙盘社区, 木坝沟, 永平县, 博南镇, 永平县, 大理白族自治州, 云南省, 中国",
+    "address": {
+      "amenity": "永平县人民政府",
+      "road": "龙兴路",
+      "quarter": "龙盘社区",
+      "hamlet": "木坝沟",
+      "city": "永平县",
+      "town": "博南镇",
+      "county": "永平县",
+      "region": "大理白族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000365278095673,
+    "attempts": [
+      {
+        "query": "永平县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530702": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "古城区人民政府",
+    "lat": 26.879861,
+    "lon": 100.2246633,
+    "osm_type": "way",
+    "osm_id": 995096571,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.17769130998248e-05,
+    "display_name": "古城区人民政府, 七星街上段, 金甲社区, 福慧村, 西安街道, 古城区, 丽江市, 云南省, 674100, 中国",
+    "address": {
+      "amenity": "古城区人民政府",
+      "road": "七星街上段",
+      "neighbourhood": "金甲社区",
+      "hamlet": "福慧村",
+      "suburb": "西安街道",
+      "city": "古城区",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "postcode": "674100",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000617769130997,
+    "attempts": [
+      {
+        "query": "古城区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "532323": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "牟定县",
+    "lat": 25.3156588,
+    "lon": 101.545526,
+    "osm_type": "node",
+    "osm_id": 244081231,
+    "class": null,
+    "type": "city",
+    "importance": 0.4571289017204116,
+    "display_name": "牟定县, 楚雄彝族自治州, 云南省, 中国",
+    "address": {
+      "city": "牟定县",
+      "county": "牟定县",
+      "region": "楚雄彝族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4571289017204117,
+    "attempts": [
+      {
+        "query": "牟定县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "牟定县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 3,
+        "accepted_inside_polygon": 3
+      }
+    ]
+  },
+  "532325": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "姚安县",
+    "lat": 25.5089895,
+    "lon": 101.2400685,
+    "osm_type": "node",
+    "osm_id": 469625186,
+    "class": null,
+    "type": "town",
+    "importance": 0.20813244289121335,
+    "display_name": "栋川镇, 姚安县, 楚雄彝族自治州, 云南省, 中国",
+    "address": {
+      "town": "栋川镇",
+      "city": "姚安县",
+      "region": "楚雄彝族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.2081324428912135,
+    "attempts": [
+      {
+        "query": "姚安县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "姚安县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "530722": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "永胜县",
+    "lat": 26.6930499,
+    "lon": 100.7487354,
+    "osm_type": "node",
+    "osm_id": 244082371,
+    "class": null,
+    "type": "city",
+    "importance": 0.48362207844735244,
+    "display_name": "永胜县, 丽江市, 云南省, 中国",
+    "address": {
+      "city": "永胜县",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4836220784473526,
+    "attempts": [
+      {
+        "query": "永胜县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "永胜县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "532326": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "大姚县人民政府",
+    "lat": 25.7324872,
+    "lon": 101.3350398,
+    "osm_type": "way",
+    "osm_id": 797527415,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.521553368424533e-05,
+    "display_name": "大姚县人民政府, 金民路, 大姚县, 楚雄彝族自治州, 云南省, 中国",
+    "address": {
+      "amenity": "大姚县人民政府",
+      "road": "金民路",
+      "city": "大姚县",
+      "county": "大姚县",
+      "region": "楚雄彝族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000552155336844,
+    "attempts": [
+      {
+        "query": "大姚县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 2,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530826": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "江城哈尼族彝族自治县",
+    "lat": 22.5868926,
+    "lon": 101.8615883,
+    "osm_type": "relation",
+    "osm_id": 2716218,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.49022884374823356,
+    "display_name": "江城哈尼族彝族自治县, 普洱市, 云南省, 665900, 中国",
+    "address": {
+      "city": "江城哈尼族彝族自治县",
+      "region": "普洱市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "postcode": "665900",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.49022884374823356,
+    "attempts": [
+      {
+        "query": "江城哈尼族彝族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "江城哈尼族彝族自治县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "532324": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "南华县人民政府",
+    "lat": 25.2032373,
+    "lon": 101.2817605,
+    "osm_type": "node",
+    "osm_id": 10237565213,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.5098039215640765e-05,
+    "display_name": "南华县人民政府, S220, 南华县, 楚雄彝族自治州, 云南省, 中国",
+    "address": {
+      "amenity": "南华县人民政府",
+      "road": "S220",
+      "city": "南华县",
+      "county": "南华县",
+      "region": "楚雄彝族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000550980392156,
+    "attempts": [
+      {
+        "query": "南华县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "513424": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "德昌县",
+    "lat": 27.4057218,
+    "lon": 102.1751493,
+    "osm_type": "node",
+    "osm_id": 244078546,
+    "class": null,
+    "type": "city",
+    "importance": 0.4720950865712112,
+    "display_name": "德昌县, 凉山彝族自治州, 四川省, 615500, 中国",
+    "address": {
+      "city": "德昌县",
+      "county": "德昌县",
+      "region": "凉山彝族自治州",
+      "state": "四川省",
+      "ISO3166-2-lvl4": "CN-SC",
+      "postcode": "615500",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.472095086571211,
+    "attempts": [
+      {
+        "query": "德昌县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "德昌县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 3,
+        "accepted_inside_polygon": 3
+      }
+    ]
+  },
+  "530128": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "禄劝彝族苗族自治县",
+    "lat": 25.5535459,
+    "lon": 102.4693459,
+    "osm_type": "relation",
+    "osm_id": 2723596,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.49026558458181707,
+    "display_name": "禄劝彝族苗族自治县, 昆明市, 云南省, 中国",
+    "address": {
+      "city": "禄劝彝族苗族自治县",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.49026558458181707,
+    "attempts": [
+      {
+        "query": "禄劝彝族苗族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "禄劝彝族苗族自治县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
   }
 }
