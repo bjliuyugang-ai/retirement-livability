@@ -6292,5 +6292,361 @@
         "accepted_inside_polygon": 2
       }
     ]
+  },
+  "440513": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "潮阳区",
+    "lat": 23.268449,
+    "lon": 116.5969864,
+    "osm_type": "relation",
+    "osm_id": 3283304,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.45356092873116677,
+    "display_name": "潮阳区, 汕头市, 广东省, 中国",
+    "address": {
+      "suburb": "潮阳区",
+      "city": "汕头市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.45356092873116677,
+    "attempts": [
+      {
+        "query": "潮阳区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "潮阳区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "445281": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "普宁市人民政府",
+    "lat": 23.3005395,
+    "lon": 116.1610809,
+    "osm_type": "way",
+    "osm_id": 1142104397,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.215228503848352e-05,
+    "display_name": "普宁市人民政府, 政通街, 流沙北街道, 普宁市, 揭阳市, 广东省, 中国",
+    "address": {
+      "amenity": "普宁市人民政府",
+      "road": "政通街",
+      "suburb": "流沙北街道",
+      "city": "普宁市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000621522850386,
+    "attempts": [
+      {
+        "query": "普宁市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "440981": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "高州市人民政府",
+    "lat": 21.9221881,
+    "lon": 110.8491717,
+    "osm_type": "node",
+    "osm_id": 12797016138,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.199816891732689e-05,
+    "display_name": "高州市人民政府, 永镇街, 升平社区, 金刚塘, 高州市, 茂名市, 广东省, 525200, 中国",
+    "address": {
+      "amenity": "高州市人民政府",
+      "road": "永镇街",
+      "quarter": "升平社区",
+      "hamlet": "金刚塘",
+      "county": "高州市",
+      "city": "茂名市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "postcode": "525200",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000619981689174,
+    "attempts": [
+      {
+        "query": "高州市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "350627": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "南靖县",
+    "lat": 24.5167811,
+    "lon": 117.3523949,
+    "osm_type": "node",
+    "osm_id": 5099873696,
+    "class": null,
+    "type": "city",
+    "importance": 0.44875702593866645,
+    "display_name": "南靖县, 漳州市, 福建省, 中国",
+    "address": {
+      "city": "南靖县",
+      "county": "南靖县",
+      "region": "漳州市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4487570259386664,
+    "attempts": [
+      {
+        "query": "南靖县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "南靖县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "450503": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "银海区",
+    "lat": 21.4473175,
+    "lon": 109.1313165,
+    "osm_type": "node",
+    "osm_id": 6416740048,
+    "class": null,
+    "type": "city",
+    "importance": 0.4196979736104267,
+    "display_name": "银海区, 北海市, 广西壮族自治区, 中国",
+    "address": {
+      "city": "银海区",
+      "district": "银海区",
+      "state": "广西壮族自治区",
+      "ISO3166-2-lvl4": "CN-GX",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4196979736104267,
+    "attempts": [
+      {
+        "query": "银海区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "银海区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "445103": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "潮安区",
+    "lat": 23.4659435,
+    "lon": 116.6729801,
+    "osm_type": "relation",
+    "osm_id": 3244424,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4499234675436917,
+    "display_name": "潮安区, 潮州市, 广东省, 中国",
+    "address": {
+      "county": "潮安区",
+      "city": "潮州市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4499234675436917,
+    "attempts": [
+      {
+        "query": "潮安区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "潮安区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "450923": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "博白县",
+    "lat": 22.2760359,
+    "lon": 109.9715092,
+    "osm_type": "node",
+    "osm_id": 6416740041,
+    "class": null,
+    "type": "city",
+    "importance": 0.4428190122896114,
+    "display_name": "博白县, 玉林市, 广西壮族自治区, 543000, 中国",
+    "address": {
+      "city": "博白县",
+      "county": "博白县",
+      "region": "玉林市",
+      "state": "广西壮族自治区",
+      "ISO3166-2-lvl4": "CN-GX",
+      "postcode": "543000",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.442819012289611,
+    "attempts": [
+      {
+        "query": "博白县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "博白县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "350605": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "长泰区",
+    "lat": 24.6284169,
+    "lon": 117.7541918,
+    "osm_type": "node",
+    "osm_id": 244077114,
+    "class": null,
+    "type": "city",
+    "importance": 0.410690382019838,
+    "display_name": "长泰区, 武安镇, 长泰区, 漳州市, 福建省, 中国",
+    "address": {
+      "city": "长泰区",
+      "district": "长泰区",
+      "region": "漳州市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4106903820198378,
+    "attempts": [
+      {
+        "query": "长泰区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "长泰区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "331022": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "三门县",
+    "lat": 29.1074946,
+    "lon": 121.3911493,
+    "osm_type": "relation",
+    "osm_id": 3478415,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4499234675436917,
+    "display_name": "三门县, 台州市, 浙江省, 317100, 中国",
+    "address": {
+      "city": "三门县",
+      "state": "浙江省",
+      "ISO3166-2-lvl4": "CN-ZJ",
+      "postcode": "317100",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4499234675436917,
+    "attempts": [
+      {
+        "query": "三门县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "三门县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "350823": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "上杭县人民政府",
+    "lat": 25.0526252,
+    "lon": 116.414963,
+    "osm_type": "node",
+    "osm_id": 5098115514,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.0002288853238995e-05,
+    "display_name": "上杭县人民政府, 杭中路, 临江镇, 上杭县, 龙岩市, 福建省, 中国",
+    "address": {
+      "amenity": "上杭县人民政府",
+      "road": "杭中路",
+      "town": "临江镇",
+      "county": "上杭县",
+      "city": "龙岩市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000060002288853,
+    "attempts": [
+      {
+        "query": "上杭县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
   }
 }
