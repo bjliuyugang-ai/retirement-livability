@@ -1,0 +1,47 @@
+{
+  "schema": "RET_PHASE1_236_RESIDENTIAL_BIO1_BIO12_LOCAL_EXTRACTION_V1",
+  "started_at_utc": "2026-11-09T13:31:26.685208+00:00",
+  "finished_at_utc": "2026-11-09T14:41:37.374882+00:00",
+  "mode": "ONE_SHOT_CONCENTRATED_BATCH_NOT_HOURLY_AUTOMATION",
+  "input_codes_sha256": "ee2309de3e7e735db1f75198727950e4e35025bc15df117b1b7511b3a5cacc8d",
+  "residential_references_sha256": "c3f035de2f224ae8973b5ef0e9b89f4915cd78ff3fb8f289326d4c9e0729f9e9",
+  "target_count": 236,
+  "counts": {
+    "requested": 236,
+    "local_settlement_extracted": 226,
+    "named_residential_reference": 1,
+    "county_seat_proxy": 74,
+    "high": 218,
+    "medium": 2,
+    "low": 6,
+    "geometry_pending": 9,
+    "geocode_pending": 1,
+    "bio1_values": 226,
+    "bio12_values": 226
+  },
+  "sources": {
+    "Bio1_Bio12": "ScienceDB DOI 10.57760/SCIENCEDB.13546; 1km; 1991—2020; separate Bio1/Bio12 GeoTIFFs",
+    "population": "WorldPop 2024 China native 1km constrained population raster; DOI 10.5258/SOTON/WP00840",
+    "geocoder": "OpenStreetMap Nominatim; named residential override where present, otherwise county/town government or settlement proxy",
+    "geometry": "Third-party coded 2025 county polygons; exact code/name match required"
+  },
+  "method": {
+    "point_buffer": "5km radius around the original named residential reference or explicitly marked county-seat proxy; cells clipped to exact candidate polygon",
+    "weighting": "WorldPop native 1km population-grid cell counts; Bio1/Bio12 sampled at those population-cell centers",
+    "metrics": "population-weighted mean and weighted P10/P50/P90; valid population coverage correctly calculated",
+    "confidence": "HIGH >=5 valid inhabited climate cells and >=90% population coverage and >=500 residents; MEDIUM >=2 cells and >=75% coverage; else LOW"
+  },
+  "limitations": [
+    "OSM geocoding does not prove actual chosen residential block; results are settlement-proxy climate and must be checked against source altitude and historical station data.",
+    "A county-seat proxy is not a specific residential neighborhood; geocode role is preserved for review.",
+    "No final A/B/C/D grades or formal exclusions are assigned by this extraction.",
+    "Nine exact boundary/code mismatches remain pending; they are not imputed."
+  ],
+  "files": {
+    "csv": "research_engine/retirement/status/phase1_236_residential_bio1_bio12_1991_2020.csv",
+    "csv_sha256": "c5b065e303e67f13b01b9ba9adc206cd4de09c0e9b16bddf5c3db8248f64dba1",
+    "geocode_cache": "research_engine/retirement/output/phase1_residential_cache/nominatim_geocode_cache.json"
+  },
+  "formal_exclusions": 0,
+  "official_master_overwrite": false
+}
