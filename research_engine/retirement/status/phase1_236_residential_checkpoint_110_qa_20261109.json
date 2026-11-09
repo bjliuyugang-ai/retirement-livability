@@ -1,0 +1,97 @@
+{
+  "schema": "RET_PHASE1_236_RESIDENTIAL_CLIMATE_CHECKPOINT_QA_V1",
+  "as_of_utc": "2026-11-09T14:31:40Z",
+  "batch": {
+    "requested": 236,
+    "rows_written": 110,
+    "local_settlement_rows_extracted": 109,
+    "bio1_values": 109,
+    "bio12_values": 109,
+    "geocode_pending": 1,
+    "high_population_coverage_quality": 109
+  },
+  "sources": {
+    "bio1_bio12": "ScienceDB DOI 10.57760/SCIENCEDB.13546; 1km; 1991-2020",
+    "population_weights": "WorldPop 2024 native 1km; DOI 10.5258/SOTON/WP00840"
+  },
+  "local_vs_county_background_comparison_first_109_extracted": {
+    "temperature_absolute_difference_c": {
+      "median": 1.45,
+      "mean": 1.75,
+      "p90": 3.97,
+      "max": 8.75
+    },
+    "precipitation_absolute_difference_mm": {
+      "median": 56.8,
+      "mean": 77.35,
+      "p90": 143.7,
+      "max": 559.4
+    },
+    "interpretation": "Residential 5km population-weighted estimates are not interchangeable with county-wide zonal averages; local extraction materially changes some candidate profiles."
+  },
+  "largest_observed_differences": [
+    {
+      "code": "533301",
+      "region": "云南·泸水市",
+      "local_bio1_c": 20.42,
+      "county_bio1_c": 11.67,
+      "difference_c": 8.75,
+      "local_bio12_mm": 969.4,
+      "county_bio12_mm": 1072.5,
+      "difference_mm": -103.1,
+      "location": "Liuku municipal government-seat proxy"
+    },
+    {
+      "code": "532528",
+      "region": "云南·元阳县",
+      "local_bio1_c": 24.33,
+      "county_bio1_c": 19,
+      "difference_c": 5.33,
+      "local_bio12_mm": 893.8,
+      "county_bio12_mm": 1453.2,
+      "difference_mm": -559.4,
+      "location": "County government-seat proxy"
+    },
+    {
+      "code": "532529",
+      "region": "云南·红河县",
+      "local_bio1_c": 21.84,
+      "county_bio1_c": 17.68,
+      "difference_c": 4.16,
+      "local_bio12_mm": 904.8,
+      "county_bio12_mm": 1429.8,
+      "difference_mm": -525,
+      "location": "County government-seat proxy"
+    }
+  ],
+  "geocode_quality_review": {
+    "geocode_type_osm_type_counts": {
+      "townhall|node": 25,
+      "townhall|way": 11,
+      "city|node": 49,
+      "town|node": 1,
+      "suburb|node": 1,
+      "administrative|relation": 22
+    },
+    "administrative_relation_points": 22,
+    "interpretation": "The 22 administrative|relation results are OSM administrative boundary relations whose returned coordinates are not accepted as verified residential settlement points. Their population coverage may be high, but the location must be repaired or independently verified.",
+    "separate_quality_dimensions": {
+      "population_coverage": "HIGH for 109 extracted rows",
+      "geocode_location": "Not yet fully audited; 22 administrative relations require correction/review"
+    }
+  },
+  "pending": [
+    {
+      "code": "530622",
+      "region": "云南·巧家县",
+      "reason": "Nominatim geocode pending; no temperature or precipitation value is assigned."
+    }
+  ],
+  "governance": {
+    "official_master_overwrite": false,
+    "formal_exclusions": 0,
+    "final_abcd_grades_assigned": false,
+    "missing_values_zero_filled": false,
+    "next_action": "Finish all 236 extraction rows; then repair the 22 administrative relation points, audit named-reference fallbacks, and merge only reviewed values into the official workbook."
+  }
+}
