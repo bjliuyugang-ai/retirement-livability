@@ -1545,5 +1545,363 @@
         "accepted_inside_polygon": 1
       }
     ]
+  },
+  "530825": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "镇沅彝族哈尼族拉祜族自治县",
+    "lat": 24.0073101,
+    "lon": 101.1103703,
+    "osm_type": "node",
+    "osm_id": 469626017,
+    "class": null,
+    "type": "city",
+    "importance": 0.48605606103060034,
+    "display_name": "镇沅县, 恩乐镇, 镇沅彝族哈尼族拉祜族自治县, 普洱市, 云南省, 中国",
+    "address": {
+      "city": "镇沅县",
+      "town": "恩乐镇",
+      "county": "镇沅彝族哈尼族拉祜族自治县",
+      "region": "普洱市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4860560610306,
+    "attempts": [
+      {
+        "query": "镇沅彝族哈尼族拉祜族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "镇沅彝族哈尼族拉祜族自治县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "530323": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "师宗县",
+    "lat": 24.8255652,
+    "lon": 103.9823935,
+    "osm_type": "node",
+    "osm_id": 469624454,
+    "class": null,
+    "type": "city",
+    "importance": 0.45310904548046377,
+    "display_name": "师宗县, 曲靖市, 云南省, 中国",
+    "address": {
+      "city": "师宗县",
+      "county": "师宗县",
+      "region": "曲靖市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.453109045480464,
+    "attempts": [
+      {
+        "query": "师宗县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "师宗县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "441523": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "陆河县",
+    "lat": 23.3044952,
+    "lon": 115.6553157,
+    "osm_type": "node",
+    "osm_id": 6416739685,
+    "class": null,
+    "type": "city",
+    "importance": 0.45180049976750014,
+    "display_name": "陆河县, 汕尾市, 广东省, 中国",
+    "address": {
+      "city": "陆河县",
+      "county": "陆河县",
+      "region": "汕尾市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4518004997675003,
+    "attempts": [
+      {
+        "query": "陆河县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "陆河县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 3,
+        "accepted_inside_polygon": 3
+      }
+    ]
+  },
+  "513426": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "会东县",
+    "lat": 26.6384386,
+    "lon": 102.5768454,
+    "osm_type": "relation",
+    "osm_id": 2189948,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4750799819476357,
+    "display_name": "会东县, 凉山彝族自治州, 四川省, 615200, 中国",
+    "address": {
+      "city": "会东县",
+      "region": "凉山彝族自治州",
+      "state": "四川省",
+      "ISO3166-2-lvl4": "CN-SC",
+      "postcode": "615200",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4750799819476357,
+    "attempts": [
+      {
+        "query": "会东县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "会东县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530921": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "凤庆县",
+    "lat": 24.5972728,
+    "lon": 99.9085952,
+    "osm_type": "relation",
+    "osm_id": 2726017,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4825978077388109,
+    "display_name": "凤庆县, 临沧市, 云南省, 中国",
+    "address": {
+      "city": "凤庆县",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4825978077388109,
+    "attempts": [
+      {
+        "query": "凤庆县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "凤庆县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530823": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "景东彝族自治县",
+    "lat": 24.4521201,
+    "lon": 100.8378793,
+    "osm_type": "node",
+    "osm_id": 469623398,
+    "class": null,
+    "type": "city",
+    "importance": 0.4867573346049374,
+    "display_name": "景东县, 景东彝族自治县, 普洱市, 云南省, 中国",
+    "address": {
+      "city": "景东县",
+      "county": "景东彝族自治县",
+      "region": "普洱市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4867573346049374,
+    "attempts": [
+      {
+        "query": "景东彝族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "景东彝族自治县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "532523": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "屏边苗族自治县人民政府",
+    "lat": 22.9867751,
+    "lon": 103.6859795,
+    "osm_type": "node",
+    "osm_id": 4544301110,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.5424582284230066e-05,
+    "display_name": "屏边苗族自治县人民政府, 人民路, 屏边县, 屏边苗族自治县, 红河哈尼族彝族自治州, 云南省, 中国",
+    "address": {
+      "amenity": "屏边苗族自治县人民政府",
+      "road": "人民路",
+      "city": "屏边县",
+      "county": "屏边苗族自治县",
+      "region": "红河哈尼族彝族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000055424582284,
+    "attempts": [
+      {
+        "query": "屏边苗族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "513427": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "宁南县",
+    "lat": 27.064037,
+    "lon": 102.7492476,
+    "osm_type": "relation",
+    "osm_id": 2189950,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.47101984469358554,
+    "display_name": "宁南县, 凉山彝族自治州, 四川省, 615400, 中国",
+    "address": {
+      "city": "宁南县",
+      "region": "凉山彝族自治州",
+      "state": "四川省",
+      "ISO3166-2-lvl4": "CN-SC",
+      "postcode": "615400",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.47101984469358554,
+    "attempts": [
+      {
+        "query": "宁南县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "宁南县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530425": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "易门县人民政府",
+    "lat": 24.6744411,
+    "lon": 102.1609251,
+    "osm_type": "node",
+    "osm_id": 4574554357,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.0002288853238995e-05,
+    "display_name": "易门县人民政府, 兴文街, 易门县, 玉溪市, 云南省, 中国",
+    "address": {
+      "amenity": "易门县人民政府",
+      "road": "兴文街",
+      "county": "易门县",
+      "city": "玉溪市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000060002288853,
+    "attempts": [
+      {
+        "query": "易门县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530723": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "华坪县",
+    "lat": 26.6318811,
+    "lon": 101.2628982,
+    "osm_type": "relation",
+    "osm_id": 2729825,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4520643089223901,
+    "display_name": "华坪县, 丽江市, 云南省, 中国",
+    "address": {
+      "city": "华坪县",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4520643089223901,
+    "attempts": [
+      {
+        "query": "华坪县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "华坪县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
   }
 }
