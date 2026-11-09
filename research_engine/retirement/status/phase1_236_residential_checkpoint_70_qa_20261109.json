@@ -1,0 +1,101 @@
+{
+  "schema": "RET_PHASE1_236_RESIDENTIAL_CLIMATE_CHECKPOINT_QA_V1",
+  "as_of_utc": "2026-11-09T14:27:49Z",
+  "batch": {
+    "requested": 236,
+    "extracted_rows": 70,
+    "local_bio1_values": 70,
+    "local_bio12_values": 70,
+    "population_coverage_quality_high": 70
+  },
+  "climate_sources": {
+    "bio1_bio12": "ScienceDB DOI 10.57760/SCIENCEDB.13546; 1km; 1991-2020",
+    "population_weights": "WorldPop 2024 native 1km; DOI 10.5258/SOTON/WP00840"
+  },
+  "local_vs_county_background_comparison_first_70": {
+    "temperature_abs_difference_c": {
+      "median": 1.54,
+      "mean": 1.82,
+      "p90": 3.97,
+      "max": 8.75
+    },
+    "precipitation_abs_difference_mm": {
+      "median": 60.4,
+      "mean": 84.27,
+      "p90": 143.7,
+      "max": 559.4
+    },
+    "interpretation": "Population-weighted 5km settlement estimates differ materially from county-wide 1km zonal means; county averages must not be substituted for residential-area values."
+  },
+  "examples": [
+    {
+      "code": "533301",
+      "region": "云南·泸水市",
+      "local_bio1_c": 20.42,
+      "county_bio1_c": 11.67,
+      "difference_c": 8.75,
+      "local_bio12_mm": 969.4,
+      "county_bio12_mm": 1072.5,
+      "difference_mm": -103.1,
+      "note": "Liuku government-seat proxy; local temperature is consistent with the independently recorded local annual mean around 20.2C."
+    },
+    {
+      "code": "532528",
+      "region": "云南·元阳县",
+      "local_bio1_c": 24.33,
+      "county_bio1_c": 19,
+      "difference_c": 5.33,
+      "local_bio12_mm": 893.8,
+      "county_bio12_mm": 1453.2,
+      "difference_mm": -559.4,
+      "note": "County-seat proxy; strong topographic and spatial contrast requires settlement-level treatment."
+    },
+    {
+      "code": "532529",
+      "region": "云南·红河县",
+      "local_bio1_c": 21.84,
+      "county_bio1_c": 17.68,
+      "difference_c": 4.16,
+      "local_bio12_mm": 904.8,
+      "county_bio12_mm": 1429.8,
+      "difference_mm": -525,
+      "note": "County-seat proxy; large precipitation difference requires source and location review."
+    },
+    {
+      "code": "510421",
+      "region": "四川·米易县",
+      "local_bio1_c": 20.39,
+      "county_bio1_c": 16.13,
+      "difference_c": 4.26,
+      "local_bio12_mm": 976.8,
+      "county_bio12_mm": 1018.7,
+      "difference_mm": -41.9,
+      "note": "Reference names Panlian Town and Anning River residential areas; current geocode is a city-level fallback."
+    }
+  ],
+  "geocode_quality_review": {
+    "geocode_type_counts": {
+      "townhall": 21,
+      "city": 25,
+      "administrative": 14,
+      "town": 1,
+      "suburb": 1
+    },
+    "named_residential_reference_count": 22,
+    "named_reference_resolved_as_named_reference": 1,
+    "named_reference_fallback_count": 21,
+    "mandatory_review": [
+      "Nominatim returned 14 records with type=administrative; these must not be treated as verified residential settlement points.",
+      "Some city-type results are broad city/county points without a named town or subdistrict; review whether the point represents the intended settlement.",
+      "A named reference returning a result outside the exact candidate polygon must remain under review rather than silently falling back to a county centroid."
+    ],
+    "interpretation": "The HIGH flag currently measures population-grid coverage only. It is not a geocode-location confidence grade."
+  },
+  "governance": {
+    "official_master_overwrite": false,
+    "formal_exclusions": 0,
+    "final_abcd_grades_assigned": false,
+    "pending_boundary_cases_removed": false,
+    "next_action": "Complete the 236-row extraction, then run a separate geocode-location audit and repair ambiguous/administrative-centroid points before formal main-table merge."
+  }
+}
