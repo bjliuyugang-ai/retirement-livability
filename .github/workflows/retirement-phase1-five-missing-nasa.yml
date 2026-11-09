@@ -1,0 +1,42 @@
+name: Focused five climate missing values NASA POWER
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/retirement-phase1-five-missing-nasa.yml'
+      - 'research_engine/retirement/phase1_five_missing_nasa_power_20261110.py'
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install requests
+        run: python -m pip install --disable-pip-version-check -q requests
+      - name: Fetch NASA POWER 1991-2020 five point climates
+        run: python -u research_engine/retirement/phase1_five_missing_nasa_power_20261110.py
+      - name: Upload exact source records
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retirement-five-missing-NASA-${{ github.run_id }}
+          if-no-files-found: warn
+          path: |
+            research_engine/retirement/status/phase1_236_five_missing_nasa_power_1991_2020_20261110.csv
+            research_engine/retirement/status/phase1_236_five_missing_nasa_power_1991_2020_20261110.json
+      - name: Persist five-point climate audit
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f research_engine/retirement/status/phase1_236_five_missing_nasa_power_1991_2020_20261110.csv research_engine/retirement/status/phase1_236_five_missing_nasa_power_1991_2020_20261110.json
+          git commit -m "Record NASA POWER five-point 1991-2020 climate gaps" || true
+          git fetch origin main
+          git rebase origin/main
+          git push origin HEAD:main
