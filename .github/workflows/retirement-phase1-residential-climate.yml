@@ -1,6 +1,6 @@
 name: Focused residential settlement Bio1 Bio12 extraction for 236 candidates
 concurrency:
-  group: retirement-phase1-residential-climate
+  group: retirement-phase1-residential-climate-v2
   cancel-in-progress: true
 on:
   push:
