@@ -1165,5 +1165,385 @@
         "accepted_inside_polygon": 2
       }
     ]
+  },
+  "530402": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "红塔区",
+    "lat": 24.3441715,
+    "lon": 102.539067,
+    "osm_type": "node",
+    "osm_id": 4574540674,
+    "class": null,
+    "type": "city",
+    "importance": 0.4406614819345932,
+    "display_name": "红塔区, 玉溪市, 云南省, 中国",
+    "address": {
+      "city": "红塔区",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.440661481934593,
+    "attempts": [
+      {
+        "query": "玉溪红塔区中心城区",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "红塔区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "红塔区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "532327": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "永仁县",
+    "lat": 26.0597757,
+    "lon": 101.6683181,
+    "osm_type": "node",
+    "osm_id": 469625582,
+    "class": null,
+    "type": "city",
+    "importance": 0.4823910171213245,
+    "display_name": "永仁县, 楚雄彝族自治州, 云南省, 中国",
+    "address": {
+      "city": "永仁县",
+      "county": "永仁县",
+      "region": "楚雄彝族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4823910171213246,
+    "attempts": [
+      {
+        "query": "永仁县永定镇县城及低海拔",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "永仁县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "永仁县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "530427": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "NAMED_RESIDENTIAL_REFERENCE",
+    "query": "新平县桂山街道",
+    "lat": 24.0728478,
+    "lon": 101.9888453,
+    "osm_type": "node",
+    "osm_id": 4574543992,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.0002288853238995e-05,
+    "display_name": "新平彝族傣族自治县人民政府, S215, 桂山街道, 新平彝族傣族自治县, 玉溪市, 云南省, 中国",
+    "address": {
+      "amenity": "新平彝族傣族自治县人民政府",
+      "road": "S215",
+      "town": "桂山街道",
+      "county": "新平彝族傣族自治县",
+      "city": "玉溪市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 12.000060002288853,
+    "attempts": [
+      {
+        "query": "新平县桂山街道",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "510421": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "米易县",
+    "lat": 26.8954836,
+    "lon": 102.110161,
+    "osm_type": "node",
+    "osm_id": 7035093585,
+    "class": null,
+    "type": "city",
+    "importance": 0.4901184974135431,
+    "display_name": "米易县, 攀枝花市, 四川省, 中国",
+    "address": {
+      "city": "米易县",
+      "state": "四川省",
+      "ISO3166-2-lvl4": "CN-SC",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.490118497413543,
+    "attempts": [
+      {
+        "query": "米易县攀莲镇",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 3,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "米易县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "米易县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 3,
+        "accepted_inside_polygon": 3
+      }
+    ]
+  },
+  "532524": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "建水县人民政府",
+    "lat": 23.6384039,
+    "lon": 102.8244772,
+    "osm_type": "way",
+    "osm_id": 1125102955,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.519111924921061e-05,
+    "display_name": "建水县人民政府, 钟灵路, 建水县, 红河哈尼族彝族自治州, 云南省, 654399, 中国",
+    "address": {
+      "amenity": "建水县人民政府",
+      "road": "钟灵路",
+      "city": "建水县",
+      "county": "建水县",
+      "region": "红河哈尼族彝族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "postcode": "654399",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000055191119249,
+    "attempts": [
+      {
+        "query": "建水坝区",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "建水县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "532601": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "文山市",
+    "lat": 23.3838848,
+    "lon": 104.2314068,
+    "osm_type": "relation",
+    "osm_id": 2723225,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.5044149272708616,
+    "display_name": "文山市, 文山壮族苗族自治州, 云南省, 中国",
+    "address": {
+      "city": "文山市",
+      "region": "文山壮族苗族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.5044149272708616,
+    "attempts": [
+      {
+        "query": "文山市城区",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 5,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "文山市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "文山市",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530902": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "临翔区人民政府",
+    "lat": 23.8976876,
+    "lon": 100.0809881,
+    "osm_type": "way",
+    "osm_id": 765671404,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.088883802543706e-05,
+    "display_name": "临翔区人民政府, 白塔路, 临翔区, 临沧市, 云南省, 中国",
+    "address": {
+      "amenity": "临翔区人民政府",
+      "road": "白塔路",
+      "city": "临翔区",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000608888380254,
+    "attempts": [
+      {
+        "query": "临沧市临翔区城区",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "临翔区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "532926": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "南涧彝族自治县",
+    "lat": 25.0431618,
+    "lon": 100.5145522,
+    "osm_type": "node",
+    "osm_id": 244081383,
+    "class": null,
+    "type": "city",
+    "importance": 0.48459053282923953,
+    "display_name": "南涧县, 南涧彝族自治县, 大理白族自治州, 云南省, 中国",
+    "address": {
+      "city": "南涧县",
+      "county": "南涧彝族自治县",
+      "region": "大理白族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4845905328292397,
+    "attempts": [
+      {
+        "query": "南涧彝族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "南涧彝族自治县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "532530": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "金平苗族瑶族傣族自治县人民政府",
+    "lat": 22.7823591,
+    "lon": 103.2245833,
+    "osm_type": "node",
+    "osm_id": 4544306285,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.5867093919234266e-05,
+    "display_name": "金平苗族瑶族傣族自治县人民政府, 民族团结广场, 金平县, 金平苗族瑶族傣族自治县, 红河哈尼族彝族自治州, 云南省, 中国",
+    "address": {
+      "amenity": "金平苗族瑶族傣族自治县人民政府",
+      "road": "民族团结广场",
+      "city": "金平县",
+      "county": "金平苗族瑶族傣族自治县",
+      "region": "红河哈尼族彝族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000055867093919,
+    "attempts": [
+      {
+        "query": "金平苗族瑶族傣族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "532302": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "禄丰市人民政府",
+    "lat": 25.1539499,
+    "lon": 102.0774802,
+    "osm_type": "node",
+    "osm_id": 5203619291,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.313420309753594e-05,
+    "display_name": "禄丰市人民政府, 龙城北路, 金山镇, 禄丰市, 楚雄彝族自治州, 云南省, 中国",
+    "address": {
+      "amenity": "禄丰市人民政府",
+      "road": "龙城北路",
+      "town": "金山镇",
+      "city": "禄丰市",
+      "region": "楚雄彝族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000531342030974,
+    "attempts": [
+      {
+        "query": "禄丰市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
   }
 }
