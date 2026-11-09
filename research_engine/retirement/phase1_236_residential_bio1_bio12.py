@@ -76,7 +76,7 @@ def geocode(code,name,poly,cache):
   if role!="COUNTY_SEAT_GOVERNMENT":params["featuretype"]="settlement"
   try:
    rr=requests.get("https://nominatim.openstreetmap.org/search",params=params,headers={"User-Agent":"RetirementLivabilityResearch/1.0 (retirement-research@users.noreply.github.com)","Accept-Language":"zh-CN"},timeout=60)
-   rr.raise_for_status();results=rr.json()
+   rr.raise_for_status();time.sleep(1.1);results=rr.json()
   except Exception as e:
    attempts.append({"query":q,"error":repr(e)});time.sleep(1.2);continue
   for x in results:
