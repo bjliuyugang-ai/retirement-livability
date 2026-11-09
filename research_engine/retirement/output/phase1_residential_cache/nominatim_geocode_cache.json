@@ -7536,5 +7536,346 @@
         "accepted_inside_polygon": 2
       }
     ]
+  },
+  "350125": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "永泰县人民政府",
+    "lat": 25.8709307,
+    "lon": 118.9278513,
+    "osm_type": "node",
+    "osm_id": 5097514724,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.0002288853238995e-05,
+    "display_name": "永泰县人民政府, 北门路, 樟湖坂, 永泰县, 福州市, 福建省, 中国",
+    "address": {
+      "amenity": "永泰县人民政府",
+      "road": "北门路",
+      "hamlet": "樟湖坂",
+      "county": "永泰县",
+      "city": "福州市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000060002288853,
+    "attempts": [
+      {
+        "query": "永泰县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "350504": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "洛江区",
+    "lat": 24.94276,
+    "lon": 118.6667332,
+    "osm_type": "node",
+    "osm_id": 244085146,
+    "class": null,
+    "type": "city",
+    "importance": 0.4246822253175736,
+    "display_name": "洛江区, 泉州市, 福建省, 362011, 中国",
+    "address": {
+      "city": "洛江区",
+      "district": "洛江区",
+      "region": "泉州市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "postcode": "362011",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4246822253175737,
+    "attempts": [
+      {
+        "query": "洛江区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "洛江区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "330305": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "洞头区人民政府",
+    "lat": 27.8393251,
+    "lon": 121.1528492,
+    "osm_type": "node",
+    "osm_id": 9308858877,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.39398794536815e-05,
+    "display_name": "洞头区人民政府, 连城大道, 北岙街道, 洞头区, 温州市, 浙江省, 中国",
+    "address": {
+      "amenity": "洞头区人民政府",
+      "road": "连城大道",
+      "suburb": "北岙街道",
+      "city": "洞头区",
+      "state": "浙江省",
+      "ISO3166-2-lvl4": "CN-ZJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000539398794537,
+    "attempts": [
+      {
+        "query": "洞头区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "450722": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "浦北县",
+    "lat": 22.272958,
+    "lon": 109.551843,
+    "osm_type": "node",
+    "osm_id": 4237577154,
+    "class": null,
+    "type": "city",
+    "importance": 0.4391558861063203,
+    "display_name": "浦北县, 钦州市, 广西壮族自治区, 中国",
+    "address": {
+      "city": "浦北县",
+      "state": "广西壮族自治区",
+      "ISO3166-2-lvl4": "CN-GX",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4391558861063203,
+    "attempts": [
+      {
+        "query": "浦北县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "浦北县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "360222": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "浮梁县人民政府",
+    "lat": 29.3553261,
+    "lon": 117.2097781,
+    "osm_type": "node",
+    "osm_id": 3778082213,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.0550087739330397e-05,
+    "display_name": "浮梁县人民政府, 浮红街, 浮梁, 浮梁县, 景德镇市, 江西省, 333400, 中国",
+    "address": {
+      "amenity": "浮梁县人民政府",
+      "road": "浮红街",
+      "suburb": "浮梁",
+      "city": "浮梁县",
+      "county": "浮梁县",
+      "region": "景德镇市",
+      "state": "江西省",
+      "ISO3166-2-lvl4": "CN-JX",
+      "postcode": "333400",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000605500877393,
+    "attempts": [
+      {
+        "query": "浮梁县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "331081": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "温岭市",
+    "lat": 28.3761941,
+    "lon": 121.3808408,
+    "osm_type": "relation",
+    "osm_id": 3478385,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4883650146534129,
+    "display_name": "温岭市, 台州市, 浙江省, 317500, 中国",
+    "address": {
+      "city": "温岭市",
+      "state": "浙江省",
+      "ISO3166-2-lvl4": "CN-ZJ",
+      "postcode": "317500",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4883650146534129,
+    "attempts": [
+      {
+        "query": "温岭市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "温岭市",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "350881": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "漳平市人民政府",
+    "lat": 25.2929258,
+    "lon": 117.4144989,
+    "osm_type": "node",
+    "osm_id": 5098115512,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.0002288853238995e-05,
+    "display_name": "漳平市人民政府, S208, 桂林街道, 漳平市, 龙岩市, 福建省, 中国",
+    "address": {
+      "amenity": "漳平市人民政府",
+      "road": "S208",
+      "suburb": "桂林街道",
+      "city": "漳平市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000060002288853,
+    "attempts": [
+      {
+        "query": "漳平市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "331083": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "玉环市人民政府",
+    "lat": 28.1397877,
+    "lon": 121.2276621,
+    "osm_type": "way",
+    "osm_id": 747968677,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.610131990534855e-05,
+    "display_name": "玉环市人民政府, 城中路, 玉城街道, 玉环市, 台州市, 浙江省, 317600, 中国",
+    "address": {
+      "amenity": "玉环市人民政府",
+      "road": "城中路",
+      "suburb": "玉城街道",
+      "city": "玉环市",
+      "state": "浙江省",
+      "ISO3166-2-lvl4": "CN-ZJ",
+      "postcode": "317600",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000661013199053,
+    "attempts": [
+      {
+        "query": "玉环市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "520281": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "盘州市人民政府",
+    "lat": 25.7128377,
+    "lon": 104.4693523,
+    "osm_type": "node",
+    "osm_id": 4663150295,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.0002288853238995e-05,
+    "display_name": "盘州市人民政府, 凤鸣路, 红果街道, 盘州市, 六盘水市, 贵州省, 中国",
+    "address": {
+      "amenity": "盘州市人民政府",
+      "road": "凤鸣路",
+      "suburb": "红果街道",
+      "county": "盘州市",
+      "city": "六盘水市",
+      "state": "贵州省",
+      "ISO3166-2-lvl4": "CN-GZ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000060002288853,
+    "attempts": [
+      {
+        "query": "盘州市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "350181": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "福清市人民政府",
+    "lat": 25.7238051,
+    "lon": 119.3796284,
+    "osm_type": "node",
+    "osm_id": 7419504625,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.0002288853238995e-05,
+    "display_name": "福清市人民政府, 向高路, 玉屏街道, 福清市, 福州市, 福建省, 350300, 中国",
+    "address": {
+      "amenity": "福清市人民政府",
+      "road": "向高路",
+      "town": "玉屏街道",
+      "county": "福清市",
+      "city": "福州市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "postcode": "350300",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000060002288853,
+    "attempts": [
+      {
+        "query": "福清市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 2,
+        "accepted_inside_polygon": 1
+      }
+    ]
   }
 }
