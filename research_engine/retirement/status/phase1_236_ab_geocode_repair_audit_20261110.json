@@ -1,0 +1,1214 @@
+{
+  "schema": "PHASE1_236_AB_GEO_AUDIT_V1",
+  "time_utc": "2026-11-09T17:12:41.279773+00:00",
+  "targets": 39,
+  "candidate_points": 31,
+  "named_alias_confirmed": 25,
+  "government_proxy": 6,
+  "unresolved": 8,
+  "correctness_notes": [
+    "A nominated location is a repair candidate, not verified residence coordinates.",
+    "Only candidate points inside original exact candidate polygon and not OSM administrative boundary relation are accepted.",
+    "No climate values, original grades, or first-stage exclusions overwritten."
+  ],
+  "raw_query_audit": [
+    {
+      "code": "469001",
+      "region": "海南·五指山市",
+      "grade": "A",
+      "original_reference": "五指山市通什城区/国家气象站参考",
+      "alias": "通什镇",
+      "original_geocode_type": "townhall",
+      "original_display": "五指山市人民政府, G224, 雅畜村, 通什镇, 五指山市, 海南省, 中国",
+      "queries": [
+        {
+          "query": "通什镇 五指山市 海南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "通什镇 海南省",
+          "role": "alias_short",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "五指山市人民政府 海南省",
+          "role": "government",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        }
+      ],
+      "accepted_count": 3
+    },
+    {
+      "code": "532929",
+      "region": "云南·云龙县",
+      "grade": "A",
+      "original_reference": "云龙诺邓镇县城",
+      "alias": "诺邓镇",
+      "original_geocode_type": "administrative",
+      "original_display": "云龙县, 大理白族自治州, 云南省, 中国",
+      "queries": [
+        {
+          "query": "诺邓镇 云龙县 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "诺邓镇 云南省",
+          "role": "alias_short",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "云龙县人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "云龙县城区 云南省",
+          "role": "county_seat",
+          "nominatim_returns": 5,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 1
+    },
+    {
+      "code": "532922",
+      "region": "云南·漾濞县",
+      "grade": "A",
+      "original_reference": "漾濞苍山西镇城区（县气象站代理）",
+      "alias": "苍山西镇",
+      "original_geocode_type": "city",
+      "original_display": "漾濞县, 苍山西镇, 漾濞彝族自治县, 大理白族自治州, 云南省, 中国",
+      "queries": [
+        {
+          "query": "苍山西镇 漾濞县 云南省",
+          "role": "named_alias",
+          "error": "HTTPError('503 Server Error: first byte timeout for url: https://nominatim.openstreetmap.org/search?q=%E8%8B%8D%E5%B1%B1%E8%A5%BF%E9%95%87+%E6%BC%BE%E6%BF%9E%E5%8E%BF+%E4%BA%91%E5%8D%97%E7%9C%81&format=jsonv2&addressdeta"
+        },
+        {
+          "query": "苍山西镇 云南省",
+          "role": "alias_short",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "漾濞县人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 0
+    },
+    {
+      "code": "532901",
+      "region": "云南·大理市",
+      "grade": "A",
+      "original_reference": "大理古城/洱海湖滨盆地样点",
+      "alias": "大理古城",
+      "original_geocode_type": "administrative",
+      "original_display": "大理市, 大理白族自治州, 云南省, 中国",
+      "queries": [
+        {
+          "query": "大理古城 大理市 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "大理古城 云南省",
+          "role": "alias_short",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "大理市人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 2,
+          "accepted_in_polygon": 2
+        },
+        {
+          "query": "大理市城区 云南省",
+          "role": "county_seat",
+          "nominatim_returns": 5,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 4
+    },
+    {
+      "code": "530581",
+      "region": "云南·腾冲市",
+      "grade": "A",
+      "original_reference": "保山腾冲市腾越街道/城区",
+      "alias": "腾越街道",
+      "original_geocode_type": "city",
+      "original_display": "腾冲市, 保山市, 云南省, 679100, 中国",
+      "queries": [
+        {
+          "query": "腾越街道 腾冲市 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "腾冲市人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        }
+      ],
+      "accepted_count": 1
+    },
+    {
+      "code": "532531",
+      "region": "云南·绿春县",
+      "grade": "A",
+      "original_reference": "绿春大兴镇县城",
+      "alias": "大兴镇",
+      "original_geocode_type": "townhall",
+      "original_display": "绿春县人民政府, 大兴街, 绿春县, 红河哈尼族彝族自治州, 云南省, 中国",
+      "queries": [
+        {
+          "query": "大兴镇 绿春县 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "大兴镇 云南省",
+          "role": "alias_short",
+          "nominatim_returns": 4,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "绿春县人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        }
+      ],
+      "accepted_count": 3
+    },
+    {
+      "code": "532301",
+      "region": "云南·楚雄市",
+      "grade": "A",
+      "original_reference": "楚雄市鹿城镇样点",
+      "alias": "鹿城镇",
+      "original_geocode_type": "administrative",
+      "original_display": "楚雄市, 楚雄彝族自治州, 云南省, 中国",
+      "queries": [
+        {
+          "query": "鹿城镇 楚雄市 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "鹿城镇 云南省",
+          "role": "alias_short",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "楚雄市人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "楚雄市城区 云南省",
+          "role": "county_seat",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 2
+    },
+    {
+      "code": "469030",
+      "region": "海南·琼中县",
+      "grade": "A",
+      "original_reference": "琼中营根镇城区",
+      "alias": "营根镇",
+      "original_geocode_type": "townhall",
+      "original_display": "琼中黎族苗族自治县人民政府, 百花路, 琼中县, 琼中黎族苗族自治县, 海南省, 中国",
+      "queries": [
+        {
+          "query": "营根镇 琼中县 海南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "营根镇 海南省",
+          "role": "alias_short",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "琼中县人民政府 海南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 2
+    },
+    {
+      "code": "533301",
+      "region": "云南·泸水市",
+      "grade": "A",
+      "original_reference": "泸水六库城区",
+      "alias": "六库街道",
+      "original_geocode_type": "townhall",
+      "original_display": "泸水市人民政府, 怒江大道, 黑龙湾, 六库街道, 赖茂, 泸水市, 怒江傈僳族自治州, 云南省, 中国",
+      "queries": [
+        {
+          "query": "六库街道 泸水市 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "泸水市人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        }
+      ],
+      "accepted_count": 1
+    },
+    {
+      "code": "532927",
+      "region": "云南·巍山县",
+      "grade": "A",
+      "original_reference": "巍山南诏镇县城",
+      "alias": "南诏镇",
+      "original_geocode_type": "city",
+      "original_display": "巍山县, 南诏镇, 巍山彝族回族自治县, 大理白族自治州, 云南省, 中国",
+      "queries": [
+        {
+          "query": "南诏镇 巍山县 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "南诏镇 云南省",
+          "role": "alias_short",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "巍山县人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 0
+    },
+    {
+      "code": "530826",
+      "region": "云南·江城县",
+      "grade": "A",
+      "original_reference": "县城／城区（尚未精确定位住宅）",
+      "alias": "勐烈镇",
+      "original_geocode_type": "administrative",
+      "original_display": "江城哈尼族彝族自治县, 普洱市, 云南省, 665900, 中国",
+      "queries": [
+        {
+          "query": "勐烈镇 江城县 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "勐烈镇 云南省",
+          "role": "alias_short",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "江城县人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "江城县城区 云南省",
+          "role": "county_seat",
+          "nominatim_returns": 2,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 2
+    },
+    {
+      "code": "530128",
+      "region": "云南·禄劝彝族苗族自治县",
+      "grade": "A",
+      "original_reference": "县城／城区（尚未精确定位住宅）",
+      "alias": "屏山街道",
+      "original_geocode_type": "administrative",
+      "original_display": "禄劝彝族苗族自治县, 昆明市, 云南省, 中国",
+      "queries": [
+        {
+          "query": "屏山街道 禄劝彝族苗族自治县 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "禄劝彝族苗族自治县人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "禄劝彝族苗族自治县城区 云南省",
+          "role": "county_seat",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 1
+    },
+    {
+      "code": "530802",
+      "region": "云南·思茅区",
+      "grade": "B",
+      "original_reference": "普洱市思茅区城市成熟社区",
+      "alias": "思茅街道",
+      "original_geocode_type": "city",
+      "original_display": "思茅区, 普洱市, 云南省, 中国",
+      "queries": [
+        {
+          "query": "思茅街道 思茅区 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "思茅区人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 0
+    },
+    {
+      "code": "532503",
+      "region": "云南·蒙自市",
+      "grade": "B",
+      "original_reference": "蒙自坝区/城区样点",
+      "alias": "文澜街道",
+      "original_geocode_type": "suburb",
+      "original_display": "文澜街道, 蒙自市, 红河哈尼族彝族自治州, 云南省, 中国",
+      "queries": [
+        {
+          "query": "文澜街道 蒙自市 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "蒙自市人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        }
+      ],
+      "accepted_count": 2
+    },
+    {
+      "code": "533103",
+      "region": "云南·芒市",
+      "grade": "B",
+      "original_reference": "芒市城区",
+      "alias": "勐焕街道",
+      "original_geocode_type": "townhall",
+      "original_display": "芒市人民政府, 16号, 斑色路, 广弄巷一巷, 勐焕街道, 芒市, 德宏傣族景颇族自治州, 云南省, 678400, 中国",
+      "queries": [
+        {
+          "query": "勐焕街道 芒市 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "芒市人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        }
+      ],
+      "accepted_count": 1
+    },
+    {
+      "code": "530502",
+      "region": "云南·隆阳区",
+      "grade": "B",
+      "original_reference": "保山市隆阳区中心城区",
+      "alias": "永昌街道",
+      "original_geocode_type": "townhall",
+      "original_display": "隆阳区人民政府, 杏花路, 永昌街道, 隆阳区, 保山市, 云南省, 中国",
+      "queries": [
+        {
+          "query": "永昌街道 隆阳区 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "隆阳区人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        }
+      ],
+      "accepted_count": 1
+    },
+    {
+      "code": "513401",
+      "region": "四川·西昌市",
+      "grade": "B",
+      "original_reference": "西昌城区样点",
+      "alias": "北城街道",
+      "original_geocode_type": "city",
+      "original_display": "西昌市, 北城街道, 西昌市, 凉山彝族自治州, 四川省, 615000, 中国",
+      "queries": [
+        {
+          "query": "北城街道 西昌市 四川省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "西昌市人民政府 四川省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 0
+    },
+    {
+      "code": "530402",
+      "region": "云南·红塔区",
+      "grade": "B",
+      "original_reference": "玉溪红塔区中心城区",
+      "alias": "玉兴街道",
+      "original_geocode_type": "city",
+      "original_display": "红塔区, 玉溪市, 云南省, 中国",
+      "queries": [
+        {
+          "query": "玉兴街道 红塔区 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "红塔区人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 0
+    },
+    {
+      "code": "532327",
+      "region": "云南·永仁县",
+      "grade": "B",
+      "original_reference": "永仁县永定镇县城及低海拔成熟居住片区",
+      "alias": "永定镇",
+      "original_geocode_type": "city",
+      "original_display": "永仁县, 楚雄彝族自治州, 云南省, 中国",
+      "queries": [
+        {
+          "query": "永定镇 永仁县 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 2,
+          "accepted_in_polygon": 2
+        },
+        {
+          "query": "永定镇 云南省",
+          "role": "alias_short",
+          "nominatim_returns": 2,
+          "accepted_in_polygon": 2
+        },
+        {
+          "query": "永仁县人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 4
+    },
+    {
+      "code": "510421",
+      "region": "四川·米易县",
+      "grade": "B",
+      "original_reference": "米易县攀莲镇/安宁河两侧成熟居住片区",
+      "alias": "攀莲镇",
+      "original_geocode_type": "city",
+      "original_display": "米易县, 攀枝花市, 四川省, 中国",
+      "queries": [
+        {
+          "query": "攀莲镇 米易县 四川省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "攀莲镇 四川省",
+          "role": "alias_short",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "米易县人民政府 四川省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 0
+    },
+    {
+      "code": "532524",
+      "region": "云南·建水县",
+      "grade": "B",
+      "original_reference": "建水坝区/古城周边成熟区",
+      "alias": "建水古城",
+      "original_geocode_type": "townhall",
+      "original_display": "建水县人民政府, 钟灵路, 建水县, 红河哈尼族彝族自治州, 云南省, 654399, 中国",
+      "queries": [
+        {
+          "query": "建水古城 建水县 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 2,
+          "accepted_in_polygon": 2
+        },
+        {
+          "query": "建水古城 云南省",
+          "role": "alias_short",
+          "nominatim_returns": 2,
+          "accepted_in_polygon": 2
+        },
+        {
+          "query": "建水县人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        }
+      ],
+      "accepted_count": 5
+    },
+    {
+      "code": "532601",
+      "region": "云南·文山市",
+      "grade": "B",
+      "original_reference": "文山市城区",
+      "alias": "开化街道",
+      "original_geocode_type": "administrative",
+      "original_display": "文山市, 文山壮族苗族自治州, 云南省, 中国",
+      "queries": [
+        {
+          "query": "开化街道 文山市 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "文山市人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "文山市城区 云南省",
+          "role": "county_seat",
+          "nominatim_returns": 3,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 0
+    },
+    {
+      "code": "530902",
+      "region": "云南·临翔区",
+      "grade": "B",
+      "original_reference": "临沧市临翔区城区参考值",
+      "alias": "凤翔街道",
+      "original_geocode_type": "townhall",
+      "original_display": "临翔区人民政府, 白塔路, 临翔区, 临沧市, 云南省, 中国",
+      "queries": [
+        {
+          "query": "凤翔街道 临翔区 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "临翔区人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        }
+      ],
+      "accepted_count": 2
+    },
+    {
+      "code": "513426",
+      "region": "四川·会东县",
+      "grade": "B",
+      "original_reference": "县城／城区（尚未精确定位住宅）",
+      "alias": "金江街道",
+      "original_geocode_type": "administrative",
+      "original_display": "会东县, 凉山彝族自治州, 四川省, 615200, 中国",
+      "queries": [
+        {
+          "query": "金江街道 会东县 四川省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "会东县人民政府 四川省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "会东县城区 四川省",
+          "role": "county_seat",
+          "nominatim_returns": 2,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 1
+    },
+    {
+      "code": "530921",
+      "region": "云南·凤庆县",
+      "grade": "B",
+      "original_reference": "县城／城区（尚未精确定位住宅）",
+      "alias": "凤山镇",
+      "original_geocode_type": "administrative",
+      "original_display": "凤庆县, 临沧市, 云南省, 中国",
+      "queries": [
+        {
+          "query": "凤山镇 凤庆县 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "凤山镇 云南省",
+          "role": "alias_short",
+          "nominatim_returns": 2,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "凤庆县人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "凤庆县城区 云南省",
+          "role": "county_seat",
+          "nominatim_returns": 3,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 1
+    },
+    {
+      "code": "513427",
+      "region": "四川·宁南县",
+      "grade": "B",
+      "original_reference": "县城／城区（尚未精确定位住宅）",
+      "alias": "披砂镇",
+      "original_geocode_type": "administrative",
+      "original_display": "宁南县, 凉山彝族自治州, 四川省, 615400, 中国",
+      "queries": [
+        {
+          "query": "披砂镇 宁南县 四川省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "披砂镇 四川省",
+          "role": "alias_short",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "宁南县人民政府 四川省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "宁南县城区 四川省",
+          "role": "county_seat",
+          "nominatim_returns": 2,
+          "accepted_in_polygon": 1
+        }
+      ],
+      "accepted_count": 3
+    },
+    {
+      "code": "530723",
+      "region": "云南·华坪县",
+      "grade": "B",
+      "original_reference": "县城／城区（尚未精确定位住宅）",
+      "alias": "中心镇",
+      "original_geocode_type": "administrative",
+      "original_display": "华坪县, 丽江市, 云南省, 中国",
+      "queries": [
+        {
+          "query": "中心镇 华坪县 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "中心镇 云南省",
+          "role": "alias_short",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "华坪县人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "华坪县城区 云南省",
+          "role": "county_seat",
+          "nominatim_returns": 4,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 1
+    },
+    {
+      "code": "532923",
+      "region": "云南·祥云县",
+      "grade": "B",
+      "original_reference": "县城／城区（尚未精确定位住宅）",
+      "alias": "祥城镇",
+      "original_geocode_type": "administrative",
+      "original_display": "祥云县, 大理白族自治州, 云南省, 中国",
+      "queries": [
+        {
+          "query": "祥城镇 祥云县 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "祥城镇 云南省",
+          "role": "alias_short",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "祥云县人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "祥云县城区 云南省",
+          "role": "county_seat",
+          "nominatim_returns": 5,
+          "accepted_in_polygon": 5
+        }
+      ],
+      "accepted_count": 6
+    },
+    {
+      "code": "532822",
+      "region": "云南·勐海县",
+      "grade": "B",
+      "original_reference": "县城／城区（尚未精确定位住宅）",
+      "alias": "勐海镇",
+      "original_geocode_type": "administrative",
+      "original_display": "勐海县, 西双版纳傣族自治州, 云南省, 中国",
+      "queries": [
+        {
+          "query": "勐海镇 勐海县 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "勐海镇 云南省",
+          "role": "alias_short",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "勐海县人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "勐海县城区 云南省",
+          "role": "county_seat",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 0
+    },
+    {
+      "code": "530524",
+      "region": "云南·昌宁县",
+      "grade": "B",
+      "original_reference": "县城／城区（尚未精确定位住宅）",
+      "alias": "田园镇",
+      "original_geocode_type": "administrative",
+      "original_display": "昌宁县, 保山市, 云南省, 中国",
+      "queries": [
+        {
+          "query": "田园镇 昌宁县 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "田园镇 云南省",
+          "role": "alias_short",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "昌宁县人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "昌宁县城区 云南省",
+          "role": "county_seat",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 2
+    },
+    {
+      "code": "530521",
+      "region": "云南·施甸县",
+      "grade": "B",
+      "original_reference": "县城／城区（尚未精确定位住宅）",
+      "alias": "甸阳镇",
+      "original_geocode_type": "administrative",
+      "original_display": "施甸县, 保山市, 云南省, 中国",
+      "queries": [
+        {
+          "query": "甸阳镇 施甸县 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "甸阳镇 云南省",
+          "role": "alias_short",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "施甸县人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "施甸县城区 云南省",
+          "role": "county_seat",
+          "nominatim_returns": 2,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 1
+    },
+    {
+      "code": "513402",
+      "region": "四川·会理市",
+      "grade": "B",
+      "original_reference": "县城／城区（尚未精确定位住宅）",
+      "alias": "城北街道",
+      "original_geocode_type": "administrative",
+      "original_display": "会理市, 凉山彝族自治州, 四川省, 中国",
+      "queries": [
+        {
+          "query": "城北街道 会理市 四川省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "会理市人民政府 四川省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "会理市城区 四川省",
+          "role": "county_seat",
+          "nominatim_returns": 5,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 1
+    },
+    {
+      "code": "530112",
+      "region": "云南·西山区",
+      "grade": "B",
+      "original_reference": "县城／城区（尚未精确定位住宅）",
+      "alias": "马街街道",
+      "original_geocode_type": "administrative",
+      "original_display": "西山区, 昆明市, 云南省, 中国",
+      "queries": [
+        {
+          "query": "马街街道 西山区 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "西山区人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "西山区城区 云南省",
+          "role": "county_seat",
+          "nominatim_returns": 5,
+          "accepted_in_polygon": 1
+        }
+      ],
+      "accepted_count": 1
+    },
+    {
+      "code": "530113",
+      "region": "云南·东川区",
+      "grade": "B",
+      "original_reference": "县城／城区（尚未精确定位住宅）",
+      "alias": "铜都街道",
+      "original_geocode_type": "administrative",
+      "original_display": "东川区, 昆明市, 东川区, 云南省, 中国",
+      "queries": [
+        {
+          "query": "铜都街道 东川区 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "东川区人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "东川区城区 云南省",
+          "role": "county_seat",
+          "error": "HTTPError('503 Server Error: first byte timeout for url: https://nominatim.openstreetmap.org/search?q=%E4%B8%9C%E5%B7%9D%E5%8C%BA%E5%9F%8E%E5%8C%BA+%E4%BA%91%E5%8D%97%E7%9C%81&format=jsonv2&addressdetails=1&limit=5&count"
+        }
+      ],
+      "accepted_count": 1
+    },
+    {
+      "code": "530824",
+      "region": "云南·景谷傣族县",
+      "grade": "B",
+      "original_reference": "县城／城区（尚未精确定位住宅）",
+      "alias": "威远镇",
+      "original_geocode_type": "administrative",
+      "original_display": "景谷傣族彝族自治县, 普洱市, 云南省, 中国",
+      "queries": [
+        {
+          "query": "威远镇 景谷傣族县 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "威远镇 云南省",
+          "role": "alias_short",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "景谷傣族县人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "景谷傣族县城区 云南省",
+          "role": "county_seat",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 2
+    },
+    {
+      "code": "530927",
+      "region": "云南·沧源佤族自治县",
+      "grade": "B",
+      "original_reference": "县城／城区（尚未精确定位住宅）",
+      "alias": "勐董镇",
+      "original_geocode_type": "administrative",
+      "original_display": "沧源佤族自治县, 临沧市, 云南省, 中国",
+      "queries": [
+        {
+          "query": "勐董镇 沧源佤族自治县 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "勐董镇 云南省",
+          "role": "alias_short",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "沧源佤族自治县人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "沧源佤族自治县城区 云南省",
+          "role": "county_seat",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 1
+    },
+    {
+      "code": "530115",
+      "region": "云南·晋宁区",
+      "grade": "B",
+      "original_reference": "县城／城区（尚未精确定位住宅）",
+      "alias": "昆阳街道",
+      "original_geocode_type": "administrative",
+      "original_display": "晋宁区, 昆明市, 云南省, 650600, 中国",
+      "queries": [
+        {
+          "query": "昆阳街道 晋宁区 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "晋宁区人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "晋宁区城区 云南省",
+          "role": "county_seat",
+          "nominatim_returns": 5,
+          "accepted_in_polygon": 3
+        }
+      ],
+      "accepted_count": 4
+    },
+    {
+      "code": "532328",
+      "region": "云南·元谋县",
+      "grade": "B",
+      "original_reference": "县城／城区（尚未精确定位住宅）",
+      "alias": "元马镇",
+      "original_geocode_type": "administrative",
+      "original_display": "元谋县, 楚雄彝族自治州, 云南省, 中国",
+      "queries": [
+        {
+          "query": "元马镇 元谋县 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "元马镇 云南省",
+          "role": "alias_short",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 1
+        },
+        {
+          "query": "元谋县人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "元谋县城区 云南省",
+          "role": "county_seat",
+          "nominatim_returns": 4,
+          "accepted_in_polygon": 0
+        }
+      ],
+      "accepted_count": 2
+    },
+    {
+      "code": "530114",
+      "region": "云南·呈贡区",
+      "grade": "B",
+      "original_reference": "县城／城区（尚未精确定位住宅）",
+      "alias": "龙城街道",
+      "original_geocode_type": "administrative",
+      "original_display": "呈贡区, 昆明市, 云南省, 650504, 中国",
+      "queries": [
+        {
+          "query": "龙城街道 呈贡区 云南省",
+          "role": "named_alias",
+          "nominatim_returns": 1,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "呈贡区人民政府 云南省",
+          "role": "government",
+          "nominatim_returns": 0,
+          "accepted_in_polygon": 0
+        },
+        {
+          "query": "呈贡区城区 云南省",
+          "role": "county_seat",
+          "nominatim_returns": 5,
+          "accepted_in_polygon": 4
+        }
+      ],
+      "accepted_count": 4
+    }
+  ]
+}
