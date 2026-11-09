@@ -1,0 +1,146 @@
+{
+  "schema": "RET_PHASE1_236_BIO1_BIO12_INDEPENDENT_SOURCE_QA_V1",
+  "audited_at": "2026-11-09",
+  "execution_mode": "MANUAL_CONCENTRATED_QA_NOT_HOURLY_AUTOMATION",
+  "source_run_id": 42579705947,
+  "source_evidence": "research_engine/retirement/status/phase1_236_bio1_bio12_1km_zonal_evidence_20261109.json",
+  "source_csv": "research_engine/retirement/status/phase1_236_bio1_bio12_1km_zonal_1991_2020.csv",
+  "source_paper": "https://www.nature.com/articles/s41597-025-04761-y",
+  "source_dataset_doi": "10.57760/SCIENCEDB.13546",
+  "data_quality": {
+    "archive_bytes": 699181862,
+    "archive_sha256": "da73a547a146c38f295f190fa71adf4367d884cabebf8f50f2c0341b40769c6c",
+    "bio1_geotiff_sha256": "f76d6281554324d23b47b035b96e875d0af2ac75d12d632c333da15871c8e8aa",
+    "bio12_geotiff_sha256": "11edb587d180e558cc6c47059b92ea5b21e92b8fa4a9729b52540e9acbade8ac",
+    "year_range": "1991-2020",
+    "spatial_resolution": "0.01° (~1km)",
+    "units": {
+      "Bio1": "°C",
+      "Bio12": "mm"
+    },
+    "nationwide_admin_codes": 2847,
+    "valid_both": 2838,
+    "boundary_pending": 9,
+    "candidate_236_valid_both": 227,
+    "candidate_236_missing_codes": [
+      "500157",
+      "460303",
+      "653229",
+      "653228",
+      "653132",
+      "540481",
+      "659013",
+      "460302",
+      "540581"
+    ],
+    "all_valid_percentile_sequences": "2838/2838 P10 <= P50 <= P90 for both variables",
+    "annual_mean_temp_national_min_c": -5.04,
+    "annual_mean_temp_national_max_c": 25.23,
+    "annual_precip_national_min_mm": 47.6,
+    "annual_precip_national_max_mm": 2328.4,
+    "extraction_source_integrity": "PASS",
+    "geospatial_scope_verification": "PROVISIONAL_THIRD_PARTY_CODED_COUNTY_BOUNDARIES"
+  },
+  "reference_checks": {
+    "local_historical_temperature": {
+      "n": 36,
+      "mean_absolute_difference_c": 2.44,
+      "median_absolute_difference_c": 1.81,
+      "mean_grid_minus_local_c": -2.31,
+      "n_within_2c": 20
+    },
+    "local_historical_precipitation": {
+      "n": 45,
+      "mean_absolute_difference_mm": 166.53,
+      "median_absolute_difference_mm": 113.1,
+      "mean_grid_minus_local_mm": 5.38,
+      "n_within_200mm": 32
+    },
+    "independent_meteostat_station_precipitation": {
+      "n": 73,
+      "mean_absolute_difference_mm": 82.4
+    },
+    "comparability_caveat": "Historical local figures differ in period and geography; independent Meteostat figures are meteorological stations, not census-weighted residential neighborhood figures.",
+    "examples": [
+      {
+        "code": "533301",
+        "region": "泸水市",
+        "residential": "六库城区",
+        "local_annual_temp_c": 20.2,
+        "county_grid_annual_temp_c": 11.67,
+        "delta_c": -8.53,
+        "interpretation": "County includes high mountains; cannot proxy LiuKu residential altitude or climate"
+      },
+      {
+        "code": "530428",
+        "region": "元江县",
+        "residential": "县城低海拔河谷",
+        "local_annual_temp_c": 24.1,
+        "county_grid_annual_temp_c": 18.53,
+        "delta_c": -5.57,
+        "interpretation": "Valley vs mountainous county average; county mean would materially distort comfort rating"
+      },
+      {
+        "code": "532503",
+        "region": "蒙自市",
+        "residential": "城区坝区",
+        "local_annual_temp_c": 19.3,
+        "county_grid_annual_temp_c": 17,
+        "local_annual_precip_mm": 816.9,
+        "county_grid_annual_precip_mm": 1236.6,
+        "interpretation": "Different spatial sampling and reference period; requires residential grid rather than county mean"
+      },
+      {
+        "code": "210224",
+        "region": "长海县",
+        "residential": "县城未精确定位",
+        "local_annual_temp_c": 11.5,
+        "county_grid_annual_temp_c": 10.38,
+        "local_annual_precip_mm": 411.7,
+        "county_grid_annual_precip_mm": 659.1,
+        "interpretation": "Annual temperature reasonably close; precipitation discrepancy needs station-period check; coldest monthly mean maximum is not provided by Bio1"
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "QA01",
+      "result": "PASS",
+      "detail": "Original archive downloadable, has valid separate Bio1 and Bio12 GeoTIFFs, raster units credible, 2838/2847 counties successfully extracted."
+    },
+    {
+      "id": "QA02",
+      "result": "PASS_WITH_LIMITS",
+      "detail": "Scientific source is publicly published peer-reviewed gridded interpolation, not directly observed climate normals at each residential neighborhood."
+    },
+    {
+      "id": "QA03",
+      "result": "BLOCK_DIRECT_CLIENT_USE",
+      "detail": "Current extraction uses administrative polygon mean; retirement customer table units are specific towns, valleys, urban built-up areas; observed -8.53°C city-vs-county mismatch, therefore direct column fill or A-D rating from county means is unsafe."
+    },
+    {
+      "id": "QA04",
+      "result": "PENDING",
+      "detail": "Nine 236-row candidate administrative codes lack strict code+name polygon identity, so Bio1 Bio12 remain null until geometry is checked."
+    },
+    {
+      "id": "QA05",
+      "result": "CODE_DEFECT",
+      "detail": "Existing CSV valid_fraction field is currently written as 1.0 rather than calculated valid pixels / total spatial cells; treat this field as invalid for data-quality decisions."
+    },
+    {
+      "id": "QA06",
+      "result": "SCOPE_LIMIT",
+      "detail": "Bio1 only annual mean temperature; Bio12 only total annual precipitation. Neither is a measure of coldest-month average daily maximum, heatwave days, humidity or rainy days."
+    }
+  ],
+  "decision": {
+    "data_source": "ACCEPT_FOR_REGIONAL_BACKGROUND_AND_RESIDENTIAL_GRID_EXTRACTION",
+    "direct_population_region_value": "REJECT_COUNTYWIDE_MEAN_AS_RESIDENTIAL_PROXY",
+    "use_historic_values_if_present": "RETAIN_WITH_PERIOD_AND_SOURCE",
+    "next_action": "Target exact named residential towns/urban settled-population grids in the 236 units, sample Bio1/Bio12 at settlement pixels with altitude-aware checks; present source and confidence, and compare to historical station/local figures before assigning per-parameter grades",
+    "rerun_national_data_download": false,
+    "automatically_excluded_regions": 0,
+    "official_master_overwrite": false
+  }
+}
