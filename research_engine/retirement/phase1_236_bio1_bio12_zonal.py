@@ -154,19 +154,33 @@ def main():
         bad=z.testzip()
         if bad: raise RuntimeError("ZIP_CRC_FAILURE "+bad)
         tif_members=[x for x in z.infolist() if x.filename.lower().endswith((".tif",".tiff"))]
-        if len(tif_members)!=1: raise RuntimeError("EXPECTED_ONE_BIO_GEOTIFF_GOT_"+str(len(tif_members)))
-        member=tif_members[0]; tif=CACHE/"China_Bio_1km_1991-2020.tif"
-        with z.open(member) as src,tif.open("wb") as dst:
-            for chunk in iter(lambda:src.read(8*1024*1024),b""): dst.write(chunk)
-    evidence["files"]["bio_geotiff"]={"member":member.filename,"bytes":tif.stat().st_size,"sha256":sha_file(tif)}
-    with rasterio.open(tif) as ds:
-        if ds.count<12: raise RuntimeError("BIO_RASTER_HAS_FEWER_THAN_12_BANDS")
+        # ScienceDB V8 Bio package contains one GeoTIFF per climate variable (23 files).
+        import re
+        def is_bio_layer(member,number):
+            b=pathlib.PurePosixPath(member.filename).stem.lower()
+            return bool(re.search(r"(?:^|[^a-z0-9])bio[_\\-]?0?"+str(number)+r"(?:$|[^0-9])",b))
+        for number in (1,12):
+            found=[m for m in tif_members if is_bio_layer(m,number)]
+            if len(found)!=1:
+                names=[m.filename for m in tif_members]
+                raise RuntimeError(f"BIO{number}_LAYER_MATCH_{len(found)}_OF_{len(tif_members)}: "+str(names)[:1800])
+            member=found[0]
+            tif=CACHE/f"China_Bio{number}_1km_1991-2020.tif"
+            with z.open(member) as src,tif.open("wb") as dst:
+                for chunk in iter(lambda:src.read(8*1024*1024),b""): dst.write(chunk)
+            evidence["files"][f"bio{number}_geotiff"]={"member":member.filename,"bytes":tif.stat().st_size,"sha256":sha_file(tif)}
+    tif1=CACHE/"China_Bio1_1km_1991-2020.tif"
+    tif12=CACHE/"China_Bio12_1km_1991-2020.tif"
+    with rasterio.open(tif1) as ds, rasterio.open(tif12) as ds12:
+        if ds.count!=1 or ds12.count!=1: raise RuntimeError("EXPECTED_SINGLE_BAND_BIO1_AND_BIO12")
+        if ds.crs != ds12.crs or ds.width!=ds12.width or ds.height!=ds12.height or ds.transform!=ds12.transform:
+            raise RuntimeError("BIO1_BIO12_RASTER_GEOMETRY_MISMATCH")
         if ds.crs is None: raise RuntimeError("BIO_RASTER_CRS_MISSING")
         if str(ds.crs).upper() not in ("EPSG:4326","OGC:CRS84"):
             raise RuntimeError("BIO_RASTER_CRS_NOT_WGS84 "+str(ds.crs))
         # Standard BIOCLIM order: Bio1 is band 1, Bio12 is band 12.
         b1=ds.read(1,out_shape=(min(1000,ds.height),min(1000,ds.width)),masked=True).compressed()
-        b12=ds.read(12,out_shape=(min(1000,ds.height),min(1000,ds.width)),masked=True).compressed()
+        b12=ds12.read(1,out_shape=(min(1000,ds12.height),min(1000,ds12.width)),masked=True).compressed()
         b1=b1[np.isfinite(b1)]; b12=b12[np.isfinite(b12)]
         if not b1.size or not b12.size: raise RuntimeError("BIO_RASTER_SAMPLE_EMPTY")
         med1=float(np.median(b1)); med12=float(np.median(b12))
@@ -178,7 +192,7 @@ def main():
         elif 10000<med12<=100000: scale12=0.1; scale12_rule="integer_tenths_mm"
         else: raise RuntimeError("BIO12_SCALE_AMBIGUOUS_MEDIAN_"+str(med12))
         evidence["raster_metadata"]={"crs":str(ds.crs),"width":ds.width,"height":ds.height,"bands":ds.count,
-          "dtype":list(ds.dtypes),"nodata":ds.nodata,"bounds":list(ds.bounds),"transform":list(ds.transform),
+          "dtype_bio1":list(ds.dtypes),"dtype_bio12":list(ds12.dtypes),"nodata":ds.nodata,"bounds":list(ds.bounds),"transform":list(ds.transform),
           "scales":list(ds.scales),"offsets":list(ds.offsets),"dataset_tags":ds.tags(),
           "Bio1_sample":{"raw_min":float(b1.min()),"raw_median":med1,"raw_max":float(b1.max()),"scale":scale1,"scale_rule":scale1_rule},
           "Bio12_sample":{"raw_min":float(b12.min()),"raw_median":med12,"raw_max":float(b12.max()),"scale":scale12,"scale_rule":scale12_rule}}
@@ -212,7 +226,7 @@ def main():
                 try:
                     win=geometry_window(ds,[{"type":"Feature","geometry":geojson_geom,"properties":{}}],boundless=False)
                     arr1=ds.read(1,window=win,masked=True)
-                    arr12=ds.read(12,window=win,masked=True)
+                    arr12=ds12.read(1,window=win,masked=True)
                     # Pixel-center mask ensures only cells whose centers fall inside the polygon are included.
                     from rasterio.features import geometry_mask
                     tr=ds.window_transform(win)
