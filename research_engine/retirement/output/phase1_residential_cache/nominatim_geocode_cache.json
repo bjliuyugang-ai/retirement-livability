@@ -7181,5 +7181,360 @@
         "accepted_inside_polygon": 2
       }
     ]
+  },
+  "440783": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "开平市",
+    "lat": 22.3799871,
+    "lon": 112.6932392,
+    "osm_type": "node",
+    "osm_id": 528558670,
+    "class": null,
+    "type": "city",
+    "importance": 0.5151958444243833,
+    "display_name": "开平市, 江门市, 广东省, 529300, 中国",
+    "address": {
+      "city": "开平市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "postcode": "529300",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.515195844424383,
+    "attempts": [
+      {
+        "query": "开平市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "开平市",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "513338": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "得荣县",
+    "lat": 28.715894,
+    "lon": 99.2853717,
+    "osm_type": "node",
+    "osm_id": 6321024621,
+    "class": null,
+    "type": "city",
+    "importance": 0.4745685161775604,
+    "display_name": "得荣县, 甘孜藏族自治州, 四川省, 627900, 中国",
+    "address": {
+      "city": "得荣县",
+      "county": "得荣县",
+      "region": "甘孜藏族自治州",
+      "state": "四川省",
+      "ISO3166-2-lvl4": "CN-SC",
+      "postcode": "627900",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4745685161775604,
+    "attempts": [
+      {
+        "query": "得荣县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "得荣县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 3,
+        "accepted_inside_polygon": 3
+      }
+    ]
+  },
+  "350526": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "德化县",
+    "lat": 25.4945484,
+    "lon": 118.2362336,
+    "osm_type": "relation",
+    "osm_id": 2666980,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.48438994910691024,
+    "display_name": "德化县, 泉州市, 福建省, 362500, 中国",
+    "address": {
+      "city": "德化县",
+      "region": "泉州市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "postcode": "362500",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.48438994910691024,
+    "attempts": [
+      {
+        "query": "德化县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "德化县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "440785": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "恩平市",
+    "lat": 22.1861731,
+    "lon": 112.3000145,
+    "osm_type": "node",
+    "osm_id": 5485661874,
+    "class": null,
+    "type": "city",
+    "importance": 0.4917185678422915,
+    "display_name": "恩平市, 江门市, 广东省, 中国",
+    "address": {
+      "city": "恩平市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4917185678422915,
+    "attempts": [
+      {
+        "query": "恩平市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "恩平市",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "440403": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "斗门区",
+    "lat": 22.2119876,
+    "lon": 113.2909793,
+    "osm_type": "relation",
+    "osm_id": 5405557,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.45019493128634464,
+    "display_name": "斗门区, 珠海市, 广东省, 中国",
+    "address": {
+      "district": "斗门区",
+      "city": "珠海市",
+      "state": "广东省",
+      "ISO3166-2-lvl4": "CN-GD",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.45019493128634464,
+    "attempts": [
+      {
+        "query": "斗门区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "斗门区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "350802": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "新罗区",
+    "lat": 25.1010314,
+    "lon": 117.0322636,
+    "osm_type": "node",
+    "osm_id": 244085118,
+    "class": null,
+    "type": "city",
+    "importance": 0.41828013814504167,
+    "display_name": "新罗区, 龙岩市, 福建省, 中国",
+    "address": {
+      "city": "新罗区",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.418280138145042,
+    "attempts": [
+      {
+        "query": "新罗区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "新罗区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "350824": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "武平县人民政府",
+    "lat": 25.0985702,
+    "lon": 116.0952544,
+    "osm_type": "node",
+    "osm_id": 5098115513,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.0002288853238995e-05,
+    "display_name": "武平县人民政府, 政府路, 平川街道, 武平县, 龙岩市, 福建省, 中国",
+    "address": {
+      "amenity": "武平县人民政府",
+      "road": "政府路",
+      "suburb": "平川街道",
+      "city": "武平县",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000060002288853,
+    "attempts": [
+      {
+        "query": "武平县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530625": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "永善县",
+    "lat": 28.2387361,
+    "lon": 103.6346693,
+    "osm_type": "node",
+    "osm_id": 469625613,
+    "class": null,
+    "type": "city",
+    "importance": 0.4841484348781487,
+    "display_name": "永善县, 昭通市, 云南省, 中国",
+    "address": {
+      "city": "永善县",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.484148434878149,
+    "attempts": [
+      {
+        "query": "永善县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "永善县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "350803": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "永定区人民政府",
+    "lat": 24.7272744,
+    "lon": 116.7274082,
+    "osm_type": "node",
+    "osm_id": 5098086699,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.0002288853238995e-05,
+    "display_name": "永定区人民政府, 九一街, 凤城街道, 永定区, 龙岩市, 福建省, 中国",
+    "address": {
+      "amenity": "永定区人民政府",
+      "road": "九一街",
+      "suburb": "凤城街道",
+      "district": "永定区",
+      "city": "龙岩市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000060002288853,
+    "attempts": [
+      {
+        "query": "永定区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "350525": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "永春县",
+    "lat": 25.3242046,
+    "lon": 118.2895752,
+    "osm_type": "node",
+    "osm_id": 2671356431,
+    "class": null,
+    "type": "city",
+    "importance": 0.4782002454188831,
+    "display_name": "永春县, 桃城镇, 永春县, 泉州市, 福建省, 中国",
+    "address": {
+      "city": "永春县",
+      "town": "桃城镇",
+      "county": "永春县",
+      "region": "泉州市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.478200245418883,
+    "attempts": [
+      {
+        "query": "永春县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "永春县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
   }
 }
