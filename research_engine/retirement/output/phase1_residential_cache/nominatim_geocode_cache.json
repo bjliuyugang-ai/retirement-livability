@@ -2974,5 +2974,353 @@
         "accepted_inside_polygon": 1
       }
     ]
+  },
+  "532527": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "泸西县人民政府",
+    "lat": 24.5353555,
+    "lon": 103.764875,
+    "osm_type": "way",
+    "osm_id": 1098980074,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.509498741126142e-05,
+    "display_name": "泸西县人民政府, 九华路, 胜利社区, 李家村, 泸西县, 红河哈尼族彝族自治州, 云南省, 中国",
+    "address": {
+      "amenity": "泸西县人民政府",
+      "road": "九华路",
+      "neighbourhood": "胜利社区",
+      "hamlet": "李家村",
+      "city": "泸西县",
+      "county": "泸西县",
+      "region": "红河哈尼族彝族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000550949874114,
+    "attempts": [
+      {
+        "query": "泸西县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530824": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "景谷傣族彝族自治县",
+    "lat": 23.5020342,
+    "lon": 100.7110063,
+    "osm_type": "relation",
+    "osm_id": 2716374,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4626188435861501,
+    "display_name": "景谷傣族彝族自治县, 普洱市, 云南省, 中国",
+    "address": {
+      "city": "景谷傣族彝族自治县",
+      "region": "普洱市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4626188435861501,
+    "attempts": [
+      {
+        "query": "景谷傣族彝族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "景谷傣族彝族自治县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530927": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "沧源佤族自治县",
+    "lat": 23.1504488,
+    "lon": 99.2485069,
+    "osm_type": "relation",
+    "osm_id": 2726016,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.49161070528569123,
+    "display_name": "沧源佤族自治县, 临沧市, 云南省, 中国",
+    "address": {
+      "city": "沧源佤族自治县",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.49161070528569123,
+    "attempts": [
+      {
+        "query": "沧源佤族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "沧源佤族自治县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530423": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "通海县人民政府",
+    "lat": 24.1143737,
+    "lon": 102.7241957,
+    "osm_type": "node",
+    "osm_id": 4574551119,
+    "class": null,
+    "type": "townhall",
+    "importance": 6.0002288853238995e-05,
+    "display_name": "通海县人民政府, G245, 秀山街道, 通海县, 玉溪市, 云南省, 中国",
+    "address": {
+      "amenity": "通海县人民政府",
+      "road": "G245",
+      "town": "秀山街道",
+      "county": "通海县",
+      "city": "玉溪市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000060002288853,
+    "attempts": [
+      {
+        "query": "通海县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530115": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "晋宁区",
+    "lat": 24.6724698,
+    "lon": 102.5941077,
+    "osm_type": "relation",
+    "osm_id": 2723829,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.44534677005030143,
+    "display_name": "晋宁区, 昆明市, 云南省, 650600, 中国",
+    "address": {
+      "city": "晋宁区",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "postcode": "650600",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.44534677005030143,
+    "attempts": [
+      {
+        "query": "晋宁区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "晋宁区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "532626": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "丘北县人民政府",
+    "lat": 24.0535378,
+    "lon": 104.1645098,
+    "osm_type": "node",
+    "osm_id": 5208744473,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.511940184629614e-05,
+    "display_name": "丘北县人民政府, 政通路, 和谐景苑, 黑箐龙, 丘北县, 文山壮族苗族自治州, 云南省, 中国",
+    "address": {
+      "amenity": "丘北县人民政府",
+      "road": "政通路",
+      "neighbourhood": "和谐景苑",
+      "village": "黑箐龙",
+      "city": "丘北县",
+      "region": "文山壮族苗族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000551194018463,
+    "attempts": [
+      {
+        "query": "丘北县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "530322": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "陆良县人民政府",
+    "lat": 25.0325043,
+    "lon": 103.6649215,
+    "osm_type": "node",
+    "osm_id": 4574503080,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.267795834282471e-05,
+    "display_name": "陆良县人民政府, 西门街, 陆良县, 曲靖市, 云南省, 中国",
+    "address": {
+      "amenity": "陆良县人民政府",
+      "road": "西门街",
+      "city": "陆良县",
+      "county": "陆良县",
+      "region": "曲靖市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000052677958343,
+    "attempts": [
+      {
+        "query": "陆良县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "350505": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "泉港区",
+    "lat": 25.1363983,
+    "lon": 118.911768,
+    "osm_type": "node",
+    "osm_id": 244085117,
+    "class": null,
+    "type": "city",
+    "importance": 0.4297779689930391,
+    "display_name": "泉港区, 泉州市, 福建省, 362800, 中国",
+    "address": {
+      "city": "泉港区",
+      "district": "泉港区",
+      "region": "泉州市",
+      "state": "福建省",
+      "ISO3166-2-lvl4": "CN-FJ",
+      "postcode": "362800",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.429777968993039,
+    "attempts": [
+      {
+        "query": "泉港区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "泉港区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "530923": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "永德县",
+    "lat": 24.0276877,
+    "lon": 99.2573316,
+    "osm_type": "node",
+    "osm_id": 244082323,
+    "class": null,
+    "type": "city",
+    "importance": 0.4821004088859831,
+    "display_name": "永德县, 临沧市, 云南省, 中国",
+    "address": {
+      "city": "永德县",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4821004088859833,
+    "attempts": [
+      {
+        "query": "永德县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "永德县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "530304": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "马龙区人民政府",
+    "lat": 25.43084,
+    "lon": 103.5757905,
+    "osm_type": "node",
+    "osm_id": 4574502777,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.1351949340001796e-05,
+    "display_name": "马龙区人民政府, 环城西路, 马龙区, 曲靖市, 云南省, 中国",
+    "address": {
+      "amenity": "马龙区人民政府",
+      "road": "环城西路",
+      "city": "马龙区",
+      "district": "马龙区",
+      "region": "曲靖市",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.00005135194934,
+    "attempts": [
+      {
+        "query": "马龙区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
   }
 }
