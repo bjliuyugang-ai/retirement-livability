@@ -4010,5 +4010,420 @@
         "accepted_inside_polygon": 2
       }
     ]
+  },
+  "532502": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "开远市",
+    "lat": 23.7165622,
+    "lon": 103.2648414,
+    "osm_type": "node",
+    "osm_id": 469623472,
+    "class": null,
+    "type": "city",
+    "importance": 0.48802381862418537,
+    "display_name": "开远市, 红河哈尼族彝族自治州, 云南省, 中国",
+    "address": {
+      "city": "开远市",
+      "county": "开远市",
+      "region": "红河哈尼族彝族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4880238186241854,
+    "attempts": [
+      {
+        "query": "开远城区",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "开远市人民政府",
+        "error": "HTTPError('503 Server Error: first byte timeout for url: https://nominatim.openstreetmap.org/search?format=jsonv2&q=%E5%BC%80%E8%BF%9C%E5%B8%82%E4%BA%BA%E6%B0%91%E6%94%BF%E5%BA%9C%2C+%E4%BA%91%E5%8D%97%E7%9C%81%2C+China&countrycodes=cn&limit=10&addressdetails=1&accept-language=zh-CN')"
+      },
+      {
+        "query": "开远市",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "510403": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "西区",
+    "lat": 26.6031069,
+    "lon": 101.62832,
+    "osm_type": "node",
+    "osm_id": 244083659,
+    "class": null,
+    "type": "city",
+    "importance": 0.5772454756522055,
+    "display_name": "西区, 攀枝花市, 四川省, 中国",
+    "address": {
+      "city": "西区",
+      "state": "四川省",
+      "ISO3166-2-lvl4": "CN-SC",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.5772454756522056,
+    "attempts": [
+      {
+        "query": "西区人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "西区",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "533423": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "维西傈僳族自治县",
+    "lat": 27.1845103,
+    "lon": 99.2852926,
+    "osm_type": "node",
+    "osm_id": 469624789,
+    "class": null,
+    "type": "city",
+    "importance": 0.4877572095098274,
+    "display_name": "维西县, 保和镇, 维西傈僳族自治县, 迪庆藏族自治州, 云南省, 中国",
+    "address": {
+      "city": "维西县",
+      "town": "保和镇",
+      "county": "维西傈僳族自治县",
+      "region": "迪庆藏族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4877572095098275,
+    "attempts": [
+      {
+        "query": "维西保和镇县城",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 4,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "维西傈僳族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "维西傈僳族自治县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "533325": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "兰坪白族普米族自治县",
+    "lat": 26.4552401,
+    "lon": 99.4197677,
+    "osm_type": "node",
+    "osm_id": 5116095227,
+    "class": null,
+    "type": "city",
+    "importance": 0.4848304251639367,
+    "display_name": "兰坪县, 兰坪白族普米族自治县 ꓡꓽ-ꓒꓲꓽ ꓡꓽ-ꓐꓶꓽ ꓫꓵꓽ ꓒꓴ-ꓟꓲ ꓫꓵꓽ ꓚꓲꓸ ꓛꓬꓽ ꓗꓪꓼ ꓫꓵꓽ ꓫꓯꓹ, 怒江傈僳族自治州, 云南省, 中国",
+    "address": {
+      "city": "兰坪县",
+      "county": "兰坪白族普米族自治县 ꓡꓽ-ꓒꓲꓽ ꓡꓽ-ꓐꓶꓽ ꓫꓵꓽ ꓒꓴ-ꓟꓲ ꓫꓵꓽ ꓚꓲꓸ ꓛꓬꓽ ꓗꓪꓼ ꓫꓵꓽ ꓫꓯꓹ",
+      "region": "怒江傈僳族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4848304251639366,
+    "attempts": [
+      {
+        "query": "兰坪金顶街道县城",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "兰坪白族普米族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "兰坪白族普米族自治县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "533422": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "德钦县",
+    "lat": 28.4752009,
+    "lon": 98.9177313,
+    "osm_type": "relation",
+    "osm_id": 2729692,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.4780676286996313,
+    "display_name": "德钦县, 迪庆藏族自治州, 云南省, 674507, 中国",
+    "address": {
+      "city": "德钦县",
+      "region": "迪庆藏族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "postcode": "674507",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.4780676286996313,
+    "attempts": [
+      {
+        "query": "德钦升平镇县城",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "德钦县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "德钦县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "513429": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "布拖县",
+    "lat": 27.7122852,
+    "lon": 102.8090723,
+    "osm_type": "relation",
+    "osm_id": 2786737,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.49428991666822614,
+    "display_name": "布拖县, 凉山彝族自治州, 四川省, 616300, 中国",
+    "address": {
+      "city": "布拖县",
+      "county": "布拖县",
+      "region": "凉山彝族自治州",
+      "state": "四川省",
+      "ISO3166-2-lvl4": "CN-SC",
+      "postcode": "616300",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.49428991666822614,
+    "attempts": [
+      {
+        "query": "布拖特木里镇县城",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "布拖县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "布拖县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "530721": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "玉龙纳西族自治县",
+    "lat": 26.8265328,
+    "lon": 100.2350414,
+    "osm_type": "relation",
+    "osm_id": 2729828,
+    "class": null,
+    "type": "administrative",
+    "importance": 0.44840996347224144,
+    "display_name": "玉龙纳西族自治县, 丽江市, 云南省, 中国",
+    "address": {
+      "city": "玉龙纳西族自治县",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 0.44840996347224144,
+    "attempts": [
+      {
+        "query": "玉龙县黄山街道政府驻地",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "玉龙纳西族自治县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "玉龙纳西族自治县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "513423": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "SETTLEMENT_NAME",
+    "query": "盐源县",
+    "lat": 27.4261595,
+    "lon": 101.5074251,
+    "osm_type": "node",
+    "osm_id": 2551567117,
+    "class": null,
+    "type": "city",
+    "importance": 0.4991802855614465,
+    "display_name": "盐源县, 凉山彝族自治州, 四川省, 615700, 中国",
+    "address": {
+      "city": "盐源县",
+      "county": "盐源县",
+      "region": "凉山彝族自治州",
+      "state": "四川省",
+      "ISO3166-2-lvl4": "CN-SC",
+      "postcode": "615700",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 3.4991802855614464,
+    "attempts": [
+      {
+        "query": "盐源盐井街道县城",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 0,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "盐源县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 2,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "盐源县",
+        "role": "SETTLEMENT_NAME",
+        "result_count": 2,
+        "accepted_inside_polygon": 2
+      }
+    ]
+  },
+  "532932": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "鹤庆县人民政府",
+    "lat": 26.5642188,
+    "lon": 100.1754207,
+    "osm_type": "way",
+    "osm_id": 1011365267,
+    "class": null,
+    "type": "townhall",
+    "importance": 5.5107194628778784e-05,
+    "display_name": "鹤庆县人民政府, 北门街, 东升社区, 城西园, 鹤庆县, 云鹤镇, 鹤庆县, 大理白族自治州, 云南省, 中国",
+    "address": {
+      "amenity": "鹤庆县人民政府",
+      "road": "北门街",
+      "neighbourhood": "东升社区",
+      "hamlet": "城西园",
+      "city": "鹤庆县",
+      "town": "云鹤镇",
+      "county": "鹤庆县",
+      "region": "大理白族自治州",
+      "state": "云南省",
+      "ISO3166-2-lvl4": "CN-YN",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.000055107194629,
+    "attempts": [
+      {
+        "query": "鹤庆云鹤镇县城",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 1,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "鹤庆县人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
+  },
+  "469006": {
+    "status": "GEOCODED_POINT_IN_EXACT_COUNTY_POLYGON",
+    "role": "COUNTY_SEAT_PROXY",
+    "query": "万宁市人民政府",
+    "lat": 18.7967238,
+    "lon": 110.3866673,
+    "osm_type": "node",
+    "osm_id": 4531885136,
+    "class": null,
+    "type": "townhall",
+    "importance": 4.740138857094709e-05,
+    "display_name": "萬寧市人民政府, 万隆街, 万宁市, 海南省, 中国",
+    "address": {
+      "amenity": "萬寧市人民政府",
+      "road": "万隆街",
+      "city": "万宁市",
+      "county": "万宁市",
+      "state": "海南省",
+      "ISO3166-2-lvl4": "CN-HI",
+      "country": "中国",
+      "country_code": "cn"
+    },
+    "score": 2.0000474013885707,
+    "attempts": [
+      {
+        "query": "万宁城区",
+        "role": "NAMED_RESIDENTIAL_REFERENCE",
+        "result_count": 2,
+        "accepted_inside_polygon": 0
+      },
+      {
+        "query": "万宁市人民政府",
+        "role": "COUNTY_SEAT_PROXY",
+        "result_count": 1,
+        "accepted_inside_polygon": 1
+      }
+    ]
   }
 }
