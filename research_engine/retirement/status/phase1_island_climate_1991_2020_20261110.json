@@ -1,5 +1,5 @@
 {
-  "created_utc": "2026-11-10T01:26:41.247920+00:00",
+  "created_utc": "2026-11-10T01:28:36.719224+00:00",
   "sites": [
     {
       "region": "海南·西沙区",
@@ -126,195 +126,255 @@
     "name": "XISHA DAO 59981",
     "source": "Japan Meteorological Agency ClimatView observed monthly mean maximum temperature",
     "url": "https://ds.data.jma.go.jp/gmd/tcc/tcc/products/climate/climatview/graph_mkhtml.php?e=0&k=0&m=6&n=59981&r=1&s=3&y=2020",
-    "valid_months": 118,
+    "valid_months": 178,
     "monthlies": {
       "01": {
-        "years": 10,
+        "years": 15,
         "mean_of_observed_monthly_mean_daily_tmax_c": null,
         "samples": [
+          26.0,
           26.3,
           26.0,
+          25.3,
           27.4,
           25.0,
+          26.0,
           26.5,
           25.4,
+          25.7,
           27.3,
           27.2,
+          26.6,
           27.6,
           27.0
         ]
       },
       "02": {
-        "years": 10,
+        "years": 15,
         "mean_of_observed_monthly_mean_daily_tmax_c": null,
         "samples": [
+          27.2,
           27.3,
           25.6,
+          27.4,
           28.8,
           26.5,
+          26.9,
           27.6,
           26.0,
+          26.4,
           26.3,
           26.7,
+          26.0,
           29.4,
           27.3
         ]
       },
       "03": {
-        "years": 10,
+        "years": 15,
         "mean_of_observed_monthly_mean_daily_tmax_c": null,
         "samples": [
+          29.3,
           29.5,
           27.8,
+          29.9,
           29.1,
           26.9,
+          29.5,
           29.1,
           28.2,
+          29.2,
           28.2,
           29.0,
+          28.1,
           30.3,
           29.6
         ]
       },
       "04": {
-        "years": 10,
+        "years": 15,
         "mean_of_observed_monthly_mean_daily_tmax_c": null,
         "samples": [
+          31.6,
           31.0,
           29.9,
+          30.5,
           31.2,
           28.9,
           30.9,
+          30.9,
           30.6,
+          30.3,
           31.1,
           30.4,
+          29.8,
           31.9,
           30.6
         ]
       },
       "05": {
-        "years": 9,
+        "years": 14,
         "mean_of_observed_monthly_mean_daily_tmax_c": null,
         "samples": [
+          31.3,
           31.7,
+          30.5,
           30.5,
           32.3,
           31.4,
+          31.8,
           32.3,
+          31.9,
           32.6,
           31.7,
+          32.1,
           32.0,
           32.5
         ]
       },
       "06": {
-        "years": 10,
+        "years": 15,
         "mean_of_observed_monthly_mean_daily_tmax_c": null,
         "samples": [
+          31.8,
           32.3,
           31.1,
+          31.0,
           32.0,
           31.6,
+          31.2,
           32.0,
           32.3,
+          32.6,
           32.5,
           32.1,
+          31.5,
           33.2,
           32.1
         ]
       },
       "07": {
-        "years": 10,
+        "years": 15,
         "mean_of_observed_monthly_mean_daily_tmax_c": null,
         "samples": [
+          31.8,
           30.9,
           32.1,
+          30.8,
           31.2,
           31.9,
+          31.4,
           31.3,
           31.4,
+          31.9,
           31.8,
           32.3,
+          30.9,
           31.5,
           31.5
         ]
       },
       "08": {
-        "years": 10,
+        "years": 15,
         "mean_of_observed_monthly_mean_daily_tmax_c": null,
         "samples": [
+          31.0,
           30.7,
           31.1,
+          30.4,
           31.2,
           31.5,
+          31.7,
           31.9,
           31.1,
+          31.8,
           32.3,
           31.8,
+          32.2,
           31.1,
           31.5
         ]
       },
       "09": {
-        "years": 10,
+        "years": 15,
         "mean_of_observed_monthly_mean_daily_tmax_c": null,
         "samples": [
+          31.0,
           30.8,
           31.2,
+          31.3,
           30.8,
           31.8,
+          31.0,
           31.4,
           30.7,
+          30.8,
           31.9,
           31.4,
+          31.3,
           31.6,
           31.2
         ]
       },
       "10": {
-        "years": 10,
+        "years": 15,
         "mean_of_observed_monthly_mean_daily_tmax_c": null,
         "samples": [
+          30.3,
           30.4,
           29.5,
+          30.3,
           29.1,
           29.8,
+          29.4,
           30.0,
           29.3,
+          30.5,
           30.9,
           30.8,
+          30.1,
           31.0,
           31.0
         ]
       },
       "11": {
-        "years": 10,
+        "years": 15,
         "mean_of_observed_monthly_mean_daily_tmax_c": null,
         "samples": [
+          29.2,
           29.5,
           27.1,
+          28.7,
           28.1,
           27.8,
+          29.0,
           29.6,
           28.5,
+          29.3,
           30.6,
           29.9,
+          28.8,
           29.6,
           28.4
         ]
       },
       "12": {
-        "years": 9,
+        "years": 14,
         "mean_of_observed_monthly_mean_daily_tmax_c": null,
         "samples": [
+          26.1,
           26.9,
           27.2,
+          27.1,
           27.3,
           27.0,
+          25.7,
           28.3,
           25.8,
+          26.8,
           28.3,
           27.8,
+          26.2,
           28.0
         ]
       }
