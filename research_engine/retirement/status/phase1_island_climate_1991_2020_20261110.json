@@ -1,0 +1,328 @@
+{
+  "created_utc": "2026-11-10T01:26:41.247920+00:00",
+  "sites": [
+    {
+      "region": "海南·西沙区",
+      "site": "西沙永兴岛观象台59981",
+      "lat": 16.833,
+      "lon": 112.333,
+      "monthlies": {
+        "01": {
+          "model_tmax_daily_mean_c": 23.88,
+          "valid_years": 30
+        },
+        "02": {
+          "model_tmax_daily_mean_c": 24.05,
+          "valid_years": 30
+        },
+        "03": {
+          "model_tmax_daily_mean_c": 25.57,
+          "valid_years": 30
+        },
+        "04": {
+          "model_tmax_daily_mean_c": 27.44,
+          "valid_years": 30
+        },
+        "05": {
+          "model_tmax_daily_mean_c": 28.85,
+          "valid_years": 30
+        },
+        "06": {
+          "model_tmax_daily_mean_c": 29.28,
+          "valid_years": 30
+        },
+        "07": {
+          "model_tmax_daily_mean_c": 29.0,
+          "valid_years": 30
+        },
+        "08": {
+          "model_tmax_daily_mean_c": 28.91,
+          "valid_years": 30
+        },
+        "09": {
+          "model_tmax_daily_mean_c": 28.64,
+          "valid_years": 30
+        },
+        "10": {
+          "model_tmax_daily_mean_c": 27.82,
+          "valid_years": 30
+        },
+        "11": {
+          "model_tmax_daily_mean_c": 26.58,
+          "valid_years": 30
+        },
+        "12": {
+          "model_tmax_daily_mean_c": 25.05,
+          "valid_years": 30
+        }
+      },
+      "period": "1991—2020",
+      "model_hot_month_daily_tmax_mean_c": 29.28,
+      "model_url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX_AVG%2CT2M%2CT2M_MIN_AVG&community=SB&longitude=112.333&latitude=16.833&start=1991&end=2020&format=JSON",
+      "model_evidence_limit": "NASA POWER MERRA-2 coarse grid (not official station normal); no hard elimination from model alone"
+    },
+    {
+      "region": "海南·南沙区",
+      "site": "永暑礁/永暑岛",
+      "lat": 9.621,
+      "lon": 112.974,
+      "monthlies": {
+        "01": {
+          "model_tmax_daily_mean_c": 27.0,
+          "valid_years": 30
+        },
+        "02": {
+          "model_tmax_daily_mean_c": 26.88,
+          "valid_years": 30
+        },
+        "03": {
+          "model_tmax_daily_mean_c": 27.59,
+          "valid_years": 30
+        },
+        "04": {
+          "model_tmax_daily_mean_c": 28.59,
+          "valid_years": 30
+        },
+        "05": {
+          "model_tmax_daily_mean_c": 29.09,
+          "valid_years": 30
+        },
+        "06": {
+          "model_tmax_daily_mean_c": 28.85,
+          "valid_years": 30
+        },
+        "07": {
+          "model_tmax_daily_mean_c": 28.51,
+          "valid_years": 30
+        },
+        "08": {
+          "model_tmax_daily_mean_c": 28.4,
+          "valid_years": 30
+        },
+        "09": {
+          "model_tmax_daily_mean_c": 28.39,
+          "valid_years": 30
+        },
+        "10": {
+          "model_tmax_daily_mean_c": 28.27,
+          "valid_years": 30
+        },
+        "11": {
+          "model_tmax_daily_mean_c": 28.34,
+          "valid_years": 30
+        },
+        "12": {
+          "model_tmax_daily_mean_c": 27.83,
+          "valid_years": 30
+        }
+      },
+      "period": "1991—2020",
+      "model_hot_month_daily_tmax_mean_c": 29.09,
+      "model_url": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M_MAX_AVG%2CT2M%2CT2M_MIN_AVG&community=SB&longitude=112.974&latitude=9.621&start=1991&end=2020&format=JSON",
+      "model_evidence_limit": "NASA POWER MERRA-2 coarse grid (not official station normal); no hard elimination from model alone"
+    }
+  ],
+  "jma_59981": {
+    "name": "XISHA DAO 59981",
+    "source": "Japan Meteorological Agency ClimatView observed monthly mean maximum temperature",
+    "url": "https://ds.data.jma.go.jp/gmd/tcc/tcc/products/climate/climatview/graph_mkhtml.php?e=0&k=0&m=6&n=59981&r=1&s=3&y=2020",
+    "valid_months": 118,
+    "monthlies": {
+      "01": {
+        "years": 10,
+        "mean_of_observed_monthly_mean_daily_tmax_c": null,
+        "samples": [
+          26.3,
+          26.0,
+          27.4,
+          25.0,
+          26.5,
+          25.4,
+          27.3,
+          27.2,
+          27.6,
+          27.0
+        ]
+      },
+      "02": {
+        "years": 10,
+        "mean_of_observed_monthly_mean_daily_tmax_c": null,
+        "samples": [
+          27.3,
+          25.6,
+          28.8,
+          26.5,
+          27.6,
+          26.0,
+          26.3,
+          26.7,
+          29.4,
+          27.3
+        ]
+      },
+      "03": {
+        "years": 10,
+        "mean_of_observed_monthly_mean_daily_tmax_c": null,
+        "samples": [
+          29.5,
+          27.8,
+          29.1,
+          26.9,
+          29.1,
+          28.2,
+          28.2,
+          29.0,
+          30.3,
+          29.6
+        ]
+      },
+      "04": {
+        "years": 10,
+        "mean_of_observed_monthly_mean_daily_tmax_c": null,
+        "samples": [
+          31.0,
+          29.9,
+          31.2,
+          28.9,
+          30.9,
+          30.6,
+          31.1,
+          30.4,
+          31.9,
+          30.6
+        ]
+      },
+      "05": {
+        "years": 9,
+        "mean_of_observed_monthly_mean_daily_tmax_c": null,
+        "samples": [
+          31.7,
+          30.5,
+          32.3,
+          31.4,
+          32.3,
+          32.6,
+          31.7,
+          32.0,
+          32.5
+        ]
+      },
+      "06": {
+        "years": 10,
+        "mean_of_observed_monthly_mean_daily_tmax_c": null,
+        "samples": [
+          32.3,
+          31.1,
+          32.0,
+          31.6,
+          32.0,
+          32.3,
+          32.5,
+          32.1,
+          33.2,
+          32.1
+        ]
+      },
+      "07": {
+        "years": 10,
+        "mean_of_observed_monthly_mean_daily_tmax_c": null,
+        "samples": [
+          30.9,
+          32.1,
+          31.2,
+          31.9,
+          31.3,
+          31.4,
+          31.8,
+          32.3,
+          31.5,
+          31.5
+        ]
+      },
+      "08": {
+        "years": 10,
+        "mean_of_observed_monthly_mean_daily_tmax_c": null,
+        "samples": [
+          30.7,
+          31.1,
+          31.2,
+          31.5,
+          31.9,
+          31.1,
+          32.3,
+          31.8,
+          31.1,
+          31.5
+        ]
+      },
+      "09": {
+        "years": 10,
+        "mean_of_observed_monthly_mean_daily_tmax_c": null,
+        "samples": [
+          30.8,
+          31.2,
+          30.8,
+          31.8,
+          31.4,
+          30.7,
+          31.9,
+          31.4,
+          31.6,
+          31.2
+        ]
+      },
+      "10": {
+        "years": 10,
+        "mean_of_observed_monthly_mean_daily_tmax_c": null,
+        "samples": [
+          30.4,
+          29.5,
+          29.1,
+          29.8,
+          30.0,
+          29.3,
+          30.9,
+          30.8,
+          31.0,
+          31.0
+        ]
+      },
+      "11": {
+        "years": 10,
+        "mean_of_observed_monthly_mean_daily_tmax_c": null,
+        "samples": [
+          29.5,
+          27.1,
+          28.1,
+          27.8,
+          29.6,
+          28.5,
+          30.6,
+          29.9,
+          29.6,
+          28.4
+        ]
+      },
+      "12": {
+        "years": 9,
+        "mean_of_observed_monthly_mean_daily_tmax_c": null,
+        "samples": [
+          26.9,
+          27.2,
+          27.3,
+          27.0,
+          28.3,
+          25.8,
+          28.3,
+          27.8,
+          28.0
+        ]
+      }
+    },
+    "errors": [],
+    "longterm_hot_month_mean_daily_tmax_c": null,
+    "meets_32C_exclusion": null,
+    "decision_note": "Full 1991—2020 station monthly coverage only if 360 valid months. Observed 25yr partial averages diagnostic, not official 30-year climatological normal."
+  },
+  "rule": "Mean of daily maximum temp in hottest month >=32C excludes; single anomalous month doesn't."
+}
