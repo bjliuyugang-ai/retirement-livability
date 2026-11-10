@@ -29,7 +29,7 @@ for region,name,lat,lon in sites:
 base="https://ds.data.jma.go.jp/gmd/tcc/tcc/products/climate/climatview/graph_mkhtml.php"
 jma_rows={}
 jma_error=[]
-for yy in range(1991,2021,3):
+for yy in range(1991,2021):
  try:
   pars={"e":0,"k":0,"m":6,"n":59981,"r":1,"s":3,"y":min(yy+2,2020)}
   r=requests.get(base,params=pars,timeout=25)
@@ -48,7 +48,7 @@ for yy in range(1991,2021,3):
     except:pass
   print("JMA page",yy,r.status_code,"found",len(jma_rows),"text",soup.get_text(" ",strip=True)[:50],flush=True)
  except Exception as e:jma_error.append(f"{yy}: {e}")
- time.sleep(.5)
+ time.sleep(.18)
 mon={}
 for m in range(1,13):
  vals=[jma_rows[f"{y}-{m:02d}"] for y in range(1991,2021) if f"{y}-{m:02d}" in jma_rows]
