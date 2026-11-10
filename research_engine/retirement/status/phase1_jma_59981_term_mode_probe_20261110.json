@@ -1,0 +1,78 @@
+{
+  "time": "2026-11-10T01:31:03.811927+00:00",
+  "url": "https://ds.data.jma.go.jp/gmd/tcc/tcc/products/climate/climatview/graph_mkhtml.php",
+  "modes": {
+    "0": {
+      "status": 200,
+      "all_months": 23,
+      "from": "2018-07",
+      "to": "2020-06",
+      "period_1991_2020": 23,
+      "total_html_len": 16774
+    },
+    "1": {
+      "status": 200,
+      "all_months": 23,
+      "from": "2018-07",
+      "to": "2020-06",
+      "period_1991_2020": 23,
+      "total_html_len": 16774
+    },
+    "2": {
+      "status": 200,
+      "all_months": 23,
+      "from": "2018-07",
+      "to": "2020-06",
+      "period_1991_2020": 23,
+      "total_html_len": 16774
+    },
+    "3": {
+      "status": 200,
+      "all_months": 23,
+      "from": "2018-07",
+      "to": "2020-06",
+      "period_1991_2020": 23,
+      "total_html_len": 16774
+    },
+    "4": {
+      "status": 200,
+      "all_months": 23,
+      "from": "2018-07",
+      "to": "2020-06",
+      "period_1991_2020": 23,
+      "total_html_len": 16774,
+      "monthly_sample": {
+        "2020-01": 27.0,
+        "2020-02": 27.3,
+        "2020-03": 29.6,
+        "2020-04": 30.6,
+        "2020-05": 32.5,
+        "2020-06": 32.1
+      }
+    },
+    "5": {
+      "status": 200,
+      "all_months": 23,
+      "from": "2018-07",
+      "to": "2020-06",
+      "period_1991_2020": 23,
+      "total_html_len": 16774
+    },
+    "6": {
+      "status": 200,
+      "all_months": 23,
+      "from": "2018-07",
+      "to": "2020-06",
+      "period_1991_2020": 23,
+      "total_html_len": 16774
+    },
+    "9": {
+      "status": 200,
+      "all_months": 23,
+      "from": "2018-07",
+      "to": "2020-06",
+      "period_1991_2020": 23,
+      "total_html_len": 16774
+    }
+  }
+}
