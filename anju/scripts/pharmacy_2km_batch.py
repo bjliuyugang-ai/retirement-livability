@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Anju phase-2 one-parameter, 110-area pharmacy access proxy.
+"""Anju phase-2 one-parameter, 110-area 1km pharmacy access proxy.
 One geocode + one around-POI query per area; aggregate counts only.
 No individual POI names/IDs are saved. NOT an A-D rating or full inventory.
 """
@@ -15,10 +15,10 @@ import urllib.parse
 import urllib.request
 
 REGISTRY = Path("anju/inputs/areas_110.json")
-ROOT = Path("anju/results/pharmacy_2km")
+ROOT = Path("anju/results/pharmacy_1km")
 PROVIDER = "Gaode Web Service v3 Geocode + v5 POI Around"
 TYPECODE = "090601"
-RADIUS_M = 2000
+RADIUS_M = 1000
 MAX_POIS = 25
 MAX_REQUESTS = int(os.environ.get("ANJU_MAX_REQUESTS", "230"))
 LIMIT = int(os.environ.get("ANJU_MAX_AREAS", "110"))
@@ -154,11 +154,11 @@ def run():
     stamp = dt.datetime.now(dt.timezone.utc).isoformat()
     ROOT.mkdir(parents=True, exist_ok=True)
     payload = {
-        "schema": "anju_pharmacy_2km_proxy_v1",
+        "schema": "anju_pharmacy_1km_proxy_v1",
         "timestamp_utc": stamp,
         "target": "110 phase-2 areas (one parameter only)",
         "registry_sha256": hashlib.sha256(REGISTRY.read_bytes()).hexdigest(),
-        "metric": "Pharmacy POIs within 2km of geocoded county government reference point",
+        "metric": "Pharmacy POIs within 1km of geocoded county government reference point",
         "source": PROVIDER,
         "limitations": [
             "Government-location proxy is not confirmed representative housing location",
