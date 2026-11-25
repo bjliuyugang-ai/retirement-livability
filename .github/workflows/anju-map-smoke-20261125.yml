@@ -2,7 +2,7 @@ name: "Anju map API read-only smoke (isolated)"
 # Authorized-key validation rerun after AMAP_WEB_SERVICE_KEY configured.
 on:
   push:
-    branches: [anju-map-smoke-20261125]
+    branches: [anju-map-smoke-20261125, anju-baidu-sn-support-20261125]
     paths:
       - '.github/workflows/anju-map-smoke-20261125.yml'
   workflow_dispatch:
