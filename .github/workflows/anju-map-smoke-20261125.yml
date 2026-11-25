@@ -1,4 +1,5 @@
 name: "Anju map API read-only smoke (isolated)"
+# Authorized-key validation rerun after AMAP_WEB_SERVICE_KEY configured.
 on:
   push:
     branches: [anju-map-smoke-20261125]
