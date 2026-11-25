@@ -1,0 +1,48 @@
+name: "Anju second-stage pharmacy 2km aggregate production"
+on:
+  push:
+    branches: [anju-production-pharmacy-20261125]
+    paths:
+      - '.github/workflows/anju-pharmacy-110-production.yml'
+  workflow_dispatch:
+jobs:
+  pharmacy-110:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    permissions:
+      contents: write
+    env:
+      AMAP_WEB_KEY: ${{ secrets.AMAP_WEB_SERVICE_KEY || secrets.AMAP_WEB_KEY || secrets.AMAP_KEY }}
+      ANJU_MAX_AREAS: "8"
+      ANJU_MAX_REQUESTS: "230"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Run bounded one-parameter research production
+        shell: bash
+        run: |
+          set -eu
+          python -m py_compile anju/scripts/pharmacy_2km_batch.py
+          python anju/scripts/pharmacy_2km_batch.py
+      - name: Preserve aggregate research evidence in this isolated branch
+        if: success()
+        shell: bash
+        run: |
+          set -eu
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add anju/results/pharmacy_2km/latest.csv anju/results/pharmacy_2km/latest.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Persist pharmacy 2km aggregate evidence, no formal scores'
+            git push origin HEAD:anju-production-pharmacy-20261125
+          fi
+      - name: Upload sanitized one-parameter evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: anju-pharmacy-2km-research-evidence
+          path: |
+            anju/results/pharmacy_2km/latest.csv
+            anju/results/pharmacy_2km/latest.json
+          retention-days: 30
