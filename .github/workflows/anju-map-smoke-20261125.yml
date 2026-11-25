@@ -1,5 +1,6 @@
 name: "Anju map API read-only smoke (isolated)"
 # Authorized-key validation rerun after AMAP_WEB_SERVICE_KEY configured.
+# Baidu AK/SK GitHub Secrets credential-presence and signed-API live verification, 2026-11-25.
 on:
   push:
     branches: [anju-map-smoke-20261125, anju-baidu-sn-support-20261125]
