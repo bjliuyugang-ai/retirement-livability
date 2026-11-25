@@ -65,7 +65,7 @@ jobs:
                {"query":"药店", "region":"北京市海淀区", "region_limit":"true",
                 "page_size":"1", "page_num":"0", "output":"json"}, "ak"),
               ("baidu", "route", "https://api.map.baidu.com/directionlite/v1/driving",
-               {"origin":"39.915,116.404", "destination":"39.914,116.414",
+               {"origin":"40.01116,116.339303", "destination":"39.936404,116.452562",
                 "coord_type":"bd09ll"}, "ak"),
           ]
           def record(provider, kind, url, params, key_param):
@@ -73,6 +73,9 @@ jobs:
               q = dict(params)
               if configured:
                   q[key_param] = keys[provider]
+              if provider == "baidu" and kind == "route" and configured and baidu_sk:
+                  # Baidu DirectionLite requires timestamp when SN is present.
+                  q["timestamp"] = str(int(datetime.datetime.now(datetime.timezone.utc).timestamp()))
               request_url = (
                   baidu_signed_url(url, q, baidu_sk)
                   if provider == "baidu" and configured and baidu_sk
