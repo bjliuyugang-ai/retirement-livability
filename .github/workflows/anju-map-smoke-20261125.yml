@@ -1,0 +1,139 @@
+name: "Anju map API read-only smoke (isolated)"
+on:
+  push:
+    branches: [anju-map-smoke-20261125]
+    paths:
+      - '.github/workflows/anju-map-smoke-20261125.yml'
+  workflow_dispatch:
+jobs:
+  bounded-map-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    env:
+      AMAP_WEB_KEY: ${{ secrets.AMAP_WEB_SERVICE_KEY || secrets.AMAP_WEB_KEY || secrets.AMAP_KEY }}
+      BAIDU_WEB_AK: ${{ secrets.BAIDU_MAP_AK || secrets.BAIDU_AK || secrets.BAIDU_WEB_AK }}
+    steps:
+      - name: Test connectivity and optionally one authenticated POI and route per platform
+        shell: bash
+        run: |
+          python - <<'PY'
+          import datetime
+          import json
+          import os
+          import pathlib
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+
+          # Strictly bounded trial: four requests maximum; never logs key, raw URL,
+          # response body, or arbitrary HTTP exceptions containing a credential.
+          keys = {
+              "amap": os.getenv("AMAP_WEB_KEY") or "",
+              "baidu": os.getenv("BAIDU_WEB_AK") or "",
+          }
+          tests = [
+              ("amap", "poi", "https://restapi.amap.com/v5/place/text",
+               {"keywords":"药店", "region":"北京市", "city_limit":"true",
+                "page_size":"1", "page_num":"1"}, "key"),
+              ("amap", "route", "https://restapi.amap.com/v5/direction/driving",
+               {"origin":"116.434307,39.90909", "destination":"116.434446,39.90816",
+                "strategy":"32"}, "key"),
+              ("baidu", "poi", "https://api.map.baidu.com/place/v3/region",
+               {"query":"药店", "region":"北京市海淀区", "region_limit":"true",
+                "page_size":"1", "page_num":"0", "output":"json"}, "ak"),
+              ("baidu", "route", "https://api.map.baidu.com/directionlite/v1/driving",
+               {"origin":"39.915,116.404", "destination":"39.914,116.414",
+                "coord_type":"bd09ll"}, "ak"),
+          ]
+          def record(provider, kind, url, params, key_param):
+              configured = bool(keys[provider])
+              q = dict(params)
+              if configured:
+                  q[key_param] = keys[provider]
+              request = urllib.request.Request(
+                  url+"?"+urllib.parse.urlencode(q),
+                  headers={"User-Agent":"Anju-readonly-map-smoke/1.0"})
+              result = {"provider": provider, "test": kind,
+                        "key_configured": configured,
+                        "network_reachable": False,
+                        "authenticated_success": False,
+                        "status": "UNTESTED"}
+              try:
+                  with urllib.request.urlopen(request, timeout=12) as resp:
+                      body = resp.read(100000)
+                      result["http_status"] = resp.status
+                  result["network_reachable"] = True
+                  try:
+                      d = json.loads(body)
+                  except (ValueError, UnicodeDecodeError):
+                      result["status"] = "RESPONSE_NOT_JSON"
+                      return result
+                  result["response_json"] = isinstance(d, dict)
+                  if not isinstance(d, dict):
+                      result["status"] = "UNEXPECTED_RESPONSE"
+                      return result
+                  code = d.get("status")
+                  result["provider_status"] = str(code)[:12] if code is not None else None
+                  if provider == "amap":
+                      success = str(code) == "1"
+                      result["provider_infocode"] = str(d.get("infocode", ""))[:15]
+                  else:
+                      success = code == 0 or code == "0"
+                  result["authenticated_success"] = configured and success
+                  if not configured:
+                      result["status"] = "NO_KEY_ENDPOINT_REACHED"
+                  elif success:
+                      result["status"] = "LIVE_AUTH_OK"
+                      if kind == "poi":
+                          pois = d.get("pois") if provider == "amap" else d.get("results")
+                          result["returned_items"] = len(pois) if isinstance(pois, list) else None
+                      else:
+                          route = d.get("route") or d.get("result") or {}
+                          if provider == "amap":
+                              paths = route.get("paths", []) if isinstance(route, dict) else []
+                              if paths:
+                                  result["sample_distance_m"] = paths[0].get("distance")
+                                  result["sample_duration_s"] = paths[0].get("cost",{}).get("duration") if isinstance(paths[0].get("cost"),dict) else None
+                          else:
+                              routes = route.get("routes",[]) if isinstance(route,dict) else []
+                              if routes:
+                                  result["sample_distance_m"] = routes[0].get("distance")
+                                  result["sample_duration_s"] = routes[0].get("duration")
+                  else:
+                      result["status"] = "PROVIDER_REJECTED_REQUEST"
+              except urllib.error.HTTPError as e:
+                  result.update({"network_reachable":True, "http_status":e.code,
+                                 "status":"HTTP_ERROR"})
+              except urllib.error.URLError as e:
+                  result.update({"status":"NETWORK_ERROR",
+                                 "error_type":type(e.reason).__name__})
+              except Exception as e:
+                  result.update({"status":"TECHNICAL_ERROR",
+                                 "error_type":type(e).__name__})
+              return result
+
+          results = [record(*t) for t in tests]
+          doc = {
+              "generated_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),
+              "scope":"TECHNICAL_READ_ONLY_SMOKE_NOT_110_AREA_EVIDENCE",
+              "requests_maximum":4,
+              "keys_present":{k:bool(v) for k,v in keys.items()},
+              "tests":results,
+              "real_poi_data_proven":sum(x["authenticated_success"] and x["test"]=="poi" for x in results),
+              "real_route_data_proven":sum(x["authenticated_success"] and x["test"]=="route" for x in results),
+              "formal_research_scores_added":0,
+          }
+          pathlib.Path("map_smoke_output").mkdir(exist_ok=True)
+          pathlib.Path("map_smoke_output/result.json").write_text(
+              json.dumps(doc,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          print(json.dumps(doc,ensure_ascii=False,indent=2))
+          PY
+      - name: Save sanitized trial output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: anju-map-api-smoke-sanitized
+          path: map_smoke_output/result.json
+          retention-days: 7
