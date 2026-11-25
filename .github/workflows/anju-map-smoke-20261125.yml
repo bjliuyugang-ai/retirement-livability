@@ -40,7 +40,7 @@ jobs:
                 "page_size":"1", "page_num":"1"}, "key"),
               ("amap", "route", "https://restapi.amap.com/v5/direction/driving",
                {"origin":"116.434307,39.90909", "destination":"116.434446,39.90816",
-                "strategy":"32"}, "key"),
+                "strategy":"32", "show_fields":"cost"}, "key"),
               ("baidu", "poi", "https://api.map.baidu.com/place/v3/region",
                {"query":"药店", "region":"北京市海淀区", "region_limit":"true",
                 "page_size":"1", "page_num":"0", "output":"json"}, "ak"),
