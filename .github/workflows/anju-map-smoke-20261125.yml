@@ -15,12 +15,14 @@ jobs:
     env:
       AMAP_WEB_KEY: ${{ secrets.AMAP_WEB_SERVICE_KEY || secrets.AMAP_WEB_KEY || secrets.AMAP_KEY }}
       BAIDU_WEB_AK: ${{ secrets.BAIDU_MAP_AK || secrets.BAIDU_AK || secrets.BAIDU_WEB_AK }}
+      BAIDU_WEB_SK: ${{ secrets.BAIDU_MAP_SK || secrets.BAIDU_SK }}
     steps:
       - name: Test connectivity and optionally one authenticated POI and route per platform
         shell: bash
         run: |
           python - <<'PY'
           import datetime
+          import hashlib
           import json
           import os
           import pathlib
@@ -34,6 +36,23 @@ jobs:
               "amap": os.getenv("AMAP_WEB_KEY") or "",
               "baidu": os.getenv("BAIDU_WEB_AK") or "",
           }
+          baidu_sk = os.getenv("BAIDU_WEB_SK") or ""
+
+          def baidu_signed_url(url, params, sk):
+              # Per Baidu LBS server SN signing: the exact GET query parameter
+              # order must match the outgoing URL; encode pathname+query+SK,
+              # MD5 the encoded string, then append SN as the last parameter.
+              query = urllib.parse.urlencode(params)
+              path = urllib.parse.urlsplit(url).path
+              raw = path + "?" + query + sk
+              sn = hashlib.md5(urllib.parse.quote_plus(raw).encode("utf-8")).hexdigest()
+              return url + "?" + query + "&sn=" + sn
+
+          # Baidu's published regression vector (not a live secret).
+          assert hashlib.md5(urllib.parse.quote_plus(
+              "/geocoder/v2/?address=%E7%99%BE%E5%BA%A6%E5%A4%A7%E5%8E%A6&output=json&ak=yourakyoursk"
+          ).encode("utf-8")).hexdigest() == "7de5a22212ffaa9e326444c75a58f9a0"
+
           tests = [
               ("amap", "poi", "https://restapi.amap.com/v5/place/text",
                {"keywords":"药店", "region":"北京市", "city_limit":"true",
@@ -53,14 +72,23 @@ jobs:
               q = dict(params)
               if configured:
                   q[key_param] = keys[provider]
-              request = urllib.request.Request(
-                  url+"?"+urllib.parse.urlencode(q),
-                  headers={"User-Agent":"Anju-readonly-map-smoke/1.0"})
+              request_url = (
+                  baidu_signed_url(url, q, baidu_sk)
+                  if provider == "baidu" and configured and baidu_sk
+                  else url + "?" + urllib.parse.urlencode(q)
+              )
               result = {"provider": provider, "test": kind,
                         "key_configured": configured,
+                        "sn_secret_configured": bool(baidu_sk) if provider == "baidu" else None,
                         "network_reachable": False,
                         "authenticated_success": False,
                         "status": "UNTESTED"}
+              if provider == "baidu" and configured and not baidu_sk:
+                  result["status"] = "BAIDU_SN_SECRET_MISSING"
+                  return result
+              request = urllib.request.Request(
+                  request_url,
+                  headers={"User-Agent":"Anju-readonly-map-smoke/1.0"})
               try:
                   with urllib.request.urlopen(request, timeout=12) as resp:
                       body = resp.read(100000)
@@ -121,6 +149,7 @@ jobs:
               "scope":"TECHNICAL_READ_ONLY_SMOKE_NOT_110_AREA_EVIDENCE",
               "requests_maximum":4,
               "keys_present":{k:bool(v) for k,v in keys.items()},
+              "baidu_signing_secret_present":bool(baidu_sk),
               "tests":results,
               "real_poi_data_proven":sum(x["authenticated_success"] and x["test"]=="poi" for x in results),
               "real_route_data_proven":sum(x["authenticated_success"] and x["test"]=="route" for x in results),
