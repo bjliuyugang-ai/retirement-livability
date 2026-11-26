@@ -1,0 +1,46 @@
+name: "Anju pharmacy one-time correction for 11 autonomous counties"
+on:
+  push:
+    branches: [anju-production-pharmacy-20261125]
+    paths:
+      - '.github/workflows/anju-pharmacy-11-retry.yml'
+  workflow_dispatch:
+jobs:
+  retry-11:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    env:
+      AMAP_WEB_KEY: ${{ secrets.AMAP_WEB_SERVICE_KEY || secrets.AMAP_WEB_KEY || secrets.AMAP_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Run targeted 11-alias correction without touching 99 completed areas
+        shell: bash
+        run: |
+          set -eu
+          python -m py_compile anju/scripts/pharmacy_autonomous_retry_11.py
+          python anju/scripts/pharmacy_autonomous_retry_11.py
+      - name: Commit corrected aggregate evidence
+        if: success()
+        shell: bash
+        run: |
+          set -eu
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add anju/results/pharmacy_1km/latest.csv anju/results/pharmacy_1km/latest.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update 11 autonomous counties in aggregate 1km pharmacy evidence'
+            git push origin HEAD:anju-production-pharmacy-20261125
+          fi
+      - name: Upload corrected evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: anju-pharmacy-1km-110-corrected-evidence
+          path: |
+            anju/results/pharmacy_1km/latest.csv
+            anju/results/pharmacy_1km/latest.json
+          retention-days: 30
