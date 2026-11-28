@@ -1,0 +1,46 @@
+name: "Anju 110-area HSR production with official 12306 verification"
+on:
+  push:
+    branches: [anju-production-pharmacy-20261125]
+    paths:
+      - '.github/workflows/anju-hsr-12306-verified-110.yml'
+  workflow_dispatch:
+jobs:
+  verify-hsr-110:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    env:
+      AMAP_WEB_KEY: ${{ secrets.AMAP_WEB_SERVICE_KEY || secrets.AMAP_WEB_KEY || secrets.AMAP_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Run 110-area POI plus official 12306 timetable verification
+        shell: bash
+        run: |
+          set -eu
+          python -m py_compile anju/scripts/transport_hsr_12306_verified_110.py
+          python anju/scripts/transport_hsr_12306_verified_110.py
+      - name: Commit verified 110-area matrix
+        if: success()
+        shell: bash
+        run: |
+          set -eu
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add anju/results/transport_hsr_v2/latest.csv anju/results/transport_hsr_v2/latest.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Verify 110-area nearest high-speed rail access against 12306'
+            git push origin HEAD:anju-production-pharmacy-20261125
+          fi
+      - name: Upload verified evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: anju-110-area-hsr-12306-verified-v2
+          path: |
+            anju/results/transport_hsr_v2/latest.csv
+            anju/results/transport_hsr_v2/latest.json
+          retention-days: 30
