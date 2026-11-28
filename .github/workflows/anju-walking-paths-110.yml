@@ -1,0 +1,48 @@
+name: "Anju walking-path POI 1km 110-area production"
+on:
+  push:
+    branches: [anju-production-pharmacy-20261125]
+    paths:
+      - 'anju/scripts/walking_paths_1km_110.py'
+      - '.github/workflows/anju-walking-paths-110.yml'
+  workflow_dispatch:
+jobs:
+  walking-paths-110:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    env:
+      AMAP_WEB_KEY: ${{ secrets.AMAP_WEB_SERVICE_KEY || secrets.AMAP_WEB_KEY || secrets.AMAP_KEY }}
+      ANJU_MAX_REQUESTS: "130"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Query walking-path POIs for all areas
+        shell: bash
+        run: |
+          set -eu
+          python -m py_compile anju/scripts/walking_paths_1km_110.py
+          python anju/scripts/walking_paths_1km_110.py
+      - name: Preserve walking-path aggregate evidence
+        if: success()
+        shell: bash
+        run: |
+          set -eu
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add anju/results/walking_paths_1km/latest.csv anju/results/walking_paths_1km/latest.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Persist 110-area walking-path POI counts'
+            git push origin HEAD:anju-production-pharmacy-20261125
+          fi
+      - name: Upload walking-path evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: anju-walking-paths-1km-110-evidence
+          path: |
+            anju/results/walking_paths_1km/latest.csv
+            anju/results/walking_paths_1km/latest.json
+          retention-days: 30
