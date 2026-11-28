@@ -4,8 +4,10 @@ on:
     branches: [anju-production-pharmacy-20261125]
     paths:
       - 'anju/scripts/greenways_1km_110.py'
-      - '.github/workflows/anju-greenways-110.yml'
   workflow_dispatch:
+concurrency:
+  group: anju-greenways-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   greenways-110:
     runs-on: ubuntu-latest
