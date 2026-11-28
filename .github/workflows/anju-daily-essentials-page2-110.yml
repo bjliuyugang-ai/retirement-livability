@@ -1,0 +1,48 @@
+name: "Anju daily essentials targeted page 2 110-area production"
+on:
+  push:
+    branches: [anju-production-pharmacy-20261125]
+    paths:
+      - 'anju/scripts/daily_essentials_page2_110.py'
+      - '.github/workflows/anju-daily-essentials-page2-110.yml'
+  workflow_dispatch:
+jobs:
+  daily-essentials-page2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    env:
+      AMAP_WEB_KEY: ${{ secrets.AMAP_WEB_SERVICE_KEY || secrets.AMAP_WEB_KEY || secrets.AMAP_KEY }}
+      ANJU_MAX_REQUESTS: "200"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Fetch page 2 only for capped category cells
+        shell: bash
+        run: |
+          set -eu
+          python -m py_compile anju/scripts/daily_essentials_page2_110.py
+          python anju/scripts/daily_essentials_page2_110.py
+      - name: Preserve page-2 aggregate evidence
+        if: success()
+        shell: bash
+        run: |
+          set -eu
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add anju/results/daily_essentials_by_category_1km/page2.csv anju/results/daily_essentials_by_category_1km/page2.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Persist targeted page-2 daily essentials counts'
+            git push origin HEAD:anju-production-pharmacy-20261125
+          fi
+      - name: Upload page-2 aggregate evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: anju-daily-essentials-page2-110-evidence
+          path: |
+            anju/results/daily_essentials_by_category_1km/page2.csv
+            anju/results/daily_essentials_by_category_1km/page2.json
+          retention-days: 30
