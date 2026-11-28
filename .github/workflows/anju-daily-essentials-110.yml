@@ -1,0 +1,49 @@
+name: "Anju second-stage daily essentials 1km 110-area production"
+on:
+  push:
+    branches: [anju-production-pharmacy-20261125]
+    paths:
+      - 'anju/scripts/daily_essentials_1km_110.py'
+      - '.github/workflows/anju-daily-essentials-110.yml'
+  workflow_dispatch:
+jobs:
+  daily-essentials-110:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: write
+    env:
+      AMAP_WEB_KEY: \${{ secrets.AMAP_WEB_SERVICE_KEY || secrets.AMAP_WEB_KEY || secrets.AMAP_KEY }}
+      ANJU_MAX_AREAS: "110"
+      ANJU_MAX_REQUESTS: "130"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Run bounded one-parameter daily procurement production
+        shell: bash
+        run: |
+          set -eu
+          python -m py_compile anju/scripts/daily_essentials_1km_110.py
+          python anju/scripts/daily_essentials_1km_110.py
+      - name: Preserve aggregate research evidence
+        if: success()
+        shell: bash
+        run: |
+          set -eu
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add anju/results/daily_essentials_1km/latest.csv anju/results/daily_essentials_1km/latest.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Persist 110-area daily essentials POI aggregate evidence'
+            git push origin HEAD:anju-production-pharmacy-20261125
+          fi
+      - name: Upload sanitized aggregate evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: anju-daily-essentials-1km-110-research-evidence
+          path: |
+            anju/results/daily_essentials_1km/latest.csv
+            anju/results/daily_essentials_1km/latest.json
+          retention-days: 30
