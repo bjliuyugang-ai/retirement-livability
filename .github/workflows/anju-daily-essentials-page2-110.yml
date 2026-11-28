@@ -1,10 +1,5 @@
 name: "Anju daily essentials targeted page 2 110-area production"
 on:
-  push:
-    branches: [anju-production-pharmacy-20261125]
-    paths:
-      - 'anju/scripts/daily_essentials_page2_110.py'
-      - '.github/workflows/anju-daily-essentials-page2-110.yml'
   workflow_dispatch:
 jobs:
   daily-essentials-page2:
