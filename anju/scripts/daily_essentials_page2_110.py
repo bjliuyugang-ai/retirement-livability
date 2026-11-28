@@ -170,7 +170,7 @@ def main():
     }
     ROOT.mkdir(parents=True, exist_ok=True)
     (ROOT / "page2.json").write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    fields = list(rows[0].keys())
+    fields = list(dict.fromkeys(k for row in rows for k in row.keys()))
     with (ROOT / "page2.csv").open("w", newline="", encoding="utf-8-sig") as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
