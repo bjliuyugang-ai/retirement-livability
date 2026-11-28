@@ -13,7 +13,7 @@ jobs:
     permissions:
       contents: write
     env:
-      AMAP_WEB_KEY: \${{ secrets.AMAP_WEB_SERVICE_KEY || secrets.AMAP_WEB_KEY || secrets.AMAP_KEY }}
+      AMAP_WEB_KEY: ${{ secrets.AMAP_WEB_SERVICE_KEY || secrets.AMAP_WEB_KEY || secrets.AMAP_KEY }}
       ANJU_MAX_AREAS: "110"
       ANJU_MAX_REQUESTS: "130"
     steps:
