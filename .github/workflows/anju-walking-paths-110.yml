@@ -4,8 +4,10 @@ on:
     branches: [anju-production-pharmacy-20261125]
     paths:
       - 'anju/scripts/walking_paths_1km_110.py'
-      - '.github/workflows/anju-walking-paths-110.yml'
   workflow_dispatch:
+concurrency:
+  group: anju-walking-paths-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   walking-paths-110:
     runs-on: ubuntu-latest
