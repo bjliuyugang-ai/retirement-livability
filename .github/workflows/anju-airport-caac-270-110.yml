@@ -12,7 +12,7 @@ jobs:
     permissions:
       contents: write
     env:
-      AMAP_WEB_KEY: \${{ secrets.AMAP_WEB_SERVICE_KEY || secrets.AMAP_WEB_KEY || secrets.AMAP_KEY }}
+      AMAP_WEB_KEY: ${{ secrets.AMAP_WEB_SERVICE_KEY || secrets.AMAP_WEB_KEY || secrets.AMAP_KEY }}
     steps:
       - uses: actions/checkout@v4
         with:
