@@ -1,0 +1,46 @@
+name: "Anju 110-area high-speed rail access production"
+on:
+  push:
+    branches: [anju-production-pharmacy-20261125]
+    paths:
+      - '.github/workflows/anju-hsr-110-production.yml'
+  workflow_dispatch:
+jobs:
+  hsr-110:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    env:
+      AMAP_WEB_KEY: ${{ secrets.AMAP_WEB_SERVICE_KEY || secrets.AMAP_WEB_KEY || secrets.AMAP_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Run bounded one-parameter 110-area production
+        shell: bash
+        run: |
+          set -eu
+          python -m py_compile anju/scripts/transport_hsr_110.py
+          python anju/scripts/transport_hsr_110.py
+      - name: Commit sanitized 110-area result matrix
+        if: success()
+        shell: bash
+        run: |
+          set -eu
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add anju/results/transport_hsr/latest.csv anju/results/transport_hsr/latest.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Persist 110-area high-speed rail access evidence matrix'
+            git push origin HEAD:anju-production-pharmacy-20261125
+          fi
+      - name: Upload result evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: anju-110-area-hsr-access-matrix
+          path: |
+            anju/results/transport_hsr/latest.csv
+            anju/results/transport_hsr/latest.json
+          retention-days: 30
