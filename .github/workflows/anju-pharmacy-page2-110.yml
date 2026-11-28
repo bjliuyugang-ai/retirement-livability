@@ -1,0 +1,48 @@
+name: "Anju pharmacy targeted page 2 110-area production"
+on:
+  push:
+    branches: [anju-production-pharmacy-20261125]
+    paths:
+      - 'anju/scripts/pharmacy_page2_110.py'
+      - '.github/workflows/anju-pharmacy-page2-110.yml'
+  workflow_dispatch:
+jobs:
+  pharmacy-page2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: write
+    env:
+      AMAP_WEB_KEY: ${{ secrets.AMAP_WEB_SERVICE_KEY || secrets.AMAP_WEB_KEY || secrets.AMAP_KEY }}
+      ANJU_MAX_REQUESTS: "75"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Fetch page 2 only for capped pharmacy areas
+        shell: bash
+        run: |
+          set -eu
+          python -m py_compile anju/scripts/pharmacy_page2_110.py
+          python anju/scripts/pharmacy_page2_110.py
+      - name: Preserve pharmacy page-2 aggregate evidence
+        if: success()
+        shell: bash
+        run: |
+          set -eu
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add anju/results/pharmacy_1km/page2.csv anju/results/pharmacy_1km/page2.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Persist targeted pharmacy page-2 aggregate counts'
+            git push origin HEAD:anju-production-pharmacy-20261125
+          fi
+      - name: Upload pharmacy page-2 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: anju-pharmacy-page2-110-evidence
+          path: |
+            anju/results/pharmacy_1km/page2.csv
+            anju/results/pharmacy_1km/page2.json
+          retention-days: 30
