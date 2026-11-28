@@ -1,0 +1,36 @@
+name: "Anju greenway POI 1km 110-area production"
+on:
+  push:
+    branches: [anju-production-pharmacy-20261125]
+    paths:
+      - 'anju/scripts/greenways_1km_110.py'
+      - '.github/workflows/anju-greenways-110.yml'
+  workflow_dispatch:
+jobs:
+  greenways-110:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    env:
+      AMAP_WEB_KEY: ${{ secrets.AMAP_WEB_SERVICE_KEY || secrets.AMAP_WEB_KEY || secrets.AMAP_KEY }}
+      ANJU_MAX_REQUESTS: "130"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Query greenway POIs for all areas
+        shell: bash
+        run: |
+          set -eu
+          python -m py_compile anju/scripts/greenways_1km_110.py
+          python anju/scripts/greenways_1km_110.py
+      - name: Upload greenway evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: anju-greenways-1km-110-evidence
+          path: |
+            anju/results/greenways_1km/latest.csv
+            anju/results/greenways_1km/latest.json
+          retention-days: 30
