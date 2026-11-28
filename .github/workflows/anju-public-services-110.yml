@@ -1,0 +1,48 @@
+name: "Anju public convenience services 1km 110-area production"
+on:
+  push:
+    branches: [anju-production-pharmacy-20261125]
+    paths:
+      - 'anju/scripts/public_services_1km_110.py'
+      - '.github/workflows/anju-public-services-110.yml'
+  workflow_dispatch:
+jobs:
+  public-services-110:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    env:
+      AMAP_WEB_KEY: ${{ secrets.AMAP_WEB_SERVICE_KEY || secrets.AMAP_WEB_KEY || secrets.AMAP_KEY }}
+      ANJU_MAX_REQUESTS: "350"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Query bank courier and housekeeping POIs for all areas
+        shell: bash
+        run: |
+          set -eu
+          python -m py_compile anju/scripts/public_services_1km_110.py
+          python anju/scripts/public_services_1km_110.py
+      - name: Preserve public-service aggregate evidence
+        if: success()
+        shell: bash
+        run: |
+          set -eu
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add anju/results/public_services_1km/latest.csv anju/results/public_services_1km/latest.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Persist 110-area bank courier housekeeping POI counts'
+            git push origin HEAD:anju-production-pharmacy-20261125
+          fi
+      - name: Upload public-service aggregate evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: anju-public-services-1km-110-evidence
+          path: |
+            anju/results/public_services_1km/latest.csv
+            anju/results/public_services_1km/latest.json
+          retention-days: 30
